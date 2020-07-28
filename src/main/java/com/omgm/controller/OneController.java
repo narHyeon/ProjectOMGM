@@ -105,7 +105,7 @@ public class OneController {
     @RequestMapping(value="/review_write.do")
     public ModelAndView reviewWrite(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review_write");
+        mav.setViewName("/review/review_write");
         return mav;
     }
 
