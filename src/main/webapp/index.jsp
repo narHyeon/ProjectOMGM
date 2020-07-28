@@ -16,6 +16,7 @@
   <a href="reviewList_board.do"><h3>리뷰리스트보드</h3></a>
 
   <a href="reviewContent.do">review_content 페이지 이동</a>
+  <a href="pickupService_info.do"><h3>pickup-intro 페이지로 이동</h3></a>
 
 
   </body>
