@@ -143,7 +143,6 @@
         <div id="review_content_reply_content"></div>
 
         <%--  댓글 달기  --%>
-        <form action="">
             <div class="review_content_reply">
                 <div>
                     <label for="review_content_reply_name">이름</label>
@@ -151,10 +150,9 @@
                     <label for="review_content_reply_pass">패스워드</label>
                     <input id="review_content_reply_pass" type="text">
                 </div>
-                <textarea name="" id="" cols="15" rows="5"></textarea>
+                <textarea name="" id="review_content_reply_text" cols="15" rows="5"></textarea>
                 <button type="submit" id="review_content_reply_button" onclick="addReply()">댓글쓰기</button>
             </div>
-        </form>
 
         <%-- 목차 --%>
         <table class="review_content_head review_content_prne">
@@ -171,24 +169,29 @@
         </table>
     </div>
     <script>
-        function sendData() {
+        function sendData(writer,pass,content) {
             const xhr = new XMLHttpRequest();
 
-            xhr.open('POST', 'test.do',true);
+            xhr.open('POST', 'reviewContentReply.do',true);
             xhr.setRequestHeader('Content-type', 'application/json');
-            const data = { seq: 3, title: 'JavaScript', writer: 'Park', cnt: 5000};
+            const data = { writer: writer, pass: pass, content: content };
             xhr.send(JSON.stringify(data));
         }
-        function addReply() {
 
-            const name = document.querySelector('#review_content_reply_name').value;
-            const pass = document.querySelector('#review_content_reply_pass').value;
+        function addReply() {
+            const writer = document.querySelector('#review_content_reply_name');
+            const pass = document.querySelector('#review_content_reply_pass');
+            const content = document.querySelector('#review_content_reply_text');
             document.querySelector('#review_content_reply_content').innerHTML += `
                 <div>
-                    <p>`+name+` : </p>
-                    <p>좋은 글 잘 봤습니다. ㅎㅎ</p>
+                    <p>`+writer.value+` : </p>
+                    <p>`+content.value+`</p>
                 </div>
             `;
+            sendData(writer.value,pass.value,content.value);
+            writer.value = '';
+            pass.value = '';
+            content.value = '';
         }
     </script>
 </body>
