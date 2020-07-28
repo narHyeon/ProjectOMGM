@@ -1,0 +1,123 @@
+/*  a tag 속성  */
+.sidebar_content a {
+    font-size:20px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/*input#sidebar {display: none;}*/
+/*  헤더 영역  */
+#side {
+    /*background-color: #FFABB9;*/
+    position:relative;
+    z-index:4;
+}
+#side > div {
+    max-width:100%;
+    /*margin:0 auto;*/
+    position:relative;
+    min-height:60px;
+}
+#side label.menu {
+    display:block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width:24px;
+    height:24px;
+    background:#F28888;
+    cursor:pointer;
+}
+/*  본문영역  */
+.container {max-width:100%; margin:0 auto;}
+.container img {max-width:100%;}
+
+/*  사이드바  */
+.sidebar_content {
+    position: fixed; /* 브라우저 기준 */
+    top: 0;
+    right: -40%;
+    width:40%;
+    height:100%;
+    /*background: #82D2FF;*/
+    background: #F28888;
+    transition: all .35s;
+    z-index:5;
+}
+.sidebar_content > ul {
+    margin:20px;
+    padding:0;
+}
+.sidebar_content > ul > li {
+    border-bottom:2px solid #FFABB9;
+    list-style:none;
+}
+.sidebar_content > ul > li > a {
+    display:inline-block;
+    width:auto;
+    /*color:#F28888;*/
+    color:white;
+    padding:10px;
+    margin:10px;
+    /*background:white;*/
+}
+.sidebar_content label[for*='sidebar'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+/*  사이드바 외 배경영역  */
+.background {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    transition: all .35s;
+    opacity: 0; visibility: hidden;
+    z-index:1;
+}
+/*  input 체크  */
+input#sidebar:checked ~ header label {background-position:-24px 0;}
+input#sidebar:checked ~ .sidebar_content {right:0;}
+input#sidebar:checked ~ .background {opacity:1;visibility:visible;}
+/*  메뉴 로고  */
+#menuLogoP {
+    margin-top:120px;
+    text-align: center;
+}
+.menuLogo {
+    width:80%;
+}
+
+@media all and (min-width:768px) {
+    /*  사이드바  */
+    .sidebar_content {
+        position: fixed; /* 브라우저 기준 */
+        top: 0;
+        right: -300px;
+        width:300px;
+        height:100%;
+        /*background: #82D2FF;*/
+        background: #F28888;
+        transition: all .35s;
+        z-index:5;
+    }
+
+    #menuLogoP {
+        margin-top:100px;
+        text-align: center;
+    }
+    .menuLogo {
+        width:70%;
+    }
+    #side label.menu {
+        display:none;
+        /*display:block;*/
+    }
+
+}

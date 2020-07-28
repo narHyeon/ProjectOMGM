@@ -1,0 +1,158 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    margin:0;
+    font-family: 'Source Sans Pro';
+}
+
+a{
+    text-decoration: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    /*justify-content: space-between;*/
+    align-items: center;
+    font-family: 'Source Sans Pro';
+    background-color: #F28888;
+    padding-left:0%;
+}
+
+.navbar_logo{
+    display: none;
+    display: flex;
+    padding-left: 1%;
+    align-items: flex-start;
+}
+
+.navbar_menu{
+    display: none;
+    display: flex;
+    padding-left:5%;
+    min-width:300px;
+    text-align: center;
+    background-color: #F28888;
+}
+
+.dropmenu ol ul{
+    position: absolute;
+    z-index: 100;
+    display: none;
+    top:80px;
+    /*margin-top:1rem;*/
+}
+
+.dropmenu ol ul li {
+    display: block;
+}
+
+.dropmenu ol li{
+    display: inline-block;
+    display: flex;
+    /*padding-left:2%;*/
+}
+.dropmenu ol li a {
+    display: block;
+    width:12vw;
+    text-decoration: none;
+    line-height: 80px;
+    color : white;
+    /*padding-left:1%;*/
+    margin-right:1%;
+    font-family: 'Source Sans Pro';
+}
+
+.dropmenu ol li:nth-child(1) a{
+    /*padding-left:2%;*/
+    margin-right:20px;
+}
+
+.dropmenu ol ul li a{
+    color : gray;
+    background-color: white;
+    box-shadow: 1px 0 2px 2px rgba(103,126,232,0.11);
+    font-size: 13px;
+    line-height: 3vw;
+    list-style: none;
+    font-weight: 700;
+    margin:0vw;
+    left:0vw;
+}
+.dropmenu ol ul li:first-child a{
+    border-top: 2px solid black;
+}
+
+.dropmenu ol li a:hover{
+    color: skyblue;
+}
+
+.dropmenu ol ul li a:hover{
+    color: white;
+    background-color: #F28888;
+}
+
+.navbar_menu li :hover, .login_membership :hover{
+    color:lightpink;
+}
+
+.login_membership{
+    display: none;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding-right:3%;
+    margin:0 auto;
+    width:40%;
+}
+
+.login_membership li {
+    display :flex;
+    justify-content: space-around;
+    font-weight:700;
+    font-size: 1.3vw;
+    padding-left:20px;
+    color:white;
+}
+
+.login_membership li a{
+    color:white;
+    padding-left:5%;
+}
+
+.login_membership li:nth-child(1){
+    padding-left:0;
+}
+
+@media all and (max-width:767px) {
+    .dropmenu {
+        display:none;
+    }
+
+    .login_membership{
+        display: none;
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        padding-right:3%;
+        width:100%;
+    }
+
+    .login_membership li a{
+        color:white;
+        font-size: 15px;
+    }
+
+    .navbar_logo{
+        display: none;
+        display: flex;
+        padding-left: 1%;
+        align-items: flex-start;
+        margin-right:20%;
+    }
+}
+
