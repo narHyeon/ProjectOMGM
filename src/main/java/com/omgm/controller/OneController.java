@@ -2,6 +2,7 @@ package com.omgm.controller;
 
 import com.omgm.board.BoardService;
 import com.omgm.board.BoardVO;
+import com.omgm.review.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -126,11 +127,25 @@ public class OneController {
         return mav;
     }
 
+<<<<<<< HEAD
     // 픽업서비스 소개 페이지 이동
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/pickupService_info/pickupService_info");
+=======
+    // 이용후기 댓글 주고받기
+    @ResponseBody
+    @RequestMapping(value = "/reviewContentReply.do")
+    public ModelAndView map(@RequestBody ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+
+        // DB INSERT Reply 작업
+        System.out.println(vo.getWriter());
+        System.out.println(vo.getPass());
+        System.out.println(vo.getContent());
+        mav.setViewName("/review/reviewContent");
+>>>>>>> 4e06c27ce2425287178534940dee7454431a4698
         return mav;
     }
 }
