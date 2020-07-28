@@ -13,14 +13,14 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<h2 style="text-align: center;">글 작성</h2><br><br><br>
+<h2 style="text-align: center; padding-top:50px; font-size:25px; color: #F28888; font-weight:bold;">글 작성</h2><br><br><br>
 
 <div style="width: 60%; margin: auto;">
     <form method="post" action="/write">
-        <input   style="width: 40%;"type="text" name="title" placeholder="제목"/>
+        <input   style="width: 100%; height:30px;"type="text" name="title" placeholder="제목"/>
         <br><br>
         <textarea id="summernote" name="content"></textarea>
-        <input style="float: right;" id="subBtn" type="button" value="글 작성" onclick="goWrite(this.form)"/>
+        <input style="float: right; padding: 4px 13px; background-color: #F28888; border:none; color:white; font-weight:bold;" type="button"  value="글 작성" onclick="goWrite(this.form)"/>
     </form>
 </div>
 
