@@ -13,13 +13,23 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<div id="summernote">Hello Summernote</div>
+<h2 style="text-align: center;">글 작성</h2><br><br><br>
+
+<div style="width: 60%; margin: auto;">
+    <form method="post" action="/write">
+        <input   style="width: 40%;"type="text" name="title" placeholder="제목"/>
+        <br><br>
+        <textarea id="summernote" name="content"></textarea>
+        <input style="float: right;" id="subBtn" type="button" value="글 작성" onclick="goWrite(this.form)"/>
+    </form>
+</div>
 
 <%--  섬머노트  --%>
 <script src="resources/js/summernote/summernote-lite.js"></script>
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
 <link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
+<%--    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
 
 
 
@@ -27,7 +37,7 @@
     $(document).ready(function() {
         //여기 아래 부분
         $('#summernote').summernote({
-            height: 300,                 // 에디터 높이
+            height: 400,                 // 에디터 높이
             minHeight: null,             // 최소 높이
             maxHeight: null,             // 최대 높이
             focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
