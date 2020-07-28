@@ -127,6 +127,14 @@ public class OneController {
         return mav;
     }
 
+    // 픽업서비스 소개 페이지 이동
+    @RequestMapping(value="/pickupService_info.do")
+    public ModelAndView pickupService_info(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/pickupService_info/pickupService_info");
+        return mav;
+    }
+
     // 이용후기 댓글 주고받기
     @ResponseBody
     @RequestMapping(value = "/reviewContentReply.do")

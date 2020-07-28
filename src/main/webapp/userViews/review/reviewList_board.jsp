@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="resources/style/reset,css">
-    <link type="text/css" rel="stylesheet" href="resources/style/reviewList_board.css">
+    <link type="text/css" rel="stylesheet" href="resources/style/review/reset,css">
+    <link type="text/css" rel="stylesheet" href="resources/style/review/reviewList_board.css">
     <title>reviewList_board</title>
 </head>
 <body>
@@ -25,6 +25,9 @@
             <span>오묘가묘와 함께 하세요♡</span>
             주인의 세심한 선택이 아이에게 특별한 행복으로 각인됩니다.
         </p>
+    </div>
+    <div class="reviewList_button">
+        <button class="button">이용후기 글쓰기</button>
     </div>
     <div class="reviewList_main_sector">
         <div class="reviewList_line">
