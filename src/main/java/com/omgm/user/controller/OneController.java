@@ -114,11 +114,5 @@ public class OneController {
         return mav;
     }
 
-    // 로그인
-    @RequestMapping(value = "/login.do")
-    public ModelAndView login(ReviewVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/login");
-        return mav;
-    }
+
 }
