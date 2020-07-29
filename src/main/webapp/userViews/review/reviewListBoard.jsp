@@ -9,7 +9,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="resources/style/review/reset,css">
-    <link type="text/css" rel="stylesheet" href="resources/style/review/reviewList_board.css">
+    <link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
     <title>reviewList_board</title>
 </head>
 <body>
