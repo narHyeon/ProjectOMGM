@@ -57,12 +57,12 @@ public class OneController {
     @RequestMapping(value="/reviewListBoard.do")
     public ModelAndView reviewListBoard(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-<<<<<<< HEAD
+
         mav.addObject("board",boardService.getBoard(vo));
         mav.setViewName("/review/reviewList_board");
-=======
+
         mav.setViewName("/review/reviewListBoard");
->>>>>>> 7b6749765acb8143fbd955092691273e22d4977e
+
         return mav;
     }
 
