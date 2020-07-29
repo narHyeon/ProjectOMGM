@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -13,6 +14,13 @@
     <title>reviewList_board</title>
 </head>
 <body>
+
+<c:forEach var="list" items="${reviewList}">
+    ${list.id}
+    ${list.seq}
+</c:forEach>
+
+
 <div id="reviewList_board">
     <div class="reviewList_header">
         <h3 class="main_head_text">오묘가묘</h3>

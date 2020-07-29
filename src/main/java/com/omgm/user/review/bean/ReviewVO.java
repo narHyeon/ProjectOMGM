@@ -1,24 +1,61 @@
 package com.omgm.user.review.bean;
 
+import java.util.Date;
+
 public class ReviewVO {
-    private String writer;
-    private String pass;
+    private int seq;
+    private String id;
+    private String pwd;
+    private String title;
     private String content;
+    private Date regDate;
+    private int cnt;
+    private String imgRef;
 
-    public String getWriter() {
-        return writer;
+    public ReviewVO() {
     }
 
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public ReviewVO(int seq, String id, String pwd, String title, String content, Date regDate, int cnt, String imgRef) {
+        this.seq = seq;
+        this.id = id;
+        this.pwd = pwd;
+        this.title = title;
+        this.content = content;
+        this.regDate = regDate;
+        this.cnt = cnt;
+        this.imgRef = imgRef;
     }
 
-    public String getPass() {
-        return pass;
+    public int getSeq() {
+        return seq;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setSeq(int seq) {
+        this.seq = seq;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -27,5 +64,43 @@ public class ReviewVO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
+    }
+
+    public int getCnt() {
+        return cnt;
+    }
+
+    public void setCnt(int cnt) {
+        this.cnt = cnt;
+    }
+
+    public String getImgRef() {
+        return imgRef;
+    }
+
+    public void setImgRef(String imgRef) {
+        this.imgRef = imgRef;
+    }
+
+    @Override
+    public String toString() {
+        return "ReviewVO{" +
+                "seq=" + seq +
+                ", id='" + id + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", regDate=" + regDate +
+                ", cnt=" + cnt +
+                ", imgRef='" + imgRef + '\'' +
+                '}';
     }
 }

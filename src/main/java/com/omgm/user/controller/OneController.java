@@ -25,7 +25,7 @@ public class OneController {
     @RequestMapping(value="/term.do")
     public ModelAndView term(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("term/siteHelp");
+        mav.setViewName("/term/siteHelp");
         mav.addObject("termTitle",vo);
         return mav;
     }

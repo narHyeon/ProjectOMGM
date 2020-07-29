@@ -169,28 +169,28 @@
         </table>
     </div>
     <script>
-        function sendData(writer,pass,content) {
+        function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
 
             xhr.open('POST', 'reviewContentReply.do',true);
             xhr.setRequestHeader('Content-type', 'application/json');
-            const data = { writer: writer, pass: pass, content: content };
+            const data = { id: id, pwd: pwd, content: content };
             xhr.send(JSON.stringify(data));
         }
 
         function addReply() {
-            const writer = document.querySelector('#review_content_reply_name');
-            const pass = document.querySelector('#review_content_reply_pass');
+            const id = document.querySelector('#review_content_reply_name');
+            const pwd = document.querySelector('#review_content_reply_pass');
             const content = document.querySelector('#review_content_reply_text');
             document.querySelector('#review_content_reply_content').innerHTML += `
                 <div>
-                    <p>`+writer.value+` : </p>
+                    <p>`+id.value+` : </p>
                     <p>`+content.value+`</p>
                 </div>
             `;
-            sendData(writer.value,pass.value,content.value);
-            writer.value = '';
-            pass.value = '';
+            sendData(id.value,pwd.value,content.value);
+            id.value = '';
+            pwd.value = '';
             content.value = '';
         }
     </script>
