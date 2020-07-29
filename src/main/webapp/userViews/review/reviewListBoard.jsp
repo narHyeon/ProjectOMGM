@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="resources/style/review/reset,css">
+    <link type="text/css" rel="stylesheet" href="resources/style/reset,css">
     <link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
     <title>reviewList_board</title>
 </head>
@@ -81,6 +81,9 @@
                 <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
             </div>
         </div>
+    </div>
+    <div class="pageNation_div">
+        (1) (2) (3) (4) (5)
     </div>
 </div>
 </body>

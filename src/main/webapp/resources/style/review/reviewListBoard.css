@@ -52,6 +52,12 @@
     margin-bottom: 3%;
     border-bottom: 1px solid #868e96;
 }
+
+.pageNation_div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 /* 이미지 관련 설정 */
 .reviewList_img {
     width: 130%;
@@ -75,6 +81,7 @@
 .reviewList_sub_text{
     margin-bottom: 3%;
     opacity: 80%;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
