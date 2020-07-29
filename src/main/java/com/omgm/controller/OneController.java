@@ -103,19 +103,19 @@ public class OneController {
 
 
     // 이용후기 글쓰기 페이지로 이동
-    @RequestMapping(value="/review_write.do")
+    @RequestMapping(value="/reviewWrite.do")
     public ModelAndView reviewWrite(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/review_write");
+        mav.setViewName("/review/reviewWrite");
         return mav;
     }
 
 
     //이용후기 리스트 페이지 이동
-    @RequestMapping(value="/reviewList_board.do")
+    @RequestMapping(value="/reviewListBoard.do")
     public ModelAndView reviewListBoard(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/reviewList_board");
+        mav.setViewName("/review/reviewListBoard");
         return mav;
     }
 
@@ -138,6 +138,30 @@ public class OneController {
         System.out.println(vo.getPass());
         System.out.println(vo.getContent());
         mav.setViewName("/review/reviewContent");
+        return mav;
+    }
+
+    // 로그인 페이지 이동
+    @RequestMapping(value="/login.do")
+    public ModelAndView login(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/login");
+        return mav;
+    }
+
+    // 회원가입 페이지 이동
+    @RequestMapping(value="/signUp.do")
+    public ModelAndView signUp(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/signUp");
+        return mav;
+    }
+
+    // 문자서비스 페이지 이동
+    @RequestMapping(value="/messageService.do")
+    public ModelAndView messageService(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/messageService");
         return mav;
     }
 }
