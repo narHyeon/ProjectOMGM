@@ -66,7 +66,7 @@
     <ul class="login_membership">
         <li><a href="">login</a></li>
         <li><p>|</p></li>
-        <li><a href="">Join</a></li>
+        <li><a href="signUp.do">Join</a></li>
     </ul>
 </nav>
 

@@ -1,0 +1,129 @@
+/*전체에 해당하는 부분*/
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Source Sans Pro';
+    box-sizing: border-box;
+}
+
+/*body에 해당하는 부분*/
+body{
+    min-height: 100vh;
+    background:white;
+}
+
+/*form태그에 해당하는 부분*/
+.login-form{
+    width: 360px;
+    background: #F28888;
+    height: 580px;
+    padding: 80px 40px;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*Login<h1> 크기*/
+.login-form h1{
+    text-align: center;
+    font-size: 23px;
+    color:aliceblue;
+    font-family: 'Source Sans Pro';
+    margin-bottom: 40px;
+}
+
+/*id, pw 입력칸*/
+.txtbox{
+    border-bottom: 2px solid aliceblue;
+    position: relative;
+    margin: 30px 0;
+}
+
+/*<input>태그-id, pw*/
+.txtbox input{
+    font-size: 15px;
+    color: #333;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: none;
+    padding: 0 5px;
+    height: 40px;
+}
+
+/*처음 화면 켜지면 나타나는 내용(txtbox)*/
+.txtbox span::before{
+    content: attr(data-placeholder);
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: aliceblue;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: 0.5s;
+}
+
+/*id, pw필드를 클릭했을때*/
+.txtbox span::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    transition: .5s;
+}
+/*처음 화면 켜지면 나타나는 내용(focus)*/
+.focus + span::before{
+    top: -5px;
+}
+.focus + span::after{
+width: 100%;
+}
+
+/*로그인버튼*/
+.logbtn{
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: aliceblue;
+    background-size: 200%;
+    color: #F28888;
+    outline: none;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: .5s;
+}
+
+/*로그인버튼에 올렸을 때*/
+.logbtn:hover{
+    font-size: 16px;
+}
+/*회원가입, 아이디/패스워드 찾기*/
+.bottom-text{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: aliceblue;
+}
+.bottom-text a{
+    color:aliceblue;
+}
+
+/*모달*/
+input[id*="popup"] + label {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+input[id*="popup"] {display:none; position: absolute; top:50%;left:50%;transform:translate(-50%,-50%);}
+input[id*="popup"] + label {display:inline-block;padding:20px;background:#ffcd41;color:#fff;}
+input[id*="popup"] + label + div {position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;}
+input[id*="popup"] + label + div > form {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:700px;background:#F28888;z-index:2;}
+input[id*="popup"] + label + div > form > label {position:absolute;top:0%;right:0%;transform:translate(40%,-40%);padding:20px;background:#dd5347;border-radius:100%;z-index:1;}
+input[id*="popup"] + label + div > label {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:1;opacity : 0.7;}
+
+input[id*="popup"] + label + div {display:none;}
+input[id*="popup"]:checked + label + div {display:block;}
+
+input[id*="popup"] + label + div {opacity:0;visibility:hidden;transition:all 1s;}
+input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
+
