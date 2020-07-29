@@ -45,6 +45,7 @@ public class OneController {
         return mav;
     }
 
+
     // 이용후기 글쓰기 페이지로 이동
     @RequestMapping(value="/reviewWrite.do")
     public ModelAndView reviewWrite(BoardVO vo) {
@@ -72,25 +73,12 @@ public class OneController {
         return mav;
     }
 
+
     // 픽업서비스 소개 페이지 이동
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/pickupService_info/pickupService_info");
-        return mav;
-    }
-
-    // 이용후기 댓글 주고받기
-    @ResponseBody
-    @RequestMapping(value = "/reviewContentReply.do")
-    public ModelAndView map(@RequestBody ReviewVO vo) {
-        ModelAndView mav = new ModelAndView();
-
-        // DB INSERT Reply 작업
-        System.out.println(vo.getWriter());
-        System.out.println(vo.getPass());
-        System.out.println(vo.getContent());
-        mav.setViewName("/review/reviewContent");
         return mav;
     }
 
@@ -123,6 +111,14 @@ public class OneController {
     public ModelAndView reservation(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/reservation");
+        return mav;
+    }
+
+    // 로그인
+    @RequestMapping(value = "/login.do")
+    public ModelAndView login(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/login");
         return mav;
     }
 }
