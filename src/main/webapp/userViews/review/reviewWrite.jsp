@@ -31,11 +31,11 @@
 	<script src="resources/js/summernote/summernote-lite.js"></script>
 	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
-	<link rel="stylesheet"
-		href="resources/style/summernote/summernote-lite.css">
-	<%--    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
 
-	<script>
+<link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
+<%-- <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
+
+<script>
     $(document).ready(function() {
         //여기 아래 부분
         $('#summernote').summernote({
@@ -48,6 +48,7 @@
 
         });
     });
+
 </script>
 </body>
 </html>
