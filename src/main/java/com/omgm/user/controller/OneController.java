@@ -38,6 +38,10 @@ public class OneController {
         return mav;
     }
 
+
+
+
+
     // 픽업서비스 소개 페이지 이동
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info(BoardVO vo) {
@@ -77,4 +81,5 @@ public class OneController {
         mav.setViewName("/reservation");
         return mav;
     }
+
 }
