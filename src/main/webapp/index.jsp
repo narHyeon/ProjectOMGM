@@ -8,9 +8,6 @@
   <a href="main.do"><h3>프로젝트 메인화면</h3></a>
   <a href="adminMain.mdo"><h3>관리자 메인 화면 이동</h3></a>
   <hr>
-  <a href="board.do"><h3>반응형 게시판 이동</h3></a>
-  <a href="kinderGarden.do"><h3>유치원 소개 페이지</h3></a>
-  <hr>
   <h1>Review 페이지</h1>
   <a href="reviewWrite.do"><h3>review_writer 페이지 이동</h3></a>
   <a href="reviewListBoard.do"><h3>review_list 페이지 이동</h3></a>
