@@ -13,24 +13,21 @@
 	<!-- <put-attribute name="content" value="/userViews/except/term/{1}.jsp"/> -->
 	<!-- </definition> -->
 
-	<!-- 베이스 세팅 -->
-	<definition name="base"
-		template="/adminViews/tiles/base.jsp">
-		<put-attribute name="header"
-			value="/adminViews/tiles/header.jsp" />
-		<put-attribute name="sidebar"
-			value="/adminViews/tiles/sidebar.jsp" />
+	<!-- adminTiles -->
+	<definition name="adminBase" template="/adminViews/tiles/base.jsp">
+		<put-attribute name="header" value="/adminViews/tiles/header.jsp" />
+		<put-attribute name="sidebar" value="/adminViews/tiles/sidebar.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer"
-			value="/adminViews/tiles/footer.jsp" />
+		<put-attribute name="footer" value="/adminViews/tiles/footer.jsp" />
 	</definition>
 
-	<definition name="*/*" extends="base">
-		<put-attribute name="body"
-			value="/adminViews/{1}/{2}.jsp" />
+	<definition name="*" extends="adminBase">
+	<put-attribute name="body" value="/adminViews/{1}.jsp" />
 	</definition>
-	<definition name="*/*/*" extends="base">
-		<put-attribute name="body"
-			value="/adminViews/{1}/{2}/{3}.jsp" />
+	<definition name="*/*" extends="adminBase">
+	<put-attribute name="body" value="/adminViews/{1}/{2}.jsp" />
+	</definition>
+	<definition name="*/*/*" extends="adminBase">
+	<put-attribute name="body" value="/adminViews/{1}/{2}/{3}.jsp" />
 	</definition>
 </tiles-definitions>

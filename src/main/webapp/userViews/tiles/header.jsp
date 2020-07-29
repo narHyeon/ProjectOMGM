@@ -55,21 +55,12 @@
 			</ol>
 		</div>
 
-<<<<<<< HEAD
     <ul class="login_membership">
         <li><a href="">login</a></li>
         <li><p>|</p></li>
         <li><a href="signUp.do">Join</a></li>
     </ul>
 </nav>
-=======
-		<ul class="login_membership">
-			<li><a href="">login</a></li>
-			<li><p>|</p></li>
-			<li><a href="">Join</a></li>
-		</ul>
-	</nav>
->>>>>>> 368acbd9cdc259fef75f88d4ba56f06c8924288b
 
 	<!-- 위는 주리 헤더 -->
 

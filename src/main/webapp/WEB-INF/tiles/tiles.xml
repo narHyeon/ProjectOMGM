@@ -10,25 +10,24 @@
 	</definition>
 
 	<definition name="term/*" extends="term">
-		<put-attribute name="content"
-			value="/userViews/except/term/{1}.jsp" />
+		<put-attribute name="content" value="/userViews/except/term/{1}.jsp" />
 	</definition>
 
 	<!-- 베이스 세팅 -->
 	<definition name="base" template="/userViews/tiles/base.jsp">
-		<put-attribute name="header"
-			value="/userViews/tiles/header.jsp" />
+		<put-attribute name="header" value="/userViews/tiles/header.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer"
-			value="/userViews/tiles/footer.jsp" />
+		<put-attribute name="footer" value="/userViews/tiles/footer.jsp" />
 	</definition>
 
+	<definition name="*" extends="base">
+		<put-attribute name="body" value="/userViews/{1}.jsp" />
+	</definition>
 	<definition name="*/*" extends="base">
-		<put-attribute name="body"
-			value="/userViews/{1}/{2}.jsp" />
+		<put-attribute name="body" value="/userViews/{1}/{2}.jsp" />
 	</definition>
 	<definition name="*/*/*" extends="base">
-		<put-attribute name="body"
-			value="/userViews/{1}/{2}/{3}.jsp" />
+		<put-attribute name="body" value="/userViews/{1}/{2}/{3}.jsp" />
 	</definition>
+
 </tiles-definitions>
