@@ -3,6 +3,8 @@
 <head>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/style/login.css">
 </head>
 <body>
 <!-- header 영역 -->

@@ -21,6 +21,8 @@
   <a href="pickupService_info.do"><h3>pickup-intro 페이지로 이동</h3></a>
   <a href="kinderGarden.do"><h3>유치원 소개 페이지</h3></a>
   <a href="reservation.do"><h3>호텔 예약 페이지</h3></a>
+
+  <a href="login.do"><h3>로그인</h3></a>
   
   </body>
 </html>
