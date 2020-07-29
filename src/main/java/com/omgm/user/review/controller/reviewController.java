@@ -2,7 +2,7 @@ package com.omgm.user.review.controller;
 
 import com.omgm.user.board.BoardService;
 import com.omgm.user.board.BoardVO;
-import com.omgm.user.review.ReviewVO;
+import com.omgm.user.review.bean.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;

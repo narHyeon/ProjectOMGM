@@ -1,4 +1,4 @@
-package com.omgm.user.review;
+package com.omgm.user.review.bean;
 
 public class ReviewVO {
     private String writer;
