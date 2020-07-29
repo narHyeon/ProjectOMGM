@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+    <!--  제외대상  -->
+<!--    <definition name="term" template="/userViews/tiles/term.jsp">-->
+<!--        <put-attribute name="content" value=""/>-->
+<!--    </definition>-->
+
+<!--    <definition name="term/*" extends="term">-->
+<!--        <put-attribute name="content" value="/userViews/except/term/{1}.jsp"/>-->
+<!--    </definition>-->
+
+    <!-- 베이스 세팅 -->
+    <definition name="base" template="/adminViews/tiles/base.jsp">
+        <put-attribute name="header" value="/adminViews/tiles/header.jsp"/>
+        <put-attribute name="sidebar" value="/adminViews/tiles/sidebar.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/adminViews/tiles/footer.jsp"/>
+    </definition>
+
+    <definition name="*/*" extends="base">
+        <put-attribute name="body" value="/adminViews/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="*/*/*" extends="base">
+        <put-attribute name="body" value="/adminViews/{1}/{2}/{3}.jsp"/>
+    </definition>
+</tiles-definitions>
