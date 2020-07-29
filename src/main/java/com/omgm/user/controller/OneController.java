@@ -39,32 +39,7 @@ public class OneController {
     }
 
 
-    // 이용후기 글쓰기 페이지로 이동
-    @RequestMapping(value="/reviewWrite.do")
-    public ModelAndView reviewWrite(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/reviewWrite");
-        return mav;
-    }
 
-    //이용후기 리스트 페이지 이동
-    @RequestMapping(value="/reviewListBoard.do")
-    public ModelAndView reviewListBoard(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-
-//        mav.addObject("board",boardService.getBoard(vo));
-        mav.setViewName("/review/reviewListBoard");
-
-        return mav;
-    }
-
-    // 이용후기 본문 페이지 이동
-    @RequestMapping(value="/reviewContent.do")
-    public ModelAndView reviewContent(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/reviewContent");
-        return mav;
-    }
 
 
     // 픽업서비스 소개 페이지 이동

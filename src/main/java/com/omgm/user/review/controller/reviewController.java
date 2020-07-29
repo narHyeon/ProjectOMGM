@@ -28,7 +28,6 @@ public class reviewController {
     @RequestMapping(value="/reviewListBoard.do")
     public ModelAndView reviewListBoard(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("board",boardService.getBoard(vo));
         mav.setViewName("/review/reviewListBoard");
         return mav;
     }
