@@ -1,5 +1,5 @@
 input[id="sidebar"] {
-    display:none;
+	display: none;
 }
 /*#menuBtn {*/
 /*    display:block;*/
@@ -9,34 +9,42 @@ input[id="sidebar"] {
 /*    cursor:pointer;*/
 /*}*/
 #menuBtn span { /* 메뉴 버튼 3줄 만들기 */
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    border-radius: 30px;
-    background: white;
-    transition: all .35s; /* 모션 애니메이션 효과 */
-}
-#menuBtn span:nth-child(1) { /* 3줄 1번 위치 */
-    top:0;
-}
-#menuBtn span:nth-child(2) { /* 3줄 2번 위치 */
-    top:50%;
-    transform:translateY(-50%); /* 중앙보다 조금 위에 위치하기 위해서 */
-}
-#menuBtn span:nth-child(3) { /* 3줄 3번 위치 */
-    bottom:0;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	border-radius: 30px;
+	background: white;
+	transition: all .35s; /* 모션 애니메이션 효과 */
 }
 
-#sidebar:checked ~ .navbar header div #menuBtn span:nth-child(1) { /* 3줄 1번 위치 */
-    color:blue;
-    top:50%;
-    transform:translateY(-50%) rotate(45deg); /* 요소를 회전시킨다. */
+#menuBtn span:nth-child(1) { /* 3줄 1번 위치 */
+	top: 0;
 }
-#sidebar:checked ~ .navbar header div #menuBtn span:nth-child(2) { /* 3줄 2번 위치 */
-    opacity:0;
+
+#menuBtn span:nth-child(2) { /* 3줄 2번 위치 */
+	top: 50%;
+	transform: translateY(-50%); /* 중앙보다 조금 위에 위치하기 위해서 */
 }
-#sidebar:checked ~ .navbar header div #menuBtn span:nth-child(3) { /* 3줄 3번 위치 */
-    bottom:50%;
-    transform: translateY(50%) rotate(-45deg);
+
+#menuBtn span:nth-child(3) { /* 3줄 3번 위치 */
+	bottom: 0;
+}
+
+#sidebar:checked ~ .navbar header div #menuBtn span:nth-child(1) {
+	/* 3줄 1번 위치 */
+	color: blue;
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg); /* 요소를 회전시킨다. */
+}
+
+#sidebar:checked ~ .navbar header div #menuBtn span:nth-child(2) {
+	/* 3줄 2번 위치 */
+	opacity: 0;
+}
+
+#sidebar:checked ~ .navbar header div #menuBtn span:nth-child(3) {
+	/* 3줄 3번 위치 */
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
 }

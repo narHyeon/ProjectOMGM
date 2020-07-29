@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
+<head>
+<title>$Title$</title>
+</head>
+<body>
 
   <a href="main.do"><h3>프로젝트 메인화면</h3></a>
   <a href="adminMain.mdo"><h3>관리자 메인 화면 이동</h3></a>
@@ -21,5 +21,5 @@
 
   <a href="login.do"><h3>로그인</h3></a>
 
-  </body>
+</body>
 </html>

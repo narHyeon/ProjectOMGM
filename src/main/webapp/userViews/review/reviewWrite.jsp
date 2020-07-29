@@ -5,7 +5,8 @@
   Time: 오후 2:26
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +27,15 @@
     </form>
 </div>
 
-<%--  섬머노트  --%>
-<script src="resources/js/summernote/summernote-lite.js"></script>
-<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
+	<%--  섬머노트  --%>
+	<script src="resources/js/summernote/summernote-lite.js"></script>
+	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
-<%--    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
+	<link rel="stylesheet"
+		href="resources/style/summernote/summernote-lite.css">
+	<%--    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
 
-
-
-<script>
+	<script>
     $(document).ready(function() {
         //여기 아래 부분
         $('#summernote').summernote({
