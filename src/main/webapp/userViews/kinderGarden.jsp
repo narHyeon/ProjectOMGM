@@ -1,117 +1,137 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-    <title>Title</title>
+<title>Title</title>
 </head>
-    <style>
-    <%--   유치원 소개    --%>
-        .kinderGarden {
-            text-align: center;
-            margin: 100px 0;
-            font-family: 'noto-sans';
-            line-height: 30px;
+<style>
+<%-- 유치원 소개    -- %>
 
-            font-weight: 300;
-            color: #777;
-            letter-spacing: -1px;
-        }
-        .kinderGarden_title {
-            margin: 20px;
-        }
-        .kinderGarden_title h1{
-            font-size: 26px;
-            font-weight: 600;
-            color: #555;
-            letter-spacing: -1px;
-        }
-        .kinderGarden_title p {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-        .kinderGarden_info {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            height: 30%;
-            padding: 0 2%;
-            margin: 0 auto;
-        }
-        .kinderGarden_info li {
-            width:400px;
-            margin: 2%;
-            font-size: 16px;
-        }
-        .kinderGarden_info li img {
-            width:400px;
-        }
-        .kinderGarden_info h3 {
-            font-size: 19px;
-            margin: 30px;
+.kinderGarden {
+	text-align: center;
+	margin: 100px 0;
+	font-family: 'noto-sans';
+	line-height: 30px;
+	font-weight: 300;
+	color: #777;
+	letter-spacing: -1px;
+}
 
-            font-weight: 500;
-            color: #555;
-            letter-spacing: -1px;
-        }
+.kinderGarden_title {
+	margin: 20px;
+}
 
-    <%--   교육 시간표    --%>
-        .education_schedule {
-            margin: 100px 0;
-            font-family: 'noto-sans';
-            line-height: 30px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
+.kinderGarden_title h1 {
+	font-size: 26px;
+	font-weight: 600;
+	color: #555;
+	letter-spacing: -1px;
+}
 
-            font-weight: 600;
-            color: #555;
-            letter-spacing: -1px;
-        }
-        .education_schedule_title {
-            margin: 50px;
-            font-size: 26px;
-        }
-        .education_schedule table {
-            margin: 30px auto;
-            width: 80%;
-            text-align: center;
-            /*font-size: 12px;*/
+.kinderGarden_title p {
+	margin-top: 20px;
+	font-size: 20px;
+}
 
-            font-weight: 600;
-            color: #444;
-            letter-spacing: -1px;
-        }
-        .education_schedule th {
-            border-top: 1px solid gray;
-            padding: 10px;
-            background-color: #F28888;
-        }
-        .education_schedule tr {
-            border-bottom: 1px solid gray;
-        }
-        .education_schedule tr td{
-            padding: 10px;
-        }
+.kinderGarden_info {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	height: 30%;
+	padding: 0 2%;
+	margin: 0 auto;
+}
 
-    <%--   월간 스케쥴    --%>
-        .education_schedule_month_subTitle {
-            background-color: pink;
-        }
+.kinderGarden_info li {
+	width: 400px;
+	margin: 2%;
+	font-size: 16px;
+}
 
-    @media all and (max-width:768px) {
-    <%--   유치원 소개    --%>
-        .kinderGarden_info {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                height: 30%;
-                padding: 2%;
-                margin: 0 auto;
-            }
+.kinderGarden_info li img {
+	width: 400px;
+}
 
-    <%--   교육 시간표    --%>
-    }
-    </style>
+.kinderGarden_info h3 {
+	font-size: 19px;
+	margin: 30px;
+	font-weight: 500;
+	color: #555;
+	letter-spacing: -1px;
+}
+
+<%
+--
+   
+교육 시간표    -- %>.education_schedule {
+	margin: 100px 0;
+	font-family: 'noto-sans';
+	line-height: 30px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	font-weight: 600;
+	color: #555;
+	letter-spacing: -1px;
+}
+
+.education_schedule_title {
+	margin: 50px;
+	font-size: 26px;
+}
+
+.education_schedule table {
+	margin: 30px auto;
+	width: 80%;
+	text-align: center;
+	/*font-size: 12px;*/
+	font-weight: 600;
+	color: #444;
+	letter-spacing: -1px;
+}
+
+.education_schedule th {
+	border-top: 1px solid gray;
+	padding: 10px;
+	background-color: #F28888;
+}
+
+.education_schedule tr {
+	border-bottom: 1px solid gray;
+}
+
+.education_schedule tr td {
+	padding: 10px;
+}
+
+<%
+--
+   
+월간 스케쥴    -- %>.education_schedule_month_subTitle {
+	background-color: pink;
+}
+
+@media all and (max-width:768px) { <% --   
+	유치원 소개    -- %>.kinderGarden_info {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		height: 30%;
+		padding: 2%;
+		margin: 0 auto;
+	}
+	<%
+	--
+	   
+	교육
+	 
+	시간표
+	    
+	--
+	%
+	>
+}
+</style>
 <body>
     <%-- 유치원 소개 --%>
     <div class="kinderGarden">

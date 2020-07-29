@@ -5,8 +5,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="ReviewVO" type="com.omgm.user.review.bean.ReviewVO"/>
+		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
+		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/review-mapping.xml"/>
+		<mapper resource="mappings/faq-mapping.xml" />
+		<mapper resource="mappings/category-mapping.xml" />
 	</mappers>
 </configuration>

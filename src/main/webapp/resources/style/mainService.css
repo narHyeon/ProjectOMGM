@@ -1,136 +1,138 @@
 .service-content {
-    display: inline-flex;
-    justify-content: space-around;
-    width: 80%;
-    /*margin-left: 8%;*/
-    margin-bottom: 10px;
+	display: inline-flex;
+	justify-content: space-around;
+	width: 80%;
+	/*margin-left: 8%;*/
+	margin-bottom: 10px;
 }
 
 .service-content-all {
-    text-align: center;
-    margin-bottom: 50px;
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 #head-text {
-    text-align: center;
-    margin: 5%;
+	text-align: center;
+	margin: 5%;
 }
 
-#head-text h1{
-    margin: 30px;
-    font-size: 200%;
+#head-text h1 {
+	margin: 30px;
+	font-size: 200%;
 }
 
-#head-text p{
-    margin: 10px;
-    font-size: 130%;
+#head-text p {
+	margin: 10px;
+	font-size: 130%;
 }
 
 .div-img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    /*margin-top: 15%;*/
-    /*margin-left: 25%;*/
-    margin-bottom: 7%;
-    cursor: pointer;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	/*margin-top: 15%;*/
+	/*margin-left: 25%;*/
+	margin-bottom: 7%;
+	cursor: pointer;
 }
 
 .class-img {
-    align-items: center;
-    margin-bottom: 5%;
-    /* overflow: hidden; */
+	align-items: center;
+	margin-bottom: 5%;
+	/* overflow: hidden; */
 }
 
 .img-text {
-    text-align: center;
+	text-align: center;
 }
 
 /*--------------------------------------------------------------------*/
 .class-img {
-    position:relative;
-    display:inline-block;
+	position: relative;
+	display: inline-block;
 }
-.class-img img{
-    max-width:100%;
+
+.class-img img {
+	max-width: 100%;
 }
+
 .class-img span.text {
-    position:absolute;
-    top:50%;
-    left:0;
-    transform: translateY(-50%);
-    display: none;
-    width:100%;
-    font-size:70px;
-    color:gray;
-    font-weight:900;
-    text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	display: none;
+	width: 100%;
+	font-size: 70px;
+	color: gray;
+	font-weight: 900;
+	text-align: center;
 }
+
 .class-img::before, .class-img::after { /* 앞에 뒤에 붙이기 */
-    content:'';
-    position: absolute;
-    top:50%;
-    left:50%;
-    width:110%;
-    height:110%;
-    transform: translate(-50%,-50%);
-    transition: all .8s;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 110%;
+	height: 110%;
+	transform: translate(-50%, -50%);
+	transition: all .8s;
 }
+
 .class-img::before {
-    border-bottom:1px solid orange;
-    width:0;
+	border-bottom: 1px solid orange;
+	width: 0;
 }
 
 .class-img:hover span.text {
-    display:block;
-}
-.class-img:hover::before {
-    width: 80%;
-}
-.class-img:hover .img-text{
-    color: orange;
+	display: block;
 }
 
+.class-img:hover::before {
+	width: 80%;
+}
+
+.class-img:hover .img-text {
+	color: orange;
+}
 
 /*--------------------------------------------------------------------*/
-
-@media (max-width: 768px) {
-    .service-content-all {
-        display: flex;
-        flex-direction: row;
-    }
-    .service-content {
-        flex-direction: column;
-        text-align: center;
-        /* justify-content: space-around;
+@media ( max-width : 768px) {
+	.service-content-all {
+		display: flex;
+		flex-direction: row;
+	}
+	.service-content {
+		flex-direction: column;
+		text-align: center;
+		/* justify-content: space-around;
         align-content: space-around; */
-        width: 100%;
-    }
-    .img-text {
-        text-align: center;
-        /*margin-left: 5%;*/
-        /*margin-bottom: 5%;*/
-    }
-    .div-img {
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-    }
-    .class-img {
-        margin: 15px auto;
-    }
-    #head-text {
-        text-align: center;
-        margin: 15% 0;
-    }
-
-    #head-text h1{
-        margin: 30px;
-        font-size: 150%;
-    }
-
-    #head-text p{
-        margin: 10px;
-        font-size: 100%;
-    }
+		width: 100%;
+	}
+	.img-text {
+		text-align: center;
+		/*margin-left: 5%;*/
+		/*margin-bottom: 5%;*/
+	}
+	.div-img {
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+	.class-img {
+		margin: 15px auto;
+	}
+	#head-text {
+		text-align: center;
+		margin: 15% 0;
+	}
+	#head-text h1 {
+		margin: 30px;
+		font-size: 150%;
+	}
+	#head-text p {
+		margin: 10px;
+		font-size: 100%;
+	}
 }
