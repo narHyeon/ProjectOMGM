@@ -15,11 +15,6 @@
 </head>
 <body>
 
-<c:forEach var="list" items="${reviewList}">
-    ${list.id}
-    ${list.seq}
-</c:forEach>
-
 
 <div id="reviewList_board">
     <div class="reviewList_header">
@@ -37,61 +32,16 @@
     <div class="reviewList_button">
         <button class="button">이용후기 글쓰기</button>
     </div>
-    <div class="reviewList_main_sector">
-        <div class="reviewList_line">
-            <div class="reviewList_one_sector">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-            <div class="reviewList_one_sector00">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-            <div class="reviewList_one_sector">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
+    <div>
+        <div class="reviewList_main_sector">
+            <c:forEach var="list" items="${reviewList}">
+                <div class="reviewList_line">
+                    <img src="${list.imgRef}" class="reviewList_img">
+                    <p class="reviewList_text">${list.title}</p>
+                    <p class="reviewList_sub_text">${list.regDate}</p>
+                </div>
+            </c:forEach>
         </div>
-        <div class="reviewList_line">
-            <div class="reviewList_one_sector">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-            <div class="reviewList_one_sector00">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-            <div class="reviewList_one_sector">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-        </div>
-        <div class="reviewList_line">
-            <div class="reviewList_one_sector">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-            <div class="reviewList_one_sector00">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-            <div class="reviewList_one_sector">
-                <img src="resources/img/review/images.jpg" class="reviewList_img">
-                <p class="reviewList_text">귀여윰 잔뜩</p>
-                <p class="reviewList_sub_text">작성일 : 2015-03-01</p>
-            </div>
-        </div>
-    </div>
-    <div class="pageNation_div">
-        (1) (2) (3) (4) (5)
     </div>
 </div>
 </body>
