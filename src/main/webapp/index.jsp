@@ -17,6 +17,8 @@
 
   <a href="reviewContent.do">review_content 페이지 이동</a>
   <a href="pickupService_info.do"><h3>pickup-intro 페이지로 이동</h3></a>
+  <hr>
+  <a href="adminMain.mdo"><h3>관리자 메인 화면 이동</h3></a>
 
 
   </body>
