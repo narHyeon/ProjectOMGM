@@ -31,9 +31,7 @@
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
 <link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
-<%--    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
-
-
+<%-- <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
 
 <script>
     $(document).ready(function() {
@@ -48,6 +46,7 @@
 
         });
     });
+
 </script>
 </body>
 </html>
