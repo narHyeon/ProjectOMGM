@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FAQDAO">
+	<select id="getAllFAQList" resultType="faq" parameterType="faq">
+		select * from faq order by faq_categorynum asc ,faq_ask asc
+	</select>
+	<select id="getCategoryedFAQList" resultType="faq"
+		parameterType="faq">
+		select * from faq where faq_categorynum=#{FAQ_CATEGORYNUM} order by
+		faq_categorynum asc ,faq_ask asc
+	</select>
+</mapper>
