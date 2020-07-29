@@ -22,21 +22,6 @@
 }
 
 .reviewList_main_sector {
-<<<<<<< HEAD
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-bottom: 1px solid #868e96;
-    padding-bottom: 3%;
-}
-
-.reviewList_line {
-    display: flex;
-    flex-direction: column;
-    margin-left: 3%;
-    margin-right: 3%;
-=======
 	display: flex;
 	flex-direction: column;
 	border-bottom: 1px solid #868e96;
@@ -53,13 +38,6 @@
 	flex-direction: column;
 }
 
-.reviewList_one_sector00 {
-	display: flex;
-	flex-direction: column;
-	margin-left: 10.65%;
-	margin-right: 10.65%;
->>>>>>> cbc77ac81b38506fa1169d0cdda27c5b8e6685fb
-}
 
 .reviewList_button {
 	display: flex;
@@ -71,15 +49,11 @@
 
 /* 이미지 관련 설정 */
 .reviewList_img {
-<<<<<<< HEAD
+
     width: 110%;
     height: auto;
     margin-bottom: 3%;
-=======
-	width: 130%;
-	height: auto;
-	margin-bottom: 3%;
->>>>>>> cbc77ac81b38506fa1169d0cdda27c5b8e6685fb
+
 }
 
 /* 텍스트 관련 설정 */
@@ -95,52 +69,23 @@
 	font-size: 18px;
 }
 
-<<<<<<< HEAD
 .reviewList_sub_text{
     margin-bottom: 3%;
     opacity: 80%;
 }
 
 @media (max-width: 768px) {
-    .reviewList_img {
-        width: 100%;
-        height: auto;
-    }
-
-    .reviewList_sub_text{
-        margin-bottom: 9%;
-        opacity: 80%;
-        font-size: small;
-    }
-
-    .reviewList_text{
-        margin-bottom: 3%;
-        margin-top: 1%;
-        font-size: 14px;
-    }
-=======
-.reviewList_sub_text {
-	margin-bottom: 3%;
-	opacity: 80%;
->>>>>>> cbc77ac81b38506fa1169d0cdda27c5b8e6685fb
-}
-
-@media ( max-width : 768px) {
 	.reviewList_img {
 		width: 100%;
 		height: auto;
 	}
-	.reviewList_one_sector00 {
-		display: flex;
-		flex-direction: column;
-		margin-left: 1%;
-		margin-right: 1%;
-	}
+
 	.reviewList_sub_text {
 		margin-bottom: 9%;
 		opacity: 80%;
 		font-size: small;
 	}
+
 	.reviewList_text {
 		margin-bottom: 3%;
 		margin-top: 1%;
