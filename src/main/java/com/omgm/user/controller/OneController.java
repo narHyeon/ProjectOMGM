@@ -90,4 +90,12 @@ public class OneController {
         mav.setViewName("/review/reviewContent");
         return mav;
     }
+
+    // 예약 페이지 이동
+    @RequestMapping(value = "/reservation.do")
+    public ModelAndView reservation(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/reservation");
+        return mav;
+    }
 }
