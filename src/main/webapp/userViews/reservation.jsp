@@ -1,248 +1,293 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
-    <style type="text/css">
-        #reservation {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            padding: 1px;
-            align-items: stretch;
-            margin: 70px 0;
-        }
-        #reservation h1 {
-            color: black;
-            margin: 30px;
-            font-size: 26px;
-        }
-        #reservation .reservation_content {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-        }
-        #calendar {
-            display: flex;
-            flex-direction: column;
-            min-width: 35%;
-        }
-        #reservation h3 {
-            color: black;
-            margin: 30px;
-            font-size: 21px;
-        }
-        #calendar #calendar_table {
-            margin: 0 auto;
-            /*border-radius: 8px;!*모서리 둥글게*!*/
-            color: black;
-        }
-        #calendar table td {
-            vertical-align: middle;
-            width: 70px;
-            height: 70px;
-            text-align: center;
-            font-size: 20px;
-            font-family: 'noto-sans';
-            /*border-radius: 8px;!*모서리 둥글게*!*/
-            /*background-color: skyblue;*/
-        }
-        #calendar table tr:nth-child(1) td, #calendar table tr:nth-child(2) td {
-            background-color: #2b91c8;
-            color: white;
-        }
+<title>Title</title>
+<style type="text/css">
+#reservation {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 1px;
+	align-items: stretch;
+	margin: 70px 0;
+}
 
-        /*  방 정보  */
-        #reser_room_info #room_select {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        #reser_room_info #room_select ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            /*flex-wrap: wrap;*/
-            margin: 0 auto;
-            padding: 0;
-        }
-        #reser_room_info #room_select li {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        #reser_room_info #room_select li img{
-            width: 100%;
-        }
-        #reser_room_info #room_select li p {
-            margin-top: 10px;
-        }
-        #reser_room_info #room_select li p::after {
-            content: ' *예약 가능*';
-            color: #2ecc71;
-        }
-        #reser_room_info select {
-            width: 95%;
-            height: 50px;
-        }
-        #reser_room_info input {
-            width: 95%;
-            height: 50px;
-            background-color: white;
-            border: none;
-        }
-        #reser_room_info button {
-            width: 95%;
-            height: 50px;
-            color: white;
-            background-color: #2b91c8;
-            box-shadow: none;
-            border: none;
-            margin-bottom: 50px;
-        }
+#reservation h1 {
+	color: black;
+	margin: 30px;
+	font-size: 26px;
+}
 
-        /* 모바일 환경 */
-        @media all and (max-width:960px) {
-            #reservation .reservation_content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
-            }
+#reservation .reservation_content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
 
-            #reser_room_info #room_select ul {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            #reser_room_info #room_select ul li {
-                padding: 20px;
-                width: 40%;
-            }
-            #reser_room_info #room_select ul li img{
-                margin: 0 auto;
-            }
-        }
+#calendar {
+	display: flex;
+	flex-direction: column;
+	min-width: 35%;
+}
 
-        /*  사료 선택  */
-        #feed_select {
-            display: flex;
-            flex-direction: column;
-        }
-        #feed_select ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-        #feed_select ul li {
-            margin: 20px;
-        }
-        #feed_select select {
-            margin-top: 20px;
-        }
-        #feed_select ul li img {
-            max-width:250px;
-            width: 100%;
-        }
-        #feed_button {
-            display: flex;
-            flex-direction: row;
-            width:95%;
-            margin: 0 auto;
-        }
+#reservation h3 {
+	color: black;
+	margin: 30px;
+	font-size: 21px;
+}
 
-        #reser_pickup ul {
-            display: flex;
-            flex-direction: column;
-        }
-        #reser_pickup ul li {
-            display: flex;
-            flex-direction: row;
-            margin: 25px;
-        }
-        #reser_pickup ul li select {
-            margin: 0;
-            height: 30px;
-            width: 300px;
-        }
-        #reser_pickup ul li input {
-            border: 1px solid gray;
-            height: 30px;
-            width: 300px;
-        }
-        #reser_pickup ul li p {
-            align-self: center;
-            width: 100px;
-        }
-    </style>
+#calendar #calendar_table {
+	margin: 0 auto;
+	/*border-radius: 8px;!*모서리 둥글게*!*/
+	color: black;
+}
+
+#calendar table td {
+	vertical-align: middle;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	font-size: 20px;
+	font-family: 'noto-sans';
+	/*border-radius: 8px;!*모서리 둥글게*!*/
+	/*background-color: skyblue;*/
+}
+
+#calendar table tr:nth-child(1) td, #calendar table tr:nth-child(2) td {
+	background-color: #2b91c8;
+	color: white;
+}
+
+/*  방 정보  */
+#reser_room_info #room_select {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	flex-wrap: wrap;
+}
+
+#reser_room_info #room_select ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	/*flex-wrap: wrap;*/
+	margin: 0 auto;
+	padding: 0;
+}
+
+#reser_room_info #room_select li {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+#reser_room_info #room_select li img {
+	width: 100%;
+}
+
+#reser_room_info #room_select li p {
+	margin-top: 10px;
+}
+
+#reser_room_info #room_select li p::after {
+	content: ' *예약 가능*';
+	color: #2ecc71;
+}
+
+#reser_room_info select {
+	width: 95%;
+	height: 50px;
+}
+
+#reser_room_info input {
+	width: 95%;
+	height: 50px;
+	background-color: white;
+	border: none;
+}
+
+#reser_room_info button {
+	width: 95%;
+	height: 50px;
+	color: white;
+	background-color: #2b91c8;
+	box-shadow: none;
+	border: none;
+	margin-bottom: 50px;
+}
+
+/* 모바일 환경 */
+@media all and (max-width:960px) {
+	#reservation .reservation_content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+	#reser_room_info #room_select ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	#reser_room_info #room_select ul li {
+		padding: 20px;
+		width: 40%;
+	}
+	#reser_room_info #room_select ul li img {
+		margin: 0 auto;
+	}
+}
+
+/*  사료 선택  */
+#feed_select {
+	display: flex;
+	flex-direction: column;
+}
+
+#feed_select ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#feed_select ul li {
+	margin: 20px;
+}
+
+#feed_select select {
+	margin-top: 20px;
+}
+
+#feed_select ul li img {
+	max-width: 250px;
+	width: 100%;
+}
+
+#feed_button {
+	display: flex;
+	flex-direction: row;
+	width: 95%;
+	margin: 0 auto;
+}
+
+#reser_pickup ul {
+	display: flex;
+	flex-direction: column;
+}
+
+#reser_pickup ul li {
+	display: flex;
+	flex-direction: row;
+	margin: 25px;
+}
+
+#reser_pickup ul li select {
+	margin: 0;
+	height: 30px;
+	width: 300px;
+}
+
+#reser_pickup ul li input {
+	border: 1px solid gray;
+	height: 30px;
+	width: 300px;
+}
+
+#reser_pickup ul li p {
+	align-self: center;
+	width: 100px;
+}
+</style>
 </head>
 <body>
-<div id="reservation">
-    <h1>예약 페이지</h1>
-    <div class="reservation_content">
-        <div id="calendar">
-            <!--            <h3>예약</h3>-->
-            <table id="calendar_table">
-                <tr><!-- label은 마우스로 클릭을 편하게 해줌 -->
-                    <td onclick="prevCalendar()"><label><</label></td>
-                    <td id="calendar_table_ym" colspan="5">
-                        yyyy년 m월</td>
-                    <td onclick="nextCalendar()"><label>></label></td>
-                </tr>
-                <tr>
-                    <td>일</td>
-                    <td>월</td>
-                    <td>화</td>
-                    <td>수</td>
-                    <td>목</td>
-                    <td>금</td>
-                    <td>토</td>
-                </tr>
-            </table>
-        </div>
-        <div id="reser_room_info">
-            <h3>방 정보</h3>
-            <div id="room_select">
-                <ul>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>1방 정보<br></p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>2방 정보<br></p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>3방 정보<br></p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>4방 정보<br></p></li>
-                </ul>
-                <ul>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>5방 정보<br></p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>6방 정보<br></p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>7방 정보<br></p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>8방 정보<br></p></li>
-                </ul>
-            </div>
-            <span id="reser_input"></span>
-            <label>
-                <select>
-                    <option value="">방을 선택하세요</option>
-                    <option value="1">1방</option>
-                    <option value="2">2방</option>
-                    <option value="3">3방</option>
-                    <option value="4">4방</option>
-                    <option value="5">5방</option>
-                    <option value="6">6방</option>
-                    <option value="7">7방</option>
-                    <option value="8">8방</option>
-                </select>
-            </label>
-            <!--            <select>-->
-            <!--                <option value="">원하시는 시간대를 선택하세요 - 삭제예정</option>-->
-            <!--                <option value="">08:00 ~ 18:00 (10시간)</option>-->
-            <!--                <option value="">08:00 ~ 22:00 (14시간)</option>-->
-            <!--                <option value="">22:00 ~ 08:00 (14시간)</option>-->
-            <!--                <option value="">종일 (24시간)</option>-->
-            <!--            </select>-->
-            <button onclick="roomSelect()">방 선택</button>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
+	<div id="reservation">
+		<h1>예약 페이지</h1>
+		<div class="reservation_content">
+			<div id="calendar">
+				<!--            <h3>예약</h3>-->
+				<table id="calendar_table">
+					<tr>
+						<!-- label은 마우스로 클릭을 편하게 해줌 -->
+						<td onclick="prevCalendar()"><label><</label></td>
+						<td id="calendar_table_ym" colspan="5">yyyy년 m월</td>
+						<td onclick="nextCalendar()"><label>></label></td>
+					</tr>
+					<tr>
+						<td>일</td>
+						<td>월</td>
+						<td>화</td>
+						<td>수</td>
+						<td>목</td>
+						<td>금</td>
+						<td>토</td>
+					</tr>
+				</table>
+			</div>
+			<div id="reser_room_info">
+				<h3>방 정보</h3>
+				<div id="room_select">
+					<ul>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								1방 정보<br>
+							</p></li>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								2방 정보<br>
+							</p></li>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								3방 정보<br>
+							</p></li>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								4방 정보<br>
+							</p></li>
+					</ul>
+					<ul>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								5방 정보<br>
+							</p></li>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								6방 정보<br>
+							</p></li>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								7방 정보<br>
+							</p></li>
+						<li><img src="resources/img/main_image.jpg" alt="">
+						<p>
+								8방 정보<br>
+							</p></li>
+					</ul>
+				</div>
+				<span id="reser_input"></span> <label> <select>
+						<option value="">방을 선택하세요</option>
+						<option value="1">1방</option>
+						<option value="2">2방</option>
+						<option value="3">3방</option>
+						<option value="4">4방</option>
+						<option value="5">5방</option>
+						<option value="6">6방</option>
+						<option value="7">7방</option>
+						<option value="8">8방</option>
+				</select>
+				</label>
+				<!--            <select>-->
+				<!--                <option value="">원하시는 시간대를 선택하세요 - 삭제예정</option>-->
+				<!--                <option value="">08:00 ~ 18:00 (10시간)</option>-->
+				<!--                <option value="">08:00 ~ 22:00 (14시간)</option>-->
+				<!--                <option value="">22:00 ~ 08:00 (14시간)</option>-->
+				<!--                <option value="">종일 (24시간)</option>-->
+				<!--            </select>-->
+				<button onclick="roomSelect()">방 선택</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
     let today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
     let date = new Date();//today의 Date를 세어주는 역할
     function prevCalendar() {//이전 달
