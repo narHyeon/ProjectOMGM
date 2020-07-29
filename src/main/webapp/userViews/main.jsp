@@ -3,6 +3,91 @@
 <head>
 <link rel="stylesheet" type="text/css"
 	href="resources/style/mainService.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/style/content.css">
+	<link type="text/css" rel="stylesheet" href="resources/style/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+	<script src="resources/js/materialize.js"></script>
+	<script type="text/javascript">
+	
+	
+$(document).ready(function(){
+	$('.slider').slider();
+    $('.box1-1').hover(function () {
+               $('#space').html($('.article_tle').html());
+               $('.article_tle').html($('.hide1-1').html());
+            }
+            ,
+            function () {
+               $('.article_tle').html($('#space').html());
+               $('.slider').slider({interval: 2000});
+            });
+    
+    $('.box1-2').hover(function () {
+               $('#space').html($('.article_tle').html());
+               $('.article_tle').html($('.hide1-2').html());
+            }
+            ,
+            function () {
+               $('.article_tle').html($('#space').html());
+               $('.slider').slider({interval: 2000});
+            });
+    
+    $('.box1-3').hover(
+            function () {
+               $('#space').html($('.article_tle').html());
+               $('.article_tle').html($('.hide1-3').html());
+            }
+            ,
+            function () {
+               $('.article_tle').html($('#space').html());
+               $('.slider').slider({interval: 2000});
+            });
+    
+    $('.box2-1').hover(function () {
+               $('#space').html($('.article_tle').html());
+               $('.article_tle').html($('.hide2-1').html());
+            }
+            ,
+            function () {
+               $('.article_tle').html($('#space').html());
+               $('.slider').slider({interval: 2000});
+               });
+    
+    $('.box2-2').hover(function () {
+               $('#space').html($('.article_tle').html());
+               $('.article_tle').html($('.hide2-2').html());
+            }
+            ,
+            function () {
+               $('.article_tle').html($('#space').html());
+               $('.slider').slider({interval: 2000 });
+               });
+    
+    $('.box2-3').hover(function () {
+               $('#space').html($('.article_tle').html());
+               $('.article_tle').html($('.hide2-3').html());
+            }
+            ,
+            function () {
+               $('.article_tle').html($('#space').html());
+               $('.slider').slider({interval: 2000});
+               });
+  });
+  
+document.addEventListener('DOMContentLoaded', function() {
+    M.AutoInit();
+    var options = {
+        indicators: false  };
+    var elem = document.querySelector('.carousel');
+    var instance = M.Carousel.init(elem, options);
+     });
+
+
+
+
+</script>
 </head>
 <body>
 	<div class="container">
@@ -13,9 +98,178 @@
 		</div>
 	</div>
 	<%-- 방이랑 고양이 사진 --%>
-
-
-
+<div id="motherwrap">
+<div id="space" hidden=""></div> <!-- 가상공간의 div -->
+    <div id="wrap">
+        <section id="content1">
+            <nav class="nav">
+            <div class="boxbundle">
+            <div class="boxtle">
+            <a href="#">
+               <div class="box1-1"></div>                      
+   		       <div class="hide1-1" hidden="">   
+               <img id="img_hide1-1">
+               <div class="hide_title"><h5 align="center">Sliver Room</h5></div>
+               <div class="hide_content"><h4 align="center">방 내용</h4></div>          
+               </div> <!-- hide1-1 -->            
+            </a>
+            <a href="#">  
+                <div class="box1-2"></div>
+                <div class="hide1-2" hidden="">	      
+         		<img id="img_hide1-2">
+          		<div class="hide_title"><h5 align="center">Platinum Room</h5></div>
+         		<div class="hide_content"><h4 align="center">방 내용</h4></div>         
+                </div> <!-- hide1-2 -->  
+                </a>
+               <a href="#">
+               <div class="box1-3"></div>
+               <div class="hide1-3" hidden=""> 		      
+       		   <img id="img_hide1-3">
+               <div class="hide_title"><h5 align="center">Share Room</h5></div>
+         	   <div class="hide_content"><h4 align="center">방 내용</h4></div>                  
+       	       </div> <!-- hide1-3 -->     
+               </a>
+               
+         </div> <!-- boxbundle --> 
+                        
+               <div class="boxtle1">
+               <a href="#"> <div class="box2-1"></div>
+               <div class="hide2-1" hidden="">   		      
+               <img id="img_hide2-1">
+               <div class="hide_title"><h5 align="center">Silver Room</h5></div>
+               <div class="hide_content"><h4 align="center">방 내용</h4></div>         
+               </div>              
+               </a>
+           
+               <a href="#"><div class="box2-2"></div>
+               <div class="hide2-2" hidden="">   		    
+          	   <img id="img_hide2-2">
+       		   <div class="hide_title"><h5 align="center">힝 속았지?</h5> </div>  
+         	   <div class="hide_content"><h4 align="center">방 내용</h4></div>         
+          	   </div>     
+          	   </a>
+          	   
+               <a href="#"><div class="box2-3"></div>
+               <div class="hide2-3" hidden="">   		  
+         	   <img id="img_hide2-3">
+	       	   <div class="hide_title"><h5 align="center">Share Room</h5></div>    
+	           <div class="hide_content"><h4 align="center">방 내용</h4></div>         
+              </div>      
+              </a>
+              
+            </div>
+            
+            </div>
+            </nav>
+            <article class="article_tle">
+            
+            <article class="article_right1">
+               <div class="slider">
+                  <ul class="slides">
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/cat1.jpg" ></a>
+                        <div class="caption right-align">
+                         <h3>Right</h3>
+                         <h5 class="light grey-text text-lighten-3">Cat1</h5>
+                          </div>
+                     </li>
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/" ></a>
+                        <div class="caption left-align">
+                           <h3>Left</h3>
+                        <h5 class="light grey-text text-lighten-3">Cat2</h5>
+                      </div>
+                     </li>
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/cat3.png" ></a>
+                        <div class="caption right-align">
+                            <h3>Right</h3>
+                            <h5 class="light grey-text text-lighten-3">Cat3</h5>
+                       </div>
+                     </li>
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/ "></a>
+                        <div class="caption left-align">
+                           <h3>Left</h3>
+                        <h5 class="light grey-text text-lighten-3">Cat4</h5>
+                      </div>
+                     </li>
+                  </ul>
+               </div>
+            </article> <!-- article_right1 -->
+            
+            <article class="article_right2">
+            <div class="slider">
+                  <ul class="slides">
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/cat14.png" ></a>
+                     </li>
+                     <li>
+                       <a href="#"> <img id="img_height" src="resources/img/images/cat12.jpg" ></a>
+                     </li>
+                     <li>
+                       <a href="#"> <img id="img_height" src="resources/img/images/cat13.jpg" ></a>
+                     </li>
+                     <li>
+                       <a href="#"> <img id="img_height" src="resources/img/images/cat9.jpg" ></a>
+                     </li>
+                  </ul>
+               </div>
+            
+            </article> <!-- article_right2 -->
+            <article class="article_right3">
+            <div class="slider">
+                  <ul class="slides">
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/cat15.jpg" ></a>
+                     </li>
+                     <li>
+                       <a href="#"> <img id="img_height" src="resources/img/images/cat16.jpg" ></a>
+                     </li>
+                     <li>
+                       <a href="#"> <img id="img_height" src="resources/img/images/cat10.jpg" ></a>
+                     </li>
+                     <li>
+                       <a href="#"> <img id="img_height" src="resources/img/images/cat9.jpg" ></a>
+                     </li>
+                  </ul>
+               </div>
+            
+            </article> <!-- article_right3 -->
+            <article class="article_right4">
+               <div class="slider">
+                  <ul class="slides">
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/dog2.webp" ></a>
+                     </li>
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/dog1.webp" ></a>
+                     </li>
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/dog3.webp" ></a>
+                     </li>
+                     <li>
+                        <a href="#"><img id="img_height" src="resources/img/images/dog.jpg" ></a>
+                     </li>
+                  </ul>
+               </div>
+            </article> <!-- article_right4 -->
+            
+            </article>
+        </section>
+        <section id="content2">
+        
+        <div class="carousel">
+    <a class="carousel-item " href="#one!"><img src="resources/img/images/cattoy1.png" ></a>
+    <a class="carousel-item" href="#two!"><img src="resources/img/images/catfeed1.jpg"  ></a>
+    <a class="carousel-item" href="#three!"><img src="resources/img/images/dogfeed1.jpg"></a>
+    <a class="carousel-item" href="#four!"><img src="resources/img/images/catfeed2.jpg" ></a>
+    <a class="carousel-item" href="#six!"><img src="resources/img/images/dogtoy1.jpg"></a>
+    <a class="carousel-item" href="#seven!"><img src="resources/img/images/dogtoy2.jpg"></a>
+  </div>        
+  </section>
+  </div>
+  </div>
 	<%--  메인 서비스 페이지  --%>
 	<div id="head-text">
 		<H1>BEST SERVICE FOR MY PET</H1>
