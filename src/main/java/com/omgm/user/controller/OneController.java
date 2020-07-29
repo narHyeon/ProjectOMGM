@@ -59,8 +59,6 @@ public class OneController {
         ModelAndView mav = new ModelAndView();
 
         mav.addObject("board",boardService.getBoard(vo));
-        mav.setViewName("/review/reviewList_board");
-
         mav.setViewName("/review/reviewListBoard");
 
         return mav;
