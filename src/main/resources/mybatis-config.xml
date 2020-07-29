@@ -4,10 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="myboard" type="com.omgm.board.BoardVO"/>
+		<typeAlias alias="myboard" type="com.omgm.user.board.BoardVO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/board-mapping.xml"/>
 	</mappers>
 </configuration>
- 
