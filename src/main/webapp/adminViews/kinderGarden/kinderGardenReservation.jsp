@@ -2,6 +2,20 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        #kinderGarden_reservation_table input {
+            width: 100%;
+            border: none;
+        }
+        .admin_kindergarden_schedule_button {
+            display: flex;
+            flex-direction: row;
+        }
+        .admin_kindergarden_schedule_button a {
+            margin: 5px;
+            width:50%;
+        }
+    </style>
 </head>
 <body>
 <!-- DataTales Example -->
@@ -11,49 +25,50 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="kinderGarden_reservation_table" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>ID</th>
+                    <th>이름</th>
+                    <th>고양이</th>
+                    <th>과정</th>
+                    <th>수료 여부</th>
+                    <th>날짜</th>
                 </tr>
                 </thead>
-                <tfoot>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                </tr>
-                </tfoot>
                 <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                </tr>
-
+                    <tr>
+                        <th><input type="text" value="litos"></th>
+                        <th><input type="text" value="금라니"></th>
+                        <th><input type="text" value="먼치킨"></th>
+                        <th><input type="text" value="배변교육"></th>
+                        <th><input type="text" value="수료"></th>
+                        <th><input type="text" value="2020.07.25(목)"></th>
+                    </tr>
+                    <tr>
+                        <th><input type="text" value="litos"></th>
+                        <th><input type="text" value="금라니"></th>
+                        <th><input type="text" value="먼치킨"></th>
+                        <th><input type="text" value="배변교육"></th>
+                        <th><input type="text" value="수료"></th>
+                        <th><input type="text" value="2020.07.25(목)"></th>
+                    </tr>
+                    <tr>
+                        <th><input type="text" value="litos"></th>
+                        <th><input type="text" value="금라니"></th>
+                        <th><input type="text" value="먼치킨"></th>
+                        <th><input type="text" value="배변교육"></th>
+                        <th><input type="text" value="수료"></th>
+                        <th><input type="text" value="2020.07.25(목)"></th>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
+<div class="admin_kindergarden_schedule_button">
+    <a href="login.html" class="btn btn-primary btn-user ">초기화</a>
+    <a href="login.html" class="btn btn-success btn-user ">적용</a>
 </div>
 </body>
 </html>

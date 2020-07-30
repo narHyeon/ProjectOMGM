@@ -34,13 +34,9 @@ public class OneController {
     @RequestMapping(value="/kinderGarden.do")
     public ModelAndView kinderGarden(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("kinderGardenSchedule");
+        mav.setViewName("/kinderGarden");
         return mav;
     }
-
-
-
-
 
     // 픽업서비스 소개 페이지 이동
     @RequestMapping(value="/pickupService_info.do")

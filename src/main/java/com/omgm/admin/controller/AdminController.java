@@ -16,30 +16,6 @@ public class AdminController {
         return mav;
     }
 
-    // 관리자 유치원 시간표
-    @RequestMapping("/kinderGardenSchedule.mdo")
-    public ModelAndView kinderGardenSchedule(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kinderGarden/kinderGardenSchedule");
-        return mav;
-    }
-
-    // 관리자 유치원 달력
-    @RequestMapping("/kinderGardenScheduleMonth.mdo")
-    public ModelAndView kinderGardenScheduleMonth(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kinderGarden/kinderGardenScheduleMonth");
-        return mav;
-    }
-
-    // 관리자 유치원 예약 현황
-    @RequestMapping("/kinderGardenReservation.mdo")
-    public ModelAndView kinderGardenReservation(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kinderGarden/kinderGardenReservation");
-        return mav;
-    }
-
     // 관리자 배송 현황 페이지
     @RequestMapping("/deliveryStatus.mdo")
     public ModelAndView deliveryStatus(BoardVO vo) {
