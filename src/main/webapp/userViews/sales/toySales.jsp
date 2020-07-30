@@ -11,9 +11,9 @@
     <title>Title</title>
     <title>toy-sales</title>
     <link type="text/css" rel="stylesheet" href="resources/style/reset.css">
-    <link type="text/css" rel="stylesheet" href="resources/style/sales/toy-sales.css">
+    <link type="text/css" rel="stylesheet" href="resources/style/sales/toySales.css">
     <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js" defer></script> -->
-    <script type="text/javascript" src="resources/js/sales/toy-sales.js" defer></script>
+    <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
 </head>
 <body>
 <div id="toy-sales-div">
