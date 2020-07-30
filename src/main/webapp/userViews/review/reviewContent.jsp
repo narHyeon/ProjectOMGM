@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -145,7 +146,16 @@
 
 		<%--  댓글  --%>
 		<h3 id="review_content_reply_content_title">댓글</h3>
-		<div id="review_content_reply_content"></div>
+		<div id="review_content_reply_content">
+
+			<c:forEach var="rv" items="${reply}">
+				${rv.id},${rv.content}
+				<div>
+					<p>${rv.id} : </p>
+					<p>${rv.content}</p>
+				</div>
+			</c:forEach>
+		</div>
 
 		<%--  댓글 달기  --%>
 		<div class="review_content_reply">

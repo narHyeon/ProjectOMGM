@@ -26,4 +26,9 @@ public class ReviewDAO {
         System.out.println("---> MyBatis로 addReviewReply() 기능 처리");
         sqlSessionTemplate.selectOne("ReviewDAO.addReviewReply", rvo);
     }
+
+    public List<ReviewReplyVO> getReviewReply(ReviewReplyVO rvo) {
+        System.out.println("---> MyBatis로 getReviewReply() 기능 처리");
+        return sqlSessionTemplate.selectList("ReviewDAO.getReviewReply", rvo);
+    }
 }

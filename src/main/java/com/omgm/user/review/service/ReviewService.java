@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ReviewService {
     ReviewVO getReview(ReviewVO vo);
+    List<ReviewReplyVO> getReviewReply(ReviewReplyVO rvo);
     void addReview(ReviewReplyVO rvo);
     List<ReviewVO> getReviewList(ReviewVO vo);
 }

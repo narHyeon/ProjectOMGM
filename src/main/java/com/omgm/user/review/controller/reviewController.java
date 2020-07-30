@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class reviewController {
 
@@ -35,11 +37,17 @@ public class reviewController {
 
     // 이용후기 본문 페이지 이동
     @RequestMapping(value="/reviewContent.do")
-    public ModelAndView reviewContent(ReviewVO vo) {
+    public ModelAndView reviewContent(ReviewVO vo, ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/review/reviewContent");
         vo.setSeq(6);
+        List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
+        System.out.println("리뷰 받고 테스트");
+        for(ReviewReplyVO r : list) {
+            System.out.println("찍자 : "+r.getId());
+        }
         mav.addObject("review",reviewService.getReview(vo));
+        mav.addObject("reply",reviewService.getReviewReply(rvo));
         return mav;
     }
 
@@ -48,8 +56,6 @@ public class reviewController {
     @RequestMapping(value = "/reviewContentReply.do")
     public ModelAndView map(@RequestBody ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
-
-        System.out.println();
 
         // DB INSERT Reply 작업
         reviewService.addReview(rvo); // 댓글 데이터베이스 넣기

@@ -15,6 +15,15 @@
         <result property="imgRef" column="IMGREF"/>
     </resultMap>
 
+    <resultMap type="ReviewReplyVO" id="reply">
+        <id property="seq" column="SEQ" />
+        <result property="boardSeq" column="BOARDSEQ"/>
+        <result property="id" column="ID"/>
+        <result property="pwd" column="PWD"/>
+        <result property="content" column="CONTENT" />
+        <result property="regDate" column="REGDATE"/>
+    </resultMap>
+
     <insert id="insertBoard" parameterType="ReviewVO">
         INSERT INTO reviewBoard (seq, title, writer, content)
         VALUES((select nvl(max(seq), 0)+1 from ReviewVO), #{title}, #{writer}, #{content})
@@ -30,8 +39,11 @@
     <!-- 실 사용 -->
     <insert id="addReviewReply" parameterType="ReviewReplyVO">
         INSERT INTO reviewReply (seq, boardSeq, id, pwd, content)
-        VALUES review_seq.nextval, #{boardSeq}, #{id}, #{pwd}, #{content})
+        VALUES (review_reply_seq.nextval, #{boardSeq}, #{id}, #{pwd}, #{content})
     </insert>
+    <select id="getReviewReply" resultMap="reply">
+        SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq}
+    </select>
     <select id="getReview" resultType="ReviewVO">
         SELECT * FROM reviewBoard WHERE seq=#{seq}
     </select>

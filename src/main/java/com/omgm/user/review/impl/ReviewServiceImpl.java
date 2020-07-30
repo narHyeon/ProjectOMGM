@@ -21,6 +21,11 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
+    public List<ReviewReplyVO> getReviewReply(ReviewReplyVO rvo) {
+        return reviewDAO.getReviewReply(rvo);
+    }
+
+    @Override
     public void addReview(ReviewReplyVO rvo) {
         reviewDAO.addReviewReply(rvo);
     }
