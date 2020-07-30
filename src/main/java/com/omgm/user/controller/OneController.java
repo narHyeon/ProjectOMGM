@@ -78,4 +78,27 @@ public class OneController {
         return mav;
     }
 
+    //오시는길 이용안내 페이지 이동
+    @RequestMapping(value="/introductionPage.do")
+    public ModelAndView introductionPage(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/introductionPage/introductionPage");
+        return mav;
+    }
+
+    //상품 판매 페이지 이동
+    @RequestMapping(value="/toySales.do")
+    public ModelAndView toySales(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/toySales");
+        return mav;
+    }
+
+    //룸 소개 페이지 이동
+    @RequestMapping(value="/roomIntroduction.do")
+    public ModelAndView roomIntroduction(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/roomIntroduction/roomIntroduction");
+        return mav;
+    }
 }
