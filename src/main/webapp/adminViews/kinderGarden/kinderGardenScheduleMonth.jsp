@@ -3,6 +3,9 @@
 <head>
     <title>Title</title>
     <style>
+        .card-body {
+            font-size: 150%;
+        }
         .admin_kindergarden_schedule_button {
             display: flex;
             flex-direction: row;
@@ -11,56 +14,149 @@
             margin: 5px;
             width:50%;
         }
-        .admin_kindergarden_schedule_button input {
-            margin: 5px;
-        }
-        .admin_kindergarden_schedule_input {
+        .admin_kindergarden_schedule_month {
             display: flex;
-            flex-direction: row;
-        }
-        .admin_kindergarden_schedule_input li {
-            display: flex;
-            flex-direction: row;
-            margin:10px;
-            text-align: center;
-        }
-        .admin_kindergarden_schedule_input li label {
-            margin: 0 10px;
-            width: 100px;
-            align-self: center;
+            flex-direction: column;
         }
 
-        .admin_kindergarden_schedule_program {
-            width: 750px;
+        .admin_kindergarden_schedule_month tr {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+            margin: 10px auto;
         }
-        .card-body {
-            font-size: 150%;
+        .education_schedule_month_subTitle th, .education_schedule_month_subTitle td {
+            width: 100px;
+        }
+        .education_schedule_month_subTitle td input {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div class="card mb-4 py-3 border-bottom-primary">
-        <div class="card-body">
-           유치원 시간표 관리
-        </div>
+<div class="card mb-4 py-3 border-bottom-primary">
+    <div class="card-body">
+        유치원 달력 관리
     </div>
-    <div>
-        <div class="form-group">
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time1">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time1" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time2">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time2" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-        </div>
-        <div class="admin_kindergarden_schedule_button">
-            <a href="login.html" class="btn btn-primary btn-user ">초기화</a>
-            <a href="login.html" class="btn btn-success btn-user ">적용</a>
-        </div>
+</div>
+<div>
+    <div class="form-group">
+        <table class="admin_kindergarden_schedule_month">
+            <thead class="education_schedule_title_month">
+                <tr>
+                    <th>요일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                </tr>
+            </thead>
+            <tbody class="education_schedule_month_tbody">
+                <tr class="education_schedule_month_subTitle">
+                    <td>구분</td>
+                    <td></td>
+                    <td></td>
+                    <td>1주차</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오전수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오후수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>구분</td>
+                    <td></td>
+                    <td></td>
+                    <td>2주차</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오전수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오후수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>구분</td>
+                    <td></td>
+                    <td></td>
+                    <td>3주차</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오전수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오후수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>구분</td>
+                    <td></td>
+                    <td></td>
+                    <td>4주차</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오전수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+                <tr class="education_schedule_month_subTitle">
+                    <td>오후수업</td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <div class="admin_kindergarden_schedule_button">
+        <a href="login.html" class="btn btn-primary btn-user ">초기화</a>
+        <a href="login.html" class="btn btn-success btn-user ">적용</a>
+    </div>
+</div>
 </body>
 </html>
