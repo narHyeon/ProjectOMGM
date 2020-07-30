@@ -17,7 +17,6 @@
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
-
 #wrap {
 	margin-left: 5%;
 	display: flex;
@@ -25,20 +24,17 @@
 	width: 60%;
 	flex-direction: row;
 }
-
 .bar {
 	display: flex;
 	height: 60px;
 	width: 100%;
 	margin-bottom: 1%;
 }
-
 #tle {
 	display: flex;
 	flex-direction: column;
 	margin-left: 13%;
 }
-
 #banner {
 	display: flex;
 	border: 2px solid #FFABB9;
@@ -47,32 +43,27 @@
 	flex-direction: column;
 	margin-left: 8%;
 }
-
 #banner-ul {
 	margin-left: 20px;
 	padding: 0px;
 }
-
 #banner-li {
 	list-style-type: none;
 	margin-bottom: 7%;
 	font-size: 15px;
 	margin-top: 12%;
 }
-
 .bar-content {
 	background-color: white;
 	margin-left: 5%;
 	width: 70%;
 	height: 50%;
 }
-
 #inputstyle {
 	border: 1px solid #FFABB9;
 	border-radius: 3%;
 	padding: 0.5%;
 }
-
 #inputstylephone {
 	border: 1px solid #FFABB9;
 	border-radius: 3%;
@@ -81,7 +72,6 @@
 	margin-left: 1%;
 	width: 15%;
 }
-
 #inputstylemail {
 	border: 1px solid #FFABB9;
 	border-radius: 3%;
@@ -90,7 +80,6 @@
 	margin-left: 1%;
 	width: 60%;
 }
-
 #textareastyle {
 	border: 1px solid #FFABB9;
 	padding: 0.5%;
@@ -99,7 +88,6 @@
 	width: 100%;
 	height: 100%;
 }
-
 .bar-title {
 	width: 17%;
 	font-size: 100%;
@@ -188,16 +176,9 @@
 		}
 	}
 }
-<!--
-480
-
- 
-
--->
 </style>
 <script type="text/javascript">
 	function goList() {
-
 		window.location.href('myPage.do');
 	}
 </script>

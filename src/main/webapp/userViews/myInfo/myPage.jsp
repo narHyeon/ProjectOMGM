@@ -7,18 +7,17 @@
 <title>My PAGE</title>
 </head>
 <style>
-#title {
+#head {
 	min-width: 60%;
 	margin-right: 15%;
-	margin-top: 5%;
+	margin-top: 3%;
 	margin-left: 28%;
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
-
-#wrap {
+#body {
 	margin-left: 5%;
 	display: flex;
 	height: 700px;
@@ -32,21 +31,12 @@
 	width: 100%;
 }
 
-#tle {
+#content {
 	display: flex;
 	flex-direction: column;
 	margin-left: 8%;
 	width: 100%;
 	height: 50%;
-}
-
-#banner {
-	display: flex;
-	border: 2px solid #FFABB9;
-	height: 50%;
-	min-width: 200px;
-	flex-direction: column;
-	margin-left: 8%;
 }
 
 #buttons {
@@ -116,6 +106,33 @@
 	height: 100%;
 }
 
+#banner {
+	display: flex;
+	width: 15%;
+	height: 50%;
+	flex-direction: column;
+	margin-left: 7%;
+	border-radius: 10px;
+}
+
+#fieldsetstyle {
+	margin-top: 5%;
+	display: block;
+	border: 1px solid #FFABB9;
+	border-radius: 10px;
+	background-color: #FFABB9;
+	color: white;
+	padding: 15px;
+}
+
+.alink:link {
+	color: white;
+}
+
+.alink:visited {
+	color: white;
+}
+
 @media ( max-width : 768px) {
 	* {
 		margin: 0;
@@ -127,7 +144,7 @@
 	#banner {
 		display: none;
 	}
-	#tle {
+	#content {
 		font-size: 13px;
 		margin-left: 25%;
 		margin-top: 7%;
@@ -165,7 +182,7 @@
 		#banner {
 			display: none;
 		}
-		#tle {
+		#content {
 			font-size: 11px;
 			margin-left: 20%;
 			margin-top: 8%;
@@ -199,14 +216,6 @@
 		}
 	}
 }
-<!--
-480
-
-
- 
-
-
--->
 </style>
 <script type="text/javascript">
 	function goUpdate() {
@@ -214,57 +223,70 @@
 	}
 </script>
 <body>
-	<h1 id="title">MY PAGE</h1>
 	<div id="wrap">
-		<div id="banner">
-			<ul id="banner-ul">
-				<li id="banner-li"><a href="myPage.do">내 정보</a></li>
-				<li id="banner-li"><a href="#">내 고양이 정보</a></li>
-				<li id="banner-li"><a href="myServiceList.do">서비스</a></li>
-				<li id="banner-li"><a href="myBuyListLog.do">구매내역</a></li>
-				<li id="banner-li"><a href="myCatCareLog.do">반려묘 일지</a></li>
-				<li id="banner-li"><a href="#">내가 작성한 후기</a></li>
-			</ul>
+		<div id="head">
+			<h1>MY PAGE</h1>
 		</div>
-		<div id="tle">
-			<div class="bar">
-				<div class="bar-title">아이디</div>
-				<div class="bar-content">lsmonkey</div>
+		<div id="body">
+			<div id="banner">
+				<fieldset id="fieldsetstyle">
+					<a href="myPage.do" class="alink">내 정보</a>
+				</fieldset>
+				<fieldset id="fieldsetstyle">
+					<a href="#" class="alink">내 고양이 정보</a>
+				</fieldset>
+				<fieldset id="fieldsetstyle">
+					<a href="myServiceList.do" class="alink">서비스</a>
+				</fieldset>
+				<fieldset id="fieldsetstyle">
+					<a href="myBuyListLog.do" class="alink">구매내역</a>
+				</fieldset>
+				<fieldset id="fieldsetstyle">
+					<a href="#" class="alink">반려묘 일지</a>
+				</fieldset>
+				<fieldset id="fieldsetstyle">
+					<a href="#" class="alink">내가 작성한 후기</a>
+				</fieldset>
 			</div>
-			<div class="bar">
-				<div class="bar-title">비밀번호</div>
-				<div class="bar-content">1234</div>
-			</div>
-			<div class="bar">
-				<div class="bar-title">이름</div>
-				<div class="bar-content">이승민</div>
-			</div>
-			<div class="bar">
-				<div class="bar-title">닉네임</div>
-				<div class="bar-content">닉네임</div>
-			</div>
-			<div class="bar">
-				<div class="bar-title">휴대전화</div>
-				<div class="bar-content">010- 7193- 9554</div>
-			</div>
-			<div class="bar">
-				<div class="bar-title">이메일</div>
-				<div class="bar-content">lsmonkey@naver.com</div>
-			</div>
-			<div class="bar">
-				<div class="bar-title">주소</div>
-				<div class="bar-content">대한민국</div>
-			</div>
-			<div class="bar">
-				<div class="bar-title">상세주소</div>
-				<div class="bar-content">서울</div>
-			</div>
-			<div id="buttons" align="right">
-				<input type="button" value="내 정보 수정" onclick="goUpdate()"> <input
-					type="button" value="회원 탈퇴" onclick="">
+			<div id="content">
+				<div class="bar">
+					<div class="bar-title">아이디</div>
+					<div class="bar-content">lsmonkey</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">비밀번호</div>
+					<div class="bar-content">1234</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">이름</div>
+					<div class="bar-content">이승민</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">닉네임</div>
+					<div class="bar-content">닉네임</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">휴대전화</div>
+					<div class="bar-content">010- 7193- 9554</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">이메일</div>
+					<div class="bar-content">lsmonkey@naver.com</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">주소</div>
+					<div class="bar-content">대한민국</div>
+				</div>
+				<div class="bar">
+					<div class="bar-title">상세주소</div>
+					<div class="bar-content">서울</div>
+				</div>
+				<div id="buttons" align="right">
+					<input type="button" value="내 정보 수정" onclick="goUpdate()">
+					<input type="button" value="회원 탈퇴" onclick="">
+				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

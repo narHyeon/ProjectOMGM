@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>FLAT DESIGN - 문의사항</title>
+<title></title>
 <link rel="stylesheet" type="text/css"
 	href="resources/style/faq/faq.css">
 <link rel="stylesheet" type="text/css"
@@ -36,11 +36,9 @@
 	flex-grow: 20%;
 	margin-bottom: 1%;
 }
-
 #sub0 {
 	background: #F28888;
 }
-
 ahover {
 	position: relative;
 	float: left;
@@ -49,12 +47,10 @@ ahover {
 	z-index: 999;
 	background: #ccc;
 }
-
 ahover:hover {
 	background: #444;
 	color: #fff;
 }
-
 .line {
 	display: flex;
 	flex-direction: column;
@@ -62,14 +58,12 @@ ahover:hover {
 	height: 20px;
 	margin-bottom: 0.5%;
 }
-
 .ul-1 {
 	width: 100%;
 	border-top: 1px solid #e2e2e2;
 	border-bottom: 1px solid #e2e2e2;
 	border-right: 1px solid #e2e2e2;
 }
-
 #liststyle {
 	list-style-type: none;
 	float: left;
@@ -81,7 +75,6 @@ ahover:hover {
 	padding-left: 2%;
 	padding-right: 2%;
 }
-
 .main:hover {
 	cursor: pointer;
 }

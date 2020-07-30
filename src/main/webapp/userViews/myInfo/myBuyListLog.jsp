@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>FLAT DESIGN - 문의사항</title>
+<title></title>
 <link rel="stylesheet" type="text/css" href="resources/style/faq.css">
 <link rel="stylesheet" type="text/css" href="resources/style/faq2.css">
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
