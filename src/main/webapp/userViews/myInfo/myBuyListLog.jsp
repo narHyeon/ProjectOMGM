@@ -8,8 +8,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>FLAT DESIGN - 문의사항</title>
-<link rel="stylesheet" type="text/css" href="resources/style/faq.css">
-<link rel="stylesheet" type="text/css" href="resources/style/faq2.css">
+<link rel="stylesheet" type="text/css" href="resources/style/faq/faq.css">
+<link rel="stylesheet" type="text/css" href="resources/style/faq/faq2.css">
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="images/icon/flat-design-touch.png">
@@ -84,13 +84,6 @@ ahover:hover {
 	padding: 0;
 }
 
-#t2 {
-	width: 450px;
-}
-
-#t3 {
-	width: 150px;
-}
 
 #td_example {
 	
@@ -98,7 +91,7 @@ ahover:hover {
 
 #tabletle {
 	display: flex;
-	width: 600px;
+	width: 1000px;
 	height: 90px;
 }
 
@@ -136,10 +129,13 @@ ahover:hover {
 #ptag-1 {
 	padding: 0;
 }
+
+#banner {background:black; height:50px; width:50px;}
 </style>
 </head>
 <body>
 	<div id="wrap">
+		<div id="banner"></div>
 		<section class="content_section">
 			<div class="content_row_1">
 				<div id="FAQ_Search">
@@ -150,7 +146,7 @@ ahover:hover {
 				<table class="board_table">
 					<thead id="thead1">
 						<tr>
-							<th>주문번호</th>
+							<th id="t1">주문번호</th>
 							<th id="t2">상품정보</th>
 							<th id="t3">주문 일자</th>
 							<th id="t4">주문금액(수량)</th>
