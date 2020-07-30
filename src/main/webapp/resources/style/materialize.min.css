@@ -8392,7 +8392,7 @@ input[type=range]::-ms-thumb {
 .carousel {
 	overflow: hidden;
 	position: relative;
-	width: 100%;
+	width: 1240px;
 	height: 100%;
 	-webkit-perspective: 500px;
 	perspective: 500px;

@@ -11,7 +11,7 @@
 	min-width: 60%;
 	margin-right: 15%;
 	margin-top: 5%;
-	margin-left: 28%;
+	margin-left: 22%;
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding-bottom: 1%;
@@ -46,7 +46,7 @@
 	height: 50%;
 	min-width: 200px;
 	flex-direction: column;
-	margin-left: 8%;
+	margin-left: 3%;
 }
 
 #buttons {
