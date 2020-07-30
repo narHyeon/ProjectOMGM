@@ -1,7 +1,6 @@
 package com.omgm.user.review.service;
 
-import com.omgm.user.review.bean.ReviewVO;
-import org.springframework.stereotype.Service;
+import com.omgm.user.review.beans.ReviewVO;
 
 import java.util.List;
 

@@ -32,7 +32,15 @@ public class AdminController {
         return mav;
     }
 
-    // 관리자 배송 현왕 페이지
+    // 관리자 유치원 예약 현황
+    @RequestMapping("/kinderGardenReservation.mdo")
+    public ModelAndView kinderGardenReservation(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/kinderGarden/kinderGardenReservation");
+        return mav;
+    }
+
+    // 관리자 배송 현황 페이지
     @RequestMapping("/deliveryStatus.mdo")
     public ModelAndView deliveryStatus(BoardVO vo) {
         ModelAndView mav = new ModelAndView();

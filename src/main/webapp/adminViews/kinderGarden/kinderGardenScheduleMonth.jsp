@@ -18,7 +18,6 @@
             display: flex;
             flex-direction: column;
         }
-
         .admin_kindergarden_schedule_month tr {
             display: flex;
             flex-direction: row;
