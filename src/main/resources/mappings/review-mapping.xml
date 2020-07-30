@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReviewDAO">
+
+    <resultMap type="ReviewVO" id="boardResult">
+        <id property="seq" column="SEQ" />
+        <result property="id" column="ID"/>
+        <result property="pwd" column="PWD"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT" />
+        <result property="regDate" column="REGDATE"/>
+        <result property="cnt" column="CNT"/>
+        <result property="imgRef" column="IMGREF"/>
+    </resultMap>
+
+    <insert id="insertBoard" parameterType="ReviewVO">
+        INSERT INTO reviewBoard (seq, title, writer, content)
+        VALUES((select nvl(max(seq), 0)+1 from ReviewVO), #{title}, #{writer}, #{content})
+    </insert>
+    <update id="updateBoard" parameterType="ReviewVO">
+        UPDATE reviewBoard
+        SET title=#{title}, content=#{content} WHERE seq = #{seq}
+    </update>
+    <delete id="deleteBoard" parameterType="ReviewVO">
+        DELETE FROM reviewBoard WHERE seq = #{seq}
+    </delete>
+    <select id="getBoard" resultType="ReviewVO">
+        SELECT * FROM reviewBoard WHERE seq=#{seq}
+    </select>
+    <select id="getReviewList" resultMap="boardResult">
+        SELECT * FROM reviewBoard
+
+    </select>
+</mapper>

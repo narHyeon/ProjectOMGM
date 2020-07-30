@@ -5,33 +5,35 @@
   Time: 오후 2:26
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Summernote</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="resources/style/reset.css">
+    <link rel="stylesheet" href="resources/style/reviewWrite.css">
 </head>
 <body>
-<h2 style="text-align: center; padding-top:50px; font-size:25px; color: #F28888; font-weight:bold;">글 작성</h2><br><br><br>
+<h2>글 작성</h2><br><br><br>
 
-<div style="width: 60%; margin: auto;">
+<div id="review_write">
     <form method="post" action="/write">
-        <input   style="width: 100%; height:30px;"type="text" name="title" placeholder="제목"/>
+        <input id="title" type="text" name="title" placeholder="제목"/>
         <br><br>
         <textarea id="summernote" name="content"></textarea>
-        <input style="float: right; padding: 4px 13px; background-color: #F28888; border:none; color:white; font-weight:bold;" type="button"  value="글 작성" onclick="goWrite(this.form)"/>
+        <input id="writebtn" type="button"  value="글 작성" onclick="goWrite(this.form)"/>
     </form>
 </div>
 
-<%--  섬머노트  --%>
-<script src="resources/js/summernote/summernote-lite.js"></script>
-<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
+	<%--  섬머노트  --%>
+	<script src="resources/js/summernote/summernote-lite.js"></script>
+	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
+
 
 <link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
-<%--    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
-
-
+<%-- <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>--%>
 
 <script>
     $(document).ready(function() {
@@ -46,6 +48,7 @@
 
         });
     });
+
 </script>
 </body>
 </html>

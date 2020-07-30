@@ -4,9 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="myboard" type="com.omgm.user.board.BoardVO"/>
+		<typeAlias alias="ReviewVO" type="com.omgm.user.review.bean.ReviewVO"/>
+		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
+		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappings/board-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
+		<mapper resource="mappings/faq-mapping.xml" />
+		<mapper resource="mappings/category-mapping.xml" />
 	</mappers>
 </configuration>

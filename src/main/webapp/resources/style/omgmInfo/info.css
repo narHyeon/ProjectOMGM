@@ -1,0 +1,203 @@
+/*  div 占쎈�믤뉩占� 占쎌읈筌ｏ옙  */
+
+#way-div {
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+
+/* ##############  占쎈엘占쎈쐭�겫占썽겫占�  ################### */
+
+
+/* div 占쎈�믤뉩占� 占쎈엘占쎈쐭 */
+
+.way-header {
+    display: flex;
+}
+
+
+/* div 占쎈�믤뉩占� (占쎈엘占쎈쐭 占쎈�볩옙�뮞占쎈뱜) */
+
+.way-header-text {
+    flex-direction: column;
+}
+
+
+/* 占쎈엘占쎈쐭 占쎌삢占쎈꺖 占쎌뵠筌뤴뫂�뼒�굜占� 占쎌뵠沃섎챷占� */
+
+.emoticon-map {
+    margin-right: 1%;
+    height: 50px;
+}
+
+
+/* 占쎈엘占쎈쐭 '占쎌궎占쎈뻻占쎈뮉疫뀐옙' 占쎈�볩옙�뮞占쎈뱜 */
+
+.h2-01 {
+    font-size: 25px;
+    color: black;
+}
+
+
+/* 占쎈엘占쎈쐭 '占쎌궎�눧�꼵占썼눧占�' 占쎈�볩옙�뮞占쎈뱜 */
+
+.p-01 {
+    opacity: 0.5;
+}
+
+
+/* ##############  占쎄쉽占쎄숲�겫占썽겫占�  ################### */
+
+
+/* 占쎄쉽占쎄숲�겫占썽겫占� 占쎌읈筌ｏ옙 div 占쎈�믤뉩占� */
+
+.way-center {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+}
+
+
+/* ul list 占쎈�믤뉩占� */
+
+.ul-01 {
+    border: 1px solid #e2e2e2;
+    width: 89%;
+}
+
+.ul-02 {
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    width: 89%;
+}
+
+
+/* p 占쎈�믤뉩占� 占쎈�볩옙�뮞占쎈뱜 �겫占썽겫占� 雅뚯눘�꺖, 雅뚯눘媛먲옙釉욑옙沅� */
+
+.p-02 {
+    margin-top: 1.5%;
+    margin-left: 1.3%;
+    margin-bottom: 1.3%;
+    font-size: 13px;
+    font-weight: 200%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.p-03 {
+    margin-top: -0.7%;
+    margin-left: 1.3%;
+    margin-bottom: 1.3%;
+    font-size: 13px;
+    font: sans-serif;
+    font-weight: 200%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.p-04 {
+    margin-top: 1.5%;
+    margin-left: 1.3%;
+    margin-bottom: 3%;
+    font-size: 13px;
+    font-weight: 200%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* 筌랃옙 占쎄텢筌욑옙 */
+
+.map-image {
+    width: 89%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.info{
+
+display:flex;
+margin-left:10%;
+width:80%;
+height:40%;
+flex-direction: column;
+}
+#top-1{
+display:flex;
+width:100%;
+background-color: white;
+height:80px;
+margin-top:3%;
+}
+#top-2{
+display:flex;
+width:100%;
+background-color: white;
+height:80px;
+margin-top:3%;
+}
+#top-3{
+display:flex;
+width:100%;
+background-color: white;
+height:80px;
+margin-top:3%;
+}
+
+#img_phone{
+display:block;
+width:65px;
+height:65px;
+background-image:url(../../img/omgmInfo/phone.png);
+background-size: 65px 65px;
+margin-right:10px;
+}
+#img_time{
+display:block;
+width:65px;
+height:65px;
+background-image:url(../../img/omgmInfo/time.png);
+background-size: 65px 65px;
+margin-right:10px;
+}
+#img_info{
+display:block;
+width:65px;
+height:65px;
+background-image:url(../../img/omgmInfo/info.png);
+background-size: 65px 65px;
+margin-right:10px;
+}
+#info-center-1{
+display:flex;
+flex-direction: column;
+}
+#info-center-2{
+display:flex;
+flex-direction: column;
+}
+#info-center-3{
+display:flex;
+flex-direction: column;
+}
+
+#margin{
+margin-top:1%;
+}
+.ul01{  border: 1px solid #e2e2e2; }
+#ptag{ margin-top: 1.5%; margin-left: 1.3%; margin-bottom:1.3%; font-size: 13px; font-family: Arial, Helvetica, sans-serif; }
+#title-1{ font-size:16px;}
+
+#title{ display:flex;  width: 50%; height:50px; align-content: center; margin-left:25%; margin-top: 2%; }
+#font{font-size:25px; margin-left:40%; margin-top: 5%}
+.li01{  border-bottom: 1px solid #e2e2e2; font-size: 13px;
+padding: 1%; }
+/* ###############768px 獄쏅쵐�뵬占쎈르  */
+
+@media (max-width:768px) {
+	.li01{font-size:11px;}
+	
+    .p-02 {
+        font-size: 11px;
+    }
+    .p-03 {
+        font-size: 11px;
+    }
+}
