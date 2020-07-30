@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
     <style>
         .admin_kindergarden_schedule_button {
             display: flex;

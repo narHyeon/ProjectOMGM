@@ -6,7 +6,12 @@ import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 public class OneController {
@@ -38,11 +43,19 @@ public class OneController {
         return mav;
     }
 
+    // 유치원 예약 페이지 이동
+    @RequestMapping(value="/kinderGardenReservation.do")
+    public ModelAndView kinderGardenReservation(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/kinderGardenReservation");
+        return mav;
+    }
+
     // 픽업서비스 소개 페이지 이동
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/pickupService_info/pickupService_info");
+        mav.setViewName("/pickupServiceInfo/pickupServiceInfo");
         return mav;
     }
 
@@ -78,4 +91,38 @@ public class OneController {
         return mav;
     }
 
+    //오시는길 이용안내 페이지 이동
+    @RequestMapping(value="/introductionPage.do")
+    public ModelAndView introductionPage(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/introductionPage/introductionPage");
+        return mav;
+    }
+
+    //상품 판매 페이지 이동
+    @RequestMapping(value="/toySales.do")
+    public ModelAndView toySales(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/toySales");
+        return mav;
+    }
+
+    //룸 소개 페이지 이동
+    @RequestMapping(value="/roomIntroduction.do")
+    public ModelAndView roomIntroduction(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/roomIntroduction/roomIntroduction");
+        return mav;
+    }
+
+    @RequestMapping("/upload.do")
+    public void upload(BoardVO vo) throws IOException {
+        System.out.println("파일 업로드 테스트");
+        MultipartFile uploadFile = vo.getUploadFile();
+        if(!uploadFile.isEmpty()) {
+            String fileName = uploadFile.getOriginalFilename();
+            System.out.println(fileName);
+            uploadFile.transferTo(new File("D:/" + fileName));
+        }
+    }
 }
