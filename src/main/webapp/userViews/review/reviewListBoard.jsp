@@ -61,6 +61,5 @@
         <button class="button">글쓰기</button>
     </div>
 </div>
-
 </body>
 </html>
