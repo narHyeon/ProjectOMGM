@@ -34,7 +34,7 @@ public class OneController {
     @RequestMapping(value="/kinderGarden.do")
     public ModelAndView kinderGarden(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kinderGarden");
+        mav.setViewName("kinderGardenSchedule");
         return mav;
     }
 

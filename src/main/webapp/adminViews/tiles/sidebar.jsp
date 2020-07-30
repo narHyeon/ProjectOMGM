@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<style>
+	.sidebar {
+		height: 100%;
+	}
+</style>
 <!-- Sidebar -->
 <ul
 	class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"

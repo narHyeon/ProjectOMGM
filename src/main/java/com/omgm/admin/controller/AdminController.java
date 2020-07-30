@@ -16,4 +16,12 @@ public class AdminController {
         return mav;
     }
 
+    // 관리자 유치원 시간표
+    @RequestMapping("/kinderGardenSchedule.mdo")
+    public ModelAndView kinderGardenSchedule(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/kinderGarden/kinderGardenSchedule");
+        return mav;
+    }
+
 }
