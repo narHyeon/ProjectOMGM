@@ -6,6 +6,7 @@ import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -115,16 +116,13 @@ public class OneController {
     }
 
     @RequestMapping("/upload.do")
-    public ModelAndView insertBoard(BoardVO vo) throws IOException {
+    public void upload(BoardVO vo) throws IOException {
         System.out.println("파일 업로드 테스트");
         MultipartFile uploadFile = vo.getUploadFile();
         if(!uploadFile.isEmpty()) {
             String fileName = uploadFile.getOriginalFilename();
+            System.out.println(fileName);
             uploadFile.transferTo(new File("D:/" + fileName));
         }
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/roomIntroduction/roomIntroduction");
-        return mav;
     }
-
 }
