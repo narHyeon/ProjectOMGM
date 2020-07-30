@@ -4,7 +4,7 @@
     <style>
         <%--   교육 시간표    --%>
         .education_schedule {
-            margin: 100px 0;
+            margin: 50px 0;
             font-family: 'noto-sans';
             line-height: 30px;
             text-align: center;
@@ -16,7 +16,7 @@
             letter-spacing: -1px;
         }
         .education_schedule_title {
-            margin: 50px;
+            margin: 20px;
             font-size: 26px;
         }
         .education_schedule table {
@@ -33,17 +33,38 @@
             border-top: 1px solid gray;
             padding: 10px;
             background-color: #F28888;
+            font-size: 13px;
         }
         .education_schedule tr {
             border-bottom: 1px solid gray;
         }
         .education_schedule tr td{
-            padding: 10px;
+            /*padding: 10px;*/
+            font-size: 12px;
         }
 
         <%--   월간 스케쥴    --%>
         .education_schedule_month_subTitle {
             background-color: pink;
+        }
+
+    /*  버튼 옵션 관련  */
+        .kinderGarden_reservation_option {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 80%
+        }
+        .kinderGarden_reservation_option select {
+            width: 100%;
+            height: 50px;
+        }
+        .kinderGarden_reservation_option button {
+            width: 100%;
+            height: 50px;
+            border: none;
+            background-color: #2b91c8;
+            color: white;
         }
     </style>
 </head>
@@ -51,7 +72,7 @@
 <%-- 유치원 월간 스케쥴 --%>
 <div class="education_schedule">
     <div class="education_schedule_title">
-        <h3>월간 교육 스케쥴</h3>
+        <h3>유치원 예약</h3>
     </div>
     <table>
         <thead class="education_schedule_title_month">
@@ -66,6 +87,20 @@
         </thead>
         <tbody class="education_schedule_month_tbody"></tbody>
     </table>
+    <div class="kinderGarden_reservation_option">
+        <select>
+            <option value="">1주차</option>
+            <option value="">2주차</option>
+            <option value="">3주차</option>
+            <option value="">4주차</option>
+        </select>
+        <select>
+            <option value="">오전</option>
+            <option value="">오후</option>
+            <option value="">오전/오후</option>
+        </select>
+        <button>유치원 예약</button>
+    </div>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function(){
