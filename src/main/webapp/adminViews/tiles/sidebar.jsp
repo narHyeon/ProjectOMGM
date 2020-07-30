@@ -88,6 +88,22 @@
 					class="collapse-item" href="register.html">객실 관리</a> <a
 					class="collapse-item" href="blank.html">호텔 정산</a>
 				<div class="collapse-divider"></div>
+				<h6 class="collapse-header">서비스 관리:</h6>
+				<a class="collapse-item" href="404.html">픽업 서비스</a> <a
+					class="collapse-item" href="404.html">문자알림 서비스</a> <a
+					class="collapse-item" href="blank.html">서비스 정산</a>
+			</div>
+		</div></li>
+
+	<!-- Nav Item - Pages Collapse Menu -->
+	<li class="nav-item"><a class="nav-link collapsed" href="#"
+							data-toggle="collapse" data-target="#collapsePages"
+							aria-expanded="true" aria-controls="collapsePages"> <i
+			class="fas fa-fw fa-folder"></i> <span>KINDERGARDEN</span>
+	</a>
+		<div id="collapsePages2" class="collapse"
+			 aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">유치원:</h6>
 				<a class="collapse-item" href="register.html">유치원 예약</a> <a
 					class="collapse-item" href="404.html">유치원 시간표</a> <a
@@ -106,7 +122,7 @@
 		aria-expanded="true" aria-controls="collapsePages"> <i
 			class="fas fa-fw fa-folder"></i> <span>MALL</span>
 	</a>
-		<div id="collapsePages2" class="collapse"
+		<div id="collapsePages3" class="collapse"
 			aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">상품:</h6>
