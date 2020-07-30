@@ -40,7 +40,7 @@ public class FAQController {
 	}
 	
 	
-	/// 잡동사니 페이지용 컨트롤러
+	/// �옟�룞�궗�땲 �럹�씠吏��슜 而⑦듃濡ㅻ윭
 	@RequestMapping(value = "/info.do", method = RequestMethod.GET)
 	public ModelAndView abcd(FAQVO vo,ModelAndView mav) {
 		List<FAQVO> list = fAQService.getAllFAQList(vo);
@@ -95,6 +95,14 @@ public class FAQController {
 		List<FAQVO> list = fAQService.getAllFAQList(vo);
 		mav.addObject("fAQList",list);
 		mav.setViewName("/myInfo/getMyService");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/event.do", method = RequestMethod.GET)
+	public ModelAndView qwerr(FAQVO vo,ModelAndView mav) {
+		List<FAQVO> list = fAQService.getAllFAQList(vo);
+		mav.addObject("fAQList",list);
+		mav.setViewName("/event/event");
 		return mav;
 	}
 	

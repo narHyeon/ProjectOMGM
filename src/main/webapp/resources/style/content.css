@@ -7,7 +7,8 @@
         }
 	
         #content1 {
-        
+        margin-left:20%;
+        max-width: 1240px;
   
           overflow: hidden;
     
@@ -50,9 +51,9 @@
         }
 
         #content2 {
-          width: 100%;
+          max-width: 1240px;
           height: 500px;
-          background-color: white;
+       	  margin-left:20%;
         }
 
 
@@ -125,7 +126,7 @@
           width: 200px;
           height: 200px;
 
-          background-image: url(../img//images/dogroom2.PNG);
+          background-image: url(../img/images/dogroom2.PNG);
           background-size: 200px 200px;
           justify-content: space-around;
         }
@@ -168,7 +169,7 @@
           background-size: 100% 100%;
           border-radius: 2%;
           width: 95%;
-          height: 70%;
+          height: 80%;
           background-image: url(../img/images/catroom1.PNG);
           margin-left: 2.5%;
           margin-top: 30px;
@@ -179,7 +180,7 @@
           background-size: 100% 100%;
           border-radius: 2%;
           width: 95%;
-          height: 70%;
+          height: 80%;
           background-image: url(../img/images/catroom2.PNG);
           margin-left: 2.5%;
           margin-top: 30px;
@@ -190,8 +191,8 @@
           background-size: 100% 100%;
           border-radius: 2%;
           width: 95%;
-          height: 70%;
-          background-image: url(../img//images/share7.jpg);
+          height: 80%;
+          background-image: url(../img/images/share7.jpg);
           margin-left: 2.5%;
           margin-top: 30px;
           background-repeat: no-repeat;
@@ -201,7 +202,7 @@
           background-size: 100% 100%;
           border-radius: 2%;
           width: 95%;
-          height: 70%;
+          height: 80%;
           background-image: url(../img/images/dogroom2.PNG);
           margin-left: 2.5%;
           margin-top: 30px;
@@ -212,7 +213,7 @@
           background-size: 100% 100%;
           border-radius: 2%;
           width: 95%;
-          height: 70%;
+          height: 80%;
           background-image: url(../img/images/dogroom5.png);
           margin-left: 2.5%;
           margin-top: 30px;
@@ -223,7 +224,7 @@
           background-size: 100% 100%;
           border-radius: 2%;
           width: 95%;
-          height: 70%;
+          height: 80%;
           background-image: url(../img/images/share1.jpg);
           margin-left: 2.5%;
           margin-top: 30px;
@@ -297,7 +298,7 @@
           bottom: 50px;
           z-index: 100;
         }
-        .carousel{maxwidth:1240px;}
+       
 
         /* <------------------------화면 768화면 일때 --------------------->*/
         @media (max-width: 768px) {
@@ -305,6 +306,8 @@
             margin: 0;
             padding: 0;
           }
+           #content1{margin:0;}
+           #content2{margin:0;}
 
           #content1 .nav {
             width: 100%;
@@ -321,7 +324,13 @@
             height: 200px;
           }
 
-          #content1 .article_right2 {
+          #content1 .article_right3 {
+          display:none;
+            width: 100%;
+            height: 200px;
+          }
+          #content1 .article_right4 {
+             display:none;
             width: 100%;
             height: 200px;
           }
@@ -415,4 +424,70 @@
             background-size: 150px 150px;
             justify-content: space-around;
           }
+        }
+        
+        #img_hide1-1 {
+          background-size: 100% 100%;
+          border-radius: 2%;
+          width: 95%;
+          height: 350px;
+          background-image: url(../img/images/catroom1.PNG);
+          margin-left: 2.5%;
+          margin-top: 30px;
+          background-repeat: no-repeat;
+        }
+
+        #img_hide1-2 {
+          background-size: 100% 100%;
+          border-radius: 2%;
+          width: 95%;
+          height: 350px;
+          background-image: url(../img/images/catroom2.PNG);
+          margin-left: 2.5%;
+          margin-top: 30px;
+          background-repeat: no-repeat;
+        }
+
+        #img_hide1-3 {
+          background-size: 100% 100%;
+          border-radius: 2%;
+          width: 95%;
+          height: 350px;
+          background-image: url(../img/images/share7.jpg);
+          margin-left: 2.5%;
+          margin-top: 30px;
+          background-repeat: no-repeat;
+        }
+
+        #img_hide2-1 {
+          background-size: 100% 100%;
+          border-radius: 2%;
+          width: 95%;
+          height: 350px;
+          background-image: url(../img/images/dogroom2.PNG);
+          margin-left: 2.5%;
+          margin-top: 30px;
+          background-repeat: no-repeat;
+        }
+
+        #img_hide2-2 {
+          background-size: 100% 100%;
+          border-radius: 2%;
+          width: 95%;
+          height: 350px;
+          background-image: url(../img/images/dogroom5.png);
+          margin-left: 2.5%;
+          margin-top: 30px;
+          background-repeat: no-repeat;
+        }
+
+        #img_hide2-3 {
+          background-size: 100% 100%;
+          border-radius: 2%;
+          width: 95%;
+          height: 350px;
+          background-image: url(../img/images/share1.jpg);
+          margin-left: 2.5%;
+          margin-top: 30px;
+          background-repeat: no-repeat;
         }
