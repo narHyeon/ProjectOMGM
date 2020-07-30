@@ -9,30 +9,44 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="resources/style/reset,css">
     <link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
     <title>reviewList_board</title>
 </head>
 <body>
-<abcd>1234</abcd>
+
 <div id="reviewList_board">
-    <div class="reviewList_header">
-        <h3 class="main_head_text">오묘가묘</h3>
-        <p class="test00">hahaha</p>
-    </div>
+<%--    <div class="reviewList_header">--%>
+<%--        <h3 class="main_head_text">오묘가묘</h3>--%>
+<%--    </div>--%>
     <div class="reviewList_head_sub_text">
         <p class="reviewList_sub_text">
             오묘가묘는 아이가 너~무나 좋아하는 환경조성을 통해 아이들의 행복과 정서함양에 모든 초점을 극대화한<br>
             <b>"아이 중심의 리얼 반려동물 프리미엄 펫파크"입니다.</b>
             <br><br>
-            <span>오묘가묘와 함께 하세요♡</span>
+            <span class="reviewList_span">오묘가묘와 함께 하세요♡</span>
             주인의 세심한 선택이 아이에게 특별한 행복으로 각인됩니다.
         </p>
     </div>
     <div class="reviewList_button">
-        <button class="button">이용후기 글쓰기</button>
+<%--        <div class="reviesList_text_div">--%>
+<%--        <input type="text" class="reviewList_text" >--%>
+<%--        </div>--%>
+        <form action="reviewListBoard.do" method="post">
+            <table border="1">
+                <tr>
+                    <td>
+                        <select name="searchCondition" class="select_search">
+                            <option value="TITLE" >제목</option>
+                            <option value="CONTENT" >내용</option>
+                        </select>
+                        <input type="text" name="searchKeyword" class="text_input" />
+                        <input type="submit" value="검색" class="submit_button"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
-    <div>
+    <div class="reviewList_main_sector00">
         <div class="reviewList_main_sector">
             <c:forEach var="list" items="${reviewList}">
                 <div class="reviewList_line">
@@ -43,6 +57,10 @@
             </c:forEach>
         </div>
     </div>
+    <div class="reviewList_button00">
+        <button class="button">글쓰기</button>
+    </div>
 </div>
+
 </body>
 </html>

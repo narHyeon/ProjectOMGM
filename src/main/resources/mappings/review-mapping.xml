@@ -49,5 +49,14 @@
     </select>
     <select id="getReviewList" resultMap="boardResult">
         SELECT * FROM reviewBoard
+        WHERE 1=1
+        <if test="searchCondition=='TITLE'">
+            AND title LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        <if test="searchCondition=='CONTENT'">
+            AND content LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        ORDER BY seq DESC
     </select>
+
 </mapper>

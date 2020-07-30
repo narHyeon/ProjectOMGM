@@ -5,19 +5,20 @@
 	flex-direction: column;
 	align-content: center;
 	margin-bottom: 8%;
-	margin-top: 8%;
+	margin-top: 3%;
 	margin-left: 12%;
 	margin-right: 12%;
 	justify-content: center;
 }
 
 .reviewList_head_sub_text {
+	text-align: center;
 	width: 100%;
 	color: #555;
 	line-height: 1.7em;
-	margin-top: 5%;
+	/*margin-top: 5%;*/
 	/*margin-bottom: 3%;*/
-	border-top: 1px solid #868e96;
+	/*border-top: 1px solid lightpink;*/
 	padding-top: 3%;
 	padding-bottom: 3%;
 }
@@ -26,34 +27,52 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	border-bottom: 1px solid #868e96;
-	padding-bottom: 3%;
-	justify-content: flex-start;
+	padding-bottom: 1%;
+	justify-content: space-around;
 }
 
 .reviewList_line {
 	display: flex;
+	width: 32%;
 	flex-direction: column;
-	margin-right: 2%;
-	margin-left: 2%;
-	/*justify-content: flex-start;*/
+	margin-right: 0%;
+	margin-left: 0%;
+	margin-bottom: 3%;
+	border: 1px solid lightgrey;
+	/*justify-content: space-between;*/
 
 }
 
 .reviewList_button {
 	display: flex;
 	justify-content: flex-end;
+	margin-top: -3%;
 	padding-bottom: 1%;
 	margin-bottom: 3%;
-	border-bottom: 1px solid #868e96;
+	border-bottom: 3px solid lightpink;
+	height : 30px;
 }
 
+.reviewList_button00 {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 0%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin-bottom: 3%;
+	border-top: 1px solid lightpink;
+	height : 30px;
+}
+
+.reviewList_header {
+	display: flex;
+	justify-content: center;
+}
 /* 이미지 관련 설정 */
 .reviewList_img {
-    width: 110%;
+    width: 100%;
     height: auto;
     margin-bottom: 3%;
-
 }
 
 /* 텍스트 관련 설정 */
@@ -61,17 +80,57 @@
 	text-align: center;
 	font-weight: bold;
 	font-size: 40px;
+	background-color: #F28888;
+	width: 20%;
+	border-radius: 30%;
+	color: white;
 }
 
 .reviewList_text {
 	margin-bottom: 3%;
 	margin-top: 1%;
 	font-size: 18px;
+
+}
+
+.reviewList_text_div {
+	margin-right: 3%;
 }
 
 .reviewList_sub_text{
     margin-bottom: 3%;
     opacity: 80%;
+}
+
+.reviewList_span {
+	color: #F28888;
+	font-size: larger;
+}
+/* 텍스트 관련 설정*/
+.reviewList_text {
+	margin-right: 3%;
+	color: #F28888;
+}
+
+.text_input{
+	color: black;
+}
+
+.select_search {
+	border: none;
+
+}
+/* 버튼 관련 설정*/
+.button {
+	margin-left: 1%;
+	background-color: lightpink;
+	border: 1px solid deeppink;
+}
+
+.submit_button {
+	background-color: #F28888;
+	color: black;
+	border: 1px solid #F28888;
 }
 
 @media (max-width: 768px) {

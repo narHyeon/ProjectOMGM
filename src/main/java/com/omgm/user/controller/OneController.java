@@ -54,7 +54,7 @@ public class OneController {
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/pickupService_info/pickupService_info");
+        mav.setViewName("/pickupServiceInfo/pickupServiceInfo");
         return mav;
     }
 
