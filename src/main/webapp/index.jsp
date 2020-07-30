@@ -18,6 +18,9 @@
   <a href="kinderGarden.do">유치원 소개 페이지</a>
   <a href="reservation.do">호텔 예약 페이지</a>
   <a href="login.do">로그인</a>
+  <a href="introductionPage.do">오시는길 이용안내 페이지 이동</a>
+  <a href="toySales.do">상품 판매 페이지 이동</a>
+  <a href="roomIntroduction.do">방 소개 페이지 이동</a>
   <hr>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
   <hr>
