@@ -65,12 +65,7 @@
             cache : false,
             contentType : false,
             enctype : 'multipart/form-data',
-            processData : false,
-            success : function(url) {
-                $(el).summernote('insertImage', url, function($image) {
-                    $image.css('width', "25%");
-                });
-            }
+            processData : false
         });
     }
 </script>
