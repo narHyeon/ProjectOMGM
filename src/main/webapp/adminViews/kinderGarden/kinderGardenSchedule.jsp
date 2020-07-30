@@ -11,9 +11,6 @@
             margin: 5px;
             width:50%;
         }
-        .admin_kindergarden_schedule_button input {
-            margin: 5px;
-        }
         .admin_kindergarden_schedule_input {
             display: flex;
             flex-direction: row;
