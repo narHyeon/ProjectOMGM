@@ -90,6 +90,13 @@ public class FAQController {
 		mav.setViewName("/myInfo/myBuyListLog");
 		return mav;
 	}
+	@RequestMapping(value = "/getMyService.do", method = RequestMethod.GET)
+	public ModelAndView wqwe(FAQVO vo,ModelAndView mav) {
+		List<FAQVO> list = fAQService.getAllFAQList(vo);
+		mav.addObject("fAQList",list);
+		mav.setViewName("/myInfo/getMyService");
+		return mav;
+	}
 	
 	@RequestMapping(value = "/event.do", method = RequestMethod.GET)
 	public ModelAndView qwerr(FAQVO vo,ModelAndView mav) {

@@ -78,9 +78,17 @@ ahover:hover {
 	color: #347F77;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".main1").click(function(){
+		window.location.href = 'getMyService.do';
+	});
+});
+</script>
 </head>
 <body>
-	<div id="wrap">
+	<div id="content">
 		<section class="content_section">
 			<div class="content_row_1">
 				<div id="FAQ_Search">

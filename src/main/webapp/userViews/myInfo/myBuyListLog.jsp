@@ -7,9 +7,15 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<<<<<<< HEAD
+<title></title>
+<link rel="stylesheet" type="text/css" href="resources/style/faq.css">
+<link rel="stylesheet" type="text/css" href="resources/style/faq2.css">
+=======
 <title>FLAT DESIGN - 문의사항</title>
 <link rel="stylesheet" type="text/css" href="resources/style/faq/faq.css">
 <link rel="stylesheet" type="text/css" href="resources/style/faq/faq2.css">
+>>>>>>> 497d70079fe6bcbf96fcb0969973392e6eef20d5
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="images/icon/flat-design-touch.png">

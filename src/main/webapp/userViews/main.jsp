@@ -81,7 +81,6 @@ $(document).ready(function(){
   });
   
 document.addEventListener('DOMContentLoaded', function() {
-    M.AutoInit();
     var options = {
         indicators: false  };
     var elem = document.querySelector('.carousel');
