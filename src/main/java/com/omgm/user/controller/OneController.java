@@ -4,7 +4,11 @@ import com.omgm.user.board.BoardService;
 import com.omgm.user.board.BoardVO;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -115,16 +119,16 @@ public class OneController {
     }
 
     @RequestMapping("/upload.do")
-    public ModelAndView insertBoard(BoardVO vo) throws IOException {
+    public ResponseEntity<?> upload(BoardVO vo) throws IOException {
         System.out.println("파일 업로드 테스트");
         MultipartFile uploadFile = vo.getUploadFile();
         if(!uploadFile.isEmpty()) {
             String fileName = uploadFile.getOriginalFilename();
             uploadFile.transferTo(new File("D:/" + fileName));
+            ResourceLoader resourceLoader = null;
+            Resource resource = resourceLoader.getResource("file:D:/" + fileName);
+            return ResponseEntity.ok().body(resource);
         }
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/roomIntroduction/roomIntroduction");
-        return mav;
+        return null;
     }
-
 }
