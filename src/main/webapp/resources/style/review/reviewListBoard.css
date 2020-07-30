@@ -42,7 +42,11 @@
 	/*justify-content: space-between;*/
 
 }
-
+/* 페이지 부분 div 테그 수정 */
+.reviewList_page00 {
+	display: flex;
+	justify-content: center;
+}
 .reviewList_button {
 	display: flex;
 	justify-content: flex-end;
@@ -131,6 +135,24 @@
 	background-color: #F28888;
 	color: black;
 	border: 1px solid #F28888;
+}
+
+.reviewList_page {
+	border: 1px solid deeppink;
+	color: whitesmoke;
+	background-color: deeppink;
+	border-radius: 30%;
+	margin-left: 0.4%;
+	margin-right: 0.4%;
+	width: 20px;
+}
+
+.reviewList_page01 {
+	color: pink;
+	width: 20px;
+	margin-left: 0.4%;
+	margin-right: 0.4%;
+	text-align: center;
 }
 
 @media (max-width: 768px) {

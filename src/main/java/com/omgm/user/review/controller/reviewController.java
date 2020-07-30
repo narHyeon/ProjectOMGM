@@ -1,13 +1,18 @@
 package com.omgm.user.review.controller;
 
+import com.omgm.user.review.beans.PageNavigator;
+import com.omgm.user.review.beans.ReviewReplyVO;
 import com.omgm.user.review.beans.ReviewVO;
 import com.omgm.user.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class reviewController {
@@ -25,31 +30,42 @@ public class reviewController {
 
     //이용후기 리스트 페이지 이동
     @RequestMapping(value="/reviewListBoard.do")
-    public ModelAndView reviewListBoard(ReviewVO vo) {
+    public ModelAndView reviewListBoard(ReviewVO vo,@RequestParam(value="page", defaultValue = "1") int page ) {
         ModelAndView mav = new ModelAndView();
+
+        int COUNTPERPAGE = 9; // 페이지당 2개의 글
+        int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
+
+        PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
         mav.setViewName("/review/reviewListBoard");
-        mav.addObject("reviewList",reviewService.getReviewList(vo));
+        mav.addObject("reviewList",reviewService.getReviewList(vo, navi));
+        mav.addObject("navi",navi);
         return mav;
     }
 
     // 이용후기 본문 페이지 이동
     @RequestMapping(value="/reviewContent.do")
-    public ModelAndView reviewContent(ReviewVO vo) {
+    public ModelAndView reviewContent(ReviewVO vo, ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/review/reviewContent");
+        vo.setSeq(6);
+        rvo.setBoardSeq(6);
+        List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
+        System.out.println("리뷰 받고 테스트");
+        System.out.println(list.toString());
+        mav.addObject("review",reviewService.getReview(vo));
+        mav.addObject("reply",reviewService.getReviewReply(rvo));
         return mav;
     }
 
     // 이용후기 댓글 주고받기
     @ResponseBody
     @RequestMapping(value = "/reviewContentReply.do")
-    public ModelAndView map(@RequestBody ReviewVO vo) {
+    public ModelAndView map(@RequestBody ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
 
         // DB INSERT Reply 작업
-        System.out.println(vo.getId());
-        System.out.println(vo.getPwd());
-        System.out.println(vo.getContent());
+        reviewService.addReview(rvo); // 댓글 데이터베이스 넣기
         mav.setViewName("/review/reviewContent");
         return mav;
     }
