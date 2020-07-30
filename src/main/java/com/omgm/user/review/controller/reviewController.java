@@ -41,11 +41,10 @@ public class reviewController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/review/reviewContent");
         vo.setSeq(6);
+        rvo.setBoardSeq(6);
         List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
         System.out.println("리뷰 받고 테스트");
-        for(ReviewReplyVO r : list) {
-            System.out.println("찍자 : "+r.getId());
-        }
+        System.out.println(list.toString());
         mav.addObject("review",reviewService.getReview(vo));
         mav.addObject("reply",reviewService.getReviewReply(rvo));
         return mav;

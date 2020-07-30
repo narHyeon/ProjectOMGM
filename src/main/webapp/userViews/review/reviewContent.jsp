@@ -149,7 +149,6 @@
 		<div id="review_content_reply_content">
 
 			<c:forEach var="rv" items="${reply}">
-				${rv.id},${rv.content}
 				<div>
 					<p>${rv.id} : </p>
 					<p>${rv.content}</p>
