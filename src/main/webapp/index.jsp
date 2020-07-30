@@ -16,6 +16,7 @@
   <a href="messageService.do">문자 서비스 소개 페이지</a>
   <a href="pickupService_info.do">pickup-intro 페이지로 이동</a>
   <a href="kinderGarden.do">유치원 소개 페이지</a>
+  <a href="kinderGardenReservation.do">유치원 예약 페이지</a>
   <a href="reservation.do">호텔 예약 페이지</a>
   <a href="login.do">로그인</a>
   <a href="introductionPage.do">오시는길 이용안내 페이지 이동</a>
