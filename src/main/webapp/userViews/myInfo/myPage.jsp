@@ -10,13 +10,8 @@
 #head {
 	min-width: 60%;
 	margin-right: 15%;
-<<<<<<< HEAD
-	margin-top: 3%;
-	margin-left: 28%;
-=======
 	margin-top: 5%;
 	margin-left: 22%;
->>>>>>> 497d70079fe6bcbf96fcb0969973392e6eef20d5
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding-bottom: 1%;
@@ -44,8 +39,6 @@
 	height: 50%;
 }
 
-<<<<<<< HEAD
-=======
 #banner {
 	display: flex;
 	border: 2px solid #FFABB9;
@@ -55,7 +48,6 @@
 	margin-left: 3%;
 }
 
->>>>>>> 497d70079fe6bcbf96fcb0969973392e6eef20d5
 #buttons {
 	margin-top: 1%;
 	padding-right: 30%;
