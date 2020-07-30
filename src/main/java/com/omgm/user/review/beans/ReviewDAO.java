@@ -1,6 +1,5 @@
-package com.omgm.user.review.bean;
+package com.omgm.user.review.beans;
 
-import com.omgm.user.board.BoardVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

@@ -1,6 +1,6 @@
 package com.omgm.user.review.controller;
 
-import com.omgm.user.review.bean.ReviewVO;
+import com.omgm.user.review.beans.ReviewVO;
 import com.omgm.user.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

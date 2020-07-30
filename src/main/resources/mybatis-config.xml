@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="ReviewVO" type="com.omgm.user.review.bean.ReviewVO"/>
+		<typeAlias alias="ReviewVO" type="com.omgm.user.review.beans.ReviewVO"/>
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
 	</typeAliases>

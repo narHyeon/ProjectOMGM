@@ -23,7 +23,8 @@
   <hr>
   <a href="kinderGardenSchedule.mdo">관리자 유치원 시간표</a>
   <a href="kinderGardenScheduleMonth.mdo">관리자 유치원 달력</a>
-  <a href="deliveryStatus.mdo">배송현왕 페이지 이동</a>
+  <a href="kinderGardenReservation.mdo">관리자 유치원 예약현황</a>
+  <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
 
 </body>
 </html>

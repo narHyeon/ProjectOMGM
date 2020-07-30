@@ -1,4 +1,4 @@
-package com.omgm.user.review.bean;
+package com.omgm.user.review.beans;
 
 import java.util.Date;
 
