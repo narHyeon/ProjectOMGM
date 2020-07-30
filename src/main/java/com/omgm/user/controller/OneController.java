@@ -116,6 +116,7 @@ public class OneController {
 
     @RequestMapping("/upload.do")
     public ModelAndView insertBoard(BoardVO vo) throws IOException {
+        System.out.println("파일 업로드 테스트");
         MultipartFile uploadFile = vo.getUploadFile();
         if(!uploadFile.isEmpty()) {
             String fileName = uploadFile.getOriginalFilename();

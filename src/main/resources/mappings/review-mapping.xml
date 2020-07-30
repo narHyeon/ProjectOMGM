@@ -26,11 +26,16 @@
     <delete id="deleteBoard" parameterType="ReviewVO">
         DELETE FROM reviewBoard WHERE seq = #{seq}
     </delete>
-    <select id="getBoard" resultType="ReviewVO">
+
+    <!-- 실 사용 -->
+    <insert id="addReviewReply" parameterType="ReviewReplyVO">
+        INSERT INTO reviewReply (seq, boardSeq, id, pwd, content)
+        VALUES review_seq.nextval, #{boardSeq}, #{id}, #{pwd}, #{content})
+    </insert>
+    <select id="getReview" resultType="ReviewVO">
         SELECT * FROM reviewBoard WHERE seq=#{seq}
     </select>
     <select id="getReviewList" resultMap="boardResult">
         SELECT * FROM reviewBoard
-
     </select>
 </mapper>

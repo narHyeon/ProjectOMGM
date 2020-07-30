@@ -43,7 +43,7 @@
 }
 
 #review_content .review_content_head td:nth-child(2) {
-	width: 75%;
+	width: 68%;
 }
 
 .review_content_body {
@@ -125,24 +125,17 @@
 		<table class="review_content_head">
 			<tr>
 				<td>제목</td>
-				<td>귀여움 잔뜩!</td>
-				<td>2020-07-27 14:00</td>
+				<td>${review.title}</td>
+				<td>${review.regDate}</td>
 			</tr>
 			<tr>
 				<td>대표이미지</td>
-				<td>IMG_9507.jpg (file size 106KB)</td>
-				<td>yongjuri</td>
+				<td>${review.imgRef}</td>
+				<td>${review.id}</td>
 			</tr>
 		</table>
 		<div class="review_content_body">
-			비가오는날 `건대입구 2번출구 엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br> 대기번호 230번
-			영수증에는 엔젤리너스 지하의 와이파이 비밀번호가 적혀있다.<br> 비가오는날 건대입구 2번출구 엔젤리너스 지하에서
-			메인 프로젝트 작업을 하고 있다.<br> 대기번호 230번 영수증에는 엔젤리너스 지하의 와이파이 비밀번호가
-			적혀있다.<br> 비가오는날 건대입구 2번출구 엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br>
-			대기번호 230번 영수증에는 엔젤리너스 지하의 와이파이 비밀번호가 적혀있다.<br> 비가오는날 건대입구 2번출구
-			엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br> 대기번호 230번 영수증에는 엔젤리너스 지하의 와이파이
-			비밀번호가 적혀있다.<br> 비가오는날 건대입구 2번출구 엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br>
-			대기번호 23`0번 영수증에는 엔젤리너스 지하의 와이파이 비밀번호가 적혀있다.<br>
+			${review.content}
 		</div>
 		<hr>
 		<div class="review_content_button">
@@ -182,12 +175,12 @@
 		</table>
 	</div>
 	<script>
-        function sendData(writer,pass,content) {
+        function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
 
             xhr.open('POST', 'reviewContentReply.do',true);
             xhr.setRequestHeader('Content-type', 'application/json');
-            const data = { id: id, pwd: pwd, content: content };
+            const data = { id: id, pwd: pwd, content: content, boardSeq: ${review.seq} };
             xhr.send(JSON.stringify(data));
         }
 

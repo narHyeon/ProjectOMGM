@@ -1,5 +1,6 @@
 package com.omgm.user.review.controller;
 
+import com.omgm.user.review.beans.ReviewReplyVO;
 import com.omgm.user.review.beans.ReviewVO;
 import com.omgm.user.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,19 +38,21 @@ public class reviewController {
     public ModelAndView reviewContent(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/review/reviewContent");
+        vo.setSeq(6);
+        mav.addObject("review",reviewService.getReview(vo));
         return mav;
     }
 
     // 이용후기 댓글 주고받기
     @ResponseBody
     @RequestMapping(value = "/reviewContentReply.do")
-    public ModelAndView map(@RequestBody ReviewVO vo) {
+    public ModelAndView map(@RequestBody ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
 
+        System.out.println();
+
         // DB INSERT Reply 작업
-        System.out.println(vo.getId());
-        System.out.println(vo.getPwd());
-        System.out.println(vo.getContent());
+        reviewService.addReview(rvo); // 댓글 데이터베이스 넣기
         mav.setViewName("/review/reviewContent");
         return mav;
     }

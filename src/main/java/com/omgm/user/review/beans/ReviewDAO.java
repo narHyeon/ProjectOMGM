@@ -13,7 +13,17 @@ public class ReviewDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     public List<ReviewVO> getReviewList(ReviewVO vo) {
-        System.out.println("---> MyBatis로 getBoardList() 기능 처리");
+        System.out.println("---> MyBatis로 getReviewList() 기능 처리");
         return sqlSessionTemplate.selectList("ReviewDAO.getReviewList", vo);
+    }
+
+    public ReviewVO getReview(ReviewVO vo) {
+        System.out.println("---> MyBatis로 getReview() 기능 처리");
+        return sqlSessionTemplate.selectOne("ReviewDAO.getReview", vo);
+    }
+
+    public void addReviewReply(ReviewReplyVO rvo) {
+        System.out.println("---> MyBatis로 addReviewReply() 기능 처리");
+        sqlSessionTemplate.selectOne("ReviewDAO.addReviewReply", rvo);
     }
 }
