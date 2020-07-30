@@ -2,7 +2,7 @@ package com.omgm.user.controller;
 
 import com.omgm.user.board.BoardService;
 import com.omgm.user.board.BoardVO;
-import com.omgm.user.review.bean.ReviewVO;
+import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,13 +34,9 @@ public class OneController {
     @RequestMapping(value="/kinderGarden.do")
     public ModelAndView kinderGarden(BoardVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("kinderGardenSchedule");
+        mav.setViewName("/kinderGarden");
         return mav;
     }
-
-
-
-
 
     // 픽업서비스 소개 페이지 이동
     @RequestMapping(value="/pickupService_info.do")
