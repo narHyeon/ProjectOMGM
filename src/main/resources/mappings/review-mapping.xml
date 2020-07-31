@@ -58,5 +58,7 @@
         </if>
         ORDER BY seq DESC
     </select>
-
+    <select id="selectCount" resultType="int">
+       select count(*) from reviewboard
+    </select>
 </mapper>
