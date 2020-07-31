@@ -64,7 +64,7 @@
         <a href="reviewListBoard.do" class="reviewList_page01">&lt;&lt;</a>
         <a href="reviewListBoard.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
         <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-            <a href="reviewListBoard.do?page=${counter}" class="reviewList_page">&nbsp;&nbsp;${counter}</a>
+            <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" onlcick="changeColor(${counter})">&nbsp;&nbsp;${counter}</a>
         </c:forEach>
         <a href="reviewListBoard.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a>
         <a href="reviewListBoard.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
@@ -72,11 +72,21 @@
 </div>
 <form id="review_throw" action="reviewContent.do"></form>
 <script>
+    function changeColor(counter){
+        let value = document.getElementsByClassName('reviewList_page').value();
+        console.log(1);
+        if(counter === 1) {
+            let color = document.getElementsByClassName('reviewList_page');
+            color.style = 'backgroundColor: #FFFFFF';
+        }
+    }
+
     function getReview(seq) {
         const el = document.querySelector('#review_throw');
         el.innerHTML = '<input type=hidden name=seq value='+seq+'>';
         el.submit();
     }
+
     function reviewWrite() {
         window.location.href = 'reviewWrite.do';
     }
