@@ -20,6 +20,7 @@
 	display: flex;
 	flex-direction: column;
 }
+
 #head {
 	min-width: 60%;
 	margin-right: 15%;
@@ -30,13 +31,14 @@
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
+
 #body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 	margin-bottom: 3%;
-		
 }
+
 #banner {
 	display: flex;
 	width: 15%;
@@ -45,13 +47,15 @@
 	margin-left: 7%;
 	border-radius: 10px;
 }
+
 #content {
-	display : flex;
-	flex-direction :column;
+	display: flex;
+	flex-direction: column;
 	margin-left: 6%;
 	width: 60%;
 	height: 100%;
 }
+
 .fieldsetstyle {
 	margin-top: 5%;
 	display: block;
@@ -61,9 +65,11 @@
 	color: white;
 	padding: 10px;
 }
-.fieldsetstyle:hover{
+
+.fieldsetstyle:hover {
 	cursor: pointer;
 }
+
 .hideth {
 	background: #F28888;
 }

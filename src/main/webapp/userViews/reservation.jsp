@@ -229,37 +229,37 @@
 				<div id="room_select">
 					<ul>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								1방 정보<br>
 							</p></li>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								2방 정보<br>
 							</p></li>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								3방 정보<br>
 							</p></li>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								4방 정보<br>
 							</p></li>
 					</ul>
 					<ul>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								5방 정보<br>
 							</p></li>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								6방 정보<br>
 							</p></li>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								7방 정보<br>
 							</p></li>
 						<li><img src="resources/img/main_image.jpg" alt="">
-						<p>
+							<p>
 								8방 정보<br>
 							</p></li>
 					</ul>

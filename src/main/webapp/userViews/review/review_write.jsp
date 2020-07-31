@@ -24,8 +24,7 @@
 	<div style="width: 60%; margin: auto;">
 		<form method="post" action="/write">
 			<input style="width: 100%; height: 30px;" type="text" name="title"
-				placeholder="제목" /> <br>
-			<br>
+				placeholder="제목" /> <br> <br>
 			<textarea id="summernote" name="content"></textarea>
 			<input
 				style="float: right; padding: 4px 13px; background-color: #F28888; border: none; color: white; font-weight: bold;"

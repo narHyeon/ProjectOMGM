@@ -15,7 +15,6 @@
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
 <style type="text/css">
 #wrap {
-	
 	display: flex;
 	flex-direction: column;
 }
@@ -68,10 +67,10 @@
 .fieldsetstyle:hover {
 	cursor: pointer;
 }
-#tables{
+
+#tables {
 	display: flex;
 	flex-direction: column;
-
 }
 
 #FAQ_Search {
@@ -115,12 +114,11 @@
 	color: #fff;
 	background: #21F0A1;
 }
-.serviceType{
 
+.serviceType {
 	margin-bottom: 0.5%;
 	font-size: 15px;
 }
-
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">

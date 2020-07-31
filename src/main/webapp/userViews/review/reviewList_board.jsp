@@ -22,9 +22,8 @@
 		<div class="reviewList_head_sub_text">
 			<p class="reviewList_sub_text">
 				오묘가묘는 아이가 너~무나 좋아하는 환경조성을 통해 아이들의 행복과 정서함양에 모든 초점을 극대화한<br> <b>"아이
-					중심의 리얼 반려동물 프리미엄 펫파크"입니다.</b> <br>
-				<br> <span>오묘가묘와 함께 하세요♡</span> 주인의 세심한 선택이 아이에게 특별한 행복으로
-				각인됩니다.
+					중심의 리얼 반려동물 프리미엄 펫파크"입니다.</b> <br> <br> <span>오묘가묘와 함께
+					하세요♡</span> 주인의 세심한 선택이 아이에게 특별한 행복으로 각인됩니다.
 			</p>
 		</div>
 		<div class="reviewList_button">

@@ -8,8 +8,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title></title>
-<link rel="stylesheet" type="text/css" href="resources/style/faq/faq.css">
-<link rel="stylesheet" type="text/css" href="resources/style/faq/faq2.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/style/faq/faq.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/style/faq/faq2.css">
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="images/icon/flat-design-touch.png">
@@ -84,7 +86,6 @@ ahover:hover {
 	padding: 0;
 }
 
-
 #td_example {
 	
 }
@@ -130,7 +131,11 @@ ahover:hover {
 	padding: 0;
 }
 
-#banner {background:black; height:50px; width:50px;}
+#banner {
+	background: black;
+	height: 50px;
+	width: 50px;
+}
 </style>
 </head>
 <body>
@@ -142,7 +147,7 @@ ahover:hover {
 					<h1 class="service_kind">주문 내역 조회</h1>
 				</div>
 				<hr style="border: solid 1px #pink;">
-				
+
 				<table class="board_table">
 					<thead id="thead1">
 						<tr>
