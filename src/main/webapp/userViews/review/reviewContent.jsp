@@ -119,12 +119,6 @@
 </style>
 </head>
 <body>
-이전제목: ${review.prevtitle}
-이전번호: ${review.prevseq}
-이전날짜: ${review.prevdate}
-다음제목: ${review.nexttitle}
-다음번호: ${review.nextseq}
-다음날짜: ${review.nextdate}
 
 	<div id="review_content">
 
@@ -180,13 +174,13 @@
 		<table class="review_content_head review_content_prne">
 			<tr onclick="prevContent()">
 				<td>이전</td>
-				<td>귀여움 뿜뿜!</td>
-				<td>2020-07-27 12:00</td>
+				<td>${review.prevTitle}</td>
+				<td>${review.prevDate}</td>
 			</tr>
 			<tr onclick="nextContent()">
 				<td>다음</td>
-				<td>세상에 존예</td>
-				<td>2020-07-27 17:00</td>
+				<td>${review.nextTitle}</td>
+				<td>${review.nextDate}</td>
 			</tr>
 		</table>
 	</div>
@@ -224,14 +218,14 @@
 		function prevContent() {
 			console.log(${review.seq});
 			const el = document.querySelector('#review_throw');
-			el.innerHTML = '<input type=hidden name=seq value='+(${review.seq}-1)+'>';
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.prevSeq})+'>';
 			el.submit();
 		}
 
 		function nextContent() {
 			console.log(${review.seq});
 			const el = document.querySelector('#review_throw');
-			el.innerHTML = '<input type=hidden name=seq value='+(${review.seq}+1)+'>';
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
 			el.submit();
 		}
     </script>

@@ -45,14 +45,14 @@
         SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq}
     </select>
     <select id="getReview" resultType="ReviewVO">
-        SELECT seq, title, id, pwd, content, regdate, cnt, imgref,
-        LEAD(title,1,'없음') OVER (ORDER BY seq DESC) nextTitle,
-        LEAD(regdate,1,'') OVER (ORDER BY seq DESC) nextDate,
-        LEAD(seq,1,'') OVER (ORDER BY seq DESC) nextSeq,
-        LAG(title,1,'없음') OVER (ORDER BY seq DESC) prevTitle,
-        LAG(regdate,1,'') OVER (ORDER BY seq DESC) prevDate,
-        LAG(seq,1,'') OVER (ORDER BY seq DESC) prevSeq
-        FROM reviewBoard WHERE seq=#{seq}
+        SELECT * FROM (SELECT seq, title, id, pwd, content, regdate, cnt, imgref,
+        LEAD(title,1,'없음') OVER (ORDER BY title) nextTitle,
+        LEAD(regdate,1,'') OVER (ORDER BY seq) nextDate,
+        LEAD(seq,1,'') OVER (ORDER BY seq) nextSeq,
+        LAG(title,1,'없음') OVER (ORDER BY seq) prevTitle,
+        LAG(regdate,1,'') OVER (ORDER BY seq) prevDate,
+        LAG(seq,1,'') OVER (ORDER BY seq) prevSeq
+        FROM reviewBoard) WHERE seq=#{seq}
     </select>
     <select id="getReviewList" resultMap="boardResult">
         SELECT * FROM reviewBoard
