@@ -4,6 +4,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<title></title>
+</head>
 <style>
 #wrap {
 	display: flex;
@@ -39,7 +41,7 @@
 	width: 43%;
 	height: 100%;
 }
-#fieldsetstyle {
+.fieldsetstyle {
 	margin-top: 5%;
 	display: block;
 	border: 1px solid #FFABB9;
@@ -48,15 +50,20 @@
 	color: white;
 	padding: 10px;
 }
-ul { /*순서 없는 목록에 적용할 스타일*/
-	list-style-type: none; /*불릿 없앰*/
+.fieldsetstyle:hover{
+	cursor: pointer;
 }
-.centred { /*class=centred인 div에 적용할 스타일*/
-	text-align: right; /*가운데 정렬*/
+#bottom { /*class=bottom인 div에 적용할 스타일*/
+	text-align: right; 
 	margin-top: 2%;
 	margin-right: 1%;
 	margin-bottom: 2%;
+	
 }
+ul { /*순서 없는 목록에 적용할 스타일*/
+	list-style-type: none; /*불릿 없앰*/
+}
+
 .fset { /*필드셋에 적용할 스타일*/
 	border-radius: 20px 5px 20px 5px;
 	display: block;
@@ -119,54 +126,65 @@ ul { /*순서 없는 목록에 적용할 스타일*/
 	color: #347F77;
 }
 .buttons {
-	border: 1px solid #ffffff;
 	background-color: white;
 	cursor: pointer;
-	border: 1px solid #e2e2e2;
-	color: gray;
+	border: 2px solid #e2e2e2;
 	font-size: 12px;
-	font: 정선동강;
 	padding-left: 1%;
 	padding-right: 1%;
 	color: purple;
-}
-.alink:link {
-	color: white;
-}
-.alink:visited {
-	color: white;
+	width: 18%;
 }
 </style>
 <script type="text/javascript">
+$(document).ready(function(){
+	$("#myPageFs").click(function(){
+		window.location.href = 'myPage.do';
+	});
+	$("#myCatPageFs").click(function(){
+		window.location.href = 'myCatPage.do';
+	});
+	$("#myServiceListFs").click(function(){
+		window.location.href = 'myServiceList.do';
+	});
+	$("#myBuyListLogFs").click(function(){
+		window.location.href = 'myBuyListLog.do';
+	});
+	$("#myCatCareLogFs").click(function(){
+		window.location.href = 'myCatCareLog.do';
+	});
+	$("#myReViewFs").click(function(){
+		window.location.href = 'myReView.do';
+	});
+});
 	function goServiceList() {
 		window.location.href = "myServiceList.do";
 	}
 </script>
-</head>
 <body>
 	<div id="wrap">
 		<div id="head">
-			<h1>MY PAGE</h1>
+			<h1>My Service</h1>
 		</div>
 		<div id="body">
 			<div id="banner">
-				<fieldset id="fieldsetstyle">
-					<a href="myPage.do" class="alink">내 정보</a>
+				<fieldset class="fieldsetstyle" id="myPageFs">
+					내 정보
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="#" class="alink">내 고양이 정보</a>
+				<fieldset class="fieldsetstyle" id="myCatPageFs">
+					내 고양이 정보
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="myServiceList.do" class="alink">서비스</a>
+				<fieldset class="fieldsetstyle" id="myServiceListFs">
+					서비스
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="myBuyListLog.do" class="alink">구매내역</a>
+				<fieldset class="fieldsetstyle" id="myBuyListLogFs">
+					구매내역
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="#" class="alink">반려묘 일지</a>
+				<fieldset class="fieldsetstyle" id="myCatCareLogFs">
+					반려묘 일지
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="#" class="alink">내가 작성한 후기</a>
+				<fieldset class="fieldsetstyle" id="myReViewFs">
+					내가 작성한 후기
 				</fieldset>
 			</div>
 			<div id="content">
@@ -263,9 +281,8 @@ ul { /*순서 없는 목록에 적용할 스타일*/
 						</li>
 					</ul>
 				</fieldset>
-				<div class="centred">
-					<input type="button" value="서비스 리스트로" onclick="goServiceList()"
-						class="buttons">
+				<div id="bottom">
+					<input type="button" value="서비스 리스트로" onclick="goServiceList()" class="buttons">
 				</div>
 			</div>
 		</div>
