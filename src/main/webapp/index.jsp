@@ -34,9 +34,6 @@
   <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
   <a href="productRegister.mdo">상품등록 페이지 이동</a>
 
-  <form action="upload.do" method="post" enctype="multipart/form-data">
-    <input type="file" name="uploadFile">
-    <button type="submit">파일 업로드</button>
   </form>
 </body>
 </html>
