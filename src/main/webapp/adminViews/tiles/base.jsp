@@ -12,6 +12,7 @@
 <title>오묘가묘 - 관리자</title>
 
 <!-- Custom fonts for this template-->
+<link rel="stylesheet" href="resources/style/reset.css">
 <link href="resources/admin/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
 <link

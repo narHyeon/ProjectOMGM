@@ -16,4 +16,19 @@ public class AdminController {
         return mav;
     }
 
+    // 관리자 배송 현황 페이지
+    @RequestMapping("/deliveryStatus.mdo")
+    public ModelAndView deliveryStatus(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/delivery/deliveryStatus");
+        return mav;
+    }
+
+    // 상품등록 페이지
+    @RequestMapping("/productRegister.mdo")
+    public ModelAndView productRegister(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/productRegister/productRegister");
+        return mav;
+    }
 }

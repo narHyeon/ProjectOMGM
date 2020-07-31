@@ -1,0 +1,234 @@
+.room-intro-section01 {
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 8%;
+}
+
+.room-section01-center {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-around;
+    margin-top: 3%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-bottom: 2%;
+}
+
+.section01-head {
+    margin-bottom: 3%;
+}
+
+.center-inner-01 {
+    width: 300px;
+    margin-left: 5%;
+    margin-right: -2%;
+}
+
+.center-01 {
+    display: flex;
+    margin-right: -3%;
+}
+
+.room-h2-01 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.room-h3-01 {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 18px;
+    opacity: 55%;
+}
+
+.room-h4-01 {
+    margin-bottom: 6%;
+    font-size: 18px;
+}
+
+.room-p-01 {
+    opacity: 55%;
+}
+
+.room-center-img01 {
+    height: auto;
+    width: 250px;
+}
+
+
+/* ###################################################################### */
+
+.room-intro-section02 {
+    background-color: whitesmoke;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.room-table-div {
+    padding-bottom: 0.009px;
+    background-color: whitesmoke;
+    height: 400px;
+}
+
+.room-h3-02 {
+    text-align: center;
+    margin-top: 3%;
+    padding-top: 5%;
+    margin-bottom: 5%;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.room-table-01 {
+    align-items: center;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20%;
+}
+
+.room-tr,
+.room-td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+}
+
+.room-tr00 {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.room-tr:hover {
+    background-color: rgb(222, 226, 230);
+}
+
+
+/* ###################################################################### */
+
+.room-info00 {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.room-info01 {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+
+.room-info-img {
+    width: 400px;
+    height: auto;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.room-info-text {
+    width: 40%;
+    height: auto;
+    text-align: center;
+}
+
+.room-info-a {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 3px;
+}
+
+.room-info-p {
+    margin-top: 4%;
+    opacity: 70%;
+}
+
+
+/* ###################################################################### */
+
+@media (max-width: 1350px) {
+    .center-01 {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .room-info-img {
+        width: 400px;
+        height: auto;
+        margin-left: 8%;
+        margin-right: 8%;
+        margin-bottom: 4%;
+        margin-top: 3%;
+    }
+    .room-info-a {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 3%;
+        margin-bottom: 3px;
+    }
+    .room-info-p {
+        margin-top: 6%;
+        opacity: 70%;
+    }
+    .room-info01 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .room-h2-01 {
+        text-align: center;
+        font-size: 20px;
+        opacity: 80%;
+        margin-bottom: 4%;
+    }
+    .room-h3-01 {
+        display: flex;
+        text-align: center;
+        font-size: 15px;
+        opacity: 50%;
+        line-height: normal;
+    }
+    .room-center-img01 {
+        height: auto;
+        width: 450px;
+    }
+    .center-01 {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .center-inner-01 {
+        margin-top: 4%;
+        margin-bottom: 6%;
+        margin-left: 0%;
+    }
+    .room-table-01 {
+        align-items: center;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    .room-h3-02 {
+        text-align: center;
+        margin-top: 9%;
+        padding-top: 8%;
+        margin-bottom: 9%;
+        font-size: 18px;
+        font-weight: 900;
+        font-weight: bold;
+    }
+    .room-td {
+        line-height: normal;
+    }
+    .room-table-div {
+        padding-bottom: 0.009px;
+        background-color: whitesmoke;
+        height: 350px;
+    }
+}
