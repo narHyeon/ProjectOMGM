@@ -1,0 +1,23 @@
+h2{
+    text-align: center;
+    font-size: 23px;
+    color:aliceblue;
+    margin-bottom: 10px;
+}
+
+.product_write{
+    display: block;
+
+}
+
+.form{
+    width: 360px;
+    background: #F28888;
+    height: 580px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
