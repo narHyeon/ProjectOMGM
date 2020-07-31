@@ -64,12 +64,17 @@
         <a href="reviewListBoard.do" class="reviewList_page01">&lt;&lt;</a>
         <a href="reviewListBoard.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
         <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-            <a href="reviewListBoard.do?page=${counter}" class="reviewList_page">&nbsp;&nbsp;${counter}</a>
+            <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" onlcick="changeColor()">&nbsp;&nbsp;${counter}</a>
         </c:forEach>
         <a href="reviewListBoard.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a>
         <a href="reviewListBoard.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
     </div>
 </div>
-
+<script>
+    function changeColor(){
+        let color = element.getElementsByClassName('reviewList_page');
+        color.style.backgroundColor = '#FFFFFF';
+    }
+</script>
 </body>
 </html>
