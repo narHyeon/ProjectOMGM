@@ -48,8 +48,6 @@ public class reviewController {
     public ModelAndView reviewContent(ReviewVO vo, ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/review/reviewContent");
-        System.out.println(vo.getSeq());
-        vo.setSeq(6);
         rvo.setBoardSeq(vo.getSeq());
         List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
         mav.addObject("review",reviewService.getReview(vo));

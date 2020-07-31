@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="reviewList_button00">
-        <button class="button">글쓰기</button>
+        <button class="button" onclick="write()">글쓰기</button>
     </div>
     <div class="reviewList_page00">
         <a href="reviewListBoard.do" class="reviewList_page01">&lt;&lt;</a>
@@ -76,6 +76,9 @@
         const el = document.querySelector('#review_throw');
         el.innerHTML = '<input type=hidden name=seq value='+seq+'>';
         el.submit();
+    }
+    function write() {
+        window.location.href = 'reviewWrite.do';
     }
 </script>
 </body>
