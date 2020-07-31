@@ -31,6 +31,7 @@
   <a href="kinderGardenReservation.mdo">관리자 유치원 예약현황</a>
   <a href="hotelReservation.mdo">호텔 예약현황 페이지 이동</a>
   <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
+  <a href="productRegister.mdo">상품등록 페이지 이동</a>
 
 </body>
 </html>
