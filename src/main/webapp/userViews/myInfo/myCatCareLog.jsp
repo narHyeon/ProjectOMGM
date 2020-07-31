@@ -78,8 +78,6 @@
 	cursor: pointer;
 }
 </style>
-<script src="js/jquery.min.js"></script>
-<script src="js/flat.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
