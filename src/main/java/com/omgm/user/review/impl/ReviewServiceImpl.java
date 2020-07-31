@@ -18,6 +18,11 @@ public class ReviewServiceImpl implements ReviewService {
     ReviewDAO reviewDAO;
 
     @Override
+    public void insertReviewBoard(ReviewVO vo) {
+        reviewDAO.insertReviewBoard(vo);
+    }
+
+    @Override
     public ReviewVO getReview(ReviewVO vo) {
         return reviewDAO.getReview(vo);
     }
