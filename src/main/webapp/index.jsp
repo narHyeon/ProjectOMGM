@@ -4,13 +4,12 @@
 <title>$Title$</title>
 </head>
 <body>
+
   <h2>클라이언트</h2>
   <a href="main.do">프로젝트 메인화면</a>
   <hr>
   <h3>Review 페이지</h3>
-  <a href="reviewWrite.do">review_writer 페이지 이동</a>
-  <a href="reviewListBoard.do">review_list 페이지 이동</a>
-  <a href="reviewContent.do">review_content 페이지 이동</a>
+  <a href="reviewListBoard.do">review 게시판 이동</a>
   <hr>
   <h3>개별 작업 페이지</h3>
   <a href="messageService.do">문자 서비스 소개 페이지</a>
@@ -33,6 +32,5 @@
   <a href="hotelReservation.mdo">호텔 예약현황 페이지 이동</a>
   <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
 
-  </form>
 </body>
 </html>
