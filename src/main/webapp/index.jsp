@@ -22,6 +22,8 @@
   <a href="introductionPage.do">오시는길 이용안내 페이지 이동</a>
   <a href="toySales.do">상품 판매 페이지 이동</a>
   <a href="roomIntroduction.do">방 소개 페이지 이동</a>
+
+
   <hr>
   <h2>관리자 페이지</h2>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>

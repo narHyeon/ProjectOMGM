@@ -24,7 +24,7 @@
         <input id="title" type="text" name="title" placeholder="제목"/>
         <br><br>
         <textarea id="summernote" name="content"></textarea>
-        <button type="submit">글 작성</button>
+        <button id="writebtn" type="submit">글 작성</button>
 <%--        <input id="writebtn" type="button"  value="글 작성" onclick="goWrite(this.form)"/>--%>
     </form>
 </div>
