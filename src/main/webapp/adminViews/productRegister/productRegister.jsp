@@ -18,13 +18,69 @@
 <head>
     <title></title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="resources/admin/css/productRegister.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <style>
+        #pro_write h2{
+            text-align: center;
+            padding-top:65px;
+            font-size:25px;
+            font-weight:bold;
+        }
+
+        #pro_write{
+            border-radius: 10px;
+            /*position: absolute;*/
+            /*left: 50%;*/
+            /*top: 50%;*/
+            /*transform: translate(-50%,-50%);*/
+            /*display:block;*/
+
+            display: flex;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+
+        #pro_write .pro_form {
+            margin: 0 auto;
+
+        }
+
+        #pro_write label{
+            width:15%;
+            text-align:center;
+        }
+
+        #pro_write div{
+            display:flex;
+            margin-top:1%;
+        }
+
+        #pro_write .title{
+            width:100%;
+            height:20%;
+        }
+
+        #pro_point{
+            width:10%;
+            height:20%;
+        }
+
+        #register_Btn{
+            margin-left: auto;
+            /*position: absolute;*/
+            /*left: 97%;*/
+            /*top: 105%;*/
+            /*transform: translate(-50%,-50%);*/
+        }
+
+
+
+    </style>
 </head>
 <body>
-<h2>상품등록</h2><br><br><br>
 <div id="pro_write">
-    <form method="post" action="/write" class="form">
+    <h2>상품등록</h2><br><br><br>
+    <form method="post" action="/write" class="pro_form">
         <div>
             <label>상품이미지 : </label>
             <input type="file" class="title" name="proImg"/><br><br>
@@ -53,7 +109,7 @@
 
         <div>
             <label>적립금 : </label>
-            <label>판매가에서 </label><input type="text" id="point" class="title" name="point"/><br><br><label>포인트 적립 </label>
+            <label>판매가에서 </label><input type="text" id="pro_point" name="point"/><br><br><label>포인트 적립 </label>
         </div>
 
         <div class="inputArea">
