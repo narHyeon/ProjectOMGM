@@ -4,142 +4,95 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My PAGE</title>
+<title></title>
 </head>
 <style>
+#wrap {
+	display: flex;
+	flex-direction: column;
+}
 #head {
 	min-width: 60%;
 	margin-right: 15%;
-	margin-top: 5%;
-	margin-left: 22%;
+	margin-top: 2%;
+	margin-left: 28%;
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
 #body {
-	margin-left: 5%;
 	display: flex;
-	height: 700px;
-	width: 60%;
 	flex-direction: row;
-}
-
-.bar {
-	display: flex;
-	height: 45px;
-	width: 100%;
-}
-
-#content {
-	display: flex;
-	flex-direction: column;
-	margin-left: 8%;
-	width: 100%;
-	height: 50%;
-}
-
-#banner {
-	display: flex;
-	border: 2px solid #FFABB9;
-	height: 50%;
-	min-width: 200px;
-	flex-direction: column;
-	margin-left: 3%;
-}
-
-#buttons {
-	margin-top: 1%;
-	padding-right: 30%;
-}
-
-#banner-ul {
-	margin-left: 20px;
-	padding: 0px;
-}
-
-#banner-li {
-	list-style-type: none;
-	margin-bottom: 7%;
-	font-size: 15px;
-	margin-top: 12%;
-}
-
-.bar-title {
-	width: 20%;
-	height: 98%;
-	background-color: #FFABB9;
-	color: white;
-	padding-left: 1.5%;
-	border-right: 2px solid #f6f6f6;
-}
-
-.bar-content {
-	width: 45%;
-	height: 98%;
-	background-color: #F28888;
-	color: black;
-	padding-left: 3%;
-}
-
-#inputstyle {
-	border: 1px solid #FFABB9;
-	border-radius: 3%;
-	padding: 0.5%;
-}
-
-#inputstylephone {
-	border: 1px solid #FFABB9;
-	border-radius: 3%;
-	padding: 0.5%;
-	margin-right: 1%;
-	margin-left: 1%;
-	width: 15%;
-}
-
-#inputstylemail {
-	border: 1px solid #FFABB9;
-	border-radius: 3%;
-	padding: 0.5%;
-	margin-right: 1%;
-	margin-left: 1%;
-	width: 60%;
-}
-
-#textareastyle {
-	border: 1px solid #FFABB9;
-	padding: 0.5%;
-	margin-right: 1%;
-	margin-left: 1%;
-	width: 100%;
 	height: 100%;
 }
-
 #banner {
 	display: flex;
 	width: 15%;
-	height: 50%;
+	height: 30%;
 	flex-direction: column;
 	margin-left: 7%;
 	border-radius: 10px;
 }
-
-#fieldsetstyle {
+#content {
+	display : flex;
+	flex-direction :column;
+	margin-left: 6%;
+	width: 43%;
+	height: 100%;
+}
+.fieldsetstyle {
 	margin-top: 5%;
 	display: block;
 	border: 1px solid #FFABB9;
 	border-radius: 10px;
 	background-color: #FFABB9;
 	color: white;
-	padding: 15px;
+	padding: 10px;
 }
-
-.alink:link {
-	color: white;
+.fieldsetstyle:hover{
+	cursor: pointer;
 }
-
-.alink:visited {
+#bottom {
+	text-align: right; /*가운데 정렬*/
+	margin-top: 2%;
+	margin-right: 35%;
+	margin-bottom: 2%;
+}
+.buttons {
+	background-color: white;
+	cursor: pointer;
+	border: 2px solid #e2e2e2;
+	font-size: 12px;
+	padding-left: 1%;
+	padding-right: 1%;
+	color: purple;
+	width: 18%;
+	
+}
+.bar {
+	display: flex;
+	height: 45px;
+	width: 100%;
+}
+.bar-title{
+	width: 20%;
+	height: 98%;
+	background-color: #FFABB9;
 	color: white;
+	padding-left: 1.5%;
+	padding-top : 1.5%;
+	border-right: 2px solid #f6f6f6;
+	border-top: 1px solid #f6f6f6;
+}
+.bar-content{
+	width: 40%;
+	height: 98%;
+	background-color: #F28888;
+	color: black;
+	padding-left: 3%;
+	padding-top : 1.5%;
+	border-top: 1px solid #f6f6f6;
 }
 
 @media ( max-width : 768px) {
@@ -163,22 +116,7 @@
 		width: 300px;
 		height: 50%;
 	}
-	#inputstylephone {
-		border: 1px solid #FFABB9;
-		border-radius: 3%;
-		padding: 0.5%;
-		margin-right: 1%;
-		margin-left: 1%;
-		width: 25%;
-	}
-	#inputstylemail {
-		border: 1px solid #FFABB9;
-		border-radius: 3%;
-		padding: 0.5%;
-		margin-right: 1%;
-		margin-left: 1%;
-		width: 40%;
-	}
+
 	@media ( max-width : 480px) {
 		* {
 			margin: 0;
@@ -196,22 +134,6 @@
 			margin-left: 20%;
 			margin-top: 8%;
 		}
-		#inputstylephone {
-			border: 1px solid #FFABB9;
-			border-radius: 3%;
-			padding: 0.5%;
-			margin-right: 1%;
-			margin-left: 1%;
-			width: 25%;
-		}
-		#inputstylemail {
-			border: 1px solid #FFABB9;
-			border-radius: 3%;
-			padding: 0.5%;
-			margin-right: 1%;
-			margin-left: 1%;
-			width: 40%;
-		}
 		.bar-content {
 			margin-left: 5%;
 			width: 250px;
@@ -226,7 +148,28 @@
 	}
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	$("#myPageFs").click(function(){
+		window.location.href = 'myPage.do';
+	});
+	$("#myCatPageFs").click(function(){
+		window.location.href = 'myCatPage.do';
+	});
+	$("#myServiceListFs").click(function(){
+		window.location.href = 'myServiceList.do';
+	});
+	$("#myBuyListLogFs").click(function(){
+		window.location.href = 'myBuyListLog.do';
+	});
+	$("#myCatCareLogFs").click(function(){
+		window.location.href = 'myCatCareLog.do';
+	});
+	$("#myReViewFs").click(function(){
+		window.location.href = 'myReView.do';
+	});
+});
 	function goUpdate() {
 		window.location.href = "myPageUpdate.do";
 	}
@@ -234,27 +177,27 @@
 <body>
 	<div id="wrap">
 		<div id="head">
-			<h1>MY PAGE</h1>
+			<h1>My Page</h1>
 		</div>
 		<div id="body">
 			<div id="banner">
-				<fieldset id="fieldsetstyle">
-					<a href="myPage.do" class="alink">내 정보</a>
+				<fieldset class="fieldsetstyle" id="myPageFs">
+					내 정보
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="#" class="alink">내 고양이 정보</a>
+				<fieldset class="fieldsetstyle" id="myCatPageFs">
+					내 고양이 정보
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="myServiceList.do" class="alink">서비스</a>
+				<fieldset class="fieldsetstyle" id="myServiceListFs">
+					서비스
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="myBuyListLog.do" class="alink">구매내역</a>
+				<fieldset class="fieldsetstyle" id="myBuyListLogFs">
+					구매내역
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="#" class="alink">반려묘 일지</a>
+				<fieldset class="fieldsetstyle" id="myCatCareLogFs">
+					반려묘 일지
 				</fieldset>
-				<fieldset id="fieldsetstyle">
-					<a href="#" class="alink">내가 작성한 후기</a>
+				<fieldset class="fieldsetstyle" id="myReViewFs">
+					내가 작성한 후기
 				</fieldset>
 			</div>
 			<div id="content">
@@ -290,9 +233,9 @@
 					<div class="bar-title">상세주소</div>
 					<div class="bar-content">서울</div>
 				</div>
-				<div id="buttons" align="right">
-					<input type="button" value="내 정보 수정" onclick="goUpdate()">
-					<input type="button" value="회원 탈퇴" onclick="">
+				<div id="bottom">
+					<input type="button" value="내 정보 수정" onclick="goUpdate()" class="buttons">
+					<input type="button" value="회원 탈퇴" onclick="" class="buttons">
 				</div>
 			</div>
 		</div>
