@@ -119,6 +119,13 @@
 </style>
 </head>
 <body>
+이전제목: ${review.prevtitle}
+이전번호: ${review.prevseq}
+이전날짜: ${review.prevdate}
+다음제목: ${review.nexttitle}
+다음번호: ${review.nextseq}
+다음날짜: ${review.nextdate}
+
 	<div id="review_content">
 
 		<h1>Review</h1>
@@ -140,7 +147,7 @@
 		</div>
 		<hr>
 		<div class="review_content_button">
-			<button onclick="reivewList()">목록</button>
+			<button onclick="reviewList()">목록</button>
 		</div>
 
 
@@ -183,6 +190,7 @@
 			</tr>
 		</table>
 	</div>
+	<form id="review_throw" action="reviewContent.do"></form>
 	<script>
         function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
@@ -208,14 +216,23 @@
             pwd.value = '';
             content.value = '';
         }
+
         function reviewList() {
         	window.location.href = 'reviewListBoard.do';
 		}
-		function prevContent() {
-        	
-		}
-		function nextContent() {
 
+		function prevContent() {
+			console.log(${review.seq});
+			const el = document.querySelector('#review_throw');
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.seq}-1)+'>';
+			el.submit();
+		}
+
+		function nextContent() {
+			console.log(${review.seq});
+			const el = document.querySelector('#review_throw');
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.seq}+1)+'>';
+			el.submit();
 		}
     </script>
 </body>
