@@ -13,28 +13,70 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/style/faq/faq2.css">
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
-<link rel="apple-touch-icon-precomposed"
-	href="images/icon/flat-design-touch.png">
 <style type="text/css">
+#wrap {
+	
+	display: flex;
+	flex-direction: column;
+}
+
+#head {
+	min-width: 60%;
+	margin-right: 15%;
+	margin-top: 2%;
+	margin-left: 28%;
+	margin-bottom: 2%;
+	font-size: 20px;
+	padding-bottom: 1%;
+	border-bottom: 2px solid #FFABB9;
+}
+
+#body {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	margin-bottom: 3%;
+}
+
+#banner {
+	display: flex;
+	width: 15%;
+	height: 30%;
+	flex-direction: column;
+	margin-left: 7%;
+	border-radius: 10px;
+}
+
+#content {
+	display: flex;
+	flex-direction: column;
+	margin-left: 6%;
+	width: 60%;
+	height: 100%;
+}
+
+.fieldsetstyle {
+	margin-top: 5%;
+	display: block;
+	border: 1px solid #FFABB9;
+	border-radius: 10px;
+	background-color: #FFABB9;
+	color: white;
+	padding: 10px;
+}
+
+.fieldsetstyle:hover {
+	cursor: pointer;
+}
+#tables{
+	display: flex;
+	flex-direction: column;
+
+}
+
 #FAQ_Search {
 	display: flex;
 	flex-direction: row;
-	flex-grow: 20%;
-	margin-bottom: 1%;
-}
-
-ahover {
-	position: relative;
-	float: left;
-	display: block;
-	width: 100%;
-	z-index: 999;
-	background: #ccc;
-}
-
-ahover:hover {
-	background: #444;
-	color: #fff;
 }
 
 .line {
@@ -73,104 +115,147 @@ ahover:hover {
 	color: #fff;
 	background: #21F0A1;
 }
+.serviceType{
 
-.service_kind {
-	color: #347F77;
+	margin-bottom: 0.5%;
+	font-size: 15px;
 }
+
 </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".main1").click(function() {
+			window.location.href = 'getMyService.do';
+		});
+		$("#myPageFs").click(function(){
+			window.location.href = 'myPage.do';
+		});
+		$("#myCatPageFs").click(function(){
+			window.location.href = 'myCatPage.do';
+		});
+		$("#myServiceListFs").click(function(){
+			window.location.href = 'myServiceList.do';
+		});
+		$("#myBuyListLogFs").click(function(){
+			window.location.href = 'myBuyListLog.do';
+		});
+		$("#myCatCareLogFs").click(function(){
+			window.location.href = 'myCatCareLog.do';
+		});
+		$("#myReViewFs").click(function(){
+			window.location.href = 'myReView.do';
+		});
+	});
+</script>
 </head>
 <body>
 	<div id="wrap">
-		<section class="content_section">
-			<div class="content_row_1">
-				<div id="FAQ_Search">
-					<h1 class="service_kind">이용중인 서비스</h1>
-				</div>
-				<hr style="border: solid 0.8px #9D9CA3;">
-				<table class="board_table">
-					<thead id="thead1">
-						<tr>
-							<th id="t1">번호</th>
-							<th id="t2">서비스 종류</th>
-							<th id="t3">서비스종료 일시</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="main1">
-							<td>1</td>
-							<td>이용중인 서비스1</td>
-							<td>오늘</td>
-						</tr>
-						<tr class="main1">
-							<td>2</td>
-							<td>이용중인 서비스2</td>
-							<td>오늘</td>
-						</tr>
-					</tbody>
-				</table>
+		<div id="head">
+			<h1>My Service</h1>
+		</div>
+		<div id="body">
+			<div id="banner">
+				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myBuyListLogFs">구매내역
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatCareLogFs">반려묘
+					일지</fieldset>
+				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
+				</fieldset>
 			</div>
-			<br />
-			<div class="content_row_1">
-				<div id="FAQ_Search">
-					<h1 class="service_kind">이용예정 서비스</h1>
+			<div id="content">
+				<div id="tables">
+					<div class="serviceType">
+						<h1>이용중인 서비스</h1>
+					</div>
+					<table class="board_table">
+						<thead id="thead1">
+							<tr>
+								<th id="t1">번호</th>
+								<th id="t2">서비스 종류</th>
+								<th id="t3">서비스종료 일시</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="main1">
+								<td>1</td>
+								<td>이용중인 서비스1</td>
+								<td>오늘</td>
+							</tr>
+							<tr class="main1">
+								<td>2</td>
+								<td>이용중인 서비스2</td>
+								<td>오늘</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<hr style="border: solid 0.8px #9D9CA3;">
-				<table class="board_table">
-					<thead id="thead2">
-						<tr>
-							<th>번호</th>
-							<th>서비스 종류</th>
-							<th>서비스종료 일시</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="main1">
-							<td>1</td>
-							<td>이용중인 서비스1</td>
-							<td>오늘</td>
-						</tr>
-						<tr class="main1">
-							<td>2</td>
-							<td>이용중인 서비스2</td>
-							<td>오늘</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<br />
-			<div class="content_row_1">
-				<div id="FAQ_Search">
-					<h1 class="service_kind">이용했던 서비스</h1>
+				<br />
+				<div class="content_row_1">
+					<div class="serviceType">
+						<h1 class="service_kind">이용예정 서비스</h1>
+					</div>
+					<table class="board_table">
+						<thead id="thead2">
+							<tr>
+								<th>번호</th>
+								<th>서비스 종류</th>
+								<th>서비스종료 일시</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="main1">
+								<td>1</td>
+								<td>이용중인 서비스1</td>
+								<td>오늘</td>
+							</tr>
+							<tr class="main1">
+								<td>2</td>
+								<td>이용중인 서비스2</td>
+								<td>오늘</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<hr style="border: solid 0.8px #9D9CA3;">
-				<table class="board_table">
-					<thead id="thead">
-						<tr>
-							<th>번호</th>
-							<th>서비스 종류</th>
-							<th>서비스종료 일시</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="main1">
-							<td>1</td>
-							<td>이용했던 서비스1</td>
-							<td>어제</td>
-						</tr>
-						<tr class="main1">
-							<td>2</td>
-							<td>이용했던 서비스2</td>
-							<td>그재</td>
-						</tr>
-						<tr class="main1">
-							<td>3</td>
-							<td>이용했던 서비스3</td>
-							<td>지난주</td>
-						</tr>
-					</tbody>
-				</table>
+				<br />
+				<div class="content_row_1">
+					<div class="serviceType">
+						<h1 class="service_kind">이용했던 서비스</h1>
+					</div>
+					<table class="board_table">
+						<thead id="thead">
+							<tr>
+								<th>번호</th>
+								<th>서비스 종류</th>
+								<th>서비스종료 일시</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="main1">
+								<td>1</td>
+								<td>이용했던 서비스1</td>
+								<td>어제</td>
+							</tr>
+							<tr class="main1">
+								<td>2</td>
+								<td>이용했던 서비스2</td>
+								<td>그재</td>
+							</tr>
+							<tr class="main1">
+								<td>3</td>
+								<td>이용했던 서비스3</td>
+								<td>지난주</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</section>
+		</div>
 	</div>
 </body>
 </html>

@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>FLAT DESIGN - 문의사항</title>
-<link rel="stylesheet" type="text/css" href="resources/style/faq.css">
-<link rel="stylesheet" type="text/css" href="resources/style/faq2.css">
+<title>FAQ</title>
+<link rel="stylesheet" type="text/css" href="resources/style/faq/faq.css">
+<link rel="stylesheet" type="text/css" href="resources/style/faq/faq2.css">
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="images/icon/flat-design-touch.png">
@@ -33,7 +33,6 @@
 	flex-grow: 20%;
 	margin-bottom: 1%;
 }
-
 ahover {
 	position: relative;
 	float: left;
@@ -42,12 +41,10 @@ ahover {
 	z-index: 999;
 	background: #ccc;
 }
-
 ahover:hover {
 	background: #444;
 	color: #fff;
 }
-
 .line {
 	display: flex;
 	flex-direction: column;
@@ -55,30 +52,26 @@ ahover:hover {
 	height: 20px;
 	margin-bottom: 0.5%;
 }
-
 .ul-1 {
 	width: 100%;
 	border-top: 1px solid #e2e2e2;
 	border-bottom: 1px solid #e2e2e2;
 	border-right: 1px solid #e2e2e2;
+	justify-content: space-around;
 }
-
 .liststyle {
 	list-style-type: none;
 	float: left;
 	border-left: 1px solid #e2e2e2;
-	padding: 0.5%;
 	color: gray;
 	font-size: 12px;
 	font: 정선동강;
-	padding-left: 2%;
-	padding-right: 2%;
+	padding-left: 1%;
+	padding-right: 1%;
 }
-
 .main1:hover {
 	cursor: pointer;
 }
-
 #category {
 	border: 1px solid #ffffff;
 	background-color: white;
@@ -96,13 +89,12 @@ ahover:hover {
 				<div class="line">
 					<ul class="ul-1">
 						<c:forEach var="category" items="${categoryList}">
-							<li class="liststyle">
-								<form action="fAQList.do" method="post">
-									<input type="hidden" name="FAQ_CATEGORYNUM"
-										value="${category.CATEGORY_NO}"> <input type="submit"
-										value="${category.CATEGORY_NAME}" id="category">
-								</form>
-							</li>
+						<li class="liststyle">
+							<form action="fAQList.do" method="post">
+								<input type="hidden" name="FAQ_CATEGORYNUM" value="${category.CATEGORY_NO}">
+								<input type="submit" value="${category.CATEGORY_NAME}" id="category">
+							</form>
+						</li>
 						</c:forEach>
 						<li class="liststyle">
 							<form action="fAQList.do" method="get">

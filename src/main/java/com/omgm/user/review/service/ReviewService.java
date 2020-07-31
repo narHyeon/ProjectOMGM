@@ -1,10 +1,16 @@
 package com.omgm.user.review.service;
 
-import com.omgm.user.review.bean.ReviewVO;
-import org.springframework.stereotype.Service;
-
+import com.omgm.user.review.beans.PageNavigator;
+import com.omgm.user.review.beans.ReviewReplyVO;
+import com.omgm.user.review.beans.ReviewVO;
 import java.util.List;
 
 public interface ReviewService {
-    List<ReviewVO> getReviewList(ReviewVO vo);
+    void insertReviewBoard(ReviewVO vo);
+    ReviewVO getReview(ReviewVO vo);
+    List<ReviewReplyVO> getReviewReply(ReviewReplyVO rvo);
+    void addReview(ReviewReplyVO rvo);
+    List<ReviewVO> getReviewList(ReviewVO vo, PageNavigator navi);
+    int selectCount();
 }
+

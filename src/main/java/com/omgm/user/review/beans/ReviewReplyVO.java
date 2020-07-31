@@ -1,29 +1,24 @@
-package com.omgm.user.review.bean;
+package com.omgm.user.review.beans;
 
 import java.util.Date;
 
-public class ReviewVO {
+public class ReviewReplyVO {
     private int seq;
+    private int boardSeq;
     private String id;
     private String pwd;
-    private String title;
     private String content;
     private Date regDate;
-    private int cnt;
-    private String imgRef;
 
-    public ReviewVO() {
-    }
+    public ReviewReplyVO() { }
 
-    public ReviewVO(int seq, String id, String pwd, String title, String content, Date regDate, int cnt, String imgRef) {
+    public ReviewReplyVO(int seq, int boardSeq, String id, String pwd, String content, Date regDate) {
         this.seq = seq;
+        this.boardSeq = boardSeq;
         this.id = id;
         this.pwd = pwd;
-        this.title = title;
         this.content = content;
         this.regDate = regDate;
-        this.cnt = cnt;
-        this.imgRef = imgRef;
     }
 
     public int getSeq() {
@@ -32,6 +27,14 @@ public class ReviewVO {
 
     public void setSeq(int seq) {
         this.seq = seq;
+    }
+
+    public int getBoardSeq() {
+        return boardSeq;
+    }
+
+    public void setBoardSeq(int boardSeq) {
+        this.boardSeq = boardSeq;
     }
 
     public String getId() {
@@ -50,14 +53,6 @@ public class ReviewVO {
         this.pwd = pwd;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getContent() {
         return content;
     }
@@ -74,33 +69,15 @@ public class ReviewVO {
         this.regDate = regDate;
     }
 
-    public int getCnt() {
-        return cnt;
-    }
-
-    public void setCnt(int cnt) {
-        this.cnt = cnt;
-    }
-
-    public String getImgRef() {
-        return imgRef;
-    }
-
-    public void setImgRef(String imgRef) {
-        this.imgRef = imgRef;
-    }
-
     @Override
     public String toString() {
-        return "ReviewVO{" +
+        return "ReviewReplyVO{" +
                 "seq=" + seq +
+                ", boardSeq=" + boardSeq +
                 ", id='" + id + '\'' +
                 ", pwd='" + pwd + '\'' +
-                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", regDate=" + regDate +
-                ", cnt=" + cnt +
-                ", imgRef='" + imgRef + '\'' +
                 '}';
     }
 }
