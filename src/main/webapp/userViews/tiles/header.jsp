@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="resources/js/header.js" defer></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="resources/js/header.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 	<!-- header 영역 -->
@@ -54,12 +55,12 @@
 			</ol>
 		</div>
 
-		<ul class="login_membership">
-			<li><a href="">login</a></li>
-			<li><p>|</p></li>
-			<li><a href="">Join</a></li>
-		</ul>
-	</nav>
+    <ul class="login_membership">
+        <li><a href="">login</a></li>
+        <li><p>|</p></li>
+        <li><a href="signUp.do">Join</a></li>
+    </ul>
+</nav>
 
 	<!-- 위는 주리 헤더 -->
 

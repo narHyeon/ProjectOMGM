@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -43,7 +44,7 @@
 }
 
 #review_content .review_content_head td:nth-child(2) {
-	width: 75%;
+	width: 68%;
 }
 
 .review_content_body {
@@ -118,6 +119,7 @@
 </style>
 </head>
 <body>
+
 	<div id="review_content">
 
 		<h1>Review</h1>
@@ -125,42 +127,43 @@
 		<table class="review_content_head">
 			<tr>
 				<td>제목</td>
-				<td>귀여움 잔뜩!</td>
-				<td>2020-07-27 14:00</td>
+				<td>${review.title}</td>
+				<td>${review.regDate}</td>
 			</tr>
 			<tr>
 				<td>대표이미지</td>
-				<td>IMG_9507.jpg (file size 106KB)</td>
-				<td>yongjuri</td>
+				<td>${review.imgRef}</td>
+				<td>${review.id}</td>
 			</tr>
 		</table>
 		<div class="review_content_body">
-			비가오는날 `건대입구 2번출구 엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br> 대기번호 230번
-			영수증에는 엔젤리너스 지하의 와이파이 비밀번호가 적혀있다.<br> 비가오는날 건대입구 2번출구 엔젤리너스 지하에서
-			메인 프로젝트 작업을 하고 있다.<br> 대기번호 230번 영수증에는 엔젤리너스 지하의 와이파이 비밀번호가
-			적혀있다.<br> 비가오는날 건대입구 2번출구 엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br>
-			대기번호 230번 영수증에는 엔젤리너스 지하의 와이파이 비밀번호가 적혀있다.<br> 비가오는날 건대입구 2번출구
-			엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br> 대기번호 230번 영수증에는 엔젤리너스 지하의 와이파이
-			비밀번호가 적혀있다.<br> 비가오는날 건대입구 2번출구 엔젤리너스 지하에서 메인 프로젝트 작업을 하고 있다.<br>
-			대기번호 23`0번 영수증에는 엔젤리너스 지하의 와이파이 비밀번호가 적혀있다.<br>
+			${review.content}
 		</div>
 		<hr>
 		<div class="review_content_button">
-			<button>목록</button>
+			<button onclick="reviewList()">목록</button>
 		</div>
 
 
 		<%--  댓글  --%>
 		<h3 id="review_content_reply_content_title">댓글</h3>
-		<div id="review_content_reply_content"></div>
+		<div id="review_content_reply_content">
+
+			<c:forEach var="rv" items="${reply}">
+				<div>
+					<p>${rv.id} : </p>
+					<p>${rv.content}</p>
+				</div>
+			</c:forEach>
+		</div>
 
 		<%--  댓글 달기  --%>
 		<div class="review_content_reply">
 			<div>
-				<label for="review_content_reply_name">이름</label> <input
-					id="review_content_reply_name" type="text"> <label
-					for="review_content_reply_pass">패스워드</label> <input
-					id="review_content_reply_pass" type="text">
+				<label for="review_content_reply_name">이름</label>
+				<input id="review_content_reply_name" type="text">
+				<label for="review_content_reply_pass">패스워드</label>
+				<input id="review_content_reply_pass" type="password">
 			</div>
 			<textarea name="" id="review_content_reply_text" cols="15" rows="5"></textarea>
 			<button type="submit" id="review_content_reply_button"
@@ -169,43 +172,68 @@
 
 		<%-- 목차 --%>
 		<table class="review_content_head review_content_prne">
-			<tr>
+			<tr onclick="prevContent('${review.prevTitle}')">
 				<td>이전</td>
-				<td>귀여움 뿜뿜!</td>
-				<td>2020-07-27 12:00</td>
+				<td>${review.prevTitle}</td>
+				<td>${review.prevDate}</td>
 			</tr>
-			<tr>
+			<tr onclick="nextContent('${review.nextTitle}')">
 				<td>다음</td>
-				<td>세상에 존예</td>
-				<td>2020-07-27 17:00</td>
+				<td>${review.nextTitle}</td>
+				<td>${review.nextDate}</td>
 			</tr>
 		</table>
 	</div>
+	<form id="review_throw" action="reviewContent.do"></form>
 	<script>
-        function sendData(writer,pass,content) {
+        function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
 
             xhr.open('POST', 'reviewContentReply.do',true);
             xhr.setRequestHeader('Content-type', 'application/json');
-            const data = { writer: writer, pass: pass, content: content };
+            const data = { id: id, pwd: pwd, content: content, boardSeq: ${review.seq} };
             xhr.send(JSON.stringify(data));
         }
 
         function addReply() {
-            const writer = document.querySelector('#review_content_reply_name');
-            const pass = document.querySelector('#review_content_reply_pass');
+            const id = document.querySelector('#review_content_reply_name');
+            const pwd = document.querySelector('#review_content_reply_pass');
             const content = document.querySelector('#review_content_reply_text');
             document.querySelector('#review_content_reply_content').innerHTML += `
                 <div>
-                    <p>`+writer.value+` : </p>
+                    <p>`+id.value+` : </p>
                     <p>`+content.value+`</p>
                 </div>
             `;
-            sendData(writer.value,pass.value,content.value);
-            writer.value = '';
-            pass.value = '';
+            sendData(id.value,pwd.value,content.value);
+            id.value = '';
+            pwd.value = '';
             content.value = '';
         }
+
+        function reviewList() {
+        	window.location.href = 'reviewListBoard.do';
+		}
+
+		function prevContent(prev) {
+        	if(prev === '없음') {
+        		alert('마지막 페이지입니다.');
+        		return;
+			}
+			const el = document.querySelector('#review_throw');
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.prevSeq})+'>';
+			el.submit();
+		}
+
+		function nextContent(next) {
+			if(next === '없음') {
+				alert('마지막 페이지입니다.');
+				return;
+			}
+			const el = document.querySelector('#review_throw');
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
+			el.submit();
+		}
     </script>
 </body>
 </html>

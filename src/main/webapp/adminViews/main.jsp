@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<div id="deliveryStatus"><%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
 <title>관리자</title>

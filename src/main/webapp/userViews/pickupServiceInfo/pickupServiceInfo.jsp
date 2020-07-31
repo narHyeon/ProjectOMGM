@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link type="text/css" rel="stylesheet" href="resources/style/reset.css">
 <link type="text/css" rel="stylesheet"
-	href="resources/style/pickupService_info/pickup-intro.css">
+	href="resources/style/pickupServiceInfo/pickupIntro.css">
 <title>Document</title>
 </head>
 

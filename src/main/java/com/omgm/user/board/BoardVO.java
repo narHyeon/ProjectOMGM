@@ -1,5 +1,7 @@
 package com.omgm.user.board;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Date;
 
 public class BoardVO {
@@ -9,6 +11,7 @@ public class BoardVO {
     private String content;
     private Date regDate;
     private int cnt;
+    private MultipartFile uploadFile;
 
     public BoardVO() { }
 
@@ -19,6 +22,14 @@ public class BoardVO {
         this.content = content;
         this.regDate = regDate;
         this.cnt = cnt;
+    }
+
+    public MultipartFile getUploadFile() {
+        return uploadFile;
+    }
+
+    public void setUploadFile(MultipartFile uploadFile) {
+        this.uploadFile = uploadFile;
     }
 
     public int getSeq() {
