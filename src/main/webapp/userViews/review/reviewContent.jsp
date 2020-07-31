@@ -160,10 +160,10 @@
 		<%--  댓글 달기  --%>
 		<div class="review_content_reply">
 			<div>
-				<label for="review_content_reply_name">이름</label> <input
-					id="review_content_reply_name" type="text"> <label
-					for="review_content_reply_pass">패스워드</label> <input
-					id="review_content_reply_pass" type="text">
+				<label for="review_content_reply_name">이름</label>
+				<input id="review_content_reply_name" type="text">
+				<label for="review_content_reply_pass">패스워드</label>
+				<input id="review_content_reply_pass" type="password">
 			</div>
 			<textarea name="" id="review_content_reply_text" cols="15" rows="5"></textarea>
 			<button type="submit" id="review_content_reply_button"

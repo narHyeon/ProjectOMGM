@@ -16,14 +16,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Summernote</title>
+    <title></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="resources/admin/css/productRegister.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 <h2>상품등록</h2><br><br><br>
-<div id="product_write">
+<div id="pro_write">
     <form method="post" action="/write" class="form">
         <div>
             <label>상품이미지 : </label>
@@ -47,7 +47,7 @@
         </div>
 
         <div>
-            <label>재고 : </label>
+            <label id="proStockL">재고 : </label>
             <input type="text" id="proStock" class="title" name="proStock"/><br><br>
         </div>
 
@@ -58,15 +58,12 @@
 
         <div class="inputArea">
             <label>상품설명</label>
-            <textarea rows="10" cols="100" id="proIntro" name="proIntro"></textarea>
+            <textarea rows="10" cols="80" id="proIntro" name="proIntro" style="resize: none;"></textarea>
         </div>
 
         <div>
             <button type="submit" id="register_Btn" class="btn btn-primary">등록</button>
         </div>
-
-
-
     </form>
 </div>
 </body>

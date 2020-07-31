@@ -10,7 +10,6 @@
 <head>
     <title>Title</title>
     <title>toy-sales</title>
-    <link type="text/css" rel="stylesheet" href="resources/style/reset.css">
     <link type="text/css" rel="stylesheet" href="resources/style/sales/toySales.css">
     <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js" defer></script> -->
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
