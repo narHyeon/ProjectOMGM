@@ -38,4 +38,20 @@ public class AdminController {
         mav.setViewName("/productRegister/productRegister");
         return mav;
     }
+
+    //픽업서비스 관리 페이지
+    @RequestMapping("/pickupServiceManagement.mdo")
+    public ModelAndView pickupServiceManagement(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/manageMent/pickupServiceManagement");
+        return mav;
+    }
+
+    //주문조회 페이지 이동
+    @RequestMapping("/orderInquiry.mdo")
+    public ModelAndView orderInquiry(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/orderInquiry/orderInquiry");
+        return mav;
+    }
 }
