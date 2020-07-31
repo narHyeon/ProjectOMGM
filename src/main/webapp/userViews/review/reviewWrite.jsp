@@ -12,8 +12,7 @@
 <head>
     <title>Summernote</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="resources/style/reset.css">
-    <link rel="stylesheet" href="resources/style/reviewWrite.css">
+    <link rel="stylesheet" href="resources/style/review/reviewWrite.css">
 </head>
 <body>
 <h2>글 작성</h2><br><br><br>
