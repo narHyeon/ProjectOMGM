@@ -49,7 +49,7 @@
     <div class="reviewList_main_sector00">
         <div class="reviewList_main_sector">
             <c:forEach var="list" items="${reviewList}">
-                <div class="reviewList_line">
+                <div class="reviewList_line" onclick="getReview(${list.seq})">
                     <img src="${list.imgRef}" class="reviewList_img">
                     <p class="reviewList_text">${list.title}</p>
                     <p class="reviewList_sub_text">${list.regDate}</p>
@@ -61,5 +61,13 @@
         <button class="button">글쓰기</button>
     </div>
 </div>
+<form id="review_throw" action="reviewContent.do"></form>
+<script>
+    function getReview(seq) {
+        const el = document.querySelector('#review_throw');
+        el.innerHTML = '<input type=hidden name=seq value='+seq+'>';
+        el.submit();
+    }
+</script>
 </body>
 </html>
