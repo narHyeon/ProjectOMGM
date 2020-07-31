@@ -59,6 +59,8 @@
         <li><a href="">login</a></li>
         <li><p>|</p></li>
         <li><a href="signUp.do">Join</a></li>
+		<li><p>|</p></li>
+		<li><a href="">myInfo</a></li>
     </ul>
 </nav>
 
