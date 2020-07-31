@@ -46,7 +46,7 @@
     </select>
     <select id="getReview" resultType="ReviewVO">
         SELECT * FROM (SELECT seq, title, id, pwd, content, regdate, cnt, imgref,
-        LEAD(title,1,'없음') OVER (ORDER BY title) nextTitle,
+        LEAD(title,1,'없음') OVER (ORDER BY seq) nextTitle,
         LEAD(regdate,1,'') OVER (ORDER BY seq) nextDate,
         LEAD(seq,1,'') OVER (ORDER BY seq) nextSeq,
         LAG(title,1,'없음') OVER (ORDER BY seq) prevTitle,

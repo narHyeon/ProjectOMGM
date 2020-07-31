@@ -172,12 +172,12 @@
 
 		<%-- 목차 --%>
 		<table class="review_content_head review_content_prne">
-			<tr onclick="prevContent()">
+			<tr onclick="prevContent('${review.prevTitle}')">
 				<td>이전</td>
 				<td>${review.prevTitle}</td>
 				<td>${review.prevDate}</td>
 			</tr>
-			<tr onclick="nextContent()">
+			<tr onclick="nextContent('${review.nextTitle}')">
 				<td>다음</td>
 				<td>${review.nextTitle}</td>
 				<td>${review.nextDate}</td>
@@ -215,15 +215,21 @@
         	window.location.href = 'reviewListBoard.do';
 		}
 
-		function prevContent() {
-			console.log(${review.seq});
+		function prevContent(prev) {
+        	if(prev === '없음') {
+        		alert('마지막 페이지입니다.');
+        		return;
+			}
 			const el = document.querySelector('#review_throw');
 			el.innerHTML = '<input type=hidden name=seq value='+(${review.prevSeq})+'>';
 			el.submit();
 		}
 
-		function nextContent() {
-			console.log(${review.seq});
+		function nextContent(next) {
+			if(next === '없음') {
+				alert('마지막 페이지입니다.');
+				return;
+			}
 			const el = document.querySelector('#review_throw');
 			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
 			el.submit();
