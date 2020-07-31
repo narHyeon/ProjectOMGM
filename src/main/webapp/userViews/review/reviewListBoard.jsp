@@ -49,7 +49,7 @@
     <div class="reviewList_main_sector00">
         <div class="reviewList_main_sector">
             <c:forEach var="list" items="${reviewList}">
-                <div class="reviewList_line">
+                <div class="reviewList_line" onclick="getReview(${list.seq})">
                     <img src="${list.imgRef}" class="reviewList_img">
                     <p class="reviewList_text">${list.title}</p>
                     <p class="reviewList_sub_text">${list.regDate}</p>
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="reviewList_button00">
-        <button class="button">글쓰기</button>
+        <button class="button" type="button" onclick="reviewWrite()">글쓰기</button>
     </div>
     <div class="reviewList_page00">
         <a href="reviewListBoard.do" class="reviewList_page01">&lt;&lt;</a>
@@ -70,10 +70,21 @@
         <a href="reviewListBoard.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
     </div>
 </div>
+<form id="review_throw" action="reviewContent.do"></form>
 <script>
     function changeColor(){
         let color = element.getElementsByClassName('reviewList_page');
-        color.style.backgroundColor = '#FFFFFF';
+        color.style.backgroundColor = '#FFFFFF';}
+
+
+
+    function getReview(seq) {
+        const el = document.querySelector('#review_throw');
+        el.innerHTML = '<input type=hidden name=seq value='+seq+'>';
+        el.submit();
+    }
+    function reviewWrite() {
+        window.location.href = 'reviewWrite.do';
     }
 </script>
 </body>

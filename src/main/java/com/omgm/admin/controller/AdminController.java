@@ -31,4 +31,11 @@ public class AdminController {
         mav.setViewName("/productRegister/productInquiry");
         return mav;
     }
+    // 상품등록 페이지
+    @RequestMapping("/productRegister.mdo")
+    public ModelAndView productRegister(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/productRegister/productRegister");
+        return mav;
+    }
 }

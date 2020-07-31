@@ -25,8 +25,8 @@
     </resultMap>
 
     <insert id="insertBoard" parameterType="ReviewVO">
-        INSERT INTO reviewBoard (seq, title, writer, content)
-        VALUES((select nvl(max(seq), 0)+1 from ReviewVO), #{title}, #{writer}, #{content})
+        INSERT INTO reviewBoard (seq, title, id, pwd, cnt, content)
+        VALUES(review_seq.nextval, #{title}, #{id}, 123, 0, #{content})
     </insert>
     <update id="updateBoard" parameterType="ReviewVO">
         UPDATE reviewBoard
@@ -45,7 +45,14 @@
         SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq}
     </select>
     <select id="getReview" resultType="ReviewVO">
-        SELECT * FROM reviewBoard WHERE seq=#{seq}
+        SELECT * FROM (SELECT seq, title, id, pwd, content, regdate, cnt, imgref,
+        LEAD(title,1,'없음') OVER (ORDER BY title) nextTitle,
+        LEAD(regdate,1,'') OVER (ORDER BY seq) nextDate,
+        LEAD(seq,1,'') OVER (ORDER BY seq) nextSeq,
+        LAG(title,1,'없음') OVER (ORDER BY seq) prevTitle,
+        LAG(regdate,1,'') OVER (ORDER BY seq) prevDate,
+        LAG(seq,1,'') OVER (ORDER BY seq) prevSeq
+        FROM reviewBoard) WHERE seq=#{seq}
     </select>
     <select id="getReviewList" resultMap="boardResult">
         SELECT * FROM reviewBoard
@@ -59,6 +66,6 @@
         ORDER BY seq DESC
     </select>
     <select id="selectCount" resultType="int">
-       select count(*) from reviewboard
+       SELECT count(*) FROM reviewBoard
     </select>
 </mapper>

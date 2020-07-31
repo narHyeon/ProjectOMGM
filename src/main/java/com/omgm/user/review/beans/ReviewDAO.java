@@ -19,7 +19,10 @@ public class ReviewDAO {
         return sqlSessionTemplate.selectList("ReviewDAO.getReviewList", vo, rb);
 
     }
-
+    public void insertReviewBoard(ReviewVO vo) {
+        System.out.println("---> MyBatis로 insertBoard() 기능 처리");
+        sqlSessionTemplate.insert("ReviewDAO.insertBoard", vo);
+    }
     public ReviewVO getReview(ReviewVO vo) {
         System.out.println("---> MyBatis로 getReview() 기능 처리");
         return sqlSessionTemplate.selectOne("ReviewDAO.getReview", vo);

@@ -125,4 +125,7 @@ public class OneController {
             uploadFile.transferTo(new File("D:/" + fileName));
         }
     }
+
+
+
 }
