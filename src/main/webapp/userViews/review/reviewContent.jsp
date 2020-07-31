@@ -119,6 +119,7 @@
 </style>
 </head>
 <body>
+
 	<div id="review_content">
 
 		<h1>Review</h1>
@@ -140,7 +141,7 @@
 		</div>
 		<hr>
 		<div class="review_content_button">
-			<button>목록</button>
+			<button onclick="reviewList()">목록</button>
 		</div>
 
 
@@ -171,18 +172,19 @@
 
 		<%-- 목차 --%>
 		<table class="review_content_head review_content_prne">
-			<tr>
+			<tr onclick="prevContent('${review.prevTitle}')">
 				<td>이전</td>
-				<td>귀여움 뿜뿜!</td>
-				<td>2020-07-27 12:00</td>
+				<td>${review.prevTitle}</td>
+				<td>${review.prevDate}</td>
 			</tr>
-			<tr>
+			<tr onclick="nextContent('${review.nextTitle}')">
 				<td>다음</td>
-				<td>세상에 존예</td>
-				<td>2020-07-27 17:00</td>
+				<td>${review.nextTitle}</td>
+				<td>${review.nextDate}</td>
 			</tr>
 		</table>
 	</div>
+	<form id="review_throw" action="reviewContent.do"></form>
 	<script>
         function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
@@ -208,6 +210,30 @@
             pwd.value = '';
             content.value = '';
         }
+
+        function reviewList() {
+        	window.location.href = 'reviewListBoard.do';
+		}
+
+		function prevContent(prev) {
+        	if(prev === '없음') {
+        		alert('마지막 페이지입니다.');
+        		return;
+			}
+			const el = document.querySelector('#review_throw');
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.prevSeq})+'>';
+			el.submit();
+		}
+
+		function nextContent(next) {
+			if(next === '없음') {
+				alert('마지막 페이지입니다.');
+				return;
+			}
+			const el = document.querySelector('#review_throw');
+			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
+			el.submit();
+		}
     </script>
 </body>
 </html>

@@ -76,12 +76,12 @@ public class reviewController {
     public ModelAndView insertReviewBoard(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         reviewService.insertReviewBoard(vo);
-        mav.setViewName("/review/reviewListBoard");
+        mav.setViewName("redirect:/reviewListBoard.do");
         return mav;
     }
 
-    @PostMapping(value="/uploadSummernoteImageFile", produces = "application/json")
     @ResponseBody
+    @PostMapping(value="/uploadSummernoteImageFile", produces = "application/json")
     public JsonObject uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
 
         JsonObject jsonObject = new JsonObject();
