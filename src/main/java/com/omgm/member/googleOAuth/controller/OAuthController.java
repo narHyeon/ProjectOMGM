@@ -1,4 +1,4 @@
-package com.omgm.user.common.googleOAuth.controller;
+package com.omgm.member.googleOAuth.controller;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.omgm.user.common.googleOAuth.beans.OAuthVO;
+import com.omgm.member.googleOAuth.beans.OAuthVO;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

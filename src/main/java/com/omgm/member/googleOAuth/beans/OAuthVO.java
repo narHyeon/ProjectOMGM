@@ -1,4 +1,4 @@
-package com.omgm.user.common.googleOAuth.beans;
+package com.omgm.member.googleOAuth.beans;
 
 public class OAuthVO {
     private String clientId;
