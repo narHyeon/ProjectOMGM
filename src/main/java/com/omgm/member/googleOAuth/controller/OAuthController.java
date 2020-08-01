@@ -47,7 +47,7 @@ public class OAuthController {
     private OAuth2Parameters googleOAuth2Parameters;
 
     // 회원 가입 페이지
-    @RequestMapping(value = "/google.do", method = { RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = "/google.lo", method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView join(HttpServletResponse response) {
 
         //URL을 생성한다.
@@ -61,7 +61,7 @@ public class OAuthController {
         return mav;
     }
 
-    @RequestMapping(value = "/googleSignInCallback.do")
+    @RequestMapping(value = "/googleSignInCallback.lo")
     public ModelAndView doSessionAssignActionPage(HttpServletRequest request) throws Exception {
 
         String code = request.getParameter("code");
