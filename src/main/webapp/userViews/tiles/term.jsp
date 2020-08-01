@@ -29,7 +29,7 @@
 </style>
 <body>
 	<div id="term">
-		<h1>${termTitle.title}</h1>
+		<h1>${termTitle.termTitle}</h1>
 		<tiles:insertAttribute name="content" />
 		<button id="term_btn" onclick="window.close()">약관 확인</button>
 	</div>

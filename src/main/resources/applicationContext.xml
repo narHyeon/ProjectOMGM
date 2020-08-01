@@ -50,7 +50,7 @@
 				  value="http://localhost:8080/googleSignInCallback.do" />
 	</bean>
 
-	<bean id="authInfo" class="com.omgm.user.googleOAuth.beans.OAuthVO">
+	<bean id="authInfo" class="com.omgm.user.common.googleOAuth.beans.OAuthVO">
 		<constructor-arg value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
 		<constructor-arg value="1Q5JSvEaD7dS9NMPQdkPSuDe" />
 	</bean>

@@ -5,12 +5,16 @@
 <tiles-definitions>
 
 	<!-- 제외대상 -->
-	<definition name="term" template="/userViews/tiles/term.jsp">
+	<definition name="except" template="/userViews/tiles/term.jsp">
 		<put-attribute name="content" value="" />
 	</definition>
 
-	<definition name="term/*" extends="term">
-		<put-attribute name="content" value="/userViews/except/term/{1}.jsp" />
+	<definition name="except/*" extends="except">
+		<put-attribute name="content" value="/userViews/except/{1}.jsp" />
+	</definition>
+
+	<definition name="except/*/*" extends="except">
+		<put-attribute name="content" value="/userViews/except/{1}/{2}.jsp" />
 	</definition>
 
 	<!-- 베이스 세팅 -->
