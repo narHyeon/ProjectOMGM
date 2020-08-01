@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<title>${termTitle.title}</title>
+<title>${termTitle.termTitle}</title>
 </head>
 <body>동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로
 	길이 보전하세 계약의 내용이 당사자 일방이 작성한 약관의 내용으로서 상대방의 법률상의 지위에 중대한 영향을 미치게 되는 경우에는
