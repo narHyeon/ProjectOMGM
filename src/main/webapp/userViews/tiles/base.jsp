@@ -13,9 +13,7 @@
 <link rel="stylesheet" href="resources/style/button.css">
 <link rel="stylesheet" href="resources/style/header.css">
 <link rel="shortcut icon" href="resources/img/자산%208.png">
-<link
-	href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 <style>
 #base {
 	overflow: hidden;
@@ -30,7 +28,7 @@
 		<div>
 			<tiles:insertAttribute name="header" />
 		</div>
-		<div>
+		<div style="min-height:500px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<div>
