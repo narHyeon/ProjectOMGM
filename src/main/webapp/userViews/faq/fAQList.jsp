@@ -100,9 +100,8 @@ ahover:hover {
 						<c:forEach var="category" items="${categoryList}">
 							<li class="liststyle">
 								<form action="fAQList.do" method="post">
-									<input type="hidden" name="FAQ_CATEGORYNUM"
-										value="${category.CATEGORY_NO}"> <input type="submit"
-										value="${category.CATEGORY_NAME}" id="category">
+									<input type="hidden" name="FAQ_CATEGORYNUM" value="${category.CATEGORY_NO}"> 
+									<input type="submit" value="${category.CATEGORY_NAME}" id="category">
 								</form>
 							</li>
 						</c:forEach>

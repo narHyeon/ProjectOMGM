@@ -108,6 +108,13 @@
 			window.location.href = 'myReView.do';
 		});
 	});
+	
+function goWrite() {
+	window.location.href = 'writeCatCareLog.do';
+}
+	
+	
+	
 </script>
 </head>
 <body>
@@ -178,6 +185,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<input type="button" onclick="goWrite()" value="냥박일지 작성">
 			</div>
 		</div>
 	</div>

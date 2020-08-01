@@ -1,0 +1,20 @@
+package com.omgm.user.catcarelog.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.omgm.user.catcarelog.beans.CatCareLogDAO;
+import com.omgm.user.catcarelog.beans.CatCareLogVO;
+
+@Service("catCareLogServiceImpl")
+public class CatCareLogServiceImpl {
+
+	@Autowired
+	CatCareLogDAO catCareLogDAO;
+	
+	public void insertCatCareLog(CatCareLogVO vo) {
+		catCareLogDAO.insertCatCareLog(vo);
+	}
+	
+	
+	
+}

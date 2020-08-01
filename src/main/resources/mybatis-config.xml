@@ -8,10 +8,12 @@
 		<typeAlias alias="ReviewReplyVO" type="com.omgm.user.review.beans.ReviewReplyVO"/>
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
+		<typeAlias alias="catcarelog" type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/review-mapping.xml"/>
 		<mapper resource="mappings/faq-mapping.xml" />
 		<mapper resource="mappings/category-mapping.xml" />
+		<mapper resource="mappings/catcarelog-mapping.xml" />
 	</mappers>
 </configuration>

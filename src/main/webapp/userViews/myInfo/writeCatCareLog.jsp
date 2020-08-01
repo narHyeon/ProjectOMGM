@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Jury
-  Date: 2020-07-28
-  Time: 오후 2:26
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +5,6 @@
 <title>Summernote</title>
 <meta charset="UTF-8">
 <link rel="stylesheet"	href="resources/style/summernote/summernote-lite.css">
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/summernote/summernote-lite.js"></script>
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
@@ -31,19 +23,17 @@
 </script>
 </head>
 <body>
-	<h2 style="text-align: center; padding-top: 50px; font-size: 25px; color: #F28888; font-weight: bold;">글작성</h2>
-	<br>
-	<br>
-	<br>
 	<div style="width: 60%; margin: auto;">
-		<form method="post" action="/write">
-			<input style="width: 100%; height: 30px;" type="text" name="title"
-				placeholder="제목" /> <br> <br>
+		<form method="post" action="writeReView.do">
+			<div>
+			제목 <input type="text" name="title"/>
+			</div>
+			<div>
+			작성자 <input type="text" name="writer"/>
+			</div>
 			<textarea id="summernote" name="content"></textarea>
-			<input style="float: right; padding: 4px 13px; background-color: #F28888; border: none; color: white; font-weight: bold;"
-				type="button" value="글 작성" onclick="goWrite(this.form)" />
+			<input type="submit" value="글 작성"/>
 		</form>
 	</div>
-
 </body>
 </html>
