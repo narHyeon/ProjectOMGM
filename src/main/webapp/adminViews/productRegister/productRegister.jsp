@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -81,6 +82,11 @@
 <div id="pro_write">
     <h2>상품등록</h2><br><br><br>
     <form method="post" action="/write" class="pro_form">
+        <select >
+            <option value="">종류 선택</option>
+            <option value="toy" name="toy">toy</option>
+            <option value="feed" name="feed">feed</option>
+        </select>
         <div>
             <label>상품이미지 : </label>
             <input type="file" class="title" name="proImg"/><br><br>

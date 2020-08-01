@@ -8,8 +8,11 @@
 		<typeAlias alias="ReviewReplyVO" type="com.omgm.user.review.beans.ReviewReplyVO"/>
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
+		<typeAlias alias="mallToy" type="com.omgm.admin.mall.beans.MallToyVO" />
+		<typeAlias alias="mallFeed" type="com.omgm.admin.mall.beans.MallFeedVO" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="mappings/mall-mapping.xml" />
 		<mapper resource="mappings/review-mapping.xml"/>
 		<mapper resource="mappings/faq-mapping.xml" />
 		<mapper resource="mappings/category-mapping.xml" />
