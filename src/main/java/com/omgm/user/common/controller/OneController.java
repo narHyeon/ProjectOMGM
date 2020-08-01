@@ -99,26 +99,7 @@ public class OneController {
         return mav;
     }
 
-    @RequestMapping("/naverLogin.do")
-    public ModelAndView naverLogin(CommonVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/naverLogin");
-        return mav;
-    }
 
-    @RequestMapping("/loginCallback.do")
-    public ModelAndView lobinVallback(CommonVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/loginCallback");
-        return mav;
-    }
-
-    @RequestMapping("/sample.do")
-    public ModelAndView Sample(CommonVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/sample");
-        return mav;
-    }
 
     @RequestMapping("/jusoPopup.do")
     public ModelAndView jusoPopup(CommonVO vo) {

@@ -27,60 +27,18 @@
 
     <script type="text/javascript">
 
-        var naver_id_login = new naver_id_login("epIAIQoP1jJTDyUpzFxX", "http://localhost:8080/loginCallback.do");    // Client ID, CallBack URL 삽입
+        var naver_id_login = new naver_id_login("epIAIQoP1jJTDyUpzFxX", "http://localhost:8080/loginCallback.lo");    // Client ID, CallBack URL 삽입
         // 단 'localhost'가 포함된 CallBack URL
         var state = naver_id_login.getUniqState();
 
         naver_id_login.setButton("white", 4, 40);
-        naver_id_login.setDomain("http://localhost:8080/login.do");    //  URL
+        naver_id_login.setDomain("http://localhost:8080/login.lo");    //  URL
         naver_id_login.setState(state);
         naver_id_login.setPopup();
         naver_id_login.init_naver_id_login();
 
     </script>
 </center>
-
-
-
-<input type="checkbox" id="popup">
-<label for="popup">View</label>
-<div>
-    <form action="#" class="login-form" for="popup">
-        <label for="popup"></label>
-        <h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
-
-        <div class="txtbox"> <!-- ID필드-->
-            <input type="text">
-            <span data-placeholder="ID"></span>
-        </div>
-
-        <div class="txtbox"> <!-- PW필드-->
-            <input type="pass">
-            <span data-placeholder="Password"></span>
-        </div>
-
-        <input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
-
-        <div class="bottom-text">
-            Don't have account? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
-            Forgot account? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
-        </div>
-    </form>
-    <label for="popup"></label>
-</div>
-
-<!--id,pw를 클릭하면 id, pw가 올라가게한다.-->
-<script type="text/javascript">
-    $(".txtbox input").on("focus", function () {
-        $(this).addClass("focus");
-    });
-
-    $(".txtbox input").on("blur", function () {
-        if ($(this).val() == "")
-            $(this).removeClass("focus");
-    });
-
-</script>
 
 
 </body>
