@@ -32,27 +32,4 @@
 		<property name="maxUploadSize" value="1000000" />
 	</bean>
 
-	<!-- Root Context: defines shared resources visible to all other web components -->
-
-
-	<!-- Google 소셜 로그인 연결 설정 -->
-	<bean id="googleOAuth2Template"
-		  class="org.springframework.social.google.connect.GoogleOAuth2Template">
-		<constructor-arg value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
-		<constructor-arg value="1Q5JSvEaD7dS9NMPQdkPSuDe" />
-	</bean>
-
-
-	<bean id="googleOAuth2Parameters"
-		  class="org.springframework.social.oauth2.OAuth2Parameters">
-		<property name="scope" value="email profile"/>
-		<property name="redirectUri"
-				  value="http://localhost:8080/googleSignInCallback.do" />
-	</bean>
-
-	<bean id="authInfo" class="com.omgm.user.common.googleOAuth.beans.OAuthVO">
-		<constructor-arg value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
-		<constructor-arg value="1Q5JSvEaD7dS9NMPQdkPSuDe" />
-	</bean>
-
 </beans>

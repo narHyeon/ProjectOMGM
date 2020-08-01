@@ -1,4 +1,4 @@
-package com.omgm.user.common.googleOAuth.controller;
+package com.omgm.member.googleOAuth.controller;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.omgm.user.common.googleOAuth.beans.OAuthVO;
+import com.omgm.member.googleOAuth.beans.OAuthVO;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class OAuthController {
     private OAuth2Parameters googleOAuth2Parameters;
 
     // 회원 가입 페이지
-    @RequestMapping(value = "/google.do", method = { RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = "/google.lo", method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView join(HttpServletResponse response) {
 
         //URL을 생성한다.
@@ -61,7 +61,7 @@ public class OAuthController {
         return mav;
     }
 
-    @RequestMapping(value = "/googleSignInCallback.do")
+    @RequestMapping(value = "/googleSignInCallback.lo")
     public ModelAndView doSessionAssignActionPage(HttpServletRequest request) throws Exception {
 
         String code = request.getParameter("code");

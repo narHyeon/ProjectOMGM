@@ -16,7 +16,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <script type="text/javascript">
-    var naver_id_login = new naver_id_login("epIAIQoP1jJTDyUpzFxX", "http://localhost:8080/loginCallback.do"); // 역시 마찬가지로 'localhost'가 포함된 CallBack URL
+    var naver_id_login = new naver_id_login("epIAIQoP1jJTDyUpzFxX", "http://localhost:8080/loginCallback.lo"); // 역시 마찬가지로 'localhost'가 포함된 CallBack URL
 
     // 접근 토큰 값 출력
     alert(naver_id_login.oauthParams.access_token);
