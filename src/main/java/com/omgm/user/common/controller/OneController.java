@@ -3,6 +3,7 @@ package com.omgm.user.common.controller;
 import com.omgm.user.common.beans.CommonVO;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -95,6 +96,34 @@ public class OneController {
     public ModelAndView roomIntroduction(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/roomIntroduction/roomIntroduction");
+        return mav;
+    }
+
+    @RequestMapping("/naverLogin.do")
+    public ModelAndView naverLogin(CommonVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/naverLogin");
+        return mav;
+    }
+
+    @RequestMapping("/loginCallback.do")
+    public ModelAndView lobinVallback(CommonVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/loginCallback");
+        return mav;
+    }
+
+    @RequestMapping("/sample.do")
+    public ModelAndView Sample(CommonVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sample");
+        return mav;
+    }
+
+    @RequestMapping("/jusoPopup.do")
+    public ModelAndView jusoPopup(CommonVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/jusoPopup");
         return mav;
     }
 
