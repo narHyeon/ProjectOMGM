@@ -102,7 +102,7 @@ public class OneController {
     @RequestMapping("/naverLogin.do")
     public ModelAndView naverLogin(CommonVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/naverLogin");
+        mav.setViewName("/login");
         return mav;
     }
 
