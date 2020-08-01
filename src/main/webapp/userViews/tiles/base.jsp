@@ -30,7 +30,7 @@
 		<div>
 			<tiles:insertAttribute name="header" />
 		</div>
-		<div>
+		<div style="min-height:500px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<div>

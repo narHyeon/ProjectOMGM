@@ -3,6 +3,8 @@
 <head>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -58,7 +60,7 @@
     <ul class="login_membership">
         <li><a href="">login</a></li>
         <li><p>|</p></li>
-        <li><a href="signUp.do">Join</a></li>
+        <li><a href="" onclick="signUp(event)">Join</a></li>
 		<li><p>|</p></li>
 		<li><a href="">myInfo</a></li>
     </ul>
@@ -105,5 +107,60 @@
 	</div>
 	<!-- sidebar 외 영역 -->
 	<label for="sidebar" class="background"> </label>
+
+	<%-- signUp --%>
+	<input type="checkbox" id="popup">
+	<div>
+		<div>
+			<label for="popup"></label>
+			<form action="#" class="signup-form">
+				<label for="popup"></label>
+				<h1 style="font-weight: 700;">회원가입</h1>
+				<div class="txtboxID"> <!-- ID-->
+					<input type="text">
+					<span data-placeholder="ID"></span>
+				</div>
+				<input type="submit" class="checkbtn" value="check">
+
+				<div class="txt"> <!-- Pw-->
+					<input type="pass">
+					<span data-placeholder="Pass"></span>
+				</div>
+
+				<div class="txt"> <!-- RePw-->
+					<input type="repass">
+					<span data-placeholder="RePass"></span>
+				</div>
+
+				<div class="txt"> <!-- name-->
+					<input type="name">
+					<span data-placeholder="Name"></span>
+				</div>
+
+				<div class="txt"> <!--e-mail-->
+					<input type="email">
+					<span data-placeholder="E-Mail"></span>
+				</div>
+
+				<div class="txtboxTEL1"> <!--Tel1-->
+					<input type="tel" pattern="[0-9]{3}">
+					<span data-placeholder="Tel"></span><a>ㅡ</a>
+				</div>
+
+				<div class="txtboxTEL2"> <!--Tel2-->
+					<input type="tel" pattern="[0-9]{4}"><a>ㅡ</a>
+					<span data-placeholder="Tel2"></span>
+				</div>
+
+				<div class="txtboxTEL3"> <!--Tel3-->
+					<input type="tel" pattern="[0-9]{4}">
+					<span data-placeholder="Tel3"></span>
+				</div>
+
+				<input type="submit" class="signup" value="Sign UP"> <!-- 회원가입버튼-->
+			</form>
+		</div>
+		<label for="popup"></label>
+	</div>
 </body>
 </html>
