@@ -30,7 +30,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/user-servelt.xml</param-value>
+			<param-value>/WEB-INF/servlet/user-servelt.xml</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
@@ -43,12 +43,25 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/admin-servelt.xml</param-value>
+			<param-value>/WEB-INF/servlet/admin-servelt.xml</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin</servlet-name>
 		<url-pattern>*.mdo</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>member</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet/member-servelt.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>member</servlet-name>
+		<url-pattern>*.lo</url-pattern>
 	</servlet-mapping>
 
 	<!-- <display-name>Apache-Axis</display-name> -->
