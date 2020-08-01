@@ -1,5 +1,4 @@
-.pro_body { display:flex;text-align: center}
-/*.pro_main { width: 1196px;}*/
+.pro_main { text-align: center; padding: 50px;}
 .event_list ul { display: flex; flex-flow: row wrap; align-content: flex-start;}
 .event_list li { flex:0 1 25%; padding: 0 0 34px;}
 .event_list li a { display: block; position: relative; width: 248px; height: 382px; line-height: 1;border:1px solid #ddd;}
