@@ -82,6 +82,14 @@ public class OneController {
         return mav;
     }
 
+    //상품리스트 페이지 이동
+    @RequestMapping(value="/productList.do")
+    public ModelAndView productList(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/productList");
+        return mav;
+    }
+
     //룸 소개 페이지 이동
     @RequestMapping(value="/roomIntroduction.do")
     public ModelAndView roomIntroduction(ReviewVO vo) {
