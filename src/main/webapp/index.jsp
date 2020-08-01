@@ -34,5 +34,7 @@
   <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
   <a href="productRegister.mdo">상품등록 페이지 이동</a>
 
+  <a href="google.do">google</a>
+
 </body>
 </html>
