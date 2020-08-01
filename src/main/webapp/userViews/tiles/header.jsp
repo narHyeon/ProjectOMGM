@@ -4,7 +4,6 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -58,7 +57,7 @@
 		</div>
 
     <ul class="login_membership">
-        <li><a href="">login</a></li>
+        <li><a href="" onclick="login(event)">login</a></li>
         <li><p>|</p></li>
         <li><a href="" onclick="signUp(event)">Join</a></li>
 		<li><p>|</p></li>
@@ -109,12 +108,12 @@
 	<label for="sidebar" class="background"> </label>
 
 	<%-- signUp --%>
+<signUp>
 	<input type="checkbox" id="popup">
 	<div>
 		<div>
 			<label for="popup"></label>
 			<form action="#" class="signup-form">
-				<label for="popup"></label>
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
 					<input type="text">
@@ -162,5 +161,37 @@
 		</div>
 		<label for="popup"></label>
 	</div>
+</signUp>
+
+
+	<%-- login --%>
+	<input type="checkbox" id="login_popup">
+	<div>
+		<div>
+			<label for="login_popup"></label>
+			<form action="#" class="login-form">
+				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
+
+				<div class="txtbox"> <!-- ID필드-->
+					<input type="text">
+					<span data-placeholder="ID"></span>
+				</div>
+
+				<div class="txtbox"> <!-- PW필드-->
+					<input type="pass">
+					<span data-placeholder="Password"></span>
+				</div>
+
+				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
+
+				<div class="bottom-text">
+					Don't have account? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
+					Forgot account? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+				</div>
+			</form>
+		</div>
+		<label for="login_popup"></label>
+	</div>
+
 </body>
 </html>

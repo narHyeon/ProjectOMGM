@@ -18,10 +18,9 @@
 </head>
 
 <input type="checkbox" id="popup">
-<label for="popup">View</label>
 <div>
-<form action="#" class="login-form" for="popup">
     <label for="popup"></label>
+<form action="#" class="login-form">
     <h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
         <div class="txtbox"> <!-- ID필드-->

@@ -67,14 +67,6 @@ public class OneController {
         return mav;
     }
 
-    // 회원가입 페이지 이동
-    @RequestMapping(value="/signUp.do")
-    public ModelAndView signUp(BoardVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/signUp");
-        return mav;
-    }
-
     // 문자서비스 페이지 이동
     @RequestMapping(value="/messageService.do")
     public ModelAndView messageService(BoardVO vo) {
