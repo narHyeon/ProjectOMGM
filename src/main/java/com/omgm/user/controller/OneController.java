@@ -5,6 +5,7 @@ import com.omgm.user.board.BoardVO;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -126,6 +127,31 @@ public class OneController {
         }
     }
 
+    @RequestMapping("/naverLogin.do")
+    public ModelAndView naverLogin(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/naverLogin");
+        return mav;
+    }
 
+    @RequestMapping("/loginCallback.do")
+    public ModelAndView lobinVallback(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/loginCallback");
+        return mav;
+    }
 
+    @RequestMapping("/sample.do")
+    public ModelAndView Sample(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sample");
+        return mav;
+    }
+
+    @RequestMapping("/jusoPopup.do")
+    public ModelAndView jusoPopup(BoardVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/jusoPopup");
+        return mav;
+    }
 }

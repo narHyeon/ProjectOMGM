@@ -11,14 +11,13 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="resources/style/sign_up.css">
+    <link rel="stylesheet" href="resources/style/signUp.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
 
-ghghgjgjgjgjghjgjgjgjghgjgjghj
 <input type="checkbox" id="popup">
 <label for="popup">View</label>
 <div>
@@ -70,6 +69,7 @@ ghghgjgjgjgjghjgjgjgjghgjgjghj
 </form>
     <label for="popup"></label>
 </div>
+
 <!--필드 클릭했을때-->
 <script type="text/javascript">
     $(".txt input, .txtboxID input, .txtboxTEL1 input").on("focus",function(){
