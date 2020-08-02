@@ -15,47 +15,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="resources/style/login.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+
 </head>
 
-<input type="checkbox" id="popup">
-<label for="popup">View</label>
-<div>
-<form action="#" class="login-form" for="popup">
-    <label for="popup"></label>
-    <h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
+<body>
+<center>
+    <script type = "text/javascript" src = "https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 
-        <div class="txtbox"> <!-- ID필드-->
-            <input type="text">
-            <span data-placeholder="ID"></span>
-        </div>
+    <div id = "naver_id_login"></div>
 
-        <div class="txtbox"> <!-- PW필드-->
-            <input type="pass">
-            <span data-placeholder="Password"></span>
-        </div>
+    <script type="text/javascript">
 
-        <input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
+        var naver_id_login = new naver_id_login("epIAIQoP1jJTDyUpzFxX", "http://localhost:8080/loginCallback.lo");    // Client ID, CallBack URL 삽입
+        // 단 'localhost'가 포함된 CallBack URL
+        var state = naver_id_login.getUniqState();
 
-        <div class="bottom-text">
-            Don't have account? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
-            Forgot account? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
-        </div>
-</form>
-<label for="popup"></label>
-</div>
+        naver_id_login.setButton("white", 4, 40);
+        naver_id_login.setDomain("http://localhost:8080/login.lo");    //  URL
+        naver_id_login.setState(state);
+        naver_id_login.setPopup();
+        naver_id_login.init_naver_id_login();
 
-<!--id,pw를 클릭하면 id, pw가 올라가게한다.-->
-<script type="text/javascript">
-    $(".txtbox input").on("focus",function(){
-        $(this).addClass("focus");
-    });
-
-    $(".txtbox input").on("blur",function(){
-        if($(this).val() == "")
-            $(this).removeClass("focus");
-    });
-
-</script>
+    </script>
+</center>
 
 
 </body>

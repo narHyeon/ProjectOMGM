@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -56,9 +58,9 @@
 		</div>
 
     <ul class="login_membership">
-        <li><a href="">login</a></li>
+        <li><a href="" onclick="login(event)">login</a></li>
         <li><p>|</p></li>
-        <li><a href="signUp.do">Join</a></li>
+        <li><a href="" onclick="signUp(event)">Join</a></li>
 		<li><p>|</p></li>
 		<li><a href="">myInfo</a></li>
     </ul>
@@ -105,5 +107,109 @@
 	</div>
 	<!-- sidebar 외 영역 -->
 	<label for="sidebar" class="background"> </label>
+
+	<%-- signUp --%>
+<signUp>
+	<input type="checkbox" id="popup">
+	<div>
+		<div>
+			<label for="popup"></label>
+			<form action="#" class="signup-form" onsubmit="return joinCheck(event)">
+				<h1 style="font-weight: 700;">회원가입</h1>
+				<div class="txtboxID"> <!-- ID-->
+					<input name="id" type="text" required autocomplete=off>
+					<span data-placeholder="ID"></span>
+				</div>
+				<input type="button" class="checkbtn" value="check" onclick="idCheck(false)">
+
+				<div class="txt"> <!-- Pw-->
+					<input name="pwd"  id="pwd" type="password" required autocomplete=off minlength="8">
+					<span data-placeholder="PassWord"></span>
+				</div>
+
+				<div class="txt"> <!-- RePw-->
+					<input id="copwd" type="password" required autocomplete=off minlength="8">
+					<span data-placeholder="Confirm PassWord"></span>
+				</div>
+
+				<div class="txt"> <!-- name-->
+					<input name="name"  type="name" pattern="^[가-힣A-z]+$" required autocomplete=off>
+					<span data-placeholder="Name"></span>
+				</div>
+
+				<div class="txt"> <!--e-mail-->
+					<input name="email"  type="email" pattern="^\w+@\w+\.[A-z]+$" required autocomplete=off>
+					<span data-placeholder="E-Mail"></span>
+				</div>
+
+				<div class="txtboxTEL1"> <!--Tel1-->
+					<input name="tel1"  type="tel" pattern="0[0-9]{2}" required autocomplete=off>
+					<span data-placeholder="Tel"></span><a>ㅡ</a>
+				</div>
+
+				<div class="txtboxTEL2"> <!--Tel2-->
+					<input name="tel2"  type="tel" pattern="[0-9]{4}" required autocomplete=off><a>ㅡ</a>
+					<span data-placeholder="Tel2"></span>
+				</div>
+
+				<div class="txtboxTEL3"> <!--Tel3-->
+					<input name="tel3"  type="tel" pattern="[0-9]{4}" required autocomplete=off>
+					<span data-placeholder="Tel3"></span>
+				</div>
+
+				<div class="txt_zipCode"> <!--zipCode-->
+					<input id="sign_zipCode" name="zipCode"  type="number" required autocomplete=off>
+					<span data-placeholder="ZipCode"></span>
+				</div>
+				<input type="button" class="searchbtn" value="search" onclick="zipCheck()">
+
+				<div class="txt"> <!--Address-->
+					<input id="sign_address"  name="address"  type="text" required autocomplete=off>
+					<span data-placeholder="Address"></span>
+				</div>
+
+				<input type="submit" class="signup" value="Sign UP"> <!-- 회원가입버튼-->
+				<input type="button" class="signup2" value="Kakao"> <!-- 회원가입버튼-->
+				<input type="button" class="signup3" value="Naver"> <!-- 회원가입버튼-->
+				<input type="button" class="signup4" value="Google"> <!-- 회원가입버튼-->
+				<div id="sign_sns_title">
+					<h3>SNS를 이용한 회원가입</h3>
+				</div>
+			</form>
+		</div>
+		<label for="popup"></label>
+	</div>
+</signUp>
+
+
+	<%-- login --%>
+	<input type="checkbox" id="login_popup">
+	<div>
+		<div>
+			<label for="login_popup"></label>
+			<form action="#" class="login-form">
+				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
+
+				<div class="txtbox"> <!-- ID필드-->
+					<input type="text" required autocomplete=off>
+					<span data-placeholder="ID" ></span>
+				</div>
+
+				<div class="txtbox"> <!-- PW필드-->
+					<input type="pwd" required autocomplete=off>
+					<span data-placeholder="Password"></span>
+				</div>
+
+				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
+
+				<div class="bottom-text">
+					Don't have account? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
+					Forgot account? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+				</div>
+			</form>
+		</div>
+		<label for="login_popup"></label>
+	</div>
+
 </body>
 </html>
