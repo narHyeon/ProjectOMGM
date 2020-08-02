@@ -114,3 +114,28 @@ function joinCheck(event) {
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(data));
 }
+
+function zipCheck() {
+    const width = 380;
+    const height = 480;
+    return new daum.Postcode({
+        width: width,
+        height: height,
+        oncomplete: function(data) {
+            const zipcode = document.querySelector('#sign_zipCode');
+            const address = document.querySelector('#sign_address');
+            zipcode.classList.add('focus');
+            address.classList.add('focus');
+            zipcode.value = data.zonecode;
+            address.value = data.address;
+        },
+        theme: {
+            bgColor: '#F28888'
+        }
+    }).open({
+        popupName: '우편번호 검색',
+        left: (window.screen.width / 2) - (width / 2),
+        top: (window.screen.height / 2) - (height / 2)
+    });
+}
+

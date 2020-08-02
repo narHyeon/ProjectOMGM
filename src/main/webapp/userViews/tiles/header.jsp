@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -157,13 +158,13 @@
 				</div>
 
 				<div class="txt_zipCode"> <!--zipCode-->
-					<input name="zipCode"  type="text" required autocomplete=off>
+					<input id="sign_zipCode" name="zipCode"  type="number" required autocomplete=off>
 					<span data-placeholder="ZipCode"></span>
 				</div>
-				<input type="button" class="searchbtn" value="search" onclick="zipCheck(false)">
+				<input type="button" class="searchbtn" value="search" onclick="zipCheck()">
 
 				<div class="txt"> <!--Address-->
-					<input name="address"  type="text" required autocomplete=off>
+					<input id="sign_address"  name="address"  type="text" required autocomplete=off>
 					<span data-placeholder="Address"></span>
 				</div>
 
