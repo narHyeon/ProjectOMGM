@@ -14,60 +14,15 @@
         <result property="zipCode" column="ZIPCODE" />
         <result property="address" column="ADDRESS" />
         <result property="point" column="POINT" />
+        <result property="rank" column="RANK" />
+        <result property="type" column="TYPE" />
         <result property="regDate" column="REGDATE"/>
     </resultMap>
-
-    <resultMap type="ReviewReplyVO" id="reply">
-        <id property="seq" column="SEQ" />
-        <result property="boardSeq" column="BOARDSEQ"/>
-        <result property="id" column="ID"/>
-        <result property="pwd" column="PWD"/>
-        <result property="content" column="CONTENT" />
-        <result property="regDate" column="REGDATE"/>
-    </resultMap>
-
-    <insert id="insertBoard" parameterType="ReviewVO">
-        INSERT INTO reviewBoard (seq, title, id, pwd, cnt, content)
-        VALUES(review_seq.nextval, #{title}, #{id}, 123, 0, #{content})
-    </insert>
-    <update id="updateBoard" parameterType="ReviewVO">
-        UPDATE reviewBoard
-        SET title=#{title}, content=#{content} WHERE seq = #{seq}
-    </update>
-    <delete id="deleteBoard" parameterType="ReviewVO">
-        DELETE FROM reviewBoard WHERE seq = #{seq}
-    </delete>
 
     <!-- 실 사용 -->
-    <insert id="addReviewReply" parameterType="ReviewReplyVO">
-        INSERT INTO reviewReply (seq, boardSeq, id, pwd, content)
-        VALUES (review_reply_seq.nextval, #{boardSeq}, #{id}, #{pwd}, #{content})
+    <insert id="addMember" parameterType="MemberVO">
+        INSERT INTO member
+        VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address})
     </insert>
-    <select id="getReviewReply" resultMap="reply">
-        SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq} ORDER BY seq
-    </select>
-    <select id="getReview" resultType="ReviewVO">
-        SELECT * FROM (SELECT seq, title, id, pwd, content, regdate, cnt, imgref,
-        LEAD(title,1,'없음') OVER (ORDER BY seq) nextTitle,
-        LEAD(regdate,1,'') OVER (ORDER BY seq) nextDate,
-        LEAD(seq,1,'') OVER (ORDER BY seq) nextSeq,
-        LAG(title,1,'없음') OVER (ORDER BY seq) prevTitle,
-        LAG(regdate,1,'') OVER (ORDER BY seq) prevDate,
-        LAG(seq,1,'') OVER (ORDER BY seq) prevSeq
-        FROM reviewBoard) WHERE seq=#{seq}
-    </select>
-    <select id="getReviewList" resultMap="boardResult">
-        SELECT * FROM reviewBoard
-        WHERE 1=1
-        <if test="searchCondition=='TITLE'">
-            AND title LIKE '%'||#{searchKeyword}||'%'
-        </if>
-        <if test="searchCondition=='CONTENT'">
-            AND content LIKE '%'||#{searchKeyword}||'%'
-        </if>
-        ORDER BY seq DESC
-    </select>
-    <select id="selectCount" resultType="int">
-       SELECT count(*) FROM reviewBoard
-    </select>
+
 </mapper>

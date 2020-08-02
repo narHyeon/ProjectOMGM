@@ -1,6 +1,7 @@
 package com.omgm.member.controller;
 
 import com.omgm.member.beans.MemberVO;
+import com.omgm.member.service.MemberService;
 import com.omgm.user.common.beans.CommonVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,8 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+
 @Controller
 public class MemberController {
+
+    @Resource(name="memberService")
+    private MemberService memberService;
+
+
     @RequestMapping("/naverLogin.lo")
     public ModelAndView naverLogin(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
