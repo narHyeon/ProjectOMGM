@@ -1,18 +1,18 @@
 package com.omgm.admin.mall.service;
 
 import com.omgm.admin.mall.beans.MallToyVO;
-import com.omgm.admin.mall.controller.MallToyDAO;
+import com.omgm.admin.mall.beans.MallToyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("mallToyService")
-public class MallToyServiceImpl implements MallToyService{
+@Service("mallService")
+public class MallServiceImpl implements MallService {
 
     @Autowired
-    private MallToyDAO mallToyDAO;
+    MallToyDAO mallToyDAO;
 
     @Override
-    public void insertBoard(MallToyVO vo) {
+    public void insertMallToy(MallToyVO vo) {
         mallToyDAO.insertMallToy(vo);
     }
 }

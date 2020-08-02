@@ -1,4 +1,4 @@
-package com.omgm.admin.mall.controller;
+package com.omgm.admin.mall.beans;
 
 import com.omgm.admin.mall.beans.MallToyVO;
 import org.apache.ibatis.session.SqlSession;
@@ -13,7 +13,7 @@ public class MallToyDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     public void insertMallToy(MallToyVO vo) {
-        sqlSessionTemplate.insert("MallDAO.insertMallToy");
+        sqlSessionTemplate.insert("MallDAO.insertMallToy", vo);
     }
 
 }

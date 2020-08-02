@@ -9,7 +9,6 @@
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
 		<typeAlias alias="mallToy" type="com.omgm.admin.mall.beans.MallToyVO" />
-		<typeAlias alias="mallFeed" type="com.omgm.admin.mall.beans.MallFeedVO" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/mall-mapping.xml" />

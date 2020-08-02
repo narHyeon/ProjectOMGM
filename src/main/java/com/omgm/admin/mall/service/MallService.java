@@ -4,6 +4,6 @@ import com.omgm.admin.mall.beans.MallToyVO;
 import org.springframework.stereotype.Service;
 
 
-public interface MallToyService {
-    void insertBoard(MallToyVO vo);
+public interface MallService {
+    void insertMallToy(MallToyVO vo);
 }
