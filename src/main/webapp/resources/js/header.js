@@ -27,10 +27,6 @@ function signUp(event) {
             sign.blur();
             sign.classList.remove('focus');
         });
-    document.querySelector('signUp div div').innerHTML =
-        `<label for="popup"></label>
-                    <div>저희 오묘가묘의 가족이 되신 것을 진심으로 환영합니다!</div>
-                `;
 }
 
 function login(event) {
@@ -93,8 +89,8 @@ function joinCheck(event) {
         name: form.name.value,
         phone: phone,
         email: form.email.value,
-        zipcode: 'form.zipcode.value',
-        address: 'form.address.value'
+        zipcode: 'form.zipcode.value', // Todo : 우편번호 작업 요
+        address: 'form.address.value' // Todo : 주소 작업 요
     };
 
     const xhr = new XMLHttpRequest();
@@ -105,8 +101,12 @@ function joinCheck(event) {
             console.log(object.id);
             document.querySelector('signUp div div').innerHTML =
                 `<label for="popup"></label>
-                    <div>저희 오묘가묘의 가족이 되신 것을 진심으로 환영합니다!</div>
-                `;
+            <div style="background-color: #F28888; height: 300px; color: white; text-align: center;">
+                <img style="width:300px; margin: 30px auto;" src="resources/img/자산%208.png" alt="">
+                <h1 style="margin: 30px;">저희 오묘가묘의 가족이 되신 것을 진심으로 환영합니다!</h1>
+                <h1 style="margin: 30px;">로그인 하셔서 반려동물을 위한 다양한 서비스를 경험하세요!</h1>
+            </div>
+        `;
         }
     }
 
