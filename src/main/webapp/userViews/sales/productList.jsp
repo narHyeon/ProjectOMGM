@@ -12,12 +12,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>이벤트</title>
-    <link rel="stylesheet" href="../../resources/style/sales/default.css">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <link rel="stylesheet" href="../../resources/style/sales/productList.css">
 </head>
-<body class="body">
-<main>
+<body class="proList_body">
+<main class="proList_main">
+    <h2>ALL PRODUCT</h2>
     <div class="event_list">
         <ul>
             <li>
@@ -110,6 +111,23 @@
         </ul>
     </div>
 </main>
-
+<div style="position:absolute; top:120px;" class="quickBox'">
+    <ul>
+        <li>홈페이지 가기 </li>
+        <li>홈페이지 안가기 </li>
+    </ul>
+</div>
+<script>
+    var quickBox = $('.quickBox'); //퀵메뉴 코딩한 div의 클래스 네임 - 자신의 이름에 맞게 수정하세요
+    var quick_top = 120; // 기준이 되는 높이 값입니다. 수정해서 테스트 해보시면 감이 오실꺼에요.
+    quickBox.css('top', $(window).height() );
+    $(document).ready(function(){
+        quickBox.animate( { "top": $(document).scrollTop() + quick_top +"px" },  500 ); //숫자값을 변경하시면 속도변화
+        $(window).scroll(function(){
+            quickBox.stop();
+            quickBox.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 500 ); //숫자값을 변경하시면 속도변화
+        });
+    });
+</script>
 </body>
 </html>
