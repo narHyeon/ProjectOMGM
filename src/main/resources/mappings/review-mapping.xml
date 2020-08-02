@@ -42,7 +42,7 @@
         VALUES (review_reply_seq.nextval, #{boardSeq}, #{id}, #{pwd}, #{content})
     </insert>
     <select id="getReviewReply" resultMap="reply">
-        SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq}
+        SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq} ORDER BY seq
     </select>
     <select id="getReview" resultType="ReviewVO">
         SELECT * FROM (SELECT seq, title, id, pwd, content, regdate, cnt, imgref,
