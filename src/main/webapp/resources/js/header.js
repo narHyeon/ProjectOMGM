@@ -47,9 +47,14 @@ function idCheck(check) {
             if(input.value === '') {
                 alert('아이디를 입력해주세요!');
                 return true;
-            } else if(input.value === object.id) alert('이미 사용하고 있는 아이디입니다!');
-            else if(!check) alert('사용할 수 있는 아이디입니다.');
-            return false;
+            } else if(input.value === object.id) {
+                alert('이미 사용하고 있는 아이디입니다!');
+                return true;
+            }
+            else if(!check) {
+                alert('사용할 수 있는 아이디입니다.');
+                return false;
+            }
         }
     }
 
@@ -63,16 +68,42 @@ function pwdCheck() {
     const pwd = document.querySelector('#pwd').value;
     const copwd = document.querySelector('#copwd').value;
 
-    if(pwd === copwd) return true;
+    if(pwd === copwd) return false;
     else {
         alert('비밀번호가 일치하지 않습니다');
-        return false
+        return true;
     };
 }
 
-function joinCheck() {
+function joinCheck(event) {
     if(idCheck(true)) return false;
-    if(pwdCheck()) return false;
+    else if(pwdCheck()) return false;
 
-    return true;
+    event.preventDefault();
+
+    const form = document.querySelector('.signup-form');
+    const phone = form.tel1.value + form.tel2.value + form.tel3.value;
+    const data = {
+        id: form.id.value,
+        pwd: form.pwd.value,
+        name: form.name.value,
+        phone: phone,
+        email: form.email.value,
+        zipcode: 'form.zipcode.value',
+        address: 'form.address.value'
+    };
+
+    data.forEach(data => console.log(data));
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log('성공했다!');
+        }
+    }
+
+    xhr.open('POST', 'addMember.lo',true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(data));
 }

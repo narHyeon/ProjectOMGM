@@ -47,4 +47,17 @@ public class MemberController {
         vo.setId("rolla");
         return vo;
     }
+
+    // 회원가입
+    @RequestMapping(value="addMember.lo", method = RequestMethod.POST)
+    public void addMember(@RequestBody MemberVO vo) {
+        System.out.println(vo.getId());
+        System.out.println(vo.getAddress());
+        System.out.println(vo.getPhone());
+        System.out.println(vo.getName());
+//        ModelAndView mav = new ModelAndView();
+//        mav.addObject();
+//        mav.setViewName();
+//        return mav;
+    }
 }

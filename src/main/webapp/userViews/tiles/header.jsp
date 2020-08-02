@@ -113,46 +113,46 @@
 	<div>
 		<div>
 			<label for="popup"></label>
-			<form action="#" class="signup-form" onsubmit="return joinCheck()">
+			<form action="#" class="signup-form" onsubmit="return joinCheck(event)">
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
-					<input type="text" required>
+					<input name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID"></span>
 				</div>
 				<input type="button" class="checkbtn" value="check" onclick="idCheck(false)">
 
 				<div class="txt"> <!-- Pw-->
-					<input id="pwd" type="password" required>
+					<input name="pwd"  id="pwd" type="password" required autocomplete=off minlength="8">
 					<span data-placeholder="PassWord"></span>
 				</div>
 
 				<div class="txt"> <!-- RePw-->
-					<input id="copwd" type="password" required>
+					<input id="copwd" type="password" required autocomplete=off minlength="8">
 					<span data-placeholder="Confirm PassWord"></span>
 				</div>
 
 				<div class="txt"> <!-- name-->
-					<input type="name" pattern="[가-힣A-z]+" required>
+					<input name="name"  type="name" pattern="^[가-힣A-z]+$" required autocomplete=off>
 					<span data-placeholder="Name"></span>
 				</div>
 
 				<div class="txt"> <!--e-mail-->
-					<input type="email" pattern="^\w+@\w+\.[A-z]+$" required>
+					<input name="email"  type="email" pattern="^\w+@\w+\.[A-z]+$" required autocomplete=off>
 					<span data-placeholder="E-Mail"></span>
 				</div>
 
 				<div class="txtboxTEL1"> <!--Tel1-->
-					<input type="tel" pattern="[0-9]{3}" required>
+					<input name="tel1"  type="tel" pattern="0[0-9]{2}" required autocomplete=off>
 					<span data-placeholder="Tel"></span><a>ㅡ</a>
 				</div>
 
 				<div class="txtboxTEL2"> <!--Tel2-->
-					<input type="tel" pattern="[0-9]{4}" required><a>ㅡ</a>
+					<input name="tel2"  type="tel" pattern="[0-9]{4}" required autocomplete=off><a>ㅡ</a>
 					<span data-placeholder="Tel2"></span>
 				</div>
 
 				<div class="txtboxTEL3"> <!--Tel3-->
-					<input type="tel" pattern="[0-9]{4}" required>
+					<input name="tel3"  type="tel" pattern="[0-9]{4}" required autocomplete=off>
 					<span data-placeholder="Tel3"></span>
 				</div>
 
@@ -173,12 +173,12 @@
 				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
 				<div class="txtbox"> <!-- ID필드-->
-					<input type="text" required>
+					<input type="text" required autocomplete=off>
 					<span data-placeholder="ID" ></span>
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input type="pwd" required>
+					<input type="pwd" required autocomplete=off>
 					<span data-placeholder="Password"></span>
 				</div>
 
