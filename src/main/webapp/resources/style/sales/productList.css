@@ -1,6 +1,7 @@
 .proList_main h2{display:flex; justify-content:center; padding-top:500px; font-weight:bold; font-size:large;}
 .event_list ul { display: flex; flex-flow: row wrap; align-content: space-between; padding-left:11%; padding-top:80px;}
 .event_list li { flex:0 1 18%; padding: 0 0 34px;}
+
 .event_list li a { display: block; position: relative; width: 248px; height: 382px; line-height: 1;border:1px solid #ddd;}
 .event_list li a .img { overflow: hidden; position: relative; width: 248px; height: 272px; border-bottom: 1px solid #ddd;}
 .event_list li a .img img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
@@ -28,6 +29,7 @@
 .hide, caption span { display: block; overflow: hidden; position: absolute; border: 0; width: 1px; height: 1px; clip:rect(1px, 1px, 1px, 1px);}
 .paging ul, .event_list ul {list-style-type:none; }
 
+
 .proList_body .img{
     width:228px;
 }
@@ -35,4 +37,3 @@
 a { color:#666; text-decoration:none;}
 a:focus,
 a:hover { text-decoration:none;}
-

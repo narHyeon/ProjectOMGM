@@ -20,7 +20,6 @@
 <body class="proList_body">
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
-
     <div class="event_list">
         <ul>
             <li>
