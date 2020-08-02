@@ -156,10 +156,11 @@
 					<span data-placeholder="Tel3"></span>
 				</div>
 
-				<div class="txt"> <!--zipCode-->
+				<div class="txt_zipCode"> <!--zipCode-->
 					<input name="zipCode"  type="text" required autocomplete=off>
 					<span data-placeholder="ZipCode"></span>
 				</div>
+				<input type="button" class="searchbtn" value="search" onclick="zipCheck(false)">
 
 				<div class="txt"> <!--Address-->
 					<input name="address"  type="text" required autocomplete=off>
