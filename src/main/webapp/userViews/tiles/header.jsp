@@ -156,6 +156,16 @@
 					<span data-placeholder="Tel3"></span>
 				</div>
 
+				<div class="txt"> <!--zipCode-->
+					<input name="zipCode"  type="text" required autocomplete=off>
+					<span data-placeholder="ZipCode"></span>
+				</div>
+
+				<div class="txt"> <!--Address-->
+					<input name="address"  type="text" required autocomplete=off>
+					<span data-placeholder="Address"></span>
+				</div>
+
 				<input type="submit" class="signup" value="Sign UP"> <!-- 회원가입버튼-->
 			</form>
 		</div>

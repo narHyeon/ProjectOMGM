@@ -21,7 +21,7 @@
 
     <!-- 실 사용 -->
     <insert id="addMember" parameterType="MemberVO">
-        INSERT INTO member
+        INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address)
         VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address})
     </insert>
 

@@ -52,12 +52,7 @@ public class MemberController {
     @ResponseBody
     @RequestMapping(value="/addMember.lo", method = RequestMethod.POST)
     public MemberVO addMember(@RequestBody MemberVO vo) {
-        System.out.println(vo.getId());
-        System.out.println(vo.getAddress());
-        System.out.println(vo.getPhone());
-        System.out.println(vo.getName());
-
-        vo.setId("성공");
+        memberService.addMember(vo);
         return vo;
     }
 }

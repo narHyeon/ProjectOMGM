@@ -89,8 +89,8 @@ function joinCheck(event) {
         name: form.name.value,
         phone: phone,
         email: form.email.value,
-        zipcode: 'form.zipcode.value', // Todo : 우편번호 작업 요
-        address: 'form.address.value' // Todo : 주소 작업 요
+        zipcode: form.zipCode.value,
+        address: form.address.value
     };
 
     const xhr = new XMLHttpRequest();
