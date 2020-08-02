@@ -66,8 +66,8 @@
 
 #foot #footLogo {
 	display: inline-block;
-	width: 300px;
-	height: 90px;
+	width: 200px;
+	/*height: 90px;*/
 	padding-bottom: 50px;
 }
 
@@ -120,8 +120,8 @@
 	}
 	#foot #footLogo {
 		display: inline-block;
-		width: 150px;
-		height: 50px;
+		width: 200px;
+		/*height: 50px;*/
 		padding-right: 50px;
 	}
 	#foot #footDiv {
@@ -130,6 +130,7 @@
 	}
 	#foot #sns {
 		text-align: right;
-		margin: 0 auto;
+		margin: 0;
+		margin-left: auto;
 	}
 }
