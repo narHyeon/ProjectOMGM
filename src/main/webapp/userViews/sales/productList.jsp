@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <link rel="stylesheet" href="../../resources/style/sales/productList.css">
@@ -19,11 +20,12 @@
 <body class="proList_body">
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
+
     <div class="event_list">
         <ul>
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/sales/JW훌러%20풋볼_5000원.jpg" class="img" alt=""></div>
+                    <div><img src="resources/img/sales/JW훌러%20풋볼_5000원.jpg" class="img" alt=""></div>
                     <em>NEW</em>
                     <div class="info">
                         <strong>JW훌러풋볼</strong>
@@ -36,7 +38,7 @@
             </li>
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/sales/풀무원%20아미오%20캣%20그레인프리%205.4kg%20-%20키튼&어덜트%20(전연령)_65000원_52000원(할인가).jpg"  class="img" alt=""></div>
+                    <div><img src="resources/img/sales/풀무원%20아미오%20캣%20그레인프리%205.4kg%20-%20키튼&어덜트%20(전연령)_65000원_52000원(할인가).jpg"  class="img" alt=""></div>
                     <em>품절</em>
                     <div class="info">
                         <strong>아미오 캣 그레인프리 5.4kg-키튼&어덜트</strong>
@@ -49,7 +51,7 @@
             </li>
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/sales/딩동펫%20강아지%20장난감%20파스텔%20터그장난감%20세트%205종_9900원.jpg"  class="img" alt=""></div>
+                    <div><img src="resources/img/sales/딩동펫%20강아지%20장난감%20파스텔%20터그장난감%20세트%205종_9900원.jpg"  class="img" alt=""></div>
                     <em>BEST</em>
                     <div class="info">
                         <strong>파스텔 터그장난감</strong>
@@ -62,7 +64,7 @@
             </li>
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/sales/딩동펫%20반려동물%20삑삑이%20바베큐%20장난감_1700원.jpg"  class="img" alt=""></div>
+                    <div><img src="resources/img/sales/딩동펫%20반려동물%20삑삑이%20바베큐%20장난감_1700원.jpg"  class="img" alt=""></div>
                     <div class="info">
                         <strong>삑삑이 바베큐 장난감</strong>
                         <p>
@@ -74,7 +76,7 @@
             </li>
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/sales/프로베스트캑%20밸런스%207kg%20고양이사료_14300원.jpg"  class="img" alt=""></div>
+                    <div><img src="resources/img/sales/프로베스트캑%20밸런스%207kg%20고양이사료_14300원.jpg"  class="img" alt=""></div>
                     <em>BEST</em>
                     <div class="info">
                         <strong>프로베스트캑 밸런스 7kg 고양이사료</strong>
@@ -87,7 +89,7 @@
             </li>
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/sales/딩동펫%20애견%20장난감%20간식총_9500원.jpg"  class="img" alt=""></div>
+                    <div><img src="resources/img/sales/딩동펫%20애견%20장난감%20간식총_9500원.jpg"  class="img" alt=""></div>
                     <em>NEW</em>
                     <div class="info">
                         <strong>장난감 간식총</strong>
@@ -100,7 +102,7 @@
             </li>
         </ul>
     </div>
-    <div class="paging">
+    <div class="pro_paging">
         <ul>
             <li class="first"><a href=""><span class="hide">첫페이지</span></a></li>
             <li class="prev"><a href=""><span class="hide">이전페이지</span></a></li>
