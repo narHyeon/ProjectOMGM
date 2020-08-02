@@ -137,7 +137,7 @@
 				</div>
 
 				<div class="txt"> <!--e-mail-->
-					<input type="email" required>
+					<input type="email" pattern="^\w+@\w+\.[A-z]$" required>
 					<span data-placeholder="E-Mail"></span>
 				</div>
 

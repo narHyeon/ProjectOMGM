@@ -34,7 +34,8 @@ function idCheck() {
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
-            if(input.value === object.id) alert('아이디가 중복됩니다!');
+            if(input.value === '') alert('아이디를 입력해주세요!');
+            else if(input.value === object.id) alert('이미 사용하고 있는 아이디입니다!');
             else alert('사용할 수 있는 아이디입니다.');
         }
     }
