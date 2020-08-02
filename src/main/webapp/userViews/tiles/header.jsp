@@ -116,43 +116,43 @@
 			<form action="#" class="signup-form">
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
-					<input type="text">
+					<input type="text" required>
 					<span data-placeholder="ID"></span>
 				</div>
-				<input type="submit" class="checkbtn" value="check">
+				<input type="button" class="checkbtn" value="check" onclick="idCheck()">
 
 				<div class="txt"> <!-- Pw-->
-					<input type="pass">
+					<input type="pass" required>
 					<span data-placeholder="Pass"></span>
 				</div>
 
 				<div class="txt"> <!-- RePw-->
-					<input type="repass">
+					<input type="repass" required>
 					<span data-placeholder="RePass"></span>
 				</div>
 
 				<div class="txt"> <!-- name-->
-					<input type="name">
+					<input type="name" required>
 					<span data-placeholder="Name"></span>
 				</div>
 
 				<div class="txt"> <!--e-mail-->
-					<input type="email">
+					<input type="email" required>
 					<span data-placeholder="E-Mail"></span>
 				</div>
 
 				<div class="txtboxTEL1"> <!--Tel1-->
-					<input type="tel" pattern="[0-9]{3}">
+					<input type="tel" pattern="[0-9]{3}" required>
 					<span data-placeholder="Tel"></span><a>ㅡ</a>
 				</div>
 
 				<div class="txtboxTEL2"> <!--Tel2-->
-					<input type="tel" pattern="[0-9]{4}"><a>ㅡ</a>
+					<input type="tel" pattern="[0-9]{4}" required><a>ㅡ</a>
 					<span data-placeholder="Tel2"></span>
 				</div>
 
 				<div class="txtboxTEL3"> <!--Tel3-->
-					<input type="tel" pattern="[0-9]{4}">
+					<input type="tel" pattern="[0-9]{4}" required>
 					<span data-placeholder="Tel3"></span>
 				</div>
 
@@ -173,12 +173,12 @@
 				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
 				<div class="txtbox"> <!-- ID필드-->
-					<input type="text">
-					<span data-placeholder="ID"></span>
+					<input type="text" required>
+					<span data-placeholder="ID" ></span>
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input type="pass">
+					<input type="pass" required>
 					<span data-placeholder="Password"></span>
 				</div>
 

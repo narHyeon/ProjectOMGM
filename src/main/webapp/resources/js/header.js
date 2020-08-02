@@ -26,3 +26,21 @@ function login(event) {
     event.preventDefault();
     document.querySelector('#login_popup').checked = true;
 }
+
+function idCheck() {
+    const input = document.querySelector('.txtboxID input');
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const object = JSON.parse(xhr.responseText);
+            if(input.value === object.id) alert('아이디가 중복됩니다!');
+            else alert('사용할 수 있는 아이디입니다.');
+        }
+    }
+
+    xhr.open('POST', 'idCheck.lo',true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    const data = { id: input.value };
+    xhr.send(JSON.stringify(data));
+}
