@@ -1,8 +1,9 @@
-.pro_main { text-align: center; padding: 50px;}
-.event_list ul { display: flex; flex-flow: row wrap; align-content: flex-start;}
-.event_list li { flex:0 1 25%; padding: 0 0 34px;}
+.proList_main h2{display:flex; justify-content:center; padding-top:500px; font-weight:bold; font-size:large;}
+.event_list ul { display: flex; flex-flow: row wrap; align-content: space-between; padding-left:11%; padding-top:80px;}
+.event_list li { flex:0 1 18%; padding: 0 0 34px;}
+
 .event_list li a { display: block; position: relative; width: 248px; height: 382px; line-height: 1;border:1px solid #ddd;}
-.event_list li a .img { overflow: hidden; position: relative; width: 249px; height: 272px; border-bottom: 1px solid #ddd;}
+.event_list li a .img { overflow: hidden; position: relative; width: 248px; height: 272px; border-bottom: 1px solid #ddd;}
 .event_list li a .img img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
 .event_list li a .info { padding: 29px 10px 0;}
 .event_list li a .info strong { display: block; overflow: hidden; width: 100%; white-space: nowrap; text-overflow: ellipsis; font-size: 18px; color:#222;}
@@ -25,14 +26,14 @@
 .pro_paging .next a:hover,
 .pro_paging .last a:hover { background: none;}
 
-
-/*.search { padding: 20px 0;border-top:1px solid #ccc; border-bottom: 1px solid #ccc; text-align: center; font-size: 0;}*/
-/*.search * { margin: 0 5px; height: 53px; border: 1px solid #ccc;}*/
-/*.search select { width: 148px;}*/
-/*.search input { width:258px;}*/
-/*.search button { width:150px; border: none; background: #F28888; color:#fff;}*/
+.hide, caption span { display: block; overflow: hidden; position: absolute; border: 0; width: 1px; height: 1px; clip:rect(1px, 1px, 1px, 1px);}
+.paging ul, .event_list ul {list-style-type:none; }
 
 
-.img{
+.proList_body .img{
     width:228px;
 }
+
+a { color:#666; text-decoration:none;}
+a:focus,
+a:hover { text-decoration:none;}

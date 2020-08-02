@@ -2,17 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ReviewDAO">
+<mapper namespace="MemberDAO">
 
-    <resultMap type="ReviewVO" id="boardResult">
+    <resultMap type="MemberVO" id="MemberResult">
         <id property="seq" column="SEQ" />
         <result property="id" column="ID"/>
         <result property="pwd" column="PWD"/>
-        <result property="title" column="TITLE"/>
-        <result property="content" column="CONTENT" />
+        <result property="name" column="NAME"/>
+        <result property="phone" column="PHONE" />
+        <result property="email" column="EMAIL" />
+        <result property="zipCode" column="ZIPCODE" />
+        <result property="address" column="ADDRESS" />
+        <result property="point" column="POINT" />
         <result property="regDate" column="REGDATE"/>
-        <result property="cnt" column="CNT"/>
-        <result property="imgRef" column="IMGREF"/>
     </resultMap>
 
     <resultMap type="ReviewReplyVO" id="reply">
