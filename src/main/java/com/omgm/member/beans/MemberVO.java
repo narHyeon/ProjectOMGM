@@ -1,21 +1,24 @@
 package com.omgm.member.beans;
 
+import java.util.Date;
+
 public class MemberVO {
     private int seq;
     private String id;
     private String pwd;
     private String name;
-    private int phone;
+    private String phone;
     private String email;
-    private int zipcode;
+    private String zipcode;
     private String address;
     private int point;
     private String rank;
     private String type;
+    private Date regDate;
 
     public MemberVO() { }
 
-    public MemberVO(int seq, String id, String pwd, String name, int phone, String email, int zipcode, String address, int point, String rank, String type) {
+    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate) {
         this.seq = seq;
         this.id = id;
         this.pwd = pwd;
@@ -27,6 +30,15 @@ public class MemberVO {
         this.point = point;
         this.rank = rank;
         this.type = type;
+        this.regDate = regDate;
+    }
+
+    public Date getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
     }
 
     public int getSeq() {
@@ -61,11 +73,11 @@ public class MemberVO {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -77,11 +89,11 @@ public class MemberVO {
         this.email = email;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -131,6 +143,7 @@ public class MemberVO {
                 ", point=" + point +
                 ", rank='" + rank + '\'' +
                 ", type='" + type + '\'' +
+                ", regDate=" + regDate +
                 '}';
     }
 }

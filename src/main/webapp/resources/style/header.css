@@ -198,13 +198,13 @@ body{
 .signup-form{
 	width: 360px;
 	background: #F28888;
-	height: 580px;
+	height: 620px;
 	padding: 30px 40px;
 	border-radius: 10px;
 	position: absolute;
 	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
+	top: 55%;
+	transform: translate(-50%,-55%);
 }
 
 /*회원가입<h1> 크기*/
@@ -245,7 +245,7 @@ body{
 	text-align: center;
 	position:absolute;
 	left: 35%;
-	bottom: 17.3%;
+	bottom: 22.6%;
 	margin: 25px 0;
 }
 
@@ -255,7 +255,7 @@ body{
 	text-align: center;
 	position:absolute;
 	left: 65%;
-	bottom: 17.3%;
+	bottom: 22.6%;
 	margin: 25px 0;
 }
 
@@ -266,12 +266,19 @@ body{
 	color: aliceblue;
 }
 
+.txt_zipCode{
+	border-bottom: 2px solid aliceblue;
+	width: 70%;
+	position: relative;
+	margin: 25px 0;
+}
+
 /*<input>태그*/
-.txt input, .txtboxID input, .txtboxTEL1 input, .txtboxTEL2 input, .txtboxTEL3 input{
+.txt input, .txtboxID input, .txtboxTEL1 input, .txtboxTEL2 input, .txtboxTEL3 input, .txt_zipCode input {
 	font-size: 15px;
 	color: #333;
 	border: none;
-	width: 70%;
+	width: 100%;
 	outline: none;
 	background: none;
 	padding: 0 5px;
@@ -279,7 +286,7 @@ body{
 }
 
 /*처음 화면 켜지면 나타나는 내용(txtbox)*/
-.txt span::before, .txtboxID span::before, .txtboxTEL1 span::before{
+.txt span::before, .txtboxID span::before, .txtboxTEL1 span::before, .txt_zipCode span::before {
 	content: attr(data-placeholder);
 	position: absolute;
 	top: 50%;
@@ -291,7 +298,7 @@ body{
 }
 
 /*필드를 클릭했을때*/
-.txt span::after, .txtboxID span::after, .txtboxTEL1 span::after{
+.txt span::after, .txtboxID span::after, .txtboxTEL1 span::after, .txt_zipCode span::after {
 	content: '';
 	position: absolute;
 	width: 0%;
@@ -317,17 +324,43 @@ body{
 	outline: none;
 	cursor: pointer;
 	position:absolute;
-	top:12.5%;
-	left:69%;
+	top: 14%;
+	left: 69%;
+	border-radius: 7px;
+}
+
+.searchbtn{
+	display: block;
+	width: 21%;
+	height: 26px;
+	border: none;
+	background: aliceblue;
+	background-size: 200%;
+	color: #F28888;
+	outline: none;
+	cursor: pointer;
+	position:absolute;
+	top: 80%;
+	left: 69%;
 	border-radius: 7px;
 
 }
 
+#sign_sns_title {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 112%;
+	left: 23%;
+	transform: translate(-23%,-112%);
+}
+
 /*회원가입버튼*/
-.signup{
-	display: block;
-	width: 100%;
-	height: 50px;
+.signup, .signup2, .signup3, .signup4{
+	display: inline;
+	position: absolute;
+	width: 22%;
+	height: 30px;
 	border: none;
 	background: aliceblue;
 	background-size: 200%;
@@ -336,6 +369,25 @@ body{
 	cursor: pointer;
 	border-radius: 7px;
 	transition: .5s;
+	top: 107%;
+	left: 100%;
+	transform: translate(-100%,-107%);
+}
+
+.signup2 {
+	color: #FFD400;
+	left: 60%;
+	transform: translate(-60%,-107%);
+}
+.signup3 {
+	color: #00C73C;
+	left: 30%;
+	transform: translate(-30%,-107%);
+}
+.signup4 {
+	color: #F44336;
+	left: 0;
+	transform: translate(0,-107%);
 }
 
 /*회원가입버튼에 올렸을 때*/
@@ -349,7 +401,10 @@ body{
 	font-size: 16px;
 	color:aliceblue;
 }
-
+#sign_zipCode::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
 
 
 /* login part */
