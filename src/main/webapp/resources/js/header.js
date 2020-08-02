@@ -27,6 +27,10 @@ function signUp(event) {
             sign.blur();
             sign.classList.remove('focus');
         });
+    document.querySelector('signUp div div').innerHTML =
+        `<label for="popup"></label>
+                    <div>저희 오묘가묘의 가족이 되신 것을 진심으로 환영합니다!</div>
+                `;
 }
 
 function login(event) {
@@ -82,7 +86,7 @@ function joinCheck(event) {
     event.preventDefault();
 
     const form = document.querySelector('.signup-form');
-    const phone = form.tel1.value + form.tel2.value + form.tel3.value;
+    const phone = form.tel1.value + '-' + form.tel2.value + '-' +  form.tel3.value;
     const data = {
         id: form.id.value,
         pwd: form.pwd.value,
@@ -93,13 +97,16 @@ function joinCheck(event) {
         address: 'form.address.value'
     };
 
-    data.forEach(data => console.log(data));
-
     const xhr = new XMLHttpRequest();
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log('성공했다!');
+            const object = JSON.parse(xhr.responseText);
+            console.log(object.id);
+            document.querySelector('signUp div div').innerHTML =
+                `<label for="popup"></label>
+                    <div>저희 오묘가묘의 가족이 되신 것을 진심으로 환영합니다!</div>
+                `;
         }
     }
 

@@ -7,9 +7,9 @@ public class MemberVO {
     private String id;
     private String pwd;
     private String name;
-    private int phone;
+    private String phone;
     private String email;
-    private int zipcode;
+    private String zipcode;
     private String address;
     private int point;
     private String rank;
@@ -18,7 +18,7 @@ public class MemberVO {
 
     public MemberVO() { }
 
-    public MemberVO(int seq, String id, String pwd, String name, int phone, String email, int zipcode, String address, int point, String rank, String type, Date regDate) {
+    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate) {
         this.seq = seq;
         this.id = id;
         this.pwd = pwd;
@@ -73,11 +73,11 @@ public class MemberVO {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -89,11 +89,11 @@ public class MemberVO {
         this.email = email;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 

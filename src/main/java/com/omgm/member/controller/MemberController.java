@@ -49,15 +49,15 @@ public class MemberController {
     }
 
     // 회원가입
-    @RequestMapping(value="addMember.lo", method = RequestMethod.POST)
-    public void addMember(@RequestBody MemberVO vo) {
+    @ResponseBody
+    @RequestMapping(value="/addMember.lo", method = RequestMethod.POST)
+    public MemberVO addMember(@RequestBody MemberVO vo) {
         System.out.println(vo.getId());
         System.out.println(vo.getAddress());
         System.out.println(vo.getPhone());
         System.out.println(vo.getName());
-//        ModelAndView mav = new ModelAndView();
-//        mav.addObject();
-//        mav.setViewName();
-//        return mav;
+
+        vo.setId("성공");
+        return vo;
     }
 }
