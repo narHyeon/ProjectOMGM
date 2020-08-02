@@ -374,6 +374,14 @@ body{
 	transform: translate(-100%,-107%);
 }
 
+.signup {
+	width: 27%;
+	height: 50px;
+	top: 110.8%;
+	left: 100%;
+	transform: translate(-100%,-110.8%);
+}
+
 .signup2 {
 	color: #FFD400;
 	left: 60%;
@@ -391,7 +399,7 @@ body{
 }
 
 /*회원가입버튼에 올렸을 때*/
-.signup:hover, .checkbtn:hover{
+.signup:hover, .signup2:hover, .signup3:hover, .signup4:hover, .checkbtn:hover{
 	font-size: 16px;
 }
 /*회원가입, 아이디/패스워드 찾기*/
