@@ -113,31 +113,31 @@
 	<div>
 		<div>
 			<label for="popup"></label>
-			<form action="#" class="signup-form">
+			<form action="#" class="signup-form" onsubmit="return joinCheck()">
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
 					<input type="text" required>
 					<span data-placeholder="ID"></span>
 				</div>
-				<input type="button" class="checkbtn" value="check" onclick="idCheck()">
+				<input type="button" class="checkbtn" value="check" onclick="idCheck(false)">
 
 				<div class="txt"> <!-- Pw-->
-					<input type="pass" required>
-					<span data-placeholder="Pass"></span>
+					<input id="pwd" type="password" required>
+					<span data-placeholder="PassWord"></span>
 				</div>
 
 				<div class="txt"> <!-- RePw-->
-					<input type="repass" required>
-					<span data-placeholder="RePass"></span>
+					<input id="copwd" type="password" required>
+					<span data-placeholder="Confirm PassWord"></span>
 				</div>
 
 				<div class="txt"> <!-- name-->
-					<input type="name" required>
+					<input type="name" pattern="[가-힣A-z]+" required>
 					<span data-placeholder="Name"></span>
 				</div>
 
 				<div class="txt"> <!--e-mail-->
-					<input type="email" pattern="^\w+@\w+\.[A-z]$" required>
+					<input type="email" pattern="^\w+@\w+\.[A-z]+$" required>
 					<span data-placeholder="E-Mail"></span>
 				</div>
 
@@ -178,7 +178,7 @@
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input type="pass" required>
+					<input type="pwd" required>
 					<span data-placeholder="Password"></span>
 				</div>
 
