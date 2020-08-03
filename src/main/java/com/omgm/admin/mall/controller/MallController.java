@@ -18,6 +18,7 @@ public class MallController {
 
     @Autowired
     MallService mallService;
+
     String fileName;
     @RequestMapping("/insertMallToy.mdo")
     public ModelAndView insertMallToy(MallToyVO vo) throws Exception {
