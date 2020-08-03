@@ -95,7 +95,9 @@ function joinCheck(event) {
         phone: phone,
         email: form.email.value,
         zipcode: form.zipCode.value,
-        address: form.address.value
+        address: form.address.value,
+        code: '',
+        type: '일반'
     };
 
     const xhr = new XMLHttpRequest();
