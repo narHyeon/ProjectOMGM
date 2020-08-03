@@ -39,15 +39,16 @@ function login(event) {
 
 function idCheck(check) {
     const input = document.querySelector('.txtboxID input');
+    if(input.value === '') {
+        alert('아이디를 입력해주세요!');
+        return true;
+    }
     const xhr = new XMLHttpRequest();
 
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
-            if(input.value === '') {
-                alert('아이디를 입력해주세요!');
-                return true;
-            } else if(input.value === object.id) {
+            if(0 !== object.point) {
                 alert('이미 사용하고 있는 아이디입니다!');
                 return true;
             }
