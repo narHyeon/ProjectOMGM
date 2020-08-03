@@ -6,11 +6,12 @@ import com.omgm.user.catcarelog.beans.CatCareLogDAO;
 import com.omgm.user.catcarelog.beans.CatCareLogVO;
 
 @Service("catCareLogServiceImpl")
-public class CatCareLogServiceImpl {
+public class CatCareLogServiceImpl implements CatCareLogService {
 
 	@Autowired
 	CatCareLogDAO catCareLogDAO;
 	
+	@Override
 	public void insertCatCareLog(CatCareLogVO vo) {
 		catCareLogDAO.insertCatCareLog(vo);
 	}
