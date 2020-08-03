@@ -66,10 +66,9 @@ public class MemberController {
     @ResponseBody
     @RequestMapping(value="/snsSignDuple.lo", method = RequestMethod.POST)
     public MemberVO snsSignDuple(@RequestBody MemberVO vo) {
-        if(memberService.snsCheck(vo) == null) {
-            System.out.println("없는 아이디");
+        if(memberService.snsCheck(vo) != null) {
+            vo.setId("유");
         }
-//        System.out.println("조건검사" + vo.getCode().equals(memberService.snsCheck(vo).getCode()));
         return vo;
     }
 }

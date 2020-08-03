@@ -252,8 +252,11 @@ function snsSignDuple(result) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
-
-            return true;
+            if(object.id === '유') {
+                alert('이미 가입된 계정입니다. 이용하시려면 로그인해주세요!');
+                return;
+            }
+            return snsSign(result);
         }
     }
 
