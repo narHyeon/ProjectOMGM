@@ -101,7 +101,7 @@ public class OAuthController {
 
         ModelAndView mav = new ModelAndView();
         mav.addObject("result",result);
-        mav.setViewName("/login/google/googleLogin");
+        mav.setViewName("/main");
 
         return mav;
     }

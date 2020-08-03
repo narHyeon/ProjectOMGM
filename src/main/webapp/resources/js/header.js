@@ -147,7 +147,7 @@ function signGoogle() {
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
-            console.log(object.url);
+            window.location.href = object.url;
         }
     }
 

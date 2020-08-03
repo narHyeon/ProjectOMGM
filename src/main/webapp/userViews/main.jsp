@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -79,5 +80,47 @@
         </div>
     </div>
 </div>
+
+<%--<c:if test="${result != null}">--%>
+    <script>
+        snsSign();
+        function snsSign() {
+           document.querySelector('signUp div div').innerHTML =
+               `<label for="sns_popup"></label>
+                <form action="#" class="sns_signup-form" onsubmit="return joinCheck(event)">
+                    <h1 style="font-weight: 700;">Google 회원가입</h1>
+                    <div class="txtboxID">
+                       <input name="id" type="text" required autocomplete=off>
+                       <span data-placeholder="ID"></span>
+                   </div>
+                   <input type="button" class="checkbtn" value="check" onclick="idCheck(false)">
+                    <div class="txtboxTEL1">
+                        <input name="tel1"  type="tel" pattern="0[0-9]{2}" required autocomplete=off>
+                        <span data-placeholder="Tel"></span><a>ㅡ</a>
+                    </div>
+                    <div class="txtboxTEL2">
+                        <input name="tel2"  type="tel" pattern="[0-9]{4}" required autocomplete=off><a>ㅡ</a>
+                        <span data-placeholder="Tel2"></span>
+                    </div>
+                    <div class="txtboxTEL3">
+                        <input name="tel3"  type="tel" pattern="[0-9]{4}" required autocomplete=off>
+                        <span data-placeholder="Tel3"></span>
+                    </div>
+                    <div class="txt_zipCode">
+                        <input id="sign_zipCode" name="zipCode"  type="number" required autocomplete=off>
+                        <span data-placeholder="ZipCode"></span>
+                    </div>
+                    <input type="button" class="searchbtn" value="search" onclick="zipCheck()">
+                    <div class="txt">
+                        <input id="sign_address"  name="address"  type="text" required autocomplete=off>
+                        <span data-placeholder="Address"></span>
+                    </div>
+                    <input type="submit" class="signup" value="Sign UP">
+               </form>
+                `;
+    document.querySelector('#popup').checked = true;
+}
+    </script>
+<%--</c:if>--%>
 </body>
 </html>
