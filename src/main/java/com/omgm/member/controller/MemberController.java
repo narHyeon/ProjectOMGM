@@ -38,13 +38,6 @@ public class MemberController {
         return mav;
     }
 
-    @RequestMapping("/sample.lo")
-    public ModelAndView Sample(MemberVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/sample");
-        return mav;
-    }
-
     // 아이디 체크
     @ResponseBody
     @RequestMapping(value="/idCheck.lo", method = RequestMethod.POST)
