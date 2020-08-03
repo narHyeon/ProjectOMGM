@@ -3,6 +3,8 @@ package com.omgm.member.controller;
 import com.omgm.member.beans.MemberVO;
 import com.omgm.member.service.MemberService;
 import com.omgm.user.common.beans.CommonVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,9 @@ public class MemberController {
 
     @Resource(name="memberService")
     private MemberService memberService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @RequestMapping("/naverLogin.lo")
@@ -33,18 +38,11 @@ public class MemberController {
         return mav;
     }
 
-    @RequestMapping("/sample.lo")
-    public ModelAndView Sample(MemberVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/sample");
-        return mav;
-    }
-
     // 아이디 체크
     @ResponseBody
     @RequestMapping(value="/idCheck.lo", method = RequestMethod.POST)
     public MemberVO idChecking(@RequestBody MemberVO vo) {
-        vo.setId("rolla");
+        vo.setPoint(memberService.idCheck(vo));
         return vo;
     }
 
@@ -52,7 +50,18 @@ public class MemberController {
     @ResponseBody
     @RequestMapping(value="/addMember.lo", method = RequestMethod.POST)
     public MemberVO addMember(@RequestBody MemberVO vo) {
+        vo.setPwd(bCryptPasswordEncoder.encode(vo.getPwd()));
         memberService.addMember(vo);
+        return vo;
+    }
+
+    // SNS계정 회원가입 체크
+    @ResponseBody
+    @RequestMapping(value="/snsSignDuple.lo", method = RequestMethod.POST)
+    public MemberVO snsSignDuple(@RequestBody MemberVO vo) {
+        if(memberService.snsCheck(vo) != null) {
+            vo.setId("유");
+        }
         return vo;
     }
 }

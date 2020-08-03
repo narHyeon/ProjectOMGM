@@ -15,10 +15,11 @@ public class MemberVO {
     private String rank;
     private String type;
     private Date regDate;
+    private String code;
 
     public MemberVO() { }
 
-    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate) {
+    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate, String code) {
         this.seq = seq;
         this.id = id;
         this.pwd = pwd;
@@ -31,6 +32,15 @@ public class MemberVO {
         this.rank = rank;
         this.type = type;
         this.regDate = regDate;
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Date getRegDate() {
