@@ -20,6 +20,7 @@ public class MallController {
     MallService mallService;
 
     String fileName;
+
     @RequestMapping("/insertMallToy.mdo")
     public ModelAndView insertMallToy(MallToyVO vo) throws Exception {
 
@@ -34,32 +35,15 @@ public class MallController {
         mav.setViewName("redirect:/productInquiry.mdo");
         return mav;
     }
-//    @RequestMapping("/insertMallToy.mdo")
-//    public ModelAndView insertMallToy(MultipartHttpServletRequest request) throws Exception{
-//
-//        MallToyVO vo = new MallToyVO();
-//        vo.setToy_name(request.getParameter("toy_name"));
-//       vo.setToy_price(request.getParameter("toy_price"));
-//       vo.setToy_discount(request.getParameter("toy_discount"));
-//       vo.setToy_stock(request.getParameter("toy_stock"));
-//       vo.setToy_point(request.getParameter("toy_point"));
-//       vo.setToy_info(request.getParameter("toy_info"));
-//
-//        MultipartFile mf = request.getFile("toy_img");
-//        System.out.println(mf);
-//        String path = request.getSession().getServletContext().getRealPath("resources/img/product/");
-//        String fileName = mf.getOriginalFilename();
-//
-//        File uploadFile = new File(path+"//"+fileName);
-//        try{
-//            mf.transferTo(uploadFile);
-//        } catch (IllegalStateException e) {
-//            e.printStackTrace();
-//        } catch(IOException e) {
-//            e.printStackTrace();
+//    @RequestMapping("/insertMallFeed.mdo")
+//    public ModelAndView insertMallFeed(MallToyVO vo) throws Exception {
+//        ModelAndView mav = new ModelAndView();
+//        MultipartFile uploadFile = vo.getUploadFile();
+//        if(!uploadFile.isEmpty()) {
+//            this.fileName = uploadFile.getOriginalFilename();
+//            uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
 //        }
 //        vo.setToy_img(fileName);
-//        ModelAndView mav = new ModelAndView();
 //        mallService.insertMallToy(vo);
 //        mav.setViewName("redirect:/productInquiry.mdo");
 //        return mav;
@@ -68,7 +52,7 @@ public class MallController {
     @RequestMapping("/productInquiry.mdo")
     public ModelAndView getMallToyList(MallToyVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/productRegister/productInquiry");
+        mav.setViewName("/mall/productInquiry");
         mav.addObject("toyList", mallService.getMallToyList());
 
         return mav;
