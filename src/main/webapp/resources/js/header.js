@@ -18,6 +18,7 @@ $(".txt input, .txtboxID input, .txtboxTEL1 input, .txtbox input, .txt_zipCode i
     }
 });
 
+// 회원가입 버튼
 function signUp(event) {
     event.preventDefault();
     document.querySelector('#popup').checked = true;
@@ -29,6 +30,7 @@ function signUp(event) {
         });
 }
 
+// 로그인 버튼
 function login(event) {
     event.preventDefault();
     document.querySelector('#login_popup').checked = true;
@@ -36,7 +38,7 @@ function login(event) {
 
 
 // 회원가입시 체크 사항
-
+// 아이디 체크
 function idCheck(check) {
     const input = document.querySelector('.txtboxID input');
     if(input.value === '') {
@@ -65,6 +67,7 @@ function idCheck(check) {
     xhr.send(JSON.stringify(data));
 }
 
+// 비밀번호 체크
 function pwdCheck() {
     const pwd = document.querySelector('#pwd').value;
     const copwd = document.querySelector('#copwd').value;
@@ -76,6 +79,7 @@ function pwdCheck() {
     };
 }
 
+// 회원가입 체크
 function joinCheck(event) {
     if(idCheck(true)) return false;
     else if(pwdCheck()) return false;
@@ -116,6 +120,7 @@ function joinCheck(event) {
     xhr.send(JSON.stringify(data));
 }
 
+// 우편번호 체크
 function zipCheck() {
     const width = 380;
     const height = 480;
@@ -140,7 +145,7 @@ function zipCheck() {
     });
 }
 
-// sns 회원가입
+// sns 회원가입 구글로 넘김
 function signGoogle() {
     const xhr = new XMLHttpRequest();
 
@@ -158,6 +163,7 @@ function signGoogle() {
 
 let oauthData;
 
+// sns 아이디로 회원가입 진행
 function snsSign(result) {
     oauthData = result;
     document.querySelector('signUp div div').innerHTML =
@@ -205,6 +211,7 @@ function snsSign(result) {
     });
 };
 
+// sns 아이디로 가입
 function snsSignCheck(event, result) {
     if(idCheck(true)) return false;
 
@@ -246,6 +253,7 @@ function snsSignCheck(event, result) {
     xhr.send(JSON.stringify(data));
 };
 
+// sns 아이디 가입 여부 검사
 function snsSignDuple(result) {
     const xhr = new XMLHttpRequest();
 
