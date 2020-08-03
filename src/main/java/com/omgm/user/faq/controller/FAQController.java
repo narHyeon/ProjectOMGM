@@ -112,6 +112,13 @@ public class FAQController {
 		mav.setViewName("/myInfo/myCatPage");
 		return mav;
 	}
+	@RequestMapping(value = "/myCatPageUpdate.do", method = RequestMethod.GET)
+	public ModelAndView qwerrrr(FAQVO vo,ModelAndView mav) {
+		List<FAQVO> list = fAQService.getAllFAQList(vo);
+		mav.addObject("fAQList",list);
+		mav.setViewName("/myInfo/myCatPageUpdate");
+		return mav;
+	}
 	
 	
 }

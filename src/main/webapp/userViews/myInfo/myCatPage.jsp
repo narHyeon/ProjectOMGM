@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -222,7 +223,7 @@
 #m-inputstylephone{border: 1px solid #FFABB9; border-radius:3%; padding:0.5%; margin-right:1%; margin-left:1%; width:15%;}
 #m-inputstylemail{border: 1px solid #FFABB9; border-radius:3%; padding:0.5%; margin-right:1%; margin-left:1%; width:30%;}
 #m-textareastyle{border: 1px solid #FFABB9; padding:0.5%; margin-right:1%; margin-left:1%; width:100%; height:100%;}
-#modalstyle{border: 2px solid #e2e2e2; color:black; font-size:13px;margin-right:2%;}
+#modalstyle{border: 2px solid #e2e2e2; color:black; font-size:13px;margin-right:2%; width:100px;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -250,7 +251,8 @@ $(document).ready(function(){
    function goUpdate() {
       window.location.href = "myPageUpdate.do";
    }
-   function catInfoInsert() {
+   function goCatUpdate() {
+	   window.location.href = "myCatPageUpdate.do";
    }
 </script>
 <body>
@@ -281,8 +283,10 @@ $(document).ready(function(){
          </div>
          
          <div id="content">
-         <input type="button" value="고양이 정보 추가" onclick="" class="buttons" >
+         <a href="#ex1" rel="modal:open" id="modalstyle">고양이 정보 추가</a>
+        
          <div id="catinfo_tle">
+         <c:forEach var="catPage" >
             <div class="bar">
                <div class="bar-title">종류</div>
                <div class="bar-content">터키쉬 앙고라</div>
@@ -308,42 +312,17 @@ $(document).ready(function(){
                <div class="bar-content">점프</div>
             </div>
             <div id="bottom">
-              <a href="#ex1" rel="modal:open" id="modalstyle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수&nbsp;&nbsp;&nbsp;정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            	 <input type="button" value="수  정" onclick="goCatUpdate()" class="buttons" >
                <input type="button" value="삭  제" onclick="" class="buttons">
           
             </div>
+             </c:forEach>
            </div> <!-- catinfo tle --> 
-           <div id="catinfo_tle">
-            <div class="bar">
-               <div class="bar-title">종류</div>
-               <div class="bar-content">터키쉬 앙고라</div>
-            </div>   
-            <div class="bar">
-               <div class="bar-title">이름</div>
-               <div class="bar-content">오묘가묘</div>
-            </div>
-            <div class="bar">
-               <div class="bar-title">나이</div>
-               <div class="bar-content">4살</div>
-            </div>
-            <div class="bar">
-               <div class="bar-title">좋아하는 음식(?)</div>
-               <div class="bar-content">참치캔</div>
-            </div>
-            <div class="bar">
-               <div class="bar-title">취미</div>
-               <div class="bar-content">밥먹고 자기</div>
-            </div>
-            <div class="bar">
-               <div class="bar-title">특기</div>
-               <div class="bar-content">점프</div>
-            </div>
-            <div id="bottom">
-              <a href="#ex1" rel="modal:open" id="modalstyle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수&nbsp;&nbsp;&nbsp;정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-               <input type="button" value="삭  제" onclick="" class="buttons">
           
-            </div>
-           </div> <!-- catinfo tle --> 
+          <div>
+          
+          </div>
+          
          </div>
       </div>
    </div>
@@ -352,7 +331,7 @@ $(document).ready(function(){
 	
 	<div id="m-wrap">
 	 <div id="m-head">
-         <h1 align="center">정보 변경</h1> 
+         <h1 align="center">내 고양이 정보 추가</h1> 
       </div>
 		<div id="m-bar">종류
 		<div id="m-bar-content1">
@@ -395,7 +374,7 @@ $(document).ready(function(){
 		</div>
 		
 	</div>
-	 <a href="#" rel="modal:close"><input type="button" value="완료" onclick="" class="buttons" ></a>
+	 <a href="#" rel="modal:close"><input type="button" value="완료" onclick="insertTag()" class="buttons" ></a>
   <a href="#" rel="modal:close">닫기</a>
 </div>   
 </body>
