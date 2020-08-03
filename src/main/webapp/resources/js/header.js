@@ -154,7 +154,7 @@ function signGoogle() {
         xhr.open('GET', 'google.lo',true);
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.send(null);
-}``
+};
 
 let oauthData;
 
@@ -203,7 +203,7 @@ function snsSign(result) {
             $(this).removeClass("focus");
         }
     });
-}
+};
 
 function snsSignCheck(event, result) {
     if(idCheck(true)) return false;
@@ -214,12 +214,13 @@ function snsSignCheck(event, result) {
     const phone = form.tel1.value + '-' + form.tel2.value + '-' +  form.tel3.value;
     const data = {
         id: form.id.value,
-        pwd: result.pwd,
+        pwd: '#$%&*%#@',
         name: result.name,
         phone: phone,
         email: result.email,
         zipcode: form.zipCode.value,
         address: form.address.value,
+        code: result.code,
         type: '구글'
     };
 
@@ -243,5 +244,23 @@ function snsSignCheck(event, result) {
     xhr.open('POST', 'addMember.lo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(data));
-}
+};
+
+function snsSignDuple(result) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const object = JSON.parse(xhr.responseText);
+
+            return true;
+        }
+    }
+
+    const data = result;
+
+    xhr.open('POST', 'snsSignDuple.lo',true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(data));
+};
 

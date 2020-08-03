@@ -29,4 +29,8 @@
         SELECT count(*) FROM member WHERE id = #{id}
     </select>
 
+    <select id="snsCheck" parameterType="MemberVO" resultType="MemberVO">
+        SELECT * FROM member WHERE code = #{code}
+    </select>
+
 </mapper>

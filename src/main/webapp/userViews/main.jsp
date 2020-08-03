@@ -83,7 +83,10 @@
 <c:if test="${result != null}">
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
-            const result = { pwd:'${result.aud}', name: '${result.name}', email: '${result.email}' }
+            const result = { code:'${result.aud}', name: '${result.name}', email: '${result.email}' }
+            if(snsSignDuple(result)) {
+                return;
+            }
             snsSign(result);
         });
     </script>

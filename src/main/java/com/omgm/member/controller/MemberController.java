@@ -61,4 +61,15 @@ public class MemberController {
         memberService.addMember(vo);
         return vo;
     }
+
+    // SNS계정 회원가입 체크
+    @ResponseBody
+    @RequestMapping(value="/snsSignDuple.lo", method = RequestMethod.POST)
+    public MemberVO snsSignDuple(@RequestBody MemberVO vo) {
+        if(memberService.snsCheck(vo) == null) {
+            System.out.println("없는 아이디");
+        }
+//        System.out.println("조건검사" + vo.getCode().equals(memberService.snsCheck(vo).getCode()));
+        return vo;
+    }
 }
