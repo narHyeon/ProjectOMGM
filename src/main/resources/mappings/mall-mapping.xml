@@ -34,4 +34,8 @@
         VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},
             #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})
     </insert>
+
+    <select id="getMallToyList" resultType="mallToy">
+        SELECT toy_code, toy_name, toy_discount, toy_img  FROM TOY ORDER BY toy_code DESC
+    </select>
     </mapper>

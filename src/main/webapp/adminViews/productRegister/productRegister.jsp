@@ -81,7 +81,7 @@
 <body>
 <div id="pro_write">
     <h2>상품등록</h2><br><br><br>
-    <form method="post" action="insertMallToy.mdo" class="pro_form">
+    <form method="post" action="insertMallToy.mdo" encyte="multipart/form-data" class="pro_form">
         <select >
             <option value="">종류 선택</option>
             <option value="toy" name="toy">toy</option>

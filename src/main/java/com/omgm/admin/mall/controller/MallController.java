@@ -14,10 +14,19 @@ public class MallController {
     MallService mallService;
 
     @RequestMapping("/insertMallToy.mdo")
-    public ModelAndView insertMallToy(MallToyVO vo) {
+    public ModelAndView insertMallToy(MallToyVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
         mallService.insertMallToy(vo);
+        mav.setViewName("redirect:/productInquiry.mdo");
+        return mav;
+    }
+
+    @RequestMapping("/productInquiry.mdo")
+    public ModelAndView getMallToyList(MallToyVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
         mav.setViewName("/productRegister/productInquiry");
+        mav.addObject("toyList", mallService.getMallToyList());
+        System.out.println(vo.getToy_img() + "  " + vo.getToy_name());
         return mav;
     }
 }
