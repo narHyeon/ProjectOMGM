@@ -26,12 +26,13 @@
     <div class="container">
         <c:forEach var="toyList" items="${toyList}">
         <div class="item">
-            <img src="${toyList.toy_img}">
+            <img style="width: 100%; height: auto;"src="resources/img/product/${toyList.toy_img}">
 <%--            <span class="icon">A</span>--%>
             <span class="name">${toyList.toy_name}</span>
         </div>
         </c:forEach>
     </div>
+
 </div>
 
 </body>
