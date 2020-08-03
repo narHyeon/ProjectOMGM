@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MallToyDAO {
+public class MallDAO {
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
@@ -20,5 +20,14 @@ public class MallToyDAO {
 
     public List<MallToyVO> getMallToyList () {
         return sqlSessionTemplate.selectList("MallDAO.getMallToyList");
+    }
+
+    /////////////////  feed 관련 DAO 설정  ///////////////////////////////////////////////////////////
+    public void insertMallFeed(MallFeedVO vo) {
+        sqlSessionTemplate.insert("MallDAO.insertMallFeed", vo);
+    }
+
+    public List<MallFeedVO> getMallFeedList () {
+        return sqlSessionTemplate.selectList("MallDAO.getMallFeedList");
     }
 }

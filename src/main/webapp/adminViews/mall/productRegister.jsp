@@ -81,18 +81,49 @@
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
         const divStyle = document.getElementById("proExpiration");
-        if(select.options[select.selectedIndex].value === ""){alert('type을 정해주세요'); divStyle.style.display="none"}
-        else if(select.options[select.selectedIndex].value === "toy") {actionForm.action = "insertMallToy.mdo";divStyle.style.display="none"}
-        else if(select.options[select.selectedIndex].value === "feed") {actionForm.action = "insertMallFeed.mdo";divStyle.style.display=""}
+
+        if(select.options[select.selectedIndex].value === ""){alert('type을 정해주세요'); }
+        else if(select.options[select.selectedIndex].value === "toy") {
+
+        }
+        else if(select.options[select.selectedIndex].value === "feed") {
+            actionForm.action = "insertMallFeed.mdo";
+
+        }
 
     }
     function changeAction01(){
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
         const divStyle = document.getElementById("proExpiration");
+        const nameChange01 = document.getElementById("productRegister_change_text_00");
+        const nameChange02 = document.getElementById("productRegister_change_text_01");
+        const nameChange03 = document.getElementById("proPrice");
+        const nameChange04 = document.getElementById("proDisPrice");
+        const nameChange05 = document.getElementById("proStock");
+
+        const nameChange07 = document.getElementById("pro_point");
+        const nameChange08 = document.getElementById("proIntro");
         if(select.options[select.selectedIndex].value === ""){divStyle.style.display="none"}
-        else if(select.options[select.selectedIndex].value === "toy") {divStyle.style.display="none"}
-        else if(select.options[select.selectedIndex].value === "feed") {divStyle.style.display=""}
+        else if(select.options[select.selectedIndex].value === "toy") {divStyle.style.display="none";
+            actionForm.action = "insertMallToy.mdo";
+            nameChange01.name ="uploadFile";
+            nameChange02.name = "toy_name";
+            nameChange03.name = "toy_price";
+            nameChange04.name = "toy_discount";
+            nameChange05.name = "toy_stock";
+
+            nameChange07.name = "toy_point";
+            nameChange08.name = "toy_info";}
+        else if(select.options[select.selectedIndex].value === "feed") {divStyle.style.display=""
+            nameChange01.name ="feed_uploadFile";
+            nameChange02.name = "feed_name";
+            nameChange03.name = "feed_price";
+            nameChange04.name = "feed_discount";
+            nameChange05.name = "feed_stock";
+
+            nameChange07.name = "feed_point";
+            nameChange08.name = "feed_info";}
 
     }
 </script>
@@ -108,42 +139,42 @@
 
         <div>
             <label>상품이미지 : </label>
-            <input type="file" class="title" name="uploadFile"/><br><br>
+            <input id="productRegister_change_text_00"type="file" class="title" /><br><br>
         </div>
 
         <div>
             <label >상품명 : </label><br>
-            <input class="title" type="text" name="toy_name"/><br><br>
+            <input id="productRegister_change_text_01" class="title" type="text" /><br><br>
         </div>
 
         <div>
             <label>판매가 : </label><br>
-            <input type="text" id="proPrice" class="title" name="toy_price"/><br><br>
+            <input type="text" id="proPrice" class="title" /><br><br>
         </div>
 
         <div>
             <label>할인가 : </label><br>
-            <input type="text" id="proDisPrice" class="title" name="toy_discount"/><br><br>
+            <input type="text" id="proDisPrice" class="title" /><br><br>
         </div>
 
         <div>
             <label id="proStockL">재고 : </label>
-            <input type="text" id="proStock" class="title" name="toy_stock"/><br><br>
+            <input type="text" id="proStock" class="title" /><br><br>
         </div>
 
-        <div id="proExpiration" style="display: none">
+        <div id="proExpiration" style="display: none" >
             <label style="font-size:15px">남은 날짜 : </label>
-            <input type="text" class="title" name="feed_expiration"/><br><br>
+            <input id="productRegister_change_text_02" type="text" class="title" /><br><br>
         </div>
 
         <div>
             <label>적립금 : </label>
-            <label>판매가에서 </label><input type="text" id="pro_point" name="toy_point"/><br><br><label>포인트 적립 </label>
+            <label>판매가에서 </label><input type="text" id="pro_point" /><br><br><label>포인트 적립 </label>
         </div>
 
         <div class="inputArea">
             <label>상품설명</label>
-            <textarea rows="10" cols="80" id="proIntro" name="toy_info" style="resize: none;"></textarea>
+            <textarea rows="10" cols="80" id="proIntro"  style="resize: none;"></textarea>
         </div>
 
         <div>
