@@ -23,18 +23,19 @@ public class MemberController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
-    @RequestMapping("/naverLogin.lo")
-    public ModelAndView naverLogin(MemberVO vo) {
+    // 네이버 회원
+    @RequestMapping("/naver.lo")
+    public ModelAndView naver(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/login");
+        mav.setViewName("/main");
         return mav;
     }
 
-    @RequestMapping("/loginCallback.lo")
-    public ModelAndView lobinVallback(MemberVO vo) {
+    // 네이버 회원 콜백
+    @RequestMapping("/naverCallback.lo")
+    public ModelAndView naverSign(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/loginCallback");
+        mav.setViewName("/main");
         return mav;
     }
 
