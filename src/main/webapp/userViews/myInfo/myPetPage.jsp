@@ -232,8 +232,8 @@ $(document).ready(function(){
    $("#myPageFs").click(function(){
       window.location.href = 'myPage.do';
    });
-   $("#myCatPageFs").click(function(){
-      window.location.href = 'myCatPage.do';
+   $("#myPetPageFs").click(function(){
+      window.location.href = 'myPetPage.do';
    });
    $("#myServiceListFs").click(function(){
       window.location.href = 'myServiceList.do';
@@ -252,7 +252,7 @@ $(document).ready(function(){
       window.location.href = "myPageUpdate.do";
    }
    function goCatUpdate() {
-	   window.location.href = "myCatPageUpdate.do";
+	   window.location.href = "myPetPageUpdate.do";
    }
 </script>
 <body>
@@ -265,7 +265,7 @@ $(document).ready(function(){
             <fieldset class="fieldsetstyle" id="myPageFs">
                내 정보
             </fieldset>
-            <fieldset class="fieldsetstyle" id="myCatPageFs">
+            <fieldset class="fieldsetstyle" id="myPetPageFs">
                내 고양이 정보
             </fieldset>
             <fieldset class="fieldsetstyle" id="myServiceListFs">
@@ -286,37 +286,37 @@ $(document).ready(function(){
          <a href="#ex1" rel="modal:open" id="modalstyle">고양이 정보 추가</a>
         
          <div id="catinfo_tle">
-         <c:forEach var="catPage" >
+         <c:forEach var="mypetpage" items="${MyPetPageList}" varStatus="num">
             <div class="bar">
                <div class="bar-title">종류</div>
-               <div class="bar-content">터키쉬 앙고라</div>
+               <div class="bar-content">${mypetpage.PET_KIND}</div>
             </div>   
             <div class="bar">
+               <div class="bar-title">종류의종류</div>
+               <div class="bar-content">${mypetpage.PET_VARIETY}</div>
+            </div>
+            <div class="bar">
                <div class="bar-title">이름</div>
-               <div class="bar-content">오묘가묘</div>
+               <div class="bar-content">${mypetpage.PET_NAME}</div>
             </div>
             <div class="bar">
                <div class="bar-title">나이</div>
-               <div class="bar-content">4살</div>
+               <div class="bar-content">${mypetpage.PET_AGE}</div>
             </div>
             <div class="bar">
-               <div class="bar-title">좋아하는 음식(?)</div>
-               <div class="bar-content">참치캔</div>
+               <div class="bar-title">성별</div>
+               <div class="bar-content">${mypetpage.PET_GENDER}</div>
             </div>
             <div class="bar">
-               <div class="bar-title">취미</div>
-               <div class="bar-content">밥먹고 자기</div>
-            </div>
-            <div class="bar">
-               <div class="bar-title">특기</div>
-               <div class="bar-content">점프</div>
+               <div class="bar-title">특이사항</div>
+               <div class="bar-content">${mypetpage.PET_COMMENT}</div>
             </div>
             <div id="bottom">
             	 <input type="button" value="수  정" onclick="goCatUpdate()" class="buttons" >
                <input type="button" value="삭  제" onclick="" class="buttons">
           
             </div>
-             </c:forEach>
+         </c:forEach>
            </div> <!-- catinfo tle --> 
           
           <div>
@@ -367,7 +367,6 @@ $(document).ready(function(){
 		</div>
 		
 		<div id="m-bar4">세부사항
-		
 		<div id="m-bar-content6">
 			<textarea id="m-textareastyle"></textarea>
 		</div>
