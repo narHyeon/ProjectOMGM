@@ -16,17 +16,18 @@
             <result property="toy_img" column="TOY_IMG" />
         </resultMap>
 
-<!--    <resultMap type="mallFeed" id="feed">-->
-<!--        <id property="feed_code" column="FEED_CODE" />-->
-<!--        <result property="feed_name" column="FEED_NAME" />-->
-<!--        <result property="feed_inStock" column="FEED_INSTOCK" />-->
-<!--        <result property="feed_price" column="FEED_PRICE" />-->
-<!--        <result property="feed_discount" column="FEED_DISCOUNT" />-->
-<!--        <result property="feed_stock" column="FEED_STOCK" />-->
-<!--        <result property="feed_point" column="FEED_POINT" />-->
-<!--        <result property="feed_info" column="FEED_INFO" />-->
-<!--        <result property="feed_img" column="FEED_IMG" />-->
-<!--    </resultMap>-->
+    <resultMap type="mallFeed" id="feed">
+        <id property="feed_code" column="FEED_CODE" />
+        <result property="feed_name" column="FEED_NAME" />
+        <result property="feed_inStock" column="FEED_INSTOCK" />
+        <result property="feed_expiration" column="FEED_EXPIRATION" />
+        <result property="feed_price" column="FEED_PRICE" />
+        <result property="feed_discount" column="FEED_DISCOUNT" />
+        <result property="feed_stock" column="FEED_STOCK" />
+        <result property="feed_point" column="FEED_POINT" />
+        <result property="feed_info" column="FEED_INFO" />
+        <result property="feed_img" column="FEED_IMG" />
+    </resultMap>
 
     <insert id="insertMallToy" parameterType="mallToy">
         INSERT INTO toy (toy_code, toy_name, toy_inStock, toy_price,
@@ -37,5 +38,18 @@
 
     <select id="getMallToyList" resultType="mallToy">
         SELECT toy_code, toy_name, toy_discount, toy_img  FROM TOY ORDER BY toy_code DESC
+    </select>
+
+<!--    ////////////////////////////////////////////////////////////////////////    -->
+
+    <insert id="insertMallFeed" parameterType="mallFeed">
+        INSERT INTO feed (feed_code, feed_name, feed_expiration, feed_price,
+            feed_discount, feed_stock, feed_point, feed_info, feed_img)
+        VALUES(feed_seq.nextval, #{feed_name}, #{feed_expiration}, #{feed_price},
+            #{feed_discount}, #{feed_stock}, #{feed_point}, #{feed_info}, #{feed_img})
+    </insert>
+
+    <select id="getMallFeedList" resultType="mallFeed">
+        SELECT feed_code, feed_name, feed_discount, feed_img  FROM FEED ORDER BY feed_code DESC
     </select>
     </mapper>
