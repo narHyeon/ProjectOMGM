@@ -156,10 +156,13 @@ function signGoogle() {
         xhr.send(null);
 }``
 
-function snsSign() {
+let oauthData;
+
+function snsSign(result) {
+    oauthData = result;
     document.querySelector('signUp div div').innerHTML =
         `<label for="sns_popup"></label>
-                <form action="#" class="sns_signup-form" onsubmit="return snsSignCheck(event)">
+                <form action="#" class="sns_signup-form" onsubmit="return snsSignCheck(event, oauthData)">
                     <h1 style="font-weight: 700;">Google 회원가입</h1>
                     <div class="txtboxID">
                        <input name="id" type="text" required autocomplete=off>
@@ -202,7 +205,7 @@ function snsSign() {
     });
 }
 
-function snsSignCheck(event) {
+function snsSignCheck(event, result) {
     if(idCheck(true)) return false;
 
     event.preventDefault();
@@ -211,12 +214,13 @@ function snsSignCheck(event) {
     const phone = form.tel1.value + '-' + form.tel2.value + '-' +  form.tel3.value;
     const data = {
         id: form.id.value,
-        pwd: form.pwd.value,
-        name: form.name.value,
+        pwd: result.pwd,
+        name: result.name,
         phone: phone,
-        email: form.email.value,
+        email: result.email,
         zipcode: form.zipCode.value,
-        address: form.address.value
+        address: form.address.value,
+        type: '구글'
     };
 
     const xhr = new XMLHttpRequest();

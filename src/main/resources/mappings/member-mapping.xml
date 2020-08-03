@@ -21,8 +21,8 @@
 
     <!-- 실 사용 -->
     <insert id="addMember" parameterType="MemberVO">
-        INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address)
-        VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address})
+        INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address, type)
+        VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address}, #{type})
     </insert>
 
     <select id="idCheck" parameterType="MemberVO" resultType="int">
