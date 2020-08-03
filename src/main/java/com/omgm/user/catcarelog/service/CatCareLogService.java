@@ -8,4 +8,6 @@ public interface CatCareLogService {
 
 	CatCareLogVO getCatCareLog(CatCareLogVO vo);
 
+	void updateCatCareLog(CatCareLogVO vo);
+
 }

@@ -19,7 +19,10 @@ public class CatCareLogServiceImpl implements CatCareLogService {
 	public CatCareLogVO getCatCareLog(CatCareLogVO vo) {
 		return catCareLogDAO.getCatCareLog(vo);
 	}
-	
+	@Override
+	public void updateCatCareLog(CatCareLogVO vo) {
+		catCareLogDAO.updateCatCareLog(vo);
+	}
 	
 	
 }

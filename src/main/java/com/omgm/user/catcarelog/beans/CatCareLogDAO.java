@@ -12,10 +12,13 @@ public class CatCareLogDAO {
 	
 	public void insertCatCareLog(CatCareLogVO vo) {
 		sqlSessionTemplate.insert("CatCareLogDAO.insertCatCareLog", vo);
-	};
+	}
 	
 	public CatCareLogVO getCatCareLog(CatCareLogVO vo) {
 		return sqlSessionTemplate.selectOne("CatCareLogDAO.getCatCareLog",vo);
 	}
 	
+	public void updateCatCareLog(CatCareLogVO vo) {
+		sqlSessionTemplate.update("CatCareLogDAO.updateCatCareLog",vo);
+	}
 }

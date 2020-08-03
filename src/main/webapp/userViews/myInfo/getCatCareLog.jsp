@@ -51,10 +51,11 @@
 	width: 80%;
 }
 #title_key{
-	width: 8%;
+	width: 20%;
 }
 .keys{
-	margin-right: 5%;
+	width: 33%;
+	
 }
 .values{
 	margin-right: 5%;
@@ -73,12 +74,26 @@
 	display : flex;
 	flex-direction : row;
 	margin-bottom: 2%;
-	margin-left: 87%;
+	margin-left: 75%;
 	width: 100%;
 }
 .buttons{
 	margin-right: 1.5%;
 	
+}
+#content{
+	display: flex;
+	flex-direction: column;
+}
+#content_key{
+	border-bottom: 2px solid #FFABB9;
+	padding-bottom: 1%;
+	margin-bottom: 1%;
+}
+#content_value{
+	border-bottom: 2px solid #FFABB9;
+	padding-bottom: 1%;
+	margin-bottom: 1%;
 }
 
 </style>
@@ -94,24 +109,31 @@
 			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
 			lang : "ko-KR", // 한글 설정
 			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
-
 		});
 	});
+	function goBack() {
+		window.location.href = 'myCatCareLog.do';
+	}
+	function goDelete() {
+		document.form.action = "myCatCareLog.do";
+		document.form.method = "post";
+		document.form.submit();
+	}
 </script>
 </head>
 <body>
-	<form method="post" action="writeCatCareLog.do">
-	<input type="hidden" name="CATCARELOG_WRITER" value="${careInfo.CATCARELOG_WRITER}">
+	<form action="updateCatCareLog.do">
+	<input type="hidden" name="CATCARELOG_NO" value="${careInfo.CATCARELOG_NO}">
 		<div id="wrap">
 			<div id="head">
-				<h1>냥박일지 작성</h1>
+				<h1>냥박일지 보기</h1>
 			</div>
 			<div id="body">
 				<div id="setting">
 					<div id="setting1" class="settings">
 						<div class="leftsettings">
 							<div class="keys">
-							고객 번호
+							  <p>고객 번호</p>
 							</div>
 							<div class="values">
 							${careInfo.CATCARELOG_USERNUM}
@@ -119,7 +141,7 @@
 						</div>
 						<div class="rightsettings">
 							<div class="keys">
-							예약 번호
+							<p>예약 번호</p>
 							</div>
 							<div class="values">
 							${careInfo.CATCARELOG_SERVICENUM}
@@ -128,36 +150,88 @@
 					</div>
 					<div id="setting2" class="settings">
 						<div class="leftsettings">
-							<div class="keys">냥박 시작</div>
+							<div class="keys">
+								<p>냥박 시작</p>
+							</div>
 							<div class="values">
 							${careInfo.CATCARELOG_CARESTART}
 							</div>
 						</div>
 						<div class="rightsettings">
-							<div class="keys">냥박 종료</div>
+							<div class="keys">
+								<p>냥박 종료</p>
+							</div>
 							<div class="values">
 							${careInfo.CATCARELOG_CAREEND}
 							</div>
 						</div>								
 					</div>
 					<div id="setting3" class="settings">
+						<div class="leftsettings">
+							<div class="keys">
+								<p>작성자</p>
+							</div>
+							<div class="values">
+							${careInfo.CATCARELOG_WRITER}
+							</div>
+						</div>
+						<div class="rightsettings">
+							<div class="keys">
+								<p>작성일</p>
+							</div>
+							<div class="values">
+							${careInfo.CATCARELOG_REGDATE}
+							</div>
+						</div>								
+					</div>
+					<div id="setting4" class="settings">
+						<div class="leftsettings">
+							<div class="keys">
+								<p>최종 수정자</p>
+							</div>
+							<div class="values">
+							${careInfo.CATCARELOG_LASTUPDATER}
+							</div>
+						</div>
+						<div class="rightsettings">
+							<div class="keys">
+								<p>최종 수정일</p>
+							</div>
+							<div class="values">
+							${careInfo.CATCARELOG_LASTUPDATEDATE}
+							</div>
+						</div>								
+					</div>
+					<br/>
+					<div id="setting5" class="settings">
 						<div class="centersettings">
-							<div class="keys" id="title_key">제목</div>
+							<div class="keys" id="title_key">
+								<h1>제목</h1>
+							</div>
 							<div class="values" id="title_value">
-							${careInfo.CATCARELOG_TITLE}
+								<h1>${careInfo.CATCARELOG_TITLE}</h1>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="content">	
-				${careInfo.CATCARELOG_CONTNET}
+				<div id="content">
+				<div id="content_key">
+				
+				</div>
+				<div id="content_value">
+				<br>
+					${careInfo.CATCARELOG_CONTNET}				
+				<br>
+				</div>
 				</div><!-- end content -->
 			</div><!-- end body -->
 			<div id="leg">
-				<input type="submit" value="글 작성" class="buttons" />
-				<input type="reset" value="리셋" class="buttons" />
+				<input type="submit" value="글 수정" class="buttons"/>
+				<input type="button" value="글 삭제" class="buttons" onclick="goDelete()" />
+				<input type="button" value="목록 으로" class="buttons" onclick="goBack()" />
 			</div><!-- end foot -->
 		</div> <!-- end wrap -->
 	</form>
 </body>
 </html>
+
