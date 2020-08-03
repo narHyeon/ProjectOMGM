@@ -171,7 +171,7 @@
 				<input type="submit" class="signup" value="Sign UP"> <!-- 회원가입버튼-->
 				<input type="button" class="signup2" value="Kakao"> <!-- 회원가입버튼-->
 				<input type="button" class="signup3" value="Naver"> <!-- 회원가입버튼-->
-				<input type="button" class="signup4" value="Google"> <!-- 회원가입버튼-->
+				<input type="button" class="signup4" value="Google" onclick="signGoogle()"> <!-- 회원가입버튼-->
 				<div id="sign_sns_title">
 					<h3>SNS를 이용한 회원가입</h3>
 				</div>

@@ -140,3 +140,19 @@ function zipCheck() {
     });
 }
 
+// sns 회원가입
+function signGoogle() {
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const object = JSON.parse(xhr.responseText);
+            console.log(object.url);
+        }
+    }
+
+        xhr.open('GET', 'google.lo',true);
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.send(null);
+}
+

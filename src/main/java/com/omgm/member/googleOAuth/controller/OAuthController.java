@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.omgm.member.googleOAuth.beans.GoogleUrl;
 import com.omgm.member.googleOAuth.beans.OAuthVO;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,18 +49,15 @@ public class OAuthController {
     private OAuth2Parameters googleOAuth2Parameters;
 
     // 회원 가입 페이지
+    @ResponseBody
     @RequestMapping(value = "/google.lo", method = { RequestMethod.GET, RequestMethod.POST })
-    public ModelAndView join(HttpServletResponse response) {
-
+    public GoogleUrl join(GoogleUrl googleUrl) {
         //URL을 생성한다.
         String url = googleOAuth2Template.buildAuthenticateUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
         System.out.println("/googleLogin, url : " + url);
 
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/login/google/googleLogin");
-        mav.addObject("google_url", url);
-
-        return mav;
+        googleUrl.setUrl(url);
+        return googleUrl;
     }
 
     @RequestMapping(value = "/googleSignInCallback.lo")
