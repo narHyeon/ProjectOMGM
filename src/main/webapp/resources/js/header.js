@@ -171,7 +171,7 @@ function snsSign(result) {
     document.querySelector('signUp div div').innerHTML =
         `<label for="sns_popup"></label>
                 <form action="#" class="sns_signup-form" onsubmit="return snsSignCheck(event, oauthData)">
-                    <h1 style="font-weight: 700;">Google 회원가입</h1>
+                    <h1 style="font-weight: 700;">${result.type} 회원가입</h1>
                     <div class="txtboxID">
                        <input name="id" type="text" required autocomplete=off>
                        <span data-placeholder="ID"></span>
@@ -230,7 +230,7 @@ function snsSignCheck(event, result) {
         zipcode: form.zipCode.value,
         address: form.address.value,
         code: result.code,
-        type: '구글'
+        type: result.type
     };
 
     const xhr = new XMLHttpRequest();
@@ -277,7 +277,9 @@ function snsSignDuple(result) {
     xhr.send(JSON.stringify(data));
 };
 
-function kakaoSign() {
+Kakao.init('24643592d6715878e7cd5aa89f148e76');
+
+function signKakao() {
     return new Promise((resolve, reject) => {
         Kakao.Auth.login({
             success: function (authObj) {
@@ -285,15 +287,12 @@ function kakaoSign() {
                 Kakao.API.request({
                     url: '/v2/user/me',
                     success: function (res) {
-                        console.log(res);
+                        const code = res.id;  //유저의 카카오톡 고유 id
+                        const email = res.kakao_account.email;   //유저의 이메일
+                        const name = res.properties.nickname; //유저가 등록한 별명
+                        const result = { code: code, name: name, email: email, type: 'kakao'};
 
-                        var userID = res.id;  //유저의 카카오톡 고유 id
-                        var userEmail = res.kaccount_email;   //유저의 이메일
-                        var userNickName = res.properties.nickname; //유저가 등록한 별명
-
-                        console.log(userID);
-                        console.log(userEmail);
-                        console.log(userNickName);
+                        snsSignDuple(result);
                     },
                     fail: function (error) {
                         alert(JSON.stringify(error));
@@ -306,3 +305,4 @@ function kakaoSign() {
         })
     })
 };
+

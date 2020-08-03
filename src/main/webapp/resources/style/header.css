@@ -340,7 +340,7 @@ body{
 	outline: none;
 	cursor: pointer;
 	position:absolute;
-	top: 80%;
+	top: 79%;
 	left: 69%;
 	border-radius: 7px;
 }
@@ -620,7 +620,7 @@ input[id*="sns_popup"]:checked ~ div {opacity:1;visibility:visible;}
 	outline: none;
 	cursor: pointer;
 	position:absolute;
-	top: 52%;
+	top: 49%;
 	left: 69%;
 	border-radius: 7px;
 }
