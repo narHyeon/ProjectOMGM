@@ -1,5 +1,7 @@
 package com.omgm.admin.mall.beans;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Date;
 
 public class MallToyVO {
@@ -7,13 +9,20 @@ public class MallToyVO {
     private String toy_name;
     private Date toy_instock;
     private Date toy_expiration;
-    private int toy_price;
-    private int toy_discount;
-    private int toy_stock;
-    private int toy_point;
+    private String toy_price;
+    private String toy_discount;
+    private String toy_stock;
+    private String toy_point;
     private String toy_info;
     private String toy_img;
+    private MultipartFile uploadFile;
 
+    public MultipartFile getUploadFile() {
+        return uploadFile;
+    }
+    public void setUploadFile(MultipartFile uploadFile) {
+        this.uploadFile = uploadFile;
+    }
     public MallToyVO() {
     }
 
@@ -65,35 +74,35 @@ public class MallToyVO {
         this.toy_expiration = toy_expiration;
     }
 
-    public int getToy_price() {
+    public String getToy_price() {
         return toy_price;
     }
 
-    public void setToy_price(int toy_price) {
+    public void setToy_price(String toy_price) {
         this.toy_price = toy_price;
     }
 
-    public int getToy_discount() {
+    public String getToy_discount() {
         return toy_discount;
     }
 
-    public void setToy_discount(int toy_discount) {
+    public void setToy_discount(String toy_discount) {
         this.toy_discount = toy_discount;
     }
 
-    public int getToy_stock() {
+    public String getToy_stock() {
         return toy_stock;
     }
 
-    public void setToy_stock(int toy_stock) {
+    public void setToy_stock(String toy_stock) {
         this.toy_stock = toy_stock;
     }
 
-    public int getToy_point() {
+    public String getToy_point() {
         return toy_point;
     }
 
-    public void setToy_point(int toy_point) {
+    public void setToy_point(String toy_point) {
         this.toy_point = toy_point;
     }
 

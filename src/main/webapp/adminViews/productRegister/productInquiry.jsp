@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -23,54 +24,15 @@
     </div>
 
     <div class="container">
+        <c:forEach var="toyList" items="${toyList}">
         <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
+            <img style="width: 100%; height: auto;"src="resources/img/product/${toyList.toy_img}">
 <%--            <span class="icon">A</span>--%>
-            <span class="name">Apple</span>
+            <span class="name">${toyList.toy_name}</span>
         </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">O</span>--%>
-            <span class="name">Orange</span>
-        </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">M</span>--%>
-            <span class="name">Mandarin</span>
-        </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">S</span>--%>
-            <span class="name">Strawberry</span>
-        </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">W</span>--%>
-            <span class="name">Watermelon</span>
-        </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">G</span>--%>
-            <span class="name">Grape</span>
-        </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">P</span>--%>
-            <span class="name">Pear</span>
-        </div>
-
-        <div class="item">
-            <img src="resources/admin/img/appleImg.jpg">
-<%--            <span class="icon">C</span>--%>
-            <span class="name">Cherry</span>
-        </div>
+        </c:forEach>
     </div>
+
 </div>
 
 </body>

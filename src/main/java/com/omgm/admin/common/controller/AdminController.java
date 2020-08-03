@@ -25,12 +25,12 @@ public class AdminController {
     }
 
     // 관리자 배송 현황 페이지
-    @RequestMapping("/productInquiry.mdo")
-    public ModelAndView productInquiry(AdminVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/productRegister/productInquiry");
-        return mav;
-    }
+//    @RequestMapping("/productInquiry.mdo")
+//    public ModelAndView productInquiry(AdminVO vo) {
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("/productRegister/productInquiry");
+//        return mav;
+//    }
     // 상품등록 페이지
     @RequestMapping("/productRegister.mdo")
     public ModelAndView productRegister(AdminVO vo) {
