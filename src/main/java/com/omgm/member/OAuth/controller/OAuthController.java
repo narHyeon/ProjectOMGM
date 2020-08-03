@@ -1,13 +1,12 @@
-package com.omgm.member.googleOAuth.controller;
+package com.omgm.member.OAuth.controller;
 
 import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import com.omgm.member.googleOAuth.beans.GoogleUrl;
-import com.omgm.member.googleOAuth.beans.OAuthVO;
+import com.omgm.member.OAuth.beans.GoogleUrl;
+import com.omgm.member.OAuth.beans.OAuthVO;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,3 +105,5 @@ public class OAuthController {
         return mav;
     }
 }
+
+

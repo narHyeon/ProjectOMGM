@@ -1,4 +1,4 @@
-package com.omgm.member.googleOAuth.beans;
+package com.omgm.member.OAuth.beans;
 
 public class GoogleUrl {
     private String url;

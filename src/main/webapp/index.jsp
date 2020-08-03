@@ -11,8 +11,6 @@
   <h2>로그인 API</h2>
   <a href="naverLogin.lo">네이버 로그인</a>
   <a href="kakaoLogin.lo">카카오 로그인</a>
-  <a href="sample.lo">주소 팝업창</a>
-
 
 <%--  <h3>Review 페이지</h3>--%>
 <%--  <a href="reviewListBoard.do">review 게시판 이동</a>--%>
