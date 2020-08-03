@@ -10,7 +10,15 @@ public class MemberDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public void addMember(MemberVO vo){
+    public int idCheck(MemberVO vo) {
+        return sqlSessionTemplate.selectOne("MemberDAO.idCheck",vo);
+    }
+
+    public MemberVO snsCheck(MemberVO vo) {
+        return sqlSessionTemplate.selectOne("MemberDAO.snsCheck",vo);
+    }
+
+    public void addMember(MemberVO vo) {
         sqlSessionTemplate.insert("MemberDAO.addMember",vo);
     }
 }

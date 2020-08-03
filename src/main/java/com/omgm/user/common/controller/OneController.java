@@ -99,15 +99,6 @@ public class OneController {
         return mav;
     }
 
-
-
-    @RequestMapping("/jusoPopup.do")
-    public ModelAndView jusoPopup(CommonVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/jusoPopup");
-        return mav;
-    }
-
 //    @RequestMapping("/upload.do")
 //    public void upload(BoardVO vo) throws IOException {
 //        System.out.println("파일 업로드 테스트");
