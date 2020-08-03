@@ -11,6 +11,8 @@
 		#{CATCARELOG_SERVICENUM}, #{CATCARELOG_WRITER}, #{CATCARELOG_TITLE}, #{CATCARELOG_CONTNET}, 
 		#{CATCARELOG_FILES, jdbcType=VARCHAR}, #{CATCARELOG_CARESTART}, #{CATCARELOG_CAREEND} )
 	</insert>
-	
+	<select id="getCatCareLog" parameterType="catcarelog" resultType="catcarelog">
+		SELECT * FROM CATCARELOG WHERE CATCARELOG_NO = #{CATCARELOG_NO} 
+	</select>
 
 </mapper>

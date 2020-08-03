@@ -6,4 +6,6 @@ public interface CatCareLogService {
 
 	void insertCatCareLog(CatCareLogVO vo);
 
+	CatCareLogVO getCatCareLog(CatCareLogVO vo);
+
 }

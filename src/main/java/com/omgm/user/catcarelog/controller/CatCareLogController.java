@@ -16,21 +16,41 @@ public class CatCareLogController {
 	CatCareLogService catCareLogService;
 	
 	@RequestMapping(value = "/writeCatCareLog.do", method = RequestMethod.POST)
-	public ModelAndView afterWrite(CatCareLogVO vo,ModelAndView mav) {
-
+	public ModelAndView afterWriteCatCareLog(CatCareLogVO vo,ModelAndView mav) {
 		catCareLogService.insertCatCareLog(vo);
 		mav.setViewName("/myInfo/myCatCareLog");
 		return mav;
 	}
 	@RequestMapping(value = "/writeCatCareLog.do", method = RequestMethod.GET)
-	public ModelAndView goWrite(CatCareLogVO vo,ModelAndView mav) {
+	public ModelAndView goWriteCatCareLog(CatCareLogVO vo,ModelAndView mav) {
 		vo.setCATCARELOG_WRITER("관리자1");
 		vo.setCATCARELOG_USERNUM(1);
 		vo.setCATCARELOG_SERVICENUM(1);
 		mav.addObject("careInfo", vo);
 		mav.setViewName("/myInfo/writeCatCareLog");
-		
 		return mav;
 	}
+	@RequestMapping(value = "/getCatCareLog.do", method = RequestMethod.GET)
+	public ModelAndView goGetCatCareLog(CatCareLogVO vo,ModelAndView mav) {
+		vo.setCATCARELOG_NO(1);
+		CatCareLogVO getVO = new CatCareLogVO();
+		getVO =  catCareLogService.getCatCareLog(vo);
+		mav.addObject("careInfo",getVO);
+		mav.setViewName("/myInfo/getCatCareLog");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
