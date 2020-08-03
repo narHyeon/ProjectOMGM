@@ -10,9 +10,6 @@
   <hr>
   <h2>로그인 API</h2>
   <a href="naverLogin.lo">네이버 로그인</a>
-  <a href="kakaoLogin.lo">카카오 로그인</a>
-  <a href="sample.lo">주소 팝업창</a>
-
 
 <%--  <h3>Review 페이지</h3>--%>
 <%--  <a href="reviewListBoard.do">review 게시판 이동</a>--%>
@@ -43,5 +40,6 @@
   <a href="productInquiry.mdo">상품조회 페이지 이동</a>
   <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>
   <a href="orderInquiry.mdo">주문 조회 페이지 이동</a>
+
 </body>
 </html>
