@@ -52,7 +52,7 @@ public class MemberController {
         mav.setViewName("/sample");
         return mav;
     }
-    
+
     // 아이디 체크
     @ResponseBody
     @RequestMapping(value="/idCheck.lo", method = RequestMethod.POST)
