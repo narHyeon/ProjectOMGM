@@ -25,6 +25,13 @@ public class MemberController {
         return mav;
     }
 
+    @RequestMapping("/kakaoLogin.lo")
+    public ModelAndView kakaoLogin(MemberVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/kakaoLogin");
+        return mav;
+    }
+
     @RequestMapping("/sample.lo")
     public ModelAndView Sample(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
