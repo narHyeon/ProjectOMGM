@@ -5,6 +5,7 @@ import com.omgm.admin.mall.beans.MallToyVO;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -22,7 +23,34 @@ public class MallController {
 
     String fileName;
     String fileName01;
+    String fileName02;
 
+    //    ///////   토이 관련 설정   ///////////////////////////////////////////////////////////////
+
+    // 상품 상세히 불러오기
+        @RequestMapping("/productDeleteUpdate.mdo")
+        public ModelAndView productDeleteUpdate(MallToyVO vo) throws Exception {
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("mall/productDeleteUpdate");
+            mav.addObject("mallToyOne",mallService.getMallToyOne(vo));
+            return mav;
+        }
+        //상품 수정하기\
+        @RequestMapping("/updateMallToy.mdo")
+        public ModelAndView updateMallToy(MallToyVO vo) throws Exception {
+            ModelAndView mav = new ModelAndView();
+
+            MultipartFile update_uploadFile = vo.getUpdate_uploadFile();
+            if(!update_uploadFile.isEmpty()) {
+                this.fileName02 = update_uploadFile.getOriginalFilename();
+                update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            }
+            vo.setToy_img(fileName02);
+
+            mallService.updateMallToy(vo);
+            mav.setViewName("redirect:/productInquiryToy.mdo");
+            return mav;
+        }
     @RequestMapping("/insertMallToy.mdo")
     public ModelAndView insertMallToy(MallToyVO vo) throws Exception {
 
@@ -46,7 +74,7 @@ public class MallController {
 
         return mav;
     }
-// //////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
+    // //////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
     @RequestMapping("/insertMallFeed.mdo")
     public ModelAndView insertMallFeed(MallFeedVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
