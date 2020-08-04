@@ -122,7 +122,10 @@
     </c:if>
     <c:if test="${member.name != null}">
         <script>
-            // alert('로그인 성공!');
+            document.querySelector('.login_membership').innerHTML =
+                `<li><a href="" onclick="login(event)">myInfo</a></li>
+                 <li><p>|</p></li>
+                 <li><a href="logout.lo">logout</a></li>`;
         </script>
     </c:if>
 </c:if>

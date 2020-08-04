@@ -65,8 +65,6 @@
         <li><a href="" onclick="login(event)">login</a></li>
         <li><p>|</p></li>
         <li><a href="" onclick="signUp(event)">Join</a></li>
-<%--		<li><p>|</p></li>--%>
-<%--		<li><a href="">myInfo</a></li>--%>
     </ul>
 </nav>
 
