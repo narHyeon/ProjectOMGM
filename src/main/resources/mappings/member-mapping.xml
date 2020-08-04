@@ -34,7 +34,7 @@
     </select>
 
     <select id="getMember" resultType="MemberVO" parameterType="MemberVO">
-            SELECT * FROM member WHERE id=#{id} AND pwd=#{pwd}
+            SELECT * FROM member WHERE pwd=#{pwd}
         </select>
 
 </mapper>

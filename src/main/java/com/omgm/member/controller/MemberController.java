@@ -64,12 +64,12 @@ public class MemberController {
 
     @RequestMapping("/login.lo")
     public ModelAndView login(HttpServletRequest request, MemberVO vo) {
-
         ModelAndView mav = new ModelAndView();
-        if(memberService.getMember(vo) != null) {
-            mav.addObject("member",vo);
+        MemberVO mvo = memberService.getMember(vo);
+        if(memberService.idCheck(vo) == 0 && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
+            mav.addObject("member",mvo);
             HttpSession session = request.getSession();
-            session.setAttribute("",vo);
+            session.setAttribute("member",mvo);
         } else {
             vo.setId("무");
             mav.addObject("member",vo);
