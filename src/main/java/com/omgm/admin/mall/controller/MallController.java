@@ -1,17 +1,15 @@
 package com.omgm.admin.mall.controller;
 
+import com.omgm.admin.mall.beans.MallOrderVO;
 import com.omgm.admin.mall.beans.MallToyVO;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.IOException;
 
 @Controller
 public class MallController {
@@ -67,9 +65,24 @@ public class MallController {
     @RequestMapping("/productInquiry.mdo")
     public ModelAndView getMallToyList(MallToyVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/productRegister/productInquiry");
+        mav.setViewName("/mall/productInquiry");
         mav.addObject("toyList", mallService.getMallToyList());
 
+        return mav;
+    }
+
+    @RequestMapping("/productStatus.mdo")
+    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/productStatus");
+        mav.addObject("pro_status",mallService.getMallOrderList());
+        return mav;
+    }
+    @RequestMapping("/productStatusDelete.mdo")
+    public ModelAndView productStatusDelete(MallOrderVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mallService.deleteMallOrder(vo);
+        mav.setViewName("redirect:/productStatus.mdo");
         return mav;
     }
 }

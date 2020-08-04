@@ -1,5 +1,6 @@
-package com.omgm.admin.mall.beans;
+package com.omgm.user.mall.beans;
 
+import com.omgm.admin.mall.beans.MallFeedVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -7,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MallFeedDAO {
+public class UserMallFeedDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public List<MallFeedVO> getMallOrderList () { return sqlSessionTemplate.selectList("MallFeedDAO.getMallFeedList"); }
+    public List<UserMallFeedVO> getMallFeedList () { return sqlSessionTemplate.selectList("UserMallFeedDAO.getMallFeedList"); }
 }
