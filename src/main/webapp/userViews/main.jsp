@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -384,5 +385,13 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </div>
+<c:if test="${result != null}">
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const result = { code:'${result.aud}', name: '${result.name}', email: '${result.email}', type: 'google' };
+            snsSignDuple(result);
+        });
+    </script>
+</c:if>
 </body>
 </html>

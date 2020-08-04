@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="resources/js/footer.js" defer></script>
 </head>
 <body>

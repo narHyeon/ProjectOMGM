@@ -27,7 +27,7 @@
     }
     .kinderGarden_title p {
         margin-top: 20px;
-        font-size: 20px;
+        font-size: 19px;
     }
     .kinderGarden_info {
         display: flex;
@@ -76,7 +76,7 @@
         margin: 30px auto;
         width: 80%;
         text-align: center;
-        /*font-size: 12px;*/
+        font-size: 13px;
 
         font-weight: 600;
         color: #444;
@@ -108,6 +108,17 @@
             height: 30%;
             padding: 2%;
             margin: 0 auto;
+        }
+
+        .education_schedule table {
+            margin: 30px auto;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+
+            font-weight: 600;
+            color: #444;
+            letter-spacing: -1px;
         }
 
     <%--   교육 시간표    --%>
