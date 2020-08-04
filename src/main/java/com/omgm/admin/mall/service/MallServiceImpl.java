@@ -43,6 +43,11 @@ public class MallServiceImpl implements MallService {
     }
 
     @Override
+    public MallFeedVO getMallFeedOne(MallFeedVO vo) throws Exception {
+        return mallDAO.getMallFeedOne(vo);
+    }
+
+    @Override
     public void insertMallFeed(MallFeedVO vo) throws Exception {
         mallDAO.insertMallFeed(vo);
     }
