@@ -37,6 +37,6 @@ public class MallDAO {
     public List<MallFeedVO> getMallFeedList () {
         return sqlSessionTemplate.selectList("MallDAO.getMallFeedList");
     }
-
+    public MallFeedVO getMallFeedOne(MallFeedVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallFeedOne", vo);}
 
 }

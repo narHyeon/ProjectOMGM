@@ -72,7 +72,7 @@
 <body>
 
 <div id="productDeleteUpdate_main_div" style="padding-left: 5%; padding-right: 0%">
-    <h2>장난감 상품등록</h2><br><br><br>
+    <h2>장난감 상품 현황 페이지</h2><br><br><br>
     <form method="post" name="productDeleteUpdate_form" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div id="productDeleteUpdate_section_div00" style="display: flex; width: 100%">

@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -72,46 +73,46 @@
 <body>
 
 <div id="productDeleteUpdate_main_div" style="padding-left: 5%; padding-right: 0%">
-    <h2>장난감 상품등록</h2><br><br><br>
+    <h2>사료 물품현황 페이지</h2><br><br><br>
     <form method="post" name="productDeleteUpdate_form" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div id="productDeleteUpdate_section_div00" style="display: flex; width: 100%">
         <div id="productDeleteUpdate_section_div01" style="display: flex; flex-direction: column;
             width: 100%; padding-left: 5%; padding-right: 2%">
-            <input type="hidden" name="toy_code" value="${mallToyOne.toy_code}">
+            <input type="hidden" name="feed_code" value="${mallFeedOne.feed_code}">
         <div>
             <label>상품명 : </label><br>
-            <input name="toy_name" style="height: 50%"id="productRegister_change_text_01" class="title" type="text" value="${mallToyOne.toy_name}"><br><br>
+            <input name="feed_name" style="height: 50%"id="productRegister_change_text_01" class="title" type="text" value="${mallFeedOne.feed_name}"><br><br>
         </div>
 
         <div>
             <label>판매가 : </label><br>
-            <input name="toy_price" style="height: 50%" type="text" id="productDeleteUpdate_price_inputText" class="title" value="${mallToyOne.toy_price}"/><br><br>
+            <input name="feed_price" style="height: 50%" type="text" id="productDeleteUpdate_price_inputText" class="title" value="${mallFeedOne.feed_price}"/><br><br>
         </div>
 
         <div>
             <label>할인가 : </label><br>
-            <input name="toy_discount" style="height: 50%"type="text" id="productDeleteUpdate_disPrice_inputText" class="title" value="${mallToyOne.toy_discount}"/><br><br>
+            <input name="feed_discount" style="height: 50%"type="text" id="productDeleteUpdate_disPrice_inputText" class="title" value="${mallFeedOne.feed_discount}"/><br><br>
         </div>
 
         <div>
             <label id="productDeleteUpdate_stock_inputTextL">재고 : </label>
-            <input  name="toy_stock" value="${mallToyOne.toy_stock}" style="height: 50%" type="text" id="productDeleteUpdate_stock_inputText" class="title"/><br><br>
+            <input  name="feed_stock" value="${mallFeedOne.feed_stock}" style="height: 50%" type="text" id="productDeleteUpdate_stock_inputText" class="title"/><br><br>
         </div>
 
-        <div id="proExpiration" style="display:none">
+        <div id="proExpiration" style="">
             <label style="font-size:15px">남은 날짜 : </label>
-            <input style="height: 50%" id="productRegister_change_text_02" type="text" class="title"/><br><br>
+            <input name="feed_expiration" value="${mallFeedOne.feed_expiration}"style="height: 50%" id="productRegister_change_text_02" type="text" class="title"/><br><br>
         </div>
 
         <div>
             <label>적립금 : </label>
-            <label>판매가에서 </label><input name="toy_point" value="${mallToyOne.toy_point}" style="height: 50%" type="text" id="productDeleteUpdate_point_inputText"/><br><br><label>포인트 적립 </label>
+            <label>판매가에서 </label><input name="feed_point" value="${mallFeedOne.feed_point}" style="height: 50%" type="text" id="productDeleteUpdate_point_inputText"/><br><br><label>포인트 적립 </label>
         </div>
         </div>
         <div id="productDeleteUpdate_img_div" style="padding-bottom: 10%; width: 50%; display: flex; flex-direction: column;  margin-right: 10%;">
 
-            <img name="" style="vertical-align:center;width: 90%;"src="resources/img/product/${mallToyOne.toy_img}">
+            <img name="" style="vertical-align:center;width: 90%;"src="resources/img/product/${mallFeedOne.feed_img}">
 
             <label style="text-align: center; margin-top:3%;width: 100%">상품이미지</label>
             <input type="file" name="update_uploadFile" />
@@ -120,12 +121,12 @@
         </div>
         <div class="inputArea">
             <label>상품설명</label>
-            <textarea name="toy_info" rows="10" cols="100" id="productDeleteUpdate_Intro_inputText" style="resize: none;">${mallToyOne.toy_info}</textarea>
+            <textarea name="feed_info" rows="10" cols="100" id="productDeleteUpdate_Intro_inputText" style="resize: none;">${mallFeedOne.feed_info}</textarea>
         </div>
 
         <div id="productDeleteUpdate_button_div" style="padding-right:15%;display: flex; justify-content: flex-end">
-            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="javascript: productDeleteUpdate_form.action='updateMallToy.mdo'" value="수정" />
-            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="javascript: productDeleteUpdate_form.action='deleteMallToy.mdo'" value="삭제" />
+            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="javascript: productDeleteUpdate_form.action='updateMallFeed.mdo'" value="수정" />
+            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="javascript: productDeleteUpdate_form.action='deleteMallFeed.mdo'" value="삭제" />
         </div>
     </form>
 </div>

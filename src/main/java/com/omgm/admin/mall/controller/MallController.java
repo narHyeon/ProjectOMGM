@@ -99,6 +99,15 @@ public class MallController {
     }
 
     // //////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
+    @RequestMapping("/productDeleteUpdateFeed.mdo")
+    public ModelAndView productDeleteUpdateFeed(MallFeedVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+
+        mav.addObject("mallFeedOne",mallService.getMallFeedOne(vo));
+        mav.setViewName("mall/productDeleteUpdateFeed");
+        System.out.println(vo.getFeed_discount()+" "+vo.getFeed_name());
+        return mav;
+    }
     @RequestMapping("/insertMallFeed.mdo")
     public ModelAndView insertMallFeed(MallFeedVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
@@ -118,7 +127,6 @@ public class MallController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/mall/productInquiryFeed");
         mav.addObject("feedList", mallService.getMallFeedList());
-
         return mav;
     }
 }

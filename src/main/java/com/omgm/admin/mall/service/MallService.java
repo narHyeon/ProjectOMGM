@@ -17,6 +17,7 @@ public interface MallService {
 
     //상품관련 정보 페이지 불러오기
     MallToyVO getMallToyOne(MallToyVO vo) throws Exception;
+    MallFeedVO getMallFeedOne(MallFeedVO vo) throws Exception;
     void insertMallFeed(MallFeedVO vo) throws Exception;
 
 

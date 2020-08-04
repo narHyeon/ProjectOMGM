@@ -28,7 +28,7 @@
     <div class="container">
         <c:forEach var="feedList" items="${feedList}">
             <div class="item">
-                <img style="width: 100%; height: auto;"src="resources/img/product/${feedList.feed_img}">
+                <a href="productDeleteUpdateFeed.mdo?feed_code=${feedList.feed_code}"><img style="width: 100%; height: auto;"src="resources/img/product/${feedList.feed_img}"></a>
                     <%--            <span class="icon">A</span>--%>
                 <span class="name">${feedList.feed_name}</span>
             </div>

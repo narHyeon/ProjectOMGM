@@ -72,7 +72,7 @@
     </select>
 
     <update id="updateMallFeed" parameterType="mallFeed">
-        UPDATE feed set feed_name=#{feed_name}, feed_PRICE=#{feed_price}, TOY_DISCOUNT=#{toy_discount}, TOY_STOCK=#{toy_stock}, TOY_POINT=#{toy_point}, TOY_INFO=#{toy_info}, TOY_IMG=#{toy_img}  where toy_code=#{toy_code}
+        UPDATE feed set feed_name=#{feed_name}, feed_PRICE=#{feed_price}, feed_DISCOUNT=#{feed_discount}, feed_STOCK=#{feed_stock}, feed_POINT=#{feed_point}, feed_INFO=#{feed_info}, feed_IMG=#{feed_img}  where feed_code=#{feed_code}
     </update>
 
     </mapper>
