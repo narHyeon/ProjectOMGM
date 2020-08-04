@@ -8,7 +8,6 @@ public class MallToyVO {
     private int toy_code;
     private String toy_name;
     private Date toy_instock;
-    private Date toy_expiration;
     private String toy_price;
     private String toy_discount;
     private String toy_stock;
@@ -16,6 +15,16 @@ public class MallToyVO {
     private String toy_info;
     private String toy_img;
     private MultipartFile uploadFile;
+
+    public MultipartFile getUpdate_uploadFile() {
+        return update_uploadFile;
+    }
+
+    public void setUpdate_uploadFile(MultipartFile update_uploadFile) {
+        this.update_uploadFile = update_uploadFile;
+    }
+
+    private MultipartFile update_uploadFile;
 
     public MultipartFile getUploadFile() {
         return uploadFile;
@@ -32,7 +41,6 @@ public class MallToyVO {
                 "toy_code=" + toy_code +
                 ", toy_name='" + toy_name + '\'' +
                 ", toy_instock=" + toy_instock +
-                ", toy_expiration=" + toy_expiration +
                 ", toy_price=" + toy_price +
                 ", toy_discount=" + toy_discount +
                 ", toy_stock=" + toy_stock +
@@ -66,13 +74,6 @@ public class MallToyVO {
         this.toy_instock = toy_instock;
     }
 
-    public Date getToy_expiration() {
-        return toy_expiration;
-    }
-
-    public void setToy_expiration(Date toy_expiration) {
-        this.toy_expiration = toy_expiration;
-    }
 
     public String getToy_price() {
         return toy_price;

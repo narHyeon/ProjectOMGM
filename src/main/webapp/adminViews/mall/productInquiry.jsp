@@ -30,8 +30,8 @@
     <div class="container">
         <c:forEach var="toyList" items="${toyList}">
         <div class="item">
-            <img style="width: 100%; height: auto;"src="resources/img/product/${toyList.toy_img}">
-<%--            <span class="icon">A</span>--%>
+            <a href="productDeleteUpdate.mdo?toy_code=${toyList.toy_code}"><img style="width: 100%; height: auto;"src="resources/img/product/${toyList.toy_img}"></a>
+
             <span class="name">${toyList.toy_name}</span>
         </div>
         </c:forEach>

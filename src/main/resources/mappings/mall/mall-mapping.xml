@@ -40,6 +40,14 @@
         SELECT toy_code, toy_name, toy_discount, toy_img  FROM TOY ORDER BY toy_code DESC
     </select>
 
+    <select id="getMallToyOne" resultType="mallToy" parameterType="mallToy">
+        SELECT * from TOY WHERE toy_code=#{toy_code}
+    </select>
+
+    <update id="updateMallToy" parameterType="mallToy">
+        UPDATE TOY set toy_name=#{toy_name}, TOY_PRICE=#{toy_price}, TOY_DISCOUNT=#{toy_discount}, TOY_STOCK=#{toy_stock}, TOY_POINT=#{toy_point}, TOY_INFO=#{toy_info}, TOY_IMG=#{toy_img}  where toy_code=#{toy_code}
+    </update>
+
 <!--    ////////////////////////////////////////////////////////////////////////    -->
 
     <insert id="insertMallFeed" parameterType="mallFeed">
