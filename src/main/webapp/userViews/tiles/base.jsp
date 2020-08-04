@@ -18,7 +18,7 @@
 <style>
 	/*플로팅메뉴*/
 	.wishlist_menu {
-		border: 1px solid pink;
+		border-radius: 100%;
 		background-color: white;
 		position: absolute;
 		top: 400px;
@@ -31,23 +31,22 @@
 		color: #5a5a5a;
 		padding-left: 12px;
 		padding-top: 16px;
-
 	}
 
 	.wishlist_menu2 {
-		border: 1px solid pink;
+		border-radius: 100%;
 		background-color: white;
 		position: absolute;
-		top: 400px;
+		top: 470px;
 		right: 50px;
 		width: 60px;
-		height: 120px;
+		height: 60px;
 		-webkit-transition: top 0.4s;
 		transition: top 0.4s;
 		font-size: 30px;
 		color: #5a5a5a;
 		padding-left: 15px;
-		padding-top: 75px;
+		padding-top: 16px;
 	}
 
 	.wishlist_menu i:hover, .wishlist_menu2 i:hover {
@@ -66,6 +65,19 @@
 		border-radius: 40px;
 		padding-left: 11px;
 		padding-top: 17px;
+	}
+	/*카카오 1:1상담 버튼*/
+	#create-channel-chat-button {
+		position: absolute;
+		top: 530px;
+		right: 90px;
+		width: 60px;
+		height: 60px;
+		-webkit-transition: top 0.4s;
+		transition: top 0.4s;
+		font-size: 30px;
+		padding-left: 15px;
+		padding-top: 16px;
 	}
 #base {
 	overflow: hidden;
@@ -144,8 +156,10 @@
 				clearTimeout(timer);
 				timer=setTimeout(function(){
 					t=$(window).scrollTop();
-					$(".wishlist_menu, .wishlist_menu2, #create-channel-chat-button").animate({top:t+400},1);
-				}, 150);
+					$(".wishlist_menu").animate({top:t+400},1);
+					$(".wishlist_menu2").animate({top:t+470},1);
+					$("#create-channel-chat-button").animate({top:t+530},1);
+				}, 25);
 			});
 		});
 		Kakao.init('c089c8172def97eb00c07217cae17495');

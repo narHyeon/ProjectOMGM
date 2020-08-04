@@ -277,10 +277,9 @@ function snsSignDuple(result) {
     xhr.send(JSON.stringify(data));
 };
 
-Kakao.init('24643592d6715878e7cd5aa89f148e76');
-
 function signKakao() {
     return new Promise((resolve, reject) => {
+        Kakao.init('24643592d6715878e7cd5aa89f148e76');
         Kakao.Auth.login({
             success: function (authObj) {
                 // 로그인 성공시, API를 호출합니다.
