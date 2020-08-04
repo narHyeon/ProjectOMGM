@@ -129,7 +129,7 @@
     }
 </script>
 <select id="select2" class="select1" onclick="changeAction01()" >
-    <option value="">종류 선택</option>
+<%--    <option value="">종류 선택</option>--%>
     <option value="toy" name="toy">toy</option>
     <option value="feed" name="feed">feed</option>
 </select>

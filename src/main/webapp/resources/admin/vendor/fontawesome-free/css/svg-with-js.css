@@ -284,7 +284,7 @@ svg:not(:root).svg-inline--fa {
     padding-left: 0;
 }
 
-.fa-ul > li {
+.fa-ul>li {
     position: relative;
 }
 
@@ -330,51 +330,33 @@ svg:not(:root).svg-inline--fa {
     animation: fa-spin 1s infinite steps(8);
 }
 
-@-webkit-keyframes fa-spin {
-0%
-{
-    -webkit-transform: rotate(0deg)
-;
-    transform: rotate(0deg)
-;
+@-webkit-keyframes fa-spin { 0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
-100%
-{
-    -webkit-transform: rotate(
-            360deg
-    )
-;
-    transform: rotate(
-            360deg
-    )
-;
+    100%
+    {-webkit-transform: rotate(360deg);
+        transform: rotate(360deg);}
 }
-}
-@
-keyframes fa-spin {
-
-0
-%
-{
-    -webkit-transform: rotate(0deg)
-;
-    transform: rotate(0deg)
-;
+@keyframes fa-spin { 0% {  -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
-100
-%
-{
-    -webkit-transform: rotate(
-            360deg
-    )
-;
-    transform: rotate(
-            360deg
-    )
-;
-}
+    100
+    %
+    {
+        -webkit-transform
+        :
+                rotate(
+                        360deg
+                );
+        transform
+        :
+                rotate(
+                        360deg
+                );
+    }
 }
 .fa-rotate-90 {
     -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
@@ -395,19 +377,22 @@ keyframes fa-spin {
 }
 
 .fa-flip-horizontal {
-    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+    -ms-filter:
+            "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
     -webkit-transform: scale(-1, 1);
     transform: scale(-1, 1);
 }
 
 .fa-flip-vertical {
-    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+    -ms-filter:
+            "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
     -webkit-transform: scale(1, -1);
     transform: scale(1, -1);
 }
 
 .fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
-    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+    -ms-filter:
+            "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
     -webkit-transform: scale(-1, -1);
     transform: scale(-1, -1);
 }
@@ -469,25 +454,25 @@ keyframes fa-spin {
 }
 
 .svg-inline--fa .fa-primary {
-    fill: var(--fa-primary-color, currentColor);
+    fill: var(- -fa-primary-color, currentColor);
     opacity: 1;
-    opacity: var(--fa-primary-opacity, 1);
+    opacity: var(- -fa-primary-opacity, 1);
 }
 
 .svg-inline--fa .fa-secondary {
-    fill: var(--fa-secondary-color, currentColor);
+    fill: var(- -fa-secondary-color, currentColor);
     opacity: 0.4;
-    opacity: var(--fa-secondary-opacity, 0.4);
+    opacity: var(- -fa-secondary-opacity, 0.4);
 }
 
 .svg-inline--fa.fa-swap-opacity .fa-primary {
     opacity: 0.4;
-    opacity: var(--fa-secondary-opacity, 0.4);
+    opacity: var(- -fa-secondary-opacity, 0.4);
 }
 
 .svg-inline--fa.fa-swap-opacity .fa-secondary {
     opacity: 1;
-    opacity: var(--fa-primary-opacity, 1);
+    opacity: var(- -fa-primary-opacity, 1);
 }
 
 .svg-inline--fa mask .fa-primary, .svg-inline--fa mask .fa-secondary {
