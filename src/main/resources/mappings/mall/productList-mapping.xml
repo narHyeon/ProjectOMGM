@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-    <mapper namespace="UserMallFeedDAO">
+<mapper namespace="UserMallFeedDAO">
 
     <resultMap type="usermallfeed" id="feed">
         <id property="feed_code" column="FEED_CODE" />
@@ -16,14 +16,8 @@
         <result property="feed_img" column="FEED_IMG" />
     </resultMap>
 
-<!--    <insert id="insertMallToy" parameterType="mallToy">-->
-<!--        INSERT INTO toy (toy_code, toy_name, toy_inStock, toy_price,-->
-<!--            toy_discount, toy_stock, toy_point, toy_info, toy_img)-->
-<!--        VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},-->
-<!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
-<!--    </insert>-->
-
     <select id="getMallFeedList" resultType="usermallfeed">
         SELECT feed_code,feed_name,feed_price, feed_img FROM FEED ORDER BY feed_code DESC
     </select>
-    </mapper>
+</mapper>
+
