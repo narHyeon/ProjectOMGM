@@ -66,7 +66,7 @@ public class MemberController {
     public ModelAndView login(HttpServletRequest request, MemberVO vo) {
         ModelAndView mav = new ModelAndView();
         MemberVO mvo = memberService.getMember(vo);
-        if(memberService.idCheck(vo) == 0 && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
+        if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
             mav.addObject("member",mvo);
             HttpSession session = request.getSession();
             session.setAttribute("member",mvo);

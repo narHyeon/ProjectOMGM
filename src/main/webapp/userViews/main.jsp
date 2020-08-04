@@ -115,24 +115,16 @@
     </script>
 </c:if>
 <c:if test="${member != null}">
-    <c:if test="${member.id == 무}"></c:if>
-    <script>
-        alert('로그인 할 수 없습니다!');
-    </script>
-    <c:forEach items="member" var="mem">
-        <Script>
-
-        </Script>
-    </c:forEach>
-    <script>
-        const object = '<c:out value="${member}" />';
-        console.log(member);
-        if(member.id == '무') {
-            alert('아이디가 없습니다!');
-        } else {
-            member.forEach(mem => console.log(mem));
-        }
-    </script>
+    <c:if test="${member.id == '무'}">
+        <script>
+            alert('로그인 할 수 없습니다!');
+        </script>
+    </c:if>
+    <c:if test="${member.name != null}">
+        <script>
+            alert('로그인 성공!');
+        </script>
+    </c:if>
 </c:if>
 
 </body>
