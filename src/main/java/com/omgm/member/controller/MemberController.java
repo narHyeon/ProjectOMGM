@@ -87,4 +87,16 @@ public class MemberController {
         mav.setViewName("/main");
         return mav;
     }
+
+    // SNS계정 로그인
+    @ResponseBody
+    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.POST)
+    public MemberVO snsLogin(HttpServletRequest request, @RequestBody MemberVO vo) {
+        if(memberService.snsCheck(vo) != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("member",vo);
+            vo.setId("main.do");
+        }
+        return vo;
+    }
 }

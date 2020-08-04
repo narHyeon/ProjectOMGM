@@ -258,19 +258,27 @@ function snsSignCheck(event, result) {
 // sns 아이디 가입 여부 검사
 function snsSignDuple(result) {
     const xhr = new XMLHttpRequest();
+    const data = result;
 
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(object.id === '유') {
-                alert('이미 가입된 계정입니다. 이용하시려면 로그인해주세요!');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const object = JSON.parse(xhr.responseText);
+                        window.location.href= `${object.id}`;
+                    }
+                }
+                xhr.open('POST', 'snsLogin.lo',true);
+                xhr.setRequestHeader('Content-type', 'application/json');
+                xhr.send(JSON.stringify(data));
                 return;
             }
             return snsSign(result);
         }
     }
 
-    const data = result;
 
     xhr.open('POST', 'snsSignDuple.lo',true);
     xhr.setRequestHeader('Content-type', 'application/json');

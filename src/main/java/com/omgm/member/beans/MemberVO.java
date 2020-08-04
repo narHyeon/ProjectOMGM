@@ -146,14 +146,15 @@ public class MemberVO {
                 ", id='" + id + '\'' +
                 ", pwd='" + pwd + '\'' +
                 ", name='" + name + '\'' +
-                ", phone=" + phone +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", zipcode=" + zipcode +
+                ", zipcode='" + zipcode + '\'' +
                 ", address='" + address + '\'' +
                 ", point=" + point +
                 ", rank='" + rank + '\'' +
                 ", type='" + type + '\'' +
                 ", regDate=" + regDate +
+                ", code='" + code + '\'' +
                 '}';
     }
 }

@@ -207,6 +207,9 @@
 				<div class="bottom-text">
 					계정이 없으신가요? <a href="#" onClick="signUp(event)">Sign up</a><br> <!-- 회원가입 페이지로이동-->
 					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+					<a href="">구글 </a>
+					<a href="#" onClick="signNaver()">네이버 </a>
+					<a href="">카카오 </a>
 				</div>
 			</form>
 		</div>
