@@ -203,13 +203,14 @@
 				</div>
 
 				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
+				<p class="bottom-text">SNS를 이용한 로그인</p>
+				<input type="button" class="logbtn2" value="Google" onClick="signGoogle()"> <!-- 로그인버튼-->
+				<input type="button" class="logbtn3" value="Naver" onClick="signNaver()"> <!-- 로그인버튼-->
+				<input type="button" class="logbtn4" value="Kakao" onClick="signKakao()"> <!-- 로그인버튼-->
 
 				<div class="bottom-text">
 					계정이 없으신가요? <a href="#" onClick="signUp(event)">Sign up</a><br> <!-- 회원가입 페이지로이동-->
 					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
-					<a href="#" onClick="signGoogle()">구글 </a>
-					<a href="#" onClick="signNaver()">네이버 </a>
-					<a href="#" onClick="signKakao()">카카오 </a>
 				</div>
 			</form>
 		</div>
