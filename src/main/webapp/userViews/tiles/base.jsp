@@ -18,35 +18,37 @@
 <style>
 	/*플로팅메뉴*/
 	.wishlist_menu {
+		border: 1px solid gray;
 		border-radius: 100%;
 		background-color: white;
 		position: absolute;
-		top: 400px;
+		top: 300px;
 		right: 50px;
-		width: 60px;
-		height: 60px;
+		width: 55px;
+		height: 55px;
+		-webkit-transition: top 0.4s;
+		transition: top 0.4s;
+		font-size: 30px;
+		color: #5a5a5a;
+		padding-left: 9px;
+		padding-top: 14px;
+	}
+
+	.wishlist_menu2 {
+		border: 1px solid gray;
+		border-radius: 100%;
+		background-color: white;
+		position: absolute;
+		top: 370px;
+		right: 50px;
+		width: 55px;
+		height: 55px;
 		-webkit-transition: top 0.4s;
 		transition: top 0.4s;
 		font-size: 30px;
 		color: #5a5a5a;
 		padding-left: 12px;
-		padding-top: 16px;
-	}
-
-	.wishlist_menu2 {
-		border-radius: 100%;
-		background-color: white;
-		position: absolute;
-		top: 470px;
-		right: 50px;
-		width: 60px;
-		height: 60px;
-		-webkit-transition: top 0.4s;
-		transition: top 0.4s;
-		font-size: 30px;
-		color: #5a5a5a;
-		padding-left: 15px;
-		padding-top: 16px;
+		padding-top: 14px;
 	}
 
 	.wishlist_menu i:hover, .wishlist_menu2 i:hover {
@@ -54,7 +56,7 @@
 	}
 	#MOVE_TOP_BTN {
 		position: fixed;
-		right: 60px;
+		right: 51.5px;
 		bottom: 50px;
 		display: none;
 		z-index: 999;
@@ -69,10 +71,10 @@
 	/*카카오 1:1상담 버튼*/
 	#create-channel-chat-button {
 		position: absolute;
-		top: 530px;
-		right: 90px;
-		width: 60px;
-		height: 60px;
+		top: 430px;
+		right: 65px;
+		width: 55px;
+		height: 55px;
 		-webkit-transition: top 0.4s;
 		transition: top 0.4s;
 		font-size: 30px;
@@ -156,9 +158,9 @@
 				clearTimeout(timer);
 				timer=setTimeout(function(){
 					t=$(window).scrollTop();
-					$(".wishlist_menu").animate({top:t+400},1);
-					$(".wishlist_menu2").animate({top:t+470},1);
-					$("#create-channel-chat-button").animate({top:t+530},1);
+					$(".wishlist_menu").animate({top:t+300},1);
+					$(".wishlist_menu2").animate({top:t+370},1);
+					$("#create-channel-chat-button").animate({top:t+430},1);
 				}, 25);
 			});
 		});
@@ -167,6 +169,8 @@
 			container: '#create-channel-chat-button',
 			channelPublicId: '_VmDAK'
 		});
+
+		document.querySelector('#create-channel-chat-button a').innerHTML = `<img style="width:140%" src="resources/img/kakaoLogin.png" alt="카카오톡 채널 1:1 채팅 버튼" title="카카오톡 채널 1:1 채팅 버튼">`;
 	</script>
 </body>
 </html>
