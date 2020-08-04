@@ -11,6 +11,7 @@
 	display: flex;
 	flex-direction: column;
 }
+
 #head {
 	min-width: 60%;
 	margin-right: 15%;
@@ -21,11 +22,13 @@
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
+
 #body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 }
+
 #banner {
 	display: flex;
 	width: 15%;
@@ -34,13 +37,15 @@
 	margin-left: 7%;
 	border-radius: 10px;
 }
+
 #content {
-	display : flex;
-	flex-direction :column;
+	display: flex;
+	flex-direction: column;
 	margin-left: 6%;
 	width: 43%;
 	height: 100%;
 }
+
 .fieldsetstyle {
 	margin-top: 5%;
 	display: block;
@@ -50,22 +55,26 @@
 	color: white;
 	padding: 10px;
 }
-.fieldsetstyle:hover{
+
+.fieldsetstyle:hover {
 	cursor: pointer;
 }
+
 #bottom {
 	text-align: right; /*가운데 정렬*/
 	margin-top: 2%;
 	margin-right: 35%;
 	margin-bottom: 2%;
 }
+
 .bar {
 	display: flex;
-	flex-direction : row;
+	flex-direction: row;
 	height: 50px;
 	width: 100%;
-	padding-top: 1%;	
+	padding-top: 1%;
 }
+
 .bar-content {
 	background-color: white;
 	margin-left: 5%;
@@ -92,6 +101,7 @@
 	margin-right: 1%;
 	width: 15%;
 }
+
 #inputstylemail {
 	border: 1px solid #FFABB9;
 	border-radius: 3%;
@@ -99,6 +109,7 @@
 	margin-right: 1%;
 	width: 60%;
 }
+
 .buttons {
 	background-color: white;
 	cursor: pointer;
@@ -109,7 +120,6 @@
 	color: purple;
 	width: 18%;
 }
-
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -157,61 +167,61 @@
 				</fieldset>
 			</div>
 			<div id="content">
-			<form action="">
-				<div class="bar">
-					<div class="bar-title">아이디</div>
-					<div class="bar-content">
-						<input id="inputstyle" type="text">
+				<form action="">
+					<div class="bar">
+						<div class="bar-title">아이디</div>
+						<div class="bar-content">
+							<input id="inputstyle" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">비밀번호</div>
-					<div class="bar-content">
-						<input id="inputstyle" type="text">
+					<div class="bar">
+						<div class="bar-title">비밀번호</div>
+						<div class="bar-content">
+							<input id="inputstyle" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">이름</div>
-					<div class="bar-content">
-						<input id="inputstyle" type="text">
+					<div class="bar">
+						<div class="bar-title">이름</div>
+						<div class="bar-content">
+							<input id="inputstyle" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">닉네임</div>
-					<div class="bar-content">
-						<input id="inputstyle" type="text">
+					<div class="bar">
+						<div class="bar-title">닉네임</div>
+						<div class="bar-content">
+							<input id="inputstyle" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">휴대전화</div>
-					<div class="bar-content">
-						<input id="inputstylephone" type="text">- <input
-							id="inputstylephone" type="text">- <input
-							id="inputstylephone" type="text">
+					<div class="bar">
+						<div class="bar-title">휴대전화</div>
+						<div class="bar-content">
+							<input id="inputstylephone" type="text">- <input
+								id="inputstylephone" type="text">- <input
+								id="inputstylephone" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">이메일</div>
-					<div class="bar-content">
-						<input id="inputstylemail" type="text">
+					<div class="bar">
+						<div class="bar-title">이메일</div>
+						<div class="bar-content">
+							<input id="inputstylemail" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">주소</div>
-					<div class="bar-content">
-						<input id="inputstylemail" type="text">
+					<div class="bar">
+						<div class="bar-title">주소</div>
+						<div class="bar-content">
+							<input id="inputstylemail" type="text">
+						</div>
 					</div>
-				</div>
-				<div class="bar">
-					<div class="bar-title">상세주소</div>
-					<div class="bar-content">
-						<input id="inputstylemail" type="text">
+					<div class="bar">
+						<div class="bar-title">상세주소</div>
+						<div class="bar-content">
+							<input id="inputstylemail" type="text">
+						</div>
 					</div>
-				</div>
-				<div id="bottom">
-					<input type="submit" value="내 정보 수정" class="buttons">
-					<input type="button" value="회원 탈퇴" onclick="" class="buttons">
-				</div>
+					<div id="bottom">
+						<input type="submit" value="내 정보 수정" class="buttons"> <input
+							type="button" value="회원 탈퇴" onclick="" class="buttons">
+					</div>
 				</form>
 			</div>
 		</div>
