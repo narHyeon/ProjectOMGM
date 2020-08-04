@@ -106,11 +106,11 @@ public class FAQController {
 		mav.setViewName("/event/event");
 		return mav;
 	}
-	@RequestMapping(value = "/myboard.do", method = RequestMethod.GET)
-	public ModelAndView qwerrr(FAQVO vo,ModelAndView mav) {
+	@RequestMapping(value = "/myCatPageUpdate.do", method = RequestMethod.GET)
+	public ModelAndView qwerrrr(FAQVO vo,ModelAndView mav) {
 		List<FAQVO> list = fAQService.getAllFAQList(vo);
 		mav.addObject("fAQList",list);
-		mav.setViewName("/myInfo/myboard");
+		mav.setViewName("/myInfo/myCatPageUpdate");
 		return mav;
 	}
 	

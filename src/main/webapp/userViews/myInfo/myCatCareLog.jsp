@@ -19,6 +19,7 @@
 #wrap {
 	display: flex;
 	flex-direction: column;
+	height:800px;
 }
 
 #head {
