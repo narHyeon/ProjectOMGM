@@ -1,6 +1,7 @@
 package com.omgm.admin.mall.controller;
 
 import com.omgm.admin.mall.beans.MallFeedVO;
+import com.omgm.admin.mall.beans.MallOrderVO;
 import com.omgm.admin.mall.beans.MallToyVO;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,21 @@ public class MallController {
 
         return mav;
     }
+    @RequestMapping("/productStatus.mdo")
+    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/productStatus");
+        mav.addObject("pro_status",mallService.getMallOrderList());
+        return mav;
+    }
+    @RequestMapping("/productStatusDelete.mdo")
+    public ModelAndView productStatusDelete(MallOrderVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mallService.deleteMallOrder(vo);
+        mav.setViewName("redirect:/productStatus.mdo");
+        return mav;
+    }
+
     // //////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
     @RequestMapping("/insertMallFeed.mdo")
     public ModelAndView insertMallFeed(MallFeedVO vo) throws Exception {
@@ -98,3 +114,4 @@ public class MallController {
         return mav;
     }
 }
+

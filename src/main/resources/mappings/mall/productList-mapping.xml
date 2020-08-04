@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="UserMallFeedDAO">
+
+    <resultMap type="usermallfeed" id="feed">
+        <id property="feed_code" column="FEED_CODE" />
+        <result property="feed_name" column="FEED_NAME" />
+        <result property="feed_inStock" column="FEED_INSTOCK" />
+        <result property="feed_price" column="FEED_PRICE" />
+        <result property="feed_discount" column="FEED_DISCOUNT" />
+        <result property="feed_stock" column="FEED_STOCK" />
+        <result property="feed_point" column="FEED_POINT" />
+        <result property="feed_info" column="FEED_INFO" />
+        <result property="feed_img" column="FEED_IMG" />
+    </resultMap>
+
+<!--    <insert id="insertMallToy" parameterType="mallToy">-->
+<!--        INSERT INTO toy (toy_code, toy_name, toy_inStock, toy_price,-->
+<!--            toy_discount, toy_stock, toy_point, toy_info, toy_img)-->
+<!--        VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},-->
+<!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
+<!--    </insert>-->
+
+    <select id="getMallFeedList" resultType="usermallfeed">
+        SELECT feed_code,feed_name,feed_price, feed_img FROM FEED ORDER BY feed_code DESC
+    </select>
+    </mapper>

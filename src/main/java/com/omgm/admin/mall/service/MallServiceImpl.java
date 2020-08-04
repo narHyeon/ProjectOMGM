@@ -1,5 +1,8 @@
 package com.omgm.admin.mall.service;
 
+
+import com.omgm.admin.mall.beans.MallOrderDAO;
+import com.omgm.admin.mall.beans.MallOrderVO;
 import com.omgm.admin.mall.beans.MallFeedVO;
 import com.omgm.admin.mall.beans.MallToyVO;
 import com.omgm.admin.mall.beans.MallDAO;
@@ -44,5 +47,22 @@ public class MallServiceImpl implements MallService {
         return mallDAO.getMallFeedList();
     }
 
+    @Autowired
+    MallOrderDAO mallOrderDAO;
+
+    @Override
+    public void insertMallOrder(MallOrderVO vo) {
+        mallOrderDAO.insertMallOrder(vo);
+    }
+
+    @Override
+    public void deleteMallOrder(MallOrderVO vo) {
+         mallOrderDAO.deleteMallOrder(vo);
+    }
+
+    @Override
+    public List<MallOrderVO> getMallOrderList() throws Exception{
+        return mallOrderDAO.getMallOrderList();
+    }
 
 }
