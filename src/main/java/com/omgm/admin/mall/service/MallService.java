@@ -9,7 +9,8 @@ import java.util.List;
 
 public interface MallService {
 
-
+    // 토이 관련 서비스
+    void deleteMallToy(MallToyVO vo) throws Exception;
     void insertMallToy(MallToyVO vo) throws Exception;
     void updateMallToy(MallToyVO vo) throws Exception;
     List<MallToyVO> getMallToyList() throws Exception;

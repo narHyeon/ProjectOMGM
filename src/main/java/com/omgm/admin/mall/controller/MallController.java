@@ -67,6 +67,14 @@ public class MallController {
         return mav;
     }
 
+    @RequestMapping("/deleteMallToy.mdo")
+    public ModelAndView deleteMallToy(MallToyVO vo) throws Exception {
+            ModelAndView mav = new ModelAndView();
+            mallService.deleteMallToy(vo);
+            mav.setViewName("redirect:/productInquiryToy.mdo");
+            return mav;
+    }
+
     @RequestMapping("/productInquiryToy.mdo")
     public ModelAndView getMallToyList(MallToyVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
