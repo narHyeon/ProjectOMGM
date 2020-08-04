@@ -59,7 +59,20 @@
             #{feed_discount}, #{feed_stock}, #{feed_point}, #{feed_info}, #{feed_img})
     </insert>
 
+    <delete id="deleteMallFeed" parameterType="mallFeed">
+        DELETE FROM feed WHERE feed_code=#{feed_code}
+    </delete>
+
     <select id="getMallFeedList" resultType="mallFeed">
         SELECT feed_code, feed_name, feed_discount, feed_img  FROM FEED ORDER BY feed_code DESC
     </select>
+
+    <select id="getMallFeedOne" resultType="mallFeed" parameterType="mallFeed">
+        SELECT * from feed WHERE feed_code=#{feed_code}
+    </select>
+
+    <update id="updateMallFeed" parameterType="mallFeed">
+        UPDATE feed set feed_name=#{feed_name}, feed_PRICE=#{feed_price}, TOY_DISCOUNT=#{toy_discount}, TOY_STOCK=#{toy_stock}, TOY_POINT=#{toy_point}, TOY_INFO=#{toy_info}, TOY_IMG=#{toy_img}  where toy_code=#{toy_code}
+    </update>
+
     </mapper>
