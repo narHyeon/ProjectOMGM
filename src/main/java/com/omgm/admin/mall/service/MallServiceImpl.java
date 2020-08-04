@@ -23,8 +23,18 @@ public class MallServiceImpl implements MallService {
     }
 
     @Override
+    public void updateMallToy(MallToyVO vo) throws Exception {
+        mallDAO.updateMallToy(vo);
+    }
+
+    @Override
     public List<MallToyVO> getMallToyList() throws Exception{
         return mallDAO.getMallToyList();
+    }
+
+    @Override
+    public MallToyVO getMallToyOne(MallToyVO vo) throws Exception {
+        return mallDAO.getMallToyOne(vo);
     }
 
     @Override

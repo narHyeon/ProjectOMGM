@@ -41,6 +41,6 @@
   <a href="productStatus.mdo">주문현황 페이지 이동</a>
   <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>
   <a href="orderInquiry.mdo">주문 조회 페이지 이동</a>
-
+  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>
 </body>
 </html>
