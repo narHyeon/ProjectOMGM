@@ -8,8 +8,6 @@
   <h3>클라이언트</h3>
   <a href="main.do">프로젝트 메인화면</a>
   <hr>
-  <h2>로그인 API</h2>
-  <a href="naverLogin.lo">네이버 로그인</a>
 
 <%--  <h3>Review 페이지</h3>--%>
 <%--  <a href="reviewListBoard.do">review 게시판 이동</a>--%>

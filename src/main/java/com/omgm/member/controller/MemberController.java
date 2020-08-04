@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -23,19 +25,13 @@ public class MemberController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    // 네이버 회원
-    @RequestMapping("/naver.lo")
-    public ModelAndView naver(MemberVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/main");
-        return mav;
-    }
-
     // 네이버 회원 콜백
     @RequestMapping("/naverCallback.lo")
     public ModelAndView naverSign(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/main");
+        vo.setId("naver");
+        mav.addObject("naver",vo);
         return mav;
     }
 
@@ -64,5 +60,21 @@ public class MemberController {
             vo.setId("유");
         }
         return vo;
+    }
+
+    @RequestMapping("/login.lo")
+    public ModelAndView login(HttpServletRequest request, MemberVO vo) {
+        ModelAndView mav = new ModelAndView();
+        MemberVO mvo = memberService.getMember(vo);
+        if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
+            mav.addObject("member",mvo);
+            HttpSession session = request.getSession();
+            session.setAttribute("member",mvo);
+        } else {
+            vo.setId("무");
+            mav.addObject("member",vo);
+        }
+        mav.setViewName("/main");
+        return mav;
     }
 }

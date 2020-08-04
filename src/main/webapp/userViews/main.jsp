@@ -88,5 +88,44 @@
         });
     </script>
 </c:if>
+<c:if test="${naver.id == 'naver'}">
+    <script>
+        const naverLogin = new naver.LoginWithNaverId({
+                clientId: "epIAIQoP1jJTDyUpzFxX",
+                callbackUrl: "http://localhost:8080/naverCallback/",
+                isPopup: false,
+                callbackHandle: true
+        });
+        naverLogin.init();
+
+        window.addEventListener('load', function () {
+            naverLogin.getLoginStatus(function (status) {
+
+                if (status) {
+                    const email = naverLogin.user.getEmail();
+                    const name = naverLogin.user.getName();
+                    const id = naverLogin.user.getId();
+                    const result = { code:id, name: name, email: email, type: 'naver' };
+                    snsSignDuple(result);
+                } else {
+                    console.log("callback 처리에 실패하였습니다.");
+                }
+            });
+        });
+    </script>
+</c:if>
+<c:if test="${member != null}">
+    <c:if test="${member.id == '무'}">
+        <script>
+            alert('로그인 할 수 없습니다!');
+        </script>
+    </c:if>
+    <c:if test="${member.name != null}">
+        <script>
+            alert('로그인 성공!');
+        </script>
+    </c:if>
+</c:if>
+
 </body>
 </html>

@@ -18,6 +18,10 @@ public class MemberDAO {
         return sqlSessionTemplate.selectOne("MemberDAO.snsCheck",vo);
     }
 
+    public MemberVO getMember(MemberVO vo) {
+        return sqlSessionTemplate.selectOne("MemberDAO.getMember",vo);
+    }
+
     public void addMember(MemberVO vo) {
         sqlSessionTemplate.insert("MemberDAO.addMember",vo);
     }
