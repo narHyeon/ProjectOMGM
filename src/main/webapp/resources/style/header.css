@@ -431,7 +431,7 @@ input[id*="login_popup"]:checked ~ div {opacity:1;visibility:visible;}
 	width: 360px;
 	background: #F28888;
 	height: 580px;
-	padding: 80px 40px;
+	padding: 50px 40px;
 	border-radius: 10px;
 	position: absolute;
 	left: 50%;
@@ -446,6 +446,7 @@ input[id*="login_popup"]:checked ~ div {opacity:1;visibility:visible;}
 	color:aliceblue;
 	font-family: 'Source Sans Pro';
 	margin-bottom: 40px;
+	line-height: 130%;
 }
 
 /*id, pw 입력칸*/
@@ -530,9 +531,11 @@ input[id*="login_popup"]:checked ~ div {opacity:1;visibility:visible;}
 	color: #F44336;
 }
 .logbtn3 {
+	margin-top: 10px;
 	color: #00C73C;
 }
 .logbtn4 {
+	margin-top: 10px;
 	color: #FFD400;
 }
 
@@ -550,6 +553,10 @@ input[id*="login_popup"]:checked ~ div {opacity:1;visibility:visible;}
 }
 .bottom-text a{
 	color:aliceblue;
+}
+.bottom-text a:hover {
+	font-size: 18px;
+	color: #00EBFF;
 }
 
 /* sns Sign */

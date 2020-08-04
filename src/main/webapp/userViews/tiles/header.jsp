@@ -198,7 +198,7 @@
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input name="pwd" type="pwd" required autocomplete=off>
+					<input name="pwd" type="password" required autocomplete=off>
 					<span data-placeholder="Password"></span>
 				</div>
 
@@ -209,8 +209,8 @@
 				<input type="button" class="logbtn4" value="Kakao" onClick="signKakao()"> <!-- 로그인버튼-->
 
 				<div class="bottom-text">
-					계정이 없으신가요? <a href="#" onClick="signUp(event)">Sign up</a><br> <!-- 회원가입 페이지로이동-->
-					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+					계정이 없으신가요? <a href="#" onClick="signUp(event)">SignUp</a><br> <!-- 회원가입 페이지로이동-->
+<%--					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->--%>
 				</div>
 			</form>
 		</div>
