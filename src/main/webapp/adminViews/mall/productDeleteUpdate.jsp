@@ -73,7 +73,7 @@
 
 <div id="productDeleteUpdate_main_div" style="padding-left: 5%; padding-right: 0%">
     <h2>장난감 상품등록</h2><br><br><br>
-    <form method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
+    <form method="post"action="updateMallToy.mdo" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div id="productDeleteUpdate_section_div00" style="display: flex; width: 100%">
         <div id="productDeleteUpdate_section_div01" style="display: flex; flex-direction: column;
@@ -124,7 +124,7 @@
         </div>
 
         <div id="productDeleteUpdate_button_div" style="padding-right:15%;display: flex; justify-content: flex-end">
-            <button type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="location.href='http://localhost:8080/updateMallToy.mdo'">수정</button>
+            <button type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="">수정</button>
             <button style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="">삭제</button>
         </div>
     </form>
