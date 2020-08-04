@@ -122,7 +122,7 @@
     </c:if>
     <c:if test="${member.name != null}">
         <script>
-            alert('로그인 성공!');
+            // alert('로그인 성공!');
         </script>
     </c:if>
 </c:if>

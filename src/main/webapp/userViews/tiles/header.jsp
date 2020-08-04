@@ -65,8 +65,8 @@
         <li><a href="" onclick="login(event)">login</a></li>
         <li><p>|</p></li>
         <li><a href="" onclick="signUp(event)">Join</a></li>
-		<li><p>|</p></li>
-		<li><a href="">myInfo</a></li>
+<%--		<li><p>|</p></li>--%>
+<%--		<li><a href="">myInfo</a></li>--%>
     </ul>
 </nav>
 
@@ -207,7 +207,7 @@
 				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
 
 				<div class="bottom-text">
-					계정이 없으신가요? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
+					계정이 없으신가요? <a href="#" onClick="signUp(event)">Sign up</a><br> <!-- 회원가입 페이지로이동-->
 					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
 				</div>
 			</form>
