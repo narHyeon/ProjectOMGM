@@ -77,4 +77,14 @@ public class MemberController {
         mav.setViewName("/main");
         return mav;
     }
+
+    @RequestMapping("/logout.lo")
+    public ModelAndView logout(HttpSession session) {
+        // 1. 브라우저와 연결된 세션 객체를 종료
+        session.invalidate();
+        // 2. 세션 종료 후 메인 화면으로 이동
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/main");
+        return mav;
+    }
 }
