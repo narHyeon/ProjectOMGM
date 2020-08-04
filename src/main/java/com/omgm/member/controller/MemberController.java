@@ -27,7 +27,7 @@ public class MemberController {
     @RequestMapping("/naver.lo")
     public ModelAndView naver(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/main");
+        mav.setViewName("/naver");
         return mav;
     }
 
@@ -35,7 +35,7 @@ public class MemberController {
     @RequestMapping("/naverCallback.lo")
     public ModelAndView naverSign(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/main");
+        mav.setViewName("/naverCallback");
         return mav;
     }
 
