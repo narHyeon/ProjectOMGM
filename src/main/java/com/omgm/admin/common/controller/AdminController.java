@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 
-    // 관리자 메인 불러오기
+    // 愿�由ъ옄 硫붿씤 遺덈윭�삤湲�
     @RequestMapping("/adminMain.mdo")
     public ModelAndView main(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
@@ -16,7 +16,7 @@ public class AdminController {
         return mav;
     }
 
-    // 관리자 배송 현황 페이지
+    // 愿�由ъ옄 諛곗넚 �쁽�솴 �럹�씠吏�
     @RequestMapping("/deliveryStatus.mdo")
     public ModelAndView deliveryStatus(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
@@ -24,14 +24,14 @@ public class AdminController {
         return mav;
     }
 
-    // 관리자 배송 현황 페이지
+    // 愿�由ъ옄 諛곗넚 �쁽�솴 �럹�씠吏�
 //    @RequestMapping("/productInquiry.mdo")
 //    public ModelAndView productInquiry(AdminVO vo) {
 //        ModelAndView mav = new ModelAndView();
 //        mav.setViewName("/productRegister/productInquiry");
 //        return mav;
 //    }
-    // 상품등록 페이지
+    // �긽�뭹�벑濡� �럹�씠吏�
     @RequestMapping("/productRegister.mdo")
     public ModelAndView productRegister(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
@@ -39,7 +39,7 @@ public class AdminController {
         return mav;
     }
 
-    //픽업서비스 관리 페이지
+    //�뵿�뾽�꽌鍮꾩뒪 愿�由� �럹�씠吏�
     @RequestMapping("/pickupServiceManagement.mdo")
     public ModelAndView pickupServiceManagement(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
@@ -47,11 +47,17 @@ public class AdminController {
         return mav;
     }
 
-    //주문조회 페이지 이동
+    //二쇰Ц議고쉶 �럹�씠吏� �씠�룞
     @RequestMapping("/orderInquiry.mdo")
     public ModelAndView orderInquiry(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/orderInquiry/orderInquiry");
         return mav;
+    }
+    @RequestMapping("/event.mdo")
+    public ModelAndView eventpage(AdminVO vo) {
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("/event/event");
+    	return mav;
     }
 }
