@@ -35,7 +35,7 @@ public class AdminController {
     @RequestMapping("/productRegister.mdo")
     public ModelAndView productRegister(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/productRegister/productRegister");
+        mav.setViewName("/mall/productRegister");
         return mav;
     }
 
