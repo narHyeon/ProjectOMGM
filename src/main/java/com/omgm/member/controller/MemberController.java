@@ -95,13 +95,6 @@ public class MemberController {
         if(mvo != null) {
             HttpSession session = request.getSession();
             session.setAttribute("member",mvo);
-        } else {
-//            vo.setType(vo.getType());
-//            switch(vo.getType()) {
-//                case "google": mav.addObject("result",vo); break;
-//                case "naver": mav.addObject("naver",vo); break;
-//                case "kakao": mav.addObject("naver",vo); break;
-//            }
         }
         mav.setViewName("/main");
         return mav;

@@ -278,8 +278,9 @@ function snsSignDuple(result) {
 };
 
 function signKakao() {
+    document.querySelector('#login_popup').checked = false;
     return new Promise((resolve, reject) => {
-        Kakao.init('24643592d6715878e7cd5aa89f148e76');
+        // Kakao.init('24643592d6715878e7cd5aa89f148e76');
         Kakao.Auth.login({
             success: function (authObj) {
                 // 로그인 성공시, API를 호출합니다.
