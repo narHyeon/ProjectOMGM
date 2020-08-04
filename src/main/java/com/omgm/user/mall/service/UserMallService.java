@@ -10,6 +10,7 @@ import java.util.List;
 public interface UserMallService {
 
     List<UserMallFeedVO> getMallFeedList() throws Exception;
+    List<UserMallToyVO> getMallToyList() throws Exception;
 
 
 }

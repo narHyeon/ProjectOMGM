@@ -25,6 +25,14 @@ public class UserMallController {
         mav.addObject("FeedList", UserMallService.getMallFeedList());
         return mav;
     }
+
+    @RequestMapping("/getMallFeedList.do")
+    public ModelAndView getMallToyList(UserMallToyVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/productList");
+        mav.addObject("FeedList", UserMallService.getMallToyList());
+        return mav;
+    }
 }
 
 

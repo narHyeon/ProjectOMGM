@@ -8,6 +8,9 @@ import java.util.List;
 
 @Repository
 public class UserMallToyDAO {
+    @Autowired
+    private SqlSessionTemplate sqlSessionTemplate;
 
+    public List<UserMallToyVO> getMallToyList () { return sqlSessionTemplate.selectList("UserMallToyDAO.getMallToyList"); }
 
 }
