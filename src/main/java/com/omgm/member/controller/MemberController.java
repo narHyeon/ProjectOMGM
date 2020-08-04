@@ -88,15 +88,27 @@ public class MemberController {
         return mav;
     }
 
+//    // SNS계정 로그인
+//    @ResponseBody
+//    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.POST)
+//    public MemberVO snsLogin(HttpServletRequest request, @RequestBody MemberVO vo) {
+//        if(memberService.snsCheck(vo) != null) {
+//            HttpSession session = request.getSession();
+//            session.setAttribute("member",vo);
+//            vo.setId("main.do");
+//        }
+//        return vo;
+//    }
+
     // SNS계정 로그인
-    @ResponseBody
     @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.POST)
-    public MemberVO snsLogin(HttpServletRequest request, @RequestBody MemberVO vo) {
+    public ModelAndView snsLogin(HttpServletRequest request, MemberVO vo) {
+        ModelAndView mav = new ModelAndView();
         if(memberService.snsCheck(vo) != null) {
             HttpSession session = request.getSession();
             session.setAttribute("member",vo);
-            vo.setId("main.do");
         }
-        return vo;
+        mav.setViewName("/main");
+        return mav;
     }
 }
