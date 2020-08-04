@@ -306,3 +306,8 @@ function signKakao() {
     })
 };
 
+// sns 회원가입 네이버로 넘김
+function signNaver() {
+    const url = 'https://nid.naver.com/nidlogin.login?oauth_token=eJvN5z7x5d6QzpKZNA&consumer_key=epIAIQoP1jJTDyUpzFxX&logintp=oauth2&nurl=https%3A%2F%2Fnid.naver.com%2Foauth2.0%2Fauthorize%3Fresponse_type%3Dtoken%26state%3D43d2d90f-736b-4f0b-8de6-d7bb1bbbf95a%26client_id%3DepIAIQoP1jJTDyUpzFxX%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252FnaverCallback.lo%26locale%3Dko_KR%26inapp_view%3D%26oauth_os%3D&locale=ko_KR&inapp_view=&svctype=1';
+    window.location.href = url;
+};

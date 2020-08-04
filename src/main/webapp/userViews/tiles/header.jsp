@@ -6,6 +6,7 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
@@ -173,7 +174,7 @@
 
 				<input type="submit" class="signup" value="Sign UP"> <!-- 회원가입버튼-->
 				<input type="button" class="signup2" value="Kakao" onclick="signKakao()"> <!-- 회원가입버튼-->
-				<input type="button" class="signup3" value="Naver" > <!-- 회원가입버튼-->
+				<input type="button" class="signup3" value="Naver" onclick="signNaver()"> <!-- 회원가입버튼-->
 				<input type="button" class="signup4" value="Google" onclick="signGoogle()"> <!-- 회원가입버튼-->
 				<div id="sign_sns_title">
 					<h3>SNS를 이용한 회원가입</h3>

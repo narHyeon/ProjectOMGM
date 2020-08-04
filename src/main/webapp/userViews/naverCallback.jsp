@@ -7,14 +7,12 @@
 
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script>
-    var naverLogin = new naver.LoginWithNaverId(
-        {
+    var naverLogin = new naver.LoginWithNaverId({
             clientId: "자기 클라이언트 아이디",
             callbackUrl: "http://localhost:8080/naverCallback/",
             isPopup: false,
             callbackHandle: true
-        }
-    );
+    });
     naverLogin.init();
 
     window.addEventListener('load', function () {
