@@ -1,9 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="resources/js/header.js" defer></script>
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
@@ -61,8 +65,6 @@
         <li><a href="" onclick="login(event)">login</a></li>
         <li><p>|</p></li>
         <li><a href="" onclick="signUp(event)">Join</a></li>
-		<li><p>|</p></li>
-		<li><a href="">myInfo</a></li>
     </ul>
 </nav>
 
@@ -169,9 +171,9 @@
 				</div>
 
 				<input type="submit" class="signup" value="Sign UP"> <!-- 회원가입버튼-->
-				<input type="button" class="signup2" value="Kakao"> <!-- 회원가입버튼-->
-				<input type="button" class="signup3" value="Naver"> <!-- 회원가입버튼-->
-				<input type="button" class="signup4" value="Google"> <!-- 회원가입버튼-->
+				<input type="button" class="signup2" value="Kakao" onclick="signKakao()"> <!-- 회원가입버튼-->
+				<input type="button" class="signup3" value="Naver" onclick="signNaver()"> <!-- 회원가입버튼-->
+				<input type="button" class="signup4" value="Google" onclick="signGoogle()"> <!-- 회원가입버튼-->
 				<div id="sign_sns_title">
 					<h3>SNS를 이용한 회원가입</h3>
 				</div>
@@ -187,24 +189,24 @@
 	<div>
 		<div>
 			<label for="login_popup"></label>
-			<form action="#" class="login-form">
+			<form action="login.lo" class="login-form">
 				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
 				<div class="txtbox"> <!-- ID필드-->
-					<input type="text" required autocomplete=off>
+					<input name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID" ></span>
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input type="pwd" required autocomplete=off>
+					<input name="pwd" type="pwd" required autocomplete=off>
 					<span data-placeholder="Password"></span>
 				</div>
 
 				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
 
 				<div class="bottom-text">
-					Don't have account? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
-					Forgot account? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+					계정이 없으신가요? <a href="#" onClick="signUp(event)">Sign up</a><br> <!-- 회원가입 페이지로이동-->
+					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
 				</div>
 			</form>
 		</div>

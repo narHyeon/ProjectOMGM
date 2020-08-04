@@ -1,6 +1,7 @@
 package com.omgm.user.common.controller;
 
 import com.omgm.user.common.beans.CommonVO;
+import com.omgm.user.mall.beans.UserMallFeedVO;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -96,15 +97,6 @@ public class OneController {
     public ModelAndView roomIntroduction(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/roomIntroduction/roomIntroduction");
-        return mav;
-    }
-
-
-
-    @RequestMapping("/jusoPopup.do")
-    public ModelAndView jusoPopup(CommonVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/jusoPopup");
         return mav;
     }
 

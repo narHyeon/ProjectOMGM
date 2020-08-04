@@ -9,14 +9,20 @@
 		<typeAlias alias="ReviewReplyVO" type="com.omgm.user.review.beans.ReviewReplyVO"/>
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
-		<typeAlias alias="mallToy" type="com.omgm.admin.mall.beans.MallToyVO" />
+		<typeAlias alias="mallToy" type="com.omgm.admin.mall.beans.MallToyVO"/>
+		<typeAlias alias="mallOrder" type="com.omgm.admin.mall.beans.MallOrderVO" />
+		<typeAlias alias="mallFeed" type="com.omgm.admin.mall.beans.MallFeedVO" />
+		<typeAlias alias="usermallfeed" type="com.omgm.user.mall.beans.UserMallFeedVO" />
+		<typeAlias alias="usermalltoy" type="com.omgm.user.mall.beans.UserMallToyVO" />
 	</typeAliases>
 	<mappers>
-
-		<mapper resource="mappings/mall-mapping.xml" />
+		<mapper resource="mappings/mall/productToyList-mapping.xml" />
+		<mapper resource="mappings/mall/productList-mapping.xml" />
+		<mapper resource="mappings/mall/order-mapping.xml" />
+		<mapper resource="mappings/mall/mall-mapping.xml" />
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>
-		<mapper resource="mappings/faq-mapping.xml" />
+		<mapper resource="mappings/faq-mapping.xml"/>
 		<mapper resource="mappings/category-mapping.xml" />
 	</mappers>
 </configuration>

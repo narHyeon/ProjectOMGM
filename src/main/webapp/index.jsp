@@ -8,10 +8,7 @@
   <h3>클라이언트</h3>
   <a href="main.do">프로젝트 메인화면</a>
   <hr>
-  <h2>로그인 API</h2>
-  <a href="google.lo">google</a>
-  <a href="naverLogin.lo">네이버 로그인</a>
-  <a href="sample.lo">주소 팝업창</a>
+
 <%--  <h3>Review 페이지</h3>--%>
 <%--  <a href="reviewListBoard.do">review 게시판 이동</a>--%>
 <%--  <hr>--%>
@@ -26,7 +23,7 @@
 <%--  <a href="roomIntroduction.do">방 소개 페이지 이동</a>--%>
   <hr>
   <h2>클라이언트 개별 작업 페이지</h2>
-  <a href="productList.do">상품 리스트 페이지 이동</a>
+  <a href="getMallFeedList.do">상품 리스트 페이지 이동</a>
   <hr>
   <h2>관리자 페이지</h2>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
@@ -38,8 +35,10 @@
   <a href="hotelReservation.mdo">호텔 예약현황 페이지 이동</a>
   <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
   <a href="productRegister.mdo">상품등록 페이지 이동</a>
-  <a href="productInquiry.mdo">상품조회 페이지 이동</a>
+  <a href="productInquiryToy.mdo">상품조회 장난감 페이지 이동</a>
+  <a href="productStatus.mdo">주문현황 페이지 이동</a>
   <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>
   <a href="orderInquiry.mdo">주문 조회 페이지 이동</a>
+  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>
 </body>
 </html>

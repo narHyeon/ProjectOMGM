@@ -14,6 +14,21 @@ public class MemberServiceImpl implements MemberService {
     private MemberDAO memberDAO;
 
     @Override
+    public int idCheck(MemberVO vo) {
+        return memberDAO.idCheck(vo);
+    }
+
+    @Override
+    public MemberVO snsCheck(MemberVO vo) {
+        return memberDAO.snsCheck(vo);
+    }
+
+    @Override
+    public MemberVO getMember(MemberVO vo) {
+        return memberDAO.getMember(vo);
+    }
+
+    @Override
     public void addMember(MemberVO vo) {
         memberDAO.addMember(vo);
     }
