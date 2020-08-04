@@ -33,4 +33,8 @@
         SELECT * FROM member WHERE code = #{code}
     </select>
 
+    <select id="getMember" resultType="MemberVO" parameterType="MemberVO">
+            SELECT * FROM member WHERE id=#{id}
+    </select>
+
 </mapper>
