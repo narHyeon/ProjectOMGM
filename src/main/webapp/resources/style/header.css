@@ -546,7 +546,7 @@ input[id*="login_popup"]:checked ~ div {opacity:1;visibility:visible;}
 }
 /*회원가입, 아이디/패스워드 찾기*/
 .bottom-text{
-	margin-top: 50px;
+	margin-top: 40px;
 	text-align: center;
 	font-size: 16px;
 	color: aliceblue;
