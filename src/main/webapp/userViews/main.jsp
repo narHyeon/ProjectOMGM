@@ -114,5 +114,10 @@
         });
     </script>
 </c:if>
+<c:if test="${member.id == '무'}">
+    <script>
+        alert('아이디가 없습니다!');
+    </script>
+</c:if>
 </body>
 </html>

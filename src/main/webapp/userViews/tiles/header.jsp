@@ -191,24 +191,24 @@
 	<div>
 		<div>
 			<label for="login_popup"></label>
-			<form action="#" class="login-form">
+			<form action="login.lo" class="login-form">
 				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
 				<div class="txtbox"> <!-- ID필드-->
-					<input type="text" required autocomplete=off>
+					<input name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID" ></span>
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input type="pwd" required autocomplete=off>
+					<input name="pwd" type="pwd" required autocomplete=off>
 					<span data-placeholder="Password"></span>
 				</div>
 
 				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
 
 				<div class="bottom-text">
-					Don't have account? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
-					Forgot account? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+					계정이 없으신가요? <a href="#">Sign up</a><br> <!-- 회원가입 페이지로이동-->
+					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
 				</div>
 			</form>
 		</div>

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -58,5 +60,21 @@ public class MemberController {
             vo.setId("유");
         }
         return vo;
+    }
+
+    @RequestMapping("/login.lo")
+    public ModelAndView login(HttpServletRequest request, MemberVO vo) {
+
+        ModelAndView mav = new ModelAndView();
+        if(memberService.getMember(vo) != null) {
+            mav.addObject("member",vo);
+            HttpSession session = request.getSession();
+            session.setAttribute("",vo);
+        } else {
+            vo.setId("무");
+            mav.addObject("member",vo);
+        }
+        mav.setViewName("/main");
+        return mav;
     }
 }
