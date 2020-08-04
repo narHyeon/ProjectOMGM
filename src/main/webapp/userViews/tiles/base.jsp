@@ -39,7 +39,7 @@
 		border-radius: 100%;
 		background-color: white;
 		position: absolute;
-		top: 370px;
+		top: 360px;
 		right: 50px;
 		width: 55px;
 		height: 55px;
@@ -56,7 +56,7 @@
 	}
 	#MOVE_TOP_BTN {
 		position: fixed;
-		right: 51.5px;
+		right: 50px;
 		bottom: 50px;
 		display: none;
 		z-index: 999;
@@ -71,7 +71,7 @@
 	/*카카오 1:1상담 버튼*/
 	#create-channel-chat-button {
 		position: absolute;
-		top: 430px;
+		top: 415px;
 		right: 65px;
 		width: 55px;
 		height: 55px;
@@ -160,7 +160,7 @@
 					t=$(window).scrollTop();
 					$(".wishlist_menu").animate({top:t+300},1);
 					$(".wishlist_menu2").animate({top:t+370},1);
-					$("#create-channel-chat-button").animate({top:t+430},1);
+					$("#create-channel-chat-button").animate({top:t+425},1);
 				}, 25);
 			});
 		});
