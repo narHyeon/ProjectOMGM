@@ -67,7 +67,6 @@ public class MemberController {
         ModelAndView mav = new ModelAndView();
         MemberVO mvo = memberService.getMember(vo);
         if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
-            mav.addObject("member",mvo);
             HttpSession session = request.getSession();
             session.setAttribute("member",mvo);
         } else {
@@ -88,25 +87,21 @@ public class MemberController {
         return mav;
     }
 
-//    // SNS계정 로그인
-//    @ResponseBody
-//    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.POST)
-//    public MemberVO snsLogin(HttpServletRequest request, @RequestBody MemberVO vo) {
-//        if(memberService.snsCheck(vo) != null) {
-//            HttpSession session = request.getSession();
-//            session.setAttribute("member",vo);
-//            vo.setId("main.do");
-//        }
-//        return vo;
-//    }
-
     // SNS계정 로그인
-    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.POST)
+    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.GET)
     public ModelAndView snsLogin(HttpServletRequest request, MemberVO vo) {
         ModelAndView mav = new ModelAndView();
-        if(memberService.snsCheck(vo) != null) {
+        MemberVO mvo = memberService.snsCheck(vo);
+        if(mvo != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("member",vo);
+            session.setAttribute("member",mvo);
+        } else {
+//            vo.setType(vo.getType());
+//            switch(vo.getType()) {
+//                case "google": mav.addObject("result",vo); break;
+//                case "naver": mav.addObject("naver",vo); break;
+//                case "kakao": mav.addObject("naver",vo); break;
+//            }
         }
         mav.setViewName("/main");
         return mav;

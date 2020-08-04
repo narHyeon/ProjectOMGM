@@ -89,14 +89,14 @@ public class OAuthController {
         Base64 base64 = new Base64(true);
         String body = new String(base64.decode(tokens[1]));
 
-        System.out.println(tokens.length);
-        System.out.println(new String(Base64.decodeBase64(tokens[0]), "utf-8"));
-        System.out.println(new String(Base64.decodeBase64(tokens[1]), "utf-8"));
+//        System.out.println(tokens.length);
+//        System.out.println(new String(Base64.decodeBase64(tokens[0]), "utf-8"));
+//        System.out.println(new String(Base64.decodeBase64(tokens[1]), "utf-8"));
 
         //Jackson을 사용한 JSON을 자바 Map 형식으로 변환
         ObjectMapper mapper = new ObjectMapper();
         Map<String, String> result = mapper.readValue(body, Map.class);
-        System.out.println(result.get(""));
+//        System.out.println(result.get(""));
 
         ModelAndView mav = new ModelAndView();
         mav.addObject("result",result);

@@ -264,7 +264,7 @@ function snsSignDuple(result) {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(object.id === '유') {
-                loginNaver(data);
+                loginSNS(data);
                 return;
             }
             return snsSign(result);
@@ -312,29 +312,20 @@ function signNaver() {
 };
 
 // 네이버 로그인
-function loginNaver(data) {
+function loginSNS(data) {
     const form = document.createElement("form");
     form.setAttribute("charset", "UTF-8");
-    form.setAttribute("method", "Post"); // Get 또는 Post 입력
+    form.setAttribute("method", "GET"); // Get 또는 Post 입력
     form.setAttribute("action", "snsLogin.lo");
 
     const hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
     hiddenField.setAttribute("name", "code");
     hiddenField.setAttribute("value", data.code);
+    hiddenField.setAttribute("type", data.type);
     form.appendChild(hiddenField);
 
+    document.body.appendChild(form);
     form.submit();
-
-
-    // const xhr = new XMLHttpRequest();
-    // xhr.onload = function() {
-    //     if (xhr.status === 200) {
-    //         const object = JSON.parse(xhr.responseText);
-    //         window.location.href= `${object.id}`;
-    //     }
-    // }
-    // xhr.open('POST', 'snsLogin.lo',true);
-    // xhr.setRequestHeader('Content-type', 'application/json');
-    // xhr.send(JSON.stringify(data));
+    document.body.removeChild(form);
 }
