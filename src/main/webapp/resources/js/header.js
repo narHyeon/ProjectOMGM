@@ -330,3 +330,7 @@ function loginSNS(data) {
     form.submit();
     document.body.removeChild(form);
 }
+
+function mainLogo() {
+    window.location.href = 'main.do';
+}

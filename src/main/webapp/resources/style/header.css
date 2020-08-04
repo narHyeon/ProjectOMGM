@@ -59,7 +59,7 @@ a {
 
 .dropmenu ol li a {
 	display: block;
-	width: 12vw;
+	width: 11vw;
 	text-decoration: none;
 	line-height: 80px;
 	color: white;
@@ -132,7 +132,7 @@ a {
 	padding-left: 0;
 }
 
-@media all and (max-width:870px) {
+@media all and (max-width:780px) {
 	.dropmenu {
 		display: none;
 	}

@@ -16,7 +16,7 @@
 	<input type="checkbox" id="sidebar">
 
 	<nav class="navbar">
-		<div class="navbar_logo">
+		<div class="navbar_logo" onclick="mainLogo()">
 			<td><img src="resources/img/자산%201.png" width="160px" /></td>
 		</div>
 
