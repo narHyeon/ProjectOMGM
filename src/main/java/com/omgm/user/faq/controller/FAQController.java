@@ -113,12 +113,5 @@ public class FAQController {
 		mav.setViewName("/myInfo/myboard");
 		return mav;
 	}
-	@RequestMapping(value = "/review_write.do", method = RequestMethod.GET)
-	public ModelAndView qwerwr(FAQVO vo,ModelAndView mav) {
-		List<FAQVO> list = fAQService.getAllFAQList(vo);
-		mav.addObject("fAQList",list);
-		mav.setViewName("/review/review_write");
-		return mav;
-	}
 	
 }

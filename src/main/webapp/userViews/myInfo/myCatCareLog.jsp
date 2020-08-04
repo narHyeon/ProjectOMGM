@@ -77,6 +77,18 @@
 .maintr:hover {
 	cursor: pointer;
 }
+#insertbt{
+	height : 20pt;
+	width: 10%;
+	margin-top: 2%;
+	margin-left: 90%;
+	background-color: white;
+	cursor: pointer;
+	border: 2px solid #e2e2e2;
+	font-size: 13px;
+	color: purple;
+}
+
 </style>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
@@ -185,9 +197,10 @@ function goWrite() {
 						</tr>
 					</tbody>
 				</table>
-				<input type="button" onclick="goWrite()" value="냥박일지 작성">
+				<input type="button" onclick="goWrite()" value="냥박일지 작성" id="insertbt">
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

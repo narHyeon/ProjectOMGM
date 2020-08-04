@@ -115,14 +115,15 @@
 		window.location.href = 'myCatCareLog.do';
 	}
 	function goDelete() {
-		document.form.action = "myCatCareLog.do";
-		document.form.method = "post";
-		document.form.submit();
+		var frm = document.mainfrom;
+		frm.action = "deleteCatCareLog.do";
+		frm.method = "post";
+		frm.submit();
 	}
 </script>
 </head>
 <body>
-	<form action="updateCatCareLog.do">
+	<form action="updateCatCareLog.do" name="mainfrom">
 	<input type="hidden" name="CATCARELOG_NO" value="${careInfo.CATCARELOG_NO}">
 		<div id="wrap">
 			<div id="head">
