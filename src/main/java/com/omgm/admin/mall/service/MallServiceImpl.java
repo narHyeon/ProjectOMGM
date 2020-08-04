@@ -18,6 +18,11 @@ public class MallServiceImpl implements MallService {
     MallDAO mallDAO;
 
     @Override
+    public void deleteMallToy(MallToyVO vo) throws Exception {
+        mallDAO.deleteMallToy(vo);
+    }
+
+    @Override
     public void insertMallToy(MallToyVO vo) {
         mallDAO.insertMallToy(vo);
     }

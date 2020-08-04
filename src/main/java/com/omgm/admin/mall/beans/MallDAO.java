@@ -20,6 +20,8 @@ public class MallDAO {
 
     public void updateMallToy(MallToyVO vo) {sqlSessionTemplate.update("MallDAO.updateMallToy", vo);}
 
+    public void deleteMallToy(MallToyVO vo) {sqlSessionTemplate.delete("MallDAO.deleteMallToy", vo);}
+
     public List<MallToyVO> getMallToyList () {
         return sqlSessionTemplate.selectList("MallDAO.getMallToyList");
     }
