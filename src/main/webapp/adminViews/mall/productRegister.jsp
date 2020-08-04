@@ -135,7 +135,7 @@
 </select>
 
 <div id="pro_write">
-    <h2>장난감 상품등록</h2><br><br><br>
+    <h2>상품등록</h2><br><br><br>
     <form method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div>
