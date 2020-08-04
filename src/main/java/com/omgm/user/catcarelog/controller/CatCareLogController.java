@@ -33,7 +33,7 @@ public class CatCareLogController {
 	}
 	@RequestMapping(value = "/getCatCareLog.do", method = RequestMethod.GET)
 	public ModelAndView goGetCatCareLog(CatCareLogVO vo,ModelAndView mav) {
-		vo.setCATCARELOG_NO(6);						  //냥박 리스트에서 클릭할때 파라미터로 받을 부분
+		vo.setCATCARELOG_NO(5);						  //냥박 리스트에서 클릭할때 파라미터로 받을 부분
 		CatCareLogVO getVO = new CatCareLogVO();
 		getVO =  catCareLogService.getCatCareLog(vo);
 		mav.addObject("careInfo",getVO);
