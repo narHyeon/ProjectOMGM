@@ -1,0 +1,356 @@
+/*이미지 슬라이더*/
+.proList_body .slider_img {
+    width: 76%;
+    height: 0vw;
+    position: relative;
+    margin: 0 auto;
+
+}
+
+.proList_body .slider_slide {
+    width: 75vw;
+    height: 40vw;
+    background-size: cover;
+    border-radius: 10px;
+    animation: fade 1.5s;
+    display: none;
+    margin: 0 auto;
+}
+
+.proList_body .slider_prev,
+.proList_body .slider_next {
+    cursor: pointer;
+    position: absolute;
+    top: 18vw;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: rgb(248, 248, 248);
+    font-size: 2rem;
+    transition: 0.6s ease;
+    border-radius: 5px;
+}
+
+.proList_body .slider_next {
+    right: 0;
+}
+
+.proList_body .slider_prev:hover,
+.proList_body .slider_next:hover {
+    background-color: rgba(190, 190, 190, 0.5);
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*상품리스트*/
+.proList_body {
+    overflow: hidden;
+}
+
+.event_list ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    padding-left: 11%;
+    padding-top: 80px;
+}
+
+.event_list li {
+    flex: 0 1 18%;
+    padding: 0 0 34px;
+}
+
+.event_list li a {
+    display: block;
+    position: relative;
+    width: 248px;
+    height: 382px;
+    line-height: 1;
+    border: 1px solid #ddd;
+}
+
+.event_list li a .img {
+    overflow: hidden;
+    position: relative;
+    width: 246px;
+    height: 272px;
+    border-bottom: 1px solid #ddd;
+}
+
+.event_list li a .img img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.event_list li a .info {
+    padding: 29px 10px 0;
+}
+
+.event_list li a .info strong {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    color: #222;
+}
+
+.event_list li a p {
+    padding: 20px 0 0;
+    font-size: 13px;
+    color: #888;
+}
+
+.event_list li a p span {
+    color: #F28888;
+    font-size: 15px;
+}
+
+.event_list li a em {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+}
+
+/*하단 페이징*/
+.pro_paging {
+    padding: 28px 0 60px;
+}
+
+.pro_paging ul {
+    display: flex;
+    justify-content: center;
+}
+
+.pro_paging a {
+    display: block;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    font-size: 15px;
+    color: #555;
+}
+
+.pro_paging a:hover,
+.pro_paging a.on {
+    background: #F28888;
+    color: #fff;
+}
+
+.pro_paging li {
+    margin: 0 7px;
+}
+
+.pro_paging .first {
+    margin: 0 16px 0 0;
+    background: url(../../img/sales/prev-first.png) no-repeat center;
+}
+
+.pro_paging .prev {
+    margin: 0 6px 0 0;
+    background: url(../../img/sales/paging-prev.png) no-repeat center;
+}
+
+.pro_paging .next {
+    margin: 0 0 0 6px;
+    background: url(../../img/sales/paging-next.png) no-repeat center;
+}
+
+.pro_paging .last {
+    margin: 0 0 0 16px;
+    background: url(../../img/sales/next-last.png) no-repeat center;
+}
+
+.pro_paging .first a:hover,
+.pro_paging .prev a:hover,
+.pro_paging .next a:hover,
+.pro_paging .last a:hover {
+    background: none;
+}
+
+.hide, caption span {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    border: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.paging ul, .event_list ul {
+    list-style-type: none;
+}
+
+.proList_body .img {
+    width: 228px;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+/*플로팅메뉴*/
+.wishlist_menu {
+    border: 1px solid #EEE;
+    position: absolute;
+    top: 400px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    -webkit-transition: top 0.4s;
+    transition: top 0.4s;
+    font-size: 30px;
+    color: #5a5a5a;
+    padding-left: 12px;
+    padding-top: 16px;
+
+}
+
+.wishlist_menu2 {
+    border: 1px solid #EEE;
+    position: absolute;
+    top: 400px;
+    right: 50px;
+    width: 60px;
+    height: 120px;
+    -webkit-transition: top 0.4s;
+    transition: top 0.4s;
+    font-size: 30px;
+    color: #5a5a5a;
+    padding-left: 15px;
+    padding-top: 75px;
+
+}
+
+.wishlist_menu i:hover, .wishlist_menu2 i:hover {
+    color: #F28888;
+}
+
+#MOVE_TOP_BTN {
+    position: fixed;
+    right: 60px;
+    bottom: 50px;
+    display: none;
+    z-index: 999;
+    background: #F28888;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 7px;
+    padding-top: 11px;
+}
+
+/*카카오 1:1상담 버튼*/
+#create-channel-chat-button {
+    position: absolute;
+    top: 400px;
+    right: 90px;
+    width: 60px;
+    height: 60px;
+    -webkit-transition: top 0.4s;
+    transition: top 0.4s;
+    font-size: 30px;
+    padding-left: 15px;
+    padding-top: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+    /*이미지 슬라이더*/
+    .proList_body .slider_img {
+        width: 76%;
+        height: 0vw;
+        position: relative;
+        margin: 0 auto;
+
+    }
+
+    .proList_body .slider_slide {
+        width: 75vw;
+        height: 40vw;
+        background-size: cover;
+        border-radius: 10px;
+        animation: fade 1.5s;
+        display: none;
+        margin: 0 auto;
+    }
+
+    /*플로팅메뉴*/
+    .wishlist_menu {
+        right: 18px;
+    }
+
+    .wishlist_menu2 {
+        right: 18px;
+    }
+
+    #MOVE_TOP_BTN {
+        right: 30px;
+    }
+
+    /*카카오 1:1상담 버튼*/
+    #create-channel-chat-button {
+        right: 57px;
+    }
+
+    /*   상품리스트   */
+    .event_list ul {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-between;
+        padding-left: 7%;
+        padding-top: 80px;
+    }
+
+    .event_list li {
+        flex: 0 1 18%;
+        padding: 0 13px 34px;
+        padding-left: 4%;
+    }
+
+    .event_list li a {
+        display: block;
+        position: relative;
+        width: 231px;
+        height: 350px;
+        line-height: 1;
+        border: 1px solid #ddd;
+    }
+
+    .event_list li a .img {
+        overflow: hidden;
+        position: relative;
+        width: 229px;
+        height: 250px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+
+
+
