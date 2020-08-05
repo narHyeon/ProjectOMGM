@@ -15,6 +15,7 @@
 		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
 		<typeAlias alias="usermallfeed" type="com.omgm.user.mall.beans.UserMallFeedVO" />
 		<typeAlias alias="usermalltoy" type="com.omgm.user.mall.beans.UserMallToyVO" />
+		<typeAlias alias="Order" type="com.omgm.admin.mall.beans.OrderVO" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/mall/productToyList-mapping.xml" />
