@@ -42,7 +42,7 @@
     </delete>
 <!--    장난감 목록 가져오는 쿼리문-->
     <select id="getMallToyList" resultType="mallToy">
-        SELECT toy_code, toy_name, toy_discount, toy_img  FROM TOY ORDER BY toy_code DESC
+        SELECT *  FROM TOY ORDER BY toy_code DESC
     </select>
 <!--     장난감 상세정보 가져오는 쿼리문-->
     <select id="getMallToyOne" resultType="mallToy" parameterType="mallToy">
@@ -67,7 +67,7 @@
     </delete>
 <!--    사료 목록 나열 쿼리문-->
     <select id="getMallFeedList" resultType="mallFeed">
-        SELECT feed_code, feed_name, feed_discount, feed_img  FROM FEED ORDER BY feed_code DESC
+        SELECT *  FROM FEED ORDER BY feed_code DESC
     </select>
 <!--    사료 상세정보 쿼리문-->
     <select id="getMallFeedOne" resultType="mallFeed" parameterType="mallFeed">

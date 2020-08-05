@@ -124,6 +124,15 @@ public class MallController {
         return mav;
     }
 
+    // 사료 목록 삭제 컨트롤러
+    @RequestMapping("/deleteMallFeed.mdo")
+    public ModelAndView deleteMallFeed(MallFeedVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mallService.deleteMallFeed(vo);
+        mav.setViewName("redirect:/productInquiryFeed.mdo");
+        return mav;
+    }
+
     // 사료 등록 리스트 나열 컨트롤러
     @RequestMapping("/productInquiryFeed.mdo")
     public ModelAndView getMallFeedList(MallFeedVO vo) throws Exception{
