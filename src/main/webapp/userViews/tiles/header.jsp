@@ -217,5 +217,20 @@
 		<label for="login_popup"></label>
 	</div>
 
+	<c:if test="${member != null}">
+		<c:if test="${member.id == '무'}">
+			<script>
+				alert('로그인 할 수 없습니다!');
+			</script>
+		</c:if>
+		<c:if test="${member.name != null}">
+			<script>
+				document.querySelector('.login_membership').innerHTML =
+						`<li><a href="" onclick="login(event)">myInfo</a></li>
+                     <li><p>|</p></li>
+                     <li><a href="logout.lo">logout</a></li>`;
+			</script>
+		</c:if>
+	</c:if>
 </body>
 </html>

@@ -62,12 +62,11 @@ public class MemberController {
     }
 
     @RequestMapping("/login.lo")
-    public ModelAndView login(HttpServletRequest request, MemberVO vo) {
+    public ModelAndView login(HttpSession session, MemberVO vo) {
         ModelAndView mav = new ModelAndView();
         MemberVO mvo = memberService.getMember(vo);
         mav.setViewName("/main");
         if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
-            HttpSession session = request.getSession();
             session.setAttribute("member",mvo);
             if(mvo.getType().equals("관리자")) {
                 mav.setViewName("redirect:adminMain.mdo");
@@ -91,11 +90,10 @@ public class MemberController {
 
     // SNS계정 로그인
     @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.GET)
-    public ModelAndView snsLogin(HttpServletRequest request, MemberVO vo) {
+    public ModelAndView snsLogin(HttpSession session, MemberVO vo) {
         ModelAndView mav = new ModelAndView();
         MemberVO mvo = memberService.snsCheck(vo);
         if(mvo != null) {
-            HttpSession session = request.getSession();
             session.setAttribute("member",mvo);
         }
         mav.setViewName("/main");
