@@ -49,7 +49,7 @@
 					</ul></li>
 				<li><a href="#">OMGMall </a>
 					<ul>
-						<li><a href="#"> 사료 </a></li>
+						<li><a href="getMallFeedList.do"> 사료 </a></li>
 						<li><a href="toySales.do"> 장난감 </a></li>
 					</ul></li>
 				<li><a href="#">Info </a>
