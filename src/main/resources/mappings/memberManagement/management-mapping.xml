@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="MemberDAO">
+<mapper namespace="ManagementDAO">
 
-    <resultMap type="MemberVO" id="MemberResult">
+    <resultMap type="ManagementVO" id="ManagementResult">
         <id property="seq" column="SEQ" />
         <result property="id" column="ID"/>
         <result property="pwd" column="PWD"/>
@@ -21,21 +21,9 @@
     </resultMap>
 
     <!-- 실 사용 -->
-    <insert id="addMember" parameterType="MemberVO">
-        INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address, type, code)
-        VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address}, #{type}, #{code})
-    </insert>
-
-    <select id="idCheck" parameterType="MemberVO" resultType="int">
-        SELECT count(*) FROM member WHERE id = #{id}
+    <select id="memberTable" resultMap="ManagementResult">
+        SELECT * FROM member WHERE type != '관리자'
     </select>
 
-    <select id="snsCheck" parameterType="MemberVO" resultType="MemberVO">
-        SELECT * FROM member WHERE code = #{code}
-    </select>
-
-    <select id="getMember" resultType="MemberVO" parameterType="MemberVO">
-            SELECT * FROM member WHERE id=#{id}
-    </select>
 
 </mapper>

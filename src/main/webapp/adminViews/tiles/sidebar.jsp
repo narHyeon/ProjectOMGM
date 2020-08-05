@@ -12,7 +12,7 @@
     <!-- Sidebar - Brand -->
     <a
             class="sidebar-brand d-flex align-items-center justify-content-center"
-            href="index.html">
+            href="adminMain.mdo">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -25,7 +25,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active"><a class="nav-link" href="index.html">
+    <li class="nav-item active"><a class="nav-link" href="adminMain.mdo">
         <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
     </a></li>
 
@@ -44,10 +44,10 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">운영관리:</h6>
-                <a class="collapse-item" href="buttons.html">공지사항/이벤트</a>
-				<a class="collapse-item" href="cards.html">이용후기</a>
-				<a class="collapse-item" href="cards.html">프로모션</a>
-				<a class="collapse-item" href="cards.html">고객센터</a>
+                <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 예정</a>
+				<a class="collapse-item" href="cards.html">이용후기 - 예정</a>
+				<a class="collapse-item" href="cards.html">프로모션 - 예정</a>
+				<a class="collapse-item" href="cards.html">고객센터 - 예정</a>
             </div>
         </div>
     </li>
@@ -62,10 +62,9 @@
              aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">회원관리:</h6>
-                <a class="collapse-item" href="utilities-color.html">HOTEL 회원</a>
-				<a class="collapse-item" href="utilities-border.html">MALL 회원</a>
-				<a class="collapse-item" href="utilities-animation.html">관리자 목록</a>
-				<a class="collapse-item" href="utilities-other.html">기타 관리</a>
+                <a class="collapse-item" href="memberTable.mdo">오묘가묘 가족 목록</a>
+				<a class="collapse-item" href="utilities-animation.html">관리자 목록 - 예정</a>
+				<a class="collapse-item" href="utilities-other.html">기타 관리 - 예정</a>
             </div>
         </div>
     </li>
@@ -86,36 +85,10 @@
              aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">호텔:</h6>
-					<a class="collapse-item" href="login.html">호텔 예약</a>
-					<a class="collapse-item" href="register.html">객실 관리</a>
-					<a class="collapse-item" href="blank.html">호텔 정산</a>
+					<a class="collapse-item" href="hotelReservation.mdo">호텔 예약</a>
+					<a class="collapse-item" href="register.html">객실 관리 - 예정</a>
+					<a class="collapse-item" href="blank.html">호텔 정산 - 예정</a>
                 <div class="collapse-divider"></div>
-                <h6 class="collapse-header">서비스 관리:</h6>
-					<a class="collapse-item" href="404.html">픽업 서비스</a>
-					<a class="collapse-item" href="404.html">문자알림 서비스</a>
-					<a class="collapse-item" href="blank.html">서비스 정산</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item"><a class="nav-link collapsed" href="#"
-                            data-toggle="collapse" data-target="#collapsePages"
-                            aria-expanded="true" aria-controls="collapsePages"> <i
-            class="fas fa-fw fa-folder"></i> <span>KINDERGARDEN</span>
-    </a>
-        <div id="collapsePages2" class="collapse"
-             aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">유치원:</h6>
-					<a class="collapse-item" href="register.html">유치원 예약</a>
-					<a class="collapse-item" href="404.html">유치원 시간표</a>
-					<a class="collapse-item" href="blank.html">유치원 정산</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">서비스 관리:</h6>
-					<a class="collapse-item" href="404.html">픽업 서비스</a>
-					<a class="collapse-item" href="404.html">문자알림 서비스</a>
-					<a class="collapse-item" href="blank.html">서비스 정산</a>
             </div>
         </div>
     </li>
@@ -123,26 +96,60 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item"><a class="nav-link collapsed" href="#"
                             data-toggle="collapse" data-target="#collapsePages2"
-                            aria-expanded="true" aria-controls="collapsePages">
-		<i class="fas fa-fw fa-folder"></i> <span>MALL</span>
+                            aria-expanded="true" aria-controls="collapsePages"> <i
+            class="fas fa-fw fa-folder"></i> <span>KINDERGARDEN</span>
+    </a>
+        <div id="collapsePages2" class="collapse"
+             aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">유치원:</h6>
+					<a class="collapse-item" href="kinderGardenReservation.mdo">유치원 예약</a>
+					<a class="collapse-item" href="kinderGardenSchedule.mdo">유치원 시간표</a>
+					<a class="collapse-item" href="kinderGardenScheduleMonth.mdo">유치원 달력</a>
+					<a class="collapse-item" href="blank.html">유치원 정산 - 예정</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item"><a class="nav-link collapsed" href="#"
+                            data-toggle="collapse" data-target="#collapsePages3"
+                            aria-expanded="true" aria-controls="collapsePages"> <i
+            class="fas fa-fw fa-folder"></i> <span>Service</span>
     </a>
         <div id="collapsePages3" class="collapse"
              aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">서비스 관리:</h6>
+                <a class="collapse-item" href="pickupServiceManagement.mdo">픽업 서비스</a>
+                <a class="collapse-item" href="404.html">문자알림 서비스 - 예정</a>
+                <a class="collapse-item" href="blank.html">서비스 정산 - 예정</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item"><a class="nav-link collapsed" href="#"
+                            data-toggle="collapse" data-target="#collapsePages4"
+                            aria-expanded="true" aria-controls="collapsePages">
+		<i class="fas fa-fw fa-folder"></i> <span>MALL</span>
+    </a>
+        <div id="collapsePages4" class="collapse"
+             aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">상품:</h6>
-					<a class="collapse-item" href="login.html">상품등록</a>
-					<a class="collapse-item" href="register.html">상품조회</a>
-					<a class="collapse-item" href="forgot-password.html">상품등록</a>
+					<a class="collapse-item" href="productRegister.mdo">상품등록</a>
+					<a class="collapse-item" href="productInquiryToy.mdo">상품조회</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">판매:</h6>
-					<a class="collapse-item" href="404.html">주문조회</a>
-					<a class="collapse-item" href="404.html">배송현황</a>
-					<a class="collapse-item" href="blank.html">교환</a>
-					<a class="collapse-item" href="blank.html">반품</a>
+					<a class="collapse-item" href="productStatus.mdo">주문현황 - 예정</a>
+					<a class="collapse-item" href="deliveryStatus.mdo">배송현황</a>
+					<a class="collapse-item" href="blank.html">교환 - 예정</a>
+					<a class="collapse-item" href="blank.html">반품 - 예정</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">관리:</h6>
-					<a class="collapse-item" href="blank.html">MALL 정산</a>
-					<a class="collapse-item" href="blank.html">문의/리뷰</a>
+					<a class="collapse-item" href="blank.html">MALL 정산 - 예정</a>
+					<a class="collapse-item" href="blank.html">문의/리뷰 - 예정</a>
             </div>
         </div>
     </li>
