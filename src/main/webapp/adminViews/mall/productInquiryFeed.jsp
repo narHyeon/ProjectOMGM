@@ -45,7 +45,7 @@
         border-bottom: 1px solid black;
     }
 </style>
-<a href="productInquiryToy.mdo">장난감 상품 조회 -></a>
+<a href="productInquiryToy.mdo">장난감 상품 조회 이동</a>
 
 <div id="productInquiry_searchbox">
     <div class="header">

@@ -46,7 +46,7 @@ public class MallController {
                 this.fileName02 = update_uploadFile.getOriginalFilename();
                 update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
             }else{
-                this.fileName = "cat.jpg";
+                this.fileName02 = "cat.jpg";
             }
             vo.setToy_img(fileName02);
 
@@ -113,7 +113,7 @@ public class MallController {
             this.fileName01 = feed_uploadFile.getOriginalFilename();
             feed_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName01));
         }else{
-            this.fileName = "cat.jpg";
+            this.fileName01 = "cat.jpg";
         }
         vo.setFeed_img(fileName01);
         mallService.insertMallFeed(vo);
@@ -149,7 +149,7 @@ public class MallController {
             this.fileName03 = feed_update_uploadFile.getOriginalFilename();
             feed_update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
         }else{
-            this.fileName = "cat.jpg";
+            this.fileName03 = "cat.jpg";
         }
         vo.setFeed_img(fileName03);
 
