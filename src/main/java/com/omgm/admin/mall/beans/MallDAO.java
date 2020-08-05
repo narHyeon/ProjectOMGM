@@ -44,6 +44,8 @@ public class MallDAO {
     // 사료 디비 정보 수정
     public void updateMallFeed(MallFeedVO vo) {sqlSessionTemplate.update("MallDAO.updateMallFeed", vo); }
 
+    // 사료 디비 정보 삭제
+    public void deleteMallFeed(MallFeedVO vo) {sqlSessionTemplate.delete("MallDAO.deleteMallFeed", vo);}
     // 사료 디비 리시트 불러오기
     public List<MallFeedVO> getMallFeedList () {
         return sqlSessionTemplate.selectList("MallDAO.getMallFeedList");
@@ -51,5 +53,6 @@ public class MallDAO {
 
     // 사료 디비 열 하나 정보 불러오기
     public MallFeedVO getMallFeedOne(MallFeedVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallFeedOne", vo);}
+
 
 }

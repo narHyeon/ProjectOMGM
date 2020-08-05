@@ -10,9 +10,9 @@
 		<typeAlias alias="ReviewReplyVO" type="com.omgm.user.review.beans.ReviewReplyVO"/>
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
-		<typeAlias alias="mallToy" type="com.omgm.admin.mall.beans.MallToyVO"/>
+		<typeAlias alias="mallToyVO" type="com.omgm.admin.mall.beans.MallToyVO"/>
 		<typeAlias alias="mallOrder" type="com.omgm.admin.mall.beans.MallOrderVO" />
-		<typeAlias alias="mallFeed" type="com.omgm.admin.mall.beans.MallFeedVO" />
+		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
 		<typeAlias alias="usermallfeed" type="com.omgm.user.mall.beans.UserMallFeedVO" />
 		<typeAlias alias="usermalltoy" type="com.omgm.user.mall.beans.UserMallToyVO" />
 	</typeAliases>
