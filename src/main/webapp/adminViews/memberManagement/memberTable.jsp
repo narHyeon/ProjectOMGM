@@ -8,7 +8,7 @@
             justify-content: flex-end;
         }
         #memberTable div input {
-            width: 30%;
+            width: 20%;
             margin: 10px;
         }
     </style>
