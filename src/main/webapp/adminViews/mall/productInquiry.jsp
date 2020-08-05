@@ -27,9 +27,21 @@
         height: 15%;
     }
     .name {
-        margin-left: 2%;
-        margin-right: 2%;
-
+        display: table-cell;
+        vertical-align: center;
+        justify-content: center;
+        padding-top: 5.5%;
+        text-align: center;
+        width: 150px;
+        /*border: 1px solid black;*/
+    }
+    .name01 {
+        display: table-cell;
+        vertical-align: center;
+        justify-content: center;
+        text-align: center;
+        width: 150px;
+        border-bottom: 1px solid black;
     }
 </style>
 
@@ -40,21 +52,32 @@
         <h1>장난감 상품 조회</h1>
         <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
     </div>
-
+    <div style="display: flex; margin-top: 2%; margin-bottom: 2%;">
+<%--        <p style="margin">장난감 코드</p>--%>
+   </div>
     <div class="container">
+        <span class="name01">장난감 이미지</span>
+        <span class="name01">장난감 코드</span>
+        <span class="name01">장난감 이름</span>
+        <span class="name01">장난감 입고날짜</span>
+        <span class="name01">장난감 가격</span>
+        <span class="name01">장난감 할인가</span>
+        <span class="name01">장난감 제고</span>
         <c:forEach var="toyList" items="${toyList}">
         <div class="item" >
-            
-            <a href="productDeleteUpdate.mdo?toy_code=${toyList.toy_code}"><img style="width: 200px; height: 200px; margin: 2%"src="resources/img/product/${toyList.toy_img}"></a>
+
+            <a href="productDeleteUpdate.mdo?toy_code=${toyList.toy_code}"><img style="width: 151px; height: 151px; margin-top: 2%; margin-bottom: 0.5%"src="resources/img/product/${toyList.toy_img}"></a>
 
             <span class="name">${toyList.toy_code}</span>
-            <span class="name">${toyList.toy_name}</span>
-            <span class="name">${toyList.toy_instock}</span>
-            <span class="name">${toyList.toy_price}</span>
-            <span class="name">${toyList.toy_discount}</span>
-            <span class="name">${toyList.toy_stock}</span>
+                <span class="name">${toyList.toy_name}</span>
+                <span class="name">${toyList.toy_instock}</span>
+                <span class="name">${toyList.toy_price}</span>
+                <span class="name">${toyList.toy_discount}</span>
+                <span class="name">${toyList.toy_stock}</span>
+            </tr>
         </div>
         </c:forEach>
+
     </div>
 
 </div>
