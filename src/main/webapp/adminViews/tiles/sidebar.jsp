@@ -12,7 +12,7 @@
     <!-- Sidebar - Brand -->
     <a
             class="sidebar-brand d-flex align-items-center justify-content-center"
-            href="index.html">
+            href="adminMain.mdo">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -25,7 +25,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active"><a class="nav-link" href="index.html">
+    <li class="nav-item active"><a class="nav-link" href="adminMain.mdo">
         <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
     </a></li>
 
@@ -62,8 +62,7 @@
              aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">회원관리:</h6>
-                <a class="collapse-item" href="utilities-color.html">HOTEL 회원 - 예정</a>
-				<a class="collapse-item" href="utilities-border.html">MALL 회원 - 예정</a>
+                <a class="collapse-item" href="utilities-color.html">회원 목록 - 예정</a>
 				<a class="collapse-item" href="utilities-animation.html">관리자 목록 - 예정</a>
 				<a class="collapse-item" href="utilities-other.html">기타 관리 - 예정</a>
             </div>
@@ -96,7 +95,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item"><a class="nav-link collapsed" href="#"
-                            data-toggle="collapse" data-target="#collapsePages"
+                            data-toggle="collapse" data-target="#collapsePages2"
                             aria-expanded="true" aria-controls="collapsePages"> <i
             class="fas fa-fw fa-folder"></i> <span>KINDERGARDEN</span>
     </a>
@@ -114,11 +113,11 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item"><a class="nav-link collapsed" href="#"
-                            data-toggle="collapse" data-target="#collapsePages"
+                            data-toggle="collapse" data-target="#collapsePages3"
                             aria-expanded="true" aria-controls="collapsePages"> <i
             class="fas fa-fw fa-folder"></i> <span>Service</span>
     </a>
-        <div id="collapsePages4" class="collapse"
+        <div id="collapsePages3" class="collapse"
              aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">서비스 관리:</h6>
@@ -131,11 +130,11 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item"><a class="nav-link collapsed" href="#"
-                            data-toggle="collapse" data-target="#collapsePages2"
+                            data-toggle="collapse" data-target="#collapsePages4"
                             aria-expanded="true" aria-controls="collapsePages">
 		<i class="fas fa-fw fa-folder"></i> <span>MALL</span>
     </a>
-        <div id="collapsePages3" class="collapse"
+        <div id="collapsePages4" class="collapse"
              aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">상품:</h6>
