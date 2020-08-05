@@ -66,14 +66,17 @@ public class MemberController {
     public ModelAndView login(HttpServletRequest request, MemberVO vo) {
         ModelAndView mav = new ModelAndView();
         MemberVO mvo = memberService.getMember(vo);
+        mav.setViewName("/main");
         if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
             HttpSession session = request.getSession();
             session.setAttribute("member",mvo);
+            if(mvo.getType().equals("관리자")) {
+                mav.setViewName("redirect:adminMain.mdo");
+            }
         } else {
             vo.setId("무");
             mav.addObject("member",vo);
         }
-        mav.setViewName("/main");
         return mav;
     }
 
