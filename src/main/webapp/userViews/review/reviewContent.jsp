@@ -157,6 +157,7 @@
 				<div>
 					<p>${rv.id} : </p>
 					<p>${rv.content}</p>
+					<p>${rv.regDate}</p>
 				</div>
 			</c:forEach>
 		</div>
