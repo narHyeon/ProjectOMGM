@@ -29,16 +29,16 @@
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
   <hr>
   <h3>관리자 개별 작업 페이지</h3>
-  <a href="kinderGardenSchedule.mdo">관리자 유치원 시간표</a>
-  <a href="kinderGardenScheduleMonth.mdo">관리자 유치원 달력</a>
-  <a href="kinderGardenReservation.mdo">관리자 유치원 예약현황</a>
-  <a href="hotelReservation.mdo">호텔 예약현황 페이지 이동</a>
-  <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
-  <a href="productRegister.mdo">상품등록 페이지 이동</a>
-  <a href="productInquiryToy.mdo">상품조회 장난감 페이지 이동</a>
-  <a href="productStatus.mdo">주문현황 페이지 이동</a>
-  <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>
-  <a href="orderInquiry.mdo">주문 조회 페이지 이동</a>
-  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>
+  <a href="productStatus.mdo">주문현황 페이지 이동 - 해결바람</a>
+  <a href="orderInquiry.mdo">주문조회 페이지 이동 - 해결바람</a>
+<%--  <a href="kinderGardenSchedule.mdo">관리자 유치원 시간표</a>--%>
+<%--  <a href="kinderGardenScheduleMonth.mdo">관리자 유치원 달력</a>--%>
+<%--  <a href="kinderGardenReservation.mdo">관리자 유치원 예약현황</a>--%>
+<%--  <a href="hotelReservation.mdo">호텔 예약현황 페이지 이동</a>--%>
+<%--  <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>--%>
+<%--  <a href="productRegister.mdo">상품등록 페이지 이동</a>--%>
+<%--  <a href="productInquiryToy.mdo">상품조회 장난감 페이지 이동</a>--%>
+<%--  <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>--%>
+<%--  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>--%>
 </body>
 </html>
