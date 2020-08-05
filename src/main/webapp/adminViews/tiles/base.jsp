@@ -39,7 +39,7 @@
 					<tiles:insertAttribute name="header" />
 				</div>
 				<!-- Begin Page Content -->
-				<div class="container-fluid">
+				<div style="min-height:565px;" class="container-fluid">
 					<tiles:insertAttribute name="body" />
 				</div>
 				<!-- /.container-fluid -->
@@ -78,7 +78,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+					<a class="btn btn-primary" href="logout.lo">Logout</a>
 				</div>
 			</div>
 		</div>
