@@ -15,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,7 +56,11 @@ public class reviewController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/review/reviewContent");
         rvo.setBoardSeq(vo.getSeq());
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH");
         List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
+        for(ReviewReplyVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
+
         mav.addObject("review",reviewService.getReview(vo));
         mav.addObject("reply",reviewService.getReviewReply(rvo));
         return mav;
