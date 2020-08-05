@@ -23,10 +23,10 @@ public class MallController {
     MallService mallService;
 
     // 파일 업로드 관련 파일 이름 변수 선언
-    String fileName;
-    String fileName01;
-    String fileName02;
-    String fileName03;
+    String fileName="";
+    String fileName01="";
+    String fileName02="";
+    String fileName03="";
 
     /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
 
@@ -61,10 +61,12 @@ public class MallController {
 
         ModelAndView mav = new ModelAndView();
         MultipartFile uploadFile = vo.getUploadFile();
-        if(!uploadFile.isEmpty()) {
-            this.fileName = uploadFile.getOriginalFilename();
-            uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
-        }
+
+            if(!uploadFile.isEmpty()) {
+                this.fileName = uploadFile.getOriginalFilename();
+                uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            }
+        System.out.println(fileName);
         vo.setToy_img(fileName);
         mallService.insertMallToy(vo);
         mav.setViewName("redirect:/productInquiryToy.mdo");

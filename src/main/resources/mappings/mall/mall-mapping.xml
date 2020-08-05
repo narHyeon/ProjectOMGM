@@ -4,7 +4,7 @@
 <!--마이 베티스 연결 이름-->
     <mapper namespace="MallDAO">
         <!-- 토이 테이블  -->
-        <resultMap type="mallToy" id="toy">
+        <resultMap type="mallToyVO" id="toy">
             <id property="toy_code" column="TOY_CODE" />
             <result property="toy_name" column="TOY_NAME" />
             <result property="toy_inStock" column="TOY_INSTOCK" />
@@ -16,7 +16,7 @@
             <result property="toy_img" column="TOY_IMG" />
         </resultMap>
     <!-- 사료 테이블 -->
-    <resultMap type="mallFeed" id="feed">
+    <resultMap type="mallFeedVO" id="feed">
         <id property="feed_code" column="FEED_CODE" />
         <result property="feed_name" column="FEED_NAME" />
         <result property="feed_inStock" column="FEED_INSTOCK" />
@@ -30,51 +30,51 @@
     </resultMap>
 <!--    장난감 관련 쿼리문-->
 <!--    장난감 등록 쿼리문-->
-    <insert id="insertMallToy" parameterType="mallToy">
+    <insert id="insertMallToy" parameterType="mallToyVO">
         INSERT INTO toy (toy_code, toy_name, toy_inStock, toy_price,
             toy_discount, toy_stock, toy_point, toy_info, toy_img)
         VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},
             #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})
     </insert>
 <!--    장난감 등록 삭제 쿼리문-->
-    <delete id="deleteMallToy" parameterType="mallToy">
+    <delete id="deleteMallToy" parameterType="mallToyVO">
         DELETE FROM toy WHERE toy_code=#{toy_code}
     </delete>
 <!--    장난감 목록 가져오는 쿼리문-->
-    <select id="getMallToyList" resultType="mallToy">
+    <select id="getMallToyList" resultType="mallToyVO">
         SELECT *  FROM TOY ORDER BY toy_code DESC
     </select>
 <!--     장난감 상세정보 가져오는 쿼리문-->
-    <select id="getMallToyOne" resultType="mallToy" parameterType="mallToy">
+    <select id="getMallToyOne" resultType="mallToyVO" parameterType="mallToyVO">
         SELECT * from TOY WHERE toy_code=#{toy_code}
     </select>
 <!--    장난감 수정 하는 쿼리문-->
-    <update id="updateMallToy" parameterType="mallToy">
+    <update id="updateMallToy" parameterType="mallToyVO">
         UPDATE TOY set toy_name=#{toy_name}, TOY_PRICE=#{toy_price}, TOY_DISCOUNT=#{toy_discount}, TOY_STOCK=#{toy_stock}, TOY_POINT=#{toy_point}, TOY_INFO=#{toy_info}, TOY_IMG=#{toy_img}  where toy_code=#{toy_code}
     </update>
 
 <!--    /////////////// 사료 관련 쿼리문 /////////////////////////////////////////////////////////    -->
 <!--        사료 등록 쿼리문-->
-    <insert id="insertMallFeed" parameterType="mallFeed">
+    <insert id="insertMallFeed" parameterType="mallFeedVO">
         INSERT INTO feed (feed_code, feed_name, feed_expiration, feed_price,
             feed_discount, feed_stock, feed_point, feed_info, feed_img)
         VALUES(feed_seq.nextval, #{feed_name}, #{feed_expiration}, #{feed_price},
             #{feed_discount}, #{feed_stock}, #{feed_point}, #{feed_info}, #{feed_img})
     </insert>
 <!--    사료 등록 삭제 쿼리문-->
-    <delete id="deleteMallFeed" parameterType="mallFeed">
+    <delete id="deleteMallFeed" parameterType="mallFeedVO">
         DELETE FROM feed WHERE feed_code=#{feed_code}
     </delete>
 <!--    사료 목록 나열 쿼리문-->
-    <select id="getMallFeedList" resultType="mallFeed">
+    <select id="getMallFeedList" resultType="mallFeedVO">
         SELECT * FROM FEED ORDER BY feed_code DESC
     </select>
 <!--    사료 상세정보 쿼리문-->
-    <select id="getMallFeedOne" resultType="mallFeed" parameterType="mallFeed">
+    <select id="getMallFeedOne" resultType="mallFeedVO" parameterType="mallFeedVO">
         SELECT * from feed WHERE feed_code=#{feed_code}
     </select>
 <!--    사료 정보 수정 쿼리문-->
-    <update id="updateMallFeed" parameterType="mallFeed">
+    <update id="updateMallFeed" parameterType="mallFeedVO">
         UPDATE feed set feed_name=#{feed_name}, feed_PRICE=#{feed_price}, feed_DISCOUNT=#{feed_discount},feed_expiration=#{feed_expiration}, feed_STOCK=#{feed_stock}, feed_POINT=#{feed_point}, feed_INFO=#{feed_info}, feed_IMG=#{feed_img}  where feed_code=#{feed_code}
     </update>
 

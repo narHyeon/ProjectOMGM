@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -70,10 +71,10 @@
 
             <span class="name">${toyList.toy_code}</span>
                 <span class="name">${toyList.toy_name}</span>
-                <span class="name">${toyList.toy_instock}</span>
-                <span class="name">${toyList.toy_price}</span>
-                <span class="name">${toyList.toy_discount}</span>
-                <span class="name">${toyList.toy_stock}</span>
+                <span class="name"><fmt:formatDate value="${toyList.toy_instock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
+                <span class="name">${toyList.toy_price}원</span>
+                <span class="name">${toyList.toy_discount}원</span>
+                <span class="name">${toyList.toy_stock}개</span>
             </tr>
         </div>
         </c:forEach>

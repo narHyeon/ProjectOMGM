@@ -8,7 +8,7 @@ public class MallFeedVO {
     private int feed_code;
     private String feed_name;
     private Date feed_instock;
-    private int feed_expiration;
+    private String feed_expiration;
     private String feed_price;
     private String feed_discount;
     private String feed_stock;
@@ -79,11 +79,11 @@ public class MallFeedVO {
         this.feed_instock = feed_instock;
     }
 
-    public int getFeed_expiration() {
+    public String getFeed_expiration() {
         return feed_expiration;
     }
 
-    public void setFeed_expiration(int feed_expiration) {
+    public void setFeed_expiration(String feed_expiration) {
         this.feed_expiration = feed_expiration;
     }
 

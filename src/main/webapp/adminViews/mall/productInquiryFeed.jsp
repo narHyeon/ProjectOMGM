@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -66,11 +67,11 @@
                 <a href="productDeleteUpdateFeed.mdo?feed_code=${feedList.feed_code}"><img style="width: 135px; height: 135px; margin-top: 2%; margin-bottom: 0.5%"src="resources/img/product/${feedList.feed_img}"></a>
                 <span class="name">${feedList.feed_code}</span>
                 <span class="name">${feedList.feed_name}</span>
-                <span class="name">${feedList.feed_instock}</span>
-                <span class="name">${feedList.feed_expiration}</span>
-                <span class="name">${feedList.feed_price}</span>
-                <span class="name">${feedList.feed_discount}</span>
-                <span class="name">${feedList.feed_stock}</span>
+                <span class="name"><fmt:formatDate value="${feedList.feed_instock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
+                <span class="name">d - ${feedList.feed_expiration}</span>
+                <span class="name">${feedList.feed_price}원</span>
+                <span class="name">${feedList.feed_discount}원</span>
+                <span class="name">${feedList.feed_stock}개</span>
             </div>
         </c:forEach>
     </div>
