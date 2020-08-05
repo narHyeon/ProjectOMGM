@@ -41,7 +41,7 @@
           <c:forEach var="FeedList" items="${FeedList}">
             <li>
                 <a href="">
-                    <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                    <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
                     <em>NEW</em>
                     <div class="info">
                         <strong>${FeedList.feed_name}</strong>
@@ -55,7 +55,7 @@
             <c:forEach var="ToyList" items="${ToyList}">
                 <li>
                     <a href="">
-                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
+                        <div><img src="resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
                         <em>NEW</em>
                         <div class="info">
                             <strong>${ToyList.toy_name}</strong>
@@ -115,26 +115,6 @@
 
     }
 
-
-    //스크롤메뉴
-    $(function(){
-        var t;
-        var timer;
-
-        // $(window).scroll(function(){
-        // 	t=$(window).scrollTop();
-        // 	$(".ball").animate({top:t+300}, 300);
-        // });
-
-        $(window).scroll(function(){
-            clearTimeout(timer);
-            timer=setTimeout(function(){
-                t=$(window).scrollTop();
-                $(".wishlist_menu, .wishlist_menu2, #create-channel-chat-button").animate({top:t+400},1);
-            }, 150);
-        });
-    });
-
     //top버튼
     $(function() {
         $(window).scroll(function() {
@@ -152,14 +132,6 @@
             return false;
         });
     });
-
-        //카카오 플러스친구 1:1
-        Kakao.init('c089c8172def97eb00c07217cae17495');
-        Kakao.Channel.createChatButton({
-            container: '#create-channel-chat-button',
-            channelPublicId: '_VmDAK'
-        });
-        //]]>
 
 </script>
 </body>
