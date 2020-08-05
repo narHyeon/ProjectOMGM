@@ -36,7 +36,8 @@
   <a href="deliveryStatus.mdo">배송현황 페이지 이동</a>
   <a href="productRegister.mdo">상품등록 페이지 이동</a>
   <a href="productInquiryToy.mdo">상품조회 장난감 페이지 이동</a>
-  <a href="productStatus.mdo">주문현황 페이지 이동</a>
+  <a href="productStatus.mdo">주문현황상세 페이지 이동</a>
+  <a href="productOrder.mdo">주문현황 페이지 이동</a>
   <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>
   <a href="orderInquiry.mdo">주문 조회 페이지 이동</a>
   <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>

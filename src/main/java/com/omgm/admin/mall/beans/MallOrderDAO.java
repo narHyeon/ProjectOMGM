@@ -12,9 +12,21 @@ public class MallOrderDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    //주문추가(상세)
     public void insertMallOrder(MallOrderVO vo) {
         sqlSessionTemplate.insert("MallOrderDAO.insertMallOrder", vo);
     }
+
+    //주문삭제(상세)
     public int deleteMallOrder(MallOrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteMallOrder",vo); }
+
+    //주문목록보기(상세)
     public List<MallOrderVO> getMallOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getMallOrderList"); }
+
+    //주문목록보기
+    public List<OrderVO> getOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getOrderList"); }
+
+    //주문삭제
+    public int deleteOrder(OrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder",vo); }
+
 }

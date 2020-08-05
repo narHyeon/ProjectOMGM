@@ -36,11 +36,16 @@
                 <thead>
                 <tr>
                     <th>주문번호</th>
-                    <th>ID</th>
+                    <th>주문자ID</th>
                     <th>주문날짜</th>
-                    <th>주문상태</th>
+                    <th>상품이름</th>
+                    <th>받는사람</th>
+                    <th>우편번호</th>
+                    <th>배달지주소</th>
                     <th>전화번호</th>
-                    <th>메모</th>
+                    <th>주문상태</th>
+                    <th>결제금액</th>
+                    <th>주문시 요청사항</th>
                     <th>삭제</th>
                 </tr>
                 </thead>
@@ -52,10 +57,15 @@
                             <th>${pro_status.order_status_no}</th>
                             <th>${pro_status.order_status_id}</th>
                             <th>${pro_status.order_status_date}</th>
-                            <th>${pro_status.order_status_state}</th>
+                            <th>${pro_status.order_status_name}</th>
+                            <th>${pro_status.order_status_receiver}</th>
+                            <th>${pro_status.order_status_zipcode}</th>
+                            <th>${pro_status.order_status_address1}<br>${pro_status.order_status_address2}</th>
                             <th>${pro_status.order_status_phone}</th>
+                            <th>${pro_status.order_status_state}</th>
+                            <th>${pro_status.order_status_price}</th>
                             <th>${pro_status.order_status_memo}</th>
-                            <th><button  type="submit" class="btn btn-primary btn-delete">삭제</button></th>
+                            <th><button type="submit" class="btn btn-primary btn-delete">삭제</button></th>
                         </tr>
                     </c:forEach>
                 </form>

@@ -3,6 +3,7 @@ package com.omgm.admin.mall.service;
 import com.omgm.admin.mall.beans.MallOrderVO;
 import com.omgm.admin.mall.beans.MallFeedVO;
 import com.omgm.admin.mall.beans.MallToyVO;
+import com.omgm.admin.mall.beans.OrderVO;
 
 import java.util.List;
 
@@ -22,10 +23,13 @@ public interface MallService {
     List<MallFeedVO> getMallFeedList() throws Exception; // 사료 목록 나열
     MallFeedVO getMallFeedOne(MallFeedVO vo) throws Exception; // 사료 상세정보 페이지
 
-    //관리자 주문목록페이지
+    //관리자 주문목록페이지(상세보기) 관련 서비스
     void insertMallOrder(MallOrderVO vo) throws Exception;
     List<MallOrderVO> getMallOrderList() throws Exception;
     void deleteMallOrder(MallOrderVO vo) throws Exception;
 
+   //관리자 주문목록페이지 관련 서비스
+   List<OrderVO> getOrderList() throws Exception;
+   void deleteOrder(OrderVO vo) throws Exception;
 
 }

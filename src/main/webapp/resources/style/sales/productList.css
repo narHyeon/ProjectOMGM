@@ -158,6 +158,16 @@
     line-height: 60px;
 }
 
+.product_form{
+    display:flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    padding-top: 60px;
+}
+
+
+
+
 /*하단 페이징*/
 .pro_paging {
     padding: 28px 0 60px;
@@ -270,7 +280,7 @@ a:hover {
         display: none;
         margin: 0 auto;
     }
-    
+
     /*   상품리스트   */
     .proList_main h2{
         padding-top:45%;
@@ -280,13 +290,13 @@ a:hover {
         flex-flow: row wrap;
         align-content: space-between;
         padding-left: 7%;
-        padding-top: 80px;
+        padding-top: 30px;;
     }
 
     .event_list li {
         flex: 0 1 18%;
-        padding: 0 13px 34px;
-        padding-left: 4%;
+        padding: 0 0 34px;
+
     }
 
     .event_list li a {
@@ -306,6 +316,9 @@ a:hover {
         border-bottom: 1px solid #ddd;
     }
 }
+
+
+
 
 
 
