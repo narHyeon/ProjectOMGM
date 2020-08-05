@@ -52,7 +52,9 @@
         <h1>사료 상품 조회</h1>
         <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
     </div>
-
+    <div style="display: flex; justify-content: flex-end; padding-right: 10%; margin-bottom: -2%;">
+        <a href="productRegister.mdo"><button class="btn btn-primary">상품 등록하기</button></a>
+    </div>
     <div class="container">
         <span class="name01">장난감 이미지</span>
         <span class="name01">장난감 코드</span>
