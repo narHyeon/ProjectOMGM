@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-    <div class="card mb-4 py-3 border-bottom-primary">
+    <div class="card mb-4 py-3 border-bottom-info">
         <div class="card-body">
            유치원 시간표 관리
         </div>
@@ -124,7 +124,7 @@
             </ul>
         </div>
         <div class="admin_kindergarden_schedule_button">
-            <a href="login.html" class="btn btn-primary btn-user ">초기화</a>
+            <a href="login.html" class="btn btn-info btn-user ">초기화</a>
             <a href="login.html" class="btn btn-success btn-user ">적용</a>
         </div>
     </div>
