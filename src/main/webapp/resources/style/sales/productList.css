@@ -82,6 +82,7 @@
 
 .event_list ul {
     display: flex;
+    flex-direction: row;
     flex-flow: row wrap;
     align-content: space-between;
     padding-left: 11%;
@@ -148,7 +149,7 @@
     top: 3%;
     z-index: 2;
     width: 24%;
-    height:  15%;
+    height: 15%;
     border-radius: 100%;
     background: rgba(0, 0, 0, .5);
     color: #fff;
@@ -242,72 +243,6 @@ a:hover {
     text-decoration: none;
 }
 
-/*!*플로팅메뉴*!*/
-/*.wishlist_menu {*/
-/*    border: 1px solid #EEE;*/
-/*    position: absolute;*/
-/*    top: 400px;*/
-/*    right: 50px;*/
-/*    width: 60px;*/
-/*    height: 60px;*/
-/*    -webkit-transition: top 0.4s;*/
-/*    transition: top 0.4s;*/
-/*    font-size: 30px;*/
-/*    color: #5a5a5a;*/
-/*    padding-left: 12px;*/
-/*    padding-top: 16px;*/
-
-/*}*/
-
-/*.wishlist_menu2 {*/
-/*    border: 1px solid #EEE;*/
-/*    position: absolute;*/
-/*    top: 400px;*/
-/*    right: 50px;*/
-/*    width: 60px;*/
-/*    height: 120px;*/
-/*    -webkit-transition: top 0.4s;*/
-/*    transition: top 0.4s;*/
-/*    font-size: 30px;*/
-/*    color: #5a5a5a;*/
-/*    padding-left: 15px;*/
-/*    padding-top: 75px;*/
-
-/*}*/
-
-/*.wishlist_menu i:hover, .wishlist_menu2 i:hover {*/
-/*    color: #F28888;*/
-/*}*/
-
-/*#MOVE_TOP_BTN {*/
-/*    position: fixed;*/
-/*    right: 60px;*/
-/*    bottom: 50px;*/
-/*    display: none;*/
-/*    z-index: 999;*/
-/*    background: #F28888;*/
-/*    color:white;*/
-/*    width: 50px;*/
-/*    height: 50px;*/
-/*    border-radius: 40px;*/
-/*    padding-left: 11px;*/
-/*    padding-top: 17px;*/
-/*}*/
-
-/*!*카카오 1:1상담 버튼*!*/
-/*#create-channel-chat-button {*/
-/*    position: absolute;*/
-/*    top: 400px;*/
-/*    right: 90px;*/
-/*    width: 60px;*/
-/*    height: 60px;*/
-/*    -webkit-transition: top 0.4s;*/
-/*    transition: top 0.4s;*/
-/*    font-size: 30px;*/
-/*    padding-left: 15px;*/
-/*    padding-top: 120px;*/
-/*}*/
-
 @media screen and (max-width: 1024px) {
     /*이미지 슬라이더*/
     .proList_main h2{
@@ -335,25 +270,7 @@ a:hover {
         display: none;
         margin: 0 auto;
     }
-
-    /*!*플로팅메뉴*!*/
-    /*.wishlist_menu {*/
-    /*    right: 18px;*/
-    /*}*/
-
-    /*.wishlist_menu2 {*/
-    /*    right: 18px;*/
-    /*}*/
-
-    /*#MOVE_TOP_BTN {*/
-    /*    right: 30px;*/
-    /*}*/
-
-    /*!*카카오 1:1상담 버튼*!*/
-    /*#create-channel-chat-button {*/
-    /*    right: 57px;*/
-    /*}*/
-
+    
     /*   상품리스트   */
     .proList_main h2{
         padding-top:45%;

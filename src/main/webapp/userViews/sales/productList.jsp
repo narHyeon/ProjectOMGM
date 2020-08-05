@@ -107,9 +107,25 @@
 
     }
 
+    //top버튼
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+
+        $("#MOVE_TOP_BTN").click(function() {
+            $('.pro_html, .proList_body').animate({
+                scrollTop : 0
+            }, 200);
+            return false;
+        });
+    });
     //상품상태출력
     if ($('.toyname').text() != '') { $('.menu').show(); }
-
 
 </script>
 </body>

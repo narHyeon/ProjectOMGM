@@ -258,19 +258,19 @@ function snsSignCheck(event, result) {
 // sns 아이디 가입 여부 검사
 function snsSignDuple(result) {
     const xhr = new XMLHttpRequest();
+    const data = result;
 
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(object.id === '유') {
-                alert('이미 가입된 계정입니다. 이용하시려면 로그인해주세요!');
+                loginSNS(data);
                 return;
             }
             return snsSign(result);
         }
     }
 
-    const data = result;
 
     xhr.open('POST', 'snsSignDuple.lo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
@@ -278,8 +278,9 @@ function snsSignDuple(result) {
 };
 
 function signKakao() {
+    document.querySelector('#login_popup').checked = false;
     return new Promise((resolve, reject) => {
-        Kakao.init('24643592d6715878e7cd5aa89f148e76');
+        // Kakao.init('24643592d6715878e7cd5aa89f148e76');
         Kakao.Auth.login({
             success: function (authObj) {
                 // 로그인 성공시, API를 호출합니다.
@@ -310,3 +311,26 @@ function signNaver() {
     const url = 'https://nid.naver.com/nidlogin.login?oauth_token=eJvN5z7x5d6QzpKZNA&consumer_key=epIAIQoP1jJTDyUpzFxX&logintp=oauth2&nurl=https%3A%2F%2Fnid.naver.com%2Foauth2.0%2Fauthorize%3Fresponse_type%3Dtoken%26state%3D43d2d90f-736b-4f0b-8de6-d7bb1bbbf95a%26client_id%3DepIAIQoP1jJTDyUpzFxX%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252FnaverCallback.lo%26locale%3Dko_KR%26inapp_view%3D%26oauth_os%3D&locale=ko_KR&inapp_view=&svctype=1';
     window.location.href = url;
 };
+
+// 네이버 로그인
+function loginSNS(data) {
+    const form = document.createElement("form");
+    form.setAttribute("charset", "UTF-8");
+    form.setAttribute("method", "GET"); // Get 또는 Post 입력
+    form.setAttribute("action", "snsLogin.lo");
+
+    const hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "code");
+    hiddenField.setAttribute("value", data.code);
+    hiddenField.setAttribute("type", data.type);
+    form.appendChild(hiddenField);
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}
+
+function mainLogo() {
+    window.location.href = 'main.do';
+}
