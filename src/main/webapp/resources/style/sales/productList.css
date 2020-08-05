@@ -243,7 +243,6 @@ a:hover {
     text-decoration: none;
 }
 
-
 @media screen and (max-width: 1024px) {
     /*이미지 슬라이더*/
     .proList_main h2{
@@ -271,7 +270,7 @@ a:hover {
         display: none;
         margin: 0 auto;
     }
-
+    
     /*   상품리스트   */
     .proList_main h2{
         padding-top:45%;

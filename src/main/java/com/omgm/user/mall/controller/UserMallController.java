@@ -18,6 +18,7 @@ public class UserMallController {
     @Autowired
     UserMallService UserMallService;
 
+    //MallList
     @RequestMapping("/getMallFeedList.do")
     public ModelAndView getMallFeedList(UserMallFeedVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
@@ -27,6 +28,14 @@ public class UserMallController {
         return mav;
     }
 
+    //MallList로 이동
+    @RequestMapping("/productClick.do")
+    public ModelAndView productClick(UserMallFeedVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect:/toy.do");
+
+        return mav;
+    }
 
 }
 

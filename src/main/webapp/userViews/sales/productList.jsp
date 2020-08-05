@@ -41,12 +41,14 @@
           <c:forEach var="FeedList" items="${FeedList}">
             <li>
                 <a href="">
-                    <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
-                    <em>NEW</em>
+                    <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                    <div class="menu" style="display: none;">
+                        <em>NEW</em>
+                    </div>
                     <div class="info">
                         <strong>${FeedList.feed_name}</strong>
                         <p>
-                            <span>${FeedList.feed_price}</span>
+                            <span>${FeedList.feed_inStock}</span>
                         </p>
                     </div>
                 </a>
@@ -55,10 +57,12 @@
             <c:forEach var="ToyList" items="${ToyList}">
                 <li>
                     <a href="">
-                        <div><img src="resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
-                        <em>NEW</em>
+                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
+                        <div class="menu" style="display: none;">
+                            <em>NEW</em>
+                        </div>
                         <div class="info">
-                            <strong>${ToyList.toy_name}</strong>
+                            <strong class="toyname">${ToyList.toy_name}</strong>
                             <p>
                               <span>${ToyList.toy_price}</span>
                             </p>
@@ -79,18 +83,6 @@
             <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
-
-    <div class="scroll_menu">
-        <div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
-        <div class="wishlist_menu" style="cursor:pointer;"><a href="#"></a> <i class="fas fa-shopping-cart"></i></div>
-        <div id="create-channel-chat-button"></div>
-    </div>
-
-<%--    <div class="scroll_menu2">--%>
-<%--        <div class="wishlist_menu2"><i class="far fa-heart"></i></div>--%>
-<%--    </div>--%>
-
-    <div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
 
 </main>
 
@@ -132,6 +124,8 @@
             return false;
         });
     });
+    //상품상태출력
+    if ($('.toyname').text() != '') { $('.menu').show(); }
 
 </script>
 </body>
