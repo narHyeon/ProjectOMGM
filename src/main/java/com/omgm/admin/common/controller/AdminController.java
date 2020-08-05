@@ -54,10 +54,17 @@ public class AdminController {
         mav.setViewName("/orderInquiry/orderInquiry");
         return mav;
     }
+  
     @RequestMapping("/event.mdo")
     public ModelAndView eventpage(AdminVO vo) {
     	ModelAndView mav = new ModelAndView();
     	mav.setViewName("/event/event");
+    	return mav;
+    }
+    @RequestMapping("/eventWrite.mdo")
+    public ModelAndView eventwrite(AdminVO vo) {
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("/event/eventWrite");
     	return mav;
     }
 }

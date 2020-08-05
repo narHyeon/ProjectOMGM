@@ -4,7 +4,6 @@
     <title>Title</title>
 </head>
 <style>
-
     <%--   유치원 소개    --%>
     .kinderGarden {
         text-align: center;
@@ -247,4 +246,3 @@
 </script>
 </body>
 </html>
-

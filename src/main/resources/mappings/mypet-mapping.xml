@@ -3,8 +3,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="MyPetDAO">
-	<select id="getAllMyPetList" resultType="mypet" parameterType="mypet">
-		select * from pet order by pet_owner asc, pet_no asc 
 		
+	<select id="getAllMyPetList" resultType="mypet" parameterType="mypet">
+		select * from pet order by pet_owner asc, pet_no asc 		
 	</select>
+	<insert id="myPetInsert" parameterType="mypet">
+		INSERT INTO pet (pet_kind, pet_variety, pet_name, pet_age, pet_gender, pet_comment)
+		VALUES (#{pet_kind}, #{pet_variety}, #{pet_name}, #{pet_age}, #{pet_gender}, #{pet_comment})
+	</insert>
+	<update id="myPetUpdate" parameterType="mypet">
+		UPDATE PET
+		SET pet_kind=#{pet_kind}, pet_variety=#{pet_variety}, pet_name=#{pet_name}, 
+		pet_age={pet_age}, pet_gender=#{pet_gender}, pet_comment=#{pet_comment}
+	</update>
 </mapper>
