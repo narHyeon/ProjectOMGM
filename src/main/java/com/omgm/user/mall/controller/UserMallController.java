@@ -23,8 +23,11 @@ public class UserMallController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/sales/productList");
         mav.addObject("FeedList", UserMallService.getMallFeedList());
+        mav.addObject("ToyList", UserMallService.getMallToyList());
         return mav;
     }
+
+
 }
 
 

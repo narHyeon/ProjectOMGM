@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="UserMallToyDAO">
+
+    <resultMap type="usermalltoy" id="toy">
+        <id property="toy_code" column="TOY_CODE" />
+        <result property="toy_name" column="TOY_NAME" />
+        <result property="toy_inStock" column="TOY_INSTOCK" />
+        <result property="toy_price" column="TOY_PRICE" />
+        <result property="toy_discount" column="TOY_DISCOUNT" />
+        <result property="toy_stock" column="TOY_STOCK" />
+        <result property="toy_point" column="TOY_POINT" />
+        <result property="toy_info" column="TOY_INFO" />
+        <result property="toy_img" column="TOY_IMG" />
+    </resultMap>
+
+
+<!--    <insert id="insertMallToy" parameterType="mallToy">-->
+<!--        INSERT INTO toy (toy_code, toy_name, toy_inStock, toy_price,-->
+<!--            toy_discount, toy_stock, toy_point, toy_info, toy_img)-->
+<!--        VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},-->
+<!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
+<!--    </insert>-->
+
+    <select id="getMallToyList" resultType="usermalltoy">
+        SELECT toy_code,toy_name,toy_price, toy_img FROM TOY ORDER BY toy_code DESC
+    </select>
+    </mapper>

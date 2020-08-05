@@ -37,6 +37,7 @@
     </div>
     <div class="event_list">
         <ul>
+            <form action="productDetail.do">
           <c:forEach var="FeedList" items="${FeedList}">
             <li>
                 <a href="">
@@ -51,6 +52,21 @@
                 </a>
             </li>
           </c:forEach>
+            <c:forEach var="ToyList" items="${ToyList}">
+                <li>
+                    <a href="">
+                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
+                        <em>NEW</em>
+                        <div class="info">
+                            <strong>${ToyList.toy_name}</strong>
+                            <p>
+                              <span>${ToyList.toy_price}</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </c:forEach>
+            </form>
         </ul>
     </div>
     <div class="pro_paging">
