@@ -128,46 +128,46 @@
 
 <div id="pro_write">
     <h2>상품등록</h2><br><br><br>
-    <form method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
+    <form  method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div>
             <label>상품이미지 : </label>
-            <input id="productRegister_change_text_00"type="file" class="title" /><br><br>
+            <input name="uploadFile" id="productRegister_change_text_00"type="file" class="title" /><br><br>
         </div>
 
         <div>
             <label >상품명 : </label><br>
-            <input id="productRegister_change_text_01" class="title" type="text" /><br><br>
+            <input name="toy_name" id="productRegister_change_text_01" class="title" type="text" /><br><br>
         </div>
 
         <div>
             <label>판매가 : </label><br>
-            <input type="text" id="proPrice" class="title" /><br><br>
+            <input name="toy_price" type="text" id="proPrice" class="title" /><br><br>
         </div>
 
         <div>
             <label>할인가 : </label><br>
-            <input type="text" id="proDisPrice" class="title" /><br><br>
+            <input name="toy_discount" type="text" id="proDisPrice" class="title" /><br><br>
         </div>
 
         <div>
             <label id="proStockL">재고 : </label>
-            <input type="text" id="proStock" class="title" /><br><br>
+            <input name="toy_stock" type="text" id="proStock" class="title" /><br><br>
         </div>
 
         <div id="proExpiration" style="display: none" >
             <label style="font-size:15px">남은 날짜 : </label>
-            <input id="productRegister_change_text_02" type="text" class="title" /><br><br>
+            <input name="feed_expiration" id="productRegister_change_text_02" type="text" class="title" /><br><br>
         </div>
 
         <div>
             <label>적립금 : </label>
-            <label>판매가에서 </label><input type="text" id="pro_point" /><br><br><label>포인트 적립 </label>
+            <label>판매가에서 </label><input name="toy_point" type="text" id="pro_point" /><br><br><label>포인트 적립 </label>
         </div>
 
         <div class="inputArea">
             <label>상품설명</label>
-            <textarea rows="10" cols="80" id="proIntro"  style="resize: none;"></textarea>
+            <textarea name="toy_info" rows="10" cols="80" id="proIntro"  style="resize: none;"></textarea>
         </div>
 
         <div>

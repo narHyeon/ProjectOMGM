@@ -46,12 +46,15 @@
     }
 </style>
 
-    <a href="productInquiryFeed.mdo">사료 상품 조회</a>
+    <a href="productInquiryFeed.mdo">사료 상품 조회 이동</a>
 
 <div id="productInquiry_searchbox">
     <div class="header">
         <h1>장난감 상품 조회</h1>
         <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
+    </div>
+    <div style="display: flex; justify-content: flex-end; padding-right: 10%; margin-bottom: -2%;">
+        <a href="productRegister.jsp"<button class="btn btn-primary">상품 등록하기</button>
     </div>
     <div style="display: flex; margin-top: 2%; margin-bottom: 2%;">
 <%--        <p style="margin">장난감 코드</p>--%>
