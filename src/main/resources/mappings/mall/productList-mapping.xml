@@ -17,7 +17,7 @@
     </resultMap>
 
     <select id="getMallFeedList" resultType="usermallfeed">
-        SELECT feed_code,feed_name,feed_price, feed_img FROM FEED ORDER BY feed_code DESC
+        SELECT feed_code,feed_name,feed_price, feed_img, feed_inStock FROM FEED ORDER BY feed_code DESC
     </select>
 </mapper>
 
