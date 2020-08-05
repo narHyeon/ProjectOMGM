@@ -60,6 +60,10 @@
 	border-top: 2px solid #a94442 !important;
 }
 
+.review_content_prne:hover {
+	cursor: pointer;
+}
+
 .review_content_reply {
 	display: flex;
 	flex-direction: column;

@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="MemberVO" type="com.omgm.member.beans.MemberVO"/>
+		<typeAlias alias="ManagementVO" type="com.omgm.admin.memberManagement.beans.ManagementVO"/>
 		<typeAlias alias="ReviewVO" type="com.omgm.user.review.beans.ReviewVO"/>
 		<typeAlias alias="ReviewReplyVO" type="com.omgm.user.review.beans.ReviewReplyVO"/>
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
@@ -21,6 +22,7 @@
 		<mapper resource="mappings/mall/order-mapping.xml" />
 		<mapper resource="mappings/mall/mall-mapping.xml" />
 		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/memberManagement/management-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>
 		<mapper resource="mappings/faq-mapping.xml"/>
 		<mapper resource="mappings/category-mapping.xml" />

@@ -16,7 +16,7 @@
 	<input type="checkbox" id="sidebar">
 
 	<nav class="navbar">
-		<div class="navbar_logo">
+		<div class="navbar_logo" onclick="mainLogo()">
 			<td><img src="resources/img/자산%201.png" width="160px" /></td>
 		</div>
 
@@ -49,7 +49,7 @@
 					</ul></li>
 				<li><a href="#">OMGMall </a>
 					<ul>
-						<li><a href="#"> 사료 </a></li>
+						<li><a href="getMallFeedList.do"> 사료 </a></li>
 						<li><a href="toySales.do"> 장난감 </a></li>
 					</ul></li>
 				<li><a href="#">Info </a>
@@ -91,7 +91,7 @@
 				</ul></li>
 			<li><a href="#">OMGMall</a>
 				<ul class="sub_menu">
-					<li><a href="#"> 사료 </a></li>
+					<li><a href="getMallFeedList.do"> 사료 </a></li>
 					<li><a href="toySales.do"> 장난감 </a></li>
 				</ul></li>
 			<li><a href="#">Info</a>
@@ -198,20 +198,39 @@
 				</div>
 
 				<div class="txtbox"> <!-- PW필드-->
-					<input name="pwd" type="pwd" required autocomplete=off>
+					<input name="pwd" type="password" required autocomplete=off>
 					<span data-placeholder="Password"></span>
 				</div>
 
 				<input type="submit" class="logbtn" value="Login"> <!-- 로그인버튼-->
+				<p class="bottom-text">SNS를 이용한 로그인</p>
+				<input type="button" class="logbtn2" value="Google" onClick="signGoogle()"> <!-- 로그인버튼-->
+				<input type="button" class="logbtn3" value="Naver" onClick="signNaver()"> <!-- 로그인버튼-->
+				<input type="button" class="logbtn4" value="Kakao" onClick="signKakao()"> <!-- 로그인버튼-->
 
 				<div class="bottom-text">
-					계정이 없으신가요? <a href="#" onClick="signUp(event)">Sign up</a><br> <!-- 회원가입 페이지로이동-->
-					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->
+					계정이 없으신가요? <a href="#" onClick="signUp(event)">SignUp</a><br> <!-- 회원가입 페이지로이동-->
+<%--					계정을 잊으셨나요? <a href="#">Here</a> <!--아이디/비밀번호 찾는 페이지로 이동-->--%>
 				</div>
 			</form>
 		</div>
 		<label for="login_popup"></label>
 	</div>
 
+	<c:if test="${member != null}">
+		<c:if test="${member.id == '무'}">
+			<script>
+				alert('로그인 할 수 없습니다!');
+			</script>
+		</c:if>
+		<c:if test="${member.name != null}">
+			<script>
+				document.querySelector('.login_membership').innerHTML =
+						`<li><a href="" onclick="login(event)">myInfo</a></li>
+                     <li><p>|</p></li>
+                     <li><a href="logout.lo">logout</a></li>`;
+			</script>
+		</c:if>
+	</c:if>
 </body>
 </html>

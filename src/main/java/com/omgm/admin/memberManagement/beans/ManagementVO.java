@@ -1,8 +1,8 @@
-package com.omgm.member.beans;
+package com.omgm.admin.memberManagement.beans;
 
 import java.util.Date;
 
-public class MemberVO {
+public class ManagementVO {
     private int seq;
     private String id;
     private String pwd;
@@ -17,9 +17,9 @@ public class MemberVO {
     private Date regDate;
     private String code;
 
-    public MemberVO() { }
+    public ManagementVO() { }
 
-    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate, String code) {
+    public ManagementVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate, String code) {
         this.seq = seq;
         this.id = id;
         this.pwd = pwd;

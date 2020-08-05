@@ -39,7 +39,7 @@
 		border-radius: 100%;
 		background-color: white;
 		position: absolute;
-		top: 360px;
+		top: 370px;
 		right: 50px;
 		width: 55px;
 		height: 55px;
@@ -71,7 +71,7 @@
 	/*카카오 1:1상담 버튼*/
 	#create-channel-chat-button {
 		position: absolute;
-		top: 415px;
+		top: 425px;
 		right: 65px;
 		width: 55px;
 		height: 55px;

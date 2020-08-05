@@ -1,10 +1,8 @@
 package com.omgm.user.common.controller;
 
 import com.omgm.user.common.beans.CommonVO;
-import com.omgm.user.mall.beans.UserMallFeedVO;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 

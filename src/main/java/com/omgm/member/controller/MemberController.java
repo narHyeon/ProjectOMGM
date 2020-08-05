@@ -2,7 +2,6 @@ package com.omgm.member.controller;
 
 import com.omgm.member.beans.MemberVO;
 import com.omgm.member.service.MemberService;
-import com.omgm.user.common.beans.CommonVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -63,18 +62,19 @@ public class MemberController {
     }
 
     @RequestMapping("/login.lo")
-    public ModelAndView login(HttpServletRequest request, MemberVO vo) {
+    public ModelAndView login(HttpSession session, MemberVO vo) {
         ModelAndView mav = new ModelAndView();
         MemberVO mvo = memberService.getMember(vo);
+        mav.setViewName("/main");
         if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
-            mav.addObject("member",mvo);
-            HttpSession session = request.getSession();
             session.setAttribute("member",mvo);
+            if(mvo.getType().equals("관리자")) {
+                mav.setViewName("redirect:adminMain.mdo");
+            }
         } else {
             vo.setId("무");
             mav.addObject("member",vo);
         }
-        mav.setViewName("/main");
         return mav;
     }
 
@@ -84,6 +84,18 @@ public class MemberController {
         session.invalidate();
         // 2. 세션 종료 후 메인 화면으로 이동
         ModelAndView mav = new ModelAndView();
+        mav.setViewName("/main");
+        return mav;
+    }
+
+    // SNS계정 로그인
+    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.GET)
+    public ModelAndView snsLogin(HttpSession session, MemberVO vo) {
+        ModelAndView mav = new ModelAndView();
+        MemberVO mvo = memberService.snsCheck(vo);
+        if(mvo != null) {
+            session.setAttribute("member",mvo);
+        }
         mav.setViewName("/main");
         return mav;
     }
