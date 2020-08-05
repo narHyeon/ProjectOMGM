@@ -116,7 +116,7 @@
         <div id="productDeleteUpdate_img_div" style="padding-bottom: 10%; width: 50%; display: flex; flex-direction: column;  margin-right: 10%;">
 
             <img name="" style="vertical-align:center;width: 90%;"src="resources/img/product/${mallFeedOne.feed_img}">
-
+            <input type="hidden" name="feed_img" value="${mallFeedOne.feed_img}" >
             <label style="text-align: center; margin-top:3%;width: 100%">상품이미지</label>
             <input type="file" name="feed_update_uploadFile" />
             <label style="width: 42%"><이미지 변경하기></label>
