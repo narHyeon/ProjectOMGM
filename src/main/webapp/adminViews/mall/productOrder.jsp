@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -9,6 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link rel="stylesheet" href="productOrder.css">
 <head>
     <style>
         #order_table input {
@@ -103,7 +105,7 @@
         /* detail */
         input[id*="popup"] {display:none;}
         input[id*="popup"] ~ div {position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;}
-        input[id*="popup"] ~ div > div {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;z-index:2;}
+        input[id*="popup"] ~ div > div {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;z-index:2; width:600px; height:700px; }
         /*input[id*="popup"] ~ div > div > label {position:absolute;top:0%;right:0%;transform:translate(40%,-40%);padding:20px;background:#dd5347;border-radius:100%;z-index:1;}*/
         input[id*="popup"] ~ div > label {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:1;}
 
@@ -138,7 +140,7 @@
                     <c:forEach var="order" items="${order}">
                         <input type="hidden" name="order_no" value="${order.order_no}">
                         <tr>
-                            <th>${order.order_no}</th>
+                            <th id="orderSeq">${order.order_no}</th>
                             <th>${order.order_id}</th>
                             <th>${order.order_date}</th>
                             <th>${order.order_phone}</th>
@@ -162,23 +164,13 @@
     <div>
         <label for="detail_popup"></label>
         <form action="login.lo" class="detail-form">
-            <h1 style="font-weight:700;">주문상세</h1>
+            <h1 style="font-weight:700; padding-left: 300px; ">주문상세</h1>
 
-            <div class="txtbox">
-                <label>주문번호 : </label><br>
-                <input type="text"  class="order_txt" /><br><br>
-            </div>
-
-            <div class="txtbox">
-                <label>주문날짜 : </label><br>
-                <input type="text" id="proPrice" class="order_txt" /><br><br>
-            </div>
-
-            <div class="txtbox">
-                <label>주문자ID : </label><br>
-                <input type="text" id="proPrice" class="order_txt" /><br><br>
-            </div>
-
+        <c:forEach var="order" items="${order}">
+            <input type="hidden" name="order_no" value="${order.order_no}">
+                    <p><span>주문자</span>${order.order_id}</p>
+                    <p><span>주문날짜</span>${order.order_date}</p>
+        </c:forEach>
             <table class="table table-bordered" id="order_List" width="100%" cellspacing="0">
                 <thead>
                 <tr>
@@ -189,41 +181,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="order" items="${order}">
-                        <input type="hidden" name="order_no" value="${order.order_no}">
+                <input type="hidden" name=""
+                    <c:forEach var="pro_status" items="${pro_status}">
+                        <input id="orderSeq2" type="hidden" name="order_status_no" value="">
                         <tr>
-                            <th>${order.order_no}</th>
-                            <th>${order.order_id}</th>
-                            <th>${order.order_date}</th>
-                            <th>${order.order_price}</th>
+                            <th>${pro_status.order_status_no}</th>
+                            <th>${pro_status.order_status_id}</th>
+                            <th>${pro_status.order_status_date}</th>
+                            <th>${pro_status.order_status_price}</th>
                         </tr>
+
                     </c:forEach>
                 </tbody>
             </table>
+            <c:forEach var="pro_status" items="${pro_status}">
+                <input type="hidden" name="order_status_no" value="${pro_status.order_status_no}">
+            <p><span>수령인</span>${pro_status.order_status_receiver}</p>
+            <p><span>주소</span>(${pro_status.order_status_zipcode}<br>${pro_status.order_status_address1}${pro_status.order_status_address2}</p>
+            <p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${pro_status.order_status_price}" /> 원</p>
 
 
-
-            <div class="txtbox">
-                <label>전화번호 : </label><br>
-                <input type="text" class="order_txt" /><br><br>
-            </div>
-
-            <div class="txtbox">
-                <label>받는사람 : </label><br>
-                <input type="text" class="order_txt" /><br><br>
-            </div>
-
-            <div class="txtbox">
-                <label>우편번호 : </label><br>
-                <input type="text" class="order_txt" /><br><br>
-            </div>
-
-            <div class="txtbox">
-                <label>배달지주소 : </label><br>
-                <input type="text" class="order_txt" /><br><br>
-            </div>
-
-
+            </c:forEach>
         </form>
     </div>
     <label for="detail_popup"></label>
@@ -233,6 +211,9 @@
 <script>
     // 로그인 버튼
     function detail(event) {
+        const num01 = document.getElementById('orderSeq');
+        const num02 = document.getElementById('orderSeq2');
+        num02.value = num01.value;
         event.preventDefault();
         document.querySelector('#detail_popup').checked = true;
     }

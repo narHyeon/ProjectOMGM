@@ -39,7 +39,7 @@
 
 <!--    주문목록 불러오기(상세)-->
     <select id="getMallOrderList" resultType="mallOrder">
-        SELECT * FROM order_status
+        SELECT * FROM order_status where order_status_no=#{order_status_no}
     </select>
 
 <!--    주문목록 삭제하기(상세)-->

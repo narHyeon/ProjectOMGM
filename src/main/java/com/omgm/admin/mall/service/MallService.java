@@ -27,7 +27,7 @@ public interface MallService {
 
     //관리자 주문목록페이지(상세보기) 관련 서비스
     void insertMallOrder(MallOrderVO vo) throws Exception;
-    List<MallOrderVO> getMallOrderList() throws Exception;
+    List<MallOrderVO> getMallOrderList(MallOrderVO vo) throws Exception;
     void deleteMallOrder(MallOrderVO vo) throws Exception;
 
    //관리자 주문목록페이지 관련 서비스

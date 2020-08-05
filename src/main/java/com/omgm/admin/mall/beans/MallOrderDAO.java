@@ -21,7 +21,7 @@ public class MallOrderDAO {
     public int deleteMallOrder(MallOrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteMallOrder",vo); }
 
     //주문목록보기(상세)
-    public List<MallOrderVO> getMallOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getMallOrderList"); }
+    public List<MallOrderVO> getMallOrderList (MallOrderVO vo) { return sqlSessionTemplate.selectList("MallOrderDAO.getMallOrderList", vo); }
 
     //주문목록보기
     public List<OrderVO> getOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getOrderList"); }

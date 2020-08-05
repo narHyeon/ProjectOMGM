@@ -37,7 +37,7 @@
     </div>
     <div class="event_list">
         <ul>
-            <form action="productDetail.do" class="product_form">
+
           <c:forEach var="FeedList" items="${FeedList}">
             <li class="pro_Li" style="padding-left:5%;">
                 <a href="">
@@ -70,7 +70,7 @@
                     </a>
                 </li>
             </c:forEach>
-            </form>
+
         </ul>
     </div>
     <div class="pro_paging">

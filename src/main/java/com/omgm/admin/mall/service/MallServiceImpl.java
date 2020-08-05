@@ -94,8 +94,8 @@ public class MallServiceImpl implements MallService {
 
     //주문목록불러오기(상세)
     @Override
-    public List<MallOrderVO> getMallOrderList() throws Exception{
-        return mallOrderDAO.getMallOrderList();
+    public List<MallOrderVO> getMallOrderList(MallOrderVO vo) throws Exception{
+        return mallOrderDAO.getMallOrderList(vo);
     }
 
     //주문목록불러오기
