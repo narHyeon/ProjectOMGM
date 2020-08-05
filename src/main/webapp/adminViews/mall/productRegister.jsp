@@ -75,10 +75,9 @@
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
         const divStyle = document.getElementById("proExpiration");
-
-        if(select.options[select.selectedIndex].value === ""){alert('type을 정해주세요'); }
-        else if(select.options[select.selectedIndex].value === "toy") {
-
+        actionForm.action = "insertMallToy.mdo";
+        if(select.options[select.selectedIndex].value === "toy") {
+            actionForm.action = "insertMallToy.mdo";
         }
         else if(select.options[select.selectedIndex].value === "feed") {
             actionForm.action = "insertMallFeed.mdo";
@@ -95,30 +94,30 @@
         const nameChange03 = document.getElementById("proPrice");
         const nameChange04 = document.getElementById("proDisPrice");
         const nameChange05 = document.getElementById("proStock");
-
+        const nameChange06 = document.getElementById("productRegister_change_text_02");
         const nameChange07 = document.getElementById("pro_point");
         const nameChange08 = document.getElementById("proIntro");
-        if(select.options[select.selectedIndex].value === ""){divStyle.style.display="none"}
-        else if(select.options[select.selectedIndex].value === "toy") {divStyle.style.display="none";
+
+        if(select.options[select.selectedIndex].value === "toy") {divStyle.style.display="none";
             actionForm.action = "insertMallToy.mdo";
             nameChange01.name ="uploadFile";
             nameChange02.name = "toy_name";
             nameChange03.name = "toy_price";
             nameChange04.name = "toy_discount";
             nameChange05.name = "toy_stock";
-
+            nameChange06.name = "toy_expiration";
             nameChange07.name = "toy_point";
             nameChange08.name = "toy_info";}
-        else if(select.options[select.selectedIndex].value === "feed") {divStyle.style.display=""
+        else if(select.options[select.selectedIndex].value === "feed") {divStyle.style.display="";
             nameChange01.name ="feed_uploadFile";
             nameChange02.name = "feed_name";
             nameChange03.name = "feed_price";
             nameChange04.name = "feed_discount";
             nameChange05.name = "feed_stock";
-
+            nameChange06.name = "feed_expiration";
             nameChange07.name = "feed_point";
             nameChange08.name = "feed_info";}
-
+        console.log(nameChange01.name);
     }
 </script>
 <select id="select2" class="select1" onclick="changeAction01()" >
