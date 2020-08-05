@@ -100,7 +100,15 @@
         #modalstyle{border: 2px solid #e2e2e2; color:black; font-size:13px;margin-right:2%; width:100px;}
 
 
+        /* detail */
+        input[id*="popup"] {display:none;}
+        input[id*="popup"] ~ div {position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;}
+        input[id*="popup"] ~ div > div {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;z-index:2;}
+        /*input[id*="popup"] ~ div > div > label {position:absolute;top:0%;right:0%;transform:translate(40%,-40%);padding:20px;background:#dd5347;border-radius:100%;z-index:1;}*/
+        input[id*="popup"] ~ div > label {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:1;}
 
+        input[id*="popup"] ~ div {opacity:0;visibility:hidden;transition:all 1s;}
+        input[id*="popup"]:checked ~ div {opacity:1;visibility:visible;}
 
     </style>
 </head>
@@ -136,7 +144,7 @@
                             <th>${order.order_phone}</th>
                             <th>${order.order_state}</th>
                             <th>${order.order_price}</th>
-                            <th><button id="popup" type="button" class="btn btn-primary btn-update">상세보기</button></th>
+                            <th><button onclick="detail(event)" type="button" class="btn btn-primary btn-update">상세보기</button></th>
                             <th><button type="submit" class="btn btn-primary btn-delete">삭제</button></th>
                         </tr>
                     </c:forEach>
@@ -146,6 +154,99 @@
         </div>
     </div>
 </div>
+
+<div>
+<%-- login --%>
+<input type="checkbox" id="detail_popup">
+<div>
+    <div>
+        <label for="detail_popup"></label>
+        <form action="login.lo" class="detail-form">
+            <h1 style="font-weight:700;">주문상세</h1>
+
+            <div class="txtbox">
+                <label>주문번호 : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+            <div class="txtbox">
+                <label>주문날짜 : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+            <div class="txtbox">
+                <label>주문자ID : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+            <table class="table table-bordered" id="order_table" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>주문번호</th>
+                    <th>주문자ID</th>
+                    <th>주문날짜</th>
+                    <th>전화번호</th>
+                    <th>주문상태</th>
+                    <th>결제금액</th>
+                    <th>상세보기</th>
+                    <th>삭제</th>
+                </tr>
+                </thead>
+                <tbody>
+                <form action="/productOrderDelete.mdo">
+                    <c:forEach var="order" items="${order}">
+                        <input type="hidden" name="order_no" value="${order.order_no}">
+                        <tr>
+                            <th>${order.order_no}</th>
+                            <th>${order.order_id}</th>
+                            <th>${order.order_date}</th>
+                            <th>${order.order_phone}</th>
+                            <th>${order.order_state}</th>
+                            <th>${order.order_price}</th>
+                            <th><button onclick="detail(event)" type="button" class="btn btn-primary btn-update">상세보기</button></th>
+                            <th><button type="submit" class="btn btn-primary btn-delete">삭제</button></th>
+                        </tr>
+                    </c:forEach>
+                </form>
+                </tbody>
+            </table>
+
+
+
+            <div class="txtbox">
+                <label>전화번호 : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+            <div class="txtbox">
+                <label>받는사람 : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+            <div class="txtbox">
+                <label>우편번호 : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+            <div class="txtbox">
+                <label>배달지주소 : </label><br>
+                <input type="text" id="proPrice" class="title" /><br><br>
+            </div>
+
+
+        </form>
+    </div>
+    <label for="detail_popup"></label>
+</div>
+</div>
+
+<script>
+    // 로그인 버튼
+    function detail(event) {
+        event.preventDefault();
+        document.querySelector('#detail_popup').checked = true;
+    }
+</script>
 
 </body>
 </html>
