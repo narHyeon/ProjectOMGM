@@ -80,54 +80,54 @@
         </div>
     </div>
 </div>
-<c:if test="${member != null}">
-    <c:if test="${member.id == '무'}">
+    <c:if test="${member != null}">
+        <c:if test="${member.id == '무'}">
+            <script>
+                alert('로그인 할 수 없습니다!');
+            </script>
+        </c:if>
+        <c:if test="${member.name != null}">
+            <script>
+                document.querySelector('.login_membership').innerHTML =
+                    `<li><a href="" onclick="login(event)">myInfo</a></li>
+                     <li><p>|</p></li>
+                     <li><a href="logout.lo">logout</a></li>`;
+            </script>
+        </c:if>
+    </c:if>
+    <c:if test="${result != null}">
         <script>
-            alert('로그인 할 수 없습니다!');
+            window.addEventListener('DOMContentLoaded', (event) => {
+                const result = { code:'${result.aud}', name: '${result.name}', email: '${result.email}', type: 'google' };
+                snsSignDuple(result);
+            });
         </script>
     </c:if>
-    <c:if test="${member.name != null}">
+    <c:if test="${naver.id == 'naver'}">
         <script>
-            document.querySelector('.login_membership').innerHTML =
-                `<li><a href="" onclick="login(event)">myInfo</a></li>
-                 <li><p>|</p></li>
-                 <li><a href="logout.lo">logout</a></li>`;
-        </script>
-    </c:if>
-</c:if>
-<c:if test="${result != null}">
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const result = { code:'${result.aud}', name: '${result.name}', email: '${result.email}', type: 'google' };
-            snsSignDuple(result);
-        });
-    </script>
-</c:if>
-<c:if test="${naver.id == 'naver'}">
-    <script>
-        const naverLogin = new naver.LoginWithNaverId({
+            const naverLogin = new naver.LoginWithNaverId({
                 clientId: "epIAIQoP1jJTDyUpzFxX",
                 callbackUrl: "http://localhost:8080/naverCallback/",
                 isPopup: false,
                 callbackHandle: true
-        });
-        naverLogin.init();
-
-        window.addEventListener('load', function () {
-            naverLogin.getLoginStatus(function (status) {
-
-                if (status) {
-                    const email = naverLogin.user.getEmail();
-                    const name = naverLogin.user.getName();
-                    const id = naverLogin.user.getId();
-                    const result = { code:id, name: name, email: email, type: 'naver' };
-                    snsSignDuple(result);
-                } else {
-                    console.log("callback 처리에 실패하였습니다.");
-                }
             });
-        });
-    </script>
-</c:if>
+            naverLogin.init();
+
+            window.addEventListener('load', function () {
+                naverLogin.getLoginStatus(function (status) {
+
+                    if (status) {
+                        const email = naverLogin.user.getEmail();
+                        const name = naverLogin.user.getName();
+                        const id = naverLogin.user.getId();
+                        const result = { code:id, name: name, email: email, type: 'naver' };
+                        snsSignDuple(result);
+                    } else {
+                        console.log("callback 처리에 실패하였습니다.");
+                    }
+                });
+            });
+        </script>
+    </c:if>
 </body>
 </html>

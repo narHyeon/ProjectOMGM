@@ -2,7 +2,6 @@ package com.omgm.member.controller;
 
 import com.omgm.member.beans.MemberVO;
 import com.omgm.member.service.MemberService;
-import com.omgm.user.common.beans.CommonVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
