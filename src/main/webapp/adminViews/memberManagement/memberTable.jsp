@@ -66,8 +66,6 @@
         for(i=0; i<item.length; i++){
             name = item[i].getElementsByClassName("name");
             if(name[0].innerHTML.toUpperCase().indexOf(value) > -1) {
-                // document.querySelector('.table-bordered thead').innerHTML =
-                //     ``;
                 item[i].style.display = "";
             } else {
                 item[i].style.display = "none";

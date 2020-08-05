@@ -58,6 +58,12 @@ public class MallServiceImpl implements MallService {
         mallDAO.insertMallFeed(vo);
     }
 
+    // 사료(상품) 상품 삭제
+    @Override
+    public void deleteMallFeed(MallFeedVO vo) throws Exception {
+        mallDAO.deleteMallFeed(vo);
+    }
+
     // 사료(상품) 수정(업데이트)
     @Override
     public void updateMallFeed(MallFeedVO vo) throws Exception {

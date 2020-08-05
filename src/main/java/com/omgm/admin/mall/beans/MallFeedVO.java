@@ -8,13 +8,23 @@ public class MallFeedVO {
     private int feed_code;
     private String feed_name;
     private Date feed_instock;
-    private int feed_expiration;
+    private String feed_expiration;
     private String feed_price;
     private String feed_discount;
     private String feed_stock;
     private String feed_point;
     private String feed_info;
     private String feed_img;
+    private MultipartFile feed_uploadFile;
+    private MultipartFile feed_update_uploadFile;
+
+    public MultipartFile getFeed_update_uploadFile() {
+        return feed_update_uploadFile;
+    }
+
+    public void setFeed_update_uploadFile(MultipartFile feed_update_uploadFile) {
+        this.feed_update_uploadFile = feed_update_uploadFile;
+    }
 
     public MultipartFile getFeed_uploadFile() {
         return feed_uploadFile;
@@ -24,7 +34,7 @@ public class MallFeedVO {
         this.feed_uploadFile = feed_uploadFile;
     }
 
-    private MultipartFile feed_uploadFile;
+
 
     public MallFeedVO() {
     }
@@ -69,11 +79,11 @@ public class MallFeedVO {
         this.feed_instock = feed_instock;
     }
 
-    public int getFeed_expiration() {
+    public String getFeed_expiration() {
         return feed_expiration;
     }
 
-    public void setFeed_expiration(int feed_expiration) {
+    public void setFeed_expiration(String feed_expiration) {
         this.feed_expiration = feed_expiration;
     }
 

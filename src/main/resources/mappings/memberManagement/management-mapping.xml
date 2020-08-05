@@ -22,7 +22,7 @@
 
     <!-- 실 사용 -->
     <select id="memberTable" resultMap="ManagementResult">
-        SELECT * FROM member WHERE type != '관리자'
+        SELECT * FROM member WHERE type != '관리자' ORDER BY seq
     </select>
 
 
