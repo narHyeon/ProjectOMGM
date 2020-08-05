@@ -49,7 +49,7 @@
                             <td>${members.address}</td>
                             <td>${members.point}</td>
                             <td>${members.rank}</td>
-                            <td>${members.regDate}</td>
+                            <td>${members.formatDate}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
