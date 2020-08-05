@@ -2,20 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-    <style>
-        #order_table input {
-            width: 100%;
-            border: none;
-        }
-        .del_btn {
-            display: flex;
-            flex-direction: row;
-        }
-        .del_btn_schedule_button a {
-            margin: 5px;
-            width:50%;
-        }
-    </style>
 </head>
 <body>
 <!-- DataTales Example -->
@@ -28,13 +14,16 @@
             <table class="table table-bordered" id="order_table" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>주문번호</th>
+                    <th>회원번호</th>
                     <th>ID</th>
-                    <th>주문날짜</th>
-                    <th>주문상태</th>
+                    <th>이름</th>
                     <th>전화번호</th>
-                    <th>메모</th>
-                    <th>삭제</th>
+                    <th>우편번호</th>
+                    <th>주소</th>
+                    <th>POINT</th>
+                    <th>RANK</th>
+                    <th>가입날짜</th>
+                    <th>CODE</th>
                 </tr>
                 </thead>
                 <tbody>
