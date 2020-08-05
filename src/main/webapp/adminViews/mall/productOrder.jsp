@@ -118,7 +118,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">주문현황</h6>
+        <h6 class="m-0 font-weight-bold text-info">주문현황</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -146,8 +146,8 @@
                             <th>${order.order_phone}</th>
                             <th>${order.order_state}</th>
                             <th>${order.order_price}</th>
-                            <th><button onclick="detail(event)" type="button" class="btn btn-primary btn-update">상세보기</button></th>
-                            <th><button type="submit" class="btn btn-primary btn-delete">삭제</button></th>
+                            <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
+                            <th><button type="submit" class="btn btn-info btn-delete">삭제</button></th>
                         </tr>
                     </c:forEach>
                 </form>
@@ -185,10 +185,12 @@
                     <c:forEach var="pro_status" items="${pro_status}">
                         <input id="orderSeq2" type="hidden" name="order_status_no" value="">
                         <tr>
+
                             <th>${pro_status.order_status_no}</th>
                             <th>${pro_status.order_status_id}</th>
                             <th>${pro_status.order_status_date}</th>
                             <th>${pro_status.order_status_price}</th>
+
                         </tr>
 
                     </c:forEach>

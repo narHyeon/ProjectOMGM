@@ -308,10 +308,13 @@ function signKakao() {
 
 // sns 회원가입 네이버로 넘김
 function signNaver() {
-    // const url = 'https://nid.naver.com/nidlogin.login?oauth_token=eJvN5z7x5d6QzpKZNA&consumer_key=epIAIQoP1jJTDyUpzFxX&logintp=oauth2&nurl=https%3A%2F%2Fnid.naver.com%2Foauth2.0%2Fauthorize%3Fresponse_type%3Dtoken%26state%3D43d2d90f-736b-4f0b-8de6-d7bb1bbbf95a%26client_id%3DepIAIQoP1jJTDyUpzFxX%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252FnaverCallback.lo%26locale%3Dko_KR%26inapp_view%3D%26oauth_os%3D&locale=ko_KR&inapp_view=&svctype=1';
-    // window.location.href = url;
-    console.log('실행실행');
-    document.querySelector('#naverIdLogin').click();
+    const url = 'https://nid.naver.com/nidlogin.login?oauth_token=eJvN5z7x5d6QzpKZNA&consumer_key=epIAIQoP1jJTDyUpzFxX&logintp=oauth2&nurl=https%3A%2F%2Fnid.naver.com%2Foauth2.0%2Fauthorize%3Fresponse_type%3Dtoken%26state%3D43d2d90f-736b-4f0b-8de6-d7bb1bbbf95a%26client_id%3DepIAIQoP1jJTDyUpzFxX%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252FnaverCallback.lo%26locale%3Dko_KR%26inapp_view%3D%26oauth_os%3D&locale=ko_KR&inapp_view=&svctype=1';
+    window.location.href = url;
+    
+    // window.location.href = naverLogin.generateAuthorizeUrl();
+    // document.querySelector('#naverIdLogin').innerHTML = '';
+    // document.querySelector('#naverIdLogin').style = 'display:flex';
+
 };
 
 // 네이버 로그인
@@ -337,14 +340,15 @@ function mainLogo() {
     window.location.href = 'main.do';
 }
 
-const naverLogin = new naver.LoginWithNaverId(
-    {
-        clientId: "epIAIQoP1jJTDyUpzFxX",
-        callbackUrl: "http://localhost:8080/naverCallback.lo",
-        isPopup: false, /* 팝업을 통한 연동처리 여부 */
-        loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
-    }
-);
-
 /* 설정정보를 초기화하고 연동을 준비 */
-naverLogin.init();
+window.addEventListener('DOMContentLoaded', (event) => {
+    const naverLogin = new naver.LoginWithNaverId(
+        {
+            clientId: "epIAIQoP1jJTDyUpzFxX",
+            callbackUrl: "http://localhost:8080/naverCallback.lo",
+            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+            loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+        }
+    );
+    naverLogin.init();
+},{once: true});

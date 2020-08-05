@@ -96,7 +96,8 @@
 	right: 0;
 	z-index: 1000;
 }
-	@media ( max-width : 870px) {
+
+	@media all and (max-width:780px) {
 		#base {
 			overflow: hidden;
 			display: flex;
@@ -105,7 +106,12 @@
 
 			padding-top: 60px;
 		}
+
+		#create-channel-chat-button, .wishlist_menu, .wishlist_menu2 {
+			display: none;
+		}
 	}
+
 </style>
 </head>
 <body>

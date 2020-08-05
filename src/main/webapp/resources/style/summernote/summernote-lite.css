@@ -1,14 +1,14 @@
 /*!
- * 
+ *
  * Super simple wysiwyg editor v0.8.18
  * https://summernote.org
- * 
- * 
+ *
+ *
  * Copyright 2013- Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license.
- * 
+ *
  * Date: 2020-05-20T18:09Z
- * 
+ *
  */
 @font-face {
 	font-family: "summernote";
@@ -1515,8 +1515,7 @@ a.note-dropdown-item, a.note-dropdown-item:hover {
 	margin-bottom: 10px
 }
 
-@
--moz-document url-prefix() { .
+@-moz-document url-prefix() { .
 	note-modal .note-image-input{height: auto
 }
 
@@ -1682,8 +1681,7 @@ a.note-dropdown-item, a.note-dropdown-item:hover {
 	background-color: #e0e0e0
 }
 
-@
--moz-document url-prefix() { .
+@-moz-document url-prefix() { .
 	note-modal .note-image-input{height: auto
 }
 
