@@ -14,6 +14,24 @@ public class MallOrderVO {
     private int order_status_phone;
     private int order_status_point_used;
     private String order_status_memo;
+    private String order_status_name;
+    private int order_status_price;
+
+    public String getOrder_status_name() {
+        return order_status_name;
+    }
+
+    public void setOrder_status_name(String order_status_name) {
+        this.order_status_name = order_status_name;
+    }
+
+    public int getOrder_status_price() {
+        return order_status_price;
+    }
+
+    public void setOrder_status_price(int order_status_price) {
+        this.order_status_price = order_status_price;
+    }
 
     public int getOrder_status_no() {
         return order_status_no;

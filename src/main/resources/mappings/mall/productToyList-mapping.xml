@@ -25,6 +25,6 @@
 <!--    </insert>-->
 
     <select id="getMallToyList" resultType="usermalltoy">
-        SELECT toy_code,toy_name,toy_price, toy_img FROM TOY ORDER BY toy_code DESC
+        SELECT * FROM TOY ORDER BY toy_code DESC
     </select>
     </mapper>

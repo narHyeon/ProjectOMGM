@@ -1,11 +1,7 @@
 package com.omgm.admin.mall.service;
 
 
-import com.omgm.admin.mall.beans.MallOrderDAO;
-import com.omgm.admin.mall.beans.MallOrderVO;
-import com.omgm.admin.mall.beans.MallFeedVO;
-import com.omgm.admin.mall.beans.MallToyVO;
-import com.omgm.admin.mall.beans.MallDAO;
+import com.omgm.admin.mall.beans.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -84,19 +80,33 @@ public class MallServiceImpl implements MallService {
     @Autowired
     MallOrderDAO mallOrderDAO;
 
+    //주문등록(상세)
     @Override
     public void insertMallOrder(MallOrderVO vo) {
         mallOrderDAO.insertMallOrder(vo);
     }
 
+    //주문삭제(상세)
     @Override
     public void deleteMallOrder(MallOrderVO vo) {
          mallOrderDAO.deleteMallOrder(vo);
     }
 
+    //주문목록불러오기(상세)
     @Override
     public List<MallOrderVO> getMallOrderList() throws Exception{
         return mallOrderDAO.getMallOrderList();
     }
 
+    //주문목록불러오기
+    @Override
+    public List<OrderVO> getOrderList() throws Exception{
+        return mallOrderDAO.getOrderList();
+    }
+
+    //주문삭제
+    @Override
+    public void deleteOrder(OrderVO vo) {
+        mallOrderDAO.deleteOrder(vo);
+    }
 }
