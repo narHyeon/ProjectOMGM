@@ -9,6 +9,7 @@ public class ReviewReplyVO {
     private String pwd;
     private String content;
     private Date regDate;
+    private String formatDate;
 
     public ReviewReplyVO() { }
 
@@ -19,6 +20,14 @@ public class ReviewReplyVO {
         this.pwd = pwd;
         this.content = content;
         this.regDate = regDate;
+    }
+
+    public String getFormatDate() {
+        return formatDate;
+    }
+
+    public void setFormatDate(String formatDate) {
+        this.formatDate = formatDate;
     }
 
     public int getSeq() {

@@ -28,7 +28,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">주문현황</h6>
+        <h6 class="m-0 font-weight-bold text-info">주문현황</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -65,7 +65,7 @@
                             <th>${pro_status.order_status_state}</th>
                             <th>${pro_status.order_status_price}</th>
                             <th>${pro_status.order_status_memo}</th>
-                            <th><button type="submit" class="btn btn-primary btn-delete">삭제</button></th>
+                            <th><button type="submit" class="btn btn-info btn-delete">삭제</button></th>
                         </tr>
                     </c:forEach>
                 </form>
