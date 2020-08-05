@@ -12,31 +12,44 @@ import java.util.List;
 public class MallDAO {
 
     @Autowired
-    private SqlSessionTemplate sqlSessionTemplate;
+    private SqlSessionTemplate sqlSessionTemplate; // 마이베티스 연결
 
+    /////////////////  toy 관련 DAO 설정  ///////////////////////////////////////////////////////////
+    // 장난감 디비테이블에 정보 입력
     public void insertMallToy(MallToyVO vo) {
         sqlSessionTemplate.insert("MallDAO.insertMallToy", vo);
     }
 
+    // 장난감 디비 테이블 정보 수정
     public void updateMallToy(MallToyVO vo) {sqlSessionTemplate.update("MallDAO.updateMallToy", vo);}
 
+    // 장난감 디비 테이블 정보 삭제
     public void deleteMallToy(MallToyVO vo) {sqlSessionTemplate.delete("MallDAO.deleteMallToy", vo);}
 
+    // 장난감 디비 정보 나열
     public List<MallToyVO> getMallToyList () {
         return sqlSessionTemplate.selectList("MallDAO.getMallToyList");
     }
 
+    // 장난감 열 하나 정보 불러오기
     public MallToyVO getMallToyOne(MallToyVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallToyOne", vo);}
+
+
     /////////////////  feed 관련 DAO 설정  ///////////////////////////////////////////////////////////
+    // 사료 디비 정보 입력
     public void insertMallFeed(MallFeedVO vo) {
         sqlSessionTemplate.insert("MallDAO.insertMallFeed", vo);
     }
 
+    // 사료 디비 정보 수정
+    public void updateMallFeed(MallFeedVO vo) {sqlSessionTemplate.update("MallDAO.updateMallFeed", vo); }
 
-
+    // 사료 디비 리시트 불러오기
     public List<MallFeedVO> getMallFeedList () {
         return sqlSessionTemplate.selectList("MallDAO.getMallFeedList");
     }
+
+    // 사료 디비 열 하나 정보 불러오기
     public MallFeedVO getMallFeedOne(MallFeedVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallFeedOne", vo);}
 
 }
