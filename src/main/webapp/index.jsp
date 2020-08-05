@@ -41,22 +41,5 @@
 <%--  <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>--%>
 <%--  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>--%>
 
-
-
-
-  <div id="naverIdLogin"></div>
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-  <script>
-    var naverLogin = new naver.LoginWithNaverId(
-            {
-              clientId: "epIAIQoP1jJTDyUpzFxX",
-              callbackUrl: "http://localhost:8080/naverCallback.lo",
-              isPopup: false, /* 팝업을 통한 연동처리 여부 */
-              loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
-            }
-    );
-
-    /* 설정정보를 초기화하고 연동을 준비 */
-    naverLogin.init();
 </body>
 </html>

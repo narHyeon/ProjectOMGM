@@ -217,6 +217,8 @@
 		<label for="login_popup"></label>
 	</div>
 
+	<div style="display: none" id="naverIdLogin"></div>
+
 	<c:if test="${member != null}">
 		<c:if test="${member.id == '무'}">
 			<script>
