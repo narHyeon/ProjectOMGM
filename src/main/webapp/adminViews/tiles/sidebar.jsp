@@ -62,7 +62,7 @@
              aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">회원관리:</h6>
-                <a class="collapse-item" href="utilities-color.html">회원 목록 - 예정</a>
+                <a class="collapse-item" href="memberTable.mdo">회원 목록</a>
 				<a class="collapse-item" href="utilities-animation.html">관리자 목록 - 예정</a>
 				<a class="collapse-item" href="utilities-other.html">기타 관리 - 예정</a>
             </div>

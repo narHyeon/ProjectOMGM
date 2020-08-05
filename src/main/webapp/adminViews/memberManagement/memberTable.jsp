@@ -23,21 +23,21 @@
                     <th>POINT</th>
                     <th>RANK</th>
                     <th>가입날짜</th>
-                    <th>CODE</th>
                 </tr>
                 </thead>
                 <tbody>
                 <form action="productStatusDelete.mdo">
-                    <c:forEach var="pro_status" items="${pro_status}">
-                        <input type="hidden" name="order_status_no" value="${pro_status.order_status_no}">
+                    <c:forEach var="members" items="${memberTable}">
                         <tr>
-                            <th>${pro_status.order_status_no}</th>
-                            <th>${pro_status.order_status_id}</th>
-                            <th>${pro_status.order_status_date}</th>
-                            <th>${pro_status.order_status_state}</th>
-                            <th>${pro_status.order_status_phone}</th>
-                            <th>${pro_status.order_status_memo}</th>
-                            <th><button  type="submit" class="btn btn-primary btn-delete">삭제</button></th>
+                            <th>${members.seq}</th>
+                            <th>${members.id}</th>
+                            <th>${members.name}</th>
+                            <th>${members.phone}</th>
+                            <th>${members.zipcode}</th>
+                            <th>${members.address}</th>
+                            <th>${members.point}</th>
+                            <th>${members.rank}</th>
+                            <th>${members.regDate}</th>
                         </tr>
                     </c:forEach>
                 </form>
