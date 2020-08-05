@@ -30,6 +30,10 @@ a {
 	align-items: flex-start;
 }
 
+.navbar_logo:hover {
+	cursor: pointer;
+}
+
 .navbar_menu {
 	display: none;
 	display: flex;
