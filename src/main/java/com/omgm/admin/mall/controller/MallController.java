@@ -22,13 +22,14 @@ public class MallController {
     @Autowired
     MallService mallService;
 
+    // 파일 업로드 관련 파일 이름 변수 선언
     String fileName;
     String fileName01;
     String fileName02;
 
     //    ///////   토이 관련 설정   ///////////////////////////////////////////////////////////////
 
-    // 상품 상세히 불러오기
+    // 장난감상품 상세히 불러오기
         @RequestMapping("/productDeleteUpdate.mdo")
         public ModelAndView productDeleteUpdate(MallToyVO vo) throws Exception {
             ModelAndView mav = new ModelAndView();
@@ -36,7 +37,8 @@ public class MallController {
             mav.addObject("mallToyOne",mallService.getMallToyOne(vo));
             return mav;
         }
-        //상품 수정하기\
+
+        //장난감 등록 정보 수정
         @RequestMapping("/updateMallToy.mdo")
         public ModelAndView updateMallToy(MallToyVO vo) throws Exception {
             ModelAndView mav = new ModelAndView();
@@ -52,6 +54,7 @@ public class MallController {
             mav.setViewName("redirect:/productInquiryToy.mdo");
             return mav;
         }
+        // 장난감 등록 컨트롤러
     @RequestMapping("/insertMallToy.mdo")
     public ModelAndView insertMallToy(MallToyVO vo) throws Exception {
 
@@ -66,7 +69,7 @@ public class MallController {
         mav.setViewName("redirect:/productInquiryToy.mdo");
         return mav;
     }
-
+    // 장난감 목록 삭제 컨트롤러
     @RequestMapping("/deleteMallToy.mdo")
     public ModelAndView deleteMallToy(MallToyVO vo) throws Exception {
             ModelAndView mav = new ModelAndView();
@@ -74,7 +77,7 @@ public class MallController {
             mav.setViewName("redirect:/productInquiryToy.mdo");
             return mav;
     }
-
+    // 장난감 등록된 목록 나열 컨트롤러
     @RequestMapping("/productInquiryToy.mdo")
     public ModelAndView getMallToyList(MallToyVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
@@ -83,13 +86,9 @@ public class MallController {
 
         return mav;
     }
-    @RequestMapping("/productStatus.mdo")
-    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/mall/productStatus");
-        mav.addObject("pro_status",mallService.getMallOrderList());
-        return mav;
-    }
+
+
+    // 장난감 등록 삭제 컨트롤러
     @RequestMapping("/productStatusDelete.mdo")
     public ModelAndView productStatusDelete(MallOrderVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
@@ -99,15 +98,17 @@ public class MallController {
     }
 
     // //////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
+    // 사료 관련 상세 정보 페이지 컨트롤러
     @RequestMapping("/productDeleteUpdateFeed.mdo")
     public ModelAndView productDeleteUpdateFeed(MallFeedVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
 
         mav.addObject("mallFeedOne",mallService.getMallFeedOne(vo));
         mav.setViewName("mall/productDeleteUpdateFeed");
-        System.out.println(vo.getFeed_discount()+" "+vo.getFeed_name());
         return mav;
     }
+
+    // 사료 관련 등록 컨트롤러
     @RequestMapping("/insertMallFeed.mdo")
     public ModelAndView insertMallFeed(MallFeedVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
@@ -122,11 +123,23 @@ public class MallController {
         return mav;
     }
 
+    // 사료 등록 리스트 나열 컨트롤러
     @RequestMapping("/productInquiryFeed.mdo")
     public ModelAndView getMallFeedList(MallFeedVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/mall/productInquiryFeed");
         mav.addObject("feedList", mallService.getMallFeedList());
+        return mav;
+    }
+
+// #########################################################################################
+
+
+    @RequestMapping("/productStatus.mdo")
+    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/productStatus");
+        mav.addObject("pro_status",mallService.getMallOrderList());
         return mav;
     }
 }
