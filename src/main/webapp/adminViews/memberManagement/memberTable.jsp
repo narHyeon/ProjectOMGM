@@ -2,6 +2,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
+    <style>
+        #memberTable div {
+            display: flex;
+            justify-content: flex-end;
+        }
+        #memberTable div input {
+            width: 30%;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
 <!-- DataTales Example -->
@@ -10,9 +20,11 @@
         <h6 class="m-0 font-weight-bold text-primary">오묘가묘 가족 목록</h6>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <input type="text" onkeyup="filter()" id="memberTable_search" placeholder="검색">
-            <table class="table table-bordered" id="order_table" width="100%" cellspacing="0">
+        <div id="memberTable" class="table-responsive">
+            <div>
+                <input type="text" onkeyup="filter()" id="memberTable_search" placeholder="이름으로 검색" class="form-control bg-light border-0 small">
+            </div>
+            <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>회원번호</th>
@@ -27,21 +39,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form action="productStatusDelete.mdo">
                     <c:forEach var="members" items="${memberTable}">
                         <tr class="memberTable_member">
-                            <th>${members.seq}</th>
-                            <th>${members.id}</th>
-                            <th class="name">${members.name}</th>
-                            <th>${members.phone}</th>
-                            <th>${members.zipcode}</th>
-                            <th>${members.address}</th>
-                            <th>${members.point}</th>
-                            <th>${members.rank}</th>
-                            <th>${members.regDate}</th>
+                            <td>${members.seq}</td>
+                            <td>${members.id}</td>
+                            <td class="name">${members.name}</td>
+                            <td>${members.phone}</td>
+                            <td>${members.zipcode}</td>
+                            <td>${members.address}</td>
+                            <td>${members.point}</td>
+                            <td>${members.rank}</td>
+                            <td>${members.regDate}</td>
                         </tr>
                     </c:forEach>
-                </form>
                 </tbody>
             </table>
         </div>
@@ -56,7 +66,9 @@
         for(i=0; i<item.length; i++){
             name = item[i].getElementsByClassName("name");
             if(name[0].innerHTML.toUpperCase().indexOf(value) > -1) {
-                item[i].style.display = "flex";
+                // document.querySelector('.table-bordered thead').innerHTML =
+                //     ``;
+                item[i].style.display = "";
             } else {
                 item[i].style.display = "none";
             }
