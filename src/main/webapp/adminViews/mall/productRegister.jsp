@@ -75,13 +75,12 @@
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
         const divStyle = document.getElementById("proExpiration");
-        actionForm.action = "insertMallToy.mdo";
+
         if(select.options[select.selectedIndex].value === "toy") {
             actionForm.action = "insertMallToy.mdo";
         }
         else if(select.options[select.selectedIndex].value === "feed") {
             actionForm.action = "insertMallFeed.mdo";
-
         }
 
     }

@@ -74,6 +74,9 @@
 
 <div id="productDeleteUpdate_main_div" style="padding-left: 5%; padding-right: 0%">
     <h2>사료 물품현황 페이지</h2><br><br><br>
+    <div style="display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
+        <a href="productInquiryFeed.mdo"><button class="btn btn-primary">사료 현왕 페이지로 이동</button></a>
+    </div>
     <form method="post" name="productDeleteUpdate_form" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div id="productDeleteUpdate_section_div00" style="display: flex; width: 100%">

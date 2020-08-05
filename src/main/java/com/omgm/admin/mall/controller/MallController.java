@@ -20,10 +20,10 @@ public class MallController {
     MallService mallService;
 
     // 파일 업로드 관련 파일 이름 변수 선언
-    String fileName="";
-    String fileName01="";
-    String fileName02="";
-    String fileName03="";
+    String fileName;
+    String fileName01;
+    String fileName02;
+    String fileName03;
 
     /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
 
@@ -45,6 +45,8 @@ public class MallController {
             if(!update_uploadFile.isEmpty()) {
                 this.fileName02 = update_uploadFile.getOriginalFilename();
                 update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            }else{
+                this.fileName = "cat.jpg";
             }
             vo.setToy_img(fileName02);
 
@@ -62,8 +64,10 @@ public class MallController {
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
                 uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            }else{
+                this.fileName = "cat.jpg";
             }
-        System.out.println(fileName);
+
         vo.setToy_img(fileName);
         mallService.insertMallToy(vo);
         mav.setViewName("redirect:/productInquiryToy.mdo");
@@ -108,6 +112,8 @@ public class MallController {
         if(!feed_uploadFile.isEmpty()) {
             this.fileName01 = feed_uploadFile.getOriginalFilename();
             feed_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName01));
+        }else{
+            this.fileName = "cat.jpg";
         }
         vo.setFeed_img(fileName01);
         mallService.insertMallFeed(vo);
@@ -142,6 +148,8 @@ public class MallController {
         if(!feed_update_uploadFile.isEmpty()) {
             this.fileName03 = feed_update_uploadFile.getOriginalFilename();
             feed_update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+        }else{
+            this.fileName = "cat.jpg";
         }
         vo.setFeed_img(fileName03);
 
