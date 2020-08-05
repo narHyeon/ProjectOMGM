@@ -15,6 +15,16 @@ public class MallFeedVO {
     private String feed_point;
     private String feed_info;
     private String feed_img;
+    private MultipartFile feed_uploadFile;
+    private MultipartFile feed_update_uploadFile;
+
+    public MultipartFile getFeed_update_uploadFile() {
+        return feed_update_uploadFile;
+    }
+
+    public void setFeed_update_uploadFile(MultipartFile feed_update_uploadFile) {
+        this.feed_update_uploadFile = feed_update_uploadFile;
+    }
 
     public MultipartFile getFeed_uploadFile() {
         return feed_uploadFile;
@@ -24,7 +34,7 @@ public class MallFeedVO {
         this.feed_uploadFile = feed_uploadFile;
     }
 
-    private MultipartFile feed_uploadFile;
+
 
     public MallFeedVO() {
     }

@@ -26,8 +26,9 @@ public class MallController {
     String fileName;
     String fileName01;
     String fileName02;
+    String fileName03;
 
-    //    ///////   토이 관련 설정   ///////////////////////////////////////////////////////////////
+    /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
 
     // 장난감상품 상세히 불러오기
         @RequestMapping("/productDeleteUpdate.mdo")
@@ -97,7 +98,7 @@ public class MallController {
         return mav;
     }
 
-    // //////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
+    ////////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
     // 사료 관련 상세 정보 페이지 컨트롤러
     @RequestMapping("/productDeleteUpdateFeed.mdo")
     public ModelAndView productDeleteUpdateFeed(MallFeedVO vo) throws Exception {
@@ -129,6 +130,23 @@ public class MallController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/mall/productInquiryFeed");
         mav.addObject("feedList", mallService.getMallFeedList());
+        return mav;
+    }
+
+    // 사료 등록정보 수정 컨트롤러
+    @RequestMapping("/updateMallFeed.mdo")
+    public ModelAndView updateMallFeed(MallFeedVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+
+        MultipartFile feed_update_uploadFile = vo.getFeed_update_uploadFile();
+        if(!feed_update_uploadFile.isEmpty()) {
+            this.fileName03 = feed_update_uploadFile.getOriginalFilename();
+            feed_update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+        }
+        vo.setFeed_img(fileName03);
+
+        mallService.updateMallFeed(vo);
+        mav.setViewName("redirect:/productInquiryFeed.mdo");
         return mav;
     }
 
