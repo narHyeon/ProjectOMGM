@@ -46,8 +46,7 @@ public class MemberController {
     @ResponseBody
     @RequestMapping(value="/addMember.lo", method = RequestMethod.POST)
     public MemberVO addMember(@RequestBody MemberVO vo) {
-        if(vo.getCode() != null) vo.setCode(bCryptPasswordEncoder.encode(vo.getCode()));
-        else vo.setPwd(bCryptPasswordEncoder.encode(vo.getPwd()));
+        vo.setPwd(bCryptPasswordEncoder.encode(vo.getPwd()));
         memberService.addMember(vo);
         return vo;
     }
