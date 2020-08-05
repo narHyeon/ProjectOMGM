@@ -2,7 +2,6 @@ package com.omgm.admin.memberManagement.controller;
 
 import com.omgm.admin.memberManagement.beans.ManagementVO;
 import com.omgm.admin.memberManagement.service.ManagementService;
-import com.omgm.user.review.beans.ReviewReplyVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +26,7 @@ public class managementController {
         List<ManagementVO> list = managementService.memberTable();
         for(ManagementVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
 
-        mav.addObject("memberTable",managementService.memberTable());
+        mav.addObject("memberTable",list);
         return mav;
     }
 }
