@@ -33,7 +33,7 @@
   <a href="productStatus.mdo">주문현황 페이지 이동 - 해결바람</a>
   <a href="orderInquiry.mdo">주문조회 페이지 이동 - 해결바람</a>
   <a href="productOrder.mdo">주문현황 페이지 이동</a>
-
+  <a href="reviewListBoard.mdo">이용후기 관리 페이지</a>
   <%--  <a href="kinderGardenSchedule.mdo">관리자 유치원 시간표</a>--%>
 <%--  <a href="kinderGardenScheduleMonth.mdo">관리자 유치원 달력</a>--%>
 <%--  <a href="kinderGardenReservation.mdo">관리자 유치원 예약현황</a>--%>

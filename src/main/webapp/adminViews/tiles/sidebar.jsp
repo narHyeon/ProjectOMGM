@@ -45,7 +45,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">운영관리:</h6>
                 <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 예정</a>
-				<a class="collapse-item" href="cards.html">이용후기 - 예정</a>
+				<a class="collapse-item" href="reviewListBoard.mdo">이용후기 - 예정</a>
 				<a class="collapse-item" href="cards.html">프로모션 - 예정</a>
 				<a class="collapse-item" href="cards.html">고객센터 - 예정</a>
             </div>
