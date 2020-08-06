@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MyPetDAO">
+	<select id="getAllMyPetList" resultType="mypet" parameterType="mypet">
+		select * from pet order by pet_owner asc, pet_no asc 
+		
+	</select>
+</mapper>
