@@ -15,7 +15,7 @@ public class ManagementServiceImpl implements ManagementService {
     private ManagementDAO managementDAO;
 
     @Override
-    public List<ManagementVO> memberTable() {
-        return managementDAO.memberTable();
+    public List<ManagementVO> memberTable(ManagementVO vo) {
+        return managementDAO.memberTable(vo);
     }
 }
