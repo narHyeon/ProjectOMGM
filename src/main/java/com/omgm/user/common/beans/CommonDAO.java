@@ -1,6 +1,5 @@
 package com.omgm.user.common.beans;
 
-import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,7 +16,7 @@ public class CommonDAO {
         return sqlSessionTemplate.selectOne("CommonDAO.getSchedule");
     }
 
-    public List<KinderGardenRowVO> getScheduleRow(KinderGardenInfoVO vo) {
+    public List<KinderGardenInfoRowVO> getScheduleRow(KinderGardenInfoVO vo) {
         return sqlSessionTemplate.selectList("CommonDAO.getScheduleRow",vo);
     }
 }

@@ -15,6 +15,7 @@
 		<typeAlias alias="KinderGardenRowVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowVO" />
 		<!--	유저 공통	-->
 		<typeAlias alias="KinderGardenInfoVO" type="com.omgm.user.common.beans.KinderGardenInfoVO" />
+		<typeAlias alias="KinderGardenInfoRowVO" type="com.omgm.user.common.beans.KinderGardenInfoRowVO" />
 		<!--	몰	-->
 		<typeAlias alias="mallToyVO" type="com.omgm.admin.mall.beans.MallToyVO"/>
 		<typeAlias alias="mallOrder" type="com.omgm.admin.mall.beans.MallOrderVO" />

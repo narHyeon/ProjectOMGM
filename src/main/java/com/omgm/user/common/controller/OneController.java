@@ -2,7 +2,7 @@ package com.omgm.user.common.controller;
 
 import com.omgm.user.common.beans.CommonVO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
-import com.omgm.user.common.beans.KinderGardenRowVO;
+import com.omgm.user.common.beans.KinderGardenInfoRowVO;
 import com.omgm.user.common.service.CommonService;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
@@ -40,9 +40,11 @@ public class OneController {
     public ModelAndView kinderGarden(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
         vo = commonService.getSchedule();
-        List<KinderGardenRowVO> list = commonService.getScheduleRow(vo);
+        List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
         mav.addObject("day",vo);
+        System.out.println(vo);
         mav.addObject("dayRow",list);
+        System.out.println(list);
         mav.setViewName("/omgmInfo/kinderGarden");
         return mav;
     }

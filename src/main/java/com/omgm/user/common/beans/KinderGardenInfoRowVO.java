@@ -1,14 +1,14 @@
 package com.omgm.user.common.beans;
 
-public class KinderGardenRowVO {
+public class KinderGardenInfoRowVO {
     private int seq;
     private int no;
     private String time;
     private String program;
 
-    public KinderGardenRowVO() { }
+    public KinderGardenInfoRowVO() { }
 
-    public KinderGardenRowVO(int seq, int no, String time, String program) {
+    public KinderGardenInfoRowVO(int seq, int no, String time, String program) {
         this.seq = seq;
         this.no = no;
         this.time = time;

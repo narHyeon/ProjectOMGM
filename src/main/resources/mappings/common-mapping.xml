@@ -9,7 +9,7 @@
         <result property="regDate" column="REGDATE"/>
     </resultMap>
 
-    <resultMap type="KinderGardenRowVO" id="KinderGardenRowResult">
+    <resultMap type="KinderGardenInfoRowVO" id="KinderGardenInfoRowResult">
         <id property="seq" column="SEQ" />
         <result property="no" column="NO"/>
         <result property="time" column="TIME"/>
@@ -21,7 +21,7 @@
         SELECT * FROM( SELECT * FROM kgday ORDER BY rownum DESC) WHERE rownum = 1
     </select>
 
-    <select id="getScheduleRow" resultMap="KinderGardenRowResult">
+    <select id="getScheduleRow" resultMap="KinderGardenInfoRowResult">
         SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
     </select>
 
