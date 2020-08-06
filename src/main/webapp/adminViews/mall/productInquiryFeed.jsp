@@ -50,10 +50,10 @@
 <div id="productInquiry_searchbox">
     <div class="header">
         <h1>사료 상품 조회</h1>
-        <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
+        <input onkeyup="filter()" type="text" id="value" placeholder="코드 검색">
     </div>
     <div style="display: flex; justify-content: flex-end; padding-right: 6%; margin-bottom: 1%;">
-        <a href="productRegister.mdo"><button class="btn btn-primary">상품 등록하기</button></a>
+        <a href="productRegister.mdo"><button class="btn btn-info">상품 등록하기</button></a>
     </div>
     <div class="container">
         <span class="name01">장난감 이미지</span>
