@@ -97,6 +97,7 @@
                     actionForm.action="productRegister.mdo";
                 }else {
                     actionForm.action = "insertMallToy.mdo";
+                    alert('등록이 완료 되었습니다');
                 }
             } else if (select.options[select.selectedIndex].value === "feed") {
                 if(nameChange02.value === ""){
@@ -113,6 +114,7 @@
                     actionForm.action="productRegister.mdo";
                 }else {
                     actionForm.action = "insertMallFeed.mdo";
+                    alert('등록이 완료 되었습니다');
                 }
             }
 
