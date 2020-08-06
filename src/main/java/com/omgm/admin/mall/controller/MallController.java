@@ -197,8 +197,6 @@ public class MallController {
     public ModelAndView productOrderDelete(OrderVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
         mallService.deleteOrder(vo);
-        System.out.println("넘어옴");
-        System.out.println("삭제 번호"+vo.getOrder_no());
         mav.setViewName("redirect:/productOrder.mdo");
         return mav;
     }
