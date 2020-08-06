@@ -32,7 +32,10 @@ public interface MallService {
     void deleteMallOrder(MallOrderVO vo) throws Exception;
 
    //관리자 주문목록페이지 관련 서비스
-   List<OrderVO> getOrderList() throws Exception;
+   List<OrderVO> getOrderList(OrderVO vo) throws Exception;
    void deleteOrder(OrderVO vo) throws Exception;
 
-}
+
+   //포인트 적립 페이지
+   List<MallOrderVO> getMallPointList(MallOrderVO vo) throws Exception;
+  }
