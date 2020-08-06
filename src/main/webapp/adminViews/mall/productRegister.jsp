@@ -75,13 +75,47 @@
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
         const divStyle = document.getElementById("proExpiration");
+        const nameChange01 = document.getElementById("productRegister_change_text_00");
+        const nameChange02 = document.getElementById("productRegister_change_text_01");
+        const nameChange03 = document.getElementById("proPrice");
+        const nameChange04 = document.getElementById("proDisPrice");
+        const nameChange05 = document.getElementById("proStock");
+        const nameChange06 = document.getElementById("productRegister_change_text_02");
+        const nameChange07 = document.getElementById("pro_point");
+        const nameChange08 = document.getElementById("proIntro");
 
-        if(select.options[select.selectedIndex].value === "toy") {
-            actionForm.action = "insertMallToy.mdo";
-        }
-        else if(select.options[select.selectedIndex].value === "feed") {
-            actionForm.action = "insertMallFeed.mdo";
-        }
+        // 입력시 빈칸이 있을대 경고창 생성
+            if (select.options[select.selectedIndex].value === "toy") {
+                if(nameChange02.value === ""){
+                    alert('이름을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange03.value ==="") {
+                    alert('가격을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange05.value ===""){
+                    alert('재고를 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else {
+                    actionForm.action = "insertMallToy.mdo";
+                }
+            } else if (select.options[select.selectedIndex].value === "feed") {
+                if(nameChange02.value === ""){
+                    alert('이름을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange03.value ==="") {
+                    alert('가격을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange05.value ===""){
+                    alert('재고를 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange06.value===""){
+                        alert('남은 날짜를 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else {
+                    actionForm.action = "insertMallFeed.mdo";
+                }
+            }
+
 
     }
     function changeAction01(){
