@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<link rel="stylesheet" href="productOrder.css">
+<%--<link rel="stylesheet" href="productOrder.css">--%>
 <head>
     <style>
         #order_table input {
@@ -136,37 +136,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form action="/productOrderDelete.mdo" id="productOrder_form">
-                    <c:forEach var="order" items="${order}">
-                        <tr>
-                            <th id="orderSeq">${order.order_no}</th>
-                            <th>${order.order_id}</th>
-                            <th>${order.order_date}</th>
-                            <th>${order.order_phone}</th>
-                            <th>${order.order_state}</th>
-                            <th>${order.order_price}</th>
-                            <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
-                            <th id="productOrder_button"></th>
-                        </tr>
+                    <form action="/productOrderDelete.mdo" id="productOrder_form">
 
-                        <script>
-                                const th = document.querySelector('#productOrder_button');
-                                const button = document.createElement('button');
-                                button.setAttribute('type','button');
-                                button.setAttribute('class','btn btn-info btn-delete');
-                                button.setAttribute('value','삭제');
-                                button.addEventListener('click',() => {
-                                    console.log('${order.order_no}');
-                                    const form = document.querySelector('#productOrder_form');
-                                    form.innerHTML += `
-                                        <input type="hidden" name="order_no" value="${order.order_no}">
-                                    `;
-                                    form.submit();
-                                });
-                                th.appendChild(button);
-                            </script>
-                    </c:forEach>
-                </form>
+                    </form>
                 </tbody>
             </table>
         </div>
@@ -197,29 +169,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <input type="hidden" name=""
+                <input type="hidden" name="">
                     <c:forEach var="pro_status" items="${pro_status}">
                         <input id="orderSeq2" type="hidden" name="order_status_no" value="">
                         <tr>
-
                             <th>${pro_status.order_status_no}</th>
                             <th>${pro_status.order_status_id}</th>
                             <th>${pro_status.order_status_date}</th>
                             <th>${pro_status.order_status_price}</th>
-
                         </tr>
-
                     </c:forEach>
                 </tbody>
             </table>
             <c:forEach var="pro_status" items="${pro_status}">
                 <input type="hidden" name="order_status_no" value="${pro_status.order_status_no}">
-            <p><span>수령인</span>${pro_status.order_status_receiver}</p>
-            <p><span>주소</span>(${pro_status.order_status_zipcode}<br>${pro_status.order_status_address1}${pro_status.order_status_address2}</p>
-<%--
---%>
-
-
+                <p><span>수령인</span>${pro_status.order_status_receiver}</p>
+                <p><span>주소</span>(${pro_status.order_status_zipcode}<br>${pro_status.order_status_address1}${pro_status.order_status_address2}</p>
             </c:forEach>
         </form>
     </div>
@@ -237,6 +202,36 @@
         document.querySelector('#detail_popup').checked = true;
     }
 </script>
+<c:forEach var="order" items="${order}">
+    <script>
+        document.querySelector('#productOrder_form').innerHTML +=
+            `<tr>
+                <%--<th id="orderSeq">${order.order_no}</th>--%>
+                <th id="orderSeq">123</th>
+                <th>${order.order_id}</th>
+                <th>${order.order_date}</th>
+                <th>${order.order_phone}</th>
+                <th>${order.order_state}</th>
+                <th>${order.order_price}</th>
+                <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
+                <th id="productOrder_button"></th>
+            </tr>
+            `;
 
+        <%--const th = document.querySelector('#productOrder_button');--%>
+        <%--const button = document.createElement('button');--%>
+        <%--button.setAttribute('type','button');--%>
+        <%--button.setAttribute('class','btn btn-info btn-delete');--%>
+        <%--button.setAttribute('value','삭제');--%>
+        <%--button.addEventListener('click',() => {--%>
+        <%--    console.log('${order.order_no}');--%>
+        <%--    orderForm.innerHTML += `--%>
+        <%--                                    <input type="hidden" name="order_no" value="${order.order_no}">--%>
+        <%--                                `;--%>
+        <%--    orderForm.submit();--%>
+        <%--});--%>
+        <%--th.appendChild(button);--%>
+    </script>
+</c:forEach>
 </body>
 </html>
