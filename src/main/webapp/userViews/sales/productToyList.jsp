@@ -32,10 +32,10 @@
 </div>
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
-    <div class="category"  >
-        <button  >사료</button>
-        <button style="color: deeppink">장난감</button>
-    </div>
+<%--    <div class="category"  >--%>
+<%--        <button  >사료</button>--%>
+<%--        <button style="color: deeppink">장난감</button>--%>
+<%--    </div>--%>
 
     <div class="event_list">
         <div style="display: flex; justify-content: flex-end; margin-right: 10.7%;
@@ -78,17 +78,17 @@
             </form>
         </ul>
     </div>
-    <div class="pro_paging">
-        <ul>
-            <li class="first"><a href="getMallFeedList.do"><span class="hide">첫페이지</span></a></li>
-            <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
-            <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-                <a href="getMallFeedList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>
-            </c:forEach>
-            <li class="next"><a href="getMallFeedList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>
-            <li class="last"><a href="getMallFeedList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
-        </ul>
-    </div>
+<%--    <div class="pro_paging">--%>
+<%--        <ul>--%>
+<%--            <li class="first"><a href="getMallFeedList.do"><span class="hide">첫페이지</span></a></li>--%>
+<%--            <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>--%>
+<%--            <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">--%>
+<%--                <a href="getMallFeedList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>--%>
+<%--            </c:forEach>--%>
+<%--            <li class="next"><a href="getMallFeedList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>--%>
+<%--            <li class="last"><a href="getMallFeedList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>--%>
+<%--        </ul>--%>
+<%--    </div>--%>
 
 </main>
 
