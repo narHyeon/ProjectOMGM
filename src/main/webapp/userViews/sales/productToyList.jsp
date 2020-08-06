@@ -40,13 +40,13 @@
     <div class="event_list">
         <div style="display: flex; justify-content: flex-end; margin-right: 10.7%;
                                 margin-bottom: 1.5%; margin-top: 3%">
-            <form action = "getMallFeedList.do" method="post">
+            <form action = "getMallToyList.do" method="post">
                 <table border="1">
                     <tr>
                         <td>
                             <select name="searchCondition" style="border: none; color: deeppink ">
-                                <option value="FEED_NAME" style="color: deeppink">상품 이름</option>
-                                <option value="FEED_INFO" style="color: deeppink">상품 정보</option>
+                                <option value="TOY_NAME" style="color: deeppink">상품 이름</option>
+                                <option value="TOY_INFO" style="color: deeppink">상품 정보</option>
                             </select>
                             <input type="text" name="searchKeyword" style="border-color: deeppink"/>
                             <input type="submit" value="검색" style="border: none; color: deeppink; background-color: white" />
@@ -58,17 +58,17 @@
         <ul>
 
             <form action="productDetail.do" class="product_form">
-                <c:forEach var="FeedList" items="${FeedList}">
+                <c:forEach var="ToyList" items="${ToyList}">
                     <li class="pro_Li" style="padding-left:5%;">
                         <a href="">
-                            <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                            <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
                             <div class="menu" style="display: none;">
                                 <em>NEW</em>
                             </div>
                             <div class="info">
-                                <strong>${FeedList.feed_name}</strong>
+                                <strong>${ToyList.toy_name}</strong>
                                 <p>
-                                    <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
+                                    <span><fmt:formatDate value="${ToyList.toy_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
                                 </p>
                             </div>
                         </a>

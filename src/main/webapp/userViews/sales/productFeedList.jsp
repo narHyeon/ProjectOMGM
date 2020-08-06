@@ -73,18 +73,21 @@
                     </div>
                 </a>
             </li>
+
           </c:forEach>
 
             </form>
         </ul>
     </div>
+
     <div class="pro_paging">
         <ul>
             <li class="first"><a href="getMallFeedList.do"><span class="hide">첫페이지</span></a></li>
             <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-                <a href="getMallFeedList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>
+                <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" onclick="pageNextColor1()">&nbsp;&nbsp;${counter}</a>
             </c:forEach>
+
             <li class="next"><a href="getMallFeedList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>
             <li class="last"><a href="getMallFeedList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
         </ul>
@@ -93,6 +96,16 @@
 </main>
 
 <script>
+    function pageNextColor1() {
+        const color = document.getElementsByName(${page.page});
+        alert(color.name)
+    }
+<%--    페이지 번호 누를때 색깔 입히기--%>
+
+// $(document).on("click","pageNextColorB",function(){
+//    var pageNext = $(this).attr('value');
+//    alert(pageNext);
+// });
     <%--  이미지 슬라이더  --%>
     let currSlide = 1;
     showSlide(currSlide);

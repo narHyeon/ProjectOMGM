@@ -254,6 +254,12 @@ a:hover {
     text-decoration: none;
 }
 
+/* 페이지 네이션 */
+#pageNextColor:hover, #pageNextColor:focus {
+    border:1px solid #ff4081;
+    background-color: #ff4081;
+}
+
 @media screen and (max-width: 1024px) {
     /*이미지 슬라이더*/
     .proList_main h2{
