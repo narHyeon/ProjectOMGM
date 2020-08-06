@@ -74,6 +74,9 @@
 
 <div id="productDeleteUpdate_main_div" style="padding-left: 5%; padding-right: 0%">
     <h2>사료 물품현황 페이지</h2><br><br><br>
+    <div style="display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
+        <a href="productInquiryFeed.mdo"><button class="btn btn-info">사료 현왕 페이지로 이동</button></a>
+    </div>
     <form method="post" name="productDeleteUpdate_form" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div id="productDeleteUpdate_section_div00" style="display: flex; width: 100%">
@@ -113,7 +116,7 @@
         <div id="productDeleteUpdate_img_div" style="padding-bottom: 10%; width: 50%; display: flex; flex-direction: column;  margin-right: 10%;">
 
             <img name="" style="vertical-align:center;width: 90%;"src="resources/img/product/${mallFeedOne.feed_img}">
-
+            <input type="hidden" name="feed_img" value="${mallFeedOne.feed_img}" >
             <label style="text-align: center; margin-top:3%;width: 100%">상품이미지</label>
             <input type="file" name="feed_update_uploadFile" />
             <label style="width: 42%"><이미지 변경하기></label>
@@ -126,9 +129,19 @@
 
         <div id="productDeleteUpdate_button_div" style="padding-right:15%;display: flex; justify-content: flex-end">
             <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="javascript: productDeleteUpdate_form.action='updateMallFeed.mdo'" value="수정" />
-            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="javascript: productDeleteUpdate_form.action='deleteMallFeed.mdo'" value="삭제" />
+            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="confrimDelete1()" value="삭제" />
         </div>
     </form>
 </div>
+<script>
+    function confrimDelete1(){
+        const confirmDelete = confirm('정말 삭제하시겠습니까?');
+        if(confirmDelete === true) {
+            productDeleteUpdate_form.action='deleteMallFeed.mdo';
+        } else{
+            productDeleteUpdate_form.action='productInquiryFeed.mdo';
+        }
+    }
+</script>
 </body>
 </html>

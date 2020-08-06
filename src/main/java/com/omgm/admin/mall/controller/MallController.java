@@ -1,9 +1,6 @@
 package com.omgm.admin.mall.controller;
 
-import com.omgm.admin.mall.beans.MallFeedVO;
-import com.omgm.admin.mall.beans.MallOrderVO;
-import com.omgm.admin.mall.beans.MallToyVO;
-import com.omgm.admin.mall.beans.OrderVO;
+import com.omgm.admin.mall.beans.*;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +18,10 @@ public class MallController {
     MallService mallService;
 
     // 파일 업로드 관련 파일 이름 변수 선언
-    String fileName="";
-    String fileName01="";
-    String fileName02="";
-    String fileName03="";
+    String fileName;
+    String fileName01;
+//    String fileName02;
+//    String fileName03;
 
     /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
 
@@ -44,10 +41,11 @@ public class MallController {
 
             MultipartFile update_uploadFile = vo.getUpdate_uploadFile();
             if(!update_uploadFile.isEmpty()) {
-                this.fileName02 = update_uploadFile.getOriginalFilename();
+                String fileName02 = update_uploadFile.getOriginalFilename();
                 update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+                vo.setToy_img(fileName02);
             }
-            vo.setToy_img(fileName02);
+
 
             mallService.updateMallToy(vo);
             mav.setViewName("redirect:/productInquiryToy.mdo");
@@ -63,8 +61,10 @@ public class MallController {
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
                 uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            }else{
+                this.fileName = "cat.jpg";
             }
-        System.out.println(fileName);
+
         vo.setToy_img(fileName);
         mallService.insertMallToy(vo);
         mav.setViewName("redirect:/productInquiryToy.mdo");
@@ -109,6 +109,8 @@ public class MallController {
         if(!feed_uploadFile.isEmpty()) {
             this.fileName01 = feed_uploadFile.getOriginalFilename();
             feed_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName01));
+        }else{
+            this.fileName01 = "cat.jpg";
         }
         vo.setFeed_img(fileName01);
         mallService.insertMallFeed(vo);
@@ -141,17 +143,18 @@ public class MallController {
 
         MultipartFile feed_update_uploadFile = vo.getFeed_update_uploadFile();
         if(!feed_update_uploadFile.isEmpty()) {
-            this.fileName03 = feed_update_uploadFile.getOriginalFilename();
+            String fileName03 = feed_update_uploadFile.getOriginalFilename();
             feed_update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            vo.setFeed_img(fileName03);
         }
-        vo.setFeed_img(fileName03);
+
 
         mallService.updateMallFeed(vo);
         mav.setViewName("redirect:/productInquiryFeed.mdo");
         return mav;
     }
 
-// #########################################################################################
+// ########################################################################################
 
 
 //    //주문목록불러오기(상세)

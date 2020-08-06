@@ -30,7 +30,7 @@ public class OneController {
     @RequestMapping(value="/kinderGarden.do")
     public ModelAndView kinderGarden() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kinderGarden");
+        mav.setViewName("/omgmInfo/kinderGarden");
         return mav;
     }
 
@@ -46,7 +46,7 @@ public class OneController {
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/pickupServiceInfo/pickupServiceInfo");
+        mav.setViewName("/omgmInfo/pickupServiceInfo");
         return mav;
     }
 
@@ -54,7 +54,7 @@ public class OneController {
     @RequestMapping(value="/messageService.do")
     public ModelAndView messageService() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/messageService");
+        mav.setViewName("/omgmInfo/messageService");
         return mav;
     }
 
@@ -70,7 +70,7 @@ public class OneController {
     @RequestMapping(value="/introductionPage.do")
     public ModelAndView introductionPage(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/introductionPage/introductionPage");
+        mav.setViewName("/omgmInfo/introductionPage");
         return mav;
     }
 
@@ -94,7 +94,7 @@ public class OneController {
     @RequestMapping(value="/roomIntroduction.do")
     public ModelAndView roomIntroduction(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/roomIntroduction/roomIntroduction");
+        mav.setViewName("/omgmInfo/roomIntroduction");
         return mav;
     }
 

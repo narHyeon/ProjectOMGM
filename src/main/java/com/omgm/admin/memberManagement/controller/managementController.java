@@ -23,10 +23,24 @@ public class managementController {
         mav.setViewName("/memberManagement/memberTable");
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
-        List<ManagementVO> list = managementService.memberTable();
+        List<ManagementVO> list = managementService.memberTable(vo);
         for(ManagementVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
 
         mav.addObject("memberTable",list);
+        return mav;
+    }
+
+    @RequestMapping("/adminTable.mdo")
+    public ModelAndView adminTable(ManagementVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/memberManagement/adminTable");
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
+        vo.setType("관리자");
+        List<ManagementVO> list = managementService.memberTable(vo);
+        for(ManagementVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
+
+        mav.addObject("adminTable",list);
         return mav;
     }
 }

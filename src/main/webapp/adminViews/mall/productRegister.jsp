@@ -75,14 +75,49 @@
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
         const divStyle = document.getElementById("proExpiration");
-        actionForm.action = "insertMallToy.mdo";
-        if(select.options[select.selectedIndex].value === "toy") {
-            actionForm.action = "insertMallToy.mdo";
-        }
-        else if(select.options[select.selectedIndex].value === "feed") {
-            actionForm.action = "insertMallFeed.mdo";
+        const nameChange01 = document.getElementById("productRegister_change_text_00");
+        const nameChange02 = document.getElementById("productRegister_change_text_01");
+        const nameChange03 = document.getElementById("proPrice");
+        const nameChange04 = document.getElementById("proDisPrice");
+        const nameChange05 = document.getElementById("proStock");
+        const nameChange06 = document.getElementById("productRegister_change_text_02");
+        const nameChange07 = document.getElementById("pro_point");
+        const nameChange08 = document.getElementById("proIntro");
 
-        }
+        // 입력시 빈칸이 있을대 경고창 생성
+            if (select.options[select.selectedIndex].value === "toy") {
+                if(nameChange02.value === ""){
+                    alert('이름을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange03.value ==="") {
+                    alert('가격을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange05.value ===""){
+                    alert('재고를 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else {
+                    actionForm.action = "insertMallToy.mdo";
+                    alert('등록이 완료 되었습니다');
+                }
+            } else if (select.options[select.selectedIndex].value === "feed") {
+                if(nameChange02.value === ""){
+                    alert('이름을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange03.value ==="") {
+                    alert('가격을 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange05.value ===""){
+                    alert('재고를 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else if(nameChange06.value===""){
+                        alert('남은 날짜를 입력해 주세요');
+                    actionForm.action="productRegister.mdo";
+                }else {
+                    actionForm.action = "insertMallFeed.mdo";
+                    alert('등록이 완료 되었습니다');
+                }
+            }
+
 
     }
     function changeAction01(){
@@ -128,46 +163,46 @@
 
 <div id="pro_write">
     <h2>상품등록</h2><br><br><br>
-    <form method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
+    <form  method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
         <div>
             <label>상품이미지 : </label>
-            <input id="productRegister_change_text_00"type="file" class="title" /><br><br>
+            <input name="uploadFile" id="productRegister_change_text_00"type="file" class="title" /><br><br>
         </div>
 
         <div>
             <label >상품명 : </label><br>
-            <input id="productRegister_change_text_01" class="title" type="text" /><br><br>
+            <input name="toy_name" id="productRegister_change_text_01" class="title" type="text" /><br><br>
         </div>
 
         <div>
             <label>판매가 : </label><br>
-            <input type="text" id="proPrice" class="title" /><br><br>
+            <input name="toy_price" type="text" id="proPrice" class="title" /><br><br>
         </div>
 
         <div>
             <label>할인가 : </label><br>
-            <input type="text" id="proDisPrice" class="title" /><br><br>
+            <input name="toy_discount" type="text" id="proDisPrice" class="title" /><br><br>
         </div>
 
         <div>
             <label id="proStockL">재고 : </label>
-            <input type="text" id="proStock" class="title" /><br><br>
+            <input name="toy_stock" type="text" id="proStock" class="title" /><br><br>
         </div>
 
         <div id="proExpiration" style="display: none" >
             <label style="font-size:15px">남은 날짜 : </label>
-            <input id="productRegister_change_text_02" type="text" class="title" /><br><br>
+            <input name="feed_expiration" id="productRegister_change_text_02" type="text" class="title" /><br><br>
         </div>
 
         <div>
             <label>적립금 : </label>
-            <label>판매가에서 </label><input type="text" id="pro_point" /><br><br><label>포인트 적립 </label>
+            <label>판매가에서 </label><input name="toy_point" type="text" id="pro_point" /><br><br><label>포인트 적립 </label>
         </div>
 
         <div class="inputArea">
             <label>상품설명</label>
-            <textarea rows="10" cols="80" id="proIntro"  style="resize: none;"></textarea>
+            <textarea name="toy_info" rows="10" cols="80" id="proIntro"  style="resize: none;"></textarea>
         </div>
 
         <div>

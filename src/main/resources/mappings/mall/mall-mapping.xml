@@ -52,7 +52,10 @@
     <update id="updateMallToy" parameterType="mallToyVO">
         UPDATE TOY set toy_name=#{toy_name}, TOY_PRICE=#{toy_price}, TOY_DISCOUNT=#{toy_discount}, TOY_STOCK=#{toy_stock}, TOY_POINT=#{toy_point}, TOY_INFO=#{toy_info}, TOY_IMG=#{toy_img}  where toy_code=#{toy_code}
     </update>
-
+<!--    그림 이미지만 불러오기-->
+    <select id="getMallToyImgOne" resultType="mallToyVO" parameterType="mallToyVO">
+        select toy_img from toy where toy_code=#{toy_code}
+    </select>
 <!--    /////////////// 사료 관련 쿼리문 /////////////////////////////////////////////////////////    -->
 <!--        사료 등록 쿼리문-->
     <insert id="insertMallFeed" parameterType="mallFeedVO">

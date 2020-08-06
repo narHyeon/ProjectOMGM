@@ -12,7 +12,7 @@ public class ManagementDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public List<ManagementVO> memberTable() {
-        return sqlSessionTemplate.selectList("ManagementDAO.memberTable");
+    public List<ManagementVO> memberTable(ManagementVO vo) {
+        return sqlSessionTemplate.selectList("ManagementDAO.memberTable",vo);
     }
 }
