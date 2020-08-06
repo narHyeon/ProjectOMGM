@@ -1,37 +1,48 @@
 package com.omgm.user.common.beans;
 
 public class KinderGardenInfoVO {
-    private String time;
-    private String program;
+    private int seq;
+    private String title;
+    private String regDate;
 
     public KinderGardenInfoVO() { }
 
-    public KinderGardenInfoVO(String time, String program) {
-        this.time = time;
-        this.program = program;
+    public KinderGardenInfoVO(int seq, String title, String regDate) {
+        this.seq = seq;
+        this.title = title;
+        this.regDate = regDate;
     }
 
-    public String getTime() {
-        return time;
+    public int getSeq() {
+        return seq;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setSeq(int seq) {
+        this.seq = seq;
     }
 
-    public String getProgram() {
-        return program;
+    public String getTitle() {
+        return title;
     }
 
-    public void setProgram(String program) {
-        this.program = program;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
     }
 
     @Override
     public String toString() {
-        return "KindGardenInfoVO{" +
-                "time='" + time + '\'' +
-                ", program='" + program + '\'' +
+        return "KinderGardenInfoVO{" +
+                "seq=" + seq +
+                ", title='" + title + '\'' +
+                ", regDate='" + regDate + '\'' +
                 '}';
     }
 }
