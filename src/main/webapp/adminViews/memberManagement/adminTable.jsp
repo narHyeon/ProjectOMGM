@@ -20,7 +20,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-info">오묘가묘 가족 목록</h6>
+        <h6 class="m-0 font-weight-bold text-info">관리자 목록</h6>
     </div>
     <div class="card-body">
         <div id="memberTable" class="table-responsive">
@@ -54,7 +54,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="members" items="${memberTable}">
+                    <c:forEach var="members" items="${adminTable}">
                         <tr class="memberTable_member">
                             <td class ="memberTable_seq">${members.seq}</td>
                             <td class ="memberTable_id">${members.id}</td>
