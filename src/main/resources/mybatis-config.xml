@@ -16,6 +16,8 @@
 		<typeAlias alias="usermallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
 		<typeAlias alias="usermallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
 		<typeAlias alias="Order" type="com.omgm.admin.mall.beans.OrderVO" />
+		<typeAlias alias="KinderGardenVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenVO" />
+		<typeAlias alias="KinderGardenRowVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowVO" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/mall/productList-mapping.xml" />
@@ -26,5 +28,6 @@
 		<mapper resource="mappings/review-mapping.xml"/>
 		<mapper resource="mappings/faq-mapping.xml"/>
 		<mapper resource="mappings/category-mapping.xml" />
+		<mapper resource="mappings/kinderGarden/kinderGarden-mapping.xml" />
 	</mappers>
 </configuration>
