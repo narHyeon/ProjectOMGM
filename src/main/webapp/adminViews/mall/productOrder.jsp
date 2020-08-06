@@ -28,15 +28,12 @@
 
 
         <!-- 모달창-->
-
              #m-wrap {
                  display: flex;
                  height: 700px;
                  width: 60%;
                  margin-left: 23%;
                  flex-direction: column;
-
-
              }
 
         #m-head {
