@@ -9,7 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />--%>
 <%--<link rel="stylesheet" href="productOrder.css">--%>
 <head>
     <style>
@@ -136,7 +136,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <form action="/productOrderDelete.mdo" id="productOrder_form"></form>
+                    <form action="/productOrderDelete.mdo" id="productOrder_form">
+                    </form>
                 </tbody>
             </table>
         </div>
@@ -189,51 +190,7 @@
     <label for="detail_popup"></label>
 </div>
 </div>
-
-    <script>
-        // 로그인 버튼
-        function detail(event) {
-            const num01 = document.getElementById('orderSeq');
-            const num02 = document.getElementById('orderSeq2');
-            num02.value = num01.value;
-            event.preventDefault();
-            document.querySelector('#detail_popup').checked = true;
-        }
-        function createForm(order) {
-            const row =
-            ` <th id="orderSeq">`+order.no+`</th>
-                <th>`+order.id+`</th>
-                <th>`+order.date+`</th>
-                <th>`+order.phone+`</th>
-                <th>`+order.state+`</th>
-                <th>`+order.price+`</th>
-                <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
-                <th id="productOrder_button"></th>
-            `;
-
-            const addorder = document.createElement('tr');
-            addorder.setAttribute('class',`pro_order_tr`);
-            addorder.innerHTML = row;
-            document.querySelector('#productOrder_form').appendChild(addorder);
-
-
-            <%--const th = document.querySelector('#productOrder_button');--%>
-            <%--const button = document.createElement('button');--%>
-            <%--button.setAttribute('type','button');--%>
-            <%--button.setAttribute('class','btn btn-info btn-delete');--%>
-            <%--button.setAttribute('value','삭제');--%>
-            <%--button.addEventListener('click',() => {--%>
-            <%--    console.log('${order.order_no}');--%>
-            <%--    orderForm.innerHTML += `--%>
-            <%--                                    <input type="hidden" name="order_no" value="${order.order_no}">--%>
-            <%--                                `;--%>
-            <%--    orderForm.submit();--%>
-            <%--});--%>
-            <%--th.appendChild(button);--%>
-        }
-        let order;
-        let orderArr;
-    </script>
+<script src="resources/admin/js/productOrder/proOrder.js"></script>
 <c:forEach var="order" items="${order}">
     <script>
         order = {
