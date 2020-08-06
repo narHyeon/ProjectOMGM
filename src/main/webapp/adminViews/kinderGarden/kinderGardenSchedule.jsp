@@ -32,7 +32,18 @@
         .card-body {
             font-size: 150%;
         }
+        .admin_kindergarden_schedule_pm {
+            text-align: right;
+            margin: 5px;
+        }
+        .admin_kindergarden_schedule_pm button {
+            max-height: 38px;
+            width:7%;
+            font-size: 18px;
+            font-weight: 700;
+        }
     </style>
+    <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js" defer></script>
 </head>
 <body>
     <div class="card mb-4 py-3 border-bottom-info">
@@ -41,87 +52,12 @@
         </div>
     </div>
     <div>
-        <div class="form-group">
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time1">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time1" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time2">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time2" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time3">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time3" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time4">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time4" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time5">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time5" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time6">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time6" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time7">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time7" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time8">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time8" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time9">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time9" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time10">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time10" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time11">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time11" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time12">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time12" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time13">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time13" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time14">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time14" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
-            <ul class="admin_kindergarden_schedule_input">
-                <li>
-                    <label for="admin_kindergarden_schedule_time15">시간</label>
-                    <input type="text" id="admin_kindergarden_schedule_time15" class="form-control form-control-user" placeholder="time">
-                </li>
-                <li>
-                    <label for="admin_kindergarden_schedule_time16">교육 내용</label>
-                    <input type="text" id="admin_kindergarden_schedule_time16" class="form-control form-control-user admin_kindergarden_schedule_program" placeholder="program">
-                </li>
-            </ul>
+        <div class="form-group" id="admin_kindergarden_schedule_day">
+        <%--  자바스크립트로 넣어준다.  --%>
+        </div>
+        <div class="admin_kindergarden_schedule_pm">
+            <button class="btn btn-primary btn-user" onClick="plusTime()">+</button>
+            <button class="btn btn-danger btn-user" onClick="minusTime()">-</button>
         </div>
         <div class="admin_kindergarden_schedule_button">
             <a href="login.html" class="btn btn-info btn-user ">초기화</a>
