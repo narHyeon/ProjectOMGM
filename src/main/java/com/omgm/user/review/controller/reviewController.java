@@ -42,6 +42,8 @@ public class reviewController {
         mav.setViewName("/review/reviewListBoard");
         mav.addObject("reviewList",reviewService.getReviewList(vo, navi));
         mav.addObject("navi",navi);
+        vo.setCnt(page);
+        mav.addObject("page",vo);
         return mav;
     }
 
