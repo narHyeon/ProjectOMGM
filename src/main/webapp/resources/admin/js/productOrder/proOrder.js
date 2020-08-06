@@ -36,13 +36,7 @@ function createForm(order) {
     button.setAttribute('value',order.no);
     button.innerText = '삭제';
     button.addEventListener('click',() => {
-
         window.location.href = 'productOrderDelete.mdo?order_no='+order.no;
-        // const xhr = new XMLHttpRequest();
-        // xhr.open('POST', 'productOrderDelete.mdo',true);
-        // xhr.setRequestHeader('Content-type', 'application/json');
-        // const data = {order_no: order.no};
-        // xhr.send(JSON.stringify(data));
     });
     trOrder.appendChild(th);
     th.appendChild(button);

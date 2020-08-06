@@ -135,9 +135,7 @@
                     <th>삭제</th>
                 </tr>
                 </thead>
-                <tbody id="productOrder_form">
-<%--                    <tr action="/productOrderDelete.mdo" ></tr>--%>
-                </tbody>
+                <tbody id="productOrder_form"></tbody>
             </table>
         </div>
     </div>
