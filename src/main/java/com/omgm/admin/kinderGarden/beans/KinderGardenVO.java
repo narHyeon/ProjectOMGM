@@ -5,6 +5,8 @@ public class KinderGardenVO {
     private String title;
     private String regDate;
 
+    public KinderGardenVO() { }
+
     public KinderGardenVO(int seq, String title, String regDate) {
         this.seq = seq;
         this.title = title;

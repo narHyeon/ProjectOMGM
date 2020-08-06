@@ -18,12 +18,17 @@
 
     <!-- 실 사용 -->
     <select id="getSchedule" resultType="KinderGardenVO">
-        SELECT * FROM kgday WHERE seq=#{seq}
+        <choose>
+            <when test="seq != 0">
+                SELECT * FROM kgday WHERE seq=#{seq}
+            </when>
+            <otherwise>
+                SELECT * FROM( SELECT * FROM kgday ORDER BY rownum DESC) WHERE rownum = 1
+            </otherwise>
+        </choose>
     </select>
-
     <select id="getScheduleRow" resultMap="KinderGardenRowResult">
         SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq DESC
     </select>
-
 
 </mapper>

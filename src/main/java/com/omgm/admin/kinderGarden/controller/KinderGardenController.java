@@ -1,12 +1,17 @@
 package com.omgm.admin.kinderGarden.controller;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
+import com.omgm.admin.memberManagement.beans.ManagementVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Controller
 public class KinderGardenController {
@@ -18,6 +23,12 @@ public class KinderGardenController {
     @RequestMapping("/kinderGardenSchedule.mdo")
     public ModelAndView kinderGardenSchedule(KinderGardenVO vo) {
         ModelAndView mav = new ModelAndView();
+        System.out.println(vo);
+//        vo = kinderGardenService.getSchedule(vo);
+//        System.out.println(vo);
+//        List<KinderGardenRowVO> list = kinderGardenService.getScheduleRow(vo);
+//        System.out.println(list);
+//        mav.addObject("Row",list);
         mav.setViewName("/kinderGarden/kinderGardenSchedule");
         return mav;
     }

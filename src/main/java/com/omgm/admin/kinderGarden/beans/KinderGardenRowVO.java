@@ -6,6 +6,8 @@ public class KinderGardenRowVO {
     private String time;
     private String program;
 
+    public KinderGardenRowVO() { }
+
     public KinderGardenRowVO(int seq, int no, String time, String program) {
         this.seq = seq;
         this.no = no;
