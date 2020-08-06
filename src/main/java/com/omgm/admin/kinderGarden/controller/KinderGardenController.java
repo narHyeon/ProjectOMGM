@@ -47,6 +47,4 @@ public class KinderGardenController {
         return mav;
     }
 
-
-
 }
