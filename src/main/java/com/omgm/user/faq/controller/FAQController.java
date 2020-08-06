@@ -1,11 +1,13 @@
 package com.omgm.user.faq.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.omgm.user.faq.beans.CategoryVO;
 import com.omgm.user.faq.beans.FAQVO;
 import com.omgm.user.faq.service.FAQService;
@@ -97,7 +99,6 @@ public class FAQController {
 		mav.setViewName("/myInfo/getMyService");
 		return mav;
 	}
-	
 	@RequestMapping(value = "/event.do", method = RequestMethod.GET)
 	public ModelAndView qwerr(FAQVO vo,ModelAndView mav) {
 		List<FAQVO> list = fAQService.getAllFAQList(vo);
@@ -105,13 +106,12 @@ public class FAQController {
 		mav.setViewName("/event/event");
 		return mav;
 	}
-	@RequestMapping(value = "/myboard.do", method = RequestMethod.GET)
-	public ModelAndView qwerrr(FAQVO vo,ModelAndView mav) {
+	@RequestMapping(value = "/myCatPageUpdate.do", method = RequestMethod.GET)
+	public ModelAndView qwerrrr(FAQVO vo,ModelAndView mav) {
 		List<FAQVO> list = fAQService.getAllFAQList(vo);
 		mav.addObject("fAQList",list);
-		mav.setViewName("/myInfo/myboard");
+		mav.setViewName("/myInfo/myCatPageUpdate");
 		return mav;
 	}
-	
 	
 }
