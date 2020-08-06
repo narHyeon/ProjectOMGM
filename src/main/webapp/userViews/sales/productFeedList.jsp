@@ -57,7 +57,7 @@
         </div>
         <ul>
 
-            <form action="productDetail.do" class="product_form">
+        <form action="productDetail.do" class="product_form">
           <c:forEach var="FeedList" items="${FeedList}">
             <li class="pro_Li" style="padding-left:5%;">
                 <a href="">
@@ -74,8 +74,28 @@
                 </a>
             </li>
           </c:forEach>
+<<<<<<< HEAD:src/main/webapp/userViews/sales/productFeedList.jsp
 
             </form>
+=======
+            <c:forEach var="ToyList" items="${ToyList}">
+                <li class="pro_Li" style="padding-left:5%;">
+                    <a href="">
+                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
+                        <div class="menu" style="display: none;">
+                            <em>NEW</em>
+                        </div>
+                        <div class="info">
+                            <strong class="toyname">${ToyList.toy_name}</strong>
+                            <p>
+                              <span>${ToyList.toy_price}</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </c:forEach>
+
+>>>>>>> cc0d33e... productOrder.jsp 수정:src/main/webapp/userViews/sales/productList.jsp
         </ul>
     </div>
     <div class="pro_paging">

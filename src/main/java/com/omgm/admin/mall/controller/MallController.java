@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
+import java.util.List;
 
 @Controller
 public class MallController {
@@ -155,14 +156,14 @@ public class MallController {
 
 // ########################################################################################
 
-    //주문목록불러오기(상세)
-    @RequestMapping("/productStatus.mdo")
-    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/mall/productStatus");
-        mav.addObject("pro_status",mallService.getMallOrderList());
-        return mav;
-    }
+//    //주문목록불러오기(상세)
+//    @RequestMapping("/productStatus.mdo")
+//    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("/mall/productOrder");
+//        mav.addObject("pro_status",mallService.getMallOrderList());
+//        return mav;
+//    }
 
     //주문목록삭제(상세)
     @RequestMapping("/productStatusDelete.mdo")
@@ -175,10 +176,18 @@ public class MallController {
 
     //주문목록불러오기
     @RequestMapping("/productOrder.mdo")
-    public ModelAndView productOrder(OrderVO vo) throws Exception{
+    public ModelAndView productOrder(OrderVO vo,MallOrderVO vo1) throws Exception{
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/mall/productOrder");
+        mav.setViewName("/main");
+//        List<OrderVO> order = mallService.getOrderList();
+        vo1.setOrder_status_no(8);
+        List<MallOrderVO> list = mallService.getMallOrderList(vo1);
+        for(MallOrderVO li : list) {
+            System.out.println(li.getOrder_status_id());
+            System.out.println(li.getOrder_status_date());
+        }
         mav.addObject("order",mallService.getOrderList());
+        mav.addObject("pro_status",mallService.getMallOrderList(vo1));
         return mav;
     }
 
