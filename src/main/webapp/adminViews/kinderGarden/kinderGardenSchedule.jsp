@@ -67,7 +67,7 @@
         <%--  자바스크립트로 넣어준다.  --%>
         </div>
         <div class="admin_kindergarden_schedule_pm">
-            <input type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${day.title}">
+            <input id="admin_kindergarden_schedule_title" type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${day.title}">
             <button class="btn btn-primary btn-user" onClick="plusTime()">+</button>
             <button class="btn btn-danger btn-user" onClick="minusTime()">-</button>
         </div>
