@@ -14,6 +14,7 @@
     <script src="resources/admin/js/productInquiry.js" defer></script>
 
 
+
     <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />--%>
 </head>
 <body>
@@ -45,11 +46,17 @@
         border-bottom: 3px solid lightpink;
     }
     .abutton{
-        padding: 5px 10px 5px 10px;
-        border-radius: 12px;
+        padding: 3px;
+        border-radius: 4%;
         background: powderblue;
-        color:white;
+        color: white;
+        position: absolute;
 
+
+    }
+    .right-align_basketrowcmd {
+        padding-left: 42vw;
+        padding-top: 2%;
     }
 </style>
 
@@ -81,9 +88,9 @@
         </c:forEach>
     </div>
     <!-- "장바구니 기능 버튼" -->
-    <div class="right-align basketrowcmd">
+    <div class="right-align_basketrowcmd">
         <a href="#" class="abutton">선택상품삭제</a>
-        <a href="#" class="abutton">장바구니비우기</a>
+<%--        <a href="#" class="abutton">장바구니비우기</a>--%>
     </div>
 
 </div>

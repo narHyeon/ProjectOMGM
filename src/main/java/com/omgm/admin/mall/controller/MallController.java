@@ -180,7 +180,7 @@ public class MallController {
     public ModelAndView productOrder(OrderVO vo,MallOrderVO vo1) throws Exception{
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/mall/productOrder");
-//        List<OrderVO> order = mallService.getOrderList();
+        List<OrderVO> order = mallService.getOrderList(vo);
         vo1.setOrder_status_no(8);
         List<MallOrderVO> list = mallService.getMallOrderList(vo1);
         for(MallOrderVO li : list) {
@@ -197,6 +197,8 @@ public class MallController {
     public ModelAndView productOrderDelete(OrderVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
         mallService.deleteOrder(vo);
+        System.out.println("넘어옴");
+        System.out.println("삭제 번호"+vo.getOrder_no());
         mav.setViewName("redirect:/productOrder.mdo");
         return mav;
     }
