@@ -170,7 +170,7 @@
         </div>
 
         <div>
-            <button type="submit" id="register_Btn" class="btn btn-primary" onclick="changeAction()">등록</button>
+            <button type="submit" id="register_Btn" class="btn btn-info" onclick="changeAction()">등록</button>
         </div>
     </form>
 </div>

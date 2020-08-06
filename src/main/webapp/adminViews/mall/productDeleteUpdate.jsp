@@ -127,8 +127,8 @@
         </div>
 
         <div id="productDeleteUpdate_button_div" style="padding-right:15%;display: flex; justify-content: flex-end">
-            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="javascript: productDeleteUpdate_form.action='updateMallToy.mdo'" value="수정" />
-            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-primary" onclick="javascript: productDeleteUpdate_form.action='deleteMallToy.mdo'" value="삭제" />
+            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="javascript: productDeleteUpdate_form.action='updateMallToy.mdo'" value="수정" />
+            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="javascript: productDeleteUpdate_form.action='deleteMallToy.mdo'" value="삭제" />
         </div>
     </form>
 </div>

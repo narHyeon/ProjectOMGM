@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Controller
 public class managementController {
@@ -18,7 +21,12 @@ public class managementController {
     public ModelAndView memberTable(ManagementVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/memberManagement/memberTable");
-        mav.addObject("memberTable",managementService.memberTable());
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
+        List<ManagementVO> list = managementService.memberTable();
+        for(ManagementVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
+
+        mav.addObject("memberTable",list);
         return mav;
     }
 }

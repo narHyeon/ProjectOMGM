@@ -16,6 +16,7 @@ public class ManagementVO {
     private String type;
     private Date regDate;
     private String code;
+    private String formatDate;
 
     public ManagementVO() { }
 
@@ -33,6 +34,14 @@ public class ManagementVO {
         this.type = type;
         this.regDate = regDate;
         this.code = code;
+    }
+
+    public String getFormatDate() {
+        return formatDate;
+    }
+
+    public void setFormatDate(String formatDate) {
+        this.formatDate = formatDate;
     }
 
     public String getCode() {

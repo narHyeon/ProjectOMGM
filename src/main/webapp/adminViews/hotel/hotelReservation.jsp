@@ -20,7 +20,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">호텔 예약 현황</h6>
+        <h6 class="m-0 font-weight-bold text-info">호텔 예약 현황</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -86,7 +86,7 @@
     </div>
 </div>
 <div class="admin_kindergarden_schedule_button">
-    <a href="login.html" class="btn btn-primary btn-user ">초기화</a>
+    <a href="login.html" class="btn btn-info btn-user ">초기화</a>
     <a href="login.html" class="btn btn-success btn-user ">적용</a>
 </div>
 </body>
