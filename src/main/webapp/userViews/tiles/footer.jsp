@@ -20,17 +20,17 @@
 				<li class="footValue">전화번호 : {{phoneNumber}}</li>
 				<li class="footValue"><a class="footInfo" href="#"
 					@click="footTerm" name="사이트 도움말">사이트 도움말</a>
-				<div class="footInfo bar">|</div> <a class="footInfo" href="#"
+					<div class="footInfo bar">|</div> <a class="footInfo" href="#"
 					@click="footTerm" name="사이트 이용약관">사이트 이용약관</a>
-				<div class="footInfo bar">|</div> <a class="footInfo" href="#"
+					<div class="footInfo bar">|</div> <a class="footInfo" href="#"
 					@click="footTerm" name="사이트 운영원칙">사이트 운영원칙</a>
-				<div class="footInfo bar">|</div> <a class="footInfo" href="#"
+					<div class="footInfo bar">|</div> <a class="footInfo" href="#"
 					@click="footTerm" name="개인정보취급방침">개인정보취급방침</a>
-				<div class="footInfo bar">|</div> <a class="footInfo" href="#"
+					<div class="footInfo bar">|</div> <a class="footInfo" href="#"
 					@click="footTerm" name="책임의 한계와 법적고지">책임의 한계와 법적고지</a>
-				<div class="footInfo bar">|</div> <a class="footInfo" href="#"
+					<div class="footInfo bar">|</div> <a class="footInfo" href="#"
 					@click="footTerm" name="게시중단요청서비스">게시중단요청서비스</a>
-				<div class="footInfo bar">|</div> <a class="footInfo" href="#"
+					<div class="footInfo bar">|</div> <a class="footInfo" href="#"
 					@click="footTerm" name="고객센터">고객센터</a></li>
 			</div>
 			<div id="sns">
