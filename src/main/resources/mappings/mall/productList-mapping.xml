@@ -4,7 +4,7 @@
 
 <mapper namespace="UserMallDAO">
 
-    <resultMap type="usermallFeedVO" id="feed">
+    <resultMap type="userMallFeedVO" id="feed">
         <id property="feed_code" column="FEED_CODE" />
         <result property="feed_name" column="FEED_NAME" />
         <result property="feed_inStock" column="FEED_INSTOCK" />
@@ -16,7 +16,7 @@
         <result property="feed_img" column="FEED_IMG" />
     </resultMap>
 
-    <resultMap type="usermallToyVO" id="toy">
+    <resultMap type="userMallToyVO" id="toy">
         <id property="toy_code" column="TOY_CODE" />
         <result property="toy_name" column="TOY_NAME" />
         <result property="toy_inStock" column="TOY_INSTOCK" />
@@ -30,8 +30,9 @@
 
 <!--########################## feed 관련 쿼리문 ###############################-->
 <!--    리스트 나열-->
-    <select id="getMallFeedList" resultType="usermallFeedVO">
-        SELECT * FROM FEED WHERE 1=1
+    <select id="getMallFeedList" resultType="userMallFeedVO">
+        SELECT * FROM FEED
+        WHERE 1=1
         <if test="searchCondition=='FEED_NAME'">
             AND feed_name LIKE '%'||#{searchKeyword}||'%'
         </if>
@@ -46,15 +47,17 @@
     </select>
 
     <!--########################## toy 관련 쿼리문 ###############################-->
-    <select id="getMallToyList" resultType="usermallToyVO">
-        SELECT * FROM TOY WHERE 1=1
-        <if test="searchCondition=='FEED_NAME'">
-            AND toy_name LIKE '%'||#{searchKeyword}||'%'
-        </if>
-        <if test="searchCondition=='FEED_INFO'">
-            AND toy_info LIKE '%'||#{searchKeyword}||'%'
-        </if>ORDER BY toy_code DESC
+    <select id="getMallToyList" resultType="userMallToyVO">
+        SELECT * FROM TOY ORDER BY toy_code DESC
     </select>
+<!--        WHERE 1=1-->
+<!--        <if test="searchCondition=='FEED_NAME'">-->
+<!--            AND toy_name LIKE '%'||#{searchKeyword}||'%'-->
+<!--        </if>-->
+<!--        <if test="searchCondition=='FEED_INFO'">-->
+<!--            AND toy_info LIKE '%'||#{searchKeyword}||'%'-->
+<!--        </if>ORDER BY toy_code DESC-->
+
 
 </mapper>
 

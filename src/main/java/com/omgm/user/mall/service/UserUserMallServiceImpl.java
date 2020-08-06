@@ -28,7 +28,7 @@ public class UserUserMallServiceImpl implements UserMallService {
 
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
     @Override
-    public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception {
-        return userMallDAO.getMallToyList(vo, navi);
+    public List<UserMallToyVO> getMallToyList() throws Exception {
+        return userMallDAO.getMallToyList();
     }
 }
