@@ -92,7 +92,7 @@
         event.preventDefault();
 
         document.querySelector('#memberTable_search').value = '';
-        document.querySelectorAll('#memberTable_member td').forEach(item => item.style.display = '');
+        document.querySelectorAll('.memberTable_member').forEach(item => item.style.display = '');
 
         const name = event.target.innerText;
         switch(name) {
