@@ -74,7 +74,7 @@
 <div id="productDeleteUpdate_main_div" style="padding-left: 5%; padding-right: 0%">
     <h2>장난감 상품 현황 페이지</h2><br><br><br>
     <div style="display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
-        <a href="productInquiryToy.mdo"><button class="btn btn-primary">장난감 현왕 페이지로 이동</button></a>
+        <a href="productInquiryToy.mdo"><button class="btn btn-info">장난감 현왕 페이지로 이동</button></a>
     </div>
     <form method="post" name="productDeleteUpdate_form" enctype="multipart/form-data" id="pro_form1" class="pro_form">
 
@@ -128,9 +128,20 @@
 
         <div id="productDeleteUpdate_button_div" style="padding-right:15%;display: flex; justify-content: flex-end">
             <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="javascript: productDeleteUpdate_form.action='updateMallToy.mdo'" value="수정" />
-            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info" onclick="javascript: productDeleteUpdate_form.action='deleteMallToy.mdo'" value="삭제" />
+            <input type="submit" style="margin-left: 0.5%;margin-right: 0.5%;"  id="" class="btn btn-info"
+                   onclick="confrimDelete()" value="삭제" />
         </div>
     </form>
 </div>
+<script>
+    function confrimDelete(){
+        const confirmDelete = confirm('정말 삭제하시겠습니까?');
+        if(confirmDelete === true) {
+            productDeleteUpdate_form.action='deleteMallToy.mdo';
+        } else{
+            productDeleteUpdate_form.action='productInquiryToy.mdo';
+        }
+    }
+</script>
 </body>
 </html>
