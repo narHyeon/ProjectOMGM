@@ -11,6 +11,9 @@
             width: 20%;
             margin: 10px;
         }
+        #memberTable_drop {
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -22,6 +25,18 @@
     <div class="card-body">
         <div id="memberTable" class="table-responsive">
             <div>
+                <%--  드롭박스  --%>
+                <span id="memberTable_drop" class="dropdown mb-4">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        검색조건
+                    </button>
+                    <span class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" onClick="selectBox(event)">회원번호</a>
+                        <a class="dropdown-item" href="#" onClick="selectBox(event)">ID</a>
+                        <a class="dropdown-item" href="#" onClick="selectBox(event)">이름</a>
+                    </span>
+                </span>
+                <%--  드롭박스  --%>
                 <input type="text" onkeyup="filter()" id="memberTable_search" placeholder="이름으로 검색" class="form-control bg-light border-0 small">
             </div>
             <table class="table table-bordered" width="100%" cellspacing="0">
@@ -41,9 +56,9 @@
                 <tbody>
                     <c:forEach var="members" items="${memberTable}">
                         <tr class="memberTable_member">
-                            <td>${members.seq}</td>
-                            <td>${members.id}</td>
-                            <td class="name">${members.name}</td>
+                            <td class ="memberTable_seq">${members.seq}</td>
+                            <td class ="memberTable_id">${members.id}</td>
+                            <td class="memberTable_name">${members.name}</td>
                             <td>${members.phone}</td>
                             <td>${members.zipcode}</td>
                             <td>${members.address}</td>
@@ -58,18 +73,41 @@
     </div>
 </div>
 <script>
+    let className = 'memberTable_name';
     function filter() {
         let value, name, item, i;
         value = document.querySelector("#memberTable_search").value.toUpperCase();
         item = document.getElementsByClassName("memberTable_member");
 
         for(i=0; i<item.length; i++){
-            name = item[i].getElementsByClassName("name");
+            name = item[i].getElementsByClassName(className);
             if(name[0].innerHTML.toUpperCase().indexOf(value) > -1) {
-                item[i].style.display = "";
+                item[i].style.display = '';
             } else {
-                item[i].style.display = "none";
+                item[i].style.display = 'none';
             }
+        }
+    }
+    function selectBox(event) {
+        event.preventDefault();
+
+        document.querySelector('#memberTable_search').value = '';
+        document.querySelectorAll('#memberTable_member td').forEach(item => item.style.display = '');
+
+        const name = event.target.innerText;
+        switch(name) {
+            case '회원번호':
+                document.querySelector('#memberTable_search').setAttribute('placeholder',name+'로 검색');
+                className = 'memberTable_seq';
+                break;
+            case 'ID':
+                document.querySelector('#memberTable_search').setAttribute('placeholder',name+'로 검색');
+                className = 'memberTable_id';
+                break;
+            default :
+                document.querySelector('#memberTable_search').setAttribute('placeholder',name+'으로 검색');
+                className = 'memberTable_name';
+                break;
         }
     }
 </script>
