@@ -16,6 +16,7 @@
             flex-direction: row;
         }
         .admin_kindergarden_schedule_input li {
+            width: 47%;
             display: flex;
             flex-direction: row;
             margin:10px;
@@ -27,8 +28,12 @@
             align-self: center;
         }
 
+        .admin_kindergarden_schedule_time {
+            width: 70%;
+        }
+
         .admin_kindergarden_schedule_program {
-            width: 750px;
+            /*width: 60%;*/
         }
         .card-body {
             font-size: 150%;
@@ -71,7 +76,7 @@
             <a href="login.html" class="btn btn-success btn-user ">적용</a>
         </div>
     </div>
-    <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js" defer></script>
+    <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js"></script>
     <c:if test="${day != null}">
         <c:forEach items="${dayRow}" var="row">
             <script>

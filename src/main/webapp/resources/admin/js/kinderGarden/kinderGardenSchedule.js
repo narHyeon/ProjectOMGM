@@ -7,7 +7,7 @@ const plusTime = (rowTime, rowProgram) => {
         <li>
             <label for="admin_kindergarden_schedule_time${adminScheduleNumber+1}">시간</label>
             <input type="text" id="admin_kindergarden_schedule_time${++adminScheduleNumber}" 
-            class="form-control form-control-user" placeholder="time" value="${rowTime}">
+            class="form-control form-control-user admin_kindergarden_schedule_time" placeholder="time" value="${rowTime}">
         </li>
         <li>
             <label for="admin_kindergarden_schedule_time${adminScheduleNumber+1}">교육 내용</label>
