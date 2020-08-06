@@ -136,9 +136,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form action="/productOrderDelete.mdo">
+                <form action="/productOrderDelete.mdo" id="productOrder_form">
                     <c:forEach var="order" items="${order}">
-                        <input type="hidden" name="order_no" value="${order.order_no}">
                         <tr>
                             <th id="orderSeq">${order.order_no}</th>
                             <th>${order.order_id}</th>
@@ -147,8 +146,25 @@
                             <th>${order.order_state}</th>
                             <th>${order.order_price}</th>
                             <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
-                            <th><button type="submit" class="btn btn-info btn-delete">삭제</button></th>
+                            <th id="productOrder_button"></th>
                         </tr>
+
+                        <script>
+                                const th = document.querySelector('#productOrder_button');
+                                const button = document.createElement('button');
+                                button.setAttribute('type','button');
+                                button.setAttribute('class','btn btn-info btn-delete');
+                                button.setAttribute('value','삭제');
+                                button.addEventListener('click',() => {
+                                    console.log('${order.order_no}');
+                                    const form = document.querySelector('#productOrder_form');
+                                    form.innerHTML += `
+                                        <input type="hidden" name="order_no" value="${order.order_no}">
+                                    `;
+                                    form.submit();
+                                });
+                                th.appendChild(button);
+                            </script>
                     </c:forEach>
                 </form>
                 </tbody>
@@ -200,7 +216,8 @@
                 <input type="hidden" name="order_status_no" value="${pro_status.order_status_no}">
             <p><span>수령인</span>${pro_status.order_status_receiver}</p>
             <p><span>주소</span>(${pro_status.order_status_zipcode}<br>${pro_status.order_status_address1}${pro_status.order_status_address2}</p>
-            <p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${pro_status.order_status_price}" /> 원</p>
+<%--
+--%>
 
 
             </c:forEach>

@@ -6,7 +6,7 @@ public class OrderVO {
     private int order_no;
     private String order_id;
     private Date order_date;
-    private int order_phone;
+    private String order_phone;
     private int order_price;
     private String order_state;
 
@@ -42,11 +42,11 @@ public class OrderVO {
         this.order_date = order_date;
     }
 
-    public int getOrder_phone() {
+    public String getOrder_phone() {
         return order_phone;
     }
 
-    public void setOrder_phone(int order_phone) {
+    public void setOrder_phone(String order_phone) {
         this.order_phone = order_phone;
     }
 
