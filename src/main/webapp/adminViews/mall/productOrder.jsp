@@ -200,30 +200,22 @@
             document.querySelector('#detail_popup').checked = true;
         }
         function createForm(order) {
-            document.querySelector('#productOrder_form').innerHTML +=
-            // `<tr>
-            //     <th id="orderSeq">`+order.no+`</th>
-            //     <th>`+order.id+`</th>
-            //     <th>`+order.date+`</th>
-            //     <th>`+order.phone+`</th>
-            //     <th>`+order.state+`</th>
-            //     <th>`+order.price+`</th>
-            //     <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
-            //     <th id="productOrder_button"></th>
-            // </tr>
-            // `;
-
-                `<tr>
-                <th id="orderSeq">`+1+`</th>
-                <th>`+2+`</th>
-                <th>`+3+`</th>
-                <th>`+4+`</th>
-                <th>`+5+`</th>
-                <th>`+6+`</th>
+            const row =
+            ` <th id="orderSeq">`+order.no+`</th>
+                <th>`+order.id+`</th>
+                <th>`+order.date+`</th>
+                <th>`+order.phone+`</th>
+                <th>`+order.state+`</th>
+                <th>`+order.price+`</th>
                 <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
                 <th id="productOrder_button"></th>
-            </tr>
             `;
+
+            const addorder = document.createElement('tr');
+            addorder.setAttribute('class',`pro_order_tr`);
+            addorder.innerHTML = row;
+            document.querySelector('#productOrder_form').appendChild(addorder);
+
 
             <%--const th = document.querySelector('#productOrder_button');--%>
             <%--const button = document.createElement('button');--%>
@@ -238,9 +230,9 @@
             <%--    orderForm.submit();--%>
             <%--});--%>
             <%--th.appendChild(button);--%>
-
         }
         let order;
+        let orderArr;
     </script>
 <c:forEach var="order" items="${order}">
     <script>
