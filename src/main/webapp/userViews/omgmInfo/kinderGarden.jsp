@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -158,38 +159,12 @@
             <th>교육 내용</th>
         </tr>
         </thead>
-        <tr>
-            <td>08:00 ~ 10:00</td>
-            <td>출석체크 및 등원(배변교육)</td>
-        </tr>
-        <tr>
-            <td>10:00 ~ 12:00</td>
-            <td>오전교육</td>
-        </tr>
-        <tr>
-            <td>12:00 ~ 13:00</td>
-            <td>점심식사&휴식(배변교육)</td>
-        </tr>
-        <tr>
-            <td>13:00 ~ 15:00</td>
-            <td>오후교육</td>
-        </tr>
-        <tr>
-            <td>15:00 ~ 17:00</td>
-            <td>휴식&음악감상</td>
-        </tr>
-        <tr>
-            <td>17:00 ~ 18:00</td>
-            <td>그루밍 하원준비(배변교육)</td>
-        </tr>
-        <tr>
-            <td>18:00 ~ 19:00</td>
-            <td>케어 일지 전송</td>
-        </tr>
-        <tr>
-            <td>19:00 ~ 20:00</td>
-            <td>유치원 소독 및 청소</td>
-        </tr>
+            <c:forEach var="row" items="${dayRow}">
+                <tr>
+                    <td>${row.time}</td>
+                    <td>${row.program}</td>
+                </tr>
+            </c:forEach>
     </table>
 </div>
 <%-- 유치원 월간 스케쥴 --%>
