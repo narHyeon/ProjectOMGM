@@ -64,7 +64,12 @@
         <a href="reviewListBoard.do" class="reviewList_page01">&lt;&lt;</a>
         <a href="reviewListBoard.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
         <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-            <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" onlcick="changeColor(${counter})">&nbsp;&nbsp;${counter}</a>
+            <c:if test="${page.cnt == counter}">
+                <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" style="background-color:orange" onlcick="changeColor(${counter})">&nbsp;&nbsp;${counter}</a>
+            </c:if>
+            <c:if test="${page.cnt != counter}">
+                <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" onlcick="changeColor(${counter})">&nbsp;&nbsp;${counter}</a>
+            </c:if>
         </c:forEach>
         <a href="reviewListBoard.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a>
         <a href="reviewListBoard.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
