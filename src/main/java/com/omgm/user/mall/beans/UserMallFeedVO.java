@@ -13,6 +13,24 @@ public class UserMallFeedVO {
      private int feed_point;
      private String feed_info;
      private String feed_img;
+     private String searchCondition;
+     private String searchKeyword;
+
+    public String getSearchCondition() {
+        return searchCondition;
+    }
+
+    public void setSearchCondition(String searchCondition) {
+        this.searchCondition = searchCondition;
+    }
+
+    public String getsearchKeyword() {
+        return searchKeyword;
+    }
+
+    public void setsearchKeyword(String searchKeyword) {
+        this.searchKeyword = searchKeyword;
+    }
 
     public int getFeed_code() {
         return feed_code;

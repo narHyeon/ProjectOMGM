@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -31,12 +32,31 @@
 </div>
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
-    <div class="category">
-    <button>사료</button>
-    <button>장난감</button>
+    <div class="category"  >
+    <button style="color: deeppink" >사료</button>
+    <button >장난감</button>
     </div>
+
     <div class="event_list">
+        <div style="display: flex; justify-content: flex-end; margin-right: 10.7%;
+                                margin-bottom: 1.5%; margin-top: 3%">
+            <form action = "getMallFeedList.do" method="post">
+                <table border="1">
+                    <tr>
+                        <td>
+                            <select name="searchCondition" style="border: none; color: deeppink ">
+                                <option value="FEED_NAME" style="color: deeppink">상품 이름</option>
+                                <option value="FEED_INFO" style="color: deeppink">상품 정보</option>
+                            </select>
+                            <input type="text" name="searchKeyword" style="border-color: deeppink"/>
+                            <input type="submit" value="검색" style="border: none; color: deeppink; background-color: white" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
         <ul>
+
             <form action="productDetail.do" class="product_form">
           <c:forEach var="FeedList" items="${FeedList}">
             <li class="pro_Li" style="padding-left:5%;">
@@ -48,39 +68,25 @@
                     <div class="info">
                         <strong>${FeedList.feed_name}</strong>
                         <p>
-                            <span>${FeedList.feed_inStock}</span>
+                            <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
                         </p>
                     </div>
                 </a>
             </li>
           </c:forEach>
-            <c:forEach var="ToyList" items="${ToyList}">
-                <li class="pro_Li" style="padding-left:5%;">
-                    <a href="">
-                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
-                        <div class="menu" style="display: none;">
-                            <em>NEW</em>
-                        </div>
-                        <div class="info">
-                            <strong class="toyname">${ToyList.toy_name}</strong>
-                            <p>
-                              <span>${ToyList.toy_price}</span>
-                            </p>
-                        </div>
-                    </a>
-                </li>
-            </c:forEach>
+
             </form>
         </ul>
     </div>
     <div class="pro_paging">
         <ul>
-            <li class="first"><a href=""><span class="hide">첫페이지</span></a></li>
-            <li class="prev"><a href=""><span class="hide">이전페이지</span></a></li>
-            <li><a href="" class="on">1</a></li>
-            <li><a href="">2</a></li>
-            <li class="next"><a href=""><span class="hide">다음페이지</span></a></li>
-            <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>
+            <li class="first"><a href="getMallFeedList.do"><span class="hide">첫페이지</span></a></li>
+            <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
+            <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+                <a href="getMallFeedList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>
+            </c:forEach>
+            <li class="next"><a href="getMallFeedList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>
+            <li class="last"><a href="getMallFeedList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
 

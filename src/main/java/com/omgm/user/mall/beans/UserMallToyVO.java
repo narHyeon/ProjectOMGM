@@ -15,14 +15,26 @@ public class UserMallToyVO {
     private String toy_point;
     private String toy_info;
     private String toy_img;
-    private MultipartFile uploadFile;
+    private String searchCondition;
 
-    public MultipartFile getUploadFile() {
-        return uploadFile;
+    public String getSearchCondition() {
+        return searchCondition;
     }
-    public void setUploadFile(MultipartFile uploadFile) {
-        this.uploadFile = uploadFile;
+
+    public void setSearchCondition(String searchCondition) {
+        this.searchCondition = searchCondition;
     }
+
+    public String getSearchKeyword() {
+        return searchKeyword;
+    }
+
+    public void setSearchKeyword(String searchKeyword) {
+        this.searchKeyword = searchKeyword;
+    }
+
+    private String searchKeyword;
+
     public UserMallToyVO() {
     }
 

@@ -13,14 +13,13 @@
 		<typeAlias alias="mallToyVO" type="com.omgm.admin.mall.beans.MallToyVO"/>
 		<typeAlias alias="mallOrder" type="com.omgm.admin.mall.beans.MallOrderVO" />
 		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
-		<typeAlias alias="usermallfeed" type="com.omgm.user.mall.beans.UserMallFeedVO" />
-		<typeAlias alias="usermalltoy" type="com.omgm.user.mall.beans.UserMallToyVO" />
+		<typeAlias alias="usermallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
+		<typeAlias alias="usermallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
 		<typeAlias alias="Order" type="com.omgm.admin.mall.beans.OrderVO" />
 		<typeAlias alias="KinderGardenVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenVO" />
 		<typeAlias alias="KinderGardenRowVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowVO" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappings/mall/productToyList-mapping.xml" />
 		<mapper resource="mappings/mall/productList-mapping.xml" />
 		<mapper resource="mappings/mall/order-mapping.xml" />
 		<mapper resource="mappings/mall/mall-mapping.xml" />
