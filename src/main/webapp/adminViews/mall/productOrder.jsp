@@ -156,7 +156,7 @@
 </div>
 
 <div>
-<%-- login --%>
+<%-- detailList --%>
 <input type="checkbox" id="detail_popup">
 <div>
     <div>
@@ -166,48 +166,42 @@
 
             <div class="txtbox">
                 <label>주문번호 : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text"  class="order_txt" /><br><br>
             </div>
 
             <div class="txtbox">
                 <label>주문날짜 : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text" id="proPrice" class="order_txt" /><br><br>
             </div>
 
             <div class="txtbox">
                 <label>주문자ID : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text" id="proPrice" class="order_txt" /><br><br>
             </div>
 
-            <table class="table table-bordered" id="order_table" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="order_List" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>주문번호</th>
-                    <th>주문자ID</th>
-                    <th>주문날짜</th>
-                    <th>전화번호</th>
-                    <th>주문상태</th>
-                    <th>결제금액</th>
-                    <th>상세보기</th>
-                    <th>삭제</th>
+                    <th></th>
+                    <th>상품명</th>
+                    <th>가격</th>
                 </tr>
                 </thead>
                 <tbody>
-                <form action="/productOrderDelete.mdo">
                     <c:forEach var="order" items="${order}">
                         <input type="hidden" name="order_no" value="${order.order_no}">
                         <tr>
                             <th>${order.order_no}</th>
                             <th>${order.order_id}</th>
                             <th>${order.order_date}</th>
-                            <th>${order.order_phone}</th>
-                            <th>${order.order_state}</th>
                             <th>${order.order_price}</th>
+
                             <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
                             <th><button type="submit" class="btn btn-info btn-delete">삭제</button></th>
+
                         </tr>
                     </c:forEach>
-                </form>
                 </tbody>
             </table>
 
@@ -215,22 +209,22 @@
 
             <div class="txtbox">
                 <label>전화번호 : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text" class="order_txt" /><br><br>
             </div>
 
             <div class="txtbox">
                 <label>받는사람 : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text" class="order_txt" /><br><br>
             </div>
 
             <div class="txtbox">
                 <label>우편번호 : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text" class="order_txt" /><br><br>
             </div>
 
             <div class="txtbox">
                 <label>배달지주소 : </label><br>
-                <input type="text" id="proPrice" class="title" /><br><br>
+                <input type="text" class="order_txt" /><br><br>
             </div>
 
 
