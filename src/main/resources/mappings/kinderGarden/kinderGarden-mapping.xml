@@ -17,7 +17,7 @@
     </resultMap>
 
     <!-- 실 사용 -->
-    <select id="getSchedule" resultType="KinderGardenVO">
+    <select id="getSchedule" parameterType="KinderGardenVO" resultType="KinderGardenVO">
         <choose>
             <when test="seq != 0">
                 SELECT * FROM kgday WHERE seq=#{seq}
@@ -27,8 +27,9 @@
             </otherwise>
         </choose>
     </select>
+
     <select id="getScheduleRow" resultMap="KinderGardenRowResult">
-        SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq DESC
+        SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
     </select>
 
 </mapper>

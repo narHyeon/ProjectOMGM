@@ -23,12 +23,10 @@ public class KinderGardenController {
     @RequestMapping("/kinderGardenSchedule.mdo")
     public ModelAndView kinderGardenSchedule(KinderGardenVO vo) {
         ModelAndView mav = new ModelAndView();
-        System.out.println(vo);
-//        vo = kinderGardenService.getSchedule(vo);
-//        System.out.println(vo);
-//        List<KinderGardenRowVO> list = kinderGardenService.getScheduleRow(vo);
-//        System.out.println(list);
-//        mav.addObject("Row",list);
+        vo = kinderGardenService.getSchedule(vo);
+        List<KinderGardenRowVO> list = kinderGardenService.getScheduleRow(vo);
+        mav.addObject("day",vo);
+        mav.addObject("dayRow",list);
         mav.setViewName("/kinderGarden/kinderGardenSchedule");
         return mav;
     }

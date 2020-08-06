@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -49,7 +50,6 @@
             width: 50%;
         }
     </style>
-    <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js" defer></script>
 </head>
 <body>
     <div class="card mb-4 py-3 border-bottom-info">
@@ -71,5 +71,13 @@
             <a href="login.html" class="btn btn-success btn-user ">적용</a>
         </div>
     </div>
+    <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js" defer></script>
+    <c:if test="${day != null}">
+        <c:forEach items="${dayRow}" var="row">
+            <script>
+                plusTime('${row.time}','${row.program}'); // 컬럼 추가
+            </script>
+        </c:forEach>
+    </c:if>
 </body>
 </html>
