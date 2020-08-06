@@ -29,4 +29,6 @@ public class MallOrderDAO {
     //주문삭제
     public int deleteOrder(OrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder",vo); }
 
+    //포인트 적립
+    public List<MallOrderVO> getMallPointList () { return sqlSessionTemplate.selectList("MallOrderDAO.getMallPointList"); }
 }

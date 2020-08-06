@@ -98,6 +98,14 @@ public class OneController {
         return mav;
     }
 
+    //장바구니 페이지 이동
+    @RequestMapping(value="/cart.do")
+    public ModelAndView cart(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/cart");
+        return mav;
+    }
+
 //    @RequestMapping("/upload.do")
 //    public void upload(BoardVO vo) throws IOException {
 //        System.out.println("파일 업로드 테스트");

@@ -58,5 +58,10 @@
         DELETE FROM order_list WHERE order_no=#{order_no}
     </delete>
 
+    <!-- 포인트적립 불러오기   -->
+    <select id="getMallPointList" resultType="mallOrder">
+        SELECT * FROM order_status
+    </select>
+
 </mapper>
 

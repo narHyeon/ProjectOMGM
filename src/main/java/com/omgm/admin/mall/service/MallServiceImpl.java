@@ -100,7 +100,7 @@ public class MallServiceImpl implements MallService {
 
     //주문목록불러오기
     @Override
-    public List<OrderVO> getOrderList() throws Exception{
+    public List<OrderVO> getOrderList(OrderVO vo) throws Exception{
         return mallOrderDAO.getOrderList();
     }
 
@@ -109,4 +109,12 @@ public class MallServiceImpl implements MallService {
     public void deleteOrder(OrderVO vo) {
         mallOrderDAO.deleteOrder(vo);
     }
+
+    //포인트적립 불러오기
+    @Override
+    public List<MallOrderVO> getMallPointList(MallOrderVO vo) throws Exception {
+        return mallOrderDAO.getMallPointList();
+    }
+
+
 }

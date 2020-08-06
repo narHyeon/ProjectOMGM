@@ -153,6 +153,7 @@ public class MallController {
 
 // #########################################################################################
 
+
 //    //주문목록불러오기(상세)
 //    @RequestMapping("/productStatus.mdo")
 //    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
@@ -175,7 +176,7 @@ public class MallController {
     @RequestMapping("/productOrder.mdo")
     public ModelAndView productOrder(OrderVO vo,MallOrderVO vo1) throws Exception{
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/main");
+        mav.setViewName("/mall/productOrder");
 //        List<OrderVO> order = mallService.getOrderList();
         vo1.setOrder_status_no(8);
         List<MallOrderVO> list = mallService.getMallOrderList(vo1);
@@ -183,7 +184,7 @@ public class MallController {
             System.out.println(li.getOrder_status_id());
             System.out.println(li.getOrder_status_date());
         }
-        mav.addObject("order",mallService.getOrderList());
+        mav.addObject("order",mallService.getOrderList(vo));
         mav.addObject("pro_status",mallService.getMallOrderList(vo1));
         return mav;
     }
@@ -194,6 +195,15 @@ public class MallController {
         ModelAndView mav = new ModelAndView();
         mallService.deleteOrder(vo);
         mav.setViewName("redirect:/productOrder.mdo");
+        return mav;
+    }
+
+    // 포인트 적립 불러오기
+    @RequestMapping("/getMallPointList.mdo")
+    public ModelAndView getMallPointList(MallOrderVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/point");
+        mav.addObject("pointAdd", mallService.getMallPointList(vo));
         return mav;
     }
 
