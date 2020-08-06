@@ -136,9 +136,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <form action="/productOrderDelete.mdo" id="productOrder_form">
-
-                    </form>
+                    <form action="/productOrderDelete.mdo" id="productOrder_form"></form>
                 </tbody>
             </table>
         </div>
@@ -192,45 +190,69 @@
 </div>
 </div>
 
-<script>
-    // 로그인 버튼
-    function detail(event) {
-        const num01 = document.getElementById('orderSeq');
-        const num02 = document.getElementById('orderSeq2');
-        num02.value = num01.value;
-        event.preventDefault();
-        document.querySelector('#detail_popup').checked = true;
-    }
-</script>
-<c:forEach var="order" items="${order}">
     <script>
-        document.querySelector('#productOrder_form').innerHTML +=
-            `<tr>
-                <%--<th id="orderSeq">${order.order_no}</th>--%>
-                <th id="orderSeq">123</th>
-                <th>${order.order_id}</th>
-                <th>${order.order_date}</th>
-                <th>${order.order_phone}</th>
-                <th>${order.order_state}</th>
-                <th>${order.order_price}</th>
+        // 로그인 버튼
+        function detail(event) {
+            const num01 = document.getElementById('orderSeq');
+            const num02 = document.getElementById('orderSeq2');
+            num02.value = num01.value;
+            event.preventDefault();
+            document.querySelector('#detail_popup').checked = true;
+        }
+        function createForm(order) {
+            document.querySelector('#productOrder_form').innerHTML +=
+            // `<tr>
+            //     <th id="orderSeq">`+order.no+`</th>
+            //     <th>`+order.id+`</th>
+            //     <th>`+order.date+`</th>
+            //     <th>`+order.phone+`</th>
+            //     <th>`+order.state+`</th>
+            //     <th>`+order.price+`</th>
+            //     <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
+            //     <th id="productOrder_button"></th>
+            // </tr>
+            // `;
+
+                `<tr>
+                <th id="orderSeq">`+1+`</th>
+                <th>`+2+`</th>
+                <th>`+3+`</th>
+                <th>`+4+`</th>
+                <th>`+5+`</th>
+                <th>`+6+`</th>
                 <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
                 <th id="productOrder_button"></th>
             </tr>
             `;
 
-        <%--const th = document.querySelector('#productOrder_button');--%>
-        <%--const button = document.createElement('button');--%>
-        <%--button.setAttribute('type','button');--%>
-        <%--button.setAttribute('class','btn btn-info btn-delete');--%>
-        <%--button.setAttribute('value','삭제');--%>
-        <%--button.addEventListener('click',() => {--%>
-        <%--    console.log('${order.order_no}');--%>
-        <%--    orderForm.innerHTML += `--%>
-        <%--                                    <input type="hidden" name="order_no" value="${order.order_no}">--%>
-        <%--                                `;--%>
-        <%--    orderForm.submit();--%>
-        <%--});--%>
-        <%--th.appendChild(button);--%>
+            <%--const th = document.querySelector('#productOrder_button');--%>
+            <%--const button = document.createElement('button');--%>
+            <%--button.setAttribute('type','button');--%>
+            <%--button.setAttribute('class','btn btn-info btn-delete');--%>
+            <%--button.setAttribute('value','삭제');--%>
+            <%--button.addEventListener('click',() => {--%>
+            <%--    console.log('${order.order_no}');--%>
+            <%--    orderForm.innerHTML += `--%>
+            <%--                                    <input type="hidden" name="order_no" value="${order.order_no}">--%>
+            <%--                                `;--%>
+            <%--    orderForm.submit();--%>
+            <%--});--%>
+            <%--th.appendChild(button);--%>
+
+        }
+        let order;
+    </script>
+<c:forEach var="order" items="${order}">
+    <script>
+        order = {
+            no: '${order.order_no}',
+            id: '${order.order_id}',
+            date: '${order.order_date}',
+            phone: '${order.order_phone}',
+            state: '${order.order_state}',
+            price: '${order.order_price}'
+        }
+        createForm(order);
     </script>
 </c:forEach>
 </body>
