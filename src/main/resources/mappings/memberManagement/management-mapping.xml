@@ -24,10 +24,10 @@
     <select id="memberTable" parameterType="ManagementVO" resultMap="ManagementResult">
         <choose>
             <when test="type != '관리자'">
-                    SELECT * FROM member WHERE type != '관리자' ORDER BY seq
+                SELECT * FROM member WHERE type != '관리자' ORDER BY seq
             </when>
             <otherwise>
-                SELECT * FROM member WHERE type == '관리자' ORDER BY seq
+                SELECT * FROM member WHERE type = '관리자' ORDER BY seq
             </otherwise>
         </choose>
     </select>
