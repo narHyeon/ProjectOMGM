@@ -54,4 +54,12 @@ public class AdminController {
         mav.setViewName("/orderInquiry/orderInquiry");
         return mav;
     }
+
+    //포인트 지급내역 페이지 이동
+    @RequestMapping("/point.mdo")
+    public ModelAndView point(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/point");
+        return mav;
+    }
 }

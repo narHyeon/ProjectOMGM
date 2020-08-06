@@ -18,7 +18,7 @@ public class UserMallController {
     ////////////////////////// 사료 관련 컨트롤러 /////////////////////////
     //MallList(+ 페이징 처리 추가)
     @RequestMapping("/getMallFeedList.do")
-    public ModelAndView getMallFeedList(UserMallFeedVO vo, @RequestParam(value="page", defaultValue = "1") int page) throws Exception{
+    public ModelAndView getMallFeedList(UserMallFeedVO vo, @RequestParam(value = "page", defaultValue = "1") int page) throws Exception {
         ModelAndView mav = new ModelAndView();
         int COUNTERPAGE = 8;
         int PAGEPERGROUP = 5;
@@ -31,13 +31,20 @@ public class UserMallController {
 
     //MallList로 이동
     @RequestMapping("/productClick.do")
-    public ModelAndView productClick(UserMallFeedVO vo) throws Exception{
+    public ModelAndView productClick(UserMallFeedVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/toy.do");
         return mav;
     }
 
-    ////////////////////////// 장난감 관련 컨트롤러 /////////////////////////
-}
+    //장바구니 리스트 출력(미완성-현재는 사료리스트가 출력)
+    @RequestMapping("/cartList.do")
+    public ModelAndView cart(UserMallFeedVO vo, PageNavigatorMall navi) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/cart");
+        mav.addObject("FeedList", userMallService.getMallFeedList(vo, navi));
+        return mav;
+    }
 
+}
 
