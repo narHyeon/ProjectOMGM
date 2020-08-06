@@ -1,13 +1,22 @@
 package com.omgm.user.common.controller;
 
 import com.omgm.user.common.beans.CommonVO;
+import com.omgm.user.common.beans.KinderGardenInfoVO;
+import com.omgm.user.common.beans.KinderGardenInfoRowVO;
+import com.omgm.user.common.service.CommonService;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 @Controller
 public class OneController {
+
+    @Resource(name="commonService")
+    private CommonService commonService;
 
     // 메인화면
     @RequestMapping(value="/main.do")
@@ -28,8 +37,14 @@ public class OneController {
 
     // 유치원 소개 페이지 이동
     @RequestMapping(value="/kinderGarden.do")
-    public ModelAndView kinderGarden() {
+    public ModelAndView kinderGarden(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
+        vo = commonService.getSchedule();
+        System.out.println(vo);
+        List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
+        mav.addObject("day",vo);
+        System.out.println(list);
+        mav.addObject("dayRow",list);
         mav.setViewName("/omgmInfo/kinderGarden");
         return mav;
     }
