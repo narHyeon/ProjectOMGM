@@ -3,26 +3,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="KinderGardenDAO">
-
     <resultMap type="KinderGardenVO" id="KinderGardenResult">
         <id property="seq" column="SEQ" />
         <result property="title" column="TITLE"/>
         <result property="regDate" column="REGDATE"/>
+    </resultMap>
+
+    <resultMap type="KinderGardenRowVO" id="KinderGardenRowResult">
+        <id property="seq" column="SEQ" />
         <result property="no" column="NO"/>
         <result property="time" column="TIME"/>
         <result property="program" column="PROGRAM"/>
     </resultMap>
 
     <!-- 실 사용 -->
-    <select id="memberTable" parameterType="ManagementVO" resultMap="ManagementResult">
-        <choose>
-            <when test="type != '관리자'">
-                SELECT * FROM member WHERE type != '관리자' ORDER BY seq
-            </when>
-            <otherwise>
-                SELECT * FROM member WHERE type = '관리자' ORDER BY seq
-            </otherwise>
-        </choose>
+    <select id="getSchedule" resultType="KinderGardenVO">
+        SELECT * FROM kgday WHERE seq=#{seq}
+    </select>
+
+    <select id="getScheduleRow" resultMap="KinderGardenRowResult">
+        SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq DESC
     </select>
 
 

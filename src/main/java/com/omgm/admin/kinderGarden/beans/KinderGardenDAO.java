@@ -16,7 +16,7 @@ public class KinderGardenDAO {
         return sqlSessionTemplate.selectOne("KinderGardenDAO.",vo);
     }
 
-    public List<KinderGardenVO> getScheduleRow(KinderGardenVO vo) {
+    public List<KinderGardenRowVO> getScheduleRow(KinderGardenVO vo) {
         return sqlSessionTemplate.selectList("kinderGardenDAO.",vo);
     }
 }

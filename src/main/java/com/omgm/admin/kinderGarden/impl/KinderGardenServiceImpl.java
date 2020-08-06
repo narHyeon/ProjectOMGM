@@ -1,6 +1,7 @@
 package com.omgm.admin.kinderGarden.impl;
 
 import com.omgm.admin.kinderGarden.beans.KinderGardenDAO;
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     }
 
     @Override
-    public List<KinderGardenVO> getScheduleRow(KinderGardenVO vo) {
+    public List<KinderGardenRowVO> getScheduleRow(KinderGardenVO vo) {
         return kinderGardenDAO.getScheduleRow(vo);
     }
 }
