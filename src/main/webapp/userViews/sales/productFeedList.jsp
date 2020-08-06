@@ -33,8 +33,8 @@
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
     <div class="category"  >
-    <button style="color: deeppink" >사료</button>
-    <button >장난감</button>
+        <button style="color: deeppink" >사료</button>
+        <button >장난감</button>
     </div>
 
     <div class="event_list">
@@ -58,22 +58,22 @@
         <ul>
 
             <form action="productDetail.do" class="product_form">
-          <c:forEach var="FeedList" items="${FeedList}">
-            <li class="pro_Li" style="padding-left:5%;">
-                <a href="">
-                    <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
-                    <div class="menu" style="display: none;">
-                        <em>NEW</em>
-                    </div>
-                    <div class="info">
-                        <strong>${FeedList.feed_name}</strong>
-                        <p>
-                            <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
-                        </p>
-                    </div>
-                </a>
-            </li>
-          </c:forEach>
+                <c:forEach var="FeedList" items="${FeedList}">
+                    <li class="pro_Li" style="padding-left:5%;">
+                        <a href="">
+                            <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                            <div class="menu" style="display: none;">
+                                <em>NEW</em>
+                            </div>
+                            <div class="info">
+                                <strong>${FeedList.feed_name}</strong>
+                                <p>
+                                    <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </c:forEach>
 
             </form>
         </ul>
