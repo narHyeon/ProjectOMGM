@@ -45,14 +45,16 @@
         border-bottom: 1px solid black;
     }
 </style>
-<a href="productInquiryToy.mdo">장난감 상품 조회</a>
+<a href="productInquiryToy.mdo">장난감 상품 조회 이동</a>
 
 <div id="productInquiry_searchbox">
     <div class="header">
         <h1>사료 상품 조회</h1>
         <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
     </div>
-
+    <div style="display: flex; justify-content: flex-end; padding-right: 6%; margin-bottom: 1%;">
+        <a href="productRegister.mdo"><button class="btn btn-primary">상품 등록하기</button></a>
+    </div>
     <div class="container">
         <span class="name01">장난감 이미지</span>
         <span class="name01">장난감 코드</span>

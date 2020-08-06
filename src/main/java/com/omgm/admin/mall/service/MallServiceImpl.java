@@ -44,11 +44,12 @@ public class MallServiceImpl implements MallService {
         return mallDAO.getMallToyOne(vo);
     }
 
-    // 사료(상품) 상세정보 페이지
+    // 장난감 이미지 정보 불러오기
     @Override
-    public MallFeedVO getMallFeedOne(MallFeedVO vo) throws Exception {
-        return mallDAO.getMallFeedOne(vo);
+    public MallToyVO getMallToyImgOne(MallToyVO vo) throws Exception {
+        return mallDAO.getMallToyImgOng(vo);
     }
+
 
     //  ###### 사료 관련 서비스 ###########################################################
 
@@ -68,6 +69,12 @@ public class MallServiceImpl implements MallService {
     @Override
     public void updateMallFeed(MallFeedVO vo) throws Exception {
         mallDAO.updateMallFeed(vo);
+    }
+
+    // 사료(상품) 상세정보 페이지
+    @Override
+    public MallFeedVO getMallFeedOne(MallFeedVO vo) throws Exception {
+        return mallDAO.getMallFeedOne(vo);
     }
 
     // 사료(상품)목록 나열

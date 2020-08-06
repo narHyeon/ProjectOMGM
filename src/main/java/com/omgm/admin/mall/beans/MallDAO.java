@@ -34,6 +34,8 @@ public class MallDAO {
     // 장난감 열 하나 정보 불러오기
     public MallToyVO getMallToyOne(MallToyVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallToyOne", vo);}
 
+    // 장난감 이미지 하나 불러오기
+    public MallToyVO getMallToyImgOng(MallToyVO vo){return sqlSessionTemplate.selectOne("MallDAO.getMallToyImgOng", vo);}
 
     /////////////////  feed 관련 DAO 설정  ///////////////////////////////////////////////////////////
     // 사료 디비 정보 입력
