@@ -4,6 +4,7 @@ import com.omgm.admin.mall.beans.*;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -196,6 +197,7 @@ public class MallController {
     @RequestMapping("/productOrderDelete.mdo")
     public ModelAndView productOrderDelete(OrderVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
+        System.out.println("삭제 실행");
         mallService.deleteOrder(vo);
         mav.setViewName("redirect:/productOrder.mdo");
         return mav;
