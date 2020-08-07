@@ -2,7 +2,6 @@ package com.omgm.member.controller;
 
 import com.omgm.member.beans.MemberVO;
 import com.omgm.member.service.MemberService;
-import com.omgm.user.common.beans.CommonVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -23,33 +24,13 @@ public class MemberController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
-    @RequestMapping("/naverLogin.lo")
-    public ModelAndView naverLogin(MemberVO vo) {
+    // 네이버 회원 콜백
+    @RequestMapping("/naverCallback.lo")
+    public ModelAndView naverSign(MemberVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/login");
-        return mav;
-    }
-
-    @RequestMapping("/loginCallback.lo")
-    public ModelAndView lobinVallback(MemberVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/loginCallback");
-        return mav;
-    }
-
-
-    @RequestMapping("/kakaoLogin.lo")
-    public ModelAndView kakaoLogin(MemberVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kakaoLogin");
-        return mav;
-    }
-
-    @RequestMapping("/sample.lo")
-    public ModelAndView Sample(MemberVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/sample");
+        mav.setViewName("/main");
+        vo.setId("naver");
+        mav.addObject("naver",vo);
         return mav;
     }
 
@@ -78,5 +59,44 @@ public class MemberController {
             vo.setId("유");
         }
         return vo;
+    }
+
+    @RequestMapping("/login.lo")
+    public ModelAndView login(HttpSession session, MemberVO vo) {
+        ModelAndView mav = new ModelAndView();
+        MemberVO mvo = memberService.getMember(vo);
+        mav.setViewName("/main");
+        if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) {
+            session.setAttribute("member",mvo);
+            if(mvo.getType().equals("관리자")) {
+                mav.setViewName("redirect:adminMain.mdo");
+            }
+        } else {
+            vo.setId("무");
+            mav.addObject("member",vo);
+        }
+        return mav;
+    }
+
+    @RequestMapping("/logout.lo")
+    public ModelAndView logout(HttpSession session) {
+        // 1. 브라우저와 연결된 세션 객체를 종료
+        session.invalidate();
+        // 2. 세션 종료 후 메인 화면으로 이동
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/main");
+        return mav;
+    }
+
+    // SNS계정 로그인
+    @RequestMapping(value = "/snsLogin.lo", method = RequestMethod.GET)
+    public ModelAndView snsLogin(HttpSession session, MemberVO vo) {
+        ModelAndView mav = new ModelAndView();
+        MemberVO mvo = memberService.snsCheck(vo);
+        if(mvo != null) {
+            session.setAttribute("member",mvo);
+        }
+        mav.setViewName("/main");
+        return mav;
     }
 }

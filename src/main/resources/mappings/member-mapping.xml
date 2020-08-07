@@ -11,12 +11,13 @@
         <result property="name" column="NAME"/>
         <result property="phone" column="PHONE" />
         <result property="email" column="EMAIL" />
-        <result property="zipCode" column="ZIPCODE" />
+        <result property="zipcode" column="ZIPCODE" />
         <result property="address" column="ADDRESS" />
         <result property="point" column="POINT" />
         <result property="rank" column="RANK" />
         <result property="type" column="TYPE" />
         <result property="regDate" column="REGDATE"/>
+        <result property="code" column="CODE"/>
     </resultMap>
 
     <!-- 실 사용 -->
@@ -31,6 +32,10 @@
 
     <select id="snsCheck" parameterType="MemberVO" resultType="MemberVO">
         SELECT * FROM member WHERE code = #{code}
+    </select>
+
+    <select id="getMember" resultType="MemberVO" parameterType="MemberVO">
+            SELECT * FROM member WHERE id=#{id}
     </select>
 
 </mapper>

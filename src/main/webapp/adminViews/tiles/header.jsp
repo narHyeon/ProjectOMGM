@@ -17,7 +17,7 @@
 				placeholder="Search for..." aria-label="Search"
 				aria-describedby="basic-addon2">
 			<div class="input-group-append">
-				<button class="btn btn-primary" type="button">
+				<button class="btn btn-info" type="button">
 					<i class="fas fa-search fa-sm"></i>
 				</button>
 			</div>
@@ -42,7 +42,7 @@
 							placeholder="Search for..." aria-label="Search"
 							aria-describedby="basic-addon2">
 						<div class="input-group-append">
-							<button class="btn btn-primary" type="button">
+							<button class="btn btn-info" type="button">
 								<i class="fas fa-search fa-sm"></i>
 							</button>
 						</div>
@@ -63,7 +63,7 @@
 				<h6 class="dropdown-header">Alerts Center</h6>
 				<a class="dropdown-item d-flex align-items-center" href="#">
 					<div class="mr-3">
-						<div class="icon-circle bg-primary">
+						<div class="icon-circle bg-info">
 							<i class="fas fa-file-alt text-white"></i>
 						</div>
 					</div>
@@ -164,8 +164,7 @@
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
 			role="button" data-toggle="dropdown" aria-haspopup="true"
 			aria-expanded="false"> <span
-				class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie
-					Luna</span> <img class="img-profile rounded-circle"
+				class="mr-2 d-none d-lg-inline text-gray-600 small">${member.id}(${member.name})</span> <img class="img-profile rounded-circle"
 				src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
 		</a> <!-- Dropdown - User Information -->
 			<div

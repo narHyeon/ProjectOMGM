@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MallOrderDAO">
+
+    <resultMap type="mallOrder" id="order">
+        <id property="order_status_no" column="ORDER_STATUS_NO" />
+        <result property="order_status_id" column="ORDER_STATUS_ID" />
+        <result property="order_status_date" column="ORDER_STATUS_DATE" />
+        <result property="order_status_state" column="ORDER_STATUS_STATE" />
+        <result property="order_status_zipcode" column="ORDER_STATUS_ZIPCODE" />
+        <result property="order_status_address1" column="ORDER_STATUS_ADDRESS1" />
+        <result property="order_status_address2" column="ORDER_STATUS_ADDRESS2" />
+        <result property="order_status_receiver" column="ORDER_STATUS_RECEIVER" />
+        <result property="order_status_phone" column="ORDER_STATUS_PHONE" />
+        <result property="order_status_price" column="ORDER_STATUS_PRICE" />
+        <result property="order_status_name" column="ORDER_STATUS_NAME" />
+        <result property="order_status_point_used" column="ORDER_STATUS_POINT_USED" />
+        <result property="order_status_memo" column="ORDER_STATUS_MEMO" />
+    </resultMap>
+
+    <resultMap type="Order" id="order_li">
+        <id property="order_no" column="ORDER_NO" />
+        <result property="order_id" column="ORDER_ID" />
+        <result property="order_date" column="ORDER_DATE" />
+        <result property="order_state" column="ORDER_STATE" />
+        <result property="order_phone" column="ORDER_PHONE" />
+        <result property="order_price" column="ORDER_PRICE" />
+    </resultMap>
+
+
+<!--    <insert id="insertMallOrder" parameterType="mallOrder">-->
+<!--        INSERT INTO order (toy_code, toy_name, toy_inStock, toy_price,-->
+<!--            toy_discount, toy_stock, toy_point, toy_info, toy_img)-->
+<!--        VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},-->
+<!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
+<!--    </insert>-->
+
+<!--    주문목록 불러오기(상세)-->
+    <select id="getMallOrderList" resultType="mallOrder">
+        SELECT * FROM order_status where order_status_no=#{order_status_no}
+    </select>
+
+<!--    주문목록 삭제하기(상세)-->
+    <delete id="deleteMallOrder" parameterType="mallOrder">
+        DELETE FROM order_status WHERE order_status_no=#{order_status_no}
+    </delete>
+
+
+    <!--    주문목록 불러오기-->
+    <select id="getOrderList" resultType="Order">
+        SELECT * FROM order_list
+    </select>
+
+    <!--    주문목록 삭제하기-->
+    <delete id="deleteOrder" parameterType="Order">
+        DELETE FROM order_list WHERE order_no=#{order_no}
+    </delete>
+
+    <!-- 포인트적립 불러오기   -->
+    <select id="getMallPointList" resultType="mallOrder">
+        SELECT * FROM order_status
+    </select>
+
+</mapper>
+

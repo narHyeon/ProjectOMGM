@@ -35,7 +35,7 @@ public class AdminController {
     @RequestMapping("/productRegister.mdo")
     public ModelAndView productRegister(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/productRegister/productRegister");
+        mav.setViewName("/mall/productRegister");
         return mav;
     }
 
@@ -59,5 +59,12 @@ public class AdminController {
     	ModelAndView mav = new ModelAndView();
     	mav.setViewName("/event/event");
     	return mav;
+    }
+    //포인트 지급내역 페이지 이동
+    @RequestMapping("/point.mdo")
+    public ModelAndView point(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/point");
+        return mav;
     }
 }

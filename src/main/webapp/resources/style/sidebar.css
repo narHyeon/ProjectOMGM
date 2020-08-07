@@ -117,7 +117,7 @@ input#sidebar:checked ~ .background {
 	width: 80%;
 }
 
-@media all and (min-width:768px) {
+@media all and (min-width:781px) {
 	/*  사이드바  */
 	.sidebar_content {
 		position: fixed; /* 브라우저 기준 */

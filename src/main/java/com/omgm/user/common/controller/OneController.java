@@ -1,14 +1,22 @@
 package com.omgm.user.common.controller;
 
 import com.omgm.user.common.beans.CommonVO;
+import com.omgm.user.common.beans.KinderGardenInfoVO;
+import com.omgm.user.common.beans.KinderGardenInfoRowVO;
+import com.omgm.user.common.service.CommonService;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 @Controller
 public class OneController {
+
+    @Resource(name="commonService")
+    private CommonService commonService;
 
     // 메인화면
     @RequestMapping(value="/main.do")
@@ -29,9 +37,15 @@ public class OneController {
 
     // 유치원 소개 페이지 이동
     @RequestMapping(value="/kinderGarden.do")
-    public ModelAndView kinderGarden() {
+    public ModelAndView kinderGarden(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/kinderGarden");
+        vo = commonService.getSchedule();
+        System.out.println(vo);
+        List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
+        mav.addObject("day",vo);
+        System.out.println(list);
+        mav.addObject("dayRow",list);
+        mav.setViewName("/omgmInfo/kinderGarden");
         return mav;
     }
 
@@ -47,7 +61,7 @@ public class OneController {
     @RequestMapping(value="/pickupService_info.do")
     public ModelAndView pickupService_info() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/pickupServiceInfo/pickupServiceInfo");
+        mav.setViewName("/omgmInfo/pickupServiceInfo");
         return mav;
     }
 
@@ -55,7 +69,7 @@ public class OneController {
     @RequestMapping(value="/messageService.do")
     public ModelAndView messageService() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/messageService");
+        mav.setViewName("/omgmInfo/messageService");
         return mav;
     }
 
@@ -71,7 +85,7 @@ public class OneController {
     @RequestMapping(value="/introductionPage.do")
     public ModelAndView introductionPage(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/introductionPage/introductionPage");
+        mav.setViewName("/omgmInfo/introductionPage");
         return mav;
     }
 
@@ -95,7 +109,15 @@ public class OneController {
     @RequestMapping(value="/roomIntroduction.do")
     public ModelAndView roomIntroduction(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/roomIntroduction/roomIntroduction");
+        mav.setViewName("/omgmInfo/roomIntroduction");
+        return mav;
+    }
+
+    //장바구니 페이지 이동
+    @RequestMapping(value="/cart.do")
+    public ModelAndView cart(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/cart");
         return mav;
     }
 

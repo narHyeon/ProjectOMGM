@@ -60,6 +60,10 @@
 	border-top: 2px solid #a94442 !important;
 }
 
+.review_content_prne:hover {
+	cursor: pointer;
+}
+
 .review_content_reply {
 	display: flex;
 	flex-direction: column;
@@ -153,6 +157,7 @@
 				<div>
 					<p>${rv.id} : </p>
 					<p>${rv.content}</p>
+					<p>${rv.formatDate}</p>
 				</div>
 			</c:forEach>
 		</div>

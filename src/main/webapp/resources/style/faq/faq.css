@@ -2,7 +2,6 @@
 
 /* 모바일용 CSS */
 /* 기본 CSS */
-
 #wrap section {
 	box-sizing: border-box;
 }
@@ -154,11 +153,15 @@
 /* 태블릿용 CSS */
 @media all and (min-width:768px) { /* 120px ÷ 768px */
 	padding
-	:
-	0
-	;
 	
-
+	
+	:
+	
+	
+	0
+	
+	
+	;
 }
 
 .logo a {
@@ -248,7 +251,6 @@
 /* PC용 CSS */
 @media all and (min-width:960px) {
 	/* 기본 CSS */
-
 	/* 콘텐츠 영역 CSS */
 	.content_section {
 		order: 3;

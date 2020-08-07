@@ -95,7 +95,9 @@ function joinCheck(event) {
         phone: phone,
         email: form.email.value,
         zipcode: form.zipCode.value,
-        address: form.address.value
+        address: form.address.value,
+        code: '',
+        type: '일반'
     };
 
     const xhr = new XMLHttpRequest();
@@ -169,7 +171,7 @@ function snsSign(result) {
     document.querySelector('signUp div div').innerHTML =
         `<label for="sns_popup"></label>
                 <form action="#" class="sns_signup-form" onsubmit="return snsSignCheck(event, oauthData)">
-                    <h1 style="font-weight: 700;">Google 회원가입</h1>
+                    <h1 style="font-weight: 700;">${result.type} 회원가입</h1>
                     <div class="txtboxID">
                        <input name="id" type="text" required autocomplete=off>
                        <span data-placeholder="ID"></span>
@@ -228,7 +230,7 @@ function snsSignCheck(event, result) {
         zipcode: form.zipCode.value,
         address: form.address.value,
         code: result.code,
-        type: '구글'
+        type: result.type
     };
 
     const xhr = new XMLHttpRequest();
@@ -256,22 +258,97 @@ function snsSignCheck(event, result) {
 // sns 아이디 가입 여부 검사
 function snsSignDuple(result) {
     const xhr = new XMLHttpRequest();
+    const data = result;
 
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(object.id === '유') {
-                alert('이미 가입된 계정입니다. 이용하시려면 로그인해주세요!');
+                loginSNS(data);
                 return;
             }
             return snsSign(result);
         }
     }
 
-    const data = result;
 
     xhr.open('POST', 'snsSignDuple.lo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(data));
 };
 
+function signKakao() {
+    document.querySelector('#login_popup').checked = false;
+    return new Promise((resolve, reject) => {
+        // Kakao.init('24643592d6715878e7cd5aa89f148e76');
+        Kakao.Auth.login({
+            success: function (authObj) {
+                // 로그인 성공시, API를 호출합니다.
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function (res) {
+                        const code = res.id;  //유저의 카카오톡 고유 id
+                        const email = res.kakao_account.email;   //유저의 이메일
+                        const name = res.properties.nickname; //유저가 등록한 별명
+                        const result = { code: code, name: name, email: email, type: 'kakao'};
+
+                        snsSignDuple(result);
+                    },
+                    fail: function (error) {
+                        alert(JSON.stringify(error));
+                    }
+                });
+            },
+            fail: function (err) {
+                alert(JSON.stringify(err));
+            }
+        })
+    })
+};
+
+// sns 회원가입 네이버로 넘김
+function signNaver() {
+    const url = 'https://nid.naver.com/nidlogin.login?oauth_token=eJvN5z7x5d6QzpKZNA&consumer_key=epIAIQoP1jJTDyUpzFxX&logintp=oauth2&nurl=https%3A%2F%2Fnid.naver.com%2Foauth2.0%2Fauthorize%3Fresponse_type%3Dtoken%26state%3D43d2d90f-736b-4f0b-8de6-d7bb1bbbf95a%26client_id%3DepIAIQoP1jJTDyUpzFxX%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252FnaverCallback.lo%26locale%3Dko_KR%26inapp_view%3D%26oauth_os%3D&locale=ko_KR&inapp_view=&svctype=1';
+    window.location.href = url;
+    
+    // window.location.href = naverLogin.generateAuthorizeUrl();
+    // document.querySelector('#naverIdLogin').innerHTML = '';
+    // document.querySelector('#naverIdLogin').style = 'display:flex';
+
+};
+
+// 네이버 로그인
+function loginSNS(data) {
+    const form = document.createElement("form");
+    form.setAttribute("charset", "UTF-8");
+    form.setAttribute("method", "GET"); // Get 또는 Post 입력
+    form.setAttribute("action", "snsLogin.lo");
+
+    const hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "code");
+    hiddenField.setAttribute("value", data.code);
+    hiddenField.setAttribute("type", data.type);
+    form.appendChild(hiddenField);
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}
+
+function mainLogo() {
+    window.location.href = 'main.do';
+}
+
+/* 설정정보를 초기화하고 연동을 준비 */
+window.addEventListener('DOMContentLoaded', (event) => {
+    const naverLogin = new naver.LoginWithNaverId(
+        {
+            clientId: "epIAIQoP1jJTDyUpzFxX",
+            callbackUrl: "http://localhost:8080/naverCallback.lo",
+            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+            loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+        }
+    );
+    naverLogin.init();
+},{once: true});
