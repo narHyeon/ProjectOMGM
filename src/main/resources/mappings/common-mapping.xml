@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommonDAO">
+    <resultMap type="KinderGardenInfoVO" id="KinderGardenInfoResult">
+        <id property="seq" column="SEQ" />
+        <result property="title" column="TITLE"/>
+        <result property="regDate" column="REGDATE"/>
+    </resultMap>
+
+    <resultMap type="KinderGardenInfoRowVO" id="KinderGardenInfoRowResult">
+        <id property="seq" column="SEQ" />
+        <result property="no" column="NO"/>
+        <result property="time" column="TIME"/>
+        <result property="program" column="PROGRAM"/>
+    </resultMap>
+
+    <!-- 실 사용 -->
+    <select id="getSchedule" parameterType="KinderGardenInfoVO" resultType="KinderGardenInfoVO">
+        SELECT * FROM( SELECT * FROM kgday ORDER BY rownum DESC) WHERE rownum = 1
+    </select>
+
+    <select id="getScheduleRow" resultMap="KinderGardenInfoRowResult">
+        SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
+    </select>
+
+</mapper>
