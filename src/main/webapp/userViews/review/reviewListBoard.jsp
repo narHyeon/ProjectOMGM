@@ -10,6 +10,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
+    <link rel="stylesheet" href="../../resources/style/sales/productList.css">
     <title>reviewList_board</title>
 </head>
 <body>
@@ -60,19 +61,21 @@
     <div class="reviewList_button00">
         <button class="button" type="button" onclick="reviewWrite()">글쓰기</button>
     </div>
-    <div class="reviewList_page00">
-        <a href="reviewListBoard.do" class="reviewList_page01">&lt;&lt;</a>
-        <a href="reviewListBoard.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
+    <div class="pro_paging">
+        <ul>
+            <li class="first"><a href="reviewListBoard.do"><span class="hide">첫페이지</span></a></li>
+            <li class="prev"><a href="reviewListBoard.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
         <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
             <c:if test="${page.cnt == counter}">
-                <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" style="background-color:orange" onlcick="changeColor(${counter})">&nbsp;&nbsp;${counter}</a>
+                <a href="reviewListBoard.do?page=${counter}"  style="background-color:lightpink; border-radius: 40%; padding-right: 0.5%" >&nbsp;&nbsp;${counter}</a>
             </c:if>
             <c:if test="${page.cnt != counter}">
-                <a href="reviewListBoard.do?page=${counter}" class="reviewList_page" onlcick="changeColor(${counter})">&nbsp;&nbsp;${counter}</a>
+                <a href="reviewListBoard.do?page=${counter}" >&nbsp;&nbsp;${counter}</a>
             </c:if>
         </c:forEach>
-        <a href="reviewListBoard.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a>
-        <a href="reviewListBoard.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
+        <li class="next"><a href="reviewListBoard.do?page=${navi.endPageGroup+1}"><span class="hide">다음페이지</span></a></li>
+            <li class="last"><a href="reviewListBoard.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
+        </ul>
     </div>
 </div>
 <form id="review_throw" action="reviewContent.do"></form>

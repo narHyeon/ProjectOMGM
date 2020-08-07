@@ -28,7 +28,12 @@ public class UserUserMallServiceImpl implements UserMallService {
 
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
     @Override
-    public List<UserMallToyVO> getMallToyList() throws Exception {
-        return userMallDAO.getMallToyList();
+    public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception {
+        return userMallDAO.getMallToyList(vo, navi);
+    }
+    // 사료 테이블 상품 갯수
+    @Override
+    public int selectCountToyMall() {
+        return userMallDAO.selectCountToyMall();
     }
 }

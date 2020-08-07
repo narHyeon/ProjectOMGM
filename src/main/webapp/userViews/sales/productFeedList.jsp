@@ -34,7 +34,7 @@
     <h2>ALL PRODUCT</h2>
     <div class="category"  >
         <button style="color: deeppink" >사료</button>
-        <button >장난감</button>
+        <a href="getMallToyList.do"><button >장난감</button></a>
     </div>
 
     <div class="event_list">
@@ -100,7 +100,7 @@
 <script>
     function pageNextColor1() {
         const color = document.getElementsByName(${page.page});
-        alert(color.name)
+
     }
 <%--    페이지 번호 누를때 색깔 입히기--%>
 

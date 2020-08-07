@@ -33,28 +33,28 @@
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
     <div class="category"  >
-        <button  >사료</button>
+        <a href="getMallFeedList.do"><button  >사료</button></a>
         <button style="color: deeppink">장난감</button>
     </div>
 
     <div class="event_list">
-<%--        <div style="display: flex; justify-content: flex-end; margin-right: 10.7%;--%>
-<%--                                margin-bottom: 1.5%; margin-top: 3%">--%>
-<%--            <form action = "getMallToyList.do" method="post">--%>
-<%--                <table border="1">--%>
-<%--                    <tr>--%>
-<%--                        <td>--%>
-<%--                            <select name="searchCondition" style="border: none; color: deeppink ">--%>
-<%--                                <option value="TOY_NAME" style="color: deeppink">상품 이름</option>--%>
-<%--                                <option value="TOY_INFO" style="color: deeppink">상품 정보</option>--%>
-<%--                            </select>--%>
-<%--                            <input type="text" name="searchKeyword" style="border-color: deeppink"/>--%>
-<%--                            <input type="submit" value="검색" style="border: none; color: deeppink; background-color: white" />--%>
-<%--                        </td>--%>
-<%--                    </tr>--%>
-<%--                </table>--%>
-<%--            </form>--%>
-<%--        </div>--%>
+        <div style="display: flex; justify-content: flex-end; margin-right: 10.7%;
+                                margin-bottom: 1.5%; margin-top: 3%">
+            <form action = "getMallToyList.do" method="post">
+                <table border="1">
+                    <tr>
+                        <td>
+                            <select name="searchConditionToy" style="border: none; color: deeppink ">
+                                <option value="TOY_NAME" style="color: deeppink">상품 이름</option>
+                                <option value="TOY_INFO" style="color: deeppink">상품 정보</option>
+                            </select>
+                            <input type="text" name="searchKeywordToy" style="border-color: deeppink"/>
+                            <input type="submit" value="검색" style="border: none; color: deeppink; background-color: white" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
         <ul>
             <form action="productDetail.do" class="product_form">
                 <c:forEach var="toyList" items="${ToyList}">
@@ -77,71 +77,71 @@
             </form>
         </ul>
     </div>
-<%--    <div class="pro_paging">--%>
-<%--        <ul>--%>
-<%--            <li class="first"><a href="getMallFeedList.do"><span class="hide">첫페이지</span></a></li>--%>
-<%--            <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>--%>
-<%--            <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">--%>
-<%--                <a href="getMallFeedList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>--%>
-<%--            </c:forEach>--%>
-<%--            <li class="next"><a href="getMallFeedList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>--%>
-<%--            <li class="last"><a href="getMallFeedList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
     <div class="pro_paging">
         <ul>
-            <li class="first"><a href=""><span class="hide">첫페이지</span></a></li>
-            <li class="prev"><a href=""><span class="hide">이전페이지</span></a></li>
-            <li><a href="" class="on">1</a></li>
-            <li><a href="">2</a></li>
-            <li class="next"><a href=""><span class="hide">다음페이지</span></a></li>
-            <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>
+            <li class="first"><a href="getMallToyList.do"><span class="hide">첫페이지</span></a></li>
+            <li class="prev"><a href="getMallToyList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
+            <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+                <a href="getMallToyList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>
+            </c:forEach>
+            <li class="next"><a href="getMallToyList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>
+            <li class="last"><a href="getMallToyList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
+<%--    <div class="pro_paging">--%>
+<%--        <ul>--%>
+<%--            <li class="first"><a href=""><span class="hide">첫페이지</span></a></li>--%>
+<%--            <li class="prev"><a href=""><span class="hide">이전페이지</span></a></li>--%>
+<%--            <li><a href="" class="on">1</a></li>--%>
+<%--            <li><a href="">2</a></li>--%>
+<%--            <li class="next"><a href=""><span class="hide">다음페이지</span></a></li>--%>
+<%--            <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>--%>
+<%--        </ul>--%>
+<%--    </div>--%>
 
 </main>
 
-<%--<script>--%>
-<%--    &lt;%&ndash;  이미지 슬라이더  &ndash;%&gt;--%>
-<%--    let currSlide = 1;--%>
-<%--    showSlide(currSlide);--%>
+<script>
+    <%--  이미지 슬라이더  --%>
+    let currSlide = 1;
+    showSlide(currSlide);
 
-<%--    function button_click(num){--%>
-<%--        showSlide((currSlide += num));--%>
-<%--    }--%>
-<%--    function showSlide(num){--%>
-<%--        const slides = document.querySelectorAll(".slider_slide");--%>
-<%--        if(num>slides.length){--%>
-<%--            currSlide =1;--%>
-<%--        }if(num<1){--%>
-<%--            currSlide = slides.length;--%>
-<%--        }--%>
-<%--        for(let i=0; i<slides.length; i++){--%>
-<%--            slides[i].style.display="none";--%>
-<%--        }slides[currSlide -1].style.display="block";--%>
+    function button_click(num){
+        showSlide((currSlide += num));
+    }
+    function showSlide(num){
+        const slides = document.querySelectorAll(".slider_slide");
+        if(num>slides.length){
+            currSlide =1;
+        }if(num<1){
+            currSlide = slides.length;
+        }
+        for(let i=0; i<slides.length; i++){
+            slides[i].style.display="none";
+        }slides[currSlide -1].style.display="block";
 
-<%--    }--%>
+    }
 
-<%--    //top버튼--%>
-<%--    $(function() {--%>
-<%--        $(window).scroll(function() {--%>
-<%--            if ($(this).scrollTop() > 200) {--%>
-<%--                $('#MOVE_TOP_BTN').fadeIn();--%>
-<%--            } else {--%>
-<%--                $('#MOVE_TOP_BTN').fadeOut();--%>
-<%--            }--%>
-<%--        });--%>
+    //top버튼
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
 
-<%--        $("#MOVE_TOP_BTN").click(function() {--%>
-<%--            $('.pro_html, .proList_body').animate({--%>
-<%--                scrollTop : 0--%>
-<%--            }, 200);--%>
-<%--            return false;--%>
-<%--        });--%>
-<%--    });--%>
-<%--    //상품상태출력--%>
-<%--    if ($('.toyname').text() != '') { $('.menu').show(); }--%>
+        $("#MOVE_TOP_BTN").click(function() {
+            $('.pro_html, .proList_body').animate({
+                scrollTop : 0
+            }, 200);
+            return false;
+        });
+    });
+    //상품상태출력
+    if ($('.toyname').text() != '') { $('.menu').show(); }
 
-<%--</script>--%>
+</script>
 </body>
 </html>

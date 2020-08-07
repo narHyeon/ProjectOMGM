@@ -45,16 +45,16 @@ public class UserMallController {
     ////////////////////////// 장난감 관련 컨트롤러 /////////////////////////
     //MallToyList 장난감(+ 페이징 처리 추가)
     @RequestMapping("/getMallToyList.do")
-    public ModelAndView getMallToyList(UserMallToyVO vo) throws Exception{
+    public ModelAndView getMallToyList(UserMallToyVO vo, @RequestParam(value = "page", defaultValue = "1") int page) throws Exception{
         ModelAndView mav = new ModelAndView();
-//        int COUNTERPAGE = 8;
-//        int PAGEPERGROUP = 5;
-//        PageNavigatorMall navi = new PageNavigatorMall(COUNTERPAGE, PAGEPERGROUP, page, userMallService.selectCountMall());
+        int COUNTERPAGE = 8;
+        int PAGEPERGROUP = 5;
+        PageNavigatorMall navi = new PageNavigatorMall(COUNTERPAGE, PAGEPERGROUP, page, userMallService.selectCountToyMall());
 //        UserMallFeedVO vo1 = new UserMallFeedVO();
-//        vo1.setPage(page);
+
         mav.setViewName("/sales/productToyList");
-        mav.addObject("ToyList", userMallService.getMallToyList());
-//        mav.addObject("navi", navi);
+        mav.addObject("ToyList", userMallService.getMallToyList(vo, navi));
+        mav.addObject("navi", navi);
 //        mav.addObject("page", vo1);
         return mav;
     }

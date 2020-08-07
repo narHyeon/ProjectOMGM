@@ -14,10 +14,24 @@ public class UserMallToyVO {
     private String toy_point;
     private String toy_info;
     private String toy_img;
+    private String searchConditionToy;
+    private String searchKeywordToy;
 
+    public String getsearchConditionToy() {
+        return searchConditionToy;
+    }
 
+    public void setsearchConditionToy(String searchConditionToy) {
+        this.searchConditionToy = searchConditionToy;
+    }
 
+    public String getsearchKeywordToy() {
+        return searchKeywordToy;
+    }
 
+    public void setsearchKeywordToy(String searchKeywordToy) {
+        this.searchKeywordToy = searchKeywordToy;
+    }
 
     public UserMallToyVO() {
     }

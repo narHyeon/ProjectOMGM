@@ -41,14 +41,6 @@ public class UserMallFeedVO {
         this.searchCondition = searchCondition;
     }
 
-    public String getsearchKeyword() {
-        return searchKeyword;
-    }
-
-    public void setsearchKeyword(String searchKeyword) {
-        this.searchKeyword = searchKeyword;
-    }
-
     public int getFeed_code() {
         return feed_code;
     }

@@ -48,15 +48,20 @@
 
     <!--########################## toy 관련 쿼리문 ###############################-->
     <select id="getMallToyList" resultType="userMallToyVO">
-        SELECT * FROM TOY ORDER BY toy_code DESC
+        SELECT * FROM TOY
+        WHERE 1=1
+        <if test="searchConditionToy=='TOY_NAME'">
+            AND toy_name LIKE '%'||#{searchKeywordToy}||'%'
+        </if>
+        <if test="searchConditionToy=='TOY_INFO'">
+            AND toy_info LIKE '%'||#{searchKeywordToy}||'%'
+        </if>ORDER BY toy_code DESC
     </select>
-<!--        WHERE 1=1-->
-<!--        <if test="searchCondition=='FEED_NAME'">-->
-<!--            AND toy_name LIKE '%'||#{searchKeyword}||'%'-->
-<!--        </if>-->
-<!--        <if test="searchCondition=='FEED_INFO'">-->
-<!--            AND toy_info LIKE '%'||#{searchKeyword}||'%'-->
-<!--        </if>ORDER BY toy_code DESC-->
+
+    <!--     페이징 처리를 위한 인트형 타입으로 게시판 갯수 가지고오기-->
+    <select id="selectCountToyMall" resultType="int">
+        SELECT COUNT(*) from toy
+    </select>
 
 
 </mapper>

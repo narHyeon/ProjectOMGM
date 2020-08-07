@@ -28,8 +28,12 @@ public class UserMallDAO {
 
     ///////////// 장난감 관련 메서드 //////////////////
     // 장난감 상품 나열(페이징 처리 추가)
-    public List<UserMallToyVO> getMallToyList () {
-//        RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
-        return sqlSessionTemplate.selectList("UserMallDAO.getMallToyList");
+    public List<UserMallToyVO> getMallToyList (UserMallToyVO vo, PageNavigatorMall navi) {
+        RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
+        return sqlSessionTemplate.selectList("UserMallDAO.getMallToyList",vo, rb);
+    }
+    // toy의 사료 상품 갯수
+    public int selectCountToyMall(){
+        return sqlSessionTemplate.selectOne("UserMallDAO.selectCountToyMall");
     }
 }
