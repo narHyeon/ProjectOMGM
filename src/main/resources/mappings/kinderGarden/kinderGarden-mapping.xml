@@ -37,7 +37,7 @@
     </insert>
 
     <insert id="addScheduleRow" parameterType="KinderGardenRowVO">
-        INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,(SELECT max(seq) FROM kgday),#{time},${program})
+        INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,(SELECT max(seq) FROM kgday),#{time},#{program})
     </insert>
 
 </mapper>
