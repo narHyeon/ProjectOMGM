@@ -56,7 +56,16 @@ public class UserMallController {
         mav.addObject("ToyList", userMallService.getMallToyList(vo, navi));
         mav.addObject("navi", navi);
         mav.addObject("page", vo1);
-        
+
+        return mav;
+    }
+
+    // 고객이 장난감을 골랐을때 결제 페이지로 이동
+    @RequestMapping("/getMallToyOneInfoSales.do")
+    public ModelAndView getMallToyOneInfoSales(UserMallToyVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/toySales");
+        mav.addObject("toyList", userMallService.getMallToyOneInfo(vo));
         return mav;
     }
 

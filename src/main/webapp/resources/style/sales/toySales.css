@@ -2,15 +2,17 @@
 
 #toy-sales-div {
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 5%;
+    margin-bottom: -15%;
 }
 
-#toy-img-section {}
+#toy-img-section {
+    vertical-align: center;
+}
 
 #toy-sales-section {
     margin-left: 3%;
@@ -159,8 +161,10 @@
 /* 이미지 관련 테그 */
 
 .toy-img-01 {
-    width: 100%;
+    width: 400px;
     height: auto;
+    margin-top: 30%;
+    margin-left: 10%;
 }
 
 @media (max-width: 768px) {

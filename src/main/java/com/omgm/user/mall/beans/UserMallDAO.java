@@ -32,8 +32,12 @@ public class UserMallDAO {
         RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
         return sqlSessionTemplate.selectList("UserMallDAO.getMallToyList",vo, rb);
     }
-    // toy의 사료 상품 갯수
+    // 장난감 상품 갯수
     public int selectCountToyMall(){
         return sqlSessionTemplate.selectOne("UserMallDAO.selectCountToyMall");
+    }
+    // 장난감 정보 가져오기
+    public UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) {
+        return sqlSessionTemplate.selectOne("UserMallDAO.getMallToyOneInfo",vo);
     }
 }

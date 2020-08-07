@@ -23,4 +23,7 @@ public interface UserMallService {
 
     // 사료 갯수
     int selectCountToyMall();
+
+    // 사용자가 장난감 누르면 정보와 함께 결제 페이지로 이동
+    UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) throws Exception;
 }

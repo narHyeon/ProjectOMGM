@@ -90,12 +90,12 @@ public class OneController {
     }
 
     //상품 판매 페이지 이동
-    @RequestMapping(value="/toySales.do")
-    public ModelAndView toySales(ReviewVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/sales/toySales");
-        return mav;
-    }
+//    @RequestMapping(value="/toySales.do")
+//    public ModelAndView toySales(ReviewVO vo) {
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("/sales/toySales");
+//        return mav;
+//    }
 
     //상품리스트 페이지 이동
     @RequestMapping(value="/productList.do")
