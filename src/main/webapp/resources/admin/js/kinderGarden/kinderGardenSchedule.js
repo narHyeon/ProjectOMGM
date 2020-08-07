@@ -21,6 +21,8 @@ const plusTime = (rowTime, rowProgram) => {
     addrow.innerHTML = row;
     document.querySelector('#admin_kindergarden_schedule_day').appendChild(addrow);
 
+    console.log('adminScheduleNumber ',adminScheduleNumber);
+    console.log('adminNumber ',adminNumber);
 };
 const minusTime = () => {
     const child = document.querySelector(`.admin_kindergarden_schedule_row${adminNumber--}`);
@@ -42,6 +44,7 @@ function addSchedule(event) {
                 const time = document.querySelector(timeSelector).value;
                 const program = document.querySelector(programSelector).value;
                 const data = { time:time, program:program };
+                console.log(i+'  ',data);
                 addScheduleRow(data);
             }
         }

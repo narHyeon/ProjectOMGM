@@ -76,9 +76,6 @@
             <a href="#" class="btn btn-success btn-user" onClick="addSchedule(event)">적용</a>
         </div>
     </div>
-    <script>
-        console.log('${dayRow}');
-    </script>
     <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js"></script>
     <c:if test="${day != null}">
         <c:forEach items="${dayRow}" var="row">
