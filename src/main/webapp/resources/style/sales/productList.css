@@ -185,13 +185,15 @@
     height: 42px;
     text-align: center;
     line-height: 42px;
+    padding-right: 0.5%;
     font-size: 15px;
     color: #555;
 }
 
 .pro_paging a:hover,
 .pro_paging a.on {
-    background: #F28888;
+    background: lightpink;
+    border-radius: 40%;
     color: #fff;
 }
 
@@ -252,6 +254,12 @@ a {
 a:focus,
 a:hover {
     text-decoration: none;
+}
+
+/* 페이지 네이션 */
+#pageNextColor:hover, #pageNextColor:focus {
+    border:1px solid #ff4081;
+    background-color: #ff4081;
 }
 
 @media screen and (max-width: 1024px) {
