@@ -33,11 +33,11 @@
     </select>
 
     <insert id="addSchedule" parameterType="KinderGardenVO">
-        INSERT INTO kgday VALUES(kgday_seq.nextval,#{title},#{regDate})
+        INSERT INTO kgday VALUES(kgday_seq.nextval,#{title},sysdate)
     </insert>
 
     <insert id="addScheduleRow" parameterType="KinderGardenRowVO">
-        INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,#{no},#{time},${program})
+        INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,(SELECT max(seq) FROM kgday),#{time},${program})
     </insert>
 
 </mapper>
