@@ -73,7 +73,7 @@
         </div>
         <div class="admin_kindergarden_schedule_button">
             <a href="#" class="btn btn-info btn-user" onclick="window.location.reload()">초기화</a>
-            <a href="login.html" class="btn btn-success btn-user ">적용</a>
+            <a href="#" class="btn btn-success btn-user" onClick="addSchedule()">적용</a>
         </div>
     </div>
     <script src="resources/admin/js/kinderGarden/kinderGardenSchedule.js"></script>

@@ -47,4 +47,15 @@ public class KinderGardenController {
         return mav;
     }
 
+    // 관리자 유치원 시간표 등록
+    @RequestMapping("/addSchedule.mdo")
+    public ModelAndView addSchedule(KinderGardenVO vo, List<KinderGardenRowVO> rvoList) {
+        ModelAndView mav = new ModelAndView();
+        kinderGardenService.addSchedule(vo);
+        for(KinderGardenRowVO rvo : rvoList) {
+            kinderGardenService.addScheduleRow(rvo);
+        }
+        mav.setViewName("/kinderGarden/kinderGardenSchedule");
+        return mav;
+    }
 }

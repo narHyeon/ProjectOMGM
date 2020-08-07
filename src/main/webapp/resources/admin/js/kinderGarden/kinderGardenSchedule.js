@@ -29,4 +29,22 @@ const minusTime = () => {
     }
 };
 
+function addSchedule() {
+    const arr = [];
+    for(let i=1;adminNumber;i++) {
+        const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
+        const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
+        console.log(timeSelector);
+        console.log(programSelector);
+        // const time = document.querySelector(timeSelector).value;
+        // const program = document.querySelector(programSelector).value;
+        arr.push({
+            time:time,
+            program:program
+        });
+    }
+
+    arr.forEach(a => console.log(a));
+}
+
 
