@@ -24,4 +24,14 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     public List<KinderGardenRowVO> getScheduleRow(KinderGardenVO vo) {
         return kinderGardenDAO.getScheduleRow(vo);
     }
+
+    @Override
+    public void addSchedule(KinderGardenVO vo) {
+        kinderGardenDAO.addSchedule(vo);
+    }
+
+    @Override
+    public void addScheduleRow(KinderGardenRowVO vo) {
+        kinderGardenDAO.addScheduleRow(vo);
+    }
 }

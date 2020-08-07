@@ -3,14 +3,14 @@ package com.omgm.admin.kinderGarden.controller;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
-import com.omgm.admin.memberManagement.beans.ManagementVO;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -47,4 +47,17 @@ public class KinderGardenController {
         return mav;
     }
 
+    // 관리자 유치원 시간표 제목 등록
+    @ResponseBody
+    @RequestMapping("/addSchedule.mdo")
+    public void addSchedule(@RequestBody KinderGardenVO vo) {
+        kinderGardenService.addSchedule(vo);
+    }
+
+    // 관리자 유치원 시간표 내용 등록
+    @ResponseBody
+    @RequestMapping("/addScheduleRow.mdo")
+    public void addScheduleRow(@RequestBody KinderGardenRowVO rvo) {
+        kinderGardenService.addScheduleRow(rvo);
+    }
 }
