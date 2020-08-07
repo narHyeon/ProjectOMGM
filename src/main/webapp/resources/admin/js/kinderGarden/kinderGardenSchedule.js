@@ -29,22 +29,35 @@ const minusTime = () => {
     }
 };
 
-function addSchedule() {
-    const rowArr = [];
-    for(let i=1;i<=adminNumber;i++) {
-        const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
-        const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
-        const time = document.querySelector(timeSelector).value;
-        const program = document.querySelector(programSelector).value;
-        rowArr.push({
-            time:time,
-            program:program
-        });
+function addSchedule(event) {
+    event.preventDefault();
+    // 아작스 처리
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(JSON.parse(xhr.responseText));
+            // for(let i=1;i<=adminNumber;i++) {
+            //     const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
+            //     const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
+            //     const time = document.querySelector(timeSelector).value;
+            //     const program = document.querySelector(programSelector).value;
+            //     const data = { time:time, program:program };
+            //     addScheduleRow(data);
+            // }
+        }
     }
 
+    xhr.open('POST', 'addSchedule.mdo',true);
+    xhr.setRequestHeader('Content-type', 'application/json');
     const title = document.querySelector('#admin_kindergarden_schedule_title').value;
-
-    window.location.href = `addSchedule.mdo?rvoList=${rowArr}`;
+    const data = { title:title}
+    xhr.send(JSON.stringify(data));
 }
 
-
+function addScheduleRow(data) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'addScheduleRow.mdo',true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(data));
+}

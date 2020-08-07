@@ -4,6 +4,7 @@ import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,28 +48,19 @@ public class KinderGardenController {
 
     // 관리자 유치원 시간표 제목 등록
     @RequestMapping("/addSchedule.mdo")
-    public ModelAndView addSchedule(KinderGardenVO vo) {
-        ModelAndView mav = new ModelAndView();
+    public int addSchedule(@RequestBody KinderGardenVO vo) {
         System.out.println(vo);
 //        kinderGardenService.addSchedule(vo);
-//        for(KinderGardenRowVO rvo : rvoList) {
-//            kinderGardenService.addScheduleRow(rvo);
-//        }
-        mav.setViewName("/kinderGarden/kinderGardenSchedule");
-        return mav;
+        return 0;
     }
 
     // 관리자 유치원 시간표 내용 등록
     @RequestMapping("/addScheduleRow.mdo")
-    public ModelAndView addScheduleRow(KinderGardenVO vo, @RequestParam(name="rowArr") List<KinderGardenRowVO> rvoList) {
-        ModelAndView mav = new ModelAndView();
-        System.out.println(vo);
-        System.out.println(rvoList);
+    public void addScheduleRow(@RequestBody KinderGardenRowVO rvo) {
+        System.out.println(rvo);
 //        kinderGardenService.addSchedule(vo);
 //        for(KinderGardenRowVO rvo : rvoList) {
 //            kinderGardenService.addScheduleRow(rvo);
 //        }
-        mav.setViewName("/kinderGarden/kinderGardenSchedule");
-        return mav;
     }
 }
