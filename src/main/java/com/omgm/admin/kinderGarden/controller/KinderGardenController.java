@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -47,6 +48,7 @@ public class KinderGardenController {
     }
 
     // 관리자 유치원 시간표 제목 등록
+    @ResponseBody
     @RequestMapping("/addSchedule.mdo")
     public int addSchedule(@RequestBody KinderGardenVO vo) {
         System.out.println(vo);
@@ -55,6 +57,7 @@ public class KinderGardenController {
     }
 
     // 관리자 유치원 시간표 내용 등록
+    @ResponseBody
     @RequestMapping("/addScheduleRow.mdo")
     public void addScheduleRow(@RequestBody KinderGardenRowVO rvo) {
         System.out.println(rvo);
