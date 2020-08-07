@@ -149,7 +149,7 @@ background-color:blue;
 #check5-1{background:white; width:10%; height: 100px; border-radius: 0px 5px 5px 0px; text-align:center;}
 #row{display:flex; flex-direction: column; margin-left:2%;}
 
-#fieldsetstyle{margin-top:5%; display:block; border:1px solid #FFABB9; border-radius: 10px; background-color:#FFABB9; color:white; padding:10px;}
+.fieldsetstyle{margin-top:5%; display:block; border:1px solid #FFABB9; border-radius: 10px; background-color:#FFABB9; color:white; padding:10px;}
 
 .alink:link{
    color: white;
@@ -262,36 +262,50 @@ background-color:blue;
 		}
 	}
 }
+.fieldsetstyle:hover {
+	cursor: pointer;
+}
 </style>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
-	function goUpdate() {
-		window.location.href = "myPageUpdate.do";
-	}
-</script>
+	$(document).ready(function() {
+		$("#myPageFs").click(function() {
+			window.location.href = 'myPage.do';
+		});
+		$("#myCatPageFs").click(function() {
+			window.location.href = 'myPetPage.do';
+		});
+		$("#myServiceListFs").click(function() {
+			window.location.href = 'myServiceList.do';
+		});
+		$("#myBuyListLogFs").click(function() {
+			window.location.href = 'myBuyListLog.do';
+		});
+		$("#myCatCareLogFs").click(function() {
+			window.location.href = 'myCatCareLog.do';
+		});
+		$("#myReViewFs").click(function() {
+			window.location.href = 'myReView.do';
+		});
+	});
+</script>	
 <body>
 <div id="wrap">
 	<h1 id="head">구매 내역</h1>
 		<div id="body">
 		<div id="banner">
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">내 정보</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">내 고양이 정보</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">서비스 </a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">구매내역</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">반려묘 일지</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">내가 작성한 후기</a>
-			</fieldset>
-		</div>
+				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myBuyListLogFs">구매내역
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatCareLogFs">반려묘
+					일지</fieldset>
+				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
+				</fieldset>
+			</div>
 		<div id="row">
 		<div id="board_title">
 		<div id="check"><p id="align_text">주문번호</p></div>

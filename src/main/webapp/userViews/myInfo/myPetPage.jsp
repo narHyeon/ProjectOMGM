@@ -10,11 +10,11 @@
 </head>
 
 <style>
-#wrap {
+#mypetpage_wrap {
    display: flex;
    flex-direction: column;
 }
-#head {
+#mypetpage_head {
    min-width: 60%;
    margin-right: 15%;
    margin-top: 2%;
@@ -24,7 +24,7 @@
    padding-bottom: 1%;
    border-bottom: 2px solid #FFABB9;
 }
-#body {
+#mypetpage_body {
    display: flex;
    flex-direction: row;
    height: 100%;
@@ -37,7 +37,7 @@
    margin-left: 7%;
    border-radius: 10px;
 }
-#content {
+#mypetpage_content {
    display : flex;
    flex-direction :column;
    margin-left: 6%;
@@ -62,7 +62,7 @@
    margin-right: 35%;
    margin-bottom: 2%;
 }
-.buttons {
+.myPetPage_buttons {
    background-color: white;
    cursor: pointer;
    border: 2px solid #e2e2e2;
@@ -251,16 +251,16 @@ $(document).ready(function(){
    function goUpdate() {
       window.location.href = "myPageUpdate.do";
    }
-   function goCatUpdate() {
-	   window.location.href = "myPetPageUpdate.do";
+   function goPetUpdate() {
+	   window.location.href = "myPetUpdate.do";
    }
 </script>
 <body>
-   <div id="wrap">
-      <div id="head">
+   <div id="mypetpage_wrap">
+      <div id="mypetpage_head">
          <h1>My CatPage</h1>
       </div>
-      <div id="body">
+      <div id="mypetpage_body">
          <div id="banner">
             <fieldset class="fieldsetstyle" id="myPageFs">
                내 정보
@@ -282,7 +282,7 @@ $(document).ready(function(){
             </fieldset>
          </div>
          
-         <div id="content">
+         <div id="mypetpage_content">
          <a href="#ex1" rel="modal:open" id="modalstyle">고양이 정보 추가</a>
         
          <div id="catinfo_tle">
@@ -312,7 +312,7 @@ $(document).ready(function(){
                <div class="bar-content">${mypetpage.PET_COMMENT}</div>
             </div>
             <div id="bottom">
-            	 <input type="button" value="수  정" onclick="goCatUpdate()" class="buttons" >
+            	 <input type="button" value="수  정" onclick="goPetUpdate()" class="buttons" >
                <input type="button" value="삭  제" onclick="" class="buttons">
           
             </div>
@@ -333,47 +333,50 @@ $(document).ready(function(){
 	 <div id="m-head">
          <h1 align="center">내 고양이 정보 추가</h1> 
       </div>
+      <form action="myPetPage.do" method="post">
 		<div id="m-bar">종류
 		<div id="m-bar-content1">
-			<input id="m-inputstyle" type="text">		
+			<input id="m-inputstyle" type="text" name="pet_kind"/>		
 		</div>
 		</div>
 		
-		<div id="m-bar1">이름		
+		<div id="m-bar1">종류의종류	
 		<div id="m-bar-content2">
-			<input id="m-inputstyle" type="text">
+			<input id="m-inputstyle" type="text" name="pet_variety"/>
 		</div>
 		</div>
 		
-		<div id="m-bar2">나이
+		<div id="m-bar2">이름
 		
 		<div id="m-bar-content3">
-			<input id="m-inputstylephone" type="text">
+			<input id="m-inputstylephone" type="text" name="pet_name"/>
 		</div>
 		</div>
 		
-		<div id="m-bar3">취미
-		
-		<div id="m-bar-content5">
-			<input id="m-inputstylemail" type="text">
-		</div>
-		</div>
-		
-		<div id="m-bar2">특기
+		<div id="m-bar3">나이
 		
 		<div id="m-bar-content5">
-			<input id="m-inputstyle" type="text">
+			<input id="m-inputstylemail" type="text" name="pet_age"/>
 		</div>
 		</div>
 		
-		<div id="m-bar4">세부사항
+		<div id="m-bar2">성별
+		
+		<div id="m-bar-content5">
+			<input id="m-inputstyle" type="text" name="pet_gender"/>
+		</div>
+		</div>
+		
+		<div id="m-bar4">특이사항
 		<div id="m-bar-content6">
-			<textarea id="m-textareastyle"></textarea>
+			<textarea id="m-textareastyle" name="pet_comment"></textarea>
 		</div>
 		</div>
-		
+		</form>
 	</div>
-	 <a href="#" rel="modal:close"><input type="button" value="완료" onclick="insertTag()" class="buttons" ></a>
+	 <a href="#" rel="modal:close">
+	 <input type="submit" value="완료" class="myPetPage_buttons" >
+	 </a>
   <a href="#" rel="modal:close">닫기</a>
 </div>   
 </body>

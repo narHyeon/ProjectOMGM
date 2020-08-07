@@ -15,5 +15,18 @@ public class MyPetDAO {
 	public List<MyPetVO> getAllMyPetList(MyPetVO vo){
 		return sqlSessionTemplate.selectList("MyPetDAO.getAllMyPetList", vo);
 	}
-	
+
+	public void insertMyPet(MyPetVO vo) {
+		System.out.println("----> MyBatis로 insertMyPet() 기능 처리");
+		sqlSessionTemplate.insert("MyPetDAO.insertMyPet", vo);
+	}
+	public void updateMyPet(MyPetVO vo) {
+		System.out.println("----> MyBatis로 updateMyPet() 기능 처리");
+		sqlSessionTemplate.update("MyPetDAO.updateMyPet", vo);
+	}
+
+	public void deleteMyPet(MyPetVO vo) {
+		System.out.println("----> MyBatis로 deleteMyPet() 기능 처리");
+		sqlSessionTemplate.delete("MyPetDAO.deleteMyPet", vo);
+	}
 }

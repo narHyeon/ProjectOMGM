@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="resources/style/event/default1.css">
   <link rel="stylesheet" href="resources/style/event/style1.css">
 
+<style>
+#insert_button{width:100px; height:100px; border-radius: 66%; border: 1px solid black;  display:block;}
 
+</style>
 </head>
 <body>
 	<div id="title" >Notice & Event</div>
@@ -85,7 +88,7 @@
       <li>
         <a href="">
           <div class="img"><img src="resources/img/event/dog1.webp" alt=""></div>
-          <em></em>
+          <em>123</em>
           <div class="info">
             <strong></strong>
             <p>
@@ -95,19 +98,7 @@
           </div>
         </a>
       </li>
-      <li>
-        <a href="">
-          <div class="img"></div>
-          <em>+</em>
-          <div class="info">
-            <strong></strong>
-            <p>
-              <span></span>
-              
-            </p>
-          </div>
-        </a>
-      </li>
+     
     </ul>
   </div>
 

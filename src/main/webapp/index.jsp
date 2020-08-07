@@ -8,6 +8,22 @@
   <h3>클라이언트</h3>
   <a href="main.do">프로젝트 메인화면</a>
   <hr>
+  <h3>Review 페이지</h3>
+  <a href="reviewListBoard.do">review 게시판 이동</a>
+  <hr>
+  <h3>개별 작업 페이지</h3>
+  <a href="messageService.do">문자 서비스 소개 페이지</a>
+  <a href="pickupService_info.do">pickup-intro 페이지로 이동</a>
+  <a href="kinderGarden.do">유치원 소개 페이지</a>
+  <a href="kinderGardenReservation.do">유치원 예약 페이지</a>
+  <a href="reservation.do">호텔 예약 페이지</a>
+  <a href="login.do">로그인</a>
+  <a href="introductionPage.do">오시는길 이용안내 페이지 이동</a>
+  <a href="toySales.do">상품 판매 페이지 이동</a>
+  <a href="roomIntroduction.do">방 소개 페이지 이동</a>
+
+  <h2>로그인 API</h2>
+  <a href="naverLogin.lo">네이버 로그인</a>
 
 <%--  <h3>Review 페이지</h3>--%>
 <%--  <a href="reviewListBoard.do">review 게시판 이동</a>--%>
