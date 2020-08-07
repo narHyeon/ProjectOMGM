@@ -52,7 +52,20 @@
             display: inline;
             position: relative;
             right: 10%;
-            width: 50%;
+            width: 25%;
+        }
+        #admin_kindergarden_schedule_date {
+            margin-left: 8px;
+            width: 25%;
+        }
+        #kinder_dropdown {
+            background-color:deepskyblue;
+            font-weight: 0;
+            display: inline;
+            position: relative;
+            left: -18.1%;
+            width: 15%;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -67,12 +80,14 @@
         <%--  자바스크립트로 넣어준다.  --%>
         </div>
         <div class="admin_kindergarden_schedule_pm">
+            <button id="kinder_dropdown" class="btn btn-primary btn-user" onClick="window.location.href = 'kinderGardenSchedule.mdo?seq=${day.seq - 1}';">이전 시간표</button>
             <input id="admin_kindergarden_schedule_title" type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${day.title}">
+            <input id="admin_kindergarden_schedule_date" type="text" class="form-control form-control-user" value="날짜 : ${day.regDate}" disabled>
             <button class="btn btn-primary btn-user" onClick="plusTime()">+</button>
             <button class="btn btn-danger btn-user" onClick="minusTime()">-</button>
         </div>
         <div class="admin_kindergarden_schedule_button">
-            <a href="#" class="btn btn-info btn-user" onclick="window.location.reload()">초기화</a>
+            <a href="#" class="btn btn-info btn-user" onClick="window.location.reload()">초기화</a>
             <a href="#" class="btn btn-success btn-user" onClick="addSchedule(event)">적용</a>
         </div>
     </div>
