@@ -51,6 +51,7 @@ public class KinderGardenController {
     @ResponseBody
     @RequestMapping("/addSchedule.mdo")
     public void addSchedule(@RequestBody KinderGardenVO vo) {
+        System.out.println(vo);
         kinderGardenService.addSchedule(vo);
     }
 
@@ -58,6 +59,7 @@ public class KinderGardenController {
     @ResponseBody
     @RequestMapping("/addScheduleRow.mdo")
     public void addScheduleRow(@RequestBody KinderGardenRowVO rvo) {
+        System.out.println(rvo);
         kinderGardenService.addScheduleRow(rvo);
     }
 }

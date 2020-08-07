@@ -23,7 +23,7 @@
                 SELECT * FROM kgday WHERE seq=#{seq}
             </when>
             <otherwise>
-                SELECT * FROM( SELECT * FROM kgday ORDER BY rownum DESC) WHERE rownum = 1
+                SELECT * FROM( SELECT * FROM kgday ORDER BY seq DESC) WHERE rownum = 1
             </otherwise>
         </choose>
     </select>
