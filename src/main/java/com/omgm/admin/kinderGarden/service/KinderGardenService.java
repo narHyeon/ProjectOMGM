@@ -8,4 +8,6 @@ import java.util.List;
 public interface KinderGardenService {
     KinderGardenVO getSchedule(KinderGardenVO vo);
     List<KinderGardenRowVO> getScheduleRow(KinderGardenVO vo);
+    void addSchedule(KinderGardenVO vo);
+    void addScheduleRow(KinderGardenRowVO vo);
 }
