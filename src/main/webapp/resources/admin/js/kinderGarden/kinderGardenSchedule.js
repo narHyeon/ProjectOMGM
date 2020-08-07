@@ -44,7 +44,7 @@ function addSchedule() {
 
     const title = document.querySelector('#admin_kindergarden_schedule_title').value;
 
-    window.location.href = `addSchedule.mdo?title=${title}&rvoList=${rowArr}`;
+    window.location.href = `addScheduleRow.mdo?rvoList=${rowArr}`;
 }
 
 
