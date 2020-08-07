@@ -225,6 +225,7 @@
 				<br>
 				</div>
 				</div><!-- end content -->
+					<!-- <img src="${careInfo.CATCARELOG_FILES}" width="200" height="300"> -->		
 			</div><!-- end body -->
 			<div id="leg">
 				<input type="submit" value="글 수정" class="buttons"/>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FAQDAO_M">
+	<insert id="insertFAQ" parameterType="faq_m">
+	</insert>
+	<delete id="deleteFAQ" parameterType="faq_m">
+	</delete>
+	<update id="updateFAQ" parameterType="faq_m">
+	</update>
+	<select id="selectFAQ" resultType="faq_m" parameterType="faq_m">
+	</select>
+	<select id="selectListAllFAQ" resultType="faq_m" parameterType="faq_m">
+		select * from faq order by faq_categorynum asc ,faq_ask asc
+	</select>
+	<select id="selectListCategoryedFAQ" resultType="faq_m"
+		parameterType="faq">
+		select * from faq where
+		faq_categorynum=#{FAQ_CATEGORYNUM} order by
+		faq_categorynum asc
+		,faq_ask asc
+	</select>
+	
+	
+</mapper>
+

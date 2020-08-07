@@ -26,6 +26,8 @@
 		<!--		-->
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
+		<typeAlias alias="faq_m" type="com.omgm.admin.faq.beans.FAQVO_M" />
+		<typeAlias alias="category_m" type="com.omgm.admin.category.beans.CategoryVO_M" />
 		<typeAlias alias="catcarelog" type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
 		<typeAlias alias="mypet" type="com.omgm.user.mypet.beans.MyPetVO" />
 	</typeAliases>
@@ -46,6 +48,8 @@
 		<!--		-->
 		<mapper resource="mappings/faq-mapping.xml"/>
 		<mapper resource="mappings/category-mapping.xml" />
+		<mapper resource="mappings/faq_m-mapping.xml" />
+		<mapper resource="mappings/category_m-mapping.xml" />
 		<mapper resource="mappings/catcarelog-mapping.xml" />
 		<mapper resource="mappings/mypet-mapping.xml" />
 	</mappers>
