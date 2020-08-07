@@ -50,12 +50,13 @@ public class UserMallController {
         int COUNTERPAGE = 8;
         int PAGEPERGROUP = 5;
         PageNavigatorMall navi = new PageNavigatorMall(COUNTERPAGE, PAGEPERGROUP, page, userMallService.selectCountToyMall());
-//        UserMallFeedVO vo1 = new UserMallFeedVO();
-
+        UserMallToyVO vo1 = new UserMallToyVO();
+        vo1.setPage(page);
         mav.setViewName("/sales/productToyList");
         mav.addObject("ToyList", userMallService.getMallToyList(vo, navi));
         mav.addObject("navi", navi);
-//        mav.addObject("page", vo1);
+        mav.addObject("page", vo1);
+        
         return mav;
     }
 
