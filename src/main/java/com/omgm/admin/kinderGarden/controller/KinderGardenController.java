@@ -50,20 +50,14 @@ public class KinderGardenController {
     // 관리자 유치원 시간표 제목 등록
     @ResponseBody
     @RequestMapping("/addSchedule.mdo")
-    public int addSchedule(@RequestBody KinderGardenVO vo) {
-        System.out.println(vo);
-//        kinderGardenService.addSchedule(vo);
-        return 0;
+    public void addSchedule(@RequestBody KinderGardenVO vo) {
+        kinderGardenService.addSchedule(vo);
     }
 
     // 관리자 유치원 시간표 내용 등록
     @ResponseBody
     @RequestMapping("/addScheduleRow.mdo")
     public void addScheduleRow(@RequestBody KinderGardenRowVO rvo) {
-        System.out.println(rvo);
-//        kinderGardenService.addSchedule(vo);
-//        for(KinderGardenRowVO rvo : rvoList) {
-//            kinderGardenService.addScheduleRow(rvo);
-//        }
+        kinderGardenService.addScheduleRow(rvo);
     }
 }

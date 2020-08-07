@@ -36,7 +36,6 @@ function addSchedule(event) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log(JSON.parse(xhr.responseText));
             for(let i=1;i<=adminNumber;i++) {
                 const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
                 const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
@@ -60,7 +59,9 @@ function addScheduleRow(data) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            alert('스케쥴 등록이 정상적으로 처리되었습니다!');
+            if(0 === --adminNumber) {
+                alert('유치원 스케쥴 등록이 정상적으로 처리되었습니다!');
+            }
         }
     }
     xhr.open('POST', 'addScheduleRow.mdo',true);
