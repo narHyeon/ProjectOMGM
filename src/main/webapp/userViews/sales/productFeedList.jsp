@@ -62,7 +62,7 @@
           <c:forEach var="FeedList" items="${FeedList}">
             <li class="pro_Li" style="padding-left:5%;">
                 <a href="">
-                    <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                    <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
                     <div class="menu" style="display: none;">
                         <em>NEW</em>
                     </div>

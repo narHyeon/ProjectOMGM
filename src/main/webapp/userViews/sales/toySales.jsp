@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -12,19 +13,19 @@
     <title>toy-sales</title>
     <link type="text/css" rel="stylesheet" href="resources/style/sales/toySales.css">
     <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js" defer></script> -->
-    <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
+
 </head>
 <body>
 <div id="toy-sales-div">
     <div id="toy-img-section">
-        <img src="resources/img/sales/고양이장난감01.jpg" class="toy-img-01">
+        <img src="resources/img/product/${toyList.toy_img}" class="toy-img-01" ">
     </div>
     <div id="toy-sales-section">
         <div class="toy-sales-section00">
-            냥이 장난감
+            ${toyList.toy_name}
         </div>
-        <div class="toy-sales-section01">
-            54,900원
+        <div class="toy-sales-section01" id="toy-sales-section01" value="${toyList.toy_discount}">
+            ${toyList.toy_discount}
         </div>
         <div class="toy-sales-section02">
             <p class="toy-delieve-price-text">
@@ -34,10 +35,9 @@
         <div class="toy-sales-section03">
             <p class="toy-type-text">타입을 선택하세요</p>
             <select id="toy-sales-option" name="toy-sales-option" onchange="changeToySelect()">
-                <option value="selected disabled">필수 - 색깔을 선택</option>
-                <option value="blue">blue</option>
-                <option value="red">red</option>
-                <option value="yellow">yellow</option>
+                <option value="selected disabled">상품을 고르세요</option>
+                <option value="${toyList.toy_name}">${toyList.toy_name}</option>
+
             </select>
         </div>
         <div class="toy-sales-section04">
@@ -52,24 +52,32 @@
         </div>
         <div class="toy-sales-section06">
             총 상품 금액 :
+
             <p id="total-toy-prices" class="total-toy-prices">0</p>
         </div>
         <div class="toy-sales-section07">
-            <a href="#" class="byt-immediately00">즉시 구매하기</a>
+            <c:if test="${member != null}">
+            <a href="getMallToyList.do" class="byt-immediately00">즉시 구매하기</a>
+            </c:if>
+            <c:if test="${member == null}">
+                <a href="getMallFeedList.do" class="byt-immediately00">즉시 구매하기</a>
+            </c:if>
             <a href="#" class="byt-immediately01">장바구니 담기</a>
         </div>
         <div class="toy-sales-section08">
             <a class="toy-sales-coupon">
-                2,000원 즉시 할인쿠폰 받기
+                행복한 하루 보내세요
             </a>
         </div>
-        <div class="toy-sales-section09">
-            <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js" data-client-id="u86j4ripEt8LRfPGzQ8" data-mode="production" data-merchant-user-key="가맹점 사용자 식별키" data-merchant-pay-key="가맹점 주문 번호" data-product-name="상품명을 입력하세요" data-total-pay-amount="1000"
-                    data-tax-scope-amount="1000" data-tax-ex-scope-amount="0" data-return-url="사용자 결제 완료 후 결제 결과를 받을 URL">
-            </script>
-        </div>
+<%--        <div class="toy-sales-section09">--%>
+<%--            <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js" data-client-id="u86j4ripEt8LRfPGzQ8" data-mode="production" data-merchant-user-key="가맹점 사용자 식별키" data-merchant-pay-key="가맹점 주문 번호" data-product-name="상품명을 입력하세요" data-total-pay-amount="1000"--%>
+<%--                    data-tax-scope-amount="1000" data-tax-ex-scope-amount="0" data-return-url="사용자 결제 완료 후 결제 결과를 받을 URL">--%>
+<%--            </script>--%>
+<%--        </div>--%>
     </div>
-
+    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%;">
+    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">
+    <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
 </div>
 </body>
 </html>
