@@ -31,6 +31,8 @@ const minusTime = () => {
     }
 };
 
+let i = 1;
+
 function addSchedule(event) {
     event.preventDefault();
     // 아작스 처리
@@ -38,13 +40,12 @@ function addSchedule(event) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            for(let i=1;i<=adminNumber;i++) {
+            if(0 !== adminNumber) {
                 const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
                 const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
                 const time = document.querySelector(timeSelector).value;
                 const program = document.querySelector(programSelector).value;
                 const data = { time:time, program:program };
-                console.log(i+'  ',data);
                 addScheduleRow(data);
             }
         }
@@ -62,8 +63,17 @@ function addScheduleRow(data) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
+            i++;
             if(0 === --adminNumber) {
+                i = 1;
                 alert('유치원 스케쥴 등록이 정상적으로 처리되었습니다!');
+            } else {
+                const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
+                const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
+                const time = document.querySelector(timeSelector).value;
+                const program = document.querySelector(programSelector).value;
+                const data = { time:time, program:program };
+                addScheduleRow(data);
             }
         }
     }
