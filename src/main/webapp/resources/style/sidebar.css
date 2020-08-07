@@ -107,6 +107,7 @@ input#sidebar:checked ~ .background {
 	opacity: 1;
 	visibility: visible;
 }
+
 /*  메뉴 로고  */
 #menuLogoP {
 	margin-top: 120px;
