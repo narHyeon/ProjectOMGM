@@ -1,5 +1,7 @@
 package com.omgm.user.common.beans;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
+import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,5 +20,13 @@ public class CommonDAO {
 
     public List<KinderGardenInfoRowVO> getScheduleRow(KinderGardenInfoVO vo) {
         return sqlSessionTemplate.selectList("CommonDAO.getScheduleRow",vo);
+    }
+
+    public KinderGardenInfoVO getScheduleMonth(KinderGardenInfoVO vo) {
+        return sqlSessionTemplate.selectOne("CommonDAO.getScheduleMonth",vo);
+    }
+
+    public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenInfoVO vo) {
+        return sqlSessionTemplate.selectList("CommonDAO.getScheduleRowMonth",vo);
     }
 }

@@ -1,5 +1,6 @@
 package com.omgm.user.common.controller;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.user.common.beans.CommonVO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
@@ -40,11 +41,13 @@ public class OneController {
     public ModelAndView kinderGarden(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
         vo = commonService.getSchedule();
-        System.out.println(vo);
         List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
-        mav.addObject("day",vo);
-        System.out.println(list);
         mav.addObject("dayRow",list);
+        // 달력 불러오기
+        KinderGardenInfoVO mvo = new KinderGardenInfoVO();
+        mvo = commonService.getScheduleMonth(mvo);
+        List<KinderGardenRowMonthVO> monthList = commonService.getScheduleRowMonth(mvo);
+        mav.addObject("monthRow",monthList);
         mav.setViewName("/omgmInfo/kinderGarden");
         return mav;
     }

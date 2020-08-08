@@ -27,4 +27,20 @@ public class KinderGardenDAO {
     public void addScheduleRow(KinderGardenRowVO vo) {
         sqlSessionTemplate.insert("KinderGardenDAO.addScheduleRow",vo);
     }
+
+    public KinderGardenVO getScheduleMonth(KinderGardenVO vo) {
+        return sqlSessionTemplate.selectOne("KinderGardenDAO.getScheduleMonth",vo);
+    }
+
+    public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenVO vo) {
+        return sqlSessionTemplate.selectList("KinderGardenDAO.getScheduleRowMonth",vo);
+    }
+
+    public void addScheduleMonth(KinderGardenVO vo) {
+        sqlSessionTemplate.insert("KinderGardenDAO.addScheduleMonth",vo);
+    }
+
+    public void addScheduleRowMonth(KinderGardenRowMonthVO vo) {
+        sqlSessionTemplate.insert("KinderGardenDAO.addScheduleRowMonth",vo);
+    }
 }

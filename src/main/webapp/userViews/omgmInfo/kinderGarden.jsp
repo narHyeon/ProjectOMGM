@@ -16,19 +16,23 @@
         color: #777;
         letter-spacing: -1px;
     }
+
     .kinderGarden_title {
         margin: 20px;
     }
-    .kinderGarden_title h1{
+
+    .kinderGarden_title h1 {
         font-size: 26px;
         font-weight: 600;
         color: #555;
         letter-spacing: -1px;
     }
+
     .kinderGarden_title p {
         margin-top: 20px;
         font-size: 19px;
     }
+
     .kinderGarden_info {
         display: flex;
         flex-direction: row;
@@ -38,14 +42,17 @@
         padding: 0 2%;
         margin: 0 auto;
     }
+
     .kinderGarden_info li {
-        width:400px;
+        width: 400px;
         margin: 2%;
         font-size: 16px;
     }
+
     .kinderGarden_info li img {
-        width:400px;
+        width: 400px;
     }
+
     .kinderGarden_info h3 {
         font-size: 19px;
         margin: 30px;
@@ -68,10 +75,12 @@
         color: #555;
         letter-spacing: -1px;
     }
+
     .education_schedule_title {
         margin: 50px;
         font-size: 26px;
     }
+
     .education_schedule table {
         margin: 30px auto;
         width: 80%;
@@ -82,15 +91,18 @@
         color: #444;
         letter-spacing: -1px;
     }
+
     .education_schedule th {
         border-top: 1px solid gray;
         padding: 10px;
         background-color: #F28888;
     }
+
     .education_schedule tr {
         border-bottom: 1px solid gray;
     }
-    .education_schedule tr td{
+
+    .education_schedule tr td {
         padding: 10px;
     }
 
@@ -99,7 +111,7 @@
         background-color: pink;
     }
 
-    @media all and (max-width:768px) {
+    @media all and (max-width: 768px) {
     <%--   유치원 소개    --%>
         .kinderGarden_info {
             display: flex;
@@ -159,12 +171,12 @@
             <th>교육 내용</th>
         </tr>
         </thead>
-            <c:forEach var="row" items="${dayRow}">
-                <tr>
-                    <td>${row.time}</td>
-                    <td>${row.program}</td>
-                </tr>
-            </c:forEach>
+        <c:forEach var="row" items="${dayRow}">
+            <tr>
+                <td>${row.time}</td>
+                <td>${row.program}</td>
+            </tr>
+        </c:forEach>
     </table>
 </div>
 <%-- 유치원 월간 스케쥴 --%>
@@ -173,49 +185,35 @@
         <h3>월간 교육 스케쥴</h3>
     </div>
     <table>
-        <thead class="education_schedule_title_month">
-        <tr>
-            <th>요일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-        </tr>
-        </thead>
-        <tbody class="education_schedule_month_tbody"></tbody>
+        <c:forEach items="${monthRow}" var="month" varStatus="status">
+            <thead class="education_schedule_title_month">
+            <tr>
+                <th>요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+            </tr>
+            </thead>
+            <tbody class="education_schedule_month_tbody">
+            <tr class="education_schedule_month_subTitle">
+                <td>구분</td><td></td><td></td><td>${status.count}주차</td><td></td><td></td>
+            </tr>
+            <tr>
+                <td>오전교육</td>
+                <td>${month.mondayAM}</td>
+                <td>${month.tuesdayAM}</td>
+                <td>${month.wednesdayAM}</td>
+                <td>${month.thursdayAM}</td>
+                <td>${month.fridayAM}</td>
+            </tr>
+            <tr>
+                <td>오후교육</td>
+                <td>${month.mondayPM}</td>
+                <td>${month.tuesdayPM}</td>
+                <td>${month.wednesdayPM}</td>
+                <td>${month.thursdayPM}</td>
+                <td>${month.fridayPM}</td>
+            </tr>
+            </tbody>
+        </c:forEach>
     </table>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        for(let i=1; i<=4; i++) {
-            document.querySelector('.education_schedule_month_tbody').innerHTML +=
-                '<tr  class="education_schedule_month_subTitle">\n' +
-                '                    <td>구분</td>\n' +
-                '                    <td></td>\n' +
-                '                    <td></td>\n' +
-                '                    <td>'+i+'주차</td>\n' +
-                '                    <td></td>\n' +
-                '                    <td></td>\n' +
-                '                </tr>\n' +
-                '                <tr>\n' +
-                '                    <td>오전수업</td>\n' +
-                '                    <td>맞춤교육</td>\n' +
-                '                    <td>하우스</td>\n' +
-                '                    <td>목줄/하네스</td>\n' +
-                '                    <td>장난감 놀이</td>\n' +
-                '                    <td>타겟</td>\n' +
-                '                </tr>\n' +
-                '                <tr>\n' +
-                '                    <td>오후교육</td>\n' +
-                '                    <td>맞춤교육</td>\n' +
-                '                    <td>바디터치</td>\n' +
-                '                    <td>기다려</td>\n' +
-                '                    <td>스킨쉽</td>\n' +
-                '                    <td>산책매너</td>\n' +
-                '                </tr> ';
-        };
-    });
-</script>
 </body>
 </html>

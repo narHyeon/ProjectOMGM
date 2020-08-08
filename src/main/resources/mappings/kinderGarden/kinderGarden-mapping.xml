@@ -16,6 +16,21 @@
         <result property="program" column="PROGRAM"/>
     </resultMap>
 
+    <resultMap type="KinderGardenRowMonthVO" id="KinderGardenRowMonthResult">
+        <id property="seq" column="SEQ" />
+        <result property="no" column="NO"/>
+        <result property="mondayAM" column="MONDAY_AM"/>
+        <result property="tuesdayAM" column="TUESDAY_AM"/>
+        <result property="wednesdayAM" column="WEDNESDAY_AM"/>
+        <result property="thursdayAM" column="THURSDAY_AM"/>
+        <result property="fridayAM" column="FRIDAY_AM"/>
+        <result property="mondayPM" column="MONDAY_PM"/>
+        <result property="tuesdayPM" column="TUESDAY_PM"/>
+        <result property="wednesdayPM" column="WEDNESDAY_PM"/>
+        <result property="thursdayPM" column="THURSDAY_PM"/>
+        <result property="fridayPM" column="FRIDAY_PM"/>
+    </resultMap>
+
     <!-- 실 사용 -->
     <select id="getSchedule" parameterType="KinderGardenVO" resultType="KinderGardenVO">
         <choose>
@@ -38,6 +53,33 @@
 
     <insert id="addScheduleRow" parameterType="KinderGardenRowVO">
         INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,(SELECT max(seq) FROM kgday),#{time},#{program})
+    </insert>
+
+
+    <!-- 달력 -->
+    <select id="getScheduleMonth" parameterType="KinderGardenVO" resultType="KinderGardenVO">
+        <choose>
+            <when test="seq != 0">
+                SELECT * FROM kgday_month WHERE seq=#{seq}
+            </when>
+            <otherwise>
+                SELECT * FROM( SELECT * FROM kgday_month ORDER BY seq DESC) WHERE rownum = 1
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getScheduleRowMonth" resultMap="KinderGardenRowMonthResult">
+        SELECT * FROM kgdayrow_month WHERE no=#{seq} ORDER BY seq
+    </select>
+
+    <insert id="addScheduleMonth" parameterType="KinderGardenVO">
+        INSERT INTO kgday_month VALUES(kgday_month_seq.nextval,#{title},sysdate)
+    </insert>
+
+    <insert id="addScheduleRowMonth" parameterType="KinderGardenRowMonthVO">
+        INSERT INTO kgdayRow_month VALUES(kgdayrow_month_seq.nextval,(SELECT max(seq) FROM kgday_month),
+        #{mondayAM},#{tuesdayAM},#{wednesdayAM},#{thursdayAM},#{fridayAM},
+        #{mondayPM},#{tuesdayPM},#{wednesdayPM},#{thursdayPM},#{fridayPM})
     </insert>
 
 </mapper>
