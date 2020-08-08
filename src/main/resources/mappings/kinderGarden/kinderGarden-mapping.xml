@@ -60,16 +60,16 @@
     <select id="getScheduleMonth" parameterType="KinderGardenVO" resultType="KinderGardenVO">
         <choose>
             <when test="seq != 0">
-                SELECT * FROM kgdayMonth WHERE seq=#{seq}
+                SELECT * FROM kgday_month WHERE seq=#{seq}
             </when>
             <otherwise>
-                SELECT * FROM( SELECT * FROM kgdayMonth ORDER BY seq DESC) WHERE rownum = 1
+                SELECT * FROM( SELECT * FROM kgday_month ORDER BY seq DESC) WHERE rownum = 1
             </otherwise>
         </choose>
     </select>
 
     <select id="getScheduleRowMonth" resultMap="KinderGardenRowMonthResult">
-        SELECT * FROM kgdayrowMonth WHERE no=#{seq} ORDER BY seq
+        SELECT * FROM kgdayrow_month WHERE no=#{seq} ORDER BY seq
     </select>
 
 </mapper>

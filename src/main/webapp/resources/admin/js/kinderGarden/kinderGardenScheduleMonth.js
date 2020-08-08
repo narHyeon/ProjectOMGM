@@ -30,7 +30,7 @@ const plusMonth = (rowMonth) => {
                 <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
             </tr>
         </tbody> `;
-    
+
     const addMonth = document.querySelector('.admin_kindergarden_schedule_month')
     addMonth.innerHTML += row;
 };
