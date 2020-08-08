@@ -33,6 +33,15 @@ public class UserMallController {
         return mav;
     }
 
+    // 고객이 사료을 골랐을때 결제 페이지로 이동
+    @RequestMapping("/getMallFeedOneInfoSales.do")
+    public ModelAndView getMallFeedOneInfoSales(UserMallFeedVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/feedSales");
+        mav.addObject("feedList", userMallService.getMallFeedOneInfo(vo));
+        return mav;
+    }
+
     //MallList로 이동
     @RequestMapping("/productClick.do")
     public ModelAndView productClick(UserMallFeedVO vo) throws Exception {
@@ -66,6 +75,14 @@ public class UserMallController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/sales/toySales");
         mav.addObject("toyList", userMallService.getMallToyOneInfo(vo));
+        return mav;
+    }
+
+    // 즉시 결제 페이지로 이동
+    @RequestMapping("/buyImmediately.do")
+    public ModelAndView buyImmediately() throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/buyImmediately");
         return mav;
     }
 

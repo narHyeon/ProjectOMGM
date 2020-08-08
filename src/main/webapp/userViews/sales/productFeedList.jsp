@@ -61,7 +61,7 @@
 
           <c:forEach var="FeedList" items="${FeedList}">
             <li class="pro_Li" style="padding-left:5%;">
-                <a href="">
+                <a href="getMallFeedOneInfoSales.do?feed_code=${FeedList.feed_code}">
                     <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
                     <div class="menu" style="display: none;">
                         <em>NEW</em>

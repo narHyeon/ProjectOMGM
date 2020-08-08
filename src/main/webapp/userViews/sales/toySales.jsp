@@ -18,7 +18,7 @@
 <body>
 <div id="toy-sales-div">
     <div id="toy-img-section">
-        <img src="resources/img/product/${toyList.toy_img}" class="toy-img-01" ">
+        <img src="resources/img/product/${toyList.toy_img}" class="toy-img-01" >
     </div>
     <div id="toy-sales-section">
         <div class="toy-sales-section00">
@@ -57,10 +57,10 @@
         </div>
         <div class="toy-sales-section07">
             <c:if test="${member != null}">
-            <a href="getMallToyList.do" class="byt-immediately00">즉시 구매하기</a>
+                <a href="buyImmediately.do" class="byt-immediately00">즉시 구매하기</a>
             </c:if>
             <c:if test="${member == null}">
-                <a href="getMallFeedList.do" class="byt-immediately00">즉시 구매하기</a>
+                <a href="" class="byt-immediately00" onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다')">즉시 구매하기</a>
             </c:if>
             <a href="#" class="byt-immediately01">장바구니 담기</a>
         </div>
@@ -78,6 +78,7 @@
     <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%;">
     <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
+    <script src="resources/js/header.js" defer></script>
 </div>
 </body>
 </html>

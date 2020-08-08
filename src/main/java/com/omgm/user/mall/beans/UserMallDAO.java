@@ -26,6 +26,11 @@ public class UserMallDAO {
         return sqlSessionTemplate.selectOne("UserMallDAO.selectCountMall");
     }
 
+    // 클라이언트 부분에서 사료 정보 가져오기
+    public UserMallFeedVO getMallFeedOneInfo(UserMallFeedVO vo) {
+        return sqlSessionTemplate.selectOne("UserMallDAO.getMallFeedOneInfo",vo);
+    }
+
     ///////////// 장난감 관련 메서드 //////////////////
     // 장난감 상품 나열(페이징 처리 추가)
     public List<UserMallToyVO> getMallToyList (UserMallToyVO vo, PageNavigatorMall navi) {
@@ -36,7 +41,8 @@ public class UserMallDAO {
     public int selectCountToyMall(){
         return sqlSessionTemplate.selectOne("UserMallDAO.selectCountToyMall");
     }
-    // 장난감 정보 가져오기
+
+    // 클라이언트 부분에서 장난감 정보 가져오기
     public UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) {
         return sqlSessionTemplate.selectOne("UserMallDAO.getMallToyOneInfo",vo);
     }

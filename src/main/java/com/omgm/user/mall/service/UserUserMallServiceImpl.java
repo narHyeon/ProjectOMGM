@@ -25,6 +25,11 @@ public class UserUserMallServiceImpl implements UserMallService {
         return userMallDAO.selectCountMall();
     }
 
+    // 클라이언트 선택 사료 결제 페이지 이동
+    @Override
+    public UserMallFeedVO getMallFeedOneInfo(UserMallFeedVO vo) throws Exception {
+        return userMallDAO.getMallFeedOneInfo(vo);
+    }
 
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
     @Override
