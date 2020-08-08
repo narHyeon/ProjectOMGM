@@ -37,6 +37,7 @@ public class KinderGardenController {
         ModelAndView mav = new ModelAndView();
         vo = kinderGardenService.getScheduleMonth(vo);
         List<KinderGardenRowMonthVO> list = kinderGardenService.getScheduleRowMonth(vo);
+        for(KinderGardenRowMonthVO l : list) System.out.println(l);
         mav.addObject("month",vo);
         mav.addObject("monthRow",list);
         mav.setViewName("/kinderGarden/kinderGardenScheduleMonth");

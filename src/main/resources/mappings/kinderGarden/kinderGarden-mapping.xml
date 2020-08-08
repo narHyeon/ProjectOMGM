@@ -19,16 +19,16 @@
     <resultMap type="KinderGardenRowMonthVO" id="KinderGardenRowMonthResult">
         <id property="seq" column="SEQ" />
         <result property="no" column="NO"/>
-        <result property="mondayAM" column="MONDAYAM"/>
-        <result property="tuesdayAM" column="TUESDAYAM"/>
-        <result property="wednesdayAM" column="WEDNESDAYAM"/>
-        <result property="thursdayAM" column="THURSDAYAM"/>
-        <result property="fridayAM" column="FRIDAYAM"/>
-        <result property="mondayPM" column="MONDAYPM"/>
-        <result property="tuesdayPM" column="TUESDAYPM"/>
-        <result property="wednesdayPM" column="WEDNESDAYPM"/>
-        <result property="thursdayPM" column="THURSDAYPM"/>
-        <result property="fridayPM" column="FRIDAYPM"/>
+        <result property="mondayAM" column="MONDAY_AM"/>
+        <result property="tuesdayAM" column="TUESDAY_AM"/>
+        <result property="wednesdayAM" column="WEDNESDAY_AM"/>
+        <result property="thursdayAM" column="THURSDAY_AM"/>
+        <result property="fridayAM" column="FRIDAY_AM"/>
+        <result property="mondayPM" column="MONDAY_PM"/>
+        <result property="tuesdayPM" column="TUESDAY_PM"/>
+        <result property="wednesdayPM" column="WEDNESDAY_PM"/>
+        <result property="thursdayPM" column="THURSDAY_PM"/>
+        <result property="fridayPM" column="FRIDAY_PM"/>
     </resultMap>
 
     <!-- 실 사용 -->
