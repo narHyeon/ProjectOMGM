@@ -78,7 +78,7 @@ function addSchedule(event) {
                 const tuesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(3) input`).value;
                 const wednesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(4) input`).value;
                 const thursday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(5) input`).value;
-                const friday_pm = document.querySelector(`${tbody} tr:nth-child(3) td td:nth-child(6) input`).value;
+                const friday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(6) input`).value;
 
                 const data = {
                     mondayAM: monday_am,
@@ -115,17 +115,17 @@ function addScheduleRow(data) {
                 alert('유치원 달력 등록이 정상적으로 처리되었습니다!');
             } else {
                 const tbody = `.education_schedule_month_tbody${adminScheduleNumber}`;
-                const monday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(1)`).value;
-                const tuesday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(2)`).value;
-                const wednesday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(3)`).value;
-                const thursday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(4)`).value;
-                const friday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(5)`).value;
+                const monday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(2) input`).value;
+                const tuesday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(3) input`).value;
+                const wednesday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(4) input`).value;
+                const thursday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(5) input`).value;
+                const friday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(6) input`).value;
 
-                const monday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(1)`).value;
-                const tuesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(2)`).value;
-                const wednesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(3)`).value;
-                const thursday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(4)`).value;
-                const friday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(5)`).value;
+                const monday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(2) input`).value;
+                const tuesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(3) input`).value;
+                const wednesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(4) input`).value;
+                const thursday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(5) input`).value;
+                const friday_pm = document.querySelector(`${tbody} tr:nth-child(3) td:nth-child(6) input`).value;
 
                 const data = {
                     mondayAM: monday_am,
