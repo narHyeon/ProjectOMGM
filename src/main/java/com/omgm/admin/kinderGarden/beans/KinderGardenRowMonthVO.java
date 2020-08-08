@@ -8,7 +8,7 @@ public class KinderGardenRowMonthVO {
     private String wednesdayAM;
     private String thursdayAM;
     private String fridayAM;
-    private String monthdayPM;
+    private String mondayPM;
     private String tuesdayPM;
     private String wednesdayPM;
     private String thursdayPM;
@@ -16,7 +16,7 @@ public class KinderGardenRowMonthVO {
 
     public KinderGardenRowMonthVO() { }
 
-    public KinderGardenRowMonthVO(int seq, int no, String mondayAM, String tuesdayAM, String wednesdayAM, String thursdayAM, String fridayAM, String monthdayPM, String tuesdayPM, String wednesdayPM, String thursdayPM, String fridayPM) {
+    public KinderGardenRowMonthVO(int seq, int no, String mondayAM, String tuesdayAM, String wednesdayAM, String thursdayAM, String fridayAM, String mondayPM, String tuesdayPM, String wednesdayPM, String thursdayPM, String fridayPM) {
         this.seq = seq;
         this.no = no;
         this.mondayAM = mondayAM;
@@ -24,7 +24,7 @@ public class KinderGardenRowMonthVO {
         this.wednesdayAM = wednesdayAM;
         this.thursdayAM = thursdayAM;
         this.fridayAM = fridayAM;
-        this.monthdayPM = monthdayPM;
+        this.mondayPM = mondayPM;
         this.tuesdayPM = tuesdayPM;
         this.wednesdayPM = wednesdayPM;
         this.thursdayPM = thursdayPM;
@@ -47,11 +47,11 @@ public class KinderGardenRowMonthVO {
         this.no = no;
     }
 
-    public String getMonthdayAM() {
+    public String getMondayAM() {
         return mondayAM;
     }
 
-    public void setMonthdayAM(String mondayAM) {
+    public void setMondayAM(String mondayAM) {
         this.mondayAM = mondayAM;
     }
 
@@ -87,12 +87,12 @@ public class KinderGardenRowMonthVO {
         this.fridayAM = fridayAM;
     }
 
-    public String getMonthdayPM() {
-        return monthdayPM;
+    public String getMondayPM() {
+        return mondayPM;
     }
 
-    public void setMonthdayPM(String monthdayPM) {
-        this.monthdayPM = monthdayPM;
+    public void setMondayPM(String mondayPM) {
+        this.mondayPM = mondayPM;
     }
 
     public String getTuesdayPM() {
@@ -129,7 +129,7 @@ public class KinderGardenRowMonthVO {
 
     @Override
     public String toString() {
-        return "kinderGardenMonthRowVO{" +
+        return "KinderGardenRowMonthVO{" +
                 "seq=" + seq +
                 ", no=" + no +
                 ", mondayAM='" + mondayAM + '\'' +
@@ -137,7 +137,7 @@ public class KinderGardenRowMonthVO {
                 ", wednesdayAM='" + wednesdayAM + '\'' +
                 ", thursdayAM='" + thursdayAM + '\'' +
                 ", fridayAM='" + fridayAM + '\'' +
-                ", monthdayPM='" + monthdayPM + '\'' +
+                ", mondayPM='" + mondayPM + '\'' +
                 ", tuesdayPM='" + tuesdayPM + '\'' +
                 ", wednesdayPM='" + wednesdayPM + '\'' +
                 ", thursdayPM='" + thursdayPM + '\'' +
