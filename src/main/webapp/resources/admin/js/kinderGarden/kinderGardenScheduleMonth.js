@@ -4,31 +4,45 @@ let adminNumber = 0;
 let adminScheduleNumber = 0;
 const plusMonth = (rowMonth) => {
     console.log(rowMonth);
+    if(rowMonth.monday_am === undefined){
+        rowMonth = {
+            monday_am:'',
+            tuesday_am:'',
+            wednesday_am:'',
+            thursday_am:'',
+            friday_am:'',
+            monday_pm:'',
+            tuesday_pm:'',
+            wednesday_pm:'',
+            thursday_pm:'',
+            friday_pm:''
+        };
+    }
     const row = ` 
-        <thead class="education_schedule_title_month">
+        <thead class="education_schedule_title_month${++adminScheduleNumber}">
             <tr>
                 <th>요일</th> <th>월</th> <th>화</th> <th>수</th> <th>목</th> <th>금</th>
             </tr>
         </thead>
-        <tbody class="education_schedule_month_tbody">
+        <tbody class="education_schedule_month_tbody${++adminScheduleNumber}">
             <tr class="education_schedule_month_subTitle">
-                <td>구분</td> <td></td> <td></td> <td>${--adminNumber}주차</td> <td></td> <td></td>
+                <td>구분</td> <td></td> <td></td> <td>${++adminNumber}주차</td> <td></td> <td></td>
             </tr>
             <tr class="education_schedule_month_subTitle">
                 <td>오전수업</td>
                 <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.tuesday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.wednesday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.thursday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.friday_am}"></td>
             </tr>
             <tr class="education_schedule_month_subTitle">
                 <td>오후수업</td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
-                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_pm}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.tuesday_pm}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.wednesday_pm}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.thursday_pm}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.friday_pm}"></td>
             </tr>
         </tbody> `;
 
@@ -36,10 +50,12 @@ const plusMonth = (rowMonth) => {
     addMonth.innerHTML += row;
 };
 const minusMonth = () => {
-    const child = document.querySelector(`.admin_kindergarden_schedule_row${adminNumber--}`);
-    if(child !== null) {
-        document.querySelector('#admin_kindergarden_schedule_day').removeChild(child);
-    }
+    const table = document.querySelector(`.admin_kindergarden_schedule_month`);
+    const thead = document.querySelector(`.education_schedule_title_month${adminScheduleNumber}`);
+    const tbody = document.querySelector(`.education_schedule_month_tbody${adminScheduleNumber--}`);
+    table.removeChild(thead);
+    table.removeChild(tbody);
+
 };
 
 let i = 1;

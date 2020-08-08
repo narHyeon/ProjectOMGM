@@ -26,9 +26,10 @@
             margin: 10px auto;
         }
         .education_schedule_month_subTitle th, .education_schedule_month_subTitle td {
-            width: 100px;
+            width: 120px;
         }
         .education_schedule_month_subTitle td input {
+            width:100%;
             margin: 0;
         }
         .admin_kindergarden_schedule_pm {
@@ -103,7 +104,6 @@
                 friday_pm:'${row.fridayPM}'
             };
             plusMonth(rowMonth);
-            console.log(rowMonth);
         </script>
     </c:forEach>
 </c:if>
