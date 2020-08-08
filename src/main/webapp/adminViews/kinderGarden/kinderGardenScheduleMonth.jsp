@@ -77,7 +77,7 @@
     <div class="admin_kindergarden_schedule_pm">
         <button id="kinder_dropdown" class="btn btn-primary btn-user" onClick="window.location.href = 'kinderGardenSchedule.mdo?seq=${day.seq - 1}';">이전 시간표</button>
         <input id="admin_kindergarden_schedule_title" type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${day.title}">
-        <input id="admin_kindergarden_schedule_date" type="text" class="form-control form-control-user" value="날짜 : ${day.regDate}" disabled>
+        <input id="admin_kindergarden_schedule_date" type="text" class="form-control form-control-user" value="날짜 : ${month.regDate}" disabled>
         <button class="btn btn-primary btn-user" onClick="plusMonth()">+</button>
         <button class="btn btn-danger btn-user" onClick="minusMonth()">-</button>
     </div>
@@ -87,48 +87,23 @@
     </div>
 </div>
 <script src="resources/admin/js/kinderGarden/kinderGardenScheduleMonth.js"></script>
-<script>
-    for(let i=0;i<4;i++) {
-        document.querySelector('.admin_kindergarden_schedule_month').innerHTML +=
-            `
-            <thead class="education_schedule_title_month">
-                <tr>
-                    <th>요일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                </tr>
-            </thead>
-            <tbody class="education_schedule_month_tbody">
-                <tr class="education_schedule_month_subTitle">
-                    <td>구분</td>
-                    <td></td>
-                    <td></td>
-                    <td>1주차</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="education_schedule_month_subTitle">
-                    <td>오전수업</td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                </tr>
-                <tr class="education_schedule_month_subTitle">
-                    <td>오후수업</td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                    <td><input type="text" class="form-control form-control-user" placeholder="program"></td>
-                </tr>
-            </tbody>
-            `;
-    }
-</script>
+<c:if test="${month != null}">
+    <c:forEach items="${monthRow}" var="row">
+        <script>
+            plusMonth({
+                monday_am:'${row.monthdayAM}',
+                tuesday_am:'${row.tuesdayAM}',
+                wednesday_am:'${row.wednesdayAM}',
+                thursday_am:'${row.thursdayAM}',
+                friday_am:'${row.fridayAM}',
+                monday_pm:'${row.monthdayPM}',
+                tuesday_pm:'${row.tuesdayPM}',
+                wednesday_pm:'${row.wednesdayPM}',
+                thursday_pm:'${row.thursdayPM}',
+                friday_pm:'${row.fridayPM}'
+            });
+        </script>
+    </c:forEach>
+</c:if>
 </body>
 </html>

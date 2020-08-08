@@ -32,7 +32,7 @@ public class KinderGardenDAO {
         return sqlSessionTemplate.selectOne("KinderGardenDAO.getScheduleMonth",vo);
     }
 
-    public List<KinderGardenMonthRowVO> getScheduleRowMonth(KinderGardenVO vo) {
+    public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenVO vo) {
         return sqlSessionTemplate.selectList("KinderGardenDAO.getScheduleMonthRow",vo);
     }
 }

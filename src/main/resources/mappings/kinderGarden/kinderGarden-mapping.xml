@@ -16,6 +16,21 @@
         <result property="program" column="PROGRAM"/>
     </resultMap>
 
+    <resultMap type="KinderGardenRowMonthVO" id="KinderGardenRowMonthResult">
+        <id property="seq" column="SEQ" />
+        <result property="no" column="NO"/>
+        <result property="mondayAM" column="MONDAYAM"/>
+        <result property="tuesdayAM" column="TUESDAYAM"/>
+        <result property="wednesdayAM" column="WEDNESDAYAM"/>
+        <result property="thursdayAM" column="THURSDAYAM"/>
+        <result property="fridayAM" column="FRIDAYAM"/>
+        <result property="mondayPM" column="MONDAYPM"/>
+        <result property="tuesdayPM" column="TUESDAYPM"/>
+        <result property="wednesdayPM" column="WEDNESDAYPM"/>
+        <result property="thursdayPM" column="THURSDAYPM"/>
+        <result property="fridayPM" column="FRIDAYPM"/>
+    </resultMap>
+
     <!-- 실 사용 -->
     <select id="getSchedule" parameterType="KinderGardenVO" resultType="KinderGardenVO">
         <choose>
@@ -39,5 +54,22 @@
     <insert id="addScheduleRow" parameterType="KinderGardenRowVO">
         INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,(SELECT max(seq) FROM kgday),#{time},#{program})
     </insert>
+
+
+    <!-- 달력 -->
+    <select id="getScheduleMonth" parameterType="KinderGardenVO" resultType="KinderGardenVO">
+        <choose>
+            <when test="seq != 0">
+                SELECT * FROM kgdayMonth WHERE seq=#{seq}
+            </when>
+            <otherwise>
+                SELECT * FROM( SELECT * FROM kgdayMonth ORDER BY seq DESC) WHERE rownum = 1
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getScheduleRowMonth" resultMap="KinderGardenRowMonthResult">
+        SELECT * FROM kgdayrowMonth WHERE no=#{seq} ORDER BY seq
+    </select>
 
 </mapper>

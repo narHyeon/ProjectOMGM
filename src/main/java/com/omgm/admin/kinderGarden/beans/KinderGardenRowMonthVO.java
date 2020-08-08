@@ -1,6 +1,6 @@
 package com.omgm.admin.kinderGarden.beans;
 
-public class KinderGardenMonthRowVO {
+public class KinderGardenRowMonthVO {
     private int seq;
     private int no;
     private String monthdayAM;
@@ -14,9 +14,9 @@ public class KinderGardenMonthRowVO {
     private String thursdayPM;
     private String fridayPM;
 
-    public KinderGardenMonthRowVO() { }
+    public KinderGardenRowMonthVO() { }
 
-    public KinderGardenMonthRowVO(int seq, int no, String monthdayAM, String tuesdayAM, String wednesdayAM, String thursdayAM, String fridayAM, String monthdayPM, String tuesdayPM, String wednesdayPM, String thursdayPM, String fridayPM) {
+    public KinderGardenRowMonthVO(int seq, int no, String monthdayAM, String tuesdayAM, String wednesdayAM, String thursdayAM, String fridayAM, String monthdayPM, String tuesdayPM, String wednesdayPM, String thursdayPM, String fridayPM) {
         this.seq = seq;
         this.no = no;
         this.monthdayAM = monthdayAM;

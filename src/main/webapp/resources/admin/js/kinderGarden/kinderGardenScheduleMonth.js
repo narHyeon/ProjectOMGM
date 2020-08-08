@@ -2,29 +2,39 @@
 
 let adminNumber = 0;
 let adminScheduleNumber = 0;
-const plusTime = (rowTime, rowProgram) => {
+const plusMonth = (rowMonth) => {
     const row = ` 
-        <li>
-            <label for="admin_kindergarden_schedule_time${adminScheduleNumber+1}">시간</label>
-            <input type="text" id="admin_kindergarden_schedule_time${++adminScheduleNumber}" 
-            class="form-control form-control-user admin_kindergarden_schedule_time" placeholder="time" value="${rowTime}">
-        </li>
-        <li>
-            <label for="admin_kindergarden_schedule_time${adminScheduleNumber+1}">교육 내용</label>
-            <input type="text" id="admin_kindergarden_schedule_time${++adminScheduleNumber}" 
-            class="form-control form-control-user admin_kindergarden_schedule_program" 
-            placeholder="program" value="${rowProgram}">
-        </li> `;
-    const addrow = document.createElement('ul');
-    addrow.classList.add(`admin_kindergarden_schedule_input`);
-    addrow.classList.add(`admin_kindergarden_schedule_row${++adminNumber}`);
-    addrow.innerHTML = row;
-    document.querySelector('#admin_kindergarden_schedule_day').appendChild(addrow);
-
-    console.log('adminScheduleNumber ',adminScheduleNumber);
-    console.log('adminNumber ',adminNumber);
+        <thead class="education_schedule_title_month">
+            <tr>
+                <th>요일</th> <th>월</th> <th>화</th> <th>수</th> <th>목</th> <th>금</th>
+            </tr>
+        </thead>
+        <tbody class="education_schedule_month_tbody">
+            <tr class="education_schedule_month_subTitle">
+                <td>구분</td> <td></td> <td></td> <td>${--adminNumber}주차</td> <td></td> <td></td>
+            </tr>
+            <tr class="education_schedule_month_subTitle">
+                <td>오전수업</td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+            </tr>
+            <tr class="education_schedule_month_subTitle">
+                <td>오후수업</td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+                <td><input type="text" class="form-control form-control-user" placeholder="program" value="${rowMonth.monday_am}"></td>
+            </tr>
+        </tbody> `;
+    
+    const addMonth = document.querySelector('.admin_kindergarden_schedule_month')
+    addMonth.innerHTML += row;
 };
-const minusTime = () => {
+const minusMonth = () => {
     const child = document.querySelector(`.admin_kindergarden_schedule_row${adminNumber--}`);
     if(child !== null) {
         document.querySelector('#admin_kindergarden_schedule_day').removeChild(child);

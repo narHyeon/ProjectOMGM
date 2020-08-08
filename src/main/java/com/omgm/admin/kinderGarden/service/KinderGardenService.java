@@ -1,6 +1,6 @@
 package com.omgm.admin.kinderGarden.service;
 
-import com.omgm.admin.kinderGarden.beans.KinderGardenMonthRowVO;
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 
@@ -14,6 +14,6 @@ public interface KinderGardenService {
 
     // 달력
     KinderGardenVO getScheduleMonth(KinderGardenVO vo);
-    List<KinderGardenMonthRowVO> getScheduleRowMonth(KinderGardenVO vo);
+    List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenVO vo);
 
 }

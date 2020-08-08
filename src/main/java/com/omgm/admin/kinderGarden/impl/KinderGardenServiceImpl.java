@@ -1,7 +1,7 @@
 package com.omgm.admin.kinderGarden.impl;
 
 import com.omgm.admin.kinderGarden.beans.KinderGardenDAO;
-import com.omgm.admin.kinderGarden.beans.KinderGardenMonthRowVO;
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
@@ -42,7 +42,7 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     }
 
     @Override
-    public List<KinderGardenMonthRowVO> getScheduleRowMonth(KinderGardenVO vo) {
+    public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenVO vo) {
         return kinderGardenDAO.getScheduleRowMonth(vo);
     }
 }
