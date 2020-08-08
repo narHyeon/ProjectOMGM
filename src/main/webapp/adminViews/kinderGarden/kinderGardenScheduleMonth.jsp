@@ -90,7 +90,7 @@
 <c:if test="${month != null}">
     <c:forEach items="${monthRow}" var="row">
         <script>
-            plusMonth({
+            const rowMonth = {
                 monday_am:'${row.monthdayAM}',
                 tuesday_am:'${row.tuesdayAM}',
                 wednesday_am:'${row.wednesdayAM}',
@@ -101,7 +101,9 @@
                 wednesday_pm:'${row.wednesdayPM}',
                 thursday_pm:'${row.thursdayPM}',
                 friday_pm:'${row.fridayPM}'
-            });
+            };
+            plusMonth(rowMonth);
+            console.log(rowMonth);
         </script>
     </c:forEach>
 </c:if>

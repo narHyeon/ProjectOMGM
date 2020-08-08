@@ -3,6 +3,7 @@
 let adminNumber = 0;
 let adminScheduleNumber = 0;
 const plusMonth = (rowMonth) => {
+    console.log(rowMonth);
     const row = ` 
         <thead class="education_schedule_title_month">
             <tr>
