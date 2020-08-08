@@ -76,7 +76,7 @@
         </table>
     </div>
     <div class="admin_kindergarden_schedule_pm">
-        <button id="kinder_dropdown" class="btn btn-primary btn-user" onClick="window.location.href = 'kinderGardenSchedule.mdo?seq=${month.seq - 1}';">이전 시간표</button>
+        <button id="kinder_dropdown" class="btn btn-primary btn-user" onClick="window.location.href = 'kinderGardenScheduleMonth.mdo?seq=${month.seq - 1}';">이전 시간표</button>
         <input id="admin_kindergarden_schedule_title" type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${month.title}">
         <input id="admin_kindergarden_schedule_date" type="text" class="form-control form-control-user" value="날짜 : ${month.regDate}" disabled>
         <button class="btn btn-primary btn-user" onClick="plusMonth()">+</button>
@@ -84,7 +84,7 @@
     </div>
     <div class="admin_kindergarden_schedule_button">
         <a href="kinderGardenScheduleMonth.mdo" class="btn btn-info btn-user ">초기화</a>
-        <a href="login.html" class="btn btn-success btn-user ">적용</a>
+        <a href="login.html" class="btn btn-success btn-user"  onClick="addSchedule(event)">적용</a>
     </div>
 </div>
 <script src="resources/admin/js/kinderGarden/kinderGardenScheduleMonth.js"></script>
