@@ -3,7 +3,7 @@ package com.omgm.admin.kinderGarden.beans;
 public class KinderGardenRowMonthVO {
     private int seq;
     private int no;
-    private String monthdayAM;
+    private String mondayAM;
     private String tuesdayAM;
     private String wednesdayAM;
     private String thursdayAM;
@@ -16,10 +16,10 @@ public class KinderGardenRowMonthVO {
 
     public KinderGardenRowMonthVO() { }
 
-    public KinderGardenRowMonthVO(int seq, int no, String monthdayAM, String tuesdayAM, String wednesdayAM, String thursdayAM, String fridayAM, String monthdayPM, String tuesdayPM, String wednesdayPM, String thursdayPM, String fridayPM) {
+    public KinderGardenRowMonthVO(int seq, int no, String mondayAM, String tuesdayAM, String wednesdayAM, String thursdayAM, String fridayAM, String monthdayPM, String tuesdayPM, String wednesdayPM, String thursdayPM, String fridayPM) {
         this.seq = seq;
         this.no = no;
-        this.monthdayAM = monthdayAM;
+        this.mondayAM = mondayAM;
         this.tuesdayAM = tuesdayAM;
         this.wednesdayAM = wednesdayAM;
         this.thursdayAM = thursdayAM;
@@ -48,11 +48,11 @@ public class KinderGardenRowMonthVO {
     }
 
     public String getMonthdayAM() {
-        return monthdayAM;
+        return mondayAM;
     }
 
-    public void setMonthdayAM(String monthdayAM) {
-        this.monthdayAM = monthdayAM;
+    public void setMonthdayAM(String mondayAM) {
+        this.mondayAM = mondayAM;
     }
 
     public String getTuesdayAM() {
@@ -132,7 +132,7 @@ public class KinderGardenRowMonthVO {
         return "kinderGardenMonthRowVO{" +
                 "seq=" + seq +
                 ", no=" + no +
-                ", monthdayAM='" + monthdayAM + '\'' +
+                ", mondayAM='" + mondayAM + '\'' +
                 ", tuesdayAM='" + tuesdayAM + '\'' +
                 ", wednesdayAM='" + wednesdayAM + '\'' +
                 ", thursdayAM='" + thursdayAM + '\'' +
