@@ -91,12 +91,12 @@
     <c:forEach items="${monthRow}" var="row">
         <script>
             const rowMonth = {
-                monday_am:'${row.monthdayAM}',
+                monday_am:'${row.mondayAM}',
                 tuesday_am:'${row.tuesdayAM}',
                 wednesday_am:'${row.wednesdayAM}',
                 thursday_am:'${row.thursdayAM}',
                 friday_am:'${row.fridayAM}',
-                monday_pm:'${row.monthdayPM}',
+                monday_pm:'${row.mondayPM}',
                 tuesday_pm:'${row.tuesdayPM}',
                 wednesday_pm:'${row.wednesdayPM}',
                 thursday_pm:'${row.thursdayPM}',
