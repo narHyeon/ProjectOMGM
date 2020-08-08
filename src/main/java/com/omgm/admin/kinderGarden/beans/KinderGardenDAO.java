@@ -33,6 +33,6 @@ public class KinderGardenDAO {
     }
 
     public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenVO vo) {
-        return sqlSessionTemplate.selectList("KinderGardenDAO.getScheduleMonthRow",vo);
+        return sqlSessionTemplate.selectList("KinderGardenDAO.getScheduleRowMonth",vo);
     }
 }
