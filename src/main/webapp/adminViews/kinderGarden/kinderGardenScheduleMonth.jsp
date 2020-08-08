@@ -86,6 +86,7 @@
         <a href="login.html" class="btn btn-success btn-user ">적용</a>
     </div>
 </div>
+<script src="resources/admin/js/kinderGarden/kinderGardenScheduleMonth.js"></script>
 <script>
     for(let i=0;i<4;i++) {
         document.querySelector('.admin_kindergarden_schedule_month').innerHTML +=
