@@ -76,8 +76,8 @@
         </table>
     </div>
     <div class="admin_kindergarden_schedule_pm">
-        <button id="kinder_dropdown" class="btn btn-primary btn-user" onClick="window.location.href = 'kinderGardenSchedule.mdo?seq=${day.seq - 1}';">이전 시간표</button>
-        <input id="admin_kindergarden_schedule_title" type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${day.title}">
+        <button id="kinder_dropdown" class="btn btn-primary btn-user" onClick="window.location.href = 'kinderGardenSchedule.mdo?seq=${month.seq - 1}';">이전 시간표</button>
+        <input id="admin_kindergarden_schedule_title" type="text" placeholder="저장할 이름을 입력" class="form-control form-control-user" value="${month.title}">
         <input id="admin_kindergarden_schedule_date" type="text" class="form-control form-control-user" value="날짜 : ${month.regDate}" disabled>
         <button class="btn btn-primary btn-user" onClick="plusMonth()">+</button>
         <button class="btn btn-danger btn-user" onClick="minusMonth()">-</button>
@@ -91,7 +91,7 @@
 <c:if test="${month != null}">
     <c:forEach items="${monthRow}" var="row">
         <script>
-            const rowMonth = {
+            plusMonth(rowMonth = {
                 monday_am:'${row.mondayAM}',
                 tuesday_am:'${row.tuesdayAM}',
                 wednesday_am:'${row.wednesdayAM}',
@@ -102,8 +102,7 @@
                 wednesday_pm:'${row.wednesdayPM}',
                 thursday_pm:'${row.thursdayPM}',
                 friday_pm:'${row.fridayPM}'
-            };
-            plusMonth(rowMonth);
+            });
         </script>
     </c:forEach>
 </c:if>
