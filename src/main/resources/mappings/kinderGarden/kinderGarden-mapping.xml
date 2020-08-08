@@ -72,4 +72,14 @@
         SELECT * FROM kgdayrow_month WHERE no=#{seq} ORDER BY seq
     </select>
 
+    <insert id="addScheduleMonth" parameterType="KinderGardenVO">
+        INSERT INTO kgday_month VALUES(kgday_month_seq.nextval,#{title},sysdate)
+    </insert>
+
+    <insert id="addScheduleRowMonth" parameterType="KinderGardenRowMonthVO">
+        INSERT INTO kgdayRow_month VALUES(kgdayrow_month_seq.nextval,(SELECT max(seq) FROM kgday_month),
+        #{mondayAM},#{tuesdayAM},#{wednesdayAm},#{thursdayAM},#{fridayAM},
+        #{mondayPM},#{tuesdayPM},#{wednesdayPm},#{thursdayPM},#{fridayPM})
+    </insert>
+
 </mapper>

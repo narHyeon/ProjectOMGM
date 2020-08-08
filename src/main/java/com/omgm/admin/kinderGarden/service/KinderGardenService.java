@@ -15,5 +15,6 @@ public interface KinderGardenService {
     // 달력
     KinderGardenVO getScheduleMonth(KinderGardenVO vo);
     List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenVO vo);
-
+    void addScheduleMonth(KinderGardenVO vo);
+    void addScheduleRowMonth(KinderGardenRowMonthVO vo);
 }

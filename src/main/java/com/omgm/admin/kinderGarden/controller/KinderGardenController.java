@@ -64,4 +64,18 @@ public class KinderGardenController {
     public void addScheduleRow(@RequestBody KinderGardenRowVO rvo) {
         kinderGardenService.addScheduleRow(rvo);
     }
+
+    // 관리자 유치원 달력 등록
+    @ResponseBody
+    @RequestMapping("/addScheduleMonth.mdo")
+    public void addScheduleMonth(@RequestBody KinderGardenVO vo) {
+        kinderGardenService.addScheduleMonth(vo);
+    }
+
+    // 관리자 유치원 달력 내용 등록
+    @ResponseBody
+    @RequestMapping("/addScheduleRowMonth.mdo")
+    public void addScheduleRowMonth(@RequestBody KinderGardenRowMonthVO rvo) {
+        kinderGardenService.addScheduleRowMonth(rvo);
+    }
 }
