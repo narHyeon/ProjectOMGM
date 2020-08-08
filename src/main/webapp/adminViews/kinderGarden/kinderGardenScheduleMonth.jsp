@@ -83,7 +83,7 @@
         <button class="btn btn-danger btn-user" onClick="minusMonth()">-</button>
     </div>
     <div class="admin_kindergarden_schedule_button">
-        <a href="login.html" class="btn btn-info btn-user ">초기화</a>
+        <a href="kinderGardenScheduleMonth.mdo" class="btn btn-info btn-user ">초기화</a>
         <a href="login.html" class="btn btn-success btn-user ">적용</a>
     </div>
 </div>

@@ -3,8 +3,7 @@
 let adminNumber = 0;
 let adminScheduleNumber = 0;
 const plusMonth = (rowMonth) => {
-    console.log(rowMonth);
-    if(rowMonth.monday_am === undefined){
+    if(rowMonth === undefined){
         rowMonth = {
             monday_am:'',
             tuesday_am:'',
@@ -24,7 +23,7 @@ const plusMonth = (rowMonth) => {
                 <th>요일</th> <th>월</th> <th>화</th> <th>수</th> <th>목</th> <th>금</th>
             </tr>
         </thead>
-        <tbody class="education_schedule_month_tbody${++adminScheduleNumber}">
+        <tbody class="education_schedule_month_tbody${adminScheduleNumber}">
             <tr class="education_schedule_month_subTitle">
                 <td>구분</td> <td></td> <td></td> <td>${++adminNumber}주차</td> <td></td> <td></td>
             </tr>
@@ -50,12 +49,12 @@ const plusMonth = (rowMonth) => {
     addMonth.innerHTML += row;
 };
 const minusMonth = () => {
+    if(adminScheduleNumber === 0) return alert('삭제할 수 없습니다!');
     const table = document.querySelector(`.admin_kindergarden_schedule_month`);
     const thead = document.querySelector(`.education_schedule_title_month${adminScheduleNumber}`);
     const tbody = document.querySelector(`.education_schedule_month_tbody${adminScheduleNumber--}`);
     table.removeChild(thead);
     table.removeChild(tbody);
-
 };
 
 let i = 1;
