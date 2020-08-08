@@ -87,7 +87,7 @@
             <button class="btn btn-danger btn-user" onClick="minusTime()">-</button>
         </div>
         <div class="admin_kindergarden_schedule_button">
-            <a href="#" class="btn btn-info btn-user" onClick="window.location.reload()">초기화</a>
+            <a href="#" class="btn btn-info btn-user" onClick="window.location.href = 'kinderGardenSchedule.mdo';">초기화</a>
             <a href="#" class="btn btn-success btn-user" onClick="addSchedule(event)">적용</a>
         </div>
     </div>
