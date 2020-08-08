@@ -67,17 +67,37 @@ function addSchedule(event) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             if(0 !== adminNumber) {
-                const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
-                const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
-                const time = document.querySelector(timeSelector).value;
-                const program = document.querySelector(programSelector).value;
-                const data = { time:time, program:program };
+                const tbody = `.education_schedule_month_tbody${adminScheduleNumber}`;
+                const monday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(1)`).value;
+                const tuesday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(2)`).value;
+                const wednesday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(3)`).value;
+                const thursday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(4)`).value;
+                const friday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(5)`).value;
+
+                const monday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(1)`).value;
+                const tuesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(2)`).value;
+                const wednesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(3)`).value;
+                const thursday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(4)`).value;
+                const friday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(5)`).value;
+
+                const data = {
+                    mondayAM: monday_am,
+                    tuesdayAM: tuesday_am,
+                    wednesdayAM:  wednesday_am,
+                    thursdayAM:  thursday_am,
+                    fridayAM:  friday_am,
+                    mondayPM: monday_pm,
+                    tuesdayPM: tuesday_pm,
+                    wednesdayPM:  wednesday_pm,
+                    thursdayPM:  thursday_pm,
+                    fridayPM:  friday_pm
+                };
                 addScheduleRow(data);
             }
         }
     }
 
-    xhr.open('POST', 'addSchedule.mdo',true);
+    xhr.open('POST', 'addScheduleMonth.mdo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
     const title = document.querySelector('#admin_kindergarden_schedule_title').value;
     const data = { title:title}
@@ -92,18 +112,38 @@ function addScheduleRow(data) {
             i++;
             if(0 === --adminNumber) {
                 i = 1;
-                alert('유치원 스케쥴 등록이 정상적으로 처리되었습니다!');
+                alert('유치원 달력 등록이 정상적으로 처리되었습니다!');
             } else {
-                const timeSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(1) input`
-                const programSelector = `.admin_kindergarden_schedule_row${i} li:nth-child(2) input`
-                const time = document.querySelector(timeSelector).value;
-                const program = document.querySelector(programSelector).value;
-                const data = { time:time, program:program };
+                const tbody = `.education_schedule_month_tbody${adminScheduleNumber}`;
+                const monday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(1)`).value;
+                const tuesday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(2)`).value;
+                const wednesday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(3)`).value;
+                const thursday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(4)`).value;
+                const friday_am = document.querySelector(`${tbody} tr:nth-child(2) td input:nth-child(5)`).value;
+
+                const monday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(1)`).value;
+                const tuesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(2)`).value;
+                const wednesday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(3)`).value;
+                const thursday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(4)`).value;
+                const friday_pm = document.querySelector(`${tbody} tr:nth-child(3) td input:nth-child(5)`).value;
+
+                const data = {
+                    mondayAM: monday_am,
+                    tuesdayAM: tuesday_am,
+                    wednesdayAM:  wednesday_am,
+                    thursdayAM:  thursday_am,
+                    fridayAM:  friday_am,
+                    mondayPM: monday_pm,
+                    tuesdayPM: tuesday_pm,
+                    wednesdayPM:  wednesday_pm,
+                    thursdayPM:  thursday_pm,
+                    fridayPM:  friday_pm
+                };
                 addScheduleRow(data);
             }
         }
     }
-    xhr.open('POST', 'addScheduleRow.mdo',true);
+    xhr.open('POST', 'addScheduleRowMonth.mdo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(data));
 }
