@@ -46,6 +46,11 @@
         SELECT COUNT(*) from feed
     </select>
 
+    <!--   클라이언트페이지에서 사료 누른 정보를 불러와 결제페이지로 이동하는 페이지-->
+    <select id="getMallFeedOneInfo" resultType="userMallFeedVO" parameterType="userMallFeedVO">
+        SELECT * FROM feed WHERE feed_code=#{feed_code}
+    </select>
+
 
 
     <!--########################## toy 관련 쿼리문 ###############################-->
@@ -65,7 +70,7 @@
         SELECT COUNT(*) from toy
     </select>
 
-<!--    누른 정보를 불러와 결제페이지로 이동하는 페이지-->
+<!--  클라이언트 페이지에서 장난감 누른 정보를 불러와 결제페이지로 이동하는 페이지-->
     <select id="getMallToyOneInfo" resultType="userMallToyVO" parameterType="userMallToyVO">
         SELECT * FROM toy WHERE toy_code=#{toy_code}
     </select>

@@ -17,11 +17,14 @@ public interface UserMallService {
     // 사료 갯수
     int selectCountMall();
 
+    // 사용자가 사료 누르면 정보와 함께 결제 페이지로 이동
+    UserMallFeedVO getMallFeedOneInfo(UserMallFeedVO vo) throws Exception;
+
     /////////////// 장난감 관련 서비스 //////////////////////
     // 장난감 상품 나열
     public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception;
 
-    // 사료 갯수
+    // 장난감 갯수
     int selectCountToyMall();
 
     // 사용자가 장난감 누르면 정보와 함께 결제 페이지로 이동
