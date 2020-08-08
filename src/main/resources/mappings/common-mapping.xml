@@ -44,7 +44,7 @@
         SELECT * FROM( SELECT * FROM kgday_month ORDER BY seq DESC) WHERE rownum = 1
     </select>
 
-    <select id="getScheduleRowMonth" resultMap="KinderGardenInfoRowMonthResult">
+    <select id="getScheduleRowMonth" resultMap="KinderGardenRowMonthResult">
         SELECT * FROM kgdayrow_month WHERE no=#{seq} ORDER BY seq
     </select>
 

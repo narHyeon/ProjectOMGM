@@ -1,5 +1,7 @@
 package com.omgm.user.common.impl;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
+import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.user.common.beans.CommonDAO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
@@ -23,5 +25,15 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public List<KinderGardenInfoRowVO> getScheduleRow(KinderGardenInfoVO vo) {
         return commonDAO.getScheduleRow(vo);
+    }
+
+    @Override
+    public KinderGardenInfoVO getScheduleMonth(KinderGardenInfoVO vo) {
+        return commonDAO.getScheduleMonth(vo);
+    }
+
+    @Override
+    public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenInfoVO vo) {
+        return commonDAO.getScheduleRowMonth(vo);
     }
 }
