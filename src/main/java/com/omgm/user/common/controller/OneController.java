@@ -54,8 +54,16 @@ public class OneController {
 
     // 유치원 예약 페이지 이동
     @RequestMapping(value="/kinderGardenReservation.do")
-    public ModelAndView kinderGardenReservation() {
+    public ModelAndView kinderGardenReservation(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
+        vo = commonService.getSchedule();
+        List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
+        mav.addObject("dayRow",list);
+        // 달력 불러오기
+        KinderGardenInfoVO mvo = new KinderGardenInfoVO();
+        mvo = commonService.getScheduleMonth(mvo);
+        List<KinderGardenRowMonthVO> monthList = commonService.getScheduleRowMonth(mvo);
+        mav.addObject("monthRow",monthList);
         mav.setViewName("/kinderGardenReservation");
         return mav;
     }

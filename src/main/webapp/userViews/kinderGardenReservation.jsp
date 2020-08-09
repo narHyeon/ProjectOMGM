@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -75,17 +76,34 @@
         <h3>유치원 예약</h3>
     </div>
     <table>
-        <thead class="education_schedule_title_month">
-        <tr>
-            <th>요일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-        </tr>
-        </thead>
-        <tbody class="education_schedule_month_tbody"></tbody>
+        <c:forEach items="${monthRow}" var="month" varStatus="status">
+            <thead class="education_schedule_title_month">
+            <tr>
+                <th>요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+            </tr>
+            </thead>
+            <tbody class="education_schedule_month_tbody">
+            <tr class="education_schedule_month_subTitle">
+                <td>구분</td><td></td><td></td><td>${status.count}주차</td><td></td><td></td>
+            </tr>
+            <tr>
+                <td>오전교육</td>
+                <td>${month.mondayAM}</td>
+                <td>${month.tuesdayAM}</td>
+                <td>${month.wednesdayAM}</td>
+                <td>${month.thursdayAM}</td>
+                <td>${month.fridayAM}</td>
+            </tr>
+            <tr>
+                <td>오후교육</td>
+                <td>${month.mondayPM}</td>
+                <td>${month.tuesdayPM}</td>
+                <td>${month.wednesdayPM}</td>
+                <td>${month.thursdayPM}</td>
+                <td>${month.fridayPM}</td>
+            </tr>
+            </tbody>
+        </c:forEach>
     </table>
     <div class="kinderGarden_reservation_option">
         <select>
@@ -102,36 +120,5 @@
         <button>유치원 예약</button>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        for(let i=1; i<=4; i++) {
-            document.querySelector('.education_schedule_month_tbody').innerHTML +=
-                '<tr  class="education_schedule_month_subTitle">\n' +
-                '                    <td>구분</td>\n' +
-                '                    <td></td>\n' +
-                '                    <td></td>\n' +
-                '                    <td>'+i+'주차</td>\n' +
-                '                    <td></td>\n' +
-                '                    <td></td>\n' +
-                '                </tr>\n' +
-                '                <tr>\n' +
-                '                    <td>오전수업</td>\n' +
-                '                    <td>맞춤교육</td>\n' +
-                '                    <td>하우스</td>\n' +
-                '                    <td>목줄/하네스</td>\n' +
-                '                    <td>장난감 놀이</td>\n' +
-                '                    <td>타겟</td>\n' +
-                '                </tr>\n' +
-                '                <tr>\n' +
-                '                    <td>오후교육</td>\n' +
-                '                    <td>맞춤교육</td>\n' +
-                '                    <td>바디터치</td>\n' +
-                '                    <td>기다려</td>\n' +
-                '                    <td>스킨쉽</td>\n' +
-                '                    <td>산책매너</td>\n' +
-                '                </tr> ';
-        };
-    });
-</script>
 </body>
 </html>
