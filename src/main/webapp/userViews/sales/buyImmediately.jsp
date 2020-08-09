@@ -17,8 +17,8 @@
         display: flex;
         flex-direction: column;
 
-        padding-right: 9%;
-        padding-left: 9%;
+        padding-right: 14%;
+        padding-left: 14%;
     }
     #buyImmediatelyDivSectionTop{
         border-bottom: 1px solid lightgrey;
@@ -37,10 +37,14 @@
         display: flex;
         flex-direction: column;
         margin-top: 2%;
-        margin-bottom: 7%;
+        margin-bottom: 15%;
         margin-left: 3%;
-        background-color: lightgray;
+        background-color: whitesmoke;
         width: 30%;
+        padding-bottom: 2%;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 2%;
     }
     #buyImmediatelyDivSection03{
         display: flex;
@@ -82,15 +86,7 @@
             width: 100%;
 
         }
-        #buyImmediatelyDivSection02{
-            display: flex;
-            flex-direction: column;
-            margin-top: 2%;
-            margin-bottom: 7%;
-            margin-left: 3%;
-            background-color: lightgray;
-            width: 100%;
-        }
+
     }
 
 </style>
@@ -113,46 +109,47 @@
             </div>
             <div id="buyImmediatelyDivSection04">
                 <p style="margin-top: 3%; font-weight: bold">마일리지 사용</p>
-                <input type="number" style="margin-top: 1.5%; height: 30px;" placeholder=" 0 ">
+                <input type="number" style="width: 18%; margin-top: 1.5%; height: 30px;" placeholder=" 0 ">
                 <p style="margin-bottom: 1.5%; margin-top: 1.5%; font-size: smaller; color: gray">( 사용가능 마일리지 : 300 )</p>
             </div>
             <div id="buyImmediatelyDivSection05">
                 <p style="font-weight: bold;">구매자 정보</p>
-                <p style="margin-top: 3%">구매자 이름</p>
-                <input type="text" />
-                <p>입금하신 이름과 동일해야 합니다</p>
+                <p style="margin-top: 3%; font-size: smaller; ">구매자 이름</p>
+                <input type="text" style="width: 18%; margin-top: 1.5%; height: 30px;" placeholder="이름" />
+                <p style="margin-bottom:1.5%; margin-top: 1.5%; font-weight: lighter; font-size: smaller">입금하신 이름과 동일해야 합니다</p>
             </div>
-            <div id="buyImmediatelyDivSection06">
-                <p>연락처("-" 생략)</p>
-                <input type="number" />
+            <div id="buyImmediatelyDivSection06" style="margin-top: 3%">
+                <p style="font-size: smaller;">연락처("-" 생략)</p>
+                <input type="number" style="margin-top: 1%; height: 30px; width: 25%;" placeholder="ex) 01073341234"/>
             </div>
-            <div id="buyImmediatelyDivSection07">
-                <button id="buyImmediatelyDivSection07Button" onclick="buyImmediatelyZipCheck()" >주소검색</button>
-                <input id="buyImmediatelyDivSection07Zipcode" type="text" placeholder="우편번호" required autocomplete=off/>
-                <input id="buyImmediatelyDivSection07Address01" type="text" placeholder="주소1" required autocomplete=off/>
-                <input id="buyImmediatelyDivSection07Address02" type="text" placeholder="상세주소" />
+            <div id="buyImmediatelyDivSection07" style="margin-top: 2.5%; margin-bottom: 2.5%;">
+                <button id="buyImmediatelyDivSection07Button" onclick="buyImmediatelyZipCheck()" style="width: 15%; height: 30px; background-color: lightpink; border: none; border-radius: 0%" >주소검색</button>
+                <input id="buyImmediatelyDivSection07Zipcode" style="margin-top: 1.5%; width: 15%; height: 30px;" type="text" placeholder="우편번호" required autocomplete=off/>
+                <input id="buyImmediatelyDivSection07Address01" style="margin-top: 1.5%; width: 40%; height: 30px;" type="text" placeholder="주소1" required autocomplete=off/>
+                <input id="buyImmediatelyDivSection07Address02" style="margin-top: 1.5%; width: 50%; height: 30px;" type="text" placeholder="상세주소" />
             </div>
         </div>
         <%--    ///////  오른쪽 페이지  ///////////////////////////////////////////////////////////--%>
         <div id="buyImmediatelyDivSection02">
-            <div id="buyImmediatelyDivSection02_01" style="display: flex">
-                <div id="buyImmediatelyDivSection02_01_01" style="display: flex;flex-direction: column">
-                    <p>상품금액</p>
-                    <p>할인금액</p>
-                    <p>마일리지 사용</p>
-                    <p>최종결제금액</p>
+            <div id="buyImmediatelyDivSection02_01" style="display: flex; border-bottom: 1px solid lightgrey; padding-bottom: 5%;">
+                <div id="buyImmediatelyDivSection02_01_01" style="width:50%;display: flex;flex-direction: column">
+                    <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">상품금액</p>
+                    <p style="margin-top: 11%; font-size: 15px; font-weight: bolder">할인금액</p>
+                    <p style="margin-top: 11%; font-size: 15px; font-weight: bolder">마일리지 사용</p>
+                    <p style="margin-top: 11%; font-size: 15px; font-weight: bolder">최종결제금액</p>
                 </div>
-                <div id="buyImmediatelyDivSection02_01_02" style="display: flex;flex-direction: column">
-                    <p>40,000원</p>
-                    <p>-0원</p>
-                    <p>-0원</p>
-                    <p>40000원</p>
+                <div id="buyImmediatelyDivSection02_01_02" style="width:50%; padding-left:23%; display: flex;flex-direction: column; justify-content: end">
+                    <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">40,000원</p>
+                    <p style="margin-top: 18%; font-size: 15px; font-weight: bolder">-0원</p>
+                    <p style="margin-top: 18%; font-size: 15px; font-weight: bolder">-0원</p>
+                    <p style="margin-top: 18%; font-size: 15px; font-weight: bolder">40000원</p>
                 </div>
             </div>
-            <div id="buyImmediatelyDivSection02_02"><p>구매혜택</p></div>
-            <div id="buyImmediatelyDivSection02_03" style="display: flex;"><p>마일리지</p><p>400 구매완료후 적립됩니다</p></div>
-            <div id="buyImmediatelyDivSection02_04"><p>결제정보입력</p><p>결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
-            <div id="buyImmediatelyDivSection02_05" ><button>구매하기</button></div>
+            <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
+            <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">400 구매완료후 적립됩니다</p></div>
+            <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
+            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
+
         </div>
     </div>
 </div>
