@@ -22,7 +22,7 @@
         }
         .education_schedule table {
             margin: 30px auto;
-            width: 47%;
+            width: 59%;
             text-align: center;
             /*font-size: 12px;*/
 
@@ -30,12 +30,15 @@
             color: #444;
             letter-spacing: -1px;
         }
+        .education_schedule table:nth-child(1) {
+            width: 37%;
+        }
         .education_schedule table:nth-child(1) tbody tr td{
-            padding: 17.5px 0;
+            padding: 13.6px 0;
         }
         .education_schedule th {
             border-top: 1px solid gray;
-            padding: 10px;
+            /*padding: 10px;*/
             background-color: #F28888;
             font-size: 13px;
         }
@@ -78,17 +81,41 @@
             margin: 0 auto;
         }
 
-        @media all and (max-width: 768px) {
+        @media all and (max-width: 810px) {
             #education_reservation_schedule {
                 display: flex;
                 flex-direction: column;
-                width: 80%;
+                width: 95%;
                 margin: 0 auto;
             }
+            .education_schedule table {
+                margin: 30px auto;
+                width: 100%;
+                text-align: center;
+                /*font-size: 12px;*/
+
+                font-weight: 600;
+                color: #444;
+                letter-spacing: -1px;
+            }
+            .education_schedule table:nth-child(1) {
+                width: 100%;
+            }
+            .education_schedule table:nth-child(1) tbody tr td{
+                padding: 0;
+            }
+            .kinderGarden_reservation_option {
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                width: 95%
+            }
         }
+
     </style>
 </head>
 <body>
+<img style="width:100%;" src="resources/img/main_image.jpg" alt="">
 <%-- 유치원 월간 스케쥴 --%>
 <div class="education_schedule">
     <div class="education_schedule_title">
