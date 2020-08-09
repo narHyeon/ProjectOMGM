@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class UserMallController {
 
@@ -39,6 +41,17 @@ public class UserMallController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/sales/feedSales");
         mav.addObject("feedList", userMallService.getMallFeedOneInfo(vo));
+        return mav;
+    }
+
+    // 결제 눌렀을때 결제 페이지로 이동
+    @RequestMapping("/getMallFeedOneInfoBuyImmediately.do")
+    public ModelAndView getMallFeedOneInfoBuyImmediately(UserMallFeedVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("/sales/buyImmediately");
+        mav.addObject("feedInfo", userMallService.getMallFeedOneInfo(vo));
+
         return mav;
     }
 

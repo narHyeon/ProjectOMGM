@@ -45,7 +45,7 @@
         </div>
         <div class="toy-sales-section05">
             <p>수량 : </p>
-            <p id="number-of-toy" class="number-of-toy" value="0">0</p>
+            <p id="number-of-toy" class="number-of-toy" name="feed_stock" value="0">0</p>
             <button id="add-of-toy" class="add-of-toy" onclick="addToys()">추가</button>
             <button id="abs-of-toy" class="abs-of-toy" onclick="absToys()">제거</button>
         </div>
@@ -53,6 +53,7 @@
             총 상품 금액 :
 
             <p id="total-toy-prices" class="total-toy-prices">0</p>
+
         </div>
         <div class="toy-sales-section07">
             <c:if test="${member != null}">
@@ -79,17 +80,20 @@
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
 </div>
+
 <script>
     function buyImmediately00() {
         var countProduct = document.getElementById("number-of-toy");
         var salesOption = document.getElementById("toy-sales-option");
         var byeImmediately00 = document.getElementById("byt-immediately01");
+        var numberOfToyQuantity = document.getElementById("number-of-toy");
         if(salesOption.value === "selected disabled"){
             alert("옵션을 선택해 주세요.")
         } else if(countProduct.innerHTML === '0') {
             alert("수량을 선택해 주세요");
         }else {
-            byeImmediately00.href="buyImmediately.do";
+
+            byeImmediately00.href="getMallFeedOneInfoBuyImmediately.do?feed_Quantity="+numberOfToyQuantity.innerHTML+"&feed_code=${feedList.feed_code}";
         }
     }
     function buyImmediately01() {

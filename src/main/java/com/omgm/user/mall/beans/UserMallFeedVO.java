@@ -16,6 +16,15 @@ public class UserMallFeedVO {
      private String searchCondition;
      private String searchKeyword;
      private int page;
+     private int Quantity;
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
+    }
 
     public String getSearchKeyword() {
         return searchKeyword;
