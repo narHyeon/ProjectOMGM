@@ -13,82 +13,87 @@
 <link rel="stylesheet" href="resources/style/button.css">
 <link rel="stylesheet" href="resources/style/header.css">
 <link rel="shortcut icon" href="resources/img/자산%208.png">
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/844385d242.js" crossorigin="anonymous"></script>
+<link
+	href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/844385d242.js"
+	crossorigin="anonymous"></script>
 <style>
-	/*플로팅메뉴*/
-	.wishlist_menu {
-		border: 1px solid gray;
-		border-radius: 100%;
-		background-color: white;
-		position: absolute;
-		top: 300px;
-		right: 50px;
-		width: 55px;
-		height: 55px;
-		-webkit-transition: top 0.4s;
-		transition: top 0.4s;
-		font-size: 30px;
-		color: #5a5a5a;
-		padding-left: 9px;
-		padding-top: 14px;
-	}
+/*플로팅메뉴*/
+.wishlist_menu {
+	border: 1px solid gray;
+	border-radius: 100%;
+	background-color: white;
+	position: absolute;
+	top: 300px;
+	right: 50px;
+	width: 55px;
+	height: 55px;
+	-webkit-transition: top 0.4s;
+	transition: top 0.4s;
+	font-size: 30px;
+	color: #5a5a5a;
+	padding-left: 9px;
+	padding-top: 14px;
+}
 
-	.wishlist_menu2 {
-		border: 1px solid gray;
-		border-radius: 100%;
-		background-color: white;
-		position: absolute;
-		top: 370px;
-		right: 50px;
-		width: 55px;
-		height: 55px;
-		-webkit-transition: top 0.4s;
-		transition: top 0.4s;
-		font-size: 30px;
-		color: #5a5a5a;
-		padding-left: 12px;
-		padding-top: 14px;
-	}
+.wishlist_menu2 {
+	border: 1px solid gray;
+	border-radius: 100%;
+	background-color: white;
+	position: absolute;
+	top: 370px;
+	right: 50px;
+	width: 55px;
+	height: 55px;
+	-webkit-transition: top 0.4s;
+	transition: top 0.4s;
+	font-size: 30px;
+	color: #5a5a5a;
+	padding-left: 12px;
+	padding-top: 14px;
+}
 
-	.wishlist_menu i:hover, .wishlist_menu2 i:hover {
-		color: #F28888;
-	}
-	#MOVE_TOP_BTN {
-		position: fixed;
-		right: 50px;
-		bottom: 50px;
-		display: none;
-		z-index: 999;
-		background: #F28888;
-		color:white;
-		width: 50px;
-		height: 50px;
-		border-radius: 40px;
-		padding-left: 11px;
-		padding-top: 17px;
-	}
-	/*카카오 1:1상담 버튼*/
-	#create-channel-chat-button {
-		position: absolute;
-		top: 425px;
-		right: 65px;
-		width: 55px;
-		height: 55px;
-		-webkit-transition: top 0.4s;
-		transition: top 0.4s;
-		font-size: 30px;
-		padding-left: 15px;
-		padding-top: 16px;
-	}
+.wishlist_menu i:hover, .wishlist_menu2 i:hover {
+	color: #F28888;
+}
+
+#MOVE_TOP_BTN {
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	display: none;
+	z-index: 999;
+	background: #F28888;
+	color: white;
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	padding-left: 11px;
+	padding-top: 17px;
+}
+/*카카오 1:1상담 버튼*/
+#create-channel-chat-button {
+	position: absolute;
+	top: 425px;
+	right: 65px;
+	width: 55px;
+	height: 55px;
+	-webkit-transition: top 0.4s;
+	transition: top 0.4s;
+	font-size: 30px;
+	padding-left: 15px;
+	padding-top: 16px;
+}
+
 #base {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-content: stretch;
-
 	padding-top: 80px;
 }
+
 #base #base_header {
 	position: fixed;
 	top: 0;
@@ -97,21 +102,18 @@
 	z-index: 1000;
 }
 
-	@media all and (max-width:780px) {
-		#base {
-			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-			align-content: stretch;
-
-			padding-top: 60px;
-		}
-
-		#create-channel-chat-button, .wishlist_menu, .wishlist_menu2 {
-			display: none;
-		}
+@media all and (max-width:780px) {
+	#base {
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-content: stretch;
+		padding-top: 60px;
 	}
-
+	#create-channel-chat-button, .wishlist_menu, .wishlist_menu2 {
+		display: none;
+	}
+}
 </style>
 </head>
 <body>
@@ -119,17 +121,22 @@
 		<div id="base_header">
 			<tiles:insertAttribute name="header" />
 		</div>
-		<div style="min-height:500px;">
+		<div style="min-height: 500px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<div>
 			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>
-	<div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
+	<div id="MOVE_TOP_BTN" style="cursor: pointer;"
+		onclick="window.scrollTo(0,0);">TOP</div>
 	<div class="scroll_menu">
-		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
-		<div class="wishlist_menu" style="cursor:pointer;"><a href="#"></a> <i class="fas fa-shopping-cart"></i></div>
+		<div class="wishlist_menu2" style="cursor: pointer;">
+			<a href="#"></a><i class="far fa-heart"></i>
+		</div>
+		<div class="wishlist_menu" style="cursor: pointer;">
+			<a href="#"></a> <i class="fas fa-shopping-cart"></i>
+		</div>
 		<div id="create-channel-chat-button"></div>
 	</div>
 	<script>

@@ -10,32 +10,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Summernote</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="resources/style/review/reviewWrite.css">
+<title>Summernote</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="resources/style/review/reviewWrite.css">
 </head>
 <body>
-<h2>글 작성</h2><br><br><br>
+	<h2>글 작성</h2>
+	<br>
+	<br>
+	<br>
 
-<div id="review_write">
-    <form method="post" action="insertReviewBoard.do">
-        <input type="text" name="id" placeholder="ID"/>
-        <input id="title" type="text" name="title" placeholder="제목"/>
-        <br><br>
-        <textarea id="summernote" name="content"></textarea>
-        <button id="writebtn" type="submit">글 작성</button>
-<%--        <input id="writebtn" type="button"  value="글 작성" onclick="goWrite(this.form)"/>--%>
-    </form>
-</div>
+	<div id="review_write">
+		<form method="post" action="insertReviewBoard.do">
+			<input type="text" name="id" placeholder="ID" /> <input id="title"
+				type="text" name="title" placeholder="제목" /> <br>
+			<br>
+			<textarea id="summernote" name="content"></textarea>
+			<button id="writebtn" type="submit">글 작성</button>
+			<%--        <input id="writebtn" type="button"  value="글 작성" onclick="goWrite(this.form)"/>--%>
+		</form>
+	</div>
 
 	<%--  섬머노트  --%>
 	<script src="resources/js/summernote/summernote-lite.js"></script>
 	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
 
-<link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
+	<link rel="stylesheet"
+		href="resources/style/summernote/summernote-lite.css">
 
-<script>
+	<script>
 
     // 서머노트 초기화
     $('#summernote').val("${board_data.BOARD_CONTENT}");

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.omgm.admin.category.beans.CategoryDAO_M;
 import com.omgm.admin.category.beans.CategoryVO_M;
 
-@Service("categoryServiceImpl_M")
+@Service("categoryService_M")
 public class CategoryServiceImpl_M implements CategoryService_M{
 
 	@Autowired
@@ -23,12 +23,17 @@ public class CategoryServiceImpl_M implements CategoryService_M{
 	public void updateCategory(CategoryVO_M vo) {
 		categoryDAO_M.updateCategory(vo);
 	}
-
+	
 	@Override
-	public void deleteCategory(CategoryVO_M vo) {
-		categoryDAO_M.deleteCategory(vo);
+	public void updateManyCategory(List<CategoryVO_M> volist) {
+		categoryDAO_M.updateManyCategory(volist);
 	}
 
+	@Override
+	public void deleteCategory(List<CategoryVO_M> volist) {
+		categoryDAO_M.deleteCategory(volist);
+	} 
+	
 	@Override
 	public CategoryVO_M selectCategory(CategoryVO_M vo) {
 		return categoryDAO_M.selectCategory(vo);
@@ -37,5 +42,9 @@ public class CategoryServiceImpl_M implements CategoryService_M{
 	@Override
 	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo) {
 		return categoryDAO_M.selectListAllCategory(vo);
-	} 
+	}
+
+
+
+
 }

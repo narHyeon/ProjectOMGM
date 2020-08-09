@@ -1,27 +1,29 @@
 .cart_tb {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+}
 
-}
 .cart_tb thead th {
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #369;
-    border-bottom: 3px solid #036;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #369;
+	border-bottom: 3px solid #036;
 }
+
 .cart_tb tbody th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    border-bottom: 1px solid #ccc;
-    background: #f3f6f7;
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	background: #f3f6f7;
 }
+
 .cart_tb td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid #ccc;
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
 }

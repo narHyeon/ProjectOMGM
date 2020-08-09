@@ -11,8 +11,10 @@
 	</update>
 	<select id="selectFAQ" resultType="faq_m" parameterType="faq_m">
 	</select>
-	<select id="selectListAllFAQ" resultType="faq_m" parameterType="faq_m">
-		select * from faq order by faq_categorynum asc ,faq_ask asc
+	<select id="selectListAllFAQ" resultType="faq_m"
+		parameterType="faq_m">
+		select * from faq order by faq_categorynum asc ,faq_ask
+		asc
 	</select>
 	<select id="selectListCategoryedFAQ" resultType="faq_m"
 		parameterType="faq">
@@ -21,7 +23,7 @@
 		faq_categorynum asc
 		,faq_ask asc
 	</select>
-	
-	
+
+
 </mapper>
 

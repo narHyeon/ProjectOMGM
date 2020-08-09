@@ -18,9 +18,13 @@ public class CategoryDAO_M {
 	public void updateCategory(CategoryVO_M vo) {
 		sqlSessionTemplate.update("CategoryDAO_M.updateCategory",vo);
 	}
-
-	public void deleteCategory(CategoryVO_M vo) {
-		sqlSessionTemplate.delete("CategoryDAO_M.deleteCategory",vo);
+	
+	public void updateManyCategory(List<CategoryVO_M> volist) {
+		sqlSessionTemplate.update("CategoryDAO_M.updateManyCategory",volist);
+	}
+	
+	public void deleteCategory(List<CategoryVO_M> volist) {
+		sqlSessionTemplate.delete("CategoryDAO_M.deleteCategory",volist);
 	}
 	public CategoryVO_M selectCategory(CategoryVO_M vo) {
 		return sqlSessionTemplate.selectOne("CategoryDAO_M.selectCategory",vo);
@@ -28,5 +32,7 @@ public class CategoryDAO_M {
 	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo){
 		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListAllCategory", vo);
 	}
+
+
 	
 }

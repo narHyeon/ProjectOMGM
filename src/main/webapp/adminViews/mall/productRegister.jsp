@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -6,71 +6,70 @@
   Time: 오후 2:08
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
-    <style>
-        #pro_write h2{
-            text-align: center;
-            padding-top:65px;
-            font-size:25px;
-            font-weight:bold;
-        }
+<title></title>
+<meta charset="UTF-8">
+<link
+	href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap"
+	rel="stylesheet">
+<style>
+#pro_write h2 {
+	text-align: center;
+	padding-top: 65px;
+	font-size: 25px;
+	font-weight: bold;
+}
 
-        #pro_write{
-            border-radius: 10px;
-            /*position: absolute;*/
-            /*left: 50%;*/
-            /*top: 50%;*/
-            /*transform: translate(-50%,-50%);*/
-            /*display:block;*/
+#pro_write {
+	border-radius: 10px;
+	/*position: absolute;*/
+	/*left: 50%;*/
+	/*top: 50%;*/
+	/*transform: translate(-50%,-50%);*/
+	/*display:block;*/
+	display: flex;
+	margin: 0 auto;
+	flex-direction: column;
+}
 
-            display: flex;
-            margin: 0 auto;
-            flex-direction: column;
-        }
+#pro_write .pro_form {
+	margin: 0 auto;
+}
 
-        #pro_write .pro_form {
-            margin: 0 auto;
+#pro_write label {
+	width: 15%;
+	text-align: center;
+}
 
-        }
+#pro_write div {
+	display: flex;
+	margin-top: 1%;
+}
 
-        #pro_write label{
-            width:15%;
-            text-align:center;
-        }
+#pro_write .title {
+	width: 100%;
+	height: 20%;
+}
 
-        #pro_write div{
-            display:flex;
-            margin-top:1%;
-        }
+#pro_point {
+	width: 10%;
+	height: 20%;
+}
 
-        #pro_write .title{
-            width:100%;
-            height:20%;
-        }
-
-        #pro_point{
-            width:10%;
-            height:20%;
-        }
-
-        #register_Btn{
-            margin-left: auto;
-            /*position: absolute;*/
-            /*left: 97%;*/
-            /*top: 105%;*/
-            /*transform: translate(-50%,-50%);*/
-        }
-
-    </style>
+#register_Btn {
+	margin-left: auto;
+	/*position: absolute;*/
+	/*left: 97%;*/
+	/*top: 105%;*/
+	/*transform: translate(-50%,-50%);*/
+}
+</style>
 </head>
 <body>
-<script>
+	<script>
     function changeAction() {
         const select = document.getElementById("select2");
         const actionForm = document.getElementById("pro_form1");
@@ -155,61 +154,76 @@
         console.log(nameChange01.name);
     }
 </script>
-<select id="select2" class="select1" onclick="changeAction01()" >
-<%--    <option value="">종류 선택</option>--%>
-    <option value="toy" name="toy">toy</option>
-    <option value="feed" name="feed">feed</option>
-</select>
+	<select id="select2" class="select1" onclick="changeAction01()">
+		<%--    <option value="">종류 선택</option>--%>
+		<option value="toy" name="toy">toy</option>
+		<option value="feed" name="feed">feed</option>
+	</select>
 
-<div id="pro_write">
-    <h2>상품등록</h2><br><br><br>
-    <form  method="post" enctype="multipart/form-data" id="pro_form1" class="pro_form">
+	<div id="pro_write">
+		<h2>상품등록</h2>
+		<br>
+		<br>
+		<br>
+		<form method="post" enctype="multipart/form-data" id="pro_form1"
+			class="pro_form">
 
-        <div>
-            <label>상품이미지 : </label>
-            <input name="uploadFile" id="productRegister_change_text_00"type="file" class="title" /><br><br>
-        </div>
+			<div>
+				<label>상품이미지 : </label> <input name="uploadFile"
+					id="productRegister_change_text_00" type="file" class="title" /><br>
+				<br>
+			</div>
 
-        <div>
-            <label >상품명 : </label><br>
-            <input name="toy_name" id="productRegister_change_text_01" class="title" type="text" /><br><br>
-        </div>
+			<div>
+				<label>상품명 : </label><br> <input name="toy_name"
+					id="productRegister_change_text_01" class="title" type="text" /><br>
+				<br>
+			</div>
 
-        <div>
-            <label>판매가 : </label><br>
-            <input name="toy_price" type="text" id="proPrice" class="title" /><br><br>
-        </div>
+			<div>
+				<label>판매가 : </label><br> <input name="toy_price" type="text"
+					id="proPrice" class="title" /><br>
+				<br>
+			</div>
 
-        <div>
-            <label>할인가 : </label><br>
-            <input name="toy_discount" type="text" id="proDisPrice" class="title" /><br><br>
-        </div>
+			<div>
+				<label>할인가 : </label><br> <input name="toy_discount"
+					type="text" id="proDisPrice" class="title" /><br>
+				<br>
+			</div>
 
-        <div>
-            <label id="proStockL">재고 : </label>
-            <input name="toy_stock" type="text" id="proStock" class="title" /><br><br>
-        </div>
+			<div>
+				<label id="proStockL">재고 : </label> <input name="toy_stock"
+					type="text" id="proStock" class="title" /><br>
+				<br>
+			</div>
 
-        <div id="proExpiration" style="display: none" >
-            <label style="font-size:15px">남은 날짜 : </label>
-            <input name="feed_expiration" id="productRegister_change_text_02" type="text" class="title" /><br><br>
-        </div>
+			<div id="proExpiration" style="display: none">
+				<label style="font-size: 15px">남은 날짜 : </label> <input
+					name="feed_expiration" id="productRegister_change_text_02"
+					type="text" class="title" /><br>
+				<br>
+			</div>
 
-        <div>
-            <label>적립금 : </label>
-            <label>판매가에서 </label><input name="toy_point" type="text" id="pro_point" /><br><br><label>포인트 적립 </label>
-        </div>
+			<div>
+				<label>적립금 : </label> <label>판매가에서 </label><input name="toy_point"
+					type="text" id="pro_point" /><br>
+				<br>
+				<label>포인트 적립 </label>
+			</div>
 
-        <div class="inputArea">
-            <label>상품설명</label>
-            <textarea name="toy_info" rows="10" cols="80" id="proIntro"  style="resize: none;"></textarea>
-        </div>
+			<div class="inputArea">
+				<label>상품설명</label>
+				<textarea name="toy_info" rows="10" cols="80" id="proIntro"
+					style="resize: none;"></textarea>
+			</div>
 
-        <div>
-            <button type="submit" id="register_Btn" class="btn btn-info" onclick="changeAction()">등록</button>
-        </div>
-    </form>
-</div>
+			<div>
+				<button type="submit" id="register_Btn" class="btn btn-info"
+					onclick="changeAction()">등록</button>
+			</div>
+		</form>
+	</div>
 
 </body>
 </html>
