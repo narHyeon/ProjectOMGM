@@ -22,13 +22,16 @@
         }
         .education_schedule table {
             margin: 30px auto;
-            width: 80%;
+            width: 47%;
             text-align: center;
             /*font-size: 12px;*/
 
             font-weight: 600;
             color: #444;
             letter-spacing: -1px;
+        }
+        .education_schedule table:nth-child(1) tbody tr td{
+            padding: 17.5px 0;
         }
         .education_schedule th {
             border-top: 1px solid gray;
@@ -67,6 +70,22 @@
             background-color: #2b91c8;
             color: white;
         }
+
+        #education_reservation_schedule {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        @media all and (max-width: 768px) {
+            #education_reservation_schedule {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -75,36 +94,52 @@
     <div class="education_schedule_title">
         <h3>유치원 예약</h3>
     </div>
-    <table>
-        <c:forEach items="${monthRow}" var="month" varStatus="status">
-            <thead class="education_schedule_title_month">
+    <div id="education_reservation_schedule">
+        <table>
+            <thead>
             <tr>
-                <th>요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+                <th>시간</th>
+                <th>교육 내용</th>
             </tr>
             </thead>
-            <tbody class="education_schedule_month_tbody">
-            <tr class="education_schedule_month_subTitle">
-                <td>구분</td><td></td><td></td><td>${status.count}주차</td><td></td><td></td>
-            </tr>
-            <tr>
-                <td>오전교육</td>
-                <td>${month.mondayAM}</td>
-                <td>${month.tuesdayAM}</td>
-                <td>${month.wednesdayAM}</td>
-                <td>${month.thursdayAM}</td>
-                <td>${month.fridayAM}</td>
-            </tr>
-            <tr>
-                <td>오후교육</td>
-                <td>${month.mondayPM}</td>
-                <td>${month.tuesdayPM}</td>
-                <td>${month.wednesdayPM}</td>
-                <td>${month.thursdayPM}</td>
-                <td>${month.fridayPM}</td>
-            </tr>
-            </tbody>
-        </c:forEach>
-    </table>
+            <c:forEach var="row" items="${dayRow}">
+                <tr>
+                    <td>${row.time}</td>
+                    <td>${row.program}</td>
+                </tr>
+            </c:forEach>
+        </table>
+        <table>
+            <c:forEach items="${monthRow}" var="month" varStatus="status">
+                <thead class="education_schedule_title_month">
+                <tr>
+                    <th>요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+                </tr>
+                </thead>
+                <tbody class="education_schedule_month_tbody">
+                <tr class="education_schedule_month_subTitle">
+                    <td>구분</td><td></td><td></td><td>${status.count}주차</td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>오전교육</td>
+                    <td>${month.mondayAM}</td>
+                    <td>${month.tuesdayAM}</td>
+                    <td>${month.wednesdayAM}</td>
+                    <td>${month.thursdayAM}</td>
+                    <td>${month.fridayAM}</td>
+                </tr>
+                <tr>
+                    <td>오후교육</td>
+                    <td>${month.mondayPM}</td>
+                    <td>${month.tuesdayPM}</td>
+                    <td>${month.wednesdayPM}</td>
+                    <td>${month.thursdayPM}</td>
+                    <td>${month.fridayPM}</td>
+                </tr>
+                </tbody>
+            </c:forEach>
+        </table>
+    </div>
     <div class="kinderGarden_reservation_option">
         <select>
             <option value="">1주차</option>
