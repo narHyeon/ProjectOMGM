@@ -113,7 +113,7 @@
             </div>
             <div id="buyImmediatelyDivSection04">
                 <p style="margin-top: 3%; font-weight: bold">마일리지 사용</p>
-                <input type="number" style="width: 18%; margin-top: 1.5%; height: 30px;" placeholder=" 0 ">
+                <input type="number" style="width: 18%; margin-top: 1.5%; height: 30px;" placeholder=" 0 " id="buyImmediatelyDivSection04Mil"><button style="width: 10%;" onclick="usePoint()">사용</button>
                 <p style="margin-bottom: 1.5%; margin-top: 1.5%; font-size: smaller; color: gray">( 사용가능 마일리지 : ${member.point} )</p>
             </div>
             <div id="buyImmediatelyDivSection05">
@@ -143,14 +143,14 @@
                     <p style="margin-top: 11%; font-size: 15px; font-weight: bolder">최종결제금액</p>
                 </div>
                 <div id="buyImmediatelyDivSection02_01_02" style="width:50%; padding-left:23%; display: flex;flex-direction: column; justify-content: end">
-                    <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">40,000원</p>
-                    <p style="margin-top: 18%; font-size: 15px; font-weight: bolder">-0원</p>
-                    <p style="margin-top: 18%; font-size: 15px; font-weight: bolder">-0원</p>
-                    <p style="margin-top: 18%; font-size: 15px; font-weight: bolder">40000원</p>
+                    <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">${feedInfo.feed_price}</p>
+                    <p style="margin-top: 20%; font-size: 15px; font-weight: bolder">${feedInfo.feed_price-feedInfo.feed_discount}</p>
+                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Use">0</p>
+                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder">40000원</p>
                 </div>
             </div>
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
-            <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">400 구매완료후 적립됩니다</p></div>
+            <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">${feedInfo.feed_point} 구매완료후 적립됩니다</p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
             <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
 
@@ -158,6 +158,16 @@
     </div>
 </div>
 <script>
+    // 마일리지 사용 조건
+    function usePoint() {
+        const buyImmediatelyDivSection04Mil = document.getElementById("buyImmediatelyDivSection04Mil");
+        if(buyImmediatelyDivSection04Mil.value > ${member.point}){
+            alert("마일리지를 초과하였습니다"); buyImmediatelyDivSection04Mil.value = 0;
+        }else{
+            document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML=buyImmediatelyDivSection04Mil.value;
+        }
+    }
+
     // checkBox 설정
     $(document).ready(function(){
         const buyImmediatelyDivSection05Name = document.getElementById("buyImmediatelyDivSection05Name");
