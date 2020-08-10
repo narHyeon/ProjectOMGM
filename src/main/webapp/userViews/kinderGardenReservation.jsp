@@ -4,6 +4,9 @@
 <head>
     <style>
         <%--   교육 시간표    --%>
+
+        .education_schedule input:focus {outline:none;}
+
         .education_schedule {
             margin: 50px 0;
             font-family: 'noto-sans';
@@ -182,10 +185,17 @@
             border: none;
         }
 
-        #reservation_confirm input:focus {outline:none;}
-
         #kinder_reser_zipcode input {
-            width:50%;
+            width:40%;
+        }
+
+        #reservation_confirm button {
+            width: 100%;
+            height: 30px;
+            border: none;
+            background-color: #2b91c8;
+            color: white;
+            cursor: pointer;
         }
 
     </style>
@@ -310,13 +320,48 @@
                     <p>반려동물 : `+animalSpecies+`</p>
                     <p>반려동물 나이 : `+animalAge+`</p>
                     <p>전화번호 : `+phone+`</p>
-                    <p>이메일 : <input type="text" value="${member.email}"></p>
-                    <p id="kinder_reser_zipcode">우편번호 : <input type="text" value="${member.zipcode}"></p>
-                    <p>주소 : <input type="text" value="${member.address}"></p>
+                    <p>이메일 : ${member.email}</p>
                     <p>기타 반려동물 관련사항 : `+etc+`</p>
                     <br>
                     <p>가격 : `+price+`원</p>
                 </div> `;
+
+        const rexp = /픽업서비스/;
+
+        if (!rexp.exec(serviceValue)) {
+            document.querySelector('#education_reservation_schedule').innerHTML =
+                ` <div id="reservation_confirm">
+                    <p>예약 : `+courseValue+`</p>
+                    <p>서비스 : `+serviceValue+`</p>
+                    <p>보호자명 : `+name+`</p>
+                    <p>반려동물 : `+animalSpecies+`</p>
+                    <p>반려동물 나이 : `+animalAge+`</p>
+                    <p>전화번호 : `+phone+`</p>
+                    <p>이메일 : ${member.email}</p>
+                    <p>기타 반려동물 관련사항 : `+etc+`</p>
+                    <br>
+                    <p>가격 : `+price+`원</p>
+                </div> `;
+        } else {
+            document.querySelector('#education_reservation_schedule').innerHTML =
+                ` <div id="reservation_confirm">
+                        <p>예약 : `+courseValue+`</p>
+                        <p>서비스 : `+serviceValue+`</p>
+                        <p>보호자명 : `+name+`</p>
+                        <p>반려동물 : `+animalSpecies+`</p>
+                        <p>반려동물 나이 : `+animalAge+`</p>
+                        <p>전화번호 : `+phone+`</p>
+                        <p>이메일 : ${member.email}</p>
+                        <p>기타 반려동물 관련사항 : `+etc+`</p>
+                        <br>
+                        <button onclick="kinderZipCheck()">주소 검색</button>
+                        <p style="border-bottom: 1px solid gray" id="kinder_reser_zipcode">우편번호 : <input type="text" value="${member.zipcode}"></p>
+                        <p style="border-bottom: 1px solid gray" id="kinder_reser_address">주소 : <input type="text" value="${member.address}"></p>
+                        <br>
+                        <p>가격 : `+price+`원</p>
+                    </div> `;
+        }
+
 
         payment = {
             name : courseValue,
@@ -339,6 +384,29 @@
 
     function kinderPay() {
         kakaoPay(payment,'main.do');
+    }
+
+    // 우편번호 체크
+    function kinderZipCheck() {
+        const width = 380;
+        const height = 480;
+        return new daum.Postcode({
+            width: width,
+            height: height,
+            oncomplete: function(data) {
+                const zipcode = document.querySelector('#kinder_reser_zipcode input');
+                const address = document.querySelector('#kinder_reser_address input');
+                zipcode.value = data.zonecode;
+                address.value = data.address;
+            },
+            theme: {
+                bgColor: '#F28888'
+            }
+        }).open({
+            popupName: '우편번호 검색',
+            left: (window.screen.width / 2) - (width / 2),
+            top: (window.screen.height / 2) - (height / 2)
+        });
     }
 </script>
 </html>
