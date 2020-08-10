@@ -31,6 +31,6 @@ public class CommonDAO {
     }
 
     public void addKinderGardenReservation(KinderGardenReservationVO vo) {
-        sqlSessionTemplate.insert("commonDAO.addKinderGardenReservation",vo);
+        sqlSessionTemplate.insert("CommonDAO.addKinderGardenReservation",vo);
     }
 }
