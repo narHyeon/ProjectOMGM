@@ -170,17 +170,36 @@
             <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPay()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
             <div>
                 <script>
+                    //수량 가져오기
+                    function getParameterByName(name) {
+                        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                            results = regex.exec(location.search);
+                        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                    }
+
+                    var QuantityFeed1 = getParameterByName("feed_Quantity");
+                   // 결제
                     function kakaoPay() {
+                        const buyI05Name = document.getElementById("buyImmediatelyDivSection05Name").value;
+                        const buyI06Phone = document.getElementById("buyImmediatelyDivSection06Phone").value;
+                        const buyI07Zipcode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
+                        const buyI07Address01 = document.getElementById("buyImmediatelyDivSection07Address01").value;
+                        if(buyI05Name==="" || buyI06Phone==="" || buyI07Zipcode==="" || buyI07Address01===""){
+                            alert('구매자 정보를 입력해 주시기 바랍니다')
+
+                        }else{
                         $(function () {
                             var IMP = window.IMP; // 생략가능
                             IMP.init('imp00339951'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
                             var msg;
                             var totalPrice = document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML;
-                            var buyerName = document.getElementById("buyImmediatelyDivSection05Name").innerHTML;
+                            var buyerName = document.getElementById("buyImmediatelyDivSection05Name").value;
                             var buyerPHNum = document.getElementById("buyImmediatelyDivSection06Phone").value;
-                            var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").innerHTML;
-                            var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").innerHTML;
-                            alert(totalPrice + " " + buyerPHNum);
+                            var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").value;
+                            var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
+                            var buyerPointUsed = document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML;
+                            alert(buyerZipCode + " "+buyerAddress + " " + buyerName +" "+ buyerPointUsed);
                             IMP.request_pay({
                                 pg: 'kakaopay',
                                 pay_method: 'card',
@@ -204,7 +223,13 @@
                                         data: JSON.stringify({
                                             order_price: totalPrice,
                                             order_id: "${member.id}",
-                                            order_phone: buyerPHNum
+                                            order_phone: buyerPHNum,
+                                            order_address: buyerAddress,
+                                            order_receiver: buyerName,
+                                            order_zipcode: buyerZipCode,
+                                            order_point_used: buyerPointUsed,
+                                            order_name: "${member.name}",
+                                            order_quantity: QuantityFeed1
                                             // order_no: rsp.merchant_uid
                                         }),
                                         success : function(data) {
@@ -227,12 +252,13 @@
                                     msg = '결제에 실패하였습니다.';
                                     // msg += '에러내용 : ' + rsp.error_msg;
                                     //실패시 이동할 페이지
-                                    location.href = "<%=request.getContextPath()%>/getMallFeedOneInfoBuyImmediately.do?feed_Quantity=1&feed_code=49";
+                                    location.href = "<%=request.getContextPath()%>/getMallFeedList.do";
                                     alert(msg);
                                 }
                             });
 
                         });
+                        }
                     }
                 </script>
             </div>
@@ -291,7 +317,7 @@
     document.getElementById("buyImmediatelyDivSection03Left01DiscountPrice").innerHTML="할인 금액 : " + ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
     document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML= ${feedInfo.feed_price}*QuantityFeed;
     document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML= ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_discount}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
+    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_price}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
     // 우편번호 체크
     function buyImmediatelyZipCheck() {
         const width = 380;
