@@ -171,6 +171,23 @@
             margin-bottom: 20px;
         }
 
+        #reservation_confirm input {
+            font-family: 'noto-sans';
+            line-height: 30px;
+            padding: 5px;
+            font-weight: 600;
+            color: #555;
+            letter-spacing: -1px;
+            font-size: 16px;
+            border: none;
+        }
+
+        #reservation_confirm input:focus {outline:none;}
+
+        #kinder_reser_zipcode input {
+            width:50%;
+        }
+
     </style>
 </head>
 <body>
@@ -254,6 +271,7 @@
         <button onClick="reservation()">유치원 예약</button>
     </div>
 </div>
+
 </body>
 <c:if test="${member != null}">
     <script>
@@ -292,9 +310,9 @@
                     <p>반려동물 : `+animalSpecies+`</p>
                     <p>반려동물 나이 : `+animalAge+`</p>
                     <p>전화번호 : `+phone+`</p>
-                    <p>이메일 : ${member.email}</p>
-                    <p>우편번호 : ${member.zipcode}</p>
-                    <p>주소 : ${member.address}</p>
+                    <p>이메일 : <input type="text" value="${member.email}"></p>
+                    <p id="kinder_reser_zipcode">우편번호 : <input type="text" value="${member.zipcode}"></p>
+                    <p>주소 : <input type="text" value="${member.address}"></p>
                     <p>기타 반려동물 관련사항 : `+etc+`</p>
                     <br>
                     <p>가격 : `+price+`원</p>
