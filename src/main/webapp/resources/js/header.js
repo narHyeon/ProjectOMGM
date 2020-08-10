@@ -355,7 +355,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 // 카카오 결제 관련
-function kakaoPay(payment) {
+function kakaoPay(payment,url) {
     let IMP = window.IMP;
     IMP.init('imp95616027');
     IMP.request_pay({
@@ -385,10 +385,11 @@ function kakaoPay(payment) {
                     buyerPostcode: rsp.buyer_postcode // 주문자 우편번호
                 };
                 console.log(data);
+                window.location.href = url;
         } else {
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;
         }
-        console.log(rsp);
+        // console.log(rsp);
     });
 }

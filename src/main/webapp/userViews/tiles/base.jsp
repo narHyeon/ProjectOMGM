@@ -23,7 +23,7 @@
 		background-color: white;
 		position: absolute;
 		top: 300px;
-		right: 50px;
+		right: 20px;
 		width: 55px;
 		height: 55px;
 		-webkit-transition: top 0.4s;
@@ -40,7 +40,7 @@
 		background-color: white;
 		position: absolute;
 		top: 370px;
-		right: 50px;
+		right: 20px;
 		width: 55px;
 		height: 55px;
 		-webkit-transition: top 0.4s;
@@ -56,7 +56,7 @@
 	}
 	#MOVE_TOP_BTN {
 		position: fixed;
-		right: 50px;
+		right: 20px;
 		bottom: 50px;
 		display: none;
 		z-index: 999;
@@ -72,7 +72,7 @@
 	#create-channel-chat-button {
 		position: absolute;
 		top: 425px;
-		right: 65px;
+		right: 35px;
 		width: 55px;
 		height: 55px;
 		-webkit-transition: top 0.4s;

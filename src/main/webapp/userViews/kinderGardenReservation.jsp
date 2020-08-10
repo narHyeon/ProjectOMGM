@@ -282,7 +282,7 @@
         const phone = document.querySelector('#kinder_reser_input ul li:nth-child(4) input').value;
         const etc = document.querySelector('#kinder_reser_input textarea').value;
 
-        let price = '100,000';
+        let price = 100000;
 
         document.querySelector('#education_reservation_schedule').innerHTML =
             ` <div id="reservation_confirm">
@@ -292,17 +292,35 @@
                     <p>반려동물 : `+animalSpecies+`</p>
                     <p>반려동물 나이 : `+animalAge+`</p>
                     <p>전화번호 : `+phone+`</p>
+                    <p>이메일 : ${member.email}</p>
                     <p>우편번호 : ${member.zipcode}</p>
                     <p>주소 : ${member.address}</p>
                     <p>기타 반려동물 관련사항 : `+etc+`</p>
                     <br>
                     <p>가격 : `+price+`원</p>
                 </div> `;
+
+        payment = {
+            name : courseValue,
+            price : price,
+            email : '${member.email}',
+            buyer_name : name,
+            phone : phone,
+            zipcode : '${member.zipcode}',
+            address : '${member.address}',
+        };
+
         document.querySelector('.kinderGarden_reservation_option').innerHTML =
             ` <div class="kinderGarden_reservation_option" style="flex-direction: row">
                     <button style="width:50%; background-color: #F15F5F" onClick="window.location.reload()">취소</button>
-                    <button style="width:50%;" onClick="reservation()">결제</button>
+                    <button style="width:50%;" onClick="kinderPay()">결제</button>
                 </div> `;
+    }
+
+    let payment = {};
+
+    function kinderPay() {
+        kakaoPay(payment,'main.do');
     }
 </script>
 </html>
