@@ -362,7 +362,6 @@
                     </div> `;
         }
 
-
         payment = {
             name : courseValue,
             price : price,
@@ -370,7 +369,7 @@
             buyer_name : name,
             phone : phone,
             zipcode : '${member.zipcode}',
-            address : '${member.address}',
+            address : '${member.address}'
         };
 
         document.querySelector('.kinderGarden_reservation_option').innerHTML =

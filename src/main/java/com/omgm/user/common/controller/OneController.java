@@ -154,14 +154,11 @@ public class OneController {
         return mav;
     }
 
-//    @RequestMapping("/upload.do")
-//    public void upload(BoardVO vo) throws IOException {
-//        System.out.println("파일 업로드 테스트");
-//        MultipartFile uploadFile = vo.getUploadFile();
-//        if(!uploadFile.isEmpty()) {
-//            String fileName = uploadFile.getOriginalFilename();
-//            System.out.println(fileName);
-//            uploadFile.transferTo(new File("D:/" + fileName));
-//        }
-//    }
+    // 유치원 예약 페이지
+    @RequestMapping(value="/kinderGardenReservation.do")
+    public ModelAndView kinderGardenReservation(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/omgmInfo/introductionPage");
+        return mav;
+    }
 }

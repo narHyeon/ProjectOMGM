@@ -18,6 +18,8 @@
         <result property="type" column="TYPE" />
         <result property="regDate" column="REGDATE"/>
         <result property="code" column="CODE"/>
+        <result property="animal" column="ANIMAL"/>
+        <result property="animalAge" column="ANIMAL_AGE"/>
     </resultMap>
 
     <!-- 실 사용 -->
