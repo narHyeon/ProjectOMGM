@@ -244,7 +244,7 @@
             <ul>
                 <li><p>보호자명:</p><input type="text" placeholder="이름" required autocomplete=off  value="${member.name}"></li>
                 <li><p>반려동물:</p><input type="text" placeholder="반려동물 종" required autocomplete=off  value="먼치킨"></li>
-                <li><p>반려동물 나이:</p><input type="text" placeholder="나이" required autocomplete=off  value="3"></li>
+                <li><p>반려동물 나이:</p><input type="text" placeholder="나이" required autocomplete=off  value="3살"></li>
                 <li><p>전화번호:</p><input type="text" placeholder="010-0000-0000" required autocomplete=off value="${member.phone}"></li>
             </ul>
             <ul>
@@ -276,27 +276,32 @@
         const courseValue = course.options[course.selectedIndex].value;
         const serviceValue = service.options[service.selectedIndex].value;
 
-        const name = document.querySelector('#kinder_reser_input ul li:nth-child(1)').value;
-        const name = document.querySelector('#kinder_reser_input ul li:nth-child(2)').value;
-        const name = document.querySelector('#kinder_reser_input ul li:nth-child(3)').value;
-        const name = document.querySelector('#kinder_reser_input ul li:nth-child(4)').value;
+        const name = document.querySelector('#kinder_reser_input ul li:nth-child(1) input').value;
+        const animalSpecies = document.querySelector('#kinder_reser_input ul li:nth-child(2) input').value;
+        const animalAge = document.querySelector('#kinder_reser_input ul li:nth-child(3) input').value;
+        const phone = document.querySelector('#kinder_reser_input ul li:nth-child(4) input').value;
+        const etc = document.querySelector('#kinder_reser_input textarea').value;
+
+        let price = '100,000';
 
         document.querySelector('#education_reservation_schedule').innerHTML =
             ` <div id="reservation_confirm">
                     <p>예약 : `+courseValue+`</p>
                     <p>서비스 : `+serviceValue+`</p>
-                    <p>보호자명 : `++`</p>
-                    <p>반려동물 : 고양이</p>
-                    <p>전화번호 : </p>
+                    <p>보호자명 : `+name+`</p>
+                    <p>반려동물 : `+animalSpecies+`</p>
+                    <p>반려동물 나이 : `+animalAge+`</p>
+                    <p>전화번호 : `+phone+`</p>
                     <p>우편번호 : ${member.zipcode}</p>
                     <p>주소 : ${member.address}</p>
+                    <p>기타 반려동물 관련사항 : `+etc+`</p>
                     <br>
-                    <p>가격 : 100,000원</p>
+                    <p>가격 : `+price+`원</p>
                 </div> `;
         document.querySelector('.kinderGarden_reservation_option').innerHTML =
             ` <div class="kinderGarden_reservation_option" style="flex-direction: row">
                     <button style="width:50%; background-color: #F15F5F" onClick="window.location.reload()">취소</button>
-                    <button style="width:50%;" onClick="reservation()">유치원 예약 확정</button>
+                    <button style="width:50%;" onClick="reservation()">결제</button>
                 </div> `;
     }
 </script>
