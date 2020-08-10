@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -87,8 +89,21 @@
             width: 100%;
 
         }
-
+        #buyImmediatelyDivSection02{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2%;
+            margin-bottom: 15%;
+            margin-left: 3%;
+            background-color: whitesmoke;
+            width: 100%;
+            padding-bottom: 2%;
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-top: 2%;
+        }
     }
+
 
 </style>
 <div id="buyImmediatelyDivSection">
@@ -130,7 +145,7 @@
                 <button id="buyImmediatelyDivSection07Button" onclick="buyImmediatelyZipCheck()" style="width: 15%; height: 30px; background-color: lightpink; border: none; border-radius: 0%" >주소검색</button>
                 <input id="buyImmediatelyDivSection07Zipcode" style="margin-top: 1.5%; width: 15%; height: 30px;" type="text" placeholder="우편번호" required autocomplete=off/>
                 <input id="buyImmediatelyDivSection07Address01" style="margin-top: 1.5%; width: 40%; height: 30px;" type="text" placeholder="주소1" required autocomplete=off/>
-                <input id="buyImmediatelyDivSection07Address02" style="margin-top: 1.5%; width: 50%; height: 30px;" type="text" placeholder="상세주소" />
+<%--                <input id="buyImmediatelyDivSection07Address02" style="margin-top: 1.5%; width: 50%; height: 30px;" type="text" placeholder="상세주소" />--%>
             </div>
         </div>
         <%--    ///////  오른쪽 페이지  ///////////////////////////////////////////////////////////--%>
@@ -152,18 +167,72 @@
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
             <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">${feedInfo.feed_point} 구매완료후 적립됩니다</p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
-            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
+            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPay()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
             <div>
-                <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"
-                        data-client-id="u86j4ripEt8LRfPGzQ8"
-                        data-mode="production"
-                        data-merchant-user-key="가맹점 사용자 식별키"
-                        data-merchant-pay-key="가맹점 주문 번호"
-                        data-product-name="${feedInfo.feed_name}"
-                        data-total-pay-amount="1000"
-                        data-tax-scope-amount="1000"
-                        data-tax-ex-scope-amount="0"
-                        data-return-url="사용자 결제 완료 후 결제 결과를 받을 URL">
+                <script>
+                    function kakaoPay() {
+                        $(function () {
+                            var IMP = window.IMP; // 생략가능
+                            IMP.init('imp00339951'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+                            var msg;
+                            var totalPrice = document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML;
+                            var buyerName = document.getElementById("buyImmediatelyDivSection05Name").innerHTML;
+                            var buyerPHNum = document.getElementById("buyImmediatelyDivSection06Phone").value;
+                            var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").innerHTML;
+                            var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").innerHTML;
+
+                            IMP.request_pay({
+                                pg: 'kakaopay',
+                                pay_method: 'card',
+                                merchant_uid: 'merchant_' + new Date().getTime(),
+                                name: '오묘가묘 결제',
+                                amount: totalPrice,
+                                buyer_email: '',
+                                buyer_name: buyerName,
+                                buyer_tel: buyerPHNum,
+                                buyer_addr: buyerAddress,
+                                buyer_postcode: buyerZipCode,
+                                //m_redirect_url : 'http://www.naver.com'
+                            }, function (rsp) {
+                                if (rsp.success) {
+                                    //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "insertOrderFeed.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+                                        dataType: 'json',
+                                        contentType : 'application/json',
+                                        data: JSON.stringify({
+                                            order_price: totalPrice,
+                                            order_id: "${member.id}",
+                                            order_phone: buyerPHNum
+                                        }),
+                                        success : function(data) {
+                                            //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
+                                                msg = '결제가 완료되었습니다.';
+                                                msg += '\n고유ID : ' + rsp.imp_uid;
+                                                msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+                                                msg += '\n결제 금액 : ' + rsp.paid_amount;
+                                                alert(msg);
+                                        },
+                                        error: function(xhr) {
+                                            alert(xhr);
+                                            }
+                                    });
+
+
+                                    //성공시 이동할 페이지
+                                    location.href = '<%=request.getContextPath()%>/getMallFeedList.do';
+                                } else {
+                                    msg = '결제에 실패하였습니다.';
+                                    // msg += '에러내용 : ' + rsp.error_msg;
+                                    //실패시 이동할 페이지
+                                    location.href = "<%=request.getContextPath()%>/getMallFeedOneInfoBuyImmediately.do?feed_Quantity=1&feed_code=49";
+                                    alert(msg);
+                                }
+                            });
+
+                        });
+                    }
                 </script>
             </div>
         </div>

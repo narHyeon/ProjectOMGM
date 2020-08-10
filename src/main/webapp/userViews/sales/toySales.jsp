@@ -75,8 +75,8 @@
 <%--            </script>--%>
 <%--        </div>--%>
     </div>
-    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%;">
-    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">
+    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%; margin-bottom: 5%;">
+<%--    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
 </div>

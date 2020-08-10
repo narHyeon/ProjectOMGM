@@ -88,7 +88,7 @@
             <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.page == counter}">
-                <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" style="background-color: lightpink; border-radius: 40%; padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
+                <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" style="background-color: lightpink;  padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
                 <c:if test="${page.page != counter}">
                     <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" >&nbsp;&nbsp;${counter}</a>

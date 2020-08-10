@@ -193,7 +193,7 @@
 .pro_paging a:hover,
 .pro_paging a.on {
     background: lightpink;
-    border-radius: 40%;
+
     color: #fff;
 }
 
