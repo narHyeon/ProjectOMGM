@@ -146,14 +146,26 @@
                     <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">${feedInfo.feed_price}</p>
                     <p style="margin-top: 20%; font-size: 15px; font-weight: bolder">${feedInfo.feed_price-feedInfo.feed_discount}</p>
                     <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Use">0</p>
-                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder">40000원</p>
+                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Price">${feedInfo.feed_discount}</p>
                 </div>
             </div>
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
             <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">${feedInfo.feed_point} 구매완료후 적립됩니다</p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
             <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
-
+            <div>
+                <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"
+                        data-client-id="u86j4ripEt8LRfPGzQ8"
+                        data-mode="production"
+                        data-merchant-user-key="가맹점 사용자 식별키"
+                        data-merchant-pay-key="가맹점 주문 번호"
+                        data-product-name="${feedInfo.feed_name}"
+                        data-total-pay-amount="1000"
+                        data-tax-scope-amount="1000"
+                        data-tax-ex-scope-amount="0"
+                        data-return-url="사용자 결제 완료 후 결제 결과를 받을 URL">
+                </script>
+            </div>
         </div>
     </div>
 </div>
@@ -161,10 +173,13 @@
     // 마일리지 사용 조건
     function usePoint() {
         const buyImmediatelyDivSection04Mil = document.getElementById("buyImmediatelyDivSection04Mil");
+        const totalPrice = ${feedInfo.feed_discount}-buyImmediatelyDivSection04Mil.value;
+
         if(buyImmediatelyDivSection04Mil.value > ${member.point}){
             alert("마일리지를 초과하였습니다"); buyImmediatelyDivSection04Mil.value = 0;
         }else{
             document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML=buyImmediatelyDivSection04Mil.value;
+            document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=totalPrice.toString();
         }
     }
 

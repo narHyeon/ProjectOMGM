@@ -146,7 +146,7 @@
                     <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">${toyInfo.toy_price}</p>
                     <p style="margin-top: 20%; font-size: 15px; font-weight: bolder">${toyInfo.toy_price-toyInfo.toy_discount}</p>
                     <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Use">0</p>
-                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder">40000원</p>
+                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Price">${toyInfo.toy_discount}</p>
                 </div>
             </div>
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
@@ -161,10 +161,12 @@
     // 마일리지 사용 조건
     function usePoint() {
         const buyImmediatelyDivSection04Mil = document.getElementById("buyImmediatelyDivSection04Mil");
+        const totalPrice = ${toyInfo.toy_discount}-buyImmediatelyDivSection04Mil.value;
         if(buyImmediatelyDivSection04Mil.value > ${member.point}){
             alert("마일리지를 초과하였습니다"); buyImmediatelyDivSection04Mil.value = 0;
         }else{
             document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML=buyImmediatelyDivSection04Mil.value;
+            document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=totalPrice.toString();
         }
     }
 
