@@ -126,23 +126,9 @@
                 margin: 0 auto;
                 width: 95%;
             }
-            .kinderGarden_reservation_option div:nth-child(1),
-            .kinderGarden_reservation_option div:nth-child(2),
-            .kinderGarden_reservation_option div:nth-child(3){
+            #kinder_reser_input {
                 display: flex;
-                justify-content: space-between;
-                flex-direction: column;
-            }
-            .kinderGarden_reservation_option select {
-                cursor: pointer;
-                width: 100%;
-            }
-            #kinder_reser_address {
-                width: 100% !important;
-            }
-            .kinderGarden_reservation_option div div input {
-                height: 30px;
-                width: 100%;
+                flex-direction: column !important;
             }
         }
 
@@ -151,15 +137,38 @@
             flex-direction: row;
             justify-content: space-between;
         }
-        .kinderGarden_reservation_option p {
-            width: 100px;
+
+        #kinder_reser_input {
+            display: flex;
+            flex-direction: row;
         }
-        .kinderGarden_reservation_option div div input {
+        #kinder_reser_input ul {
             width: 100%;
-            border: none;
         }
-        #kinder_reser_address {
-            width: 65.5%;
+        #kinder_reser_input ul li{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: 10px 0;
+        }
+        #kinder_reser_input ul li input{
+            padding: 5px;
+            margin-left: auto;
+            margin-right: 10px;
+            width: 70%;
+        }
+        #kinder_reser_input ul:nth-child(2) li {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #kinder_reser_input textarea{
+            padding: 5px;
+            min-height: 100px;
+            width: 100%;
+            height: 100%;
+            resize: none;
+            margin-bottom: 20px;
         }
 
     </style>
@@ -231,14 +240,16 @@
                 <option value="선택 안함">선택 안함</option>
             </select>
         </div>
-        <div>
-            <div><p>반려동물:</p><input type="text"></div>
-            <div><p>고객명:</p><input type="text"></div>
-            <div><p>전화번호:</p><input type="text"></div>
-        </div>
-        <div>
-            <div><p>우편번호:</p><input type="text"></div>
-            <div id="kinder_reser_address"><p>주소:</p><input type="text"></div>
+        <div id="kinder_reser_input">
+            <ul>
+                <li><p>보호자명:</p><input type="text" placeholder="이름" required autocomplete=off  value="${member.name}"></li>
+                <li><p>반려동물:</p><input type="text" placeholder="반려동물 종" required autocomplete=off  value="먼치킨"></li>
+                <li><p>반려동물 나이:</p><input type="text" placeholder="나이" required autocomplete=off  value="3"></li>
+                <li><p>전화번호:</p><input type="text" placeholder="010-0000-0000" required autocomplete=off value="${member.phone}"></li>
+            </ul>
+            <ul>
+                <li><p>기타 반려동물 관련사항 작성 :</p><textarea type="text" placeholder="효과적인 서비스 추천을 위해 반려견 이름, 중성화 여부, 문제 행동 등 자세한 사항 작성"></textarea></li>
+            </ul>
         </div>
         <button onClick="reservation()">유치원 예약</button>
     </div>
@@ -265,13 +276,18 @@
         const courseValue = course.options[course.selectedIndex].value;
         const serviceValue = service.options[service.selectedIndex].value;
 
+        const name = document.querySelector('#kinder_reser_input ul li:nth-child(1)').value;
+        const name = document.querySelector('#kinder_reser_input ul li:nth-child(2)').value;
+        const name = document.querySelector('#kinder_reser_input ul li:nth-child(3)').value;
+        const name = document.querySelector('#kinder_reser_input ul li:nth-child(4)').value;
+
         document.querySelector('#education_reservation_schedule').innerHTML =
             ` <div id="reservation_confirm">
                     <p>예약 : `+courseValue+`</p>
                     <p>서비스 : `+serviceValue+`</p>
+                    <p>보호자명 : `++`</p>
                     <p>반려동물 : 고양이</p>
-                    <p>고객명 : ${member.name}</p>
-                    <p>전화번호 : ${member.phone}</p>
+                    <p>전화번호 : </p>
                     <p>우편번호 : ${member.zipcode}</p>
                     <p>주소 : ${member.address}</p>
                     <br>
