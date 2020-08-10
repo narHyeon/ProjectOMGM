@@ -369,7 +369,11 @@
             buyer_name : name,
             phone : phone,
             zipcode : '${member.zipcode}',
-            address : '${member.address}'
+            address : '${member.address}',
+            service: serviceValue,
+            animal: animalSpecies,
+            animal_age: animalAge,
+            etc: etc
         };
 
         document.querySelector('.kinderGarden_reservation_option').innerHTML =
@@ -382,7 +386,7 @@
     let payment = {};
 
     function kinderPay() {
-        kakaoPay(payment,'main.do');
+        kakaoPay(payment,'kinderGardenReservation.do');
     }
 
     // 우편번호 체크

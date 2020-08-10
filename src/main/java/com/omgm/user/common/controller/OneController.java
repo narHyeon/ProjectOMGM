@@ -5,6 +5,7 @@ import com.omgm.admin.memberManagement.beans.ManagementVO;
 import com.omgm.user.common.beans.CommonVO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
+import com.omgm.user.common.beans.KinderGardenReservationVO;
 import com.omgm.user.common.service.CommonService;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
@@ -156,7 +157,7 @@ public class OneController {
 
     // 유치원 예약 페이지
     @RequestMapping(value="/kinderGardenReservation.do")
-    public ModelAndView kinderGardenReservation(ReviewVO vo) {
+    public ModelAndView kinderGardenReservation(KinderGardenReservationVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/omgmInfo/introductionPage");
         return mav;

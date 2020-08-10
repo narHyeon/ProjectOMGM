@@ -375,14 +375,18 @@ function kakaoPay(payment,url) {
                 alert('결제가 완료되었습니다. 감사합니다!');
                 const data = {
                     name: name, // "주문명:결제테스트"
-                    merchantUID: rsp.merchant_uid, // 거래 고유번호
+                    merchantUid: rsp.merchant_uid, // 거래 고유번호
                     pgProvider: rsp.pg_provider, // "kakaopay"
-                    paidAmount: rsp.paid_amount, // 결제가격
+                    price: rsp.paid_amount, // 결제가격
                     buyerName: rsp.buyer_name, // 주문자 이름
-                    buyerTel: rsp.buyer_tel, // 주문자 전화번호
-                    buyerEmail: rsp.buyer_email, // 주문자 이메일
-                    buyerAddr: rsp.buyer_addr, // 주문자 주소
-                    buyerPostcode: rsp.buyer_postcode // 주문자 우편번호
+                    phone: rsp.buyer_tel, // 주문자 전화번호
+                    email: rsp.buyer_email, // 주문자 이메일
+                    address: rsp.buyer_addr, // 주문자 주소
+                    zipcode: rsp.buyer_postcode, // 주문자 우편번호
+                    service: payment.service,
+                    animal: payment.animal,
+                    animalAge: payment.animal_age,
+                    etc: payment.etc
                 };
                 console.log(data);
                 window.location.href = url;
