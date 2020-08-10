@@ -81,8 +81,13 @@
             margin: 0 auto;
         }
 
-        .kinderGarden_reservation_option button, .kinderGarden_reservation_option select {
+        .kinderGarden_reservation_option button {
             cursor: pointer;
+        }
+
+        .kinderGarden_reservation_option select {
+            cursor: pointer;
+            width: 50%;
         }
 
         #reservation_confirm {
@@ -121,6 +126,40 @@
                 margin: 0 auto;
                 width: 95%;
             }
+            .kinderGarden_reservation_option div:nth-child(1),
+            .kinderGarden_reservation_option div:nth-child(2),
+            .kinderGarden_reservation_option div:nth-child(3){
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+            }
+            .kinderGarden_reservation_option select {
+                cursor: pointer;
+                width: 100%;
+            }
+            #kinder_reser_address {
+                width: 100% !important;
+            }
+            .kinderGarden_reservation_option div div input {
+                height: 30px;
+                width: 100%;
+            }
+        }
+
+        .kinderGarden_reservation_option div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .kinderGarden_reservation_option p {
+            width: 100px;
+        }
+        .kinderGarden_reservation_option div div input {
+            width: 100%;
+            border: none;
+        }
+        #kinder_reser_address {
+            width: 65.5%;
         }
 
     </style>
@@ -179,37 +218,64 @@
         </table>
     </div>
     <div class="kinderGarden_reservation_option">
-        <select>
-            <c:forEach items="${day}" var="day">
-                <option value="">${day.formatDate} (1주일 코스) 선택</option>
-            </c:forEach>
-        </select>
-        <select>
-            <option value="">픽업서비스</option>
-            <option value="">문자알림 서비스</option>
-            <option value="">픽업서비스 + 문자알림 서비스</option>
-            <option value="">선택 안함</option>
-        </select>
+        <div>
+            <select>
+                <c:forEach items="${day}" var="day">
+                    <option value="${day.formatDate} (1주일 코스) 선택">${day.formatDate} (1주일 코스) 선택</option>
+                </c:forEach>
+            </select>
+            <select>
+                <option value="픽업서비스">픽업서비스</option>
+                <option value="문자알림 서비스">문자알림 서비스</option>
+                <option value="픽업서비스 + 문자알림 서비스">픽업서비스 + 문자알림 서비스</option>
+                <option value="선택 안함">선택 안함</option>
+            </select>
+        </div>
+        <div>
+            <div><p>반려동물:</p><input type="text"></div>
+            <div><p>고객명:</p><input type="text"></div>
+            <div><p>전화번호:</p><input type="text"></div>
+        </div>
+        <div>
+            <div><p>우편번호:</p><input type="text"></div>
+            <div id="kinder_reser_address"><p>주소:</p><input type="text"></div>
+        </div>
         <button onClick="reservation()">유치원 예약</button>
     </div>
 </div>
 </body>
+<c:if test="${member != null}">
+    <script>
+        const member = '${member.id}';
+    </script>
+</c:if>
+<c:if test="${member == null}">
+    <script>
+        const member = 'null';
+    </script>
+</c:if>
 <script>
     function reservation() {
+        if(member === 'null') {
+            alert('로그인을 먼저 해주세요!');
+            return;
+        }
         const course = document.querySelector('.kinderGarden_reservation_option select:nth-child(1)');
         const service = document.querySelector('.kinderGarden_reservation_option select:nth-child(2)');
-        console.log(course.options[course.selectedIndex].value);
-        console.log(service.options[service.selectedIndex].value);
+        const courseValue = course.options[course.selectedIndex].value;
+        const serviceValue = service.options[service.selectedIndex].value;
 
         document.querySelector('#education_reservation_schedule').innerHTML =
             ` <div id="reservation_confirm">
-                    <p>예약 : 2020년 8월 17일 (1주일 코스)</p>
-                    <p>서비스 : 문자알림</p>
+                    <p>예약 : `+courseValue+`</p>
+                    <p>서비스 : `+serviceValue+`</p>
                     <p>반려동물 : 고양이</p>
                     <p>고객명 : ${member.name}</p>
                     <p>전화번호 : ${member.phone}</p>
                     <p>우편번호 : ${member.zipcode}</p>
                     <p>주소 : ${member.address}</p>
+                    <br>
+                    <p>가격 : 100,000원</p>
                 </div> `;
         document.querySelector('.kinderGarden_reservation_option').innerHTML =
             ` <div class="kinderGarden_reservation_option" style="flex-direction: row">
