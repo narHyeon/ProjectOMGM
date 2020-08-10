@@ -57,10 +57,10 @@
         </div>
         <div class="toy-sales-section07">
             <c:if test="${member != null}">
-                <a href="buyImmediately.do" class="byt-immediately00">즉시 구매하기</a>
+                <a href="" class="byt-immediately00" id="byt-immediately01" onclick="buyImmediately00()">즉시 구매하기</a>
             </c:if>
             <c:if test="${member == null}">
-                <a href="" class="byt-immediately00" onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다')">즉시 구매하기</a>
+                <a href="" class="byt-immediately00" id="byt-immediately00" onclick="buyImmediately01()">즉시 구매하기</a>
             </c:if>
             <a href="#" class="byt-immediately01">장바구니 담기</a>
         </div>
@@ -80,5 +80,39 @@
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
 </div>
+<script>
+    function buyImmediately00() {
+        var countProduct = document.getElementById("number-of-toy");
+        var salesOption = document.getElementById("toy-sales-option");
+        var byeImmediately00 = document.getElementById("byt-immediately01");
+        var numberOfToyQuantity = document.getElementById("number-of-toy");
+        if(salesOption.value === "selected disabled"){
+            alert("옵션을 선택해 주세요.")
+        } else if(countProduct.innerHTML === '0') {
+            alert("수량을 선택해 주세요");
+        }else {
+
+            byeImmediately00.href="getMallToyOneInfoBuyImmediately.do?toy_Quantity="+numberOfToyQuantity.innerHTML+"&toy_code=${toyList.toy_code}";
+        }
+    }
+    function buyImmediately01() {
+        var countProduct = document.getElementById("number-of-toy");
+        var salesOption = document.getElementById("toy-sales-option");
+        var byeImmediately00 = document.getElementById("byt-immediately00");
+
+        if(salesOption.value === "selected disabled"){
+            alert("옵션을 선택해 주세요.")
+        } else if(countProduct.innerHTML === '0') {
+            alert("수량을 선택해 주세요");
+        }else {
+            alert("로그인을 하셔야 구입이 가능합니다");
+            // if(confirmCheck===true){
+            //     login(event);
+            // } else{
+            //     byeImmediately00.href=""
+            // }
+        }
+    }
+</script>
 </body>
 </html>

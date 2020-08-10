@@ -99,6 +99,15 @@ public class UserMallController {
         return mav;
     }
 
+    // (장난감) 결제 눌렀을때 결제 페이지로 이동
+    @RequestMapping("/getMallToyOneInfoBuyImmediately.do")
+    public ModelAndView getMallToyOneInfoBuyImmediately(UserMallToyVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/buyImmediatelyToy");
+        mav.addObject("toyInfo", userMallService.getMallToyOneInfo(vo));
+        return mav;
+    }
+
     ///////////////////// 카트 리스트 ///////////////////////////////////
     //장바구니 리스트 출력(미완성-현재는 사료리스트가 출력)
     @RequestMapping("/cartList.do")
