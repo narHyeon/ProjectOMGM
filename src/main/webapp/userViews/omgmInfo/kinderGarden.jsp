@@ -218,8 +218,4 @@
     });
 </script>
 </body>
-<<<<<<< HEAD:src/main/webapp/userViews/omgmInfo/kinderGarden.jsp
 </html>
-=======
-</html>
->>>>>>> 88d24a1255eaa799b1f511de31fb67754ac71fd6:src/main/webapp/userViews/kinderGarden.jsp

@@ -10,13 +10,7 @@
         id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-<<<<<<< HEAD
-    <a
-            class="sidebar-brand d-flex align-items-center justify-content-center"
-            href="adminMain.mdo">
-=======
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
->>>>>>> 88d24a1255eaa799b1f511de31fb67754ac71fd6
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminMain.mdo">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>

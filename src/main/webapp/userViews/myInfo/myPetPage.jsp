@@ -287,6 +287,8 @@ $(document).ready(function(){
         
          <div id="catinfo_tle">
          <c:forEach var="mypetpage" items="${MyPetPageList}" varStatus="num">
+         <form action="myPetUpdate.do" >
+         <input type="hidden" name="PET_NO" value="${mypetpage.PET_NO}">
             <div class="bar">
                <div class="bar-title">종류</div>
                <div class="bar-content">${mypetpage.PET_KIND}</div>
@@ -312,10 +314,11 @@ $(document).ready(function(){
                <div class="bar-content">${mypetpage.PET_COMMENT}</div>
             </div>
             <div id="bottom">
-            	 <input type="button" value="수  정" onclick="goPetUpdate()" class="buttons" >
+            	<input type="submit" value="수  정" class="buttons">
                <input type="button" value="삭  제" onclick="" class="buttons">
           
             </div>
+            </form>
          </c:forEach>
            </div> <!-- catinfo tle --> 
           
@@ -327,8 +330,6 @@ $(document).ready(function(){
       </div>
    </div>
 <div id="ex1" class="modal">
-  
-	
 	<div id="m-wrap">
 	 <div id="m-head">
          <h1 align="center">내 고양이 정보 추가</h1> 
@@ -336,46 +337,47 @@ $(document).ready(function(){
       <form action="myPetPage.do" method="post">
 		<div id="m-bar">종류
 		<div id="m-bar-content1">
-			<input id="m-inputstyle" type="text" name="pet_kind"/>		
+			<input id="m-inputstyle" type="text" name="PET_KIND"/>		
 		</div>
 		</div>
 		
 		<div id="m-bar1">종류의종류	
 		<div id="m-bar-content2">
-			<input id="m-inputstyle" type="text" name="pet_variety"/>
+			<input id="m-inputstyle" type="text" name="PET_VARIETY"/>
 		</div>
 		</div>
 		
 		<div id="m-bar2">이름
 		
 		<div id="m-bar-content3">
-			<input id="m-inputstylephone" type="text" name="pet_name"/>
+			<input id="m-inputstylephone" type="text" name="PET_NAME"/>
 		</div>
 		</div>
 		
 		<div id="m-bar3">나이
 		
 		<div id="m-bar-content5">
-			<input id="m-inputstylemail" type="text" name="pet_age"/>
+			<input id="m-inputstylemail" type="text" name="PET_AGE"/>
 		</div>
 		</div>
 		
 		<div id="m-bar2">성별
 		
 		<div id="m-bar-content5">
-			<input id="m-inputstyle" type="text" name="pet_gender"/>
+			<input id="m-inputstyle" type="text" name="PET_GENDER"/>
 		</div>
 		</div>
 		
 		<div id="m-bar4">특이사항
 		<div id="m-bar-content6">
-			<textarea id="m-textareastyle" name="pet_comment"></textarea>
+			<textarea id="m-textareastyle" name="PET_COMMENT"></textarea>
 		</div>
 		</div>
+		<input type="submit" value="완  료" class="myPetPage_buttons" >
 		</form>
 	</div>
 	 <a href="#" rel="modal:close">
-	 <input type="submit" value="완료" class="myPetPage_buttons" >
+	 
 	 </a>
   <a href="#" rel="modal:close">닫기</a>
 </div>   

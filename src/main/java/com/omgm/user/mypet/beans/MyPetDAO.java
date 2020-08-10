@@ -20,6 +20,12 @@ public class MyPetDAO {
 		System.out.println("----> MyBatis로 insertMyPet() 기능 처리");
 		sqlSessionTemplate.insert("MyPetDAO.insertMyPet", vo);
 	}
+	
+	public MyPetVO getMyPet(MyPetVO vo) {
+		System.out.println("MyBatis로 getMyPet() 기능 처리");
+		return(MyPetVO) sqlSessionTemplate.selectOne("MyPetDAO.getMyPet", vo);
+	}
+	
 	public void updateMyPet(MyPetVO vo) {
 		System.out.println("----> MyBatis로 updateMyPet() 기능 처리");
 		sqlSessionTemplate.update("MyPetDAO.updateMyPet", vo);

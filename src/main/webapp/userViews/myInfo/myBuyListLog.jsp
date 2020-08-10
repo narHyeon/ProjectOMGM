@@ -7,7 +7,7 @@
 <title>구매내역</title>
 </head>
 <style>
-#head {
+#myBuyListLog_head {
 	min-width: 60%;
 	margin-right: 15%;
 	margin-top: 5%;
@@ -18,46 +18,31 @@
 	border-bottom: 2px solid #FFABB9;
 }
 
-#body {
+#myBuyListLog_body {
 	display: flex;
 	height: 70%;
 	width: 100%;
 	flex-direction: row;
 }
 
-.bar {
+.myBuyListLog_bar {
 	display: flex;
 	height: 45px;
 	width: 100%;
 }
 
-#board_title {
+#myBuyListLog_board_title {
 	display: flex;
 	flex-direction: row;
 	margin-left: 3.5%;
-	max-width:1100px;
-	min-width:1100px;
+	max-width:1200px;
+	min-width:1200px;
 	width: 100%;
 	height: 70px;
 	margin-top:1%;
 }
-#board_title1 {
- 
-display:block;
-width:150px;
-height:150px;
-background-color:red;	
-flex-direction: column;
-}
-#board_title2 {
 
-display:block;
-width:600px;
-height:150px;
-background-color:blue;	
-	flex-direction: column;
-}
-#banner {
+#myBuyListLog_banner {
 	display: flex;
 	height: 500px;
 	width: 200px;
@@ -140,13 +125,15 @@ background-color:blue;
 #check2{background:pink; width:60%; height: 50px; text-align:center; color:white;}
 #check3{background:pink; width:10%; height: 50px; text-align:center; color:white;}
 #check4{background:pink; width:10%; height: 50px; text-align:center; color:white;}
-#check5{background:pink; width:10%; height: 50px; border-radius: 0px 5px 5px 0px; text-align:center; color:white;}
+#check5{background:pink; width:10%; height: 50px; text-align:center; color:white;}
+#check6{background:pink; width:10%; height: 50px; border-radius: 0px 5px 5px 0px; text-align:center; color:white;}
 
 #check1-1{background:white; width:10%; height: 100px; border-radius: 5px 0px 0px 5px; text-align:center;}
 #check2-1{background:gray; width:60%; height: 100px; }
 #check3-1{background:white; width:10%; height: 100px; text-align:center;}
 #check4-1{background:white; width:10%; height: 100px; text-align:center;}
-#check5-1{background:white; width:10%; height: 100px; border-radius: 0px 5px 5px 0px; text-align:center;}
+#check5-1{background:white; width:10%; height: 100px; text-align:center;}
+#check6-1{background:white; width:10%; height: 100px; border-radius: 0px 5px 5px 0px; text-align:center;}
 #row{display:flex; flex-direction: column; margin-left:2%;}
 
 .fieldsetstyle{margin-top:5%; display:block; border:1px solid #FFABB9; border-radius: 10px; background-color:#FFABB9; color:white; padding:10px;}
@@ -164,7 +151,7 @@ background-color:blue;
    height: 100%;
 }
 
-#table_content{display:flex; width:100%; height:100%; background-color:white;}
+#myBuyListLog_table_content{display:flex; width:100%; height:100%; background-color:white;}
 #product_img{width:90px; height:90px; padding:5px;}
 #ul-style {	padding: 0px;width: 70%; }
 #li-style {	list-style-type: none; font-size: 15px; margin-top:5px;	list-style-type: none;	
@@ -291,9 +278,9 @@ background-color:blue;
 </script>	
 <body>
 <div id="wrap">
-	<h1 id="head">구매 내역</h1>
-		<div id="body">
-		<div id="banner">
+	<h1 id="myBuyListLog_head">구매 내역</h1>
+		<div id="myBuyListLog_body">
+		<div id="myBuyListLog_banner">
 				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
 				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
 				</fieldset>
@@ -306,19 +293,20 @@ background-color:blue;
 				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
 				</fieldset>
 			</div>
-		<div id="row">
-		<div id="board_title">
+		<div id="myBuyListLog_row">
+		<div id="myBuyListLog_board_title">
 		<div id="check"><p id="align_text">주문번호</p></div>
 		 <div id="check2"><p id="align_text_content">상품정보</p></div>  
 		 <div id="check3"><p id="align_text">주문 일자</p></div> 
 		 <div id="check4"><p id="align_text">주문금액</p></div>
-		 <div id="check5"><p id="align_text">추가</p></div>
+		 <div id="check5"><p id="align_text">주문상태</p></div>
+		 <div id="check6"><p id="align_text">상세보기</p></div>
 		</div>
-		<div id="board_title">
+		<div id="myBuyListLog_board_title">
 		<div id="check1-1"><p id="align_text_list">1</p></div> 
 		
 		<div id="check2-1">
-		<div id="table_content">
+		<div id="myBuyListLog_table_content">
 		<img src="resources/img/images/dogfeed1.jpg" id="product_img">
 				<ul id="ul-style">
 					<li id="li-style">오묘가묘</li>
@@ -333,7 +321,8 @@ background-color:blue;
 		 
 		 <div id="check4-1"><p id="align_text_list">what</p></div>
 		 
-		 <div id="check5-1"><p id="align_text_list">the</p></div>
+		 <div id="check5-1"><p id="align_text_list">배송중</p></div>
+		 <div id="check6-1"><p id="align_text_list">ANOther</p></div>
 		</div>
 		</div>
 		</div>

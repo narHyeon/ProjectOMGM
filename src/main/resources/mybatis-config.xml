@@ -28,6 +28,7 @@
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
 		<typeAlias alias="catcarelog" type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
 		<typeAlias alias="mypet" type="com.omgm.user.mypet.beans.MyPetVO" />
+		<typeAlias alias="event" type="com.omgm.admin.eventmanagement.beans.EventVO_M" />
 	</typeAliases>
 	<mappers>
 		<!--	회원	-->
@@ -48,5 +49,6 @@
 		<mapper resource="mappings/category-mapping.xml" />
 		<mapper resource="mappings/catcarelog-mapping.xml" />
 		<mapper resource="mappings/mypet-mapping.xml" />
+		<mapper resource="mappings/event-mapping.xml" />
 	</mappers>
 </configuration>

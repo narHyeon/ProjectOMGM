@@ -15,7 +15,6 @@ import com.omgm.user.mypet.beans.MyPetVO;
 import com.omgm.user.mypet.service.MyPetService;
 
 @Controller
-@SessionAttributes("myPet")
 public class MyPetController {
 
 	@Autowired
@@ -28,24 +27,19 @@ public class MyPetController {
 		mav.setViewName("/myInfo/myPetPage");
 		return mav;
 	}
-	@RequestMapping(value="/myPetPage.do")
+	@RequestMapping(value="/myPetPage.do", method = RequestMethod.POST)
 	public ModelAndView insertMyPet(MyPetVO vo) throws IOException {
 		ModelAndView mav = new ModelAndView();
+		vo.setPET_OWNER(3);
 		myPetService.insertMyPet(vo);
 		mav.setViewName("redirect:/myPetPage.do");
 		return mav;
 	}
-	
-	@RequestMapping(value = "/myPetUpdate.do")
-	public String updateMyPet(@ModelAttribute("myPet") MyPetVO vo) {
-		myPetService.updateMyPet(vo);
-		return "/myInfo/myPetPage";
-	}
 	@RequestMapping(value = "/myPetUpdate.do", method = RequestMethod.GET)
-	public ModelAndView deleteMyPet(MyPetVO vo, ModelAndView mav) {
-		List<MyPetVO> petlist = myPetService.getAllMyPetList(vo);
-		mav.addObject("MyPetPageList", petlist);
+	public ModelAndView getMyPet(MyPetVO vo, ModelAndView mav) {
+		myPetService.updateMyPet(vo);
 		mav.setViewName("/myInfo/myPetUpdate");
 		return mav;
 	}
+	
 }
