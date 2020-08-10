@@ -105,6 +105,10 @@ public class MallServiceImpl implements MallService {
     public void insertOrderFeed(OrderVO vo) {mallOrderDAO.insertOrderFeed(vo);}
 
     /////////////////////// ORDER_STATUS //////////////////////////////////
+    // 사료관련 ORDER 정보 ORDER_STATUS 테이블에 넣기
+    @Override
+    public void insertOrderStatusFeed(MallOrderVO vo) {mallOrderDAO.insertOrderStatusFeed(vo);}
+
     //주문등록(상세)
     @Override
     public void insertMallOrder(MallOrderVO vo) {

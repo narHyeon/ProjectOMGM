@@ -9,6 +9,24 @@ public class OrderVO {
     private String order_phone;
     private int order_price;
     private String order_state;
+    private String order_address;
+    private String order_receiver;
+
+    public String getOrder_address() {
+        return order_address;
+    }
+
+    public void setOrder_address(String order_address) {
+        this.order_address = order_address;
+    }
+
+    public String getOrder_receiver() {
+        return order_receiver;
+    }
+
+    public void setOrder_receiver(String order_receiver) {
+        this.order_receiver = order_receiver;
+    }
 
     public String getOrder_state() {
         return order_state;

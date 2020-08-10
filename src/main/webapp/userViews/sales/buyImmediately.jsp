@@ -116,8 +116,8 @@
                     <p style="margin-top: 5%; font-weight: bold;">상품 이름 : ${feedInfo.feed_name}</p>
                     <p style="margin-top: 2%; font-size: smaller; color: blue">가격 : ${feedInfo.feed_price}</p>
                     <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;">할인 금액 : ${feedInfo.feed_price-feedInfo.feed_discount}</p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;">할인 적용 금액 : ${feedInfo.feed_discount}</p>
+                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice"></p>
+                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice"></p>
                 </div>
                 <div id="buyImmediatelyDivSection03Right" >
                     <div style="display: flex; flex-direction: column">
@@ -158,10 +158,10 @@
                     <p style="margin-top: 11%; font-size: 15px; font-weight: bolder">최종결제금액</p>
                 </div>
                 <div id="buyImmediatelyDivSection02_01_02" style="width:50%; padding-left:23%; display: flex;flex-direction: column; justify-content: end">
-                    <p style="margin-top: 3%; font-size: 15px; font-weight: bolder">${feedInfo.feed_price}</p>
-                    <p style="margin-top: 20%; font-size: 15px; font-weight: bolder">${feedInfo.feed_price-feedInfo.feed_discount}</p>
+                    <p style="margin-top: 3%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02BeforePrice"></p>
+                    <p style="margin-top: 20%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02DiscountPrice"></p>
                     <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Use">0</p>
-                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Price">${feedInfo.feed_discount}</p>
+                    <p style="margin-top: 21%; font-size: 15px; font-weight: bolder" id="buyImmediatelyDivSection02_01_02Price"></p>
                 </div>
             </div>
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
@@ -180,7 +180,7 @@
                             var buyerPHNum = document.getElementById("buyImmediatelyDivSection06Phone").value;
                             var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").innerHTML;
                             var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").innerHTML;
-
+                            alert(totalPrice + " " + buyerPHNum);
                             IMP.request_pay({
                                 pg: 'kakaopay',
                                 pay_method: 'card',
@@ -205,6 +205,7 @@
                                             order_price: totalPrice,
                                             order_id: "${member.id}",
                                             order_phone: buyerPHNum
+                                            // order_no: rsp.merchant_uid
                                         }),
                                         success : function(data) {
                                             //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
@@ -241,8 +242,9 @@
 <script>
     // 마일리지 사용 조건
     function usePoint() {
+
         const buyImmediatelyDivSection04Mil = document.getElementById("buyImmediatelyDivSection04Mil");
-        const totalPrice = ${feedInfo.feed_discount}-buyImmediatelyDivSection04Mil.value;
+        const totalPrice = parseInt(document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML)-parseInt(document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML)-buyImmediatelyDivSection04Mil.value;
 
         if(buyImmediatelyDivSection04Mil.value > ${member.point}){
             alert("마일리지를 초과하였습니다"); buyImmediatelyDivSection04Mil.value = 0;
@@ -285,7 +287,11 @@
     var QuantityFeedInput = document.getElementById("buyImmediatelyDivSection03Left01");
 
     QuantityFeedInput.innerHTML="수량 : "+QuantityFeed;
-
+    document.getElementById("buyImmediatelyDivSection03Left01TotalPrice").innerHTML="할인 적용 금액 : " + ${feedInfo.feed_discount}*QuantityFeed;
+    document.getElementById("buyImmediatelyDivSection03Left01DiscountPrice").innerHTML="할인 금액 : " + ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
+    document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML= ${feedInfo.feed_price}*QuantityFeed;
+    document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML= ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
+    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_discount}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
     // 우편번호 체크
     function buyImmediatelyZipCheck() {
         const width = 380;

@@ -218,7 +218,8 @@ public class MallController {
     public OrderVO insertOrderFeed(@RequestBody OrderVO vo) throws Exception{
 
             mallService.insertOrderFeed(vo);
-
+//            vo1.setOrder_status_no();
+//            mallService.insertOrderStatusFeed(vo1);
             return vo;
     }
 

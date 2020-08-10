@@ -24,6 +24,8 @@ public class MallOrderDAO {
 
 
     //////// ORDER_STATUS ///////////////////////////////////////
+    // 주문했을시 주문 정보 ORDER_STATUS 에 입력
+    public void insertOrderStatusFeed(MallOrderVO vo) {sqlSessionTemplate.insert("MallOrderDAO.insertOrderStatusFeed", vo);}
     //주문추가(상세)
     public void insertMallOrder(MallOrderVO vo) {
         sqlSessionTemplate.insert("MallOrderDAO.insertMallOrder", vo);
