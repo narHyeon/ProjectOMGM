@@ -81,6 +81,17 @@
             margin: 0 auto;
         }
 
+        .kinderGarden_reservation_option button, .kinderGarden_reservation_option select {
+            cursor: pointer;
+        }
+
+        #reservation_confirm {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+
         @media all and (max-width: 810px) {
             #education_reservation_schedule {
                 display: flex;
@@ -109,9 +120,6 @@
                 flex-direction: column;
                 margin: 0 auto;
                 width: 95%;
-            }
-            .kinderGarden_reservation_option button, .kinderGarden_reservation_option select {
-                cursor: pointer;
             }
         }
 
@@ -177,12 +185,37 @@
             </c:forEach>
         </select>
         <select>
-            <option value="">고양이</option>
-            <option value="">강아지</option>
+            <option value="">픽업서비스</option>
+            <option value="">문자알림 서비스</option>
+            <option value="">픽업서비스 + 문자알림 서비스</option>
+            <option value="">선택 안함</option>
         </select>
-        <button>유치원 예약</button>
+        <button onClick="reservation()">유치원 예약</button>
     </div>
 </div>
-
 </body>
+<script>
+    function reservation() {
+        const course = document.querySelector('.kinderGarden_reservation_option select:nth-child(1)');
+        const service = document.querySelector('.kinderGarden_reservation_option select:nth-child(2)');
+        console.log(course.options[course.selectedIndex].value);
+        console.log(service.options[service.selectedIndex].value);
+
+        document.querySelector('#education_reservation_schedule').innerHTML =
+            ` <div id="reservation_confirm">
+                    <p>예약 : 2020년 8월 17일 (1주일 코스)</p>
+                    <p>서비스 : 문자알림</p>
+                    <p>반려동물 : 고양이</p>
+                    <p>고객명 : ${member.name}</p>
+                    <p>전화번호 : ${member.phone}</p>
+                    <p>우편번호 : ${member.zipcode}</p>
+                    <p>주소 : ${member.address}</p>
+                </div> `;
+        document.querySelector('.kinderGarden_reservation_option').innerHTML =
+            ` <div class="kinderGarden_reservation_option" style="flex-direction: row">
+                    <button style="width:50%; background-color: #F15F5F" onClick="window.location.reload()">취소</button>
+                    <button style="width:50%;" onClick="reservation()">유치원 예약 확정</button>
+                </div> `;
+    }
+</script>
 </html>
