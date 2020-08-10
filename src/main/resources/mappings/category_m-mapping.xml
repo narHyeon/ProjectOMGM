@@ -43,8 +43,7 @@
 		parameterType="category_m">
 		SELECT * FROM CATEGORY WHERE CATEGORY_NO=#{CATEGORY_NO}
 	</select>
-	<select id="selectListAllCategory" resultType="category_m"
-		parameterType="category_m">
+	<select id="selectListAllCategory" resultType="category_m" >
 		SELECT * FROM CATEGORY ORDER BY CATEGORY_USE DESC ,
 		CATEGORY_NO ASC
 	</select>

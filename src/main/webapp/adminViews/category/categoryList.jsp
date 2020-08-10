@@ -6,8 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-<!-- Remember to include jQuery :) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <!-- jQuery Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -99,8 +97,7 @@
    transform: scale(1.05);
    cursor: pointer;
 }
-#modal_plus{
-}
+
 </style>
 <script type="text/javascript">
 $(function() {
@@ -309,7 +306,7 @@ $(function() {
 		<div class="modal_content">
 			<div class="modal_input">
 				<div class="modal_input_key">카테고리명</div>
-				<div class="modal_input_value"><input type="text" class="modal_name" required></div>
+				<div class="modal_input_value"><input type="text" class="modal_name" required="required"></div>
 			</div>
 			<div class="modal_input">
 				<div class="modal_input_key">사용여부</div>

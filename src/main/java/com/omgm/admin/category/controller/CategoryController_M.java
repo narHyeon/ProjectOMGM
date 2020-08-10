@@ -81,9 +81,9 @@ public class CategoryController_M {
 		return mav;
 	}
 	@RequestMapping(value = "/categoryList.mdo", method = RequestMethod.GET)
-	public ModelAndView selectListAllCategory(CategoryVO_M vo, ModelAndView mav) {
+	public ModelAndView selectListAllCategory(ModelAndView mav) {
 		
-		List<CategoryVO_M> list = categoryService_M.selectListAllCategory(vo);
+		List<CategoryVO_M> list = categoryService_M.selectListAllCategory();
 		
 		mav.addObject("categoryList", list);
 		mav.setViewName("/category/categoryList");

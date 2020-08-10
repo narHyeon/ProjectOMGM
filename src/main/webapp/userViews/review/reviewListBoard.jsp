@@ -89,7 +89,6 @@
             color.style = 'backgroundColor: #FFFFFF';
         }
     }
-
     function getReview(seq) {
         const el = document.querySelector('#review_throw');
         el.innerHTML = '<input type=hidden name=seq value='+seq+'>';

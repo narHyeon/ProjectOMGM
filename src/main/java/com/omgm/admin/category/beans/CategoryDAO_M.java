@@ -29,8 +29,8 @@ public class CategoryDAO_M {
 	public CategoryVO_M selectCategory(CategoryVO_M vo) {
 		return sqlSessionTemplate.selectOne("CategoryDAO_M.selectCategory",vo);
 	}
-	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo){
-		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListAllCategory", vo);
+	public List<CategoryVO_M> selectListAllCategory(){
+		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListAllCategory");
 	}
 
 

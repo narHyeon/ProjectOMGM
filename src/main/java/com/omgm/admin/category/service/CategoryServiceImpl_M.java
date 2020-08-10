@@ -39,7 +39,7 @@ public class CategoryServiceImpl_M implements CategoryService_M{
 	}
 
 	@Override
-	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo) {
-		return categoryDAO_M.selectListAllCategory(vo);
+	public List<CategoryVO_M> selectListAllCategory() {
+		return categoryDAO_M.selectListAllCategory();
 	}
 }

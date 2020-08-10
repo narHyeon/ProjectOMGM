@@ -16,7 +16,7 @@ public interface CategoryService_M {
 	
 	public CategoryVO_M selectCategory(CategoryVO_M vo);
 	
-	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo);
+	public List<CategoryVO_M> selectListAllCategory();
 
 	
 }

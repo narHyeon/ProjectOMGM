@@ -9,21 +9,25 @@
 	</delete>
 	<update id="updateFAQ" parameterType="faq_m">
 	</update>
+	<select id="selectCount" resultType="int">
+		SELECT count(*) FROM FAQ
+	</select>
 	<select id="selectFAQ" resultType="faq_m" parameterType="faq_m">
 	</select>
 	<select id="selectListAllFAQ" resultType="faq_m"
 		parameterType="faq_m">
-		select * from faq order by faq_categorynum asc ,faq_ask
-		asc
+		SELECT FAQ_NO, FAQ_ASK, FAQ_ANSWER, FAQ_USE, FAQ_CATEGORYNUM, CATEGORY_NAME, CATEGORY_USE 
+		FROM FAQ ,CATEGORY
+		WHERE FAQ.FAQ_CATEGORYNUM = CATEGORY.CATEGORY_NO
+		AND CATEGORY_USE = 1 
+		<choose>
+			<when test="FAQ_CATEGORYNUM.equals(0)">
+			</when>
+			<otherwise>
+				AND FAQ_CATEGORYNUM = #{FAQ_CATEGORYNUM}
+			</otherwise>
+		</choose>
+		ORDER BY FAQ_USE DESC , FAQ_CATEGORYNUM ASC, FAQ_ASK ASC
 	</select>
-	<select id="selectListCategoryedFAQ" resultType="faq_m"
-		parameterType="faq">
-		select * from faq where
-		faq_categorynum=#{FAQ_CATEGORYNUM} order by
-		faq_categorynum asc
-		,faq_ask asc
-	</select>
-
-
 </mapper>
 
