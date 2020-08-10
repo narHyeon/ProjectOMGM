@@ -3,10 +3,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="CategoryDAO_M">
-	<insert id="insertCategory" parameterType="category_m">
-		INSERT INTO CATEGORY
-		(CATEGORY_NO, CATEGORY_NAME)
-		VALUES((select nvl(max(CATEGORY_NO), 0)+1 from CATEGORY),#{CATEGORY_NAME})
+	<insert id="insertCategory" parameterType="java.util.List">
+		<foreach item="item" collection="list" open="INSERT ALL"  close="SELECT * FROM DUAL" separator=" " index="index">
+			INTO CATEGORY (CATEGORY_NO, CATEGORY_NAME, CATEGORY_USE) 
+			VALUES ((select nvl(max(CATEGORY_NO), 0)+1 + #{index} from CATEGORY),#{item.CATEGORY_NAME},#{item.CATEGORY_USE})
+		</foreach>
 	</insert>
 	<update id="updateCategory" parameterType="category_m">
 		UPDATE CATEGORY 

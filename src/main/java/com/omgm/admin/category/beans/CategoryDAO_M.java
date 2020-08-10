@@ -11,8 +11,8 @@ public class CategoryDAO_M {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public void insertCategory(CategoryVO_M vo) {
-		sqlSessionTemplate.insert("CategoryDAO_M.insertCategory",vo);
+	public void insertCategory(List<CategoryVO_M> volist) {
+		sqlSessionTemplate.insert("CategoryDAO_M.insertCategory",volist);
 	}
 
 	public void updateCategory(CategoryVO_M vo) {
