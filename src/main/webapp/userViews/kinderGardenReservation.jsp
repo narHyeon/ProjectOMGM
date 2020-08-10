@@ -108,14 +108,17 @@
                 display: flex;
                 flex-direction: column;
                 margin: 0 auto;
-                width: 95%
+                width: 95%;
+            }
+            .kinderGarden_reservation_option button, .kinderGarden_reservation_option select {
+                cursor: pointer;
             }
         }
 
     </style>
 </head>
 <body>
-<img style="width:100%;" src="resources/img/main_image.jpg" alt="">
+<img style="position:sticky;top:0;width:100%;" src="resources/img/kinderGarden/유치원 사진.jpg" alt="">
 <%-- 유치원 월간 스케쥴 --%>
 <div class="education_schedule">
     <div class="education_schedule_title">
@@ -169,18 +172,17 @@
     </div>
     <div class="kinderGarden_reservation_option">
         <select>
-            <option value="">1주차</option>
-            <option value="">2주차</option>
-            <option value="">3주차</option>
-            <option value="">4주차</option>
+            <c:forEach items="${day}" var="day">
+                <option value="">${day.formatDate} (1주일 코스) 선택</option>
+            </c:forEach>
         </select>
         <select>
-            <option value="">오전</option>
-            <option value="">오후</option>
-            <option value="">오전/오후</option>
+            <option value="">고양이</option>
+            <option value="">강아지</option>
         </select>
         <button>유치원 예약</button>
     </div>
 </div>
+
 </body>
 </html>
