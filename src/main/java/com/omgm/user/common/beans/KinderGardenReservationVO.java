@@ -67,11 +67,11 @@ public class KinderGardenReservationVO {
         this.price = price;
     }
 
-    public String getBuyer_name() {
+    public String getBuyerName() {
         return buyerName;
     }
 
-    public void setBuyer_name(String buyerName) {
+    public void setBuyerName(String buyerName) {
         this.buyerName = buyerName;
     }
 
@@ -131,19 +131,19 @@ public class KinderGardenReservationVO {
         this.etc = etc;
     }
 
-    public String getMerchant_uid() {
+    public String getMerchantUid() {
         return merchantUid;
     }
 
-    public void setMerchant_uid(String merchantUid) {
+    public void setMerchantUid(String merchantUid) {
         this.merchantUid = merchantUid;
     }
 
-    public String getPg_provider() {
+    public String getPgProvider() {
         return pgProvider;
     }
 
-    public void setPg_provider(String pgProvider) {
+    public void setPgProvider(String pgProvider) {
         this.pgProvider = pgProvider;
     }
 

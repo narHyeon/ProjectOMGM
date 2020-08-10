@@ -372,9 +372,10 @@ function kakaoPay(payment,url) {
         // m_redirect_url : 'https://localhost:8080/main.do'
         }, function(rsp) {
             if ( rsp.success ) {
+                console.log(rsp);
                 alert('결제가 완료되었습니다. 감사합니다!');
                 const data = {
-                    name: name, // "주문명:결제테스트"
+                    name: rsp.name, // "주문명:결제테스트"
                     merchantUid: rsp.merchant_uid, // 거래 고유번호
                     pgProvider: rsp.pg_provider, // "kakaopay"
                     price: rsp.paid_amount, // 결제가격
@@ -388,8 +389,18 @@ function kakaoPay(payment,url) {
                     animalAge: payment.animal_age,
                     etc: payment.etc
                 };
-                console.log(data);
-                window.location.href = url;
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.onload = () => {
+                    if(xhr.status === 200) {
+                        window.location.href = 'main.do';
+                    }
+                }
+
+                xhr.open('POST',url,true);
+                xhr.setRequestHeader('content-type','application/json');
+                xhr.send(JSON.stringify(data));
         } else {
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;

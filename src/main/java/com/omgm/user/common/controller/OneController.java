@@ -1,15 +1,16 @@
 package com.omgm.user.common.controller;
 
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
-import com.omgm.admin.memberManagement.beans.ManagementVO;
 import com.omgm.user.common.beans.CommonVO;
-import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
+import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
 import com.omgm.user.common.service.CommonService;
 import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -156,10 +157,10 @@ public class OneController {
     }
 
     // 유치원 예약 페이지
-    @RequestMapping(value="/kinderGardenReservation.do")
-    public ModelAndView kinderGardenReservation(KinderGardenReservationVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/omgmInfo/introductionPage");
-        return mav;
+    @ResponseBody
+    @RequestMapping(value="/kinderGardenPay.do")
+    public void kinderGardenReservation(@RequestBody KinderGardenReservationVO vo) {
+        commonService.addKinderGardenReservation(vo);
+        System.out.println(vo);
     }
 }

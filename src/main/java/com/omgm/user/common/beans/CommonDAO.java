@@ -29,4 +29,8 @@ public class CommonDAO {
     public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenInfoVO vo) {
         return sqlSessionTemplate.selectList("CommonDAO.getScheduleRowMonth",vo);
     }
+
+    public void addKinderGardenReservation(KinderGardenReservationVO vo) {
+        sqlSessionTemplate.insert("commonDAO.addKinderGardenReservation",vo);
+    }
 }

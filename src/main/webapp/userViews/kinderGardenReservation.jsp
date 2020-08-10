@@ -198,6 +198,12 @@
             cursor: pointer;
         }
 
+        .education_schedule input[type="number"]::-webkit-outer-spin-button,
+        .education_schedule input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -257,7 +263,7 @@
         <div>
             <select>
                 <c:forEach items="${day}" var="day">
-                    <option value="${day.formatDate} (1주일 코스) 선택">${day.formatDate} (1주일 코스) 선택</option>
+                    <option value="${day.formatDate} (1주일 코스) 선택">${day.formatDate} (1주일 코스)</option>
                 </c:forEach>
             </select>
             <select>
@@ -271,7 +277,7 @@
             <ul>
                 <li><p>보호자명:</p><input type="text" placeholder="이름" required autocomplete=off  value="${member.name}"></li>
                 <li><p>반려동물:</p><input type="text" placeholder="반려동물 종" required autocomplete=off  value="먼치킨"></li>
-                <li><p>반려동물 나이:</p><input type="text" placeholder="나이" required autocomplete=off  value="3살"></li>
+                <li><p>반려동물 나이:</p><input type="number" placeholder="나이" required autocomplete=off value="3"></li>
                 <li><p>전화번호:</p><input type="text" placeholder="010-0000-0000" required autocomplete=off value="${member.phone}"></li>
             </ul>
             <ul>
@@ -386,7 +392,8 @@
     let payment = {};
 
     function kinderPay() {
-        kakaoPay(payment,'kinderGardenReservation.do');
+        console.log(payment);
+        kakaoPay(payment,'kinderGardenPay.do');
     }
 
     // 우편번호 체크
