@@ -57,8 +57,6 @@ const minusMonth = () => {
     table.removeChild(tbody);
 };
 
-let i = 1;
-
 function addSchedule(event) {
     event.preventDefault();
     // 아작스 처리
@@ -67,7 +65,7 @@ function addSchedule(event) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             if(0 !== adminNumber) {
-                const tbody = `.education_schedule_month_tbody${adminScheduleNumber}`;
+                const tbody = `.education_schedule_month_tbody${adminNumber}`;
                 const monday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(2) input`).value;
                 const tuesday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(3) input`).value;
                 const wednesday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(4) input`).value;
@@ -109,12 +107,11 @@ function addScheduleRow(data) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            i++;
             if(0 === --adminNumber) {
-                i = 1;
                 alert('유치원 달력 등록이 정상적으로 처리되었습니다!');
+                window.location.reload();
             } else {
-                const tbody = `.education_schedule_month_tbody${adminScheduleNumber}`;
+                const tbody = `.education_schedule_month_tbody${adminNumber}`;
                 const monday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(2) input`).value;
                 const tuesday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(3) input`).value;
                 const wednesday_am = document.querySelector(`${tbody} tr:nth-child(2) td:nth-child(4) input`).value;

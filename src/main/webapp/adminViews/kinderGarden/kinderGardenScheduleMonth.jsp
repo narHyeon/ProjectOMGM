@@ -29,7 +29,7 @@
             width: 120px;
         }
         .education_schedule_month_subTitle td input {
-            width:100%;
+            width:120%;
             margin: 0;
         }
         .admin_kindergarden_schedule_pm {
