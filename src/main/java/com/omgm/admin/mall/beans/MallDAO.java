@@ -57,4 +57,5 @@ public class MallDAO {
     public MallFeedVO getMallFeedOne(MallFeedVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallFeedOne", vo);}
 
 
+
 }

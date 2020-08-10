@@ -83,7 +83,7 @@
             <li class="prev"><a href="getMallToyList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.page == counter}">
-                <a href="getMallToyList.do?page=${counter}"style="background-color: lightpink; border-radius: 40%; padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
+                <a href="getMallToyList.do?page=${counter}"style="background-color: lightpink; padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
                 <c:if test="${page.page != counter}">
                     <a href="getMallToyList.do?page=${counter}" >&nbsp;&nbsp;${counter}</a>

@@ -36,6 +36,18 @@
 <!--        VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},-->
 <!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
 <!--    </insert>-->
+<!--    결제 완료된 feed order 테이블 두개에 넣어주기-->
+    <insert id="insertOrderFeed" parameterType="Order">
+        INSERT INTO order_list (order_no, order_id, order_date, order_phone, order_price, order_state)
+        VALUES(order_no_seq.NEXTVAL, #{order_id}, sysdate, #{order_phone}, #{order_price}, '배송중')
+    </insert>
+    <insert id="insertOrderStatusFeed" parameterType="mallOrder">
+        INSERT INTO order_status (order_status_no, order_status_id, order_status_state, order_status_zipcode,
+            order_status_address1, order_status_receiver, order_status_phone, order_status_point_used,
+            order_status_price,order_status_name) VALUES(#{order_status_no}, #{order_status_id}, '배송중', #{order_status_zipcode},
+            #{order_status_address1}, #{order_status_receiver}, #{order_status_phone}, #{order_status_point},
+            #{order_status_price}, #{order_status_name})
+    </insert>
 
 <!--    주문목록 불러오기(상세)-->
     <select id="getMallOrderList" resultType="mallOrder">

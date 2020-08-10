@@ -12,6 +12,20 @@ public class MallOrderDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    ///////// ORDER_lIST /////////////////////////////////////////
+    // 주문했을시 주문 정보 ORDER_LIST 에 입력
+    public void insertOrderFeed(OrderVO vo) {sqlSessionTemplate.insert("MallOrderDAO.insertOrderFeed", vo);}
+
+    //주문목록보기
+    public List<OrderVO> getOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getOrderList"); }
+
+    //주문삭제
+    public int deleteOrder(OrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder",vo); }
+
+
+    //////// ORDER_STATUS ///////////////////////////////////////
+    // 주문했을시 주문 정보 ORDER_STATUS 에 입력
+    public void insertOrderStatusFeed(MallOrderVO vo) {sqlSessionTemplate.insert("MallOrderDAO.insertOrderStatusFeed", vo);}
     //주문추가(상세)
     public void insertMallOrder(MallOrderVO vo) {
         sqlSessionTemplate.insert("MallOrderDAO.insertMallOrder", vo);
@@ -23,12 +37,7 @@ public class MallOrderDAO {
     //주문목록보기(상세)
     public List<MallOrderVO> getMallOrderList (MallOrderVO vo) { return sqlSessionTemplate.selectList("MallOrderDAO.getMallOrderList", vo); }
 
-    //주문목록보기
-    public List<OrderVO> getOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getOrderList"); }
-
-    //주문삭제
-    public int deleteOrder(OrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder",vo); }
-
     //포인트 적립
     public List<MallOrderVO> getMallPointList () { return sqlSessionTemplate.selectList("MallOrderDAO.getMallPointList"); }
+
 }

@@ -83,9 +83,31 @@ public class MallServiceImpl implements MallService {
         return mallDAO.getMallFeedList();
     }
 
-//  #################################################################
+//  #######################################################################################
     @Autowired
     MallOrderDAO mallOrderDAO;
+
+    /////////////////////// ORDER_LIST //////////////////////////////////
+    //주문목록불러오기
+    @Override
+    public List<OrderVO> getOrderList(OrderVO vo) throws Exception{
+        return mallOrderDAO.getOrderList();
+    }
+
+    //주문삭제
+    @Override
+    public void deleteOrder(OrderVO vo) {
+        mallOrderDAO.deleteOrder(vo);
+    }
+
+    // 사료관련 ORDER 정보 ORDER_LIST 테이블에 넣기
+    @Override
+    public void insertOrderFeed(OrderVO vo) {mallOrderDAO.insertOrderFeed(vo);}
+
+    /////////////////////// ORDER_STATUS //////////////////////////////////
+    // 사료관련 ORDER 정보 ORDER_STATUS 테이블에 넣기
+    @Override
+    public void insertOrderStatusFeed(MallOrderVO vo) {mallOrderDAO.insertOrderStatusFeed(vo);}
 
     //주문등록(상세)
     @Override
@@ -103,18 +125,6 @@ public class MallServiceImpl implements MallService {
     @Override
     public List<MallOrderVO> getMallOrderList(MallOrderVO vo) throws Exception{
         return mallOrderDAO.getMallOrderList(vo);
-    }
-
-    //주문목록불러오기
-    @Override
-    public List<OrderVO> getOrderList(OrderVO vo) throws Exception{
-        return mallOrderDAO.getOrderList();
-    }
-
-    //주문삭제
-    @Override
-    public void deleteOrder(OrderVO vo) {
-        mallOrderDAO.deleteOrder(vo);
     }
 
     //포인트적립 불러오기
