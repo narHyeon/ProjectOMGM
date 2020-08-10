@@ -1,18 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title></title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
+<link rel="stylesheet"
+	href="resources/style/summernote/summernote-lite.css">
 <style type="text/css">
-#wrap{
+#wrap {
 	display: flex;
 	flex-direction: column;
 	width: 60%;
 	margin: auto;
 }
+
 #head {
 	min-width: 60%;
 	margin-top: 2%;
@@ -21,67 +24,76 @@
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
-#body{
+
+#body {
 	display: flex;
 	flex-direction: column;
 }
-#setting{
+
+#setting {
 	display: flex;
 	flex-direction: column;
 }
-.settings{
+
+.settings {
 	display: flex;
 	flex-direction: row;
 	margin-bottom: 1.5%;
-	
 }
-.leftsettings{
+
+.leftsettings {
 	display: flex;
 	flex-direction: row;
 	width: 40%;
 }
-.rightsettings{
+
+.rightsettings {
 	display: flex;
 	flex-direction: row;
 	width: 40%;
 }
-.centersettings{
+
+.centersettings {
 	display: flex;
 	flex-direction: row;
 	width: 80%;
 }
-#title_key{
+
+#title_key {
 	width: 8%;
 }
-.keys{
+
+.keys {
 	width: 40%;
-	
 }
-.values{
+
+.values {
 	margin-right: 5%;
 }
-#title_value{
+
+#title_value {
 	width: 100%;
 }
-#title_input{
+
+#title_input {
 	width: 87%;
 }
-#body{
-	margin-bottom: 2%;
 
+#body {
+	margin-bottom: 2%;
 }
-#leg{
-	display : flex;
-	flex-direction : row;
+
+#leg {
+	display: flex;
+	flex-direction: row;
 	margin-bottom: 2%;
 	margin-left: 87%;
 	width: 100%;
 }
-.buttons{
-	margin-right: 1.5%;
-	
-}
 
+.buttons {
+	margin-right: 1.5%;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/summernote/summernote-lite.js"></script>
@@ -107,7 +119,8 @@
 </head>
 <body>
 	<form method="post" action="updateCatCareLog.do">
-		<input type="hidden" name="CATCARELOG_NO" value="${careInfo.CATCARELOG_NO}">
+		<input type="hidden" name="CATCARELOG_NO"
+			value="${careInfo.CATCARELOG_NO}">
 		<div id="wrap">
 			<div id="head">
 				<h1>냥박일지 작성</h1>
@@ -116,55 +129,62 @@
 				<div id="setting">
 					<div id="setting1" class="settings">
 						<div class="leftsettings">
-							<div class="keys">
-							고객 번호
-							</div>
+							<div class="keys">고객 번호</div>
 							<div class="values">
-							<input type="text" readonly="readonly" value="${careInfo.CATCARELOG_USERNUM}" name="CATCARELOG_USERNUM"/>
+								<input type="text" readonly="readonly"
+									value="${careInfo.CATCARELOG_USERNUM}"
+									name="CATCARELOG_USERNUM" />
 							</div>
 						</div>
 						<div class="rightsettings">
-							<div class="keys">
-							예약 번호
-							</div>
+							<div class="keys">예약 번호</div>
 							<div class="values">
-							<input type="text" readonly="readonly" value="${careInfo.CATCARELOG_SERVICENUM}" name="CATCARELOG_SERVICENUM"/>
+								<input type="text" readonly="readonly"
+									value="${careInfo.CATCARELOG_SERVICENUM}"
+									name="CATCARELOG_SERVICENUM" />
 							</div>
-						</div>										
+						</div>
 					</div>
 					<div id="setting2" class="settings">
 						<div class="leftsettings">
 							<div class="keys">냥박 시작</div>
 							<div class="values">
-							<input type="text" name="CATCARELOG_CARESTART" value="${careInfo.CATCARELOG_CARESTART}"/>
+								<input type="text" name="CATCARELOG_CARESTART"
+									value="${careInfo.CATCARELOG_CARESTART}" />
 							</div>
 						</div>
 						<div class="rightsettings">
 							<div class="keys">냥박 종료</div>
 							<div class="values">
-							<input type="text" name="CATCARELOG_CAREEND" value="${careInfo.CATCARELOG_CAREEND}"/>
+								<input type="text" name="CATCARELOG_CAREEND"
+									value="${careInfo.CATCARELOG_CAREEND}" />
 							</div>
-						</div>								
+						</div>
 					</div>
 					<div id="setting3" class="settings">
 						<div class="centersettings">
 							<div class="keys" id="title_key">제목</div>
 							<div class="values" id="title_value">
-								<input type="text" id="title_input" name="CATCARELOG_TITLE" value="${careInfo.CATCARELOG_TITLE}"/>								
+								<input type="text" id="title_input" name="CATCARELOG_TITLE"
+									value="${careInfo.CATCARELOG_TITLE}" />
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="content">	
+				<div id="content">
 					<textarea id="summernote" name="CATCARELOG_CONTNET">
 					</textarea>
-				</div><!-- end content -->
-			</div><!-- end body -->
+				</div>
+				<!-- end content -->
+			</div>
+			<!-- end body -->
 			<div id="leg">
-				<input type="submit" value="수정 완료" class="buttons" />
-				<input type="button" value="수정 취소" class="buttons" onclick="goBack()" />
-			</div><!-- end foot -->
-		</div> <!-- end wrap -->
+				<input type="submit" value="수정 완료" class="buttons" /> <input
+					type="button" value="수정 취소" class="buttons" onclick="goBack()" />
+			</div>
+			<!-- end foot -->
+		</div>
+		<!-- end wrap -->
 	</form>
 </body>
 </html>

@@ -7,12 +7,16 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/resources/**"
+		location="/resources/" />
 
-	<context:component-scan base-package="com.omgm.member" />
+	<context:component-scan
+		base-package="com.omgm.member" />
 	<mvc:annotation-driven />
 
-	<bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" id="bcryiptPasswordEncoder"/>
+	<bean
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
+		id="bcryiptPasswordEncoder" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,12 +26,15 @@
 	</bean>
 
 	<!-- Tiles 뷰 리졸버 -->
-	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<property name="order" value="1" />
 	</bean>
 	<!-- Tiles 설정 파일 -->
-	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
 				<value>/WEB-INF/tiles/tiles.xml</value>
@@ -39,20 +46,22 @@
 
 	<!-- Google 소셜 로그인 연결 설정 -->
 	<bean id="googleOAuth2Template"
-		  class="org.springframework.social.google.connect.GoogleOAuth2Template">
-		<constructor-arg value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
+		class="org.springframework.social.google.connect.GoogleOAuth2Template">
+		<constructor-arg
+			value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
 		<constructor-arg value="1Q5JSvEaD7dS9NMPQdkPSuDe" />
 	</bean>
 
 	<bean id="googleOAuth2Parameters"
-		  class="org.springframework.social.oauth2.OAuth2Parameters">
-		<property name="scope" value="email profile"/>
+		class="org.springframework.social.oauth2.OAuth2Parameters">
+		<property name="scope" value="email profile" />
 		<property name="redirectUri"
-				  value="http://localhost:8080/googleSignInCallback.lo" />
+			value="http://localhost:8080/googleSignInCallback.lo" />
 	</bean>
 
 	<bean id="authInfo" class="com.omgm.member.OAuth.beans.OAuthVO">
-		<constructor-arg value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
+		<constructor-arg
+			value="153899327387-nnel099c0urp7m8mpj3raqqgve6kn7gv.apps.googleusercontent.com" />
 		<constructor-arg value="1Q5JSvEaD7dS9NMPQdkPSuDe" />
 	</bean>
 </beans>

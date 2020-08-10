@@ -132,42 +132,64 @@
 100
 
 
+
+
 %
 {
 -webkit-transform
 
 
+
+
 :
 
 
+
+
 rotate
+
+
 (
+
+
 
 
 360deg
 
 
+
+
 )
+
+
 ;
-
-
 transform
 
 
+
+
 :
 
 
+
+
 rotate
+
+
 (
+
+
 
 
 360deg
 
 
+
+
 )
+
+
 ;
-
-
 }
 }
 @
@@ -179,42 +201,64 @@ keyframes fa-spin { 0% {
 100
 
 
+
+
 %
 {
 -webkit-transform
 
 
+
+
 :
 
 
+
+
 rotate
+
+
 (
+
+
 
 
 360deg
 
 
+
+
 )
+
+
 ;
-
-
 transform
 
 
+
+
 :
 
 
+
+
 rotate
+
+
 (
+
+
 
 
 360deg
 
 
+
+
 )
+
+
 ;
-
-
 }
 }
 .fa-rotate-90 {
