@@ -116,16 +116,17 @@
 </body>
 <script>
     function checkBox() {
-        document.querySelectorAll('.custom-control-input').forEach(item => {
-            if(item.checked) {
-                return checkReservation(item.value);
-            }
+        const cbox = document.querySelectorAll('.custom-control-input');
+        cbox.forEach((item,index) => {
+            if(item.checked) checkReservation(item.value);
+            if(index === cbox.length-1) window.location.reload();
         });
+
     }
 
     function checkReservation(value) {
         const xhr = new XMLHttpRequest();
-        xhr.open('POST','checkReservaion.mdo',true);
+        xhr.open('POST','checkReservation.mdo',true);
         xhr.setRequestHeader('content-type','application/json');
         const data = { seq: value };
         xhr.send(JSON.stringify(data));

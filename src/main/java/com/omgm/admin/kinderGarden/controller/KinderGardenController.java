@@ -82,8 +82,9 @@ public class KinderGardenController {
     }
 
     // 관리자 예약확인 체크
+    @ResponseBody
     @RequestMapping("/checkReservation.mdo")
-    public void checkReservation(KinderGardenReservationVO vo) {
+    public void checkReservation(@RequestBody KinderGardenReservationVO vo) {
         kinderGardenService.checkReservation(vo);
     }
 }
