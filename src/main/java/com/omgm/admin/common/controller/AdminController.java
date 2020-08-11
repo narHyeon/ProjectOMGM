@@ -1,12 +1,21 @@
 package com.omgm.admin.common.controller;
 
 import com.omgm.admin.common.beans.AdminVO;
+import com.omgm.admin.common.service.AdminService;
+import com.omgm.user.review.beans.PageNavigator;
+import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
 
 @Controller
 public class AdminController {
+
+    @Resource(name="adminService")
+    private AdminService adminService;
 
     // 관리자 메인 불러오기
     @RequestMapping("/adminMain.mdo")
@@ -81,8 +90,19 @@ public class AdminController {
 
     //이용후기 관리 페이지
     @RequestMapping("/adminReview.mdo")
-    public ModelAndView adminReview(AdminVO vo) {
+    public ModelAndView adminReview(ReviewVO vo,@RequestParam(value="page", defaultValue = "1") int page ) {
         ModelAndView mav = new ModelAndView();
+
+        int COUNTPERPAGE = 9; // 페이지당 2개의 글
+        int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
+
+        PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, adminService.selectCount());
+        mav.addObject("reviewList", adminService.getReviewList(vo, navi));
+        mav.addObject("navi", navi);
+        vo.setCnt(page);
+        mav.addObject("page", vo);
+
+
         mav.setViewName("/adminReview");
         return mav;
     }
