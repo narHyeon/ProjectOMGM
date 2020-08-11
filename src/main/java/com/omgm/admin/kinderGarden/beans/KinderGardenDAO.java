@@ -54,6 +54,6 @@ public class KinderGardenDAO {
     }
 
     public void deleteReservation(KinderGardenReservationVO vo) {
-        sqlSessionTemplate.delete("KinderGardenDAO.checkReservation",vo);
+        sqlSessionTemplate.delete("KinderGardenDAO.deleteReservation",vo);
     }
 }

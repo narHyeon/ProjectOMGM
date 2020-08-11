@@ -140,7 +140,7 @@
 
         xhr.onload = () => {
             if(xhr.status === 200) {
-                alert('예약이 성공적으로 취소되었습니다!');
+                alert('예약이 취소되었습니다!');
                 window.location.reload();
             }
         };
