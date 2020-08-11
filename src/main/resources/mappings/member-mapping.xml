@@ -18,6 +18,8 @@
         <result property="type" column="TYPE" />
         <result property="regDate" column="REGDATE"/>
         <result property="code" column="CODE"/>
+        <result property="animal" column="ANIMAL"/>
+        <result property="animalAge" column="ANIMAL_AGE"/>
     </resultMap>
 <!--    // 회원 결제시 포인트 삭제-->
 <!--    <update id="updateMemberPoint" parameterType="MemberVO">-->

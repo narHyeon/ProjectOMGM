@@ -5,6 +5,7 @@ import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.user.common.beans.CommonDAO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
+import com.omgm.user.common.beans.KinderGardenReservationVO;
 import com.omgm.user.common.service.CommonService;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,10 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public List<KinderGardenRowMonthVO> getScheduleRowMonth(KinderGardenInfoVO vo) {
         return commonDAO.getScheduleRowMonth(vo);
+    }
+
+    @Override
+    public void addKinderGardenReservation(KinderGardenReservationVO vo) {
+        commonDAO.addKinderGardenReservation(vo);
     }
 }

@@ -1,5 +1,6 @@
 package com.omgm.admin.kinderGarden.beans;
 
+import com.omgm.user.common.beans.KinderGardenReservationVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,5 +43,13 @@ public class KinderGardenDAO {
 
     public void addScheduleRowMonth(KinderGardenRowMonthVO vo) {
         sqlSessionTemplate.insert("KinderGardenDAO.addScheduleRowMonth",vo);
+    }
+
+    public List<KinderGardenReservationVO> getKinderGardenReservation() {
+        return sqlSessionTemplate.selectList("KinderGardenDAO.getKinderGardenReservation");
+    }
+
+    public void checkReservation(KinderGardenReservationVO vo) {
+        sqlSessionTemplate.update("KinderGardenDAO.checkReservation",vo);
     }
 }

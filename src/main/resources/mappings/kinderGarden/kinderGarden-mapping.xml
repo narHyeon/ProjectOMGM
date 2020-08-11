@@ -31,6 +31,24 @@
         <result property="fridayPM" column="FRIDAY_PM"/>
     </resultMap>
 
+    <resultMap type="KinderGardenReservationVO" id="KinderGardenReservationResult">
+        <id property="seq" column="SEQ" />
+        <result property="name" column="NAME"/>
+        <result property="service" column="SERVICE"/>
+        <result property="price" column="PRICE"/>
+        <result property="buyerName" column="BUYER_NAME"/>
+        <result property="animal" column="ANIMAL"/>
+        <result property="animalAge" column="ANIMAL_AGE"/>
+        <result property="phone" column="PHONE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="zipcode" column="ZIPCODE"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="etc" column="ETC"/>
+        <result property="merchantUid" column="MERCHANT_UID"/>
+        <result property="pgProvider" column="PG_PROVIDER"/>
+        <result property="state" column="STATE"/>
+    </resultMap>
+
     <!-- 실 사용 -->
     <select id="getSchedule" parameterType="KinderGardenVO" resultType="KinderGardenVO">
         <choose>
@@ -81,5 +99,15 @@
         #{mondayAM},#{tuesdayAM},#{wednesdayAM},#{thursdayAM},#{fridayAM},
         #{mondayPM},#{tuesdayPM},#{wednesdayPM},#{thursdayPM},#{fridayPM})
     </insert>
+
+    <!--  예약 불러오기  -->
+    <select id="getKinderGardenReservation" resultMap="KinderGardenReservationResult">
+        SELECT * FROM kg_reservation ORDER BY seq
+    </select>
+
+    <!--  예약 확인 체크  -->
+    <update id="checkReservation" parameterType="KinderGardenReservationVO">
+        UPDATE kg_reservation SET state = '확인' WHERE seq = #{seq}
+    </update>
 
 </mapper>
