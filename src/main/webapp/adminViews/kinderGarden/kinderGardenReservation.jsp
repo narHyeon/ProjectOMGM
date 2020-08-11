@@ -63,7 +63,9 @@
                                 <th>${reser.animalAge}</th>
                                 <th>${reser.phone}</th>
                                 <th>${reser.etc}</th>
-                                <th>${reser.state}</th>
+                                <th><a href="#" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a> 예약취소</th>
                             </tr>
                         </c:if>
                     </c:forEach>
