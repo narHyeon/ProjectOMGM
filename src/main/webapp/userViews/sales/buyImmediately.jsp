@@ -123,7 +123,7 @@
                     <div style="display: flex; flex-direction: column">
 
                     </div>
-                    <img src="resources/img/product/${feedInfo.feed_img}" style="width: 74%; ;">
+                    <img src="resources/img/product/${feedInfo.feed_img}" style="width: 74%; ">
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">
@@ -198,9 +198,11 @@
                             var buyerPHNum = document.getElementById("buyImmediatelyDivSection06Phone").value;
                             var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").value;
                             var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
-                            var buyerPointUsed = document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML;
-                            alert(buyerZipCode + " "+buyerAddress + " " + buyerName +" "+ buyerPointUsed);
+                            var buyerPointUsed = ${member.point} - document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML+${feedInfo.feed_point};
+                            alert(buyerPointUsed);
+                            // alert(buyerZipCode + " "+buyerAddress + " " + buyerName +" "+ buyerPointUsed);
                             IMP.request_pay({
+
                                 pg: 'kakaopay',
                                 pay_method: 'card',
                                 merchant_uid: 'merchant_' + new Date().getTime(),
@@ -229,14 +231,18 @@
                                             order_zipcode: buyerZipCode,
                                             order_point_used: buyerPointUsed,
                                             order_name: "${member.name}",
-                                            order_quantity: QuantityFeed1
+                                            order_quantity: QuantityFeed1,
+
+                                            <%--id: "${member.id}",--%>
+                                            <%--point: buyerPointUsed,--%>
+
                                             // order_no: rsp.merchant_uid
                                         }),
                                         success : function(data) {
                                             //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
                                                 msg = '결제가 완료되었습니다.';
-                                                msg += '\n고유ID : ' + rsp.imp_uid;
-                                                msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+                                                // msg += '\n고유ID : ' + rsp.imp_uid;
+                                                // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                                 msg += '\n결제 금액 : ' + rsp.paid_amount;
                                                 alert(msg);
                                         },

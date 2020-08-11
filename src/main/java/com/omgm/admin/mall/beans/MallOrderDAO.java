@@ -1,5 +1,6 @@
 package com.omgm.admin.mall.beans;
 
+import com.omgm.member.beans.MemberVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,9 @@ import java.util.List;
 public class MallOrderDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
+
+    // 멤버 결제시 포인트 삭제
+    public void updateMemberPoint(MemberOrderVO vo) {sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo); }
 
     ///////// ORDER_lIST /////////////////////////////////////////
     // 주문했을시 주문 정보 ORDER_LIST 에 입력

@@ -16,6 +16,15 @@ public class OrderVO {
     private int order_point_used;
     private String order_name;
     private int order_quantity;
+    private int order_point;
+
+    public int getOrder_point() {
+        return order_point;
+    }
+
+    public void setOrder_point(int order_point) {
+        this.order_point = order_point;
+    }
 
     public String getOrder_memo() {
         return order_memo;

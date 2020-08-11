@@ -2,6 +2,7 @@ package com.omgm.admin.mall.service;
 
 
 import com.omgm.admin.mall.beans.*;
+import com.omgm.member.beans.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -86,6 +87,11 @@ public class MallServiceImpl implements MallService {
 //  #######################################################################################
     @Autowired
     MallOrderDAO mallOrderDAO;
+
+    @Override
+    public void updateMemberPoint(MemberOrderVO vo) throws Exception{
+        mallOrderDAO.updateMemberPoint(vo);
+    }
 
     /////////////////////// ORDER_LIST //////////////////////////////////
     //주문목록불러오기

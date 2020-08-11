@@ -87,7 +87,19 @@
             width: 100%;
 
         }
-
+        #buyImmediatelyDivSection02{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2%;
+            margin-bottom: 15%;
+            margin-left: 3%;
+            background-color: whitesmoke;
+            width: 100%;
+            padding-bottom: 2%;
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-top: 2%;
+        }
     }
 
 </style>
@@ -101,14 +113,14 @@
                     <p style="margin-top: 5%; font-weight: bold;">상품 이름 : ${toyInfo.toy_name}</p>
                     <p style="margin-top: 2%; font-size: smaller; color: blue">가격 : ${toyInfo.toy_price}</p>
                     <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;">할인 금액 : ${toyInfo.toy_price-toyInfo.toy_discount}</p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;">할인 적용 금액 : ${toyInfo.toy_discount}</p>
+                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice" >할인 금액 : ${toyInfo.toy_price-toyInfo.toy_discount}</p>
+                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice">할인 적용 금액 : ${toyInfo.toy_discount}</p>
                 </div>
                 <div id="buyImmediatelyDivSection03Right" >
                     <div style="display: flex; flex-direction: column">
 
                     </div>
-                    <img src="resources/img/product/${toyInfo.toy_img}" style="width: 74%; ;">
+                    <img src="resources/img/product/${toyInfo.toy_img}" style="width: 74%; ">
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">
@@ -130,7 +142,7 @@
                 <button id="buyImmediatelyDivSection07Button" onclick="buyImmediatelyZipCheck()" style="width: 15%; height: 30px; background-color: lightpink; border: none; border-radius: 0%" >주소검색</button>
                 <input id="buyImmediatelyDivSection07Zipcode" style="margin-top: 1.5%; width: 15%; height: 30px;" type="text" placeholder="우편번호" required autocomplete=off/>
                 <input id="buyImmediatelyDivSection07Address01" style="margin-top: 1.5%; width: 40%; height: 30px;" type="text" placeholder="주소1" required autocomplete=off/>
-                <input id="buyImmediatelyDivSection07Address02" style="margin-top: 1.5%; width: 50%; height: 30px;" type="text" placeholder="상세주소" />
+<%--                <input id="buyImmediatelyDivSection07Address02" style="margin-top: 1.5%; width: 50%; height: 30px;" type="text" placeholder="상세주소" />--%>
             </div>
         </div>
         <%--    ///////  오른쪽 페이지  ///////////////////////////////////////////////////////////--%>
