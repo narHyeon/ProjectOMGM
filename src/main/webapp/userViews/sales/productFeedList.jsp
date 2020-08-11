@@ -34,7 +34,7 @@
     <h2>ALL PRODUCT</h2>
     <div class="category"  >
         <button style="color: deeppink" >사료</button>
-        <button >장난감</button>
+        <a href="getMallToyList.do"><button >장난감</button></a>
     </div>
 
     <div class="event_list">
@@ -57,53 +57,44 @@
         </div>
         <ul>
 
-
             <form action="productDetail.do" class="product_form">
-                <c:forEach var="FeedList" items="${FeedList}">
-                    <li class="pro_Li" style="padding-left:5%;">
-                        <a href="">
-                            <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
-                            <div class="menu" style="display: none;">
-                                <em>NEW</em>
-                            </div>
-                            <div class="info">
-                                <strong>${FeedList.feed_name}</strong>
-                                <p>
-                                    <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </c:forEach>
+
+          <c:forEach var="FeedList" items="${FeedList}">
+            <li class="pro_Li" style="padding-left:5%;">
+                <a href="getMallFeedOneInfoSales.do?feed_code=${FeedList.feed_code}">
+                    <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                    <div class="menu" style="display: none;">
+                        <em>NEW</em>
+                    </div>
+                    <div class="info">
+                        <strong>${FeedList.feed_name}</strong>
+                        <p>
+                            <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
+                        </p>
+                    </div>
+                </a>
+            </li>
+
+          </c:forEach>
+
+
             </form>
-
-            <c:forEach var="ToyList" items="${ToyList}">
-                <li class="pro_Li" style="padding-left:5%;">
-                    <a href="">
-                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
-                        <div class="menu" style="display: none;">
-                            <em>NEW</em>
-                        </div>
-                        <div class="info">
-                            <strong class="toyname">${ToyList.toy_name}</strong>
-                            <p>
-                              <span>${ToyList.toy_price}</span>
-                            </p>
-                        </div>
-                    </a>
-                </li>
-            </c:forEach>
-
->>>>>>> cc0d33e... productOrder.jsp 수정:src/main/webapp/userViews/sales/productList.jsp
         </ul>
     </div>
+
     <div class="pro_paging">
         <ul>
             <li class="first"><a href="getMallFeedList.do"><span class="hide">첫페이지</span></a></li>
             <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-                <a href="getMallFeedList.do?page=${counter}" class="on">&nbsp;&nbsp;${counter}</a>
+                <c:if test="${page.page == counter}">
+                <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" style="background-color: lightpink;  padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
+                </c:if>
+                <c:if test="${page.page != counter}">
+                    <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" >&nbsp;&nbsp;${counter}</a>
+                </c:if>
             </c:forEach>
+
             <li class="next"><a href="getMallFeedList.do?page=${navi.endPageGroup + 1}"><span class="hide">다음페이지</span></a></li>
             <li class="last"><a href="getMallFeedList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
         </ul>
@@ -112,6 +103,16 @@
 </main>
 
 <script>
+    function pageNextColor1() {
+        const color = document.getElementsByName(${page.page});
+
+    }
+<%--    페이지 번호 누를때 색깔 입히기--%>
+
+// $(document).on("click","pageNextColorB",function(){
+//    var pageNext = $(this).attr('value');
+//    alert(pageNext);
+// });
     <%--  이미지 슬라이더  --%>
     let currSlide = 1;
     showSlide(currSlide);

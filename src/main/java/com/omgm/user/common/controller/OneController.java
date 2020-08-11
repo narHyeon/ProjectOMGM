@@ -1,5 +1,7 @@
 package com.omgm.user.common.controller;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
+import com.omgm.admin.memberManagement.beans.ManagementVO;
 import com.omgm.user.common.beans.CommonVO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
@@ -10,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -40,19 +47,45 @@ public class OneController {
     public ModelAndView kinderGarden(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
         vo = commonService.getSchedule();
-        System.out.println(vo);
         List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
-        mav.addObject("day",vo);
-        System.out.println(list);
         mav.addObject("dayRow",list);
+        // 달력 불러오기
+        KinderGardenInfoVO mvo = new KinderGardenInfoVO();
+        mvo = commonService.getScheduleMonth(mvo);
+        List<KinderGardenRowMonthVO> monthList = commonService.getScheduleRowMonth(mvo);
+        mav.addObject("monthRow",monthList);
         mav.setViewName("/omgmInfo/kinderGarden");
         return mav;
     }
 
     // 유치원 예약 페이지 이동
     @RequestMapping(value="/kinderGardenReservation.do")
-    public ModelAndView kinderGardenReservation() {
+    public ModelAndView kinderGardenReservation(KinderGardenInfoVO vo) {
         ModelAndView mav = new ModelAndView();
+        vo = commonService.getSchedule();
+        List<KinderGardenInfoRowVO> list = commonService.getScheduleRow(vo);
+        mav.addObject("dayRow",list);
+
+        // 데이트 계산
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        DateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        List<KinderGardenInfoVO> cList = new ArrayList<KinderGardenInfoVO>();
+        int dow = calendar.get(Calendar.DAY_OF_WEEK);
+        calendar.add(Calendar.DAY_OF_WEEK,-(dow-2));
+        for(int i=1;i<=10;i++) {
+            KinderGardenInfoVO cvo = new KinderGardenInfoVO();
+            calendar.add(Calendar.DAY_OF_WEEK,7);
+            cvo.setFormatDate(dateFormat.format(calendar.getTime()));
+            cList.add(cvo);
+        }
+        mav.addObject("day",cList);
+
+        // 달력 불러오기
+        KinderGardenInfoVO mvo = new KinderGardenInfoVO();
+        mvo = commonService.getScheduleMonth(mvo);
+        List<KinderGardenRowMonthVO> monthList = commonService.getScheduleRowMonth(mvo);
+        mav.addObject("monthRow",monthList);
         mav.setViewName("/kinderGardenReservation");
         return mav;
     }
@@ -90,12 +123,12 @@ public class OneController {
     }
 
     //상품 판매 페이지 이동
-    @RequestMapping(value="/toySales.do")
-    public ModelAndView toySales(ReviewVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/sales/toySales");
-        return mav;
-    }
+//    @RequestMapping(value="/toySales.do")
+//    public ModelAndView toySales(ReviewVO vo) {
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("/sales/toySales");
+//        return mav;
+//    }
 
     //상품리스트 페이지 이동
     @RequestMapping(value="/productList.do")

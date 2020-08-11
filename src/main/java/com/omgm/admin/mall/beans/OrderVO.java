@@ -16,7 +16,23 @@ public class OrderVO {
     private int order_point_used;
     private String order_name;
     private int order_quantity;
+    private int order_point;
 
+    public int getOrder_point() {
+        return order_point;
+    }
+
+    public void setOrder_point(int order_point) {
+        this.order_point = order_point;
+    }
+
+    public String getOrder_memo() {
+        return order_memo;
+    }
+
+    public void setOrder_memo(String order_memo) {
+        this.order_memo = order_memo;
+    }
 
     public String getOrder_zipcode() {
         return order_zipcode;
@@ -56,14 +72,6 @@ public class OrderVO {
 
     public void setOrder_address(String order_address) {
         this.order_address = order_address;
-    }
-
-    public String getOrder_memo() {
-        return order_memo;
-    }
-
-    public void setOrder_memo(String order_memo) {
-        this.order_memo = order_memo;
     }
 
     public String getOrder_receiver() {

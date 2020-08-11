@@ -9,8 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <title>toy-sales</title>
+    <title>feed-sales</title>
     <link type="text/css" rel="stylesheet" href="resources/style/sales/toySales.css">
     <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js" defer></script> -->
 
@@ -18,14 +17,14 @@
 <body>
 <div id="toy-sales-div">
     <div id="toy-img-section">
-        <img src="resources/img/product/${toyList.toy_img}" class="toy-img-01" >
+        <img src="resources/img/product/${feedList.feed_img}" class="toy-img-01" >
     </div>
     <div id="toy-sales-section">
         <div class="toy-sales-section00">
-            ${toyList.toy_name}
+            ${feedList.feed_name}
         </div>
-        <div class="toy-sales-section01" id="toy-sales-section01" value="${toyList.toy_discount}">
-            ${toyList.toy_discount}
+        <div class="toy-sales-section01" id="toy-sales-section01" value="${feedList.feed_discount}">
+            ${feedList.feed_discount}
         </div>
         <div class="toy-sales-section02">
             <p class="toy-delieve-price-text">
@@ -36,7 +35,7 @@
             <p class="toy-type-text">타입을 선택하세요</p>
             <select id="toy-sales-option" name="toy-sales-option" onchange="changeToySelect()">
                 <option value="selected disabled">상품을 고르세요</option>
-                <option value="${toyList.toy_name}">${toyList.toy_name}</option>
+                <option value="${feedList.feed_name}">${feedList.feed_name}</option>
 
             </select>
         </div>
@@ -46,7 +45,7 @@
         </div>
         <div class="toy-sales-section05">
             <p>수량 : </p>
-            <p id="number-of-toy" class="number-of-toy" value="0">0</p>
+            <p id="number-of-toy" class="number-of-toy" name="feed_stock" value="0">0</p>
             <button id="add-of-toy" class="add-of-toy" onclick="addToys()">추가</button>
             <button id="abs-of-toy" class="abs-of-toy" onclick="absToys()">제거</button>
         </div>
@@ -54,6 +53,7 @@
             총 상품 금액 :
 
             <p id="total-toy-prices" class="total-toy-prices">0</p>
+
         </div>
         <div class="toy-sales-section07">
             <c:if test="${member != null}">
@@ -69,17 +69,18 @@
                 행복한 하루 보내세요
             </a>
         </div>
-<%--        <div class="toy-sales-section09">--%>
-<%--            <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js" data-client-id="u86j4ripEt8LRfPGzQ8" data-mode="production" data-merchant-user-key="가맹점 사용자 식별키" data-merchant-pay-key="가맹점 주문 번호" data-product-name="상품명을 입력하세요" data-total-pay-amount="1000"--%>
-<%--                    data-tax-scope-amount="1000" data-tax-ex-scope-amount="0" data-return-url="사용자 결제 완료 후 결제 결과를 받을 URL">--%>
-<%--            </script>--%>
-<%--        </div>--%>
+        <%--        <div class="toy-sales-section09">--%>
+        <%--            <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js" data-client-id="u86j4ripEt8LRfPGzQ8" data-mode="production" data-merchant-user-key="가맹점 사용자 식별키" data-merchant-pay-key="가맹점 주문 번호" data-product-name="상품명을 입력하세요" data-total-pay-amount="1000"--%>
+        <%--                    data-tax-scope-amount="1000" data-tax-ex-scope-amount="0" data-return-url="사용자 결제 완료 후 결제 결과를 받을 URL">--%>
+        <%--            </script>--%>
+        <%--        </div>--%>
     </div>
-    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%; margin-bottom: 5%;">
-<%--    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">--%>
+    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%; margin-top: 5%;">
+<%--    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
 </div>
+
 <script>
     function buyImmediately00() {
         var countProduct = document.getElementById("number-of-toy");
@@ -92,7 +93,7 @@
             alert("수량을 선택해 주세요");
         }else {
 
-            byeImmediately00.href="getMallToyOneInfoBuyImmediately.do?toy_Quantity="+numberOfToyQuantity.innerHTML+"&toy_code=${toyList.toy_code}";
+            byeImmediately00.href="getMallFeedOneInfoBuyImmediately.do?feed_Quantity="+numberOfToyQuantity.innerHTML+"&feed_code=${feedList.feed_code}";
         }
     }
     function buyImmediately01() {
@@ -100,17 +101,17 @@
         var salesOption = document.getElementById("toy-sales-option");
         var byeImmediately00 = document.getElementById("byt-immediately00");
 
-        if(salesOption.value === "selected disabled"){
+         if(salesOption.value === "selected disabled"){
             alert("옵션을 선택해 주세요.")
         } else if(countProduct.innerHTML === '0') {
             alert("수량을 선택해 주세요");
         }else {
-            alert("로그인을 하셔야 구입이 가능합니다");
-            // if(confirmCheck===true){
-            //     login(event);
-            // } else{
-            //     byeImmediately00.href=""
-            // }
+             alert("로그인을 하셔야 구입이 가능합니다");
+             // if(confirmCheck===true){
+             //     login(event);
+             // } else{
+             //     byeImmediately00.href=""
+             // }
         }
     }
 </script>

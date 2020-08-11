@@ -3,6 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="MallOrderDAO">
+    <resultMap type="MemberOrderVO" id="MemberOrder">
+        <id property="seq" column="SEQ" />
+        <result property="id" column="ID"/>
+        <result property="pwd" column="PWD"/>
+        <result property="name" column="NAME"/>
+        <result property="phone" column="PHONE" />
+        <result property="email" column="EMAIL" />
+        <result property="zipcode" column="ZIPCODE" />
+        <result property="address" column="ADDRESS" />
+        <result property="point" column="POINT" />
+        <result property="rank" column="RANK" />
+        <result property="type" column="TYPE" />
+        <result property="regDate" column="REGDATE"/>
+        <result property="code" column="CODE"/>
+    </resultMap>
 
 <!--    <resultMap type="mallOrder" id="order">-->
 <!--        <id property="order_status_no" column="ORDER_STATUS_NO" />-->
@@ -45,6 +60,31 @@
 <!--        VALUES(toy_seq.nextval, #{toy_name}, sysdate, #{toy_price},-->
 <!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
 <!--    </insert>-->
+<!--    결제 완료된 feed order 테이블 두개에 넣어주기-->
+    <insert id="insertOrderFeed" parameterType="Order">
+        INSERT INTO order_list (order_no, order_id, order_phone, order_price, order_state,
+                                    order_memo, order_address, order_receiver, order_zipcode,
+                                        order_point_used, order_name, order_quantity)
+        VALUES(order_no_seq.NEXTVAL, #{order_id}, #{order_phone}, #{order_price}, '1',
+                    '배송 잘 해 주세요', #{order_address}, #{order_receiver}, #{order_zipcode},
+                        #{order_point_used}, #{order_name}, #{order_quantity})
+    </insert>
+<!--    &lt;!&ndash;    결제 완료된 Toy order 테이블 두개에 넣어주기&ndash;&gt;-->
+<!--    <insert id="insertOrderToy" parameterType="Order">-->
+<!--        INSERT INTO order_list (order_no, order_id, order_phone, order_price, order_state,-->
+<!--                                    order_memo, order_address, order_receiver, order_zipcode,-->
+<!--                                        order_point_used, order_name, order_quantity)-->
+<!--        VALUES(order_no_seq.NEXTVAL, #{order_id}, #{order_phone}, #{order_price}, '1',-->
+<!--                    '배송 잘 해 주세요', #{order_address}, #{order_receiver}, #{order_zipcode},-->
+<!--                        #{order_point_used}, #{order_name}, #{order_quantity})-->
+<!--    </insert>-->
+<!--    <insert id="insertOrderStatusFeed" parameterType="mallOrder">-->
+<!--        INSERT INTO order_status (order_status_no, order_status_id, order_status_state, order_status_zipcode,-->
+<!--            order_status_address1, order_status_receiver, order_status_phone, order_status_point_used,-->
+<!--            order_status_price,order_status_name) VALUES(#{order_status_no}, #{order_status_id}, '배송중', #{order_status_zipcode},-->
+<!--            #{order_status_address1}, #{order_status_receiver}, #{order_status_phone}, #{order_status_point},-->
+<!--            #{order_status_price}, #{order_status_name})-->
+<!--    </insert>-->
 
 <!--&lt;!&ndash;    주문목록 불러오기(상세)&ndash;&gt;-->
 <!--    <select id="getMallOrderList" resultMap="order_li">-->
@@ -67,10 +107,25 @@
         DELETE FROM order_list WHERE order_no=#{order_no}
     </delete>
 
+
     <!-- 포인트적립 불러오기  -->
     <select id="getMallPointList" resultType="mallOrder">
         SELECT * FROM order_status
     </select>
 
+
+<!--    #################################################################################################-->
+
+<!--    회원 결제시 포인트 삭제-->
+    <update id="updateMemberPoint" parameterType="MemberOrderVO">
+        UPDATE member SET point=#{point} WHERE id=#{id}
+    </update>
+
+
 </mapper>
+
+
+
+
+
 

@@ -2,6 +2,7 @@ package com.omgm.admin.mall.service;
 
 
 import com.omgm.admin.mall.beans.*;
+import com.omgm.member.beans.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -83,9 +84,10 @@ public class MallServiceImpl implements MallService {
         return mallDAO.getMallFeedList();
     }
 
-//  #################################################################
+//  #######################################################################################
     @Autowired
     MallOrderDAO mallOrderDAO;
+
 
 //    //주문등록(상세)
 //    @Override
@@ -126,6 +128,29 @@ public class MallServiceImpl implements MallService {
     public void deleteOrder(OrderVO vo) {
         mallOrderDAO.deleteOrder(vo);
     }
+
+
+    @Override
+    public void updateMemberPoint(MemberOrderVO vo) throws Exception{
+        mallOrderDAO.updateMemberPoint(vo);
+    }
+
+    /////////////////////// ORDER_LIST //////////////////////////////////
+
+
+    // 사료관련 ORDER 정보 ORDER_LIST 테이블에 넣기
+    @Override
+    public void insertOrderFeed(OrderVO vo) {mallOrderDAO.insertOrderFeed(vo);}
+
+    @Override
+    public List<OrderVO> getOrderList(OrderVO vo) throws Exception {
+        return null;
+    }
+
+    /////////////////////// ORDER_STATUS //////////////////////////////////
+    // 사료관련 ORDER 정보 ORDER_STATUS 테이블에 넣기
+//    @Override
+//    public void insertOrderStatusFeed(MallOrderVO vo) {mallOrderDAO.insertOrderStatusFeed(vo);}
 
     //포인트적립 불러오기
     @Override

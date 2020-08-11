@@ -34,7 +34,6 @@
   <a href="orderInquiry.mdo">주문조회 페이지 이동 - 해결바람</a>
   <a href="productOrder.mdo">주문현황 페이지 이동</a>
   <a href="getMallPointList.mdo">포인트 지급내역 페이지 이동</a>
-  <a href="hotelRegister.mdo">객실정보 페이지 이동</a>
   <a href="hotelList.mdo">객실정보 페이지 이동</a>
   <a href="hotelRegister.mdo">객실등록 페이지 이동</a>
 

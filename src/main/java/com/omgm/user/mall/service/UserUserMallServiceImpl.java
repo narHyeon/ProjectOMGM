@@ -25,9 +25,29 @@ public class UserUserMallServiceImpl implements UserMallService {
         return userMallDAO.selectCountMall();
     }
 
+    // 클라이언트 선택 사료 결제 페이지 이동
+    @Override
+    public UserMallFeedVO getMallFeedOneInfo(UserMallFeedVO vo) throws Exception {
+        return userMallDAO.getMallFeedOneInfo(vo);
+    }
 
 
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
+    @Override
+    public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception {
+        return userMallDAO.getMallToyList(vo, navi);
+    }
+    // wkdsksrka 테이블 상품 갯수
+    @Override
+    public int selectCountToyMall() {
+        return userMallDAO.selectCountToyMall();
+    }
+
+    // 클라이언트 선택 장난감 결제 페이지 이동
+    @Override
+    public UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) throws Exception {
+        return userMallDAO.getMallToyOneInfo(vo);
+    }
 
     //////////// 장바구니 /////////////////////////////////////////
     @Override

@@ -3,7 +3,8 @@
 <html>
 <head>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script src="resources/js/header.js" defer></script>
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
@@ -50,7 +51,7 @@
 				<li><a href="#">OMGMall </a>
 					<ul>
 						<li><a href="getMallFeedList.do"> 사료 </a></li>
-						<li><a href="toySales.do"> 장난감 </a></li>
+						<li><a href="getMallToyList.do"> 장난감 </a></li>
 					</ul></li>
 				<li><a href="#">Info </a>
 					<ul>
@@ -92,7 +93,7 @@
 			<li><a href="#">OMGMall</a>
 				<ul class="sub_menu">
 					<li><a href="getMallFeedList.do"> 사료 </a></li>
-					<li><a href="toySales.do"> 장난감 </a></li>
+					<li><a href="getMallToyList.do"> 장난감 </a></li>
 				</ul></li>
 			<li><a href="#">Info</a>
 				<ul class="sub_menu">

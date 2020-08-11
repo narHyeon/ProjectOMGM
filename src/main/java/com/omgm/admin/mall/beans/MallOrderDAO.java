@@ -1,7 +1,5 @@
 package com.omgm.admin.mall.beans;
 
-import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
-import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,6 +12,31 @@ public class MallOrderDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    // 멤버 결제시 포인트 삭제
+    public void updateMemberPoint(MemberOrderVO vo) {
+        sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);
+    }
+
+    ///////// ORDER_lIST /////////////////////////////////////////
+    // 주문했을시 주문 정보 ORDER_LIST 에 입력
+    public void insertOrderFeed(OrderVO vo) {
+        sqlSessionTemplate.insert("MallOrderDAO.insertOrderFeed", vo);
+    }
+
+    //주문목록보기
+    public List<OrderVO> getOrderList() {
+        return sqlSessionTemplate.selectList("MallOrderDAO.getOrderList");
+    }
+
+    //주문삭제
+    public int deleteOrder(OrderVO vo) {
+        return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder", vo);
+    }
+
+
+    //////// ORDER_STATUS ///////////////////////////////////////
+    // 주문했을시 주문 정보 ORDER_STATUS 에 입력
+//    public void insertOrderStatusFeed(MallOrderVO vo) {sqlSessionTemplate.insert("MallOrderDAO.insertOrderStatusFeed", vo);}
     //주문추가(상세)
     public void insertMallOrder(MallOrderVO vo) {
         sqlSessionTemplate.insert("MallOrderDAO.insertMallOrder", vo);
@@ -35,16 +58,13 @@ public class MallOrderDAO {
 ////        return sqlSessionTemplate.selectList("MallOrderDAO.getDetailOrder",vo);
 ////    }
 
-    //주문목록보기
-    public List<OrderVO> getOrderList () { return sqlSessionTemplate.selectList("MallOrderDAO.getOrderList"); }
-
-    //주문삭제
-    public int deleteOrder(OrderVO vo) { return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder",vo); }
-
     //포인트 적립
-    public List<MallOrderVO> getMallPointList () { return sqlSessionTemplate.selectList("MallOrderDAO.getMallPointList"); }
+    public List<MallOrderVO> getMallPointList() {
+        return sqlSessionTemplate.selectList("MallOrderDAO.getMallPointList");
+    }
 
 //    public OrderVO getDetail(OrderVO vo) {
 //        return sqlSessionTemplate.selectOne("MallOrderDAO.getDetail",vo);
 //    }
 }
+
