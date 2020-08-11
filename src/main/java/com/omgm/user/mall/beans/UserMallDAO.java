@@ -32,4 +32,10 @@ public class UserMallDAO {
         RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
         return sqlSessionTemplate.selectList("UserMallDAO.getMallToyList",vo, rb);
     }
+
+    //////////////// 장바구니 /////////////////////////////
+    //장바구니 출력
+    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) {
+        return sqlSessionTemplate.selectList("UserMallDAO.getMallFeedList",vo);
+    }
 }

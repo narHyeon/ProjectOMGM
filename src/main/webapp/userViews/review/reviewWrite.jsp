@@ -28,6 +28,8 @@
     </form>
 </div>
 
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+
 	<%--  섬머노트  --%>
 	<script src="resources/js/summernote/summernote-lite.js"></script>
 	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>

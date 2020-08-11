@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -83,6 +83,24 @@
             margin-bottom: 1%;
         }
 
+        .productOrderField{
+            padding-left: 50px;
+            padding-top: 20px;
+        }
+        .productOrderField th{
+            font-weight: bold;
+        }
+        .productOrder_col{
+            padding-left: 20px;
+        }
+        .productOrder_col th{
+            font-weight: bold;
+        }
+        .table_table_bordered{
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+
         #m-bar-content{background-color:white; margin-left:5%;  margin-top:-0.5%; width:70%; height:50%; border: 1px solid #FFABB9;}
         #m-bar-content1{background-color:white; margin-left:5%;  width:70%; height:50%; }
         #m-bar-content2{background-color:white; margin-left:5%;  width:70%; height:50%; }
@@ -113,6 +131,7 @@
 </head>
 <body>
 <!-- DataTales Example -->
+<div style="width:100%; height:800px; overflow:auto">
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-info">주문현황</h6>
@@ -121,14 +140,17 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="order_table" width="100%" cellspacing="0">
                 <thead>
-                <tr>
+                <tr class="productOrder_col">
                     <th>주문번호</th>
-                    <th>주문자ID</th>
                     <th>주문날짜</th>
+                    <th>주문자ID</th>
                     <th>전화번호</th>
-                    <th>주문상태</th>
+                    <th>수신인</th>
+                    <th>주소</th>
+                    <th>주문수량</th>
                     <th>결제금액</th>
-                    <th>상세보기</th>
+                    <th>배송메모</th>
+                    <th>주문상태</th>
                     <th>삭제</th>
                 </tr>
                 </thead>
@@ -137,57 +159,46 @@
         </div>
     </div>
 </div>
-
 <div>
 <%-- detailList --%>
-<input type="checkbox" id="detail_popup">
+<input type="checkbox" id="detail_popup" >
 <div>
     <div>
-        <label for="detail_popup"></label>
+        <label for="detail_popup" style="opacity : 0.7;"></label>
         <form action="login.lo" class="detail-form">
-            <h1 style="font-weight:700; padding-left: 300px; ">주문상세</h1>
+            <h1 style="font-weight:700; padding-left: 223px; padding-top: 26px;">주문상세</h1>
 
-        <c:forEach var="order" items="${order}">
-            <input type="hidden" name="order_no" value="${order.order_no}">
-                    <p><span>주문자</span>${order.order_id}</p>
-                    <p><span>주문날짜</span>${order.order_date}</p>
-        </c:forEach>
-            <table class="table table-bordered" id="order_List" width="100%" cellspacing="0">
+        <div id="detail_order_header"></div>
+            <table class="table_table_bordered" id="order_list" width="100%" cellspacing="0">
                 <thead>
-                <tr>
+                <tr class="productOrderField">
                     <th>주문번호</th>
-                    <th></th>
+                    <th>이미지</th>
                     <th>상품명</th>
                     <th>가격</th>
                 </tr>
                 </thead>
                 <tbody>
-                <input type="hidden" name="">
-                    <c:forEach var="pro_status" items="${pro_status}">
-                        <input id="orderSeq2" type="hidden" name="order_status_no" value="">
-                        <tr>
-
-                            <th>${order.order_no}</th>
-                            <th>${order.order_id}</th>
-                            <th>${order.order_date}</th>
-                            <th>${order.order_price}</th>
-                            <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
-                            <th><button type="submit" class="btn btn-info btn-delete">삭제</button></th>
-                            
+                    <c:forEach var="orderDetail" items="${orderDetail}">
+                        <tr class="order_feild">
+                            <th>${orderDetail.order_status_no}</th>
+                            <th>${orderDetail.order_status_memo}</th>
+                            <th>${orderDetail.order_status_date}</th>
+                            <th>${orderDetail.order_status_price}</th>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
-            <c:forEach var="pro_status" items="${pro_status}">
-                <input type="hidden" name="order_status_no" value="${pro_status.order_status_no}">
-                <p><span>수령인</span>${pro_status.order_status_receiver}</p>
-                <p><span>주소</span>(${pro_status.order_status_zipcode}<br>${pro_status.order_status_address1}${pro_status.order_status_address2}</p>
-            </c:forEach>
+
+
+            <div id="detail_order_footer"></div>
+
         </form>
     </div>
     <label for="detail_popup"></label>
 </div>
 </div>
+
 <script src="resources/admin/js/productOrder/proOrder.js"></script>
 <c:forEach var="order" items="${order}">
     <script>
@@ -197,7 +208,12 @@
             date: '${order.order_date}',
             phone: '${order.order_phone}',
             state: '${order.order_state}',
-            price: '${order.order_price}'
+            price: '${order.order_price}',
+            address: '${order.order_address}',
+            receiver: '${order.order_receiver}',
+            memo: '${order.order_memo}',
+            quantity: '${order.order_quantity}'
+
         }
         createForm(order);
     </script>

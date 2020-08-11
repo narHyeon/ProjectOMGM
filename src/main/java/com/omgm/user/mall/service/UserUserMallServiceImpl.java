@@ -26,6 +26,13 @@ public class UserUserMallServiceImpl implements UserMallService {
     }
 
 
+
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
+
+    //////////// 장바구니 /////////////////////////////////////////
+    @Override
+    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) throws Exception {
+        return userMallDAO.getMallFeedList(vo);
+    }
 
 }

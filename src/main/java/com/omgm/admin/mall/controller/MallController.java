@@ -4,7 +4,6 @@ import com.omgm.admin.mall.beans.*;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -158,38 +157,67 @@ public class MallController {
 // ########################################################################################
 
 
-//    //주문목록불러오기(상세)
-//    @RequestMapping("/productStatus.mdo")
-//    public ModelAndView productStatus(MallOrderVO vo) throws Exception{
+//    //주문목록삭제(상세)
+//    @RequestMapping("/productStatusDelete.mdo")
+//    public ModelAndView productStatusDelete(MallOrderVO vo) throws Exception {
+//        ModelAndView mav = new ModelAndView();
+//        mallService.deleteMallOrder(vo);
+//        mav.setViewName("redirect:/productStatus.mdo");
+//        return mav;
+//    }
+//
+//    //주문목록불러오기
+//    @RequestMapping("/productOrder.mdo")
+//    public ModelAndView productOrder(OrderVO vo,MallOrderVO vo1) throws Exception{
 //        ModelAndView mav = new ModelAndView();
 //        mav.setViewName("/mall/productOrder");
-//        mav.addObject("pro_status",mallService.getMallOrderList());
+//        mav.addObject("order",mallService.getOrderList(vo));
+//
+//
+//        vo.setOrder_no(8);
+//        List<OrderVO> list = mallService.getMallOrderList(vo);
+//        System.out.println(list);
+//        mav.addObject("orderDetail",list);
+//        return mav;
+//    }
+//
+//    //주문상세목록 불러오기
+//    @RequestMapping("/productOrderDetail.mdo")
+//    public ModelAndView productOrderDetail(OrderVO vo,MallOrderVO vo1) throws Exception{
+//        ModelAndView mav = new ModelAndView();
+//        mallService.getMallOrderList(vo);
+//        mav.setViewName("redirect:/productOrder.mdo");
+//        return mav;
+//    }
+//
+//    //주문목록삭제
+//    @RequestMapping("/productOrderDelete.mdo")
+//    public ModelAndView productOrderDelete(OrderVO vo) throws Exception {
+//        ModelAndView mav = new ModelAndView();
+//        System.out.println("삭제 실행");
+//        mallService.deleteOrder(vo);
+//        mav.setViewName("redirect:/productOrder.mdo");
 //        return mav;
 //    }
 
-    //주문목록삭제(상세)
-    @RequestMapping("/productStatusDelete.mdo")
-    public ModelAndView productStatusDelete(MallOrderVO vo) throws Exception {
-        ModelAndView mav = new ModelAndView();
-        mallService.deleteMallOrder(vo);
-        mav.setViewName("redirect:/productStatus.mdo");
-        return mav;
-    }
 
-    //주문목록불러오기
+
+//    @RequestMapping("/productOrderDetail.mdo")
+//    public ModelAndView productOrderDetail(OrderVO vo) {
+//        ModelAndView mav = new ModelAndView();
+//        mav.addObject("order",vo);
+////        mav.addObject("orderDetail",list);
+//        mav.setViewName("/mall/productOrder");
+//        return mav;
+//    }
+
+
+    //주문목록 불러오기
     @RequestMapping("/productOrder.mdo")
-    public ModelAndView productOrder(OrderVO vo,MallOrderVO vo1) throws Exception{
+    public ModelAndView productOrder(OrderVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/mall/productOrder");
-        List<OrderVO> order = mallService.getOrderList(vo);
-        vo1.setOrder_status_no(8);
-        List<MallOrderVO> list = mallService.getMallOrderList(vo1);
-        for(MallOrderVO li : list) {
-            System.out.println(li.getOrder_status_id());
-            System.out.println(li.getOrder_status_date());
-        }
-        mav.addObject("order",mallService.getOrderList(vo));
-        mav.addObject("pro_status",mallService.getMallOrderList(vo1));
+        mav.addObject("order", mallService.getOrderList());
         return mav;
     }
 
@@ -197,7 +225,6 @@ public class MallController {
     @RequestMapping("/productOrderDelete.mdo")
     public ModelAndView productOrderDelete(OrderVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
-        System.out.println("삭제 실행");
         mallService.deleteOrder(vo);
         mav.setViewName("redirect:/productOrder.mdo");
         return mav;

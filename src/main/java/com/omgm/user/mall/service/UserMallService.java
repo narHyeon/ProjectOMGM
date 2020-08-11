@@ -18,5 +18,9 @@ public interface UserMallService {
 
     /////////////// 장난감 관련 서비스 //////////////////////
 
+    /////////////// 장바구니 /////////////////////////////
+    //장바구니 나열-현재 사료리스트
+    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) throws Exception;
+
 
 }

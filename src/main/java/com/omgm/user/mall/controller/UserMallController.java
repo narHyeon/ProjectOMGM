@@ -41,10 +41,10 @@ public class UserMallController {
     ////////////////////////// 장난감 관련 컨트롤러 /////////////////////////
     //장바구니 리스트 출력(미완성-현재는 사료리스트가 출력)
     @RequestMapping("/cartList.do")
-    public ModelAndView cart(UserMallFeedVO vo, PageNavigatorMall navi) throws Exception{
+    public ModelAndView cartList(UserMallFeedVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/sales/cart");
-        mav.addObject("FeedList", userMallService.getMallFeedList(vo, navi));
+        mav.addObject("FeedList1", userMallService.getMallFeedList(vo));
         return mav;
     }
 
