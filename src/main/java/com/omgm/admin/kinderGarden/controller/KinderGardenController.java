@@ -47,6 +47,7 @@ public class KinderGardenController {
     @RequestMapping("/kinderGardenReservation.mdo")
     public ModelAndView kinderGardenReservation(KinderGardenVO vo) {
         ModelAndView mav = new ModelAndView();
+        mav.addObject("reservation",kinderGardenService.getKinderGardenReservation());
         mav.setViewName("/kinderGarden/kinderGardenReservation");
         return mav;
     }

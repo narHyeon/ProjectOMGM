@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,39 +28,37 @@
             <table class="table table-bordered" id="kinderGarden_reservation_table" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>이름</th>
-                    <th>고양이</th>
+                    <th>번호</th>
                     <th>과정</th>
-                    <th>수료 여부</th>
-                    <th>날짜</th>
+                    <th>보호자명</th>
+                    <th>반려동물</th>
+                    <th>반려동물 나이</th>
+                    <th>핸드폰</th>
+                    <th>이메일</th>
+                    <th>우편번호</th>
+                    <th>주소</th>
+                    <th>기타 애완동물 관련사항</th>
+                    <th>고유번호</th>
+                    <th>결제방법</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th><input type="text" value="litos"></th>
-                        <th><input type="text" value="금라니"></th>
-                        <th><input type="text" value="먼치킨"></th>
-                        <th><input type="text" value="배변교육"></th>
-                        <th><input type="text" value="수료"></th>
-                        <th><input type="text" value="2020.07.25(목)"></th>
-                    </tr>
-                    <tr>
-                        <th><input type="text" value="litos"></th>
-                        <th><input type="text" value="금라니"></th>
-                        <th><input type="text" value="먼치킨"></th>
-                        <th><input type="text" value="배변교육"></th>
-                        <th><input type="text" value="수료"></th>
-                        <th><input type="text" value="2020.07.25(목)"></th>
-                    </tr>
-                    <tr>
-                        <th><input type="text" value="litos"></th>
-                        <th><input type="text" value="금라니"></th>
-                        <th><input type="text" value="먼치킨"></th>
-                        <th><input type="text" value="배변교육"></th>
-                        <th><input type="text" value="수료"></th>
-                        <th><input type="text" value="2020.07.25(목)"></th>
-                    </tr>
+                    <c:forEach var="reser" items="${reservation}">
+                        <tr>
+                            <th><input type="text" value="${reser.seq}"></th>
+                            <th><input type="text" value="${reser.name}"></th>
+                            <th><input type="text" value="${reser.buyerName}"></th>
+                            <th><input type="text" value="${reser.animal}"></th>
+                            <th><input type="text" value="${reser.animalAge}"></th>
+                            <th><input type="text" value="${reser.phone}"></th>
+                            <th><input type="text" value="${reser.email}"></th>
+                            <th><input type="text" value="${reser.zipcode}"></th>
+                            <th><input type="text" value="${reser.address}"></th>
+                            <th><input type="text" value="${reser.etc}"></th>
+                            <th><input type="text" value="${reser.merchantUid}"></th>
+                            <th><input type="text" value="${reser.pgProvider}"></th>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
