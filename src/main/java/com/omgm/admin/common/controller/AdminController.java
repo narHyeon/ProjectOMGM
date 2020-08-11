@@ -78,4 +78,12 @@ public class AdminController {
         mav.setViewName("/hotel/hotelRegister");
         return mav;
     }
+
+    //이용후기 관리 페이지
+    @RequestMapping("/adminReview.mdo")
+    public ModelAndView adminReview(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/adminReview");
+        return mav;
+    }
 }
