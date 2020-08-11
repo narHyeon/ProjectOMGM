@@ -354,42 +354,42 @@ window.addEventListener('DOMContentLoaded', (event) => {
 },{once: true});
 
 
-// // 카카오 결제 관련
-// function kakaoPay(payment,url) {
-//     let IMP = window.IMP;
-//     IMP.init('imp95616027');
-//     IMP.request_pay({
-//         pg : 'kakao', // version 1.1.0부터 지원.
-//         pay_method : 'card',
-//         merchant_uid : 'merchant_' + new Date().getTime(),
-//         name : payment.name,
-//         amount : payment.price,
-//         buyer_email : payment.email,
-//         buyer_name : payment.buyer_name,
-//         buyer_tel : payment.phone,
-//         buyer_addr : payment.address,
-//         buyer_postcode : payment.zipcode,
-//         // m_redirect_url : 'https://localhost:8080/main.do'
-//         }, function(rsp) {
-//             if ( rsp.success ) {
-//                 alert('결제가 완료되었습니다. 감사합니다!');
-//                 const data = {
-//                     name: name, // "주문명:결제테스트"
-//                     merchantUID: rsp.merchant_uid, // 거래 고유번호
-//                     pgProvider: rsp.pg_provider, // "kakaopay"
-//                     paidAmount: rsp.paid_amount, // 결제가격
-//                     buyerName: rsp.buyer_name, // 주문자 이름
-//                     buyerTel: rsp.buyer_tel, // 주문자 전화번호
-//                     buyerEmail: rsp.buyer_email, // 주문자 이메일
-//                     buyerAddr: rsp.buyer_addr, // 주문자 주소
-//                     buyerPostcode: rsp.buyer_postcode // 주문자 우편번호
-//                 };
-//                 console.log(data);
-//                 window.location.href = url;
-//         } else {
-//             var msg = '결제에 실패하였습니다.';
-//             msg += '에러내용 : ' + rsp.error_msg;
-//         }
-//         // console.log(rsp);
-//     });
-// }
+// 카카오 결제 관련
+function kakaoPay(payment,url) {
+    let IMP = window.IMP;
+    IMP.init('imp95616027');
+    IMP.request_pay({
+        pg : 'kakao', // version 1.1.0부터 지원.
+        pay_method : 'card',
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : payment.name,
+        amount : payment.price,
+        buyer_email : payment.email,
+        buyer_name : payment.buyer_name,
+        buyer_tel : payment.phone,
+        buyer_addr : payment.address,
+        buyer_postcode : payment.zipcode,
+        // m_redirect_url : 'https://localhost:8080/main.do'
+        }, function(rsp) {
+            if ( rsp.success ) {
+                alert('결제가 완료되었습니다. 감사합니다!');
+                const data = {
+                    name: name, // "주문명:결제테스트"
+                    merchantUID: rsp.merchant_uid, // 거래 고유번호
+                    pgProvider: rsp.pg_provider, // "kakaopay"
+                    paidAmount: rsp.paid_amount, // 결제가격
+                    buyerName: rsp.buyer_name, // 주문자 이름
+                    buyerTel: rsp.buyer_tel, // 주문자 전화번호
+                    buyerEmail: rsp.buyer_email, // 주문자 이메일
+                    buyerAddr: rsp.buyer_addr, // 주문자 주소
+                    buyerPostcode: rsp.buyer_postcode // 주문자 우편번호
+                };
+                console.log(data);
+                window.location.href = url;
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+        // console.log(rsp);
+    });
+}

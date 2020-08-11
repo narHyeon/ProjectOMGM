@@ -167,7 +167,7 @@
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
             <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">${feedInfo.feed_point} 구매완료후 적립됩니다</p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
-            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPay()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
+            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPay01()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
             <div>
                 <script>
                     //수량 가져오기
@@ -180,7 +180,7 @@
 
                     var QuantityFeed1 = getParameterByName("feed_Quantity");
                    // 결제
-                    function kakaoPay() {
+                    function kakaoPay01() {
                         const buyI05Name = document.getElementById("buyImmediatelyDivSection05Name").value;
                         const buyI06Phone = document.getElementById("buyImmediatelyDivSection06Phone").value;
                         const buyI07Zipcode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
