@@ -95,5 +95,7 @@
 	<!-- Custom scripts for all pages-->
 	<script src="resources/admin/js/sb-admin-2.min.js"></script>
 
+	<%-- chart-area JavaScript --%>
+	<script src="resources/admin/js/demo/chart-area-demo.js"></script>
 </body>
 </html>
