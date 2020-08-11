@@ -21,7 +21,10 @@
         <result property="animal" column="ANIMAL"/>
         <result property="animalAge" column="ANIMAL_AGE"/>
     </resultMap>
-
+<!--    // 회원 결제시 포인트 삭제-->
+<!--    <update id="updateMemberPoint" parameterType="MemberVO">-->
+<!--        UPDATE member SET point=#{point} WHERE id=#{id}-->
+<!--    </update>-->
     <!-- 실 사용 -->
     <insert id="addMember" parameterType="MemberVO">
         INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address, type, code)

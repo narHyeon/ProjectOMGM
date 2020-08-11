@@ -2,6 +2,8 @@ package com.omgm.admin.mall.controller;
 
 import com.omgm.admin.mall.beans.*;
 import com.omgm.admin.mall.service.MallService;
+import com.omgm.member.beans.MemberVO;
+import com.omgm.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -216,10 +218,15 @@ public class MallController {
     @ResponseBody
     @RequestMapping("/insertOrderFeed.mdo")
     public OrderVO insertOrderFeed(@RequestBody OrderVO vo) throws Exception{
-
             mallService.insertOrderFeed(vo);
-//            vo1.setOrder_status_no();
-//            mallService.insertOrderStatusFeed(vo1);
+            MemberOrderVO vo1 = new MemberOrderVO();
+        System.out.println("test1");
+
+        vo1.setId(vo.getOrder_id());
+        vo1.setPoint(vo.getOrder_point_used());
+
+            mallService.updateMemberPoint(vo1);
+
             return vo;
     }
 

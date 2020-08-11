@@ -123,7 +123,7 @@
                     <div style="display: flex; flex-direction: column">
 
                     </div>
-                    <img src="resources/img/product/${feedInfo.feed_img}" style="width: 74%; ;">
+                    <img src="resources/img/product/${feedInfo.feed_img}" style="width: 74%; ">
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">
@@ -167,21 +167,42 @@
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
             <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">${feedInfo.feed_point} 구매완료후 적립됩니다</p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
-            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPay()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
+            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPay01()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
             <div>
                 <script>
-                    function kakaoPay() {
+                    //수량 가져오기
+                    function getParameterByName(name) {
+                        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                            results = regex.exec(location.search);
+                        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                    }
+
+                    var QuantityFeed1 = getParameterByName("feed_Quantity");
+                   // 결제
+                    function kakaoPay01() {
+                        const buyI05Name = document.getElementById("buyImmediatelyDivSection05Name").value;
+                        const buyI06Phone = document.getElementById("buyImmediatelyDivSection06Phone").value;
+                        const buyI07Zipcode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
+                        const buyI07Address01 = document.getElementById("buyImmediatelyDivSection07Address01").value;
+                        if(buyI05Name==="" || buyI06Phone==="" || buyI07Zipcode==="" || buyI07Address01===""){
+                            alert('구매자 정보를 입력해 주시기 바랍니다')
+
+                        }else{
                         $(function () {
                             var IMP = window.IMP; // 생략가능
                             IMP.init('imp00339951'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
                             var msg;
                             var totalPrice = document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML;
-                            var buyerName = document.getElementById("buyImmediatelyDivSection05Name").innerHTML;
+                            var buyerName = document.getElementById("buyImmediatelyDivSection05Name").value;
                             var buyerPHNum = document.getElementById("buyImmediatelyDivSection06Phone").value;
-                            var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").innerHTML;
-                            var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").innerHTML;
-                            alert(totalPrice + " " + buyerPHNum);
+                            var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").value;
+                            var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
+                            var buyerPointUsed = ${member.point} - document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML+${feedInfo.feed_point};
+                            alert(buyerPointUsed);
+                            // alert(buyerZipCode + " "+buyerAddress + " " + buyerName +" "+ buyerPointUsed);
                             IMP.request_pay({
+
                                 pg: 'kakaopay',
                                 pay_method: 'card',
                                 merchant_uid: 'merchant_' + new Date().getTime(),
@@ -204,14 +225,24 @@
                                         data: JSON.stringify({
                                             order_price: totalPrice,
                                             order_id: "${member.id}",
-                                            order_phone: buyerPHNum
+                                            order_phone: buyerPHNum,
+                                            order_address: buyerAddress,
+                                            order_receiver: buyerName,
+                                            order_zipcode: buyerZipCode,
+                                            order_point_used: buyerPointUsed,
+                                            order_name: "${member.name}",
+                                            order_quantity: QuantityFeed1,
+
+                                            <%--id: "${member.id}",--%>
+                                            <%--point: buyerPointUsed,--%>
+
                                             // order_no: rsp.merchant_uid
                                         }),
                                         success : function(data) {
                                             //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
                                                 msg = '결제가 완료되었습니다.';
-                                                msg += '\n고유ID : ' + rsp.imp_uid;
-                                                msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+                                                // msg += '\n고유ID : ' + rsp.imp_uid;
+                                                // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                                 msg += '\n결제 금액 : ' + rsp.paid_amount;
                                                 alert(msg);
                                         },
@@ -227,12 +258,13 @@
                                     msg = '결제에 실패하였습니다.';
                                     // msg += '에러내용 : ' + rsp.error_msg;
                                     //실패시 이동할 페이지
-                                    location.href = "<%=request.getContextPath()%>/getMallFeedOneInfoBuyImmediately.do?feed_Quantity=1&feed_code=49";
+                                    location.href = "<%=request.getContextPath()%>/getMallFeedList.do";
                                     alert(msg);
                                 }
                             });
 
                         });
+                        }
                     }
                 </script>
             </div>
@@ -291,7 +323,7 @@
     document.getElementById("buyImmediatelyDivSection03Left01DiscountPrice").innerHTML="할인 금액 : " + ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
     document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML= ${feedInfo.feed_price}*QuantityFeed;
     document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML= ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_discount}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
+    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_price}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
     // 우편번호 체크
     function buyImmediatelyZipCheck() {
         const width = 380;

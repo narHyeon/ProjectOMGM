@@ -25,6 +25,7 @@
 		<typeAlias alias="userMallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
 		<typeAlias alias="userMallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
 		<typeAlias alias="Order" type="com.omgm.admin.mall.beans.OrderVO" />
+		<typeAlias alias="MemberOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
 		<!--		-->
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
