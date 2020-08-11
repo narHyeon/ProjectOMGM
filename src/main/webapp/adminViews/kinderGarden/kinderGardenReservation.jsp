@@ -64,7 +64,7 @@
                                 <th>${reser.phone}</th>
                                 <th>${reser.etc}</th>
                                 <th><button id="delete_reservation_select${reser.seq}" class="btn btn-danger btn-circle btn-sm" onclick="deleteReservation(event)" value="${reser.seq}">
-                                    <i class="fas fa-trash" disabled=""></i>
+                                    <i class="fas fa-trash" style="pointer-events: none;"></i>
                                 </button> 예약취소</th>
                             </tr>
                         </c:if>
@@ -135,9 +135,20 @@
     }
 
     function deleteReservation(event) {
-        console.log(event.target);
         event.preventDefault();
+        const xhr = new XMLHttpRequest();
 
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+                alert('예약이 성공적으로 취소되었습니다!');
+                window.location.reload();
+            }
+        };
+
+        xhr.open('POST','deleteReservation.mdo',true);
+        xhr.setRequestHeader('content-type','application/json');
+        const data = { seq: event.target.value };
+        xhr.send(JSON.stringify(data));
     }
 </script>
 </html>
