@@ -9,9 +9,9 @@ public class OrderVO {
     private String order_phone;
     private int order_price;
     private String order_state;
+    private String order_memo;
     private String order_address;
     private String order_receiver;
-    private String order_memo;
     private String order_zipcode;
     private int order_point_used;
     private String order_name;

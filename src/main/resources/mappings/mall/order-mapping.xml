@@ -19,29 +19,38 @@
         <result property="code" column="CODE"/>
     </resultMap>
 
-    <resultMap type="mallOrder" id="order">
-        <id property="order_status_no" column="ORDER_STATUS_NO" />
-        <result property="order_status_id" column="ORDER_STATUS_ID" />
-        <result property="order_status_date" column="ORDER_STATUS_DATE" />
-        <result property="order_status_state" column="ORDER_STATUS_STATE" />
-        <result property="order_status_zipcode" column="ORDER_STATUS_ZIPCODE" />
-        <result property="order_status_address1" column="ORDER_STATUS_ADDRESS1" />
-        <result property="order_status_address2" column="ORDER_STATUS_ADDRESS2" />
-        <result property="order_status_receiver" column="ORDER_STATUS_RECEIVER" />
-        <result property="order_status_phone" column="ORDER_STATUS_PHONE" />
-        <result property="order_status_price" column="ORDER_STATUS_PRICE" />
-        <result property="order_status_name" column="ORDER_STATUS_NAME" />
-        <result property="order_status_point_used" column="ORDER_STATUS_POINT_USED" />
-        <result property="order_status_memo" column="ORDER_STATUS_MEMO" />
-    </resultMap>
+<!--    <resultMap type="mallOrder" id="order">-->
+<!--        <id property="order_status_no" column="ORDER_STATUS_NO" />-->
+<!--        <result property="order_status_id" column="ORDER_STATUS_ID" />-->
+<!--        <result property="order_status_date" column="ORDER_STATUS_DATE" />-->
+<!--        <result property="order_status_state" column="ORDER_STATUS_STATE" />-->
+<!--        <result property="order_status_zipcode" column="ORDER_STATUS_ZIPCODE" />-->
+<!--        <result property="order_status_address1" column="ORDER_STATUS_ADDRESS1" />-->
+<!--        <result property="order_status_address2" column="ORDER_STATUS_ADDRESS2" />-->
+<!--        <result property="order_status_receiver" column="ORDER_STATUS_RECEIVER" />-->
+<!--        <result property="order_status_phone" column="ORDER_STATUS_PHONE" />-->
+<!--        <result property="order_status_price" column="ORDER_STATUS_PRICE" />-->
+<!--        <result property="order_status_name" column="ORDER_STATUS_NAME" />-->
+<!--        <result property="order_status_point_used" column="ORDER_STATUS_POINT_USED" />-->
+<!--        <result property="order_status_memo" column="ORDER_STATUS_MEMO" />-->
+<!--    </resultMap>-->
 
-    <resultMap type="Order" id="order_li">
+    <resultMap type="OrderVO" id="order_li">
         <id property="order_no" column="ORDER_NO" />
         <result property="order_id" column="ORDER_ID" />
         <result property="order_date" column="ORDER_DATE" />
         <result property="order_state" column="ORDER_STATE" />
         <result property="order_phone" column="ORDER_PHONE" />
         <result property="order_price" column="ORDER_PRICE" />
+        <result property="order_address" column="ORDER_ADDRESS" />
+        <result property="order_receiver" column="ORDER_RECEIVER" />
+        <result property="order_memo" column="ORDER_MEMO" />
+        <result property="order_zipcode" column="ORDER_ZIPCODE" />
+        <result property="order_point_used" column="ORDER_POINT_USED" />
+        <result property="order_name" column="ORDER_NAME" />
+        <result property="order_quantity" column="ORDER_QUANTITY" />
+
+
     </resultMap>
 
 
@@ -77,31 +86,32 @@
 <!--            #{order_status_price}, #{order_status_name})-->
 <!--    </insert>-->
 
-<!--    주문목록 불러오기(상세)-->
-    <select id="getMallOrderList" resultType="mallOrder">
-        SELECT * FROM order_status where order_status_no=#{order_status_no}
-    </select>
+<!--&lt;!&ndash;    주문목록 불러오기(상세)&ndash;&gt;-->
+<!--    <select id="getMallOrderList" resultMap="order_li">-->
+<!--       SELECT * FROM order_status where order_status_no = #{order_no}-->
+<!--    </select>-->
 
-<!--    주문목록 삭제하기(상세)-->
-    <delete id="deleteMallOrder" parameterType="mallOrder">
-        DELETE FROM order_status WHERE order_status_no=#{order_status_no}
-    </delete>
+<!--&lt;!&ndash;    주문목록 삭제하기(상세)&ndash;&gt;-->
+<!--    <delete id="deleteMallOrder" parameterType="mallOrder">-->
+<!--        DELETE FROM order_status WHERE order_status_no=#{order_status_no}-->
+<!--    </delete>-->
 
 
-    <!--    주문목록 불러오기-->
-    <select id="getOrderList" resultType="Order">
-        SELECT * FROM order_list
+    <!-- 주문목록 불러오기 -->
+    <select id="getOrderList" resultType="OrderVO">
+        SELECT * FROM order_list order by order_no asc
     </select>
 
     <!--    주문목록 삭제하기-->
-    <delete id="deleteOrder" parameterType="Order">
+    <delete id="deleteOrder" parameterType="OrderVO">
         DELETE FROM order_list WHERE order_no=#{order_no}
     </delete>
 
-    <!-- 포인트적립 불러오기   -->
-<!--    <select id="getMallPointList" resultType="mallOrder">-->
-<!--        SELECT * FROM order_status-->
-<!--    </select>-->
+
+    <!-- 포인트적립 불러오기  -->
+    <select id="getMallPointList" resultType="mallOrder">
+        SELECT * FROM order_status
+    </select>
 
 
 <!--    #################################################################################################-->
@@ -110,6 +120,7 @@
     <update id="updateMemberPoint" parameterType="MemberOrderVO">
         UPDATE member SET point=#{point} WHERE id=#{id}
     </update>
+
 
 </mapper>
 

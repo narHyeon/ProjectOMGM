@@ -31,6 +31,7 @@ public class UserUserMallServiceImpl implements UserMallService {
         return userMallDAO.getMallFeedOneInfo(vo);
     }
 
+
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
     @Override
     public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception {
@@ -46,6 +47,12 @@ public class UserUserMallServiceImpl implements UserMallService {
     @Override
     public UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) throws Exception {
         return userMallDAO.getMallToyOneInfo(vo);
+    }
+
+    //////////// 장바구니 /////////////////////////////////////////
+    @Override
+    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) throws Exception {
+        return userMallDAO.getMallFeedList(vo);
     }
 
 }

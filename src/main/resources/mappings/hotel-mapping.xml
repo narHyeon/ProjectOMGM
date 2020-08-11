@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="HotelDAO">
+
+	<resultMap type="hotel" id="hotelResult">
+		<id property="hotelImg" column="HOTEL_IMG" />
+		<result property="hotelNo" column="HOTEL_NO" />
+		<result property="hotelName" column="HOTEL_NAME" />
+		<result property="hotelSize" column="HOTEL_SIZE" />
+		<result property="hotelAnimalNum" column="HOTEL_ANIMAL_NUM" />
+		<result property="hotelPrice" column="HOTEL_PRICE" />
+	</resultMap>
+
+	<!-- 객실 정보 출력 -->
+	<select id="getHotelList" resultMap="hotelResult">
+		SELECT * FROM hotel order by HOTEL_NO asc
+	</select>
+
+	<!-- 객실 정보 삭제 -->
+	<delete id="deleteHotel" parameterType="hotel">
+        DELETE FROM hotel WHERE hotel_no=#{hotelNo}
+    </delete>
+
+	<!--  객실 등록-->
+	<insert id="insertHotel" parameterType="hotel">
+        INSERT INTO hotel (HOTEL_IMG, HOTEL_NO, HOTEL_NAME, HOTEL_SIZE,
+            HOTEL_ANIMAL_NUM, HOTEL_PRICE)
+        VALUES( #{hotelImg}, hotel_seq.nextval , #{hotelName},
+            #{hotelSize}, #{hotelAnimalNum}, #{hotelPrice})
+    </insert>
+</mapper>

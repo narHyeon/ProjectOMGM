@@ -128,20 +128,35 @@
 	transform: rotate(0deg);
 }
 
+<<<<<<< HEAD
+100%{
+-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+=======
 	100%{
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
 	}
+>>>>>>> ebe6372da43c0c17551486a97d59cbe9f72c4e2b
 }
 @keyframes fa-spin { 0% {
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
+<<<<<<< HEAD
+100%
+{
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+=======
 	100%
 	{
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
 	}
+>>>>>>> ebe6372da43c0c17551486a97d59cbe9f72c4e2b
 }
 .fa-rotate-90 {
 	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";

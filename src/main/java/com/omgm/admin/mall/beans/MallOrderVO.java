@@ -120,4 +120,8 @@ public class MallOrderVO {
     public void setOrder_status_memo(String order_status_memo) {
         this.order_status_memo = order_status_memo;
     }
+
+
+    public void setOrder_status_no() {
+    }
 }
