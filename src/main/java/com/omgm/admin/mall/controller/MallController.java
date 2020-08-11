@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -210,6 +211,16 @@ public class MallController {
         mav.setViewName("/mall/point");
         mav.addObject("pointAdd", mallService.getMallPointList(vo));
         return mav;
+    }
+
+    @ResponseBody
+    @RequestMapping("/insertOrderFeed.mdo")
+    public OrderVO insertOrderFeed(@RequestBody OrderVO vo) throws Exception{
+
+            mallService.insertOrderFeed(vo);
+//            vo1.setOrder_status_no();
+//            mallService.insertOrderStatusFeed(vo1);
+            return vo;
     }
 
 }
