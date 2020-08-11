@@ -51,7 +51,7 @@
     <insert id="addKinderGardenReservation" parameterType="KinderGardenReservationVO">
         INSERT INTO kg_reservation values(kg_reservation_seq.nextval,
         #{name},#{service},#{price},#{buyerName},#{animal},#{animalAge},#{phone},#{email},
-        #{zipcode},#{address},#{etc},#{merchantUid},#{pgProvider})
+        #{zipcode},#{address},#{etc},#{merchantUid},#{pgProvider},'미확인')
     </insert>
 
 </mapper>
