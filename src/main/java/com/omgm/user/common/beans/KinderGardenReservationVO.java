@@ -15,10 +15,11 @@ public class KinderGardenReservationVO {
     private String etc;
     private String merchantUid;
     private String pgProvider;
+    private String state;
 
     public KinderGardenReservationVO() { }
 
-    public KinderGardenReservationVO(int seq, String name, String service, int price, String buyerName, String animal, int animalAge, String phone, String email, String zipcode, String address, String etc, String merchantUid, String pgProvider) {
+    public KinderGardenReservationVO(int seq, String name, String service, int price, String buyerName, String animal, int animalAge, String phone, String email, String zipcode, String address, String etc, String merchantUid, String pgProvider, String state) {
         this.seq = seq;
         this.name = name;
         this.service = service;
@@ -33,6 +34,7 @@ public class KinderGardenReservationVO {
         this.etc = etc;
         this.merchantUid = merchantUid;
         this.pgProvider = pgProvider;
+        this.state = state;
     }
 
     public int getSeq() {
@@ -147,6 +149,14 @@ public class KinderGardenReservationVO {
         this.pgProvider = pgProvider;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "KinderGardenReservationVO{" +
@@ -164,6 +174,7 @@ public class KinderGardenReservationVO {
                 ", etc='" + etc + '\'' +
                 ", merchantUid='" + merchantUid + '\'' +
                 ", pgProvider='" + pgProvider + '\'' +
+                ", state='" + state + '\'' +
                 '}';
     }
 }
