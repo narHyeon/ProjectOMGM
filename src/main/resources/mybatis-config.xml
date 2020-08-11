@@ -23,13 +23,16 @@
 		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
 		<typeAlias alias="userMallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
 		<typeAlias alias="userMallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
-		<typeAlias alias="Order" type="com.omgm.admin.mall.beans.OrderVO" />
+		<typeAlias alias="OrderVO" type="com.omgm.admin.mall.beans.OrderVO" />
 		<typeAlias alias="MemberOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
+
 		<!--		-->
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
 		<typeAlias alias="catcarelog" type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
 		<typeAlias alias="mypet" type="com.omgm.user.mypet.beans.MyPetVO" />
+		<!-- 객실관리	-->
+		<typeAlias alias="hotel" type="com.omgm.admin.hotel.beans.HotelVO" />
 	</typeAliases>
 	<mappers>
 		<!--	회원	-->
@@ -50,5 +53,7 @@
 		<mapper resource="mappings/category-mapping.xml" />
 		<mapper resource="mappings/catcarelog-mapping.xml" />
 		<mapper resource="mappings/mypet-mapping.xml" />
+		<!-- 객실관리 -->
+		<mapper resource="mappings/hotel-mapping.xml" />
 	</mappers>
 </configuration>

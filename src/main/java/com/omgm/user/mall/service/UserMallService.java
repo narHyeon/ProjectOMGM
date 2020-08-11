@@ -24,8 +24,15 @@ public interface UserMallService {
     // 장난감 상품 나열
     public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception;
 
+
+    /////////////// 장바구니 /////////////////////////////
+    //장바구니 나열-현재 사료리스트
+    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) throws Exception;
+
+
     // 장난감 갯수
     int selectCountToyMall();
+
 
     // 사용자가 장난감 누르면 정보와 함께 결제 페이지로 이동
     UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) throws Exception;

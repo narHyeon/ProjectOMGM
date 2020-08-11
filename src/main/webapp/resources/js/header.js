@@ -314,7 +314,6 @@ function signNaver() {
     // window.location.href = naverLogin.generateAuthorizeUrl();
     // document.querySelector('#naverIdLogin').innerHTML = '';
     // document.querySelector('#naverIdLogin').style = 'display:flex';
-
 };
 
 // 네이버 로그인

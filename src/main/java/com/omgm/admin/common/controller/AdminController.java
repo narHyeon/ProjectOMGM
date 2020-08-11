@@ -62,4 +62,20 @@ public class AdminController {
         mav.setViewName("/mall/point");
         return mav;
     }
+
+    //객실관리 페이지 이동
+    @RequestMapping("/Room.mdo")
+    public ModelAndView Room(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/hotel/room");
+        return mav;
+    }
+
+    //객실등록 페이지 이동
+    @RequestMapping("/hotelRegister.mdo")
+    public ModelAndView hotelRegister(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/hotel/hotelRegister");
+        return mav;
+    }
 }

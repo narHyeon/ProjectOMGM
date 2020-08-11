@@ -1,5 +1,9 @@
 package com.omgm.admin.mall.service;
 
+import com.omgm.admin.mall.beans.MallOrderVO;
+import com.omgm.admin.mall.beans.MallFeedVO;
+import com.omgm.admin.mall.beans.MallToyVO;
+import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.admin.mall.beans.*;
 import com.omgm.member.beans.MemberVO;
 
@@ -27,18 +31,26 @@ public interface MallService {
     MallFeedVO getMallFeedOne(MallFeedVO vo) throws Exception; // 사료 상세정보 페이지
 
 
-    //관리자 주문목록페이지(상세보기) 관련 서비스
-    void insertMallOrder(MallOrderVO vo) throws Exception;
-    List<MallOrderVO> getMallOrderList(MallOrderVO vo) throws Exception;
-    void deleteMallOrder(MallOrderVO vo) throws Exception;
+//    //관리자 주문목록페이지(상세보기) 관련 서비스
+//    void insertMallOrder(MallOrderVO vo) throws Exception;
+//    List<OrderVO> getMallOrderList(OrderVO vo) throws Exception;
+//    void deleteMallOrder(MallOrderVO vo) throws Exception;
 
    //관리자 주문목록페이지 관련 서비스
+
+   List<OrderVO> getOrderList() throws Exception;
+
     void insertOrderFeed(OrderVO vo) throws Exception;
 //    void insertOrderStatusFeed(MallOrderVO vo) throws Exception;
    List<OrderVO> getOrderList(OrderVO vo) throws Exception;
-   void deleteOrder(OrderVO vo) throws Exception;
 
+   void deleteOrder(OrderVO vo) throws Exception;
+//
+//    List<MallOrderVO> getDetailOrder(OrderVO vo);
+//    OrderVO getDetail(OrderVO vo);
 
    //포인트 적립 페이지
    List<MallOrderVO> getMallPointList(MallOrderVO vo) throws Exception;
-  }
+
+
+}
