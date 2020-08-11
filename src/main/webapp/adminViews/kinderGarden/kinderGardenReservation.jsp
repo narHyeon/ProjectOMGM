@@ -63,9 +63,9 @@
                                 <th>${reser.animalAge}</th>
                                 <th>${reser.phone}</th>
                                 <th>${reser.etc}</th>
-                                <th><a href="#" id="delete_reservation_select${reser.seq}" class="btn btn-danger btn-circle btn-sm" onclick="deleteReservation(event)">
-                                    <i class="fas fa-trash" value="${reser.seq}"></i>
-                                </a> 예약취소</th>
+                                <th><button id="delete_reservation_select${reser.seq}" class="btn btn-danger btn-circle btn-sm" onclick="deleteReservation(event)" value="${reser.seq}">
+                                    <i class="fas fa-trash" disabled=""></i>
+                                </button> 예약취소</th>
                             </tr>
                         </c:if>
                     </c:forEach>
@@ -135,9 +135,9 @@
     }
 
     function deleteReservation(event) {
+        console.log(event.target);
         event.preventDefault();
 
-        console.log(event.target);
     }
 </script>
 </html>
