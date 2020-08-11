@@ -263,7 +263,7 @@
         <div>
             <select>
                 <c:forEach items="${day}" var="day">
-                    <option value="${day.formatDate} (1주일 코스) 선택">${day.formatDate} (1주일 코스)</option>
+                    <option value="${day.formatDate} (1주일 코스)">${day.formatDate} (1주일 코스) 선택</option>
                 </c:forEach>
             </select>
             <select>
