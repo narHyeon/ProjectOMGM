@@ -66,4 +66,9 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     public void checkReservation(KinderGardenReservationVO vo) {
         kinderGardenDAO.checkReservation(vo);
     }
+
+    @Override
+    public void deleteReservation(KinderGardenReservationVO vo) {
+        kinderGardenDAO.deleteReservation(vo);
+    }
 }

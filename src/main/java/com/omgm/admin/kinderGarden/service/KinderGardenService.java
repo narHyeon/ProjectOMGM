@@ -22,4 +22,5 @@ public interface KinderGardenService {
     // 예약
     List<KinderGardenReservationVO> getKinderGardenReservation();
     void checkReservation(KinderGardenReservationVO vo);
+    void deleteReservation(KinderGardenReservationVO vo);
 }

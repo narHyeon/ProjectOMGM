@@ -110,4 +110,9 @@
         UPDATE kg_reservation SET state = '확인' WHERE seq = #{seq}
     </update>
 
+    <!--  예약 취소  -->
+    <update id="deleteReservation" parameterType="KinderGardenReservationVO">
+        DELETE FROM kg_reservation WHERE seq = #{seq}
+    </update>
+
 </mapper>
