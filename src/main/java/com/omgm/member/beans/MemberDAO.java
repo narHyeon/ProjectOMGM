@@ -25,4 +25,6 @@ public class MemberDAO {
     public void addMember(MemberVO vo) {
         sqlSessionTemplate.insert("MemberDAO.addMember",vo);
     }
+
+
 }
