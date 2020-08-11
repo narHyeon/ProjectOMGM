@@ -63,8 +63,8 @@
                                 <th>${reser.animalAge}</th>
                                 <th>${reser.phone}</th>
                                 <th>${reser.etc}</th>
-                                <th><a href="#" class="btn btn-danger btn-circle btn-sm">
-                                    <i class="fas fa-trash"></i>
+                                <th><a href="#" id="delete_reservation_select${reser.seq}" class="btn btn-danger btn-circle btn-sm" onclick="deleteReservation(event)">
+                                    <i class="fas fa-trash" value="${reser.seq}"></i>
                                 </a> 예약취소</th>
                             </tr>
                         </c:if>
@@ -132,6 +132,12 @@
         xhr.setRequestHeader('content-type','application/json');
         const data = { seq: value };
         xhr.send(JSON.stringify(data));
+    }
+
+    function deleteReservation(event) {
+        event.preventDefault();
+
+        console.log(event.target);
     }
 </script>
 </html>
