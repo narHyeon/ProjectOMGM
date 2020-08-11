@@ -87,4 +87,11 @@ public class KinderGardenController {
     public void checkReservation(@RequestBody KinderGardenReservationVO vo) {
         kinderGardenService.checkReservation(vo);
     }
+
+    // 관리자 예약취소 삭제
+    @ResponseBody
+    @RequestMapping("/deleteReservation.mdo")
+    public void deleteReservation(@RequestBody KinderGardenReservationVO vo) {
+        kinderGardenService.deleteReservation(vo);
+    }
 }
