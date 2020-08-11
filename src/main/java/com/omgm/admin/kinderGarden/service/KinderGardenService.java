@@ -19,5 +19,7 @@ public interface KinderGardenService {
     void addScheduleMonth(KinderGardenVO vo);
     void addScheduleRowMonth(KinderGardenRowMonthVO vo);
 
+    // 예약
     List<KinderGardenReservationVO> getKinderGardenReservation();
+    void checkReservation(KinderGardenReservationVO vo);
 }

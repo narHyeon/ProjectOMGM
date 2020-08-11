@@ -4,6 +4,7 @@ import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
+import com.omgm.user.common.beans.KinderGardenReservationVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,5 +79,11 @@ public class KinderGardenController {
     @RequestMapping("/addScheduleRowMonth.mdo")
     public void addScheduleRowMonth(@RequestBody KinderGardenRowMonthVO rvo) {
         kinderGardenService.addScheduleRowMonth(rvo);
+    }
+
+    // 관리자 예약확인 체크
+    @RequestMapping("/checkReservation.mdo")
+    public void checkReservation(KinderGardenReservationVO vo) {
+        kinderGardenService.checkReservation(vo);
     }
 }

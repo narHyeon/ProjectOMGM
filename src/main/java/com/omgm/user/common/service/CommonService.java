@@ -18,4 +18,5 @@ public interface CommonService {
 
     //예약
     void addKinderGardenReservation(KinderGardenReservationVO vo);
+    void checkReservation(KinderGardenReservationVO vo);
 }

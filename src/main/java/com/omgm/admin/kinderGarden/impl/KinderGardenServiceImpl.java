@@ -61,4 +61,9 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     public List<KinderGardenReservationVO> getKinderGardenReservation() {
         return kinderGardenDAO.getKinderGardenReservation();
     }
+
+    @Override
+    public void checkReservation(KinderGardenReservationVO vo) {
+        kinderGardenDAO.checkReservation(vo);
+    }
 }

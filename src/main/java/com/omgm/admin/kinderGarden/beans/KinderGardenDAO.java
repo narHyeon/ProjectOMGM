@@ -48,4 +48,8 @@ public class KinderGardenDAO {
     public List<KinderGardenReservationVO> getKinderGardenReservation() {
         return sqlSessionTemplate.selectList("KinderGardenDAO.getKinderGardenReservation");
     }
+
+    public void checkReservation(KinderGardenReservationVO vo) {
+        sqlSessionTemplate.update("KinderGardenDAO.checkReservation",vo);
+    }
 }

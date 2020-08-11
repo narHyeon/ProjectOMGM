@@ -46,6 +46,7 @@
         <result property="etc" column="ETC"/>
         <result property="merchantUid" column="MERCHANT_UID"/>
         <result property="pgProvider" column="PG_PROVIDER"/>
+        <result property="state" column="STATE"/>
     </resultMap>
 
     <!-- 실 사용 -->
@@ -103,5 +104,10 @@
     <select id="getKinderGardenReservation" resultMap="KinderGardenReservationResult">
         SELECT * FROM kg_reservation ORDER BY seq
     </select>
+
+    <!--  예약 확인 체크  -->
+    <update id="checkReservation" parameterType="KinderGardenReservationVO">
+        UPDATE kg_reservation SET state = '확인' WHERE seq = #{seq}
+    </update>
 
 </mapper>
