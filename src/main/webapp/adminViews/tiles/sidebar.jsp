@@ -144,8 +144,6 @@
                 <h6 class="collapse-header">판매:</h6>
 					<a class="collapse-item" href="productStatus.mdo">주문현황 - 예정</a>
 					<a class="collapse-item" href="deliveryStatus.mdo">배송현황</a>
-					<a class="collapse-item" href="blank.html">교환 - 예정</a>
-					<a class="collapse-item" href="blank.html">반품 - 예정</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">관리:</h6>
 					<a class="collapse-item" href="blank.html">MALL 정산 - 예정</a>
