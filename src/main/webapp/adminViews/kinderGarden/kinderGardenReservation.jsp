@@ -29,8 +29,19 @@
         .reservation_head_tr th:nth-child(6) {
             width: 5%;
         }
-        .kinderGarden_reservation_table td {
-            font-size: 12px;
+        .reservation_head_tr th:nth-child(7), .reservation_head_tr th:nth-child(9) {
+            width: 12%;
+        }
+
+        .reservation_tbody_tr td {
+            font-size: 14px;
+        }
+
+        @media all and (max-width: 1024px) {
+            .reservation_head_tr th:nth-child(3), .reservation_head_tr th:nth-child(8),
+            .reservation_tbody_tr td:nth-child(3), .reservation_tbody_tr td:nth-child(8) {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -60,7 +71,7 @@
                 <tbody>
                     <c:forEach var="reser" items="${reservation}">
                         <c:if test="${reser.state == '확인'}">
-                            <tr>
+                            <tr class="reservation_tbody_tr">
                                 <td>${reser.seq}</td>
                                 <td>${reser.name}</td>
                                 <td>${reser.service}</td>
@@ -96,7 +107,7 @@
                 <tbody>
                 <c:forEach var="reser" items="${reservation}">
                     <c:if test="${reser.state == '미확인'}">
-                        <tr>
+                        <tr class="reservation_tbody_tr">
                             <td>${reser.seq}</td>
                             <td>${reser.name}</td>
                             <td>${reser.service}</td>
