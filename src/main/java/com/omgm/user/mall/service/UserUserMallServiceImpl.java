@@ -52,20 +52,27 @@ public class UserUserMallServiceImpl implements UserMallService {
 
     //////////// 장바구니 /////////////////////////////////////////
 
-
+    // 카트 리스트 나타내기
     @Override
     public List<CartListVO> selectCartList(CartListVO vo) throws Exception{
         return userMallDAO.selectCartList(vo);
     }
-
+    // 카트에 담기
     @Override
     public void insertCartList(CartListVO vo) throws Exception {
         userMallDAO.insertCartList(vo);
     }
 
+    //카트에서 물품 하나 삭제하기
     @Override
     public void deleteCartListOne(CartListVO vo) throws Exception {
         userMallDAO.deleteCartListOne(vo);
+    }
+
+    //카트에서 전부 삭제하기
+    @Override
+    public void deleteCartListAll(CartListVO vo) throws Exception {
+        userMallDAO.deleteCartListAll(vo);
     }
 
 }

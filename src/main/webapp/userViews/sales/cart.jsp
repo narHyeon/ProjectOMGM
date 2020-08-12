@@ -81,7 +81,7 @@
 <%--                <span class="name"><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
                 <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${cartList.cartList_img}">
                 <span style="padding-left:4vw;" class="cart_info">${cartList.cartList_name}</span>
-    <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num">${cartList.cartList_price}</div></span>
+    <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num${cartList.cartList_code}">${cartList.cartList_price}</div></span>
                 <span style="padding-left:4vw;" id="num" class="cart_info">
                     <div class="updown">
                     <input type="text" name="p_num1" id="p_num1${cartList.cartList_code}" size="2" maxlength="4" class="p_num" value="1" >
@@ -89,7 +89,7 @@
                     <span><button class="fas fa-arrow-alt-circle-down down" onclick="downI(event)" value="${cartList.cartList_code}"  ></button></span>
                 </div>
                 </span>
-    <span type="number" style="border: none;padding-bottom:7vw;padding-left:5vw;" class="cart_info" id="sum_p_price${cartList.cartList_code}" >${cartList.cartList_price}</span>
+    <input type="number" style="border: none;padding-bottom:7vw;padding-left:5vw;" class="cart_info" id="sum_p_price${cartList.cartList_code}" value="${cartList.cartList_price}" />
                 <span style="padding-left:4vw;" class="cart_info" id="basketcmd">
                     <a href="deleteCartListOne.do?cartList_code=${cartList.cartList_code}" class="abutton">삭제</a></span>
                 <div class="right-align basketrowcmd">
@@ -98,24 +98,29 @@
                 </div>
             </div>
         </c:forEach>
-    </div>
+        <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
+        <a href="paymentCartList.do"><button class="abutton" style="border: none;">결제하기</button></a>
+        </div>
+        </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
 <script>
 
     function upI(event){
         const num = event.target.value;
-        const price = document.querySelector('#sum_p_price'+num).innerHTML;
+        const price = document.querySelector('#sum_p_num'+num).innerHTML;
         document.querySelector('#p_num1'+num).value++;
-        const priceTotal = price * 
-        document.querySelector('#sum_p_price'+num).
+        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value)+parseInt(price);
+        // document.querySelector('#sum_p_price'+num).
     }
     function downI(event){
         const num = event.target.value;
-        if(document.querySelector('#p_num1'+num).value>1)
-        document.querySelector('#p_num1'+num).value -= 1;
-        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value) * parseInt(document.querySelector('#p_num1'+num).value);
-    }
+        const price = document.querySelector('#sum_p_num'+num).innerHTML;
+        if(document.querySelector('#p_num1'+num).value>1) {
+            document.querySelector('#p_num1' + num).value -= 1;
+            document.querySelector('#sum_p_price' + num).value = parseInt(document.querySelector('#sum_p_price' + num).value) - parseInt(price);
+        }
+        }
     //수량변경 - 이벤트 델리게이션으로 이벤트 종류 구분해 처리
 
     // document.querySelectorAll('.updown').forEach(

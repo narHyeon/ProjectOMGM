@@ -122,6 +122,7 @@ public class UserMallController {
         return mav;
     }
 
+    // 장바구니에 담기(테이블에저장)
     @RequestMapping("/insertCartList.do")
     public ModelAndView insertCartList(CartListVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
@@ -130,11 +131,21 @@ public class UserMallController {
         return mav;
     }
 
+    // 장바구니에서 하나 삭제하기(테이블에서도 삭제)
     @RequestMapping("/deleteCartListOne.do")
     public ModelAndView deleteCartListOne(CartListVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect: /selectCartList.do");
         userMallService.deleteCartListOne(vo);
+        return mav;
+    }
+
+    // 장바구니에서 결제페이지로 이동
+    @RequestMapping("/paymentCartList.do")
+    public ModelAndView paymentCartList(CartListVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/buyImmediatelyCart");
+        mav.addObject("cartList",userMallService.selectCartList(vo));
         return mav;
     }
 }

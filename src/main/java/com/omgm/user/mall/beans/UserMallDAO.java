@@ -60,4 +60,7 @@ public class UserMallDAO {
 
         // 장바구니에서 물품 한개 삭제
         public void deleteCartListOne(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListOne", vo);}
+
+    // 장바구니에서 물품 전부 삭제
+    public void deleteCartListAll(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListAll", vo);}
 }
