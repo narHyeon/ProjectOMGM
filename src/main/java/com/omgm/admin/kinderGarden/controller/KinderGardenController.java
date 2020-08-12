@@ -102,20 +102,21 @@ public class KinderGardenController {
 
     // 관리자 유치원 정산
     @RequestMapping("/kinderGardenCalculate.mdo")
-    public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) throws ParseException {
+    public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
         ModelAndView mav = new ModelAndView();
 
+        // 현재부터 일주일 전까지 불러오기
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        cal.add(Calendar.DATE, -7);
+        cal.add(Calendar.MONTH, -1);
         vo.setDate1(cal.getTime());
         vo.setDate2(new Date());
-        System.out.println(vo.getDate1());
-        System.out.println(vo.getDate2());
         List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
-        System.out.println(list);
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
+        mav.addObject("date",vo);
+        mav.addObject("dateList",list);
         return mav;
     }
+
+
 }

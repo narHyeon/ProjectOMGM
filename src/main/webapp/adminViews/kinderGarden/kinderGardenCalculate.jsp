@@ -130,7 +130,7 @@
         <div>
             <p style="color: #3c85dc; font-size: 19px;">Today : 1,540,000원</p>
             <br>
-            <p id="kinder_date_pick">2020년 8월 12일 ~ 2020년 8월 19일까지의 매출현황</p>
+            <p id="kinder_date_pick">${date.date1} ~ ${date.date2}의 매출현황</p>
         </div>
         <div id="kinder_dwm" class="text-right">
             <p>DAY : 1,100,000원</p>
