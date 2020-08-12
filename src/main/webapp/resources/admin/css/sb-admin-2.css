@@ -1,3 +1,5 @@
+
+
 /*!
  * Start Bootstrap - SB Admin 2 v4.1.1 (https://startbootstrap.com/themes/sb-admin-2)
  * Copyright 2013-2020 Start Bootstrap
@@ -4511,7 +4513,7 @@ input[type="button"].btn-block {
 .card-body {
 	flex: 1 1 auto;
 	min-height: 1px;
-	padding: 1.25rem;
+	padding: 0.7rem;
 }
 
 .card-title {
@@ -11210,3 +11212,4 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
 	width: 100%;
 }
+
