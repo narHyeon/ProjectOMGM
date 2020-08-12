@@ -139,11 +139,6 @@ public class KinderGardenController {
             for(KinderGardenReservationVO wv : weekList) weekPrice[i] += wv.getPrice();
         }
 
-        System.out.println(weekPrice[1]);
-        System.out.println(weekPrice[2]);
-        System.out.println(weekPrice[3]);
-        System.out.println(weekPrice[4]);
-
         map.put("date1",sdf.format(vo.getDate1()));
         map.put("date2",sdf.format(vo.getDate2()));
         map.put("day", String.valueOf(price/30));
@@ -154,6 +149,11 @@ public class KinderGardenController {
         map.put("weekPrice2", String.valueOf(weekPrice[3]));
         map.put("weekPrice3", String.valueOf(weekPrice[2]));
         map.put("weekPrice4", String.valueOf(weekPrice[1]));
+
+        Arrays.sort(weekPrice);
+
+        map.put("weekTop", String.valueOf(weekPrice[3]));
+        map.put("weekBottom", String.valueOf(weekPrice[1]));
 
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
         mav.addObject("dateList", list);
