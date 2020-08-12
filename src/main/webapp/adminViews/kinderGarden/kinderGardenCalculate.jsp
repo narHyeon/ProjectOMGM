@@ -29,13 +29,14 @@
         #kinderGarden_chart_date {
             display: flex;
             flex-direction: row;
+            vertical-align: center;
         }
         #kinderGarden_chart_date input {
             margin: 10px;
         }
-        #kinderGarden_chart_date p {
-            width: 80px;
-            margin: auto 10px;
+        #kinderGarden_chart_date button {
+            margin: 10px;
+            width: 47%;
         }
         #kinderGarden_chart_title {
             font-size: 24px;
@@ -79,8 +80,8 @@
 </div>
 
 <div id="kinderGarden_chart_date">
-    <input id="kinderGarden_date1" type="date" class="form-control form-control-user" onchange="datePick()"><p>부터</p>
-    <input id="kinderGarden_date2" type="date" class="form-control form-control-user" onchange="datePick()"><p>까지</p>
+    <input id="kinderGarden_date1" type="date" class="form-control form-control-user">
+    <button class="btn btn-primary btn-user" onClick="datePick()">검색</button>
 </div>
 
 <div id="kinderGarden_chart">
@@ -159,9 +160,9 @@
 
     function datePick() {
         const date1 = document.querySelector('#kinderGarden_date1').value;
-        const date2 = document.querySelector('#kinderGarden_date2').value;
 
-        window.location.href = 'kinderGardenCalculate.mdo?date1='+date1+'&date2'+date2;
+        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1+'&dateTwo='+date2;
+        else alert('날짜를 선택해주세요!');
     }
 </script>
 </body>
