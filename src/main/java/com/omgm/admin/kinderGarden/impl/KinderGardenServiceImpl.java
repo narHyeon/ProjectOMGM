@@ -3,6 +3,7 @@ package com.omgm.admin.kinderGarden.impl;
 import com.omgm.admin.kinderGarden.beans.*;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
+import com.omgm.user.review.beans.PageNavigator;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -55,8 +56,8 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     }
 
     @Override
-    public List<KinderGardenReservationVO> getKinderGardenReservation() {
-        return kinderGardenDAO.getKinderGardenReservation();
+    public List<KinderGardenReservationVO> getKinderGardenReservation(PageNavigator navi) {
+        return kinderGardenDAO.getKinderGardenReservation(navi);
     }
 
     @Override
@@ -72,5 +73,10 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     @Override
     public List<KinderGardenReservationVO> getKinderGardenCalculate(KinderGardenDateVO vo) {
         return kinderGardenDAO.getKinderGardenCalculate(vo);
+    }
+
+    @Override
+    public int selectCount() {
+        return kinderGardenDAO.selectCount();
     }
 }

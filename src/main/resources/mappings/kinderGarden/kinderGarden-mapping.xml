@@ -120,4 +120,8 @@
         <![CDATA[SELECT price, regdate FROM kg_reservation WHERE regdate >= #{date1} AND regdate <= #{date2}]]>
     </select>
 
+    <select id="selectCount" resultType="int">
+       SELECT count(*) FROM reviewBoard
+    </select>
+
 </mapper>

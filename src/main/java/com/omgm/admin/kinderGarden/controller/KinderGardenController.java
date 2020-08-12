@@ -6,6 +6,7 @@ import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
+import com.omgm.user.review.beans.PageNavigator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,10 +51,17 @@ public class KinderGardenController {
 
     // 관리자 유치원 예약 현황
     @RequestMapping("/kinderGardenReservation.mdo")
-    public ModelAndView kinderGardenReservation(KinderGardenVO vo) {
+    public ModelAndView kinderGardenReservation(KinderGardenVO vo, @RequestParam(value="page", defaultValue = "1") int page) {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("reservation",kinderGardenService.getKinderGardenReservation());
+        int COUNTPERPAGE = 9; // 페이지당 2개의 글
+        int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
+
+        PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, kinderGardenService.selectCount());
+        mav.addObject("reservation",kinderGardenService.getKinderGardenReservation(navi));
         mav.setViewName("/kinderGarden/kinderGardenReservation");
+        mav.addObject("navi",navi);
+        vo.setSeq(page);
+        mav.addObject("page",vo);
         return mav;
     }
 
