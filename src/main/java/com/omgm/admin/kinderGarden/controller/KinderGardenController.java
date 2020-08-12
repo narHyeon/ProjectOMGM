@@ -116,7 +116,9 @@ public class KinderGardenController {
 
         int price = 0;
         int dayPrice = 0;
-        int weekPrice[] = new int[5];
+        double weekPrice[] = new double[5];
+        double weekPercent[] = new double[5];
+        int weekTotal = 0;
 
         for(KinderGardenReservationVO rv : list) price += rv.getPrice();
 
@@ -137,6 +139,11 @@ public class KinderGardenController {
             vo.setDate2(cal.getTime());
             List<KinderGardenReservationVO> weekList = kinderGardenService.getKinderGardenCalculate(vo);
             for(KinderGardenReservationVO wv : weekList) weekPrice[i] += wv.getPrice();
+            weekTotal += weekPrice[i];
+        }
+
+        for(int i=1; i<=4; i++) {
+            weekPercent[i] = (weekPrice[i]/weekTotal)*100;
         }
 
         map.put("date1",sdf.format(vo.getDate1()));
@@ -145,15 +152,16 @@ public class KinderGardenController {
         map.put("week", String.valueOf(price/4));
         map.put("month", String.valueOf(price));
         map.put("today",String.valueOf(dayPrice));
-        map.put("weekPrice1", String.valueOf(weekPrice[4]));
-        map.put("weekPrice2", String.valueOf(weekPrice[3]));
-        map.put("weekPrice3", String.valueOf(weekPrice[2]));
-        map.put("weekPrice4", String.valueOf(weekPrice[1]));
+        map.put("weekPercent1", String.valueOf((int) weekPercent[4]));
+        map.put("weekPercent2", String.valueOf((int) weekPercent[3]));
+        map.put("weekPercent3", String.valueOf((int) weekPercent[2]));
+        map.put("weekPercent4", String.valueOf((int) weekPercent[1]));
 
-        Arrays.sort(weekPrice);
+        // 주간 최고, 최저 구하기기
+       Arrays.sort(weekPrice);
 
-        map.put("weekTop", String.valueOf(weekPrice[3]));
-        map.put("weekBottom", String.valueOf(weekPrice[1]));
+        map.put("weekTop", String.valueOf((int)weekPrice[3]));
+        map.put("weekBottom", String.valueOf((int)weekPrice[1]));
 
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
         mav.addObject("dateList", list);
@@ -161,6 +169,4 @@ public class KinderGardenController {
 
         return mav;
     }
-
-
 }
