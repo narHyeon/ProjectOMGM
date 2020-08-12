@@ -82,13 +82,16 @@
                 <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${cartList.cartList_img}">
                 <span style="padding-left:4vw;" class="cart_info">${cartList.cartList_name}</span>
     <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num">${cartList.cartList_price}</div></span>
-                <span style="padding-left:4vw;" id="num" class="cart_info"><div class="updown">
-                    <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
-                    <span><i class="fas fa-arrow-alt-circle-up up"></i></span>
-                    <span><i class="fas fa-arrow-alt-circle-down down"></i></span>
-                </div></span>
-    <span style="padding-left:4vw;" class="cart_info" id="sum_p_price"></span>
-                <span style="padding-left:4vw;" class="cart_info" id="basketcmd"><a href="deleteCartListOne.do?cartList_code=${cartList.cartList_code}" class="abutton">삭제</a></span>
+                <span style="padding-left:4vw;" id="num" class="cart_info">
+                    <div class="updown">
+                    <input type="text" name="p_num1" id="p_num1${cartList.cartList_code}" size="2" maxlength="4" class="p_num" value="1" >
+                    <span><button class="fas fa-arrow-alt-circle-up up" onclick="upI(event)" value="${cartList.cartList_code}"></button></span>
+                    <span><button class="fas fa-arrow-alt-circle-down down" onclick="downI(event)" value="${cartList.cartList_code}"  ></button></span>
+                </div>
+                </span>
+    <span type="number" style="border: none;padding-bottom:7vw;padding-left:5vw;" class="cart_info" id="sum_p_price${cartList.cartList_code}" >${cartList.cartList_price}</span>
+                <span style="padding-left:4vw;" class="cart_info" id="basketcmd">
+                    <a href="deleteCartListOne.do?cartList_code=${cartList.cartList_code}" class="abutton">삭제</a></span>
                 <div class="right-align basketrowcmd">
                     <a href="#" type="hidden" class="button"></a>
                     <a href="#" type="hidden" class="button"></a>
@@ -99,23 +102,40 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
 <script>
-    // 수량변경 - 이벤트 델리게이션으로 이벤트 종류 구분해 처리
-    document.querySelectorAll('.updown').forEach(
-        function(item, idx){
-            //수량 입력 필드 값 변경
-            item.querySelector('input').addEventListener('keyup', function(){
-                basket.changePNum(idx+1);
-            });
-            //수량 증가 화살표 클릭
-            item.children[1].addEventListener('click', function(){
-                basket.changePNum(idx+1);
-            });
-            //수량 감소 화살표 클릭
-            item.children[2].addEventListener('click', function(){
-                basket.changePNum(idx+1);
-            });
-        }
-    );
+
+    function upI(event){
+        const num = event.target.value;
+        const price = document.querySelector('#sum_p_price'+num).innerHTML;
+        document.querySelector('#p_num1'+num).value++;
+        const priceTotal = price * 
+        document.querySelector('#sum_p_price'+num).
+    }
+    function downI(event){
+        const num = event.target.value;
+        if(document.querySelector('#p_num1'+num).value>1)
+        document.querySelector('#p_num1'+num).value -= 1;
+        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value) * parseInt(document.querySelector('#p_num1'+num).value);
+    }
+    //수량변경 - 이벤트 델리게이션으로 이벤트 종류 구분해 처리
+
+    // document.querySelectorAll('.updown').forEach(
+    //     function(item, idx){
+    //         //수량 입력 필드 값 변경
+    //         item.querySelector('input').addEventListener('keyup', function(){
+    //             basket.changePNum(idx+1);
+    //         });
+    //         //수량 증가 화살표 클릭
+    //         item.children[1].addEventListener('click', function(){
+    //             basket.changePNum(idx+1);
+    //         });
+    //         //수량 감소 화살표 클릭
+    //         item.children[2].addEventListener('click', function(){
+    //             basket.changePNum(idx+1);
+    //         });
+    //
+    //     }
+    //
+    // );
     //앵커 # 대체해 스크롤 탑 차단
     document.querySelectorAll('a[href="#"]').forEach(function(item){
         item.setAttribute('href','javascript:void(0)');
