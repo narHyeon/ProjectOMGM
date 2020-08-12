@@ -164,10 +164,8 @@ public class KinderGardenController {
             weekTotal += weekPrice[i];
         }
 
-        for(int i=1; i<=4; i++) {
-            weekPercent[i] = (weekPrice[i]/weekTotal)*100;
-        }
-        
+        for(int i=1; i<=4; i++) weekPercent[i] = (weekPrice[i]/weekTotal)*100;
+
         map.put("day", String.valueOf(price/30));
         map.put("week", String.valueOf(price/4));
         map.put("month", String.valueOf(price));
