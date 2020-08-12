@@ -1,12 +1,7 @@
-<<<<<<< HEAD:src/main/webapp/adminViews/event/event_M.jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
-=======
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
->>>>>>> 9aa0e7d462240c01c13265b8547014802c3857b9:src/main/webapp/adminViews/event/event.jsp
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,193 +29,40 @@ function goWrite() {
 </script>
 </head>
 <body>
-<<<<<<< HEAD:src/main/webapp/adminViews/event/event_M.jsp
 	<div id="title" >Notice & Event</div>
 <main>
   <div class="event_list">
     <ul>
     <c:forEach var="eventlist" items="${EventList}" varStatus="num">
       <li>
-        <a href="">
-          <div class="img">${eventlist.EVENT_CONTENT}</div>
+        <a href="getEvent_M.mdo?EVENT_NO=${eventlist.EVENT_NO}" >
+     	 <div class="img"><img src="${eventlist.EVENT_IMG}"></div>
           <em>${eventlist.EVENT_STATUS}</em>
           <div class="info">
             <strong>${eventlist.EVENT_TITLE}</strong>
             <p>
-              <span>ì´ë²¤íŠ¸ê¸°ê°„</span>
+              <span>ì´ë²¤íŠ¸ ê¸°ê°„</span>
               ${eventlist.EVENT_START} ${eventlist.EVENT_END}
             </p>
           </div>
         </a>
       </li>
       </c:forEach>
-      <li>
-        <a href="">
-          <div class="img"><img src="resources/img/event/dog.jpg" alt=""></div>
-          <em>anything</em>
-          <div class="info">
-            <strong>ì œëª©</strong>
-            <p>
-              <span>ì´ë²¤íŠ¸ê¸°ê°„</span>
-              ex)ë‚ ì§œ
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="resources/img/event/dog2.webp" alt=""></div>
-          <em>1</em>
-          <div class="info">
-            <strong>ì§„í–‰ì¤‘</strong>
-            <p>
-              <span>ì´ë²¤íŠ¸ê¸°ê°„</span>
-             	ë‚ ì§œ
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="resources/img/event/dog3.webp" alt=""></div>
-          <em>1</em>
-          <div class="info">
-            <strong>1</strong>
-            <p>
-              <span>1</span>
-             1
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="resources/img/event/dog.jpg" alt=""></div>
-          <em>1</em>
-          <div class="info">
-            <strong>1</strong>
-            <p>
-              <span>1</span>
-             1
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="resources/img/event/dog1.webp" alt=""></div>
-          <em>123</em>
-          <div class="info">
-            <strong></strong>
-            <p>
-              <span></span>
-              
-            </p>
-          </div>
-        </a>
-      </li>
-     
+      
     </ul>
     <input type="button" value="ê¸€ ì“°ê¸°" onclick="goWrite()">
   </div>
 
   <div class="paging">
     <ul>
-      <li class="first"><a href=""><span class="hide">ì²«í˜ì´ì§€</span></a></li>
-      <li class="prev"><a href=""><span class="hide">ì´ì „í˜ì´ì§€</span></a></li>
+      <li class="first"><a href=""><span class="hide">ì´ì „í˜ì´ì§€</span></a></li>
+      <li class="prev"><a href=""><span class="hide">ë‹¤ìŒí˜ì´ì§€</span></a></li>
       <li><a href="" class="on">1</a></li>
       <li><a href="">2</a></li>
       <li class="next"><a href=""><span class="hide">ë‹¤ìŒí˜ì´ì§€</span></a></li>
-      <li class="last"><a href=""><span class="hide">ë§ˆì§€ë§‰í˜ì´ì§€</span></a></li>
+      <li class="last"><a href=""><span class="hide">ë‹¤ìŒí˜ì´ì§€</span></a></li>
     </ul>
   </div>
-=======
-	<div id="title">Notice & Event</div>
-	<main>
-		<div class="event_list">
-			<ul>
-				<li><a href="">
-						<div class="img">
-							<img src="resources/img/event/dog-s.webp" alt="">
-						</div> <em>ing</em>
-						<div class="info">
-							<strong>¿À¹¦°¡¹¦ ÇÁ·ÎÁ§Æ® ÀÌº¥Æ®!</strong>
-							<p>
-								<span>ÀÌº¥Æ®±â°£</span> 2020.7.30 ~ 2020.9.3
-							</p>
-						</div>
-				</a></li>
-				<li><a href="">
-						<div class="img">
-							<img src="resources/img/event/dog.jpg" alt="">
-						</div> <em>anything</em>
-						<div class="info">
-							<strong>Á¦¸ñ</strong>
-							<p>
-								<span>ÀÌº¥Æ®±â°£</span> ex)³¯Â¥
-							</p>
-						</div>
-				</a></li>
-				<li><a href="">
-						<div class="img">
-							<img src="resources/img/event/dog2.webp" alt="">
-						</div> <em>1</em>
-						<div class="info">
-							<strong>ÁøÇàÁß</strong>
-							<p>
-								<span>ÀÌº¥Æ®±â°£</span> ³¯Â¥
-							</p>
-						</div>
-				</a></li>
-				<li><a href="">
-						<div class="img">
-							<img src="resources/img/event/dog3.webp" alt="">
-						</div> <em>1</em>
-						<div class="info">
-							<strong>1</strong>
-							<p>
-								<span>1</span> 1
-							</p>
-						</div>
-				</a></li>
-				<li><a href="">
-						<div class="img">
-							<img src="resources/img/event/dog.jpg" alt="">
-						</div> <em>1</em>
-						<div class="info">
-							<strong>1</strong>
-							<p>
-								<span>1</span> 1
-							</p>
-						</div>
-				</a></li>
-				<li><a href="">
-						<div class="img">
-							<img src="resources/img/event/dog1.webp" alt="">
-						</div> <em>123</em>
-						<div class="info">
-							<strong></strong>
-							<p>
-								<span></span>
-
-							</p>
-						</div>
-				</a></li>
-
-			</ul>
-		</div>
-
-		<div class="paging">
-			<ul>
-				<li class="first"><a href=""><span class="hide">Ã¹ÆäÀÌÁö</span></a></li>
-				<li class="prev"><a href=""><span class="hide">ÀÌÀüÆäÀÌÁö</span></a></li>
-				<li><a href="" class="on">1</a></li>
-				<li><a href="">2</a></li>
-				<li class="next"><a href=""><span class="hide">´ÙÀ½ÆäÀÌÁö</span></a></li>
-				<li class="last"><a href=""><span class="hide">¸¶Áö¸·ÆäÀÌÁö</span></a></li>
-			</ul>
-		</div>
->>>>>>> 9aa0e7d462240c01c13265b8547014802c3857b9:src/main/webapp/adminViews/event/event.jsp
 
 
 	</main>

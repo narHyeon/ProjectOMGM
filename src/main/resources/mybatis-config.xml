@@ -54,8 +54,8 @@
 			type="com.omgm.admin.category.beans.CategoryVO_M" />
 		<typeAlias alias="catcarelog"
 			type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
-		<typeAlias alias="mypet"
-			type="com.omgm.user.mypet.beans.MyPetVO" />
+		<typeAlias alias="mypet" type="com.omgm.user.mypet.beans.MyPetVO" />
+		<typeAlias alias="qna" type="com.omgm.user.qna.beans.QnaVO" />
 	</typeAliases>
 	<mappers>
 		<!-- 회원 -->
@@ -75,6 +75,7 @@
 		<mapper resource="mappings/mall/mall-mapping.xml" />
 		<!-- -->
 		<mapper resource="mappings/faq-mapping.xml" />
+		<mapper resource="mappings/qna-mapping.xml" />
 		<mapper resource="mappings/category-mapping.xml" />
 		<mapper resource="mappings/faq_m-mapping.xml" />
 		<mapper resource="mappings/category_m-mapping.xml" />

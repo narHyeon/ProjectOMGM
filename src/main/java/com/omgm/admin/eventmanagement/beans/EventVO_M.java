@@ -8,7 +8,14 @@ public class EventVO_M {
 		private String EVENT_END;
 		private String EVENT_TITLE;
 		private String EVENT_CONTENT;
+		private String EVENT_IMG;
 		
+		public String getEVENT_IMG() {
+			return EVENT_IMG;
+		}
+		public void setEVENT_IMG(String eVENT_IMG) {
+			EVENT_IMG = eVENT_IMG;
+		}
 		public int getEVENT_STATUS() {
 			return EVENT_STATUS;
 		}

@@ -29,7 +29,7 @@ public class EventDAO_M {
 	
 	public EventVO_M getEvent_M(EventVO_M vo) {
 		System.out.println("----> MyBatis로 getEvent_M() 기능 처리");
-		return(EventVO_M) sqlSessionTemplate.selectOne("EventDAO_M.getEvent_M", vo);
+		return sqlSessionTemplate.selectOne("EventDAO_M.getEvent_M", vo);
 	}
 	
 }

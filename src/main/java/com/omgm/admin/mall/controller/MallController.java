@@ -85,23 +85,19 @@ public class MallController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/mall/productInquiry");
         mav.addObject("toyList", mallService.getMallToyList());
-
         return mav;
     }
-
-
 
     ////////////////   feed 관련 설정   /////////////////////////////////////////////////////////////////
     // 사료 관련 상세 정보 페이지 컨트롤러
     @RequestMapping("/productDeleteUpdateFeed.mdo")
     public ModelAndView productDeleteUpdateFeed(MallFeedVO vo) throws Exception {
-        ModelAndView mav = new ModelAndView();
-
+    	ModelAndView mav = new ModelAndView();
         mav.addObject("mallFeedOne",mallService.getMallFeedOne(vo));
         mav.setViewName("mall/productDeleteUpdateFeed");
         return mav;
     }
-
+    
     // 사료 관련 등록 컨트롤러
     @RequestMapping("/insertMallFeed.mdo")
     public ModelAndView insertMallFeed(MallFeedVO vo) throws Exception {

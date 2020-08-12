@@ -10,7 +10,7 @@
   	</select>
   
   	<select id="getEvent_M" resultType="event" parameterType="event">
-  	
+  		select * from event WHERE EVENT_NO=#{EVENT_NO} order by EVENT_NO asc
   	</select>
   	
   	<insert id="insertEvent_M" parameterType="event">
@@ -18,5 +18,18 @@
   		VALUES ((select nvl(max(EVENT_NO), 0) +1 from Event), #{EVENT_START}, #{EVENT_END}, #{EVENT_TITLE}, #{EVENT_CONTENT}, ${EVENT_STATUS})
   	</insert>
   	
+  	<update id="updateEvent_M" parameterType="event">
+  		UPDATE EVENT SET
+  		EVENT_START=#{EVENT_START},
+  		EVENT_END=#{EVENT_END},
+  		EVENT_TITLE=#{EVENT_TITLE},
+  		EVENT_CONTENT=#{EVENT_CONTENT},
+  		EVENT_STATUS=#{EVENT_STATUS}
+  		WHERE EVENT_NO=#{EVENT_NO}
+  	</update>
+  	
+  	<delete id="deleteEvent_M" >
+  		DELETE FROM EVENT WHERE EVENT_NO=#{EVENT_NO}
+  	</delete>
   	
   </mapper>

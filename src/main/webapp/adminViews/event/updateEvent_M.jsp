@@ -92,8 +92,6 @@
 	margin-right: 1.5%;
 }
 </style>
-
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/summernote/summernote-lite.js"></script>
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
@@ -107,14 +105,19 @@ jqadmin(document).ready(function() {
 			focus : true, // 에디터 로딩후 포커스를 맞출지여부
 			lang : "ko-KR" // 한글 설정
 		});
+	jqadmin('#summernote').summernote('code', '${eventInfo.EVENT_CONTENT}');
 	});
+	
+	function goBack() {
+		window.history.go(-1);
+	}
 </script>
 </head>
 <body>
-	<form method="post" action="eventWrite_M.mdo">
+	<form method="post" action="updateEvent_M.mdo">
 		<div id="eventWrite_wrap">
 			<div id="eventWrite_head">
-				<h1>공지사항 N 이벤트 작성</h1>
+				<h1>공지사항 N 이벤트 수정</h1>
 			</div>
 			<div id="eventWrite_body">
 				<div id="eventWrite_setting">
@@ -128,7 +131,7 @@ jqadmin(document).ready(function() {
 						<div class="eventWrite_rightsettings">
 							<div class="eventWrite_keys">진행중or마감</div>
 							<div class="eventWrite_values">
-							<input type="text"  value="" name="EVENT_STATUS"/>
+							<input type="text"  value="${eventInfo.EVENT_STATUS}" name="EVENT_STATUS"/>
 							</div>
 						</div>
 					</div>
@@ -136,13 +139,13 @@ jqadmin(document).ready(function() {
 						<div class="eventWrite_leftsettings">
 							<div class="eventWrite_keys">기간 시작</div>
 							<div class="eventWrite_values">
-							<input type="text" name="EVENT_START"/>
+							<input type="text" value="${eventInfo.EVENT_START}" name="EVENT_START"/>
 							</div>
 						</div>
 						<div class="eventWrite_rightsettings">
 							<div class="eventWrite_keys">기간 종료</div>
 							<div class="eventWrite_values">
-							<input type="text" name="EVENT_END"/>
+							<input type="text" value="${eventInfo.EVENT_END}" name="EVENT_END"/>
 							</div>
 						</div>								
 					</div>
@@ -150,7 +153,7 @@ jqadmin(document).ready(function() {
 						<div class="eventWrite_centersettings">
 							<div class="eventWrite_keys" id="eventWrite_title_key">제 목</div>
 							<div class="eventWrite_values" id="eventWrite_title_value">
-								<input type="text" id="eventWrite_title_input" name="EVENT_TITLE"/>								
+								<input type="text" id="eventWrite_title_input" value="${eventInfo.EVENT_TITLE}"name="EVENT_TITLE"/>								
 							</div>
 						</div>
 					</div>
@@ -163,8 +166,8 @@ jqadmin(document).ready(function() {
 			</div>
 			<!-- end body -->
 			<div id="eventWrite_leg">
-				<input type="submit" value="글 작성" class="eventWrite_buttons" /> <input
-					type="reset" value="리셋" class="eventWrite_buttons" />
+				<input type="submit" value="수정 완료" class="eventWrite_buttons" /> 
+				<input type="reset" value="취소" class="eventWrite_buttons" />
 			</div>
 			<!-- end foot -->
 		</div>

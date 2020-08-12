@@ -30,7 +30,6 @@ public class CatCareLogController {
 
 	@RequestMapping(value = "/writeCatCareLog.do", method = RequestMethod.POST)
 	public ModelAndView afterWriteCatCareLog(CatCareLogVO vo, ModelAndView mav) {
-		
 		catCareLogService.insertCatCareLog(vo);
 		mav.setViewName("/myInfo/myCatCareLog");
 		return mav;
@@ -43,6 +42,7 @@ public class CatCareLogController {
 		getVO = catCareLogService.getCatCareLog(vo);
 		
 		String content = getVO.getCATCARELOG_CONTNET();
+		
 		String[] tags = content.split("<|>");
 		ArrayList<String> list = new ArrayList<String>();
 		ArrayList<String> list2 = new ArrayList<String>();
@@ -83,7 +83,6 @@ public class CatCareLogController {
 		CatCareLogVO getVO = new CatCareLogVO(); // vo객체생성
 		getVO = catCareLogService.getCatCareLog(vo); // 셀렉트 로직처리
 		rttr.addFlashAttribute("careInfo", getVO); // 셀렉트한 vo 전송
-
 		return "redirect:/getCatCareLog.do";
 	}
 

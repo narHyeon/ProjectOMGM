@@ -10,5 +10,6 @@ public interface EventService_M {
 	void updateEvent_M(EventVO_M vo);
 	EventVO_M getEvent_M(EventVO_M vo);
 	List<EventVO_M> getAllEventList_M(EventVO_M vo);
+	
 
 }
