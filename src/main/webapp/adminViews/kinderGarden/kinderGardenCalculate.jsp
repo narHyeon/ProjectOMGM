@@ -158,10 +158,12 @@
     myPieChart.data.datasets[0].data[2] = ${date.weekPercent3};
     myPieChart.data.datasets[0].data[3] = ${date.weekPercent4};
 
+    myPieChart.update();
+
     function datePick() {
         const date1 = document.querySelector('#kinderGarden_date1').value;
 
-        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1+'&dateTwo='+date2;
+        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;
         else alert('날짜를 선택해주세요!');
     }
 </script>
