@@ -102,7 +102,7 @@ public class KinderGardenController {
     public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
         ModelAndView mav = new ModelAndView();
         vo.setDate1(new Date(2020,8,2));
-        vo.setDate1(new Date());
+        vo.setDate2(new Date());
         List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
         System.out.println(list);
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
