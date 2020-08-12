@@ -1,5 +1,6 @@
 package com.omgm.admin.kinderGarden.controller;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenDateVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -97,8 +99,12 @@ public class KinderGardenController {
 
     // 관리자 유치원 정산
     @RequestMapping("/kinderGardenCalculate.mdo")
-    public ModelAndView kinderGardenCalculate() {
+    public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
         ModelAndView mav = new ModelAndView();
+        vo.setDate1(new Date(2020,8,2));
+        vo.setDate1(new Date());
+        List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
+        System.out.println(list);
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
         return mav;
     }
