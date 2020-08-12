@@ -25,22 +25,78 @@
             color: orange;
             width: 50%;
         }
+        #kinderGarden_chart_date {
+            display: flex;
+            flex-direction: row;
+        }
+        #kinderGarden_chart_date input {
+            margin: 10px;
+        }
+        #kinderGarden_chart_date p {
+            width: 80px;
+            margin: auto 10px;
+        }
+        #kinderGarden_chart_title {
+            font-size: 24px;
+        }
+        .kinder_p_cal {
+            display: flex;
+            flex-direction: row;
+        }
+        .kinder_p_cal p:nth-child(1), .kinder_p_cal2 p:nth-child(1){
+            color:#0f9d58;
+            margin: 10px;
+        }
+        .kinder_p_cal p:nth-child(2), .kinder_p_cal2 p:nth-child(2){
+            color:#a94442;
+            margin: 10px;
+        }
+
+        #kinder_date_pick {
+            color: #dc7070;
+            font-size: 20px;
+        }
+        #kinder_dwm p:nth-child(1) {
+            font-size: 16px;
+        }
+        #kinder_dwm p:nth-child(2) {
+            color:#00C73C;
+            font-size: 18px;
+        }
+        #kinder_dwm p:nth-child(3) {
+            color:#2e59d9;
+            font-size: 20px;
+        }
 
     </style>
 </head>
 <body>
+<div id="kinderGarden_chart_title" class="card mb-4 py-3 border-bottom-info">
+    <div class="card-body">
+        유치원 매출현황
+    </div>
+</div>
+
+<div id="kinderGarden_chart_date">
+    <input type="date" placeholder="날짜 지정" class="form-control form-control-user" ><p>부터</p>
+    <input type="date" placeholder="날짜 지정" class="form-control form-control-user" ><p>까지</p>
+</div>
+
 <div id="kinderGarden_chart">
     <!-- Area Chart -->
     <div id="kinderGarden_chart_graph" class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">유치원 주간 매출 현황</h6>
+            <h6 class="m-0 font-weight-bold text-info">유치원 요일별 매출 현황</h6>
         </div>
         <div class="card-body">
             <div class="chart-area">
                 <canvas id="myAreaChart"></canvas>
             </div>
             <hr>
-            <p>2020년 8월 12일 ~ 2020년 8월 19일까지의 1주일간 매출현황</p>
+            <div class="kinder_p_cal">
+                <p>요일별 최대 매출 : 900,000원</p>
+                <p>요일별 최소 매출 : 200,000원</p>
+            </div>
         </div>
     </div>
 
@@ -49,7 +105,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">월간 주차별 매출현황</h6>
+                <h6 class="m-0 font-weight-bold text-info">주차별 매출현황</h6>
             </div>
             <!-- Card Body -->
             <div class="card-body">
@@ -57,7 +113,10 @@
                     <canvas id="myPieChart"></canvas>
                 </div>
                 <hr>
-                2020년 7월 19일 ~ 2020년 8월 19일까지의 주차별 매출현황
+                <div class="kinder_p_cal2">
+                    <p>주차별 최대 매출 : 900,000원</p>
+                    <p>주차별 최소 매출 : 200,000원</p>
+                </div>
             </div>
         </div>
     </div>
@@ -65,19 +124,22 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">매출 현황</h6>
+        <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
     </div>
     <div id="kinderGarden_chart_bot" class="card-body">
         <div>
-            <p>Today : 1,540,000원</p>
+            <p style="color: #3c85dc; font-size: 19px;">Today : 1,540,000원</p>
+            <br>
+            <p id="kinder_date_pick">2020년 8월 12일 ~ 2020년 8월 19일까지의 매출현황</p>
         </div>
-        <div class="text-right">
+        <div id="kinder_dwm" class="text-right">
             <p>DAY : 1,100,000원</p>
             <p>WEEK : 7,900,000원</p>
             <p>MONTH : 33,400,000원</p>
-         </div>
+        </div>
     </div>
 </div>
+
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 <script src="resources/admin/js/demo/chart-pie-demo.js"></script>
 <script src="resources/admin/js/kinderGarden/chartArea.js"></script>
