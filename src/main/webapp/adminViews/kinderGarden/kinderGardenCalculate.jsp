@@ -141,7 +141,7 @@
 </div>
 
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
-<script src="resources/admin/js/demo/chart-pie-demo.js"></script>
+<script src="resources/admin/js/kinderGarden/chartPie.js"></script>
 <script src="resources/admin/js/kinderGarden/chartArea.js"></script>
 </body>
 </html>
