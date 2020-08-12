@@ -116,6 +116,7 @@ public class KinderGardenController {
 
         int price = 0;
         int dayPrice = 0;
+        int weekPrice[] = new int[5];
 
         for(KinderGardenReservationVO rv : list) price += rv.getPrice();
 
@@ -126,12 +127,33 @@ public class KinderGardenController {
         List<KinderGardenReservationVO> dayList = kinderGardenService.getKinderGardenCalculate(vo);
         for(KinderGardenReservationVO dv : dayList) dayPrice += dv.getPrice();
 
+        // 주차별 계산
+        for(int i=1; i<=4; i++) {
+            cal.setTime(new Date());
+            cal.add(Calendar.DATE, -7*i);
+            vo.setDate1(cal.getTime());
+            cal.setTime(new Date());
+            cal.add(Calendar.DATE, (-7*i)+7);
+            vo.setDate2(cal.getTime());
+            List<KinderGardenReservationVO> weekList = kinderGardenService.getKinderGardenCalculate(vo);
+            for(KinderGardenReservationVO wv : weekList) weekPrice[i] += wv.getPrice();
+        }
+
+        System.out.println(weekPrice[1]);
+        System.out.println(weekPrice[2]);
+        System.out.println(weekPrice[3]);
+        System.out.println(weekPrice[4]);
+
         map.put("date1",sdf.format(vo.getDate1()));
         map.put("date2",sdf.format(vo.getDate2()));
         map.put("day", String.valueOf(price/30));
         map.put("week", String.valueOf(price/4));
         map.put("month", String.valueOf(price));
         map.put("today",String.valueOf(dayPrice));
+        map.put("weekPrice1", String.valueOf(weekPrice[4]));
+        map.put("weekPrice2", String.valueOf(weekPrice[3]));
+        map.put("weekPrice3", String.valueOf(weekPrice[2]));
+        map.put("weekPrice4", String.valueOf(weekPrice[1]));
 
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
         mav.addObject("dateList", list);
