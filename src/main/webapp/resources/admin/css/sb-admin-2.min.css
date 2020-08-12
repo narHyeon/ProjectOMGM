@@ -4503,7 +4503,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .card-body {
 	flex: 1 1 auto;
 	min-height: 1px;
-	padding: 1.25rem
+	padding: 0.7rem;
 }
 
 .card-title {
