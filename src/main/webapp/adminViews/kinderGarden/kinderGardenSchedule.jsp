@@ -65,7 +65,7 @@
             position: relative;
             left: -18.1%;
             width: 15%;
-            font-size: 16px;
+            font-size: 14px;
         }
     </style>
 </head>

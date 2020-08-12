@@ -115,4 +115,9 @@
         DELETE FROM kg_reservation WHERE seq = #{seq}
     </update>
 
+    <!-- 정산  -->
+    <select id="getKinderGardenCalculate" resultMap="KinderGardenReservationResult">
+        <![CDATA[SELECT price, regdate FROM kg_reservation WHERE regdate >= #{date1} AND regdate <= #{date2}]]>
+    </select>
+
 </mapper>

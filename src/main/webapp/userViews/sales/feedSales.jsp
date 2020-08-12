@@ -15,9 +15,12 @@
 
 </head>
 <body>
+
 <div id="toy-sales-div">
+
     <div id="toy-img-section">
         <img src="resources/img/product/${feedList.feed_img}" class="toy-img-01" >
+
     </div>
     <div id="toy-sales-section">
         <div class="toy-sales-section00">
@@ -62,8 +65,19 @@
             <c:if test="${member == null}">
                 <a href="" class="byt-immediately00" id="byt-immediately00" onclick="buyImmediately01()">즉시 구매하기</a>
             </c:if>
-            <a href="#" class="byt-immediately01">장바구니 담기</a>
+            <form action="insertCartList.do">
+                <input type="hidden" name="cartList_code" value="${feedList.feed_code}"/>
+                <input type="hidden" name="cartList_name" value="${feedList.feed_name}" />
+                <input type="hidden" name="cartList_price" value="${feedList.feed_price}" />
+                <input type="hidden" name="cartList_discount" value="${feedList.feed_discount}" />
+                <input type="hidden" name="cartList_stock" value="1" />
+                <input type="hidden" name="cartList_point" value="${feedList.feed_point}" />
+                <input type="hidden" name="cartList_info" value="${feedList.feed_info}" />
+                <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />
+            <button type="submit" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
+            </form>
         </div>
+
         <div class="toy-sales-section08">
             <a class="toy-sales-coupon">
                 행복한 하루 보내세요
@@ -75,6 +89,7 @@
         <%--            </script>--%>
         <%--        </div>--%>
     </div>
+
     <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%; margin-top: 5%;">
 <%--    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>

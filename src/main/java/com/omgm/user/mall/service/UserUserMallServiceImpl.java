@@ -49,10 +49,23 @@ public class UserUserMallServiceImpl implements UserMallService {
         return userMallDAO.getMallToyOneInfo(vo);
     }
 
+
     //////////// 장바구니 /////////////////////////////////////////
+
+
     @Override
-    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) throws Exception {
-        return userMallDAO.getMallFeedList(vo);
+    public List<CartListVO> selectCartList(CartListVO vo) throws Exception{
+        return userMallDAO.selectCartList(vo);
+    }
+
+    @Override
+    public void insertCartList(CartListVO vo) throws Exception {
+        userMallDAO.insertCartList(vo);
+    }
+
+    @Override
+    public void deleteCartListOne(CartListVO vo) throws Exception {
+        userMallDAO.deleteCartListOne(vo);
     }
 
 }

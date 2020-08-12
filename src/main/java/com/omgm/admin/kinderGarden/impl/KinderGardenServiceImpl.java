@@ -1,9 +1,6 @@
 package com.omgm.admin.kinderGarden.impl;
 
-import com.omgm.admin.kinderGarden.beans.KinderGardenDAO;
-import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
-import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
-import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
+import com.omgm.admin.kinderGarden.beans.*;
 import com.omgm.admin.kinderGarden.service.KinderGardenService;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
 import org.springframework.stereotype.Service;
@@ -70,5 +67,10 @@ public class KinderGardenServiceImpl implements KinderGardenService {
     @Override
     public void deleteReservation(KinderGardenReservationVO vo) {
         kinderGardenDAO.deleteReservation(vo);
+    }
+
+    @Override
+    public List<KinderGardenReservationVO> getKinderGardenCalculate(KinderGardenDateVO vo) {
+        return kinderGardenDAO.getKinderGardenCalculate(vo);
     }
 }

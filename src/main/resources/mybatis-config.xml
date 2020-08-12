@@ -15,18 +15,19 @@
 		<typeAlias alias="KinderGardenRowVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowVO" />
 		<typeAlias alias="KinderGardenRowMonthVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO" />
 		<typeAlias alias="KinderGardenReservationVO" type="com.omgm.user.common.beans.KinderGardenReservationVO" />
+		<typeAlias alias="KinderGardenDateVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenDateVO" />
 		<!--	유저 공통	-->
 		<typeAlias alias="KinderGardenInfoVO" type="com.omgm.user.common.beans.KinderGardenInfoVO" />
 		<typeAlias alias="KinderGardenInfoRowVO" type="com.omgm.user.common.beans.KinderGardenInfoRowVO" />
 		<!--	몰	-->
 		<typeAlias alias="mallToyVO" type="com.omgm.admin.mall.beans.MallToyVO"/>
-		<typeAlias alias="mallOrder" type="com.omgm.admin.mall.beans.MallOrderVO" />
+		<typeAlias alias="mallOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
 		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
 		<typeAlias alias="userMallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
 		<typeAlias alias="userMallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
 		<typeAlias alias="OrderVO" type="com.omgm.admin.mall.beans.OrderVO" />
 		<typeAlias alias="MemberOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
-
+		<typeAlias alias="CartListVO" type="com.omgm.user.mall.beans.CartListVO" />
 		<!--		-->
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />

@@ -23,19 +23,20 @@
 <%--  <a href="roomIntroduction.do">방 소개 페이지 이동</a>--%>
   <h2>클라이언트 개별 작업 페이지</h2>
   <a href="getMallFeedList.do">상품 리스트 페이지 이동</a>
-  <a href="cartList.do">장바구니 페이지 이동</a>
+  <a href="selectCartList.do">장바구니 페이지 이동</a>
   <hr>
   <h2>관리자 페이지</h2>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
   <hr>
   <h3>관리자 개별 작업 페이지</h3>
-
+  <a href="mallCalculate.mdo">차트 관련 페이지 이동</a>
   <a href="productStatus.mdo">주문현황 페이지 이동 - 해결바람</a>
   <a href="orderInquiry.mdo">주문조회 페이지 이동 - 해결바람</a>
   <a href="productOrder.mdo">주문현황 페이지 이동</a>
   <a href="getMallPointList.mdo">포인트 지급내역 페이지 이동</a>
   <a href="hotelList.mdo">객실정보 페이지 이동</a>
   <a href="hotelRegister.mdo">객실등록 페이지 이동</a>
+  <a href="adminReview.mdo">이용후기 관리 페이지 이동</a>
 
   <%--  <a href="kinderGardenSchedule.mdo">관리자 유치원 시간표</a>--%>
 <%--  <a href="kinderGardenScheduleMonth.mdo">관리자 유치원 달력</a>--%>
