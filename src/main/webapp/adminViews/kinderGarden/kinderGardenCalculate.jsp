@@ -79,8 +79,8 @@
 </div>
 
 <div id="kinderGarden_chart_date">
-    <input type="date" placeholder="날짜 지정" class="form-control form-control-user" ><p>부터</p>
-    <input type="date" placeholder="날짜 지정" class="form-control form-control-user" ><p>까지</p>
+    <input id="kinderGarden_date1" type="date" class="form-control form-control-user" onchange="datePick()"><p>부터</p>
+    <input id="kinderGarden_date2" type="date" class="form-control form-control-user" onchange="datePick()"><p>까지</p>
 </div>
 
 <div id="kinderGarden_chart">
@@ -156,6 +156,13 @@
     myPieChart.data.datasets[0].data[1] = ${date.weekPercent2};
     myPieChart.data.datasets[0].data[2] = ${date.weekPercent3};
     myPieChart.data.datasets[0].data[3] = ${date.weekPercent4};
+
+    function datePick() {
+        const date1 = document.querySelector('#kinderGarden_date1').value;
+        const date2 = document.querySelector('#kinderGarden_date2').value;
+
+        window.location.href = 'kinderGardenCalculate.mdo?date1='+date1+'&date2'+date2;
+    }
 </script>
 </body>
 </html>

@@ -100,6 +100,12 @@ public class KinderGardenController {
     // 관리자 유치원 정산
     @RequestMapping("/kinderGardenCalculate.mdo")
     public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
+
+        System.out.println(vo.getDate1());
+        System.out.println(vo.getDate2());
+
+
+
         ModelAndView mav = new ModelAndView();
         Map<String,String> map = new HashMap<String,String>();
         Map<String,int[]> dowMap = new HashMap<String,int[]>();
