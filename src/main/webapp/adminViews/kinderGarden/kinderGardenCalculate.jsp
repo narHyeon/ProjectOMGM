@@ -22,9 +22,13 @@
             display: flex;
             flex-direction: row;
         }
-        #kinderGarden_chart_bot div {
+        #kinderGarden_chart_bot div:nth-child(1) {
             color: orange;
-            width: 50%;
+            width: 70%;
+        }
+        #kinderGarden_chart_bot div:nth-child(2) {
+            color: orange;
+            width: 30%;
         }
         #kinderGarden_chart_date {
             display: flex;
