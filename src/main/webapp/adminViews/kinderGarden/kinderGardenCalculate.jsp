@@ -145,7 +145,11 @@
 <script src="resources/admin/js/kinderGarden/chartPie.js"></script>
 <script src="resources/admin/js/kinderGarden/chartArea.js"></script>
 <script>
-
+    myPieChart.data.datasets[0].data[0] = ${date.weekPercent1}
+    myPieChart.data.datasets[0].data[1] = ${date.weekPercent2}
+    myPieChart.data.datasets[0].data[2] = ${date.weekPercent3}
+    myPieChart.data.datasets[0].data[3] = ${date.weekPercent4}
+    console.log(myPieChart.data.datasets[0].data);
 </script>
 </body>
 </html>

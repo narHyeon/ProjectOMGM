@@ -102,16 +102,8 @@ public class KinderGardenController {
     @RequestMapping("/kinderGardenCalculate.mdo")
     public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
         ModelAndView mav = new ModelAndView();
-
-        // 현재부터 일주일 전까지 불러오기
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        cal.add(Calendar.MONTH, -1);
-        vo.setDate1(cal.getTime());
-        vo.setDate2(new Date());
-        List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
         Map<String,String> map = new HashMap<String,String>();
-
+        Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 
         int price = 0;
@@ -119,8 +111,26 @@ public class KinderGardenController {
         double weekPrice[] = new double[5];
         double weekPercent[] = new double[5];
         int weekTotal = 0;
+        int dayOfWeek[] = new int[7];
 
-        for(KinderGardenReservationVO rv : list) price += rv.getPrice();
+        // 현재부터 일주일 전까지 불러오기
+        cal.setTime(new Date());
+        cal.add(Calendar.MONTH, -1);
+        vo.setDate1(cal.getTime());
+        vo.setDate2(new Date());
+        List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
+
+        for(KinderGardenReservationVO rv : list) {
+            price += rv.getPrice();
+            if(rv.getRegDate().toString().matches(".*Mon.*")) System.out.println("월요일");
+            else if(rv.getRegDate().toString().matches(".*Tue.*")) System.out.println("화요일");
+            else if(rv.getRegDate().toString().matches(".*Wed.*")) System.out.println("수요일");
+            else if(rv.getRegDate().toString().matches(".*Thu.*")) System.out.println("목요일");
+            else if(rv.getRegDate().toString().matches(".*Fri.*")) System.out.println("금요일");
+            else if(rv.getRegDate().toString().matches(".*Sat.*")) System.out.println("토요일");
+            else if(rv.getRegDate().toString().matches(".*Sun.*")) System.out.println("일요일");
+        }
+
 
         // today 총합 구하기
         cal.setTime(new Date());
