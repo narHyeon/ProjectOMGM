@@ -130,7 +130,8 @@
         <div>
             <p style="color: #3c85dc; font-size: 19px;">Today : 1,540,000원</p>
             <br>
-            <p id="kinder_date_pick">${date.date1} ~ ${date.date2}의 매출현황</p>
+            <p id="kinder_date_pick">
+                ${date.date1} ~ ${date.date2}의 매출현황</p>
         </div>
         <div id="kinder_dwm" class="text-right">
             <p>DAY : 1,100,000원</p>
@@ -143,5 +144,8 @@
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 <script src="resources/admin/js/kinderGarden/chartPie.js"></script>
 <script src="resources/admin/js/kinderGarden/chartArea.js"></script>
+<script>
+
+</script>
 </body>
 </html>

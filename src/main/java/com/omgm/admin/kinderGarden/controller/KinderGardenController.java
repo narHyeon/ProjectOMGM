@@ -15,9 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class KinderGardenController {
@@ -115,6 +113,8 @@ public class KinderGardenController {
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
         mav.addObject("date",vo);
         mav.addObject("dateList",list);
+
+        Map<String,String> map = new HashMap<String,String>();
         return mav;
     }
 
