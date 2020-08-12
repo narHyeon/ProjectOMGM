@@ -92,6 +92,7 @@
 			<script>
                 plusTime('${row.time}','${row.program}'); // 컬럼 추가
             </script>
+            
 		</c:forEach>
 	</c:if>
 </body>
