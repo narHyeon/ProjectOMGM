@@ -110,11 +110,33 @@ public class KinderGardenController {
         vo.setDate1(cal.getTime());
         vo.setDate2(new Date());
         List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
-        mav.setViewName("/kinderGarden/kinderGardenCalculate");
-        mav.addObject("date",vo);
-        mav.addObject("dateList",list);
-
         Map<String,String> map = new HashMap<String,String>();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+
+        int price = 0;
+        int dayPrice = 0;
+
+        for(KinderGardenReservationVO rv : list) price += rv.getPrice();
+
+        // today 총합 구하기
+        cal.setTime(new Date());
+        cal.add(Calendar.DATE, -1);
+        vo.setDate1(cal.getTime());
+        List<KinderGardenReservationVO> dayList = kinderGardenService.getKinderGardenCalculate(vo);
+        for(KinderGardenReservationVO dv : dayList) dayPrice += dv.getPrice();
+
+        map.put("date1",sdf.format(vo.getDate1()));
+        map.put("date2",sdf.format(vo.getDate2()));
+        map.put("day", String.valueOf(price/30));
+        map.put("week", String.valueOf(price/4));
+        map.put("month", String.valueOf(price));
+        map.put("today",String.valueOf(dayPrice));
+
+        mav.setViewName("/kinderGarden/kinderGardenCalculate");
+        mav.addObject("dateList", list);
+        mav.addObject("date", map);
+
         return mav;
     }
 

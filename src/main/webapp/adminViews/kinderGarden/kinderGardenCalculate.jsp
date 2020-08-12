@@ -128,15 +128,15 @@
     </div>
     <div id="kinderGarden_chart_bot" class="card-body">
         <div>
-            <p style="color: #3c85dc; font-size: 19px;">Today : 1,540,000원</p>
+            <p style="color: #3c85dc; font-size: 19px;">Today : ${date.today}</p>
             <br>
             <p id="kinder_date_pick">
                 ${date.date1} ~ ${date.date2}의 매출현황</p>
         </div>
         <div id="kinder_dwm" class="text-right">
-            <p>DAY : 1,100,000원</p>
-            <p>WEEK : 7,900,000원</p>
-            <p>MONTH : 33,400,000원</p>
+            <p>DAY : ${date.day}원</p>
+            <p>WEEK : ${date.week}원</p>
+            <p>MONTH : ${date.month}원</p>
         </div>
     </div>
 </div>
