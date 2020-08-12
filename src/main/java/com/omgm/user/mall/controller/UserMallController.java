@@ -126,7 +126,7 @@ public class UserMallController {
     @RequestMapping("/insertCartList.do")
     public ModelAndView insertCartList(CartListVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect: /selectCartList.do");
+        mav.setViewName("redirect: /getMallFeedList.do");
         userMallService.insertCartList(vo);
         return mav;
     }

@@ -113,8 +113,11 @@
         <div id="buyImmediatelyDivSection01">
             <div id="buyImmediatelyDivSection03">
                 <div id="buyImmediatelyDivSection03Left" style="width: 70%">
-                    <p style="margin-top: 5%; font-weight: bold;">상품 이름 : </p>
-                    <p style="margin-top: 2%; font-size: smaller; color: blue">가격 : </p>
+                    <p style="margin-top: 5%; margin-bottom: 2%; font-weight: bold;">고르신 상품들</p>
+                    =><c:forEach var="cartList" items="${cartList}">
+                        ${cartList.cartList_name}(${cartList.cartList_price}원)&nbsp;&nbsp;
+                    </c:forEach>
+
                     <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>
                     <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice"></p>
                     <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice"></p>

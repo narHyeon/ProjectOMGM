@@ -65,6 +65,7 @@
             <c:if test="${member == null}">
                 <a href="" class="byt-immediately00" id="byt-immediately00" onclick="buyImmediately01()">즉시 구매하기</a>
             </c:if>
+
             <form action="insertCartList.do">
                 <input type="hidden" name="cartList_code" value="${feedList.feed_code}"/>
                 <input type="hidden" name="cartList_name" value="${feedList.feed_name}" />
@@ -76,6 +77,8 @@
                 <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />
             <button type="submit" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>
+
+
         </div>
 
         <div class="toy-sales-section08">

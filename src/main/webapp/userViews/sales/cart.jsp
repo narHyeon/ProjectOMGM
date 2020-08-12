@@ -99,7 +99,12 @@
             </div>
         </c:forEach>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
-        <a href="paymentCartList.do"><button class="abutton" style="border: none;">결제하기</button></a>
+            <c:if test="${member != null}">
+                <a href="paymentCartList.do"><button class="abutton" style="border: none;">결제하기</button></a>
+            </c:if>
+            <c:if test="${member == null}">
+                <a href=""><button onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.')" class="abutton" style="border: none;">결제하기</button></a>
+            </c:if>
         </div>
         </div>
 </div>
