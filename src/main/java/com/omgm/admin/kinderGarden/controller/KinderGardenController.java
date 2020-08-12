@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -103,6 +102,7 @@ public class KinderGardenController {
     public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
         ModelAndView mav = new ModelAndView();
         Map<String,String> map = new HashMap<String,String>();
+        Map<String,int[]> dowMap = new HashMap<String,int[]>();
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 
@@ -122,15 +122,16 @@ public class KinderGardenController {
 
         for(KinderGardenReservationVO rv : list) {
             price += rv.getPrice();
-            if(rv.getRegDate().toString().matches(".*Mon.*")) System.out.println("월요일");
-            else if(rv.getRegDate().toString().matches(".*Tue.*")) System.out.println("화요일");
-            else if(rv.getRegDate().toString().matches(".*Wed.*")) System.out.println("수요일");
-            else if(rv.getRegDate().toString().matches(".*Thu.*")) System.out.println("목요일");
-            else if(rv.getRegDate().toString().matches(".*Fri.*")) System.out.println("금요일");
-            else if(rv.getRegDate().toString().matches(".*Sat.*")) System.out.println("토요일");
-            else if(rv.getRegDate().toString().matches(".*Sun.*")) System.out.println("일요일");
+            if(rv.getRegDate().toString().matches(".*Mon.*")) dayOfWeek[0] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Tue.*")) dayOfWeek[1] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Wed.*")) dayOfWeek[2] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Thu.*")) dayOfWeek[3] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Fri.*")) dayOfWeek[4] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Sat.*")) dayOfWeek[5] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Sun.*")) dayOfWeek[6] += rv.getPrice();
         }
 
+        dowMap.put("dow",dayOfWeek);
 
         // today 총합 구하기
         cal.setTime(new Date());
@@ -173,9 +174,20 @@ public class KinderGardenController {
         map.put("weekTop", String.valueOf((int)weekPrice[3]));
         map.put("weekBottom", String.valueOf((int)weekPrice[1]));
 
+        // 요일별 최고 최저 구하기
+        for(int i=0; i<dayOfWeek.length; i++) {
+            if(dayOfWeek[i] == 0) break;
+            if(dayOfWeek[i] >= dayOfWeek[i-1]) map.put("dowTop", String.valueOf(dayOfWeek[i]));
+            if(dayOfWeek[i] <= dayOfWeek[i-1]) map.put("dowBottom", String.valueOf(dayOfWeek[i]));
+        }
+
+        System.out.println(map.get("dowTop"));
+        System.out.println(map.get("dowBottom"));
+
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
         mav.addObject("dateList", list);
         mav.addObject("date", map);
+        mav.addObject("dow", dowMap);
 
         return mav;
     }

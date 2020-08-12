@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -94,8 +95,8 @@
             </div>
             <hr>
             <div class="kinder_p_cal">
-                <p>요일별 최대 매출 : 900,000원</p>
-                <p>요일별 최소 매출 : 200,000원</p>
+                <p>요일별 최대 매출 : ${date.dowTop}</p>
+                <p>요일별 최소 매출 : ${date.dowBottom}</p>
             </div>
         </div>
     </div>
@@ -144,12 +145,17 @@
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 <script src="resources/admin/js/kinderGarden/chartPie.js"></script>
 <script src="resources/admin/js/kinderGarden/chartArea.js"></script>
+<c:forEach items="#{dow.dow}" var="dow" varStatus="status">
+    <script>
+        myLineChart.data.datasets[0].data[${status.index}] = ${dow};
+        myLineChart.update();
+    </script>
+</c:forEach>
 <script>
-    myPieChart.data.datasets[0].data[0] = ${date.weekPercent1}
-    myPieChart.data.datasets[0].data[1] = ${date.weekPercent2}
-    myPieChart.data.datasets[0].data[2] = ${date.weekPercent3}
-    myPieChart.data.datasets[0].data[3] = ${date.weekPercent4}
-    console.log(myPieChart.data.datasets[0].data);
+    myPieChart.data.datasets[0].data[0] = ${date.weekPercent1};
+    myPieChart.data.datasets[0].data[1] = ${date.weekPercent2};
+    myPieChart.data.datasets[0].data[2] = ${date.weekPercent3};
+    myPieChart.data.datasets[0].data[3] = ${date.weekPercent4};
 </script>
 </body>
 </html>
