@@ -121,7 +121,7 @@
     </select>
 
     <select id="selectCount" resultType="int">
-       SELECT count(*) FROM reviewBoard
+       SELECT count(*) FROM kg_reservation
     </select>
 
 </mapper>

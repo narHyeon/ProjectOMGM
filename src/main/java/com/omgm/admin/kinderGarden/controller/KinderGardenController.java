@@ -60,8 +60,7 @@ public class KinderGardenController {
         mav.addObject("reservation",kinderGardenService.getKinderGardenReservation(navi));
         mav.setViewName("/kinderGarden/kinderGardenReservation");
         mav.addObject("navi",navi);
-        vo.setSeq(page);
-        mav.addObject("page",vo);
+        mav.addObject("page",page);
         return mav;
     }
 

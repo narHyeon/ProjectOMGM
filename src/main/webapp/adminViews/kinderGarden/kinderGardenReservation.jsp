@@ -132,6 +132,7 @@
     <a href="kinderGardenReservation.mdo" class="btn btn-info btn-user ">초기화</a>
     <a href="#" class="btn btn-success btn-user" onclick="checkBox()">적용</a>
 </div>
+
 </body>
 <script>
     function checkBox() {
