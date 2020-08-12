@@ -20,11 +20,28 @@
             width: 5%;
         }
         .reservation_head_tr th:nth-child(2) {
-            width: 25%;
+            width: 18%;
         }
         .reservation_head_tr th:nth-child(3), .reservation_head_tr th:nth-child(4),
-        .reservation_head_tr th:nth-child(5), .reservation_head_tr th:nth-child(6){
+        .reservation_head_tr th:nth-child(5) {
             width: 9%;
+        }
+        .reservation_head_tr th:nth-child(6) {
+            width: 5%;
+        }
+        .reservation_head_tr th:nth-child(7), .reservation_head_tr th:nth-child(9) {
+            width: 12%;
+        }
+
+        .reservation_tbody_tr td {
+            font-size: 14px;
+        }
+
+        @media all and (max-width: 1024px) {
+            .reservation_head_tr th:nth-child(3), .reservation_head_tr th:nth-child(8),
+            .reservation_tbody_tr td:nth-child(3), .reservation_tbody_tr td:nth-child(8) {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -45,7 +62,7 @@
                         <th>서비스</th>
                         <th>보호자명</th>
                         <th>반려동물</th>
-                        <th>동물 나이</th>
+                        <th>나이</th>
                         <th>핸드폰</th>
                         <th>관련사항</th>
                         <th>상태</th>
@@ -54,18 +71,18 @@
                 <tbody>
                     <c:forEach var="reser" items="${reservation}">
                         <c:if test="${reser.state == '확인'}">
-                            <tr>
-                                <th>${reser.seq}</th>
-                                <th>${reser.name}</th>
-                                <th>${reser.service}</th>
-                                <th>${reser.buyerName}</th>
-                                <th>${reser.animal}</th>
-                                <th>${reser.animalAge}</th>
-                                <th>${reser.phone}</th>
-                                <th>${reser.etc}</th>
-                                <th><button id="delete_reservation_select${reser.seq}" class="btn btn-danger btn-circle btn-sm" onclick="deleteReservation(event)" value="${reser.seq}">
+                            <tr class="reservation_tbody_tr">
+                                <td>${reser.seq}</td>
+                                <td>${reser.name}</td>
+                                <td>${reser.service}</td>
+                                <td>${reser.buyerName}</td>
+                                <td>${reser.animal}</td>
+                                <td>${reser.animalAge}</td>
+                                <td>${reser.phone}</td>
+                                <td>${reser.etc}</td>
+                                <td><button id="delete_reservation_select${reser.seq}" class="btn btn-danger btn-circle btn-sm" onclick="deleteReservation(event)" value="${reser.seq}">
                                     <i class="fas fa-trash" style="pointer-events: none;"></i>
-                                </button> 예약취소</th>
+                                </button> 예약취소</td>
                             </tr>
                         </c:if>
                     </c:forEach>
@@ -81,7 +98,7 @@
                     <th>서비스</th>
                     <th>보호자명</th>
                     <th>반려동물</th>
-                    <th>동물 나이</th>
+                    <th>나이</th>
                     <th>핸드폰</th>
                     <th>관련사항</th>
                     <th>상태</th>
@@ -90,19 +107,19 @@
                 <tbody>
                 <c:forEach var="reser" items="${reservation}">
                     <c:if test="${reser.state == '미확인'}">
-                        <tr>
-                            <th>${reser.seq}</th>
-                            <th>${reser.name}</th>
-                            <th>${reser.service}</th>
-                            <th>${reser.buyerName}</th>
-                            <th>${reser.animal}</th>
-                            <th>${reser.animalAge}</th>
-                            <th>${reser.phone}</th>
-                            <th>${reser.etc}</th>
-                            <th><div class="custom-control custom-checkbox small">
+                        <tr class="reservation_tbody_tr">
+                            <td>${reser.seq}</td>
+                            <td>${reser.name}</td>
+                            <td>${reser.service}</td>
+                            <td>${reser.buyerName}</td>
+                            <td>${reser.animal}</td>
+                            <td>${reser.animalAge}</td>
+                            <td>${reser.phone}</td>
+                            <td>${reser.etc}</td>
+                            <td><div class="custom-control custom-checkbox small">
                                 <input type="checkbox" class="custom-control-input" id="customCheck${reser.seq}" value="${reser.seq}">
                                 <label class="custom-control-label" for="customCheck${reser.seq}">예약확인</label>
-                            </div></th>
+                            </div></td>
                         </tr>
                     </c:if>
                 </c:forEach>
@@ -140,7 +157,7 @@
 
         xhr.onload = () => {
             if(xhr.status === 200) {
-                alert('예약이 성공적으로 취소되었습니다!');
+                alert('예약이 취소되었습니다!');
                 window.location.reload();
             }
         };

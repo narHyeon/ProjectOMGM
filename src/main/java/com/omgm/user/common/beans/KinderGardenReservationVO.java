@@ -1,5 +1,7 @@
 package com.omgm.user.common.beans;
 
+import java.util.Date;
+
 public class KinderGardenReservationVO {
     private int seq;
     private String name;
@@ -16,10 +18,11 @@ public class KinderGardenReservationVO {
     private String merchantUid;
     private String pgProvider;
     private String state;
+    private Date regDate;
 
     public KinderGardenReservationVO() { }
 
-    public KinderGardenReservationVO(int seq, String name, String service, int price, String buyerName, String animal, int animalAge, String phone, String email, String zipcode, String address, String etc, String merchantUid, String pgProvider, String state) {
+    public KinderGardenReservationVO(int seq, String name, String service, int price, String buyerName, String animal, int animalAge, String phone, String email, String zipcode, String address, String etc, String merchantUid, String pgProvider, String state, Date regDate) {
         this.seq = seq;
         this.name = name;
         this.service = service;
@@ -35,6 +38,7 @@ public class KinderGardenReservationVO {
         this.merchantUid = merchantUid;
         this.pgProvider = pgProvider;
         this.state = state;
+        this.regDate = regDate;
     }
 
     public int getSeq() {
@@ -157,6 +161,14 @@ public class KinderGardenReservationVO {
         this.state = state;
     }
 
+    public Date getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
+    }
+
     @Override
     public String toString() {
         return "KinderGardenReservationVO{" +
@@ -175,6 +187,7 @@ public class KinderGardenReservationVO {
                 ", merchantUid='" + merchantUid + '\'' +
                 ", pgProvider='" + pgProvider + '\'' +
                 ", state='" + state + '\'' +
+                ", regDate=" + regDate +
                 '}';
     }
 }

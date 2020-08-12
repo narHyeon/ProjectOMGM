@@ -1,10 +1,12 @@
 package com.omgm.admin.kinderGarden.service;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenDateVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
 
+import java.util.Date;
 import java.util.List;
 
 public interface KinderGardenService {
@@ -23,4 +25,8 @@ public interface KinderGardenService {
     List<KinderGardenReservationVO> getKinderGardenReservation();
     void checkReservation(KinderGardenReservationVO vo);
     void deleteReservation(KinderGardenReservationVO vo);
+
+    // 정산
+    List<KinderGardenReservationVO> getKinderGardenCalculate(KinderGardenDateVO vo);
+
 }

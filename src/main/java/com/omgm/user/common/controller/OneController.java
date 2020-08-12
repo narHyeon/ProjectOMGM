@@ -71,7 +71,7 @@ public class OneController {
         // 데이트 계산
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        DateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        DateFormat dateFormat = new SimpleDateFormat("MM월 dd일");
         List<KinderGardenInfoVO> cList = new ArrayList<KinderGardenInfoVO>();
         int dow = calendar.get(Calendar.DAY_OF_WEEK);
         calendar.add(Calendar.DAY_OF_WEEK,-(dow-2));
