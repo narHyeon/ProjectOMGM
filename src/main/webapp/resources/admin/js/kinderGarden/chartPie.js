@@ -9,7 +9,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["1주차", "2주차", "3주차","4주차"],
     datasets: [{
-      data: [30, 15, 20, 35],
+      data: [15,25,35,25],
       backgroundColor: ['#B1D7B7', '#F16E87', '#FDD1C8', '#FCB2A8'],
       hoverBackgroundColor: ['#B1D7B7', '#F16E87', '#FDD1C8', '#FCB2A8'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
