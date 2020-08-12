@@ -1,736 +1,525 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jQuery ajax -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<!-- 페이징 디자인  -->
+<link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
+<style type="text/css">
+
+.head_col1{
+	width: 8%;
+}
+.head_col2{
+	width: 17%;
+}
+.head_col3{
+	width: 60%;
+}
+.head_col4{
+	width: 15%;
+}
+.usecolor_y{
+	color: blue;
+	font-weight: bold;
+}
+.usecolor_n{
+	color: red;
+	font-weight: bold;
+}
+.head_text{
+	font-weight: bold;
+}
+.faq_buttons{
+	margin-left: 73%;
+}
+#insert_button{
+	margin-bottom: 1%;
+}
+#modal_wrap{
+	height: 75%;
+	width : 30%;
+	overflow-y: initial !important;
+	overflow-y: auto;
+}
+.modal_input{
+	display: flex;
+	flex-direction: row;
+	margin-top: 3%;
+}
+.modal_input2{
+	display: flex;
+	flex-direction: column;
+	margin-top: 3%;
+}
+
+.modal_content{
+	border: .15rem solid #36b9cc!important;
+	padding-bottom: 4%;
+	padding-left: 3%;
+	margin-bottom: 3%;
+}
+#modal_buttons{
+	float : right;
+	margin-top: 5%;
+}
+.modal_input_key{
+	width: 33%;
+	font-weight: bold;
+}
+.fab_plus {
+   width: 47px;
+   height: 47px;
+   background-color: #36b9cc;
+   border-radius: 50%;
+   box-shadow: 0 4px 7px 0 #666;
+   
+   font-size: 33px;
+   line-height: 47px;
+   color: white;
+   text-align: center;
+   
+   right: 33px;
+   bottom: 33px;
+   
+}
+
+.fab_plus:hover {
+   box-shadow: 0 4px 10px 0 #666;
+   transform: scale(1.05);
+   cursor: pointer;
+}
+.fab_minus {
+   margin-left: 35%;
+   width: 35px;
+   height: 35px;
+   background-color: red;
+   border-radius: 50%;
+   box-shadow: 0 3px 5px 0 #666;
+   
+   font-size: 25px;
+   line-height: 35px;
+   color: white;
+   text-align: center;
+   
+   right: 25px;
+   bottom: 25px;
+   
+}
+
+.fab_minus:hover {
+   box-shadow: 0 3px 7px 0 #666;
+   transform: scale(1.05);
+   cursor: pointer;
+}
+.body_col3:hover{
+	cursor: pointer;
+}
+#upper_table{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1%;
+}
+#upper_table_right{
+	margin-left: 73%;
+}
+.modal{
+	max-width: none;
+}
+.modal_ask{
+	margin-top : 1%;
+	width: 85%;
+}
+.modal_answer{
+	margin-top : 1%;
+	width: 85%;
+}
+.body_col4{
+	cursor: pointer;
+}
+.hide_col3{
+	cursor: pointer;
+	color: black;
+	font-weight: bold;
+}
+.hide_col2{
+	cursor: pointer;
+}
+.hide2_col3{
+	cursor: pointer;
+	color: black;
+	font-weight: bold;
+}
+.hide_textarea{
+	width: 70%;
+
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 	   	$(".hide").hide();
+ 	    $(".hide2").hide();
+    	/*   질문내용 클릭시 답변 보이고 닫히는거     */
+        $(".body_col3").click(function() {
+        	const clickask = $(this);
+        	const clickanswer = clickask.parent().next();
+        	clickanswer.slideToggle("fast");
+        	clickanswer.next().hide("fast");
+		});
+    	/* 질문답변 클릭시 답변 닫히는거*/
+        $(".hide_col2").click(function() {
+			const clickanswer = $(this).parent();
+			clickanswer.slideToggle("fast");
+		});
+    	
+    	/* 수정하기 클릭시 수정폼생기면서 답변칸 사라짐  */
+       	$(".hide_col3").click(function() {
+       		const clickanswer = $(this).parent();
+       		const updateform = $(this).parent().next();
+			clickanswer.slideToggle("fast");
+			updateform.slideToggle("fast");
+		});
+        
+        /*   맨위 체크박스 클릭시 전부다 체크되는거    */ 
+     	$("#all_checkbox").click(function() {
+    		if ($("#all_checkbox").prop("checked")) {
+    			$(".category_checkbox").prop("checked",true);			
+    		}else{
+    			$(".category_checkbox").prop("checked",false);
+    		}
+    	});
+		
+        /* 카테고리 종류 선택시  페이지 다시 불러오는거*/         
+      	$("#category_selector").change(function() {
+			const val = $(this).val();
+			window.location.href = 'selectListFAQ.mdo?FAQ_CATEGORYNUM='+val;
+		});
+      	
+      	/* 인서트 하는거 */
+    	$('#modal_insertbt').click(function() {
+    		const categoryArray = new Array();
+    		const useArray = new Array();
+    		const askArray = new Array();
+    		const answerArray = new Array();
+    		
+    		$(".modal_category").each(function() {
+    			categoryArray.push($(this).val());
+    		});
+    		$(".modal_use").each(function() {
+    			useArray.push($(this).val());
+    		});
+    		$(".modal_ask").each(function() {
+    			askArray.push($(this).val());
+    		});
+    		$(".modal_answer").each(function() {
+    			answerArray.push($(this).val());
+    		});
+    		$.ajax({
+    				url: '/omyogamyo/insertFAQ.mdo',
+    				method: 'post',
+    				data: {
+    					categoryList:categoryArray,
+    					useList:useArray,
+    					askList:askArray,
+    					answerList:answerArray
+    				},
+    				success: function() {
+    					location.reload(true);
+    				},
+    				error: function(err) {
+    					alert('추가에 실패하셧습니다.');
+    				}
+    			}) ;
+    	});
+        
+      	/* 하나 답변 업데이트 */ 
+      	$(".hide2_col3").click(function() {
+			const value = $(this).prev().children().val();
+			const value_no =$(this).prev().children().data('no');
+      		 $.ajax({
+ 				url: '/omyogamyo/updateFAQ.mdo',
+ 				method: 'post',
+ 				data: {
+ 					FAQ_NO : value_no,
+ 					FAQ_ANSWER:value
+ 				},
+ 				success: function() {
+ 					location.reload(true);
+ 				},
+ 				error: function(err) {
+ 					alert('변경에 실패하셧습니다.');
+ 				}
+ 			});
+ 		 });
+      		
+        /* 하나  사용여부 업데이트  */
+      	$('.body_col4').click(function() {   
+    		const $this = $(this);
+    		const value = $this.data('no');
+    		console.log(value);
+    		 $.ajax({
+    				url: '/omyogamyo/updateFAQ.mdo',
+    				method: 'post',
+    				data: {
+    					FAQ_NO:value,
+    					FAQ_USE:$this.text() == '사용중' ? '0' : '1'
+    				},
+    				success: function() {
+    					location.reload(true);
+    				},
+    				error: function(err) {
+    					alert('변경에 실패하셧습니다.');
+    				}
+    			});
+    		 });
+      	
+      	/* 여러개 업데이트  */
+      	$("#change_button").click(function() {
+      		
+    		const checkArray = new Array();
+    		const useynArray = new Array();
+    		$(".category_checkbox:checked").each(function() {
+    			const useyn = $(this).data('use') == 1 ? 0 : 1;
+    			checkArray.push($(this).data('no'));
+    			useynArray.push(useyn);
+    		});
+    		$.ajax({
+    			url: '/omyogamyo/updateManyFAQ.mdo',
+    			method: 'post',
+    			data: {
+    				checkList:checkArray,
+    				useList:useynArray
+    			},
+    			success: function() {
+    				location.reload(true);
+    			},
+    			error: function(err) {
+    				alert('변경에 실패하셧습니다.');
+    			}
+    		}) ;
+
+    	});
+      	
+      	/* 여러개 삭제하는거  */
+    	$("#del_button").click(function() {
+    		
+    		const checkArray = new Array();
+    		$(".category_checkbox:checked").each(function() {
+    			checkArray.push($(this).data('no'));
+    		});
+    		$.ajax({
+    			url: '/omyogamyo/deleteFAQ.mdo',
+    			method: 'post',
+    			data: {
+    				checkList:checkArray,
+    			},
+    			success: function() {
+    				location.reload(true);
+    			},
+    			error: function(err) {
+    				alert('삭제에 실패하셧습니다.');
+    			}
+    		}) ;
+    	});
+    	/* + - 버튼으로 입력양식 추가 제거  */
+    	var insert_form = $('#modal_contents').html();
+    	$('.fab_plus').click(function() {
+    		$('#modal_contents').append(insert_form);
+    		$('.fab_minus').off();
+    		$('.fab_minus').click(function() {
+    			const click_form = $(this);
+    			const remove_form = $(click_form).parent().parent(); 
+    			$(remove_form).remove();
+    		});
+    	});
+    	$('.fab_minus').click(function() {
+    		const click_form = $(this);
+    		const remove_form = $(click_form).parent().parent(); 
+    		$(remove_form).remove();
+    	});
+      	
+      	
+	}); /* end document ready */
+   </script>
 </head>
 <body>
-	<!-- Content Wrapper -->
+<!-- Content Wrapper -->
 	<div id="content-wrapper" class="d-flex flex-column">
-
 		<!-- Main Content -->
 		<div id="content">
-
-			<!-- Topbar -->
-			<nav
-				class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-				<!-- Sidebar Toggle (Topbar) -->
-				<form class="form-inline">
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
-				</form>
-
-				<!-- Topbar Search -->
-				<form
-					class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-					<div class="input-group">
-						<input type="text" class="form-control bg-light border-0 small"
-							placeholder="Search for..." aria-label="Search"
-							aria-describedby="basic-addon2">
-						<div class="input-group-append">
-							<button class="btn btn-primary" type="button">
-								<i class="fas fa-search fa-sm"></i>
-							</button>
-						</div>
-					</div>
-				</form>
-
-				<!-- Topbar Navbar -->
-				<ul class="navbar-nav ml-auto">
-
-					<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-					<li class="nav-item dropdown no-arrow d-sm-none"><a
-						class="nav-link dropdown-toggle" href="#" id="searchDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-					</a> <!-- Dropdown - Messages -->
-						<div
-							class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-							aria-labelledby="searchDropdown">
-							<form class="form-inline mr-auto w-100 navbar-search">
-								<div class="input-group">
-									<input type="text" class="form-control bg-light border-0 small"
-										placeholder="Search for..." aria-label="Search"
-										aria-describedby="basic-addon2">
-									<div class="input-group-append">
-										<button class="btn btn-primary" type="button">
-											<i class="fas fa-search fa-sm"></i>
-										</button>
-									</div>
-								</div>
-							</form>
-						</div></li>
-
-					<!-- Nav Item - Alerts -->
-					<li class="nav-item dropdown no-arrow mx-1"><a
-						class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
-							<span class="badge badge-danger badge-counter">3+</span>
-					</a> <!-- Dropdown - Alerts -->
-						<div
-							class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-							aria-labelledby="alertsDropdown">
-							<h6 class="dropdown-header">Alerts Center</h6>
-							<a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="mr-3">
-									<div class="icon-circle bg-primary">
-										<i class="fas fa-file-alt text-white"></i>
-									</div>
-								</div>
-								<div>
-									<div class="small text-gray-500">December 12, 2019</div>
-									<span class="font-weight-bold">A new monthly report is
-										ready to download!</span>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="mr-3">
-									<div class="icon-circle bg-success">
-										<i class="fas fa-donate text-white"></i>
-									</div>
-								</div>
-								<div>
-									<div class="small text-gray-500">December 7, 2019</div>
-									$290.29 has been deposited into your account!
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="mr-3">
-									<div class="icon-circle bg-warning">
-										<i class="fas fa-exclamation-triangle text-white"></i>
-									</div>
-								</div>
-								<div>
-									<div class="small text-gray-500">December 2, 2019</div>
-									Spending Alert: We've noticed unusually high spending for your
-									account.
-								</div>
-							</a> <a class="dropdown-item text-center small text-gray-500"
-								href="#">Show All Alerts</a>
-						</div></li>
-
-					<!-- Nav Item - Messages -->
-					<li class="nav-item dropdown no-arrow mx-1"><a
-						class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <i class="fas fa-envelope fa-fw"></i> <!-- Counter - Messages -->
-							<span class="badge badge-danger badge-counter">7</span>
-					</a> <!-- Dropdown - Messages -->
-						<div
-							class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-							aria-labelledby="messagesDropdown">
-							<h6 class="dropdown-header">Message Center</h6>
-							<a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle"
-										src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-									<div class="status-indicator bg-success"></div>
-								</div>
-								<div class="font-weight-bold">
-									<div class="text-truncate">Hi there! I am wondering if
-										you can help me with a problem I've been having.</div>
-									<div class="small text-gray-500">Emily Fowler · 58m</div>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle"
-										src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-									<div class="status-indicator"></div>
-								</div>
-								<div>
-									<div class="text-truncate">I have the photos that you
-										ordered last month, how would you like them sent to you?</div>
-									<div class="small text-gray-500">Jae Chun · 1d</div>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle"
-										src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-									<div class="status-indicator bg-warning"></div>
-								</div>
-								<div>
-									<div class="text-truncate">Last month's report looks
-										great, I am very happy with the progress so far, keep up the
-										good work!</div>
-									<div class="small text-gray-500">Morgan Alvarez · 2d</div>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle"
-										src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-									<div class="status-indicator bg-success"></div>
-								</div>
-								<div>
-									<div class="text-truncate">Am I a good boy? The reason I
-										ask is because someone told me that people say this to all
-										dogs, even if they aren't good...</div>
-									<div class="small text-gray-500">Chicken the Dog · 2w</div>
-								</div>
-							</a> <a class="dropdown-item text-center small text-gray-500"
-								href="#">Read More Messages</a>
-						</div></li>
-
-					<div class="topbar-divider d-none d-sm-block"></div>
-
-					<!-- Nav Item - User Information -->
-					<li class="nav-item dropdown no-arrow"><a
-						class="nav-link dropdown-toggle" href="#" id="userDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <span
-							class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie
-								Luna</span> <img class="img-profile rounded-circle"
-							src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-					</a> <!-- Dropdown - User Information -->
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-							aria-labelledby="userDropdown">
-							<a class="dropdown-item" href="#"> <i
-								class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-							</a> <a class="dropdown-item" href="#"> <i
-								class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
-							</a> <a class="dropdown-item" href="#"> <i
-								class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity
-								Log
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#" data-toggle="modal"
-								data-target="#logoutModal"> <i
-								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-								Logout
-							</a>
-						</div></li>
-
-				</ul>
-
-			</nav>
-			<!-- End of Topbar -->
-
 			<!-- Begin Page Content -->
 			<div class="container-fluid">
-
 				<!-- Page Heading -->
-				<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-				<p class="mb-4">
-					DataTables is a third party plugin that is used to generate the
-					demo table below. For more information about DataTables, please
-					visit the <a target="_blank" href="https://datatables.net">official
-						DataTables documentation</a>.
-				</p>
-
 				<!-- DataTales Example -->
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
-						<h6 class="m-0 font-weight-bold text-primary">DataTables
-							Example</h6>
+						<h4 class="m-0 font-weight-bold text-primary">FAQ</h4>
 					</div>
 					<div class="card-body">
+					
 						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable" width="100%"
-								cellspacing="0">
+						    <div id="upper_table">
+						    <div id="upper_table_left">
+						    
+						    	<a class="btn btn-primary btn-icon-split" id="insert_button" href="#modal_wrap" rel="modal:open">
+  			                  		<span class="icon text-white-50">
+            		          		<i class="fas fa-check"></i>
+                  				    </span>
+                    				<span class="text">질문 추가</span>
+                 				</a>
+                 			
+                 			</div>
+                 			
+                 			<div id="upper_table_right">
+                 			<select id="category_selector">
+                 					<option value="" selected disabled hidden >선택해주세요</option>
+                 					<option value=0>전체보기</option>
+                 				<c:forEach var="category" items="${categoryList}">
+                 					<option value="${category.CATEGORY_NO}">${category.CATEGORY_NAME}</option>
+                 				</c:forEach>
+                 				<!-- 
+                 				<option value="" selected disabled hidden >선택해주세요.</option>
+								<option value=0>전체보기</option>
+								<option value=1>상품문의</option>
+								<option value=2>유치원문의</option> -->
+							</select>
+                 			</div>
+                 			</div>
+							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>Name</th>
-										<th>Position</th>
-										<th>Office</th>
-										<th>Age</th>
-										<th>Start date</th>
-										<th>Salary</th>
+										<th class="head_col1"><input type="checkbox" id="all_checkbox"></th>
+										<th class="head_text head_col2">카테고리</th>
+										<th class="head_text head_col3">질문 내용</th>
+										<th class="head_text head_col4">질문 사용여부</th>
 									</tr>
 								</thead>
-								<tfoot>
-									<tr>
-										<th>Name</th>
-										<th>Position</th>
-										<th>Office</th>
-										<th>Age</th>
-										<th>Start date</th>
-										<th>Salary</th>
-									</tr>
-								</tfoot>
 								<tbody>
+								<c:forEach var="faq" items="${faqList}" varStatus="num">
 									<tr>
-										<td>Tiger Nixon</td>
-										<td>System Architect</td>
-										<td>Edinburgh</td>
-										<td>61</td>
-										<td>2011/04/25</td>
-										<td>$320,800</td>
+										<td class="body_col1"><input type="checkbox" class="category_checkbox" data-no="${faq.FAQ_NO}" data-use="${faq.FAQ_USE}"></td>
+										<td class="body_col2">${faq.CATEGORY_NAME}</td>
+										<td class="body_col3">${faq.FAQ_ASK}</td>
+								<c:choose>
+									<c:when test="${faq.FAQ_USE eq 1}">
+										<td class="body_col4 usecolor_y" data-no="${faq.FAQ_NO}">사용중</td>	
+									</c:when>
+									<c:when test="${faq.FAQ_USE eq 0}">
+										<td class="body_col4 usecolor_n" data-no="${faq.FAQ_NO}">미사용중</td>
+									</c:when>
+								</c:choose>
 									</tr>
-									<tr>
-										<td>Garrett Winters</td>
-										<td>Accountant</td>
-										<td>Tokyo</td>
-										<td>63</td>
-										<td>2011/07/25</td>
-										<td>$170,750</td>
+									<tr class="hide">
+										<td></td>
+										<td class="hide_col1">답변</td>
+										<td class="hide_col2">${faq.FAQ_ANSWER}</td>
+										<td class="hide_col3">수정하기</td>
 									</tr>
-									<tr>
-										<td>Ashton Cox</td>
-										<td>Junior Technical Author</td>
-										<td>San Francisco</td>
-										<td>66</td>
-										<td>2009/01/12</td>
-										<td>$86,000</td>
+									<tr class="hide2">
+										<td></td>
+										<td class="hide2_col1">답변</td>
+										<td class="hide2_col2">
+											<textarea rows="3" class="hide_textarea" data-no="${faq.FAQ_NO}">${faq.FAQ_ANSWER}</textarea>
+										</td>
+										<td class="hide2_col3">수정완료</td>
 									</tr>
-									<tr>
-										<td>Cedric Kelly</td>
-										<td>Senior Javascript Developer</td>
-										<td>Edinburgh</td>
-										<td>22</td>
-										<td>2012/03/29</td>
-										<td>$433,060</td>
-									</tr>
-									<tr>
-										<td>Airi Satou</td>
-										<td>Accountant</td>
-										<td>Tokyo</td>
-										<td>33</td>
-										<td>2008/11/28</td>
-										<td>$162,700</td>
-									</tr>
-									<tr>
-										<td>Brielle Williamson</td>
-										<td>Integration Specialist</td>
-										<td>New York</td>
-										<td>61</td>
-										<td>2012/12/02</td>
-										<td>$372,000</td>
-									</tr>
-									<tr>
-										<td>Herrod Chandler</td>
-										<td>Sales Assistant</td>
-										<td>San Francisco</td>
-										<td>59</td>
-										<td>2012/08/06</td>
-										<td>$137,500</td>
-									</tr>
-									<tr>
-										<td>Rhona Davidson</td>
-										<td>Integration Specialist</td>
-										<td>Tokyo</td>
-										<td>55</td>
-										<td>2010/10/14</td>
-										<td>$327,900</td>
-									</tr>
-									<tr>
-										<td>Colleen Hurst</td>
-										<td>Javascript Developer</td>
-										<td>San Francisco</td>
-										<td>39</td>
-										<td>2009/09/15</td>
-										<td>$205,500</td>
-									</tr>
-									<tr>
-										<td>Sonya Frost</td>
-										<td>Software Engineer</td>
-										<td>Edinburgh</td>
-										<td>23</td>
-										<td>2008/12/13</td>
-										<td>$103,600</td>
-									</tr>
-									<tr>
-										<td>Jena Gaines</td>
-										<td>Office Manager</td>
-										<td>London</td>
-										<td>30</td>
-										<td>2008/12/19</td>
-										<td>$90,560</td>
-									</tr>
-									<tr>
-										<td>Quinn Flynn</td>
-										<td>Support Lead</td>
-										<td>Edinburgh</td>
-										<td>22</td>
-										<td>2013/03/03</td>
-										<td>$342,000</td>
-									</tr>
-									<tr>
-										<td>Charde Marshall</td>
-										<td>Regional Director</td>
-										<td>San Francisco</td>
-										<td>36</td>
-										<td>2008/10/16</td>
-										<td>$470,600</td>
-									</tr>
-									<tr>
-										<td>Haley Kennedy</td>
-										<td>Senior Marketing Designer</td>
-										<td>London</td>
-										<td>43</td>
-										<td>2012/12/18</td>
-										<td>$313,500</td>
-									</tr>
-									<tr>
-										<td>Tatyana Fitzpatrick</td>
-										<td>Regional Director</td>
-										<td>London</td>
-										<td>19</td>
-										<td>2010/03/17</td>
-										<td>$385,750</td>
-									</tr>
-									<tr>
-										<td>Michael Silva</td>
-										<td>Marketing Designer</td>
-										<td>London</td>
-										<td>66</td>
-										<td>2012/11/27</td>
-										<td>$198,500</td>
-									</tr>
-									<tr>
-										<td>Paul Byrd</td>
-										<td>Chief Financial Officer (CFO)</td>
-										<td>New York</td>
-										<td>64</td>
-										<td>2010/06/09</td>
-										<td>$725,000</td>
-									</tr>
-									<tr>
-										<td>Gloria Little</td>
-										<td>Systems Administrator</td>
-										<td>New York</td>
-										<td>59</td>
-										<td>2009/04/10</td>
-										<td>$237,500</td>
-									</tr>
-									<tr>
-										<td>Bradley Greer</td>
-										<td>Software Engineer</td>
-										<td>London</td>
-										<td>41</td>
-										<td>2012/10/13</td>
-										<td>$132,000</td>
-									</tr>
-									<tr>
-										<td>Dai Rios</td>
-										<td>Personnel Lead</td>
-										<td>Edinburgh</td>
-										<td>35</td>
-										<td>2012/09/26</td>
-										<td>$217,500</td>
-									</tr>
-									<tr>
-										<td>Jenette Caldwell</td>
-										<td>Development Lead</td>
-										<td>New York</td>
-										<td>30</td>
-										<td>2011/09/03</td>
-										<td>$345,000</td>
-									</tr>
-									<tr>
-										<td>Yuri Berry</td>
-										<td>Chief Marketing Officer (CMO)</td>
-										<td>New York</td>
-										<td>40</td>
-										<td>2009/06/25</td>
-										<td>$675,000</td>
-									</tr>
-									<tr>
-										<td>Caesar Vance</td>
-										<td>Pre-Sales Support</td>
-										<td>New York</td>
-										<td>21</td>
-										<td>2011/12/12</td>
-										<td>$106,450</td>
-									</tr>
-									<tr>
-										<td>Doris Wilder</td>
-										<td>Sales Assistant</td>
-										<td>Sidney</td>
-										<td>23</td>
-										<td>2010/09/20</td>
-										<td>$85,600</td>
-									</tr>
-									<tr>
-										<td>Angelica Ramos</td>
-										<td>Chief Executive Officer (CEO)</td>
-										<td>London</td>
-										<td>47</td>
-										<td>2009/10/09</td>
-										<td>$1,200,000</td>
-									</tr>
-									<tr>
-										<td>Gavin Joyce</td>
-										<td>Developer</td>
-										<td>Edinburgh</td>
-										<td>42</td>
-										<td>2010/12/22</td>
-										<td>$92,575</td>
-									</tr>
-									<tr>
-										<td>Jennifer Chang</td>
-										<td>Regional Director</td>
-										<td>Singapore</td>
-										<td>28</td>
-										<td>2010/11/14</td>
-										<td>$357,650</td>
-									</tr>
-									<tr>
-										<td>Brenden Wagner</td>
-										<td>Software Engineer</td>
-										<td>San Francisco</td>
-										<td>28</td>
-										<td>2011/06/07</td>
-										<td>$206,850</td>
-									</tr>
-									<tr>
-										<td>Fiona Green</td>
-										<td>Chief Operating Officer (COO)</td>
-										<td>San Francisco</td>
-										<td>48</td>
-										<td>2010/03/11</td>
-										<td>$850,000</td>
-									</tr>
-									<tr>
-										<td>Shou Itou</td>
-										<td>Regional Marketing</td>
-										<td>Tokyo</td>
-										<td>20</td>
-										<td>2011/08/14</td>
-										<td>$163,000</td>
-									</tr>
-									<tr>
-										<td>Michelle House</td>
-										<td>Integration Specialist</td>
-										<td>Sidney</td>
-										<td>37</td>
-										<td>2011/06/02</td>
-										<td>$95,400</td>
-									</tr>
-									<tr>
-										<td>Suki Burks</td>
-										<td>Developer</td>
-										<td>London</td>
-										<td>53</td>
-										<td>2009/10/22</td>
-										<td>$114,500</td>
-									</tr>
-									<tr>
-										<td>Prescott Bartlett</td>
-										<td>Technical Author</td>
-										<td>London</td>
-										<td>27</td>
-										<td>2011/05/07</td>
-										<td>$145,000</td>
-									</tr>
-									<tr>
-										<td>Gavin Cortez</td>
-										<td>Team Leader</td>
-										<td>San Francisco</td>
-										<td>22</td>
-										<td>2008/10/26</td>
-										<td>$235,500</td>
-									</tr>
-									<tr>
-										<td>Martena Mccray</td>
-										<td>Post-Sales support</td>
-										<td>Edinburgh</td>
-										<td>46</td>
-										<td>2011/03/09</td>
-										<td>$324,050</td>
-									</tr>
-									<tr>
-										<td>Unity Butler</td>
-										<td>Marketing Designer</td>
-										<td>San Francisco</td>
-										<td>47</td>
-										<td>2009/12/09</td>
-										<td>$85,675</td>
-									</tr>
-									<tr>
-										<td>Howard Hatfield</td>
-										<td>Office Manager</td>
-										<td>San Francisco</td>
-										<td>51</td>
-										<td>2008/12/16</td>
-										<td>$164,500</td>
-									</tr>
-									<tr>
-										<td>Hope Fuentes</td>
-										<td>Secretary</td>
-										<td>San Francisco</td>
-										<td>41</td>
-										<td>2010/02/12</td>
-										<td>$109,850</td>
-									</tr>
-									<tr>
-										<td>Vivian Harrell</td>
-										<td>Financial Controller</td>
-										<td>San Francisco</td>
-										<td>62</td>
-										<td>2009/02/14</td>
-										<td>$452,500</td>
-									</tr>
-									<tr>
-										<td>Timothy Mooney</td>
-										<td>Office Manager</td>
-										<td>London</td>
-										<td>37</td>
-										<td>2008/12/11</td>
-										<td>$136,200</td>
-									</tr>
-									<tr>
-										<td>Jackson Bradshaw</td>
-										<td>Director</td>
-										<td>New York</td>
-										<td>65</td>
-										<td>2008/09/26</td>
-										<td>$645,750</td>
-									</tr>
-									<tr>
-										<td>Olivia Liang</td>
-										<td>Support Engineer</td>
-										<td>Singapore</td>
-										<td>64</td>
-										<td>2011/02/03</td>
-										<td>$234,500</td>
-									</tr>
-									<tr>
-										<td>Bruno Nash</td>
-										<td>Software Engineer</td>
-										<td>London</td>
-										<td>38</td>
-										<td>2011/05/03</td>
-										<td>$163,500</td>
-									</tr>
-									<tr>
-										<td>Sakura Yamamoto</td>
-										<td>Support Engineer</td>
-										<td>Tokyo</td>
-										<td>37</td>
-										<td>2009/08/19</td>
-										<td>$139,575</td>
-									</tr>
-									<tr>
-										<td>Thor Walton</td>
-										<td>Developer</td>
-										<td>New York</td>
-										<td>61</td>
-										<td>2013/08/11</td>
-										<td>$98,540</td>
-									</tr>
-									<tr>
-										<td>Finn Camacho</td>
-										<td>Support Engineer</td>
-										<td>San Francisco</td>
-										<td>47</td>
-										<td>2009/07/07</td>
-										<td>$87,500</td>
-									</tr>
-									<tr>
-										<td>Serge Baldwin</td>
-										<td>Data Coordinator</td>
-										<td>Singapore</td>
-										<td>64</td>
-										<td>2012/04/09</td>
-										<td>$138,575</td>
-									</tr>
-									<tr>
-										<td>Zenaida Frank</td>
-										<td>Software Engineer</td>
-										<td>New York</td>
-										<td>63</td>
-										<td>2010/01/04</td>
-										<td>$125,250</td>
-									</tr>
-									<tr>
-										<td>Zorita Serrano</td>
-										<td>Software Engineer</td>
-										<td>San Francisco</td>
-										<td>56</td>
-										<td>2012/06/01</td>
-										<td>$115,000</td>
-									</tr>
-									<tr>
-										<td>Jennifer Acosta</td>
-										<td>Junior Javascript Developer</td>
-										<td>Edinburgh</td>
-										<td>43</td>
-										<td>2013/02/01</td>
-										<td>$75,650</td>
-									</tr>
-									<tr>
-										<td>Cara Stevens</td>
-										<td>Sales Assistant</td>
-										<td>New York</td>
-										<td>46</td>
-										<td>2011/12/06</td>
-										<td>$145,600</td>
-									</tr>
-									<tr>
-										<td>Hermione Butler</td>
-										<td>Regional Director</td>
-										<td>London</td>
-										<td>47</td>
-										<td>2011/03/21</td>
-										<td>$356,250</td>
-									</tr>
-									<tr>
-										<td>Lael Greer</td>
-										<td>Systems Administrator</td>
-										<td>London</td>
-										<td>21</td>
-										<td>2009/02/27</td>
-										<td>$103,500</td>
-									</tr>
-									<tr>
-										<td>Jonas Alexander</td>
-										<td>Developer</td>
-										<td>San Francisco</td>
-										<td>30</td>
-										<td>2010/07/14</td>
-										<td>$86,500</td>
-									</tr>
-									<tr>
-										<td>Shad Decker</td>
-										<td>Regional Director</td>
-										<td>Edinburgh</td>
-										<td>51</td>
-										<td>2008/11/13</td>
-										<td>$183,000</td>
-									</tr>
-									<tr>
-										<td>Michael Bruce</td>
-										<td>Javascript Developer</td>
-										<td>Singapore</td>
-										<td>29</td>
-										<td>2011/06/27</td>
-										<td>$183,000</td>
-									</tr>
-									<tr>
-										<td>Donna Snider</td>
-										<td>Customer Support</td>
-										<td>New York</td>
-										<td>27</td>
-										<td>2011/01/25</td>
-										<td>$112,000</td>
-									</tr>
+								</c:forEach>
 								</tbody>
 							</table>
 						</div>
+					<div class="faq_buttons">	
+					    <div class="btn btn-success btn-icon-split category_button" id="change_button">
+                    		<span class="icon text-white-50">
+                      			<i class="fas fa-check"></i>
+                    		</span>
+                    		<span class="text">사용여부 변경</span>
+                    	</div>
+						<div class="btn btn-danger btn-icon-split category_button" id="del_button">
+                    		<span class="icon text-white-50">
+                      			<i class="fas fa-trash"></i>
+                    		</span>
+                    		<span class="text">질문 삭제</span>
+                 		</div>
+					</div><!--  faq_buttonsend -->
+					<div class="reviewList_page00">
+						<a href="selectListFAQ.mdo" class="reviewList_page01">&lt;&lt;</a>
+						<a href="selectListFAQ.mdo?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
+						<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+							<c:if test="${page == counter}">	
+								<a href="selectListFAQ.mdo?page=${counter}" class="reviewList_page" style="background-color: orange">&nbsp;&nbsp;${counter}</a>
+							</c:if>
+							<c:if test="${page != counter}">
+								<a href="selectListFAQ.mdo?page=${counter}" class="reviewList_page" >&nbsp;&nbsp;${counter}</a>
+							</c:if>
+						</c:forEach>
+						<a href="selectListFAQ.mdo?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a> 
+						<a href="selectListFAQ.mdo?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
+					</div><!-- end paging -->
 					</div>
 				</div>
-
 			</div>
 			<!-- /.container-fluid -->
-
 		</div>
 		<!-- End of Main Content -->
-
-		<!-- Footer -->
-		<footer class="sticky-footer bg-white">
-			<div class="container my-auto">
-				<div class="copyright text-center my-auto">
-					<span>Copyright &copy; Your Website 2020</span>
-				</div>
-			</div>
-		</footer>
-		<!-- End of Footer -->
-
 	</div>
 	<!-- End of Content Wrapper -->
 </body>
+<div id="modal_wrap" class="modal">
+  	<h2>질문</h2>
+	<div id="modal_contents">
+		<div class="modal_content">
+			<div class="modal_input">				
+				<div class="modal_input_key">카테고리</div>
+				<div class="modal_input_value">
+					<select class="modal_category">
+                		<c:forEach var="category" items="${categoryList}">
+                 		<option value="${category.CATEGORY_NO}">${category.CATEGORY_NAME}</option>
+                 		</c:forEach>
+					</select>
+				</div>
+			</div>	
+			<div class="modal_input">
+				<div class="modal_input_key">사용여부</div>
+				<div class="modal_input_value">
+					<select class="modal_use">
+						<option value=1>사용함</option>
+						<option value=0>사용안함</option>
+					</select>
+				</div>
+				<div class="fab_minus"> - </div>
+			</div>
+			<div class="modal_input2">
+				<div class="modal_input_key">질문</div>
+				<div class="modal_input_value">
+					<input type="text" class="modal_ask">
+				</div>s
+		    </div>
+		    <div class="modal_input2">
+				<div class="modal_input_key">답변</div>
+				<div class="modal_input_value">
+					<textarea class="modal_answer" rows="3"></textarea>
+				</div>
+		    </div>
+		</div>	    
+	</div>
+	<div id="modal_plus" align="right">
+	<div class="fab_plus"> + </div>
+	</div>
+	<div id="modal_buttons">  			
+ 			<div class="btn btn-primary btn-icon-split" id="modal_insertbt">
+            <span class="text">추가</span>
+            </div><!-- end 추가버튼 -->
+            <a class="btn btn-danger btn-icon-split " rel="modal:close" id="modal_cancle"  href="#">
+            <span class="text">취소</span>
+            </a><!-- end 취소버튼 -->
+	</div><!-- end modal_buttons -->
+</div><!-- end modal_wrap -->
 </html>

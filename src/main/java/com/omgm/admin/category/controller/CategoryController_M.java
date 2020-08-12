@@ -20,10 +20,22 @@ public class CategoryController_M {
 	@Autowired
 	CategoryService_M categoryService_M;
 	
-	@RequestMapping(value = "/insertCategory.mdo", method = RequestMethod.GET)
-	public ModelAndView insertCategory(CategoryVO_M vo, ModelAndView mav) {
+	@RequestMapping(value = "/insertCategory.mdo", method = RequestMethod.POST)
+	@ResponseBody
+	public void insertCategory(
+			@RequestParam("nameList[]") List<String> nameList,
+			@RequestParam("useList[]") List<String> useList
+			) {
+		List<CategoryVO_M> volist = new ArrayList<CategoryVO_M>();
+		for (int i = 0; i < nameList.size(); i++) {
+			CategoryVO_M vo = new CategoryVO_M();
+			vo.setCATEGORY_NAME(nameList.get(i));
+			vo.setCATEGORY_USE(Integer.parseInt(useList.get(i)));
+			volist.add(vo);
+		}
 		
-		return mav;
+		categoryService_M.insertCategory(volist);
+		
 	}
 	
 	@RequestMapping(value = "/updateCategory.mdo", method = RequestMethod.POST)
@@ -69,9 +81,9 @@ public class CategoryController_M {
 		return mav;
 	}
 	@RequestMapping(value = "/categoryList.mdo", method = RequestMethod.GET)
-	public ModelAndView selectListAllCategory(CategoryVO_M vo, ModelAndView mav) {
+	public ModelAndView selectListAllCategory(ModelAndView mav) {
 		
-		List<CategoryVO_M> list = categoryService_M.selectListAllCategory(vo);
+		List<CategoryVO_M> list = categoryService_M.selectListAllCategory();
 		
 		mav.addObject("categoryList", list);
 		mav.setViewName("/category/categoryList");

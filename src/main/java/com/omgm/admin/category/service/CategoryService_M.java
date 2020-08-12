@@ -6,7 +6,7 @@ import com.omgm.admin.category.beans.CategoryVO_M;
 
 public interface CategoryService_M {
 
-	public void insertCategory(CategoryVO_M vo);
+	public void insertCategory(List<CategoryVO_M> volist);
 	
 	public void updateCategory(CategoryVO_M vo);
 	
@@ -16,7 +16,9 @@ public interface CategoryService_M {
 	
 	public CategoryVO_M selectCategory(CategoryVO_M vo);
 	
-	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo);
+	public List<CategoryVO_M> selectListAllCategory();
+
+	List<CategoryVO_M> selectListUseCategory();
 
 	
 }

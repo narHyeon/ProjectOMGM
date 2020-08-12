@@ -10,6 +10,9 @@ public class FAQVO_M {
 	private String CATEGORY_NAME;
 	private int CATEGORY_USE;
 	
+	public FAQVO_M() {
+		FAQ_USE = -1;
+	}
 	public int getFAQ_NO() {
 		return FAQ_NO;
 	}

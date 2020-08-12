@@ -11,8 +11,8 @@ public class CategoryDAO_M {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public void insertCategory(CategoryVO_M vo) {
-		sqlSessionTemplate.insert("CategoryDAO_M.insertCategory",vo);
+	public void insertCategory(List<CategoryVO_M> volist) {
+		sqlSessionTemplate.insert("CategoryDAO_M.insertCategory",volist);
 	}
 
 	public void updateCategory(CategoryVO_M vo) {
@@ -29,10 +29,11 @@ public class CategoryDAO_M {
 	public CategoryVO_M selectCategory(CategoryVO_M vo) {
 		return sqlSessionTemplate.selectOne("CategoryDAO_M.selectCategory",vo);
 	}
-	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo){
-		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListAllCategory", vo);
+	public List<CategoryVO_M> selectListAllCategory(){
+		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListAllCategory");
+	}
+	public List<CategoryVO_M> selectListUseCategory(){
+		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListUseCategory");
 	}
 
-
-	
 }

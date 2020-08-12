@@ -15,10 +15,9 @@ public class CategoryServiceImpl_M implements CategoryService_M{
 	CategoryDAO_M categoryDAO_M;
 
 	@Override
-	public void insertCategory(CategoryVO_M vo) {
-		categoryDAO_M.insertCategory(vo);
+	public void insertCategory(List<CategoryVO_M> volist) {
+		categoryDAO_M.insertCategory(volist);
 	}
-
 	@Override
 	public void updateCategory(CategoryVO_M vo) {
 		categoryDAO_M.updateCategory(vo);
@@ -40,11 +39,14 @@ public class CategoryServiceImpl_M implements CategoryService_M{
 	}
 
 	@Override
-	public List<CategoryVO_M> selectListAllCategory(CategoryVO_M vo) {
-		return categoryDAO_M.selectListAllCategory(vo);
+	public List<CategoryVO_M> selectListAllCategory() {
+		return categoryDAO_M.selectListAllCategory();
 	}
-
-
-
-
+	@Override
+	public List<CategoryVO_M> selectListUseCategory() {
+		return categoryDAO_M.selectListUseCategory();
+	}
+	
+	
+	
 }
