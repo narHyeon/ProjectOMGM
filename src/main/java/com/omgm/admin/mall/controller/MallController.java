@@ -261,7 +261,7 @@ public class MallController {
         System.out.println("test1");
 
         vo1.setId(vo.getOrder_id());
-        vo1.setPoint(vo.getOrder_point_used());
+        vo1.setPoint(vo.getOrder_point());
 
             mallService.updateMemberPoint(vo1);
 

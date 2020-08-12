@@ -79,7 +79,7 @@
         <c:forEach var="FeedList1" items="${FeedList1}">
             <div class="cart_item" >
 <%--                <span class="name"><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
-                <a href="productDeleteUpdate.mdo?feed_code=${FeedList1.feed_code}"><img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/sales/${FeedList1.feed_img}"></a>
+                <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${FeedList1.feed_img}">
                 <span style="padding-left:4vw;" class="cart_info">${FeedList1.feed_name}</span>
     <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num">${FeedList1.feed_price}</div></span>
                 <span style="padding-left:4vw;" id="num" class="cart_info"><div class="updown">

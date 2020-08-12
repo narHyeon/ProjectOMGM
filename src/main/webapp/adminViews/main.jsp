@@ -69,5 +69,9 @@
 </div>
 
 </div>
+<script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
+<script src="resources/admin/js/demo/chart-area-demo.js"></script>
+<script src="resources/admin/js/demo/chart-bar-demo.js"></script>
+
 </body>
 </html>
