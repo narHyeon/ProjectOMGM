@@ -19,6 +19,9 @@
 
 <!-- Custom styles for this template-->
 <link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="resources/img/자산%208.png">
+
 </head>
 <body id="page-top">
 
@@ -93,7 +96,7 @@
 	<script src="resources/admin/js/sb-admin-2.min.js"></script>
 
 	<!-- Page level plugins -->
-	<script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
+<%--	<script src="resources/admin/vendor/chart.js/Chart.min.js"></script>--%>
 
 	<!-- Page level custom scripts -->
 <%--	<script src="resources/admin/js/demo/chart-area-demo.js"></script>--%>

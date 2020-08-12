@@ -94,4 +94,12 @@ public class KinderGardenController {
     public void deleteReservation(@RequestBody KinderGardenReservationVO vo) {
         kinderGardenService.deleteReservation(vo);
     }
+
+    // 관리자 유치원 정산
+    @RequestMapping("/kinderGardenCalculate.mdo")
+    public ModelAndView kinderGardenCalculate() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/kinderGarden/kinderGardenCalculate");
+        return mav;
+    }
 }

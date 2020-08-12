@@ -106,7 +106,7 @@
 					<a class="collapse-item" href="kinderGardenReservation.mdo">유치원 예약</a>
 					<a class="collapse-item" href="kinderGardenSchedule.mdo">유치원 시간표</a>
 					<a class="collapse-item" href="kinderGardenScheduleMonth.mdo">유치원 달력</a>
-					<a class="collapse-item" href="blank.html">유치원 정산 - 예정</a>
+					<a class="collapse-item" href="kinderGardenCalculate.mdo">유치원 정산</a>
             </div>
         </div>
     </li>
