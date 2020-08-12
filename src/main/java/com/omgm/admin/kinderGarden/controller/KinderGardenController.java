@@ -102,8 +102,7 @@ public class KinderGardenController {
     // 관리자 유치원 정산
     @RequestMapping("/kinderGardenCalculate.mdo")
     public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo,
-        @RequestParam(value="dateOne", defaultValue = "1") String dateOne,
-        @RequestParam(value="dateTwo", defaultValue = "1") String dateTwo) throws ParseException {
+        @RequestParam(value="dateOne", defaultValue = "1") String dateOne) throws ParseException {
 
         ModelAndView mav = new ModelAndView();
         Map<String,String> map = new HashMap<String,String>();
@@ -118,21 +117,19 @@ public class KinderGardenController {
         double weekPercent[] = new double[5];
         int weekTotal = 0;
         int dayOfWeek[] = new int[7];
+        Date datePick = new Date();
 
-        if(!dateOne.equals("1") && !dateTwo.equals("1")) {
-            Date d1 = sdf2.parse(dateOne);
-            Date d2 = sdf2.parse(dateTwo);
+        if(!dateOne.equals("1")) datePick = sdf2.parse(dateOne);
 
-            System.out.println(sdf2.format(d1));
-            System.out.println(sdf2.format(d2));
-        }
-
-        // 현재부터 일주일 전까지 불러오기
-        cal.setTime(new Date());
+        // 현재부터 한달 전까지 불러오기
+        cal.setTime(datePick);
         cal.add(Calendar.MONTH, -1);
-        vo.setDate1(cal.getTime()); // todo : 1번 수정
-        vo.setDate2(new Date()); // todo : 2번 수정
+        vo.setDate1(cal.getTime());
+        vo.setDate2(datePick);
         List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
+
+        map.put("date1",sdf.format(vo.getDate1()));
+        map.put("date2",sdf.format(vo.getDate2()));
 
         for(KinderGardenReservationVO rv : list) {
             price += rv.getPrice();
@@ -148,7 +145,7 @@ public class KinderGardenController {
         dowMap.put("dow",dayOfWeek);
 
         // today 총합 구하기
-        cal.setTime(new Date()); // todo : 3번 수정
+        cal.setTime(datePick);
         cal.add(Calendar.DATE, -1);
         vo.setDate1(cal.getTime());
         List<KinderGardenReservationVO> dayList = kinderGardenService.getKinderGardenCalculate(vo);
@@ -156,10 +153,10 @@ public class KinderGardenController {
 
         // 주차별 계산
         for(int i=1; i<=4; i++) {
-            cal.setTime(new Date()); // todo : 5번 수정
+            cal.setTime(datePick);
             cal.add(Calendar.DATE, -7*i);
             vo.setDate1(cal.getTime());
-            cal.setTime(new Date()); // todo : 6번 수정
+            cal.setTime(datePick);
             cal.add(Calendar.DATE, (-7*i)+7);
             vo.setDate2(cal.getTime());
             List<KinderGardenReservationVO> weekList = kinderGardenService.getKinderGardenCalculate(vo);
@@ -171,8 +168,7 @@ public class KinderGardenController {
             weekPercent[i] = (weekPrice[i]/weekTotal)*100;
         }
 
-        map.put("date1",sdf.format(vo.getDate1()));
-        map.put("date2",sdf.format(vo.getDate2()));
+
         map.put("day", String.valueOf(price/30));
         map.put("week", String.valueOf(price/4));
         map.put("month", String.valueOf(price));
