@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -99,10 +102,17 @@ public class KinderGardenController {
 
     // 관리자 유치원 정산
     @RequestMapping("/kinderGardenCalculate.mdo")
-    public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) {
+    public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo) throws ParseException {
         ModelAndView mav = new ModelAndView();
-        vo.setDate1(new Date(2020,8,2));
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        cal.add(Calendar.DATE, -7);
+        vo.setDate1(cal.getTime());
         vo.setDate2(new Date());
+        System.out.println(vo.getDate1());
+        System.out.println(vo.getDate2());
         List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
         System.out.println(list);
         mav.setViewName("/kinderGarden/kinderGardenCalculate");
