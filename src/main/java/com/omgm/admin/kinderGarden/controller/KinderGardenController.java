@@ -176,9 +176,14 @@ public class KinderGardenController {
 
         // 요일별 최고 최저 구하기
         for(int i=0; i<dayOfWeek.length; i++) {
-            if(dayOfWeek[i] == 0) break;
-            if(dayOfWeek[i] >= dayOfWeek[i-1]) map.put("dowTop", String.valueOf(dayOfWeek[i]));
-            if(dayOfWeek[i] <= dayOfWeek[i-1]) map.put("dowBottom", String.valueOf(dayOfWeek[i]));
+            if(i == 0) {
+                map.put("dowTop", String.valueOf(dayOfWeek[i]));
+                map.put("dowBottom", String.valueOf(dayOfWeek[i]));
+                continue;
+            }
+            if(dayOfWeek[i] > dayOfWeek[i-1]) map.put("dowTop", String.valueOf(dayOfWeek[i]));
+            else if(dayOfWeek[i] < dayOfWeek[i-1]) map.put("dowBottom", String.valueOf(dayOfWeek[i]));
+            System.out.println(i+": "+dayOfWeek[i]);
         }
 
         System.out.println(map.get("dowTop"));

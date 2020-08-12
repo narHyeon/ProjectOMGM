@@ -95,8 +95,8 @@
             </div>
             <hr>
             <div class="kinder_p_cal">
-                <p>요일별 최대 매출 : ${date.dowTop}</p>
-                <p>요일별 최소 매출 : ${date.dowBottom}</p>
+                <p>요일별 최대 매출 : ${date.dowTop}원</p>
+                <p>요일별 최소 매출 : ${date.dowBottom}원</p>
             </div>
         </div>
     </div>
