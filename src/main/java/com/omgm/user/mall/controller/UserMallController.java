@@ -1,5 +1,6 @@
 package com.omgm.user.mall.controller;
 
+import com.omgm.user.mall.beans.CartListVO;
 import com.omgm.user.mall.beans.PageNavigatorMall;
 import com.omgm.user.mall.beans.UserMallFeedVO;
 import com.omgm.user.mall.beans.UserMallToyVO;
@@ -113,11 +114,27 @@ public class UserMallController {
     ///////////////////// 카트 리스트 ///////////////////////////////////
 
     //장바구니 리스트 출력(미완성-현재는 사료리스트가 출력)
-    @RequestMapping("/cartList.do")
-    public ModelAndView cartList(UserMallFeedVO vo) throws Exception{
+    @RequestMapping("/selectCartList.do")
+    public ModelAndView cartList(CartListVO vo) throws Exception{
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/sales/cart");
-        mav.addObject("FeedList1", userMallService.getMallFeedList(vo));
+        mav.addObject("cartList", userMallService.selectCartList(vo));
+        return mav;
+    }
+
+    @RequestMapping("/insertCartList.do")
+    public ModelAndView insertCartList(CartListVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect: /selectCartList.do");
+        userMallService.insertCartList(vo);
+        return mav;
+    }
+
+    @RequestMapping("/deleteCartListOne.do")
+    public ModelAndView deleteCartListOne(CartListVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("redirect: /selectCartList.do");
+        userMallService.deleteCartListOne(vo);
         return mav;
     }
 }

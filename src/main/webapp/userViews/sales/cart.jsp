@@ -76,19 +76,19 @@
         <span class="cart_col">수량</span>
         <span class="cart_col">합계</span>
         <span class="cart_col">삭제</span>
-        <c:forEach var="FeedList1" items="${FeedList1}">
+        <c:forEach var="cartList" items="${cartList}">
             <div class="cart_item" >
 <%--                <span class="name"><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
-                <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${FeedList1.feed_img}">
-                <span style="padding-left:4vw;" class="cart_info">${FeedList1.feed_name}</span>
-    <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num">${FeedList1.feed_price}</div></span>
+                <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${cartList.cartList_img}">
+                <span style="padding-left:4vw;" class="cart_info">${cartList.cartList_name}</span>
+    <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num">${cartList.cartList_price}</div></span>
                 <span style="padding-left:4vw;" id="num" class="cart_info"><div class="updown">
                     <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
                     <span><i class="fas fa-arrow-alt-circle-up up"></i></span>
                     <span><i class="fas fa-arrow-alt-circle-down down"></i></span>
                 </div></span>
     <span style="padding-left:4vw;" class="cart_info" id="sum_p_price"></span>
-                <span style="padding-left:4vw;" class="cart_info" id="basketcmd"><a href="#" class="abutton">삭제</a></span>
+                <span style="padding-left:4vw;" class="cart_info" id="basketcmd"><a href="deleteCartListOne.do?cartList_code=${cartList.cartList_code}" class="abutton">삭제</a></span>
                 <div class="right-align basketrowcmd">
                     <a href="#" type="hidden" class="button"></a>
                     <a href="#" type="hidden" class="button"></a>

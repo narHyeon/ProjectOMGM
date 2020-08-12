@@ -1,6 +1,7 @@
 package com.omgm.user.mall.service;
 
 import com.omgm.admin.mall.beans.MallOrderVO;
+import com.omgm.user.mall.beans.CartListVO;
 import com.omgm.user.mall.beans.PageNavigatorMall;
 import com.omgm.user.mall.beans.UserMallFeedVO;
 import com.omgm.user.mall.beans.UserMallToyVO;
@@ -26,8 +27,7 @@ public interface UserMallService {
 
 
     /////////////// 장바구니 /////////////////////////////
-    //장바구니 나열-현재 사료리스트
-    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) throws Exception;
+
 
 
     // 장난감 갯수
@@ -36,4 +36,9 @@ public interface UserMallService {
 
     // 사용자가 장난감 누르면 정보와 함께 결제 페이지로 이동
     UserMallToyVO getMallToyOneInfo(UserMallToyVO vo) throws Exception;
+
+    /////////////// CARTLIST ///////////////////////////////////////////
+    void insertCartList(com.omgm.user.mall.beans.CartListVO vo) throws Exception;
+    public List<CartListVO> selectCartList(CartListVO vo) throws Exception;
+    void deleteCartListOne(CartListVO vo) throws Exception;
 }

@@ -19,22 +19,6 @@
         <result property="code" column="CODE"/>
     </resultMap>
 
-<!--    <resultMap type="mallOrder" id="order">-->
-<!--        <id property="order_status_no" column="ORDER_STATUS_NO" />-->
-<!--        <result property="order_status_id" column="ORDER_STATUS_ID" />-->
-<!--        <result property="order_status_date" column="ORDER_STATUS_DATE" />-->
-<!--        <result property="order_status_state" column="ORDER_STATUS_STATE" />-->
-<!--        <result property="order_status_zipcode" column="ORDER_STATUS_ZIPCODE" />-->
-<!--        <result property="order_status_address1" column="ORDER_STATUS_ADDRESS1" />-->
-<!--        <result property="order_status_address2" column="ORDER_STATUS_ADDRESS2" />-->
-<!--        <result property="order_status_receiver" column="ORDER_STATUS_RECEIVER" />-->
-<!--        <result property="order_status_phone" column="ORDER_STATUS_PHONE" />-->
-<!--        <result property="order_status_price" column="ORDER_STATUS_PRICE" />-->
-<!--        <result property="order_status_name" column="ORDER_STATUS_NAME" />-->
-<!--        <result property="order_status_point_used" column="ORDER_STATUS_POINT_USED" />-->
-<!--        <result property="order_status_memo" column="ORDER_STATUS_MEMO" />-->
-<!--    </resultMap>-->
-
     <resultMap type="OrderVO" id="order_li">
         <id property="order_no" column="ORDER_NO" />
         <result property="order_id" column="ORDER_ID" />
@@ -49,8 +33,16 @@
         <result property="order_point_used" column="ORDER_POINT_USED" />
         <result property="order_name" column="ORDER_NAME" />
         <result property="order_quantity" column="ORDER_QUANTITY" />
+    </resultMap>
 
-
+    <resultMap type="CartListVO" id="CartList">
+        <result property="cartList_name" column="CARTLIST_NAME" />
+        <result property="cartList_price" column="CARTLIST_PRICE" />
+        <result property="cartList_discount" column="CARTLIST_DISCOUNT" />
+        <result property="cartList_stock" column="CARTLIST_STOCK" />
+        <result property="cartList_point" column="CARTLIST_POINT" />
+        <result property="cartList_info" column="CARTLIST_INFO" />
+        <result property="cartList_img" column="CARTLIST_IMG" />
     </resultMap>
 
 
@@ -70,6 +62,7 @@
                         #{order_point_used}, #{order_name}, #{order_quantity})
     </insert>
 
+
     <!-- 주문목록 불러오기 -->
     <select id="getOrderList" resultType="OrderVO">
         SELECT * FROM order_list order by order_no asc
@@ -85,8 +78,22 @@
     <select id="getMallPointList" resultType="mallOrderVO">
         SELECT * FROM order_status
     </select>
-
-
+    <!--#######  CARTLIST 관련 쿼리문  #########################################################################-->
+    <!-- 장바구니 담기 누를시 장바구니 테이블에 값 넣어주기 -->
+    <insert id="insertCartList" parameterType="CartListVO">
+        insert into cartlist (cartlist_code,cartlist_name, cartlist_price, cartlist_discount,
+            cartlist_stock, cartlist_point, cartlist_info, cartlist_img)
+            VALUES(#{cartList_code},#{cartList_name},#{cartList_price},#{cartList_discount},#{cartList_stock},
+                #{cartList_point},#{cartList_info},#{cartList_img})
+    </insert>
+    <!--  장바구니 테이블에담긴 물품들 가져오기  -->
+    <select id="selectCartList" resultType="CartListVO">
+        select * from cartlist
+    </select>
+    <!--  장바구니에 담긴거 삭제하기  -->
+    <delete id="deleteCartListOne" parameterType="CartListVO">
+        delete from cartlist where cartlist_code=#{cartList_code}
+    </delete>
 <!--    #################################################################################################-->
 
 <!--    회원 결제시 포인트 삭제-->

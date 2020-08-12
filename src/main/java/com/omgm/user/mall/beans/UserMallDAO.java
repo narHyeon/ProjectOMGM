@@ -1,6 +1,5 @@
 package com.omgm.user.mall.beans;
 
-import com.omgm.admin.mall.beans.MallFeedVO;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,8 @@ public class UserMallDAO {
 
     //////////////// 장바구니 /////////////////////////////
     //장바구니 출력
-    public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo) {
-        return sqlSessionTemplate.selectList("UserMallDAO.getMallFeedList", vo);
+    public List<CartListVO> selectCartList(CartListVO vo) {
+        return sqlSessionTemplate.selectList("MallOrderDAO.selectCartList", vo);
     }
         // 장난감 상품 갯수
         public int selectCountToyMall() {
@@ -52,7 +51,13 @@ public class UserMallDAO {
         // 클라이언트 부분에서 장난감 정보 가져오기
         public UserMallToyVO getMallToyOneInfo(UserMallToyVO vo){
             return sqlSessionTemplate.selectOne("UserMallDAO.getMallToyOneInfo", vo);
-
         }
 
+        // 장바구니 입력 시 디비추가
+        public void insertCartList(CartListVO vo) {
+            sqlSessionTemplate.insert("MallOrderDAO.insertCartList", vo);
+        }
+
+        // 장바구니에서 물품 한개 삭제
+        public void deleteCartListOne(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListOne", vo);}
 }
