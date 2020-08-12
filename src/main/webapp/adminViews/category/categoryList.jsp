@@ -101,6 +101,7 @@
 </style>
 <script type="text/javascript">
 $(function() {
+	/* 체크박스 일괄선택 */
 	$("#all_checkbox").click(function() {
 		if ($("#all_checkbox").prop("checked")) {
 			$(".category_checkbox").prop("checked",true);			
@@ -108,7 +109,7 @@ $(function() {
 			$(".category_checkbox").prop("checked",false);
 		}
 	});
-	<!-- 하나 업데이트하는거-->
+	/* 하나 업데이트하는거 */
 	$('.use-cell').click(function() {   
 		const $this = $(this);
 		const value = $this.data('no');
@@ -128,7 +129,7 @@ $(function() {
 				}
 			}) ;
 	});
-	<!-- 인서트 하는거-->
+	/* 인서트 하는거 */
 	$('#modal_insertbt').click(function() {
 		const nameArray = new Array();
 		const useArray = new Array();
@@ -154,10 +155,8 @@ $(function() {
 			}) ;
 	});
 	
-	<!-- 여러개 업데이트하는거-->
-	
+	/* 여러개 업데이트하는거 */
 	$("#change_button").click(function() {
-	
 		const checkArray = new Array();
 		const useynArray = new Array();
 		$(".category_checkbox:checked").each(function() {
@@ -182,9 +181,9 @@ $(function() {
 		}) ;
 
 	});
-	<!-- 여러개 삭제하는거-->
+	
+	/* 여러개 삭제하는거 */
 	$("#del_button").click(function() {
-		
 		const checkArray = new Array();
 		$(".category_checkbox:checked").each(function() {
 			checkArray.push($(this).data('no'));
@@ -205,7 +204,7 @@ $(function() {
 
 	});
 
-	<!-- + - 버튼으로 입력양식 추가 제거 -->
+	/* + - 버튼으로 입력양식 추가 제거  */
 	var insert_form = $('#modal_contents').html();
 	$('.fab_plus').click(function() {
 		$('#modal_contents').append(insert_form);

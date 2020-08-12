@@ -42,4 +42,11 @@ public class CategoryServiceImpl_M implements CategoryService_M{
 	public List<CategoryVO_M> selectListAllCategory() {
 		return categoryDAO_M.selectListAllCategory();
 	}
+	@Override
+	public List<CategoryVO_M> selectListUseCategory() {
+		return categoryDAO_M.selectListUseCategory();
+	}
+	
+	
+	
 }

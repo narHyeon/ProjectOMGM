@@ -16,20 +16,21 @@ public class FAQServiceImpl_M implements FAQService_M {
 	FAQDAO_M fAQDAO_M;
 
 	@Override
-	public void insertFAQ(FAQVO_M vo) {
+	public void insertFAQ(List<FAQVO_M> volist) {
+		fAQDAO_M.insertFAQ(volist);
 		
 	}
 	@Override
 	public void updateFAQ(FAQVO_M vo) {
-
+		fAQDAO_M.updateFAQ(vo);
 	}
 	@Override
-	public void deleteFAQ(FAQVO_M vo) {
-		
+	public void deleteFAQ(List<FAQVO_M> volist) {
+		fAQDAO_M.deleteFAQ(volist);
 	}
 	@Override
-	public int selectCountFAQ() {
-		return fAQDAO_M.selectCount();
+	public int selectCountFAQ(FAQVO_M vo) {
+		return fAQDAO_M.selectCount(vo);
 	} 
 	
 	@Override
@@ -37,8 +38,13 @@ public class FAQServiceImpl_M implements FAQService_M {
 		return null;
 	}
 	@Override
+	public void updateManyFAQ(List<FAQVO_M> volist) {
+		fAQDAO_M.updateManyFAQ(volist);
+	}
+	@Override
 	public List<FAQVO_M> selectListAllFAQ(FAQVO_M vo, PageNavigator navi) {
 		return fAQDAO_M.selectListAllFAQ(vo, navi);
 	}
+
 	
 }

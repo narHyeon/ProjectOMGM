@@ -372,7 +372,7 @@
     function cellSelect(cell,today) {
         let cellState = false;
         const reserInput = document.querySelector('#reser_input');
-        let text = today.getMonth() + '월' + today.getDate() + '일 ';
+        let text = today.getMonth() + 1 + '월' + today.getDate() + '일 '; 
         const regx = new RegExp(text);
 
         return function() {

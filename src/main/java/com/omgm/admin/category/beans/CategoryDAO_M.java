@@ -32,7 +32,8 @@ public class CategoryDAO_M {
 	public List<CategoryVO_M> selectListAllCategory(){
 		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListAllCategory");
 	}
+	public List<CategoryVO_M> selectListUseCategory(){
+		return sqlSessionTemplate.selectList("CategoryDAO_M.selectListUseCategory");
+	}
 
-
-	
 }
