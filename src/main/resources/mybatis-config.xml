@@ -21,13 +21,13 @@
 		<typeAlias alias="KinderGardenInfoRowVO" type="com.omgm.user.common.beans.KinderGardenInfoRowVO" />
 		<!--	몰	-->
 		<typeAlias alias="mallToyVO" type="com.omgm.admin.mall.beans.MallToyVO"/>
-		<typeAlias alias="mallOrder" type="com.omgm.admin.mall.beans.MallOrderVO" />
+		<typeAlias alias="mallOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
 		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
 		<typeAlias alias="userMallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
 		<typeAlias alias="userMallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
 		<typeAlias alias="OrderVO" type="com.omgm.admin.mall.beans.OrderVO" />
 		<typeAlias alias="MemberOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
-
+		<typeAlias alias="CartListVO" type="com.omgm.user.mall.beans.CartListVO" />
 		<!--		-->
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />

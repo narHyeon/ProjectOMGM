@@ -129,7 +129,7 @@
 	<div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
 	<div class="scroll_menu">
 		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
-		<div class="wishlist_menu" style="cursor:pointer;"><a href="#"></a> <i class="fas fa-shopping-cart"></i></div>
+		<a href="selectCartList.do"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
 		<div id="create-channel-chat-button"></div>
 	</div>
 	<script>
