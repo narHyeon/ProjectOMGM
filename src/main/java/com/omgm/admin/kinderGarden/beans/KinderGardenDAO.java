@@ -52,4 +52,12 @@ public class KinderGardenDAO {
     public void checkReservation(KinderGardenReservationVO vo) {
         sqlSessionTemplate.update("KinderGardenDAO.checkReservation",vo);
     }
+
+    public void deleteReservation(KinderGardenReservationVO vo) {
+        sqlSessionTemplate.delete("KinderGardenDAO.deleteReservation",vo);
+    }
+
+    public List<KinderGardenReservationVO> getKinderGardenCalculate(KinderGardenDateVO vo) {
+        return sqlSessionTemplate.selectList("KinderGardenDAO.getKinderGardenCalculate",vo);
+    }
 }

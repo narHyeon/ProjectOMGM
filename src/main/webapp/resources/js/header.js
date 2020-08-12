@@ -21,6 +21,7 @@ $(".txt input, .txtboxID input, .txtboxTEL1 input, .txtbox input, .txt_zipCode i
 // 회원가입 버튼
 function signUp(event) {
     event.preventDefault();
+    document.querySelector('#login_popup').checked = false;
     document.querySelector('#popup').checked = true;
     document.querySelectorAll('.signup-form div input')
         .forEach((sign) => {
@@ -33,6 +34,7 @@ function signUp(event) {
 // 로그인 버튼
 function login(event) {
     event.preventDefault();
+    document.querySelector('#popup').checked = false;
     document.querySelector('#login_popup').checked = true;
 }
 

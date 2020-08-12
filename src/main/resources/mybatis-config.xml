@@ -15,6 +15,7 @@
 		<typeAlias alias="KinderGardenRowVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowVO" />
 		<typeAlias alias="KinderGardenRowMonthVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO" />
 		<typeAlias alias="KinderGardenReservationVO" type="com.omgm.user.common.beans.KinderGardenReservationVO" />
+		<typeAlias alias="KinderGardenDateVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenDateVO" />
 		<!--	유저 공통	-->
 		<typeAlias alias="KinderGardenInfoVO" type="com.omgm.user.common.beans.KinderGardenInfoVO" />
 		<typeAlias alias="KinderGardenInfoRowVO" type="com.omgm.user.common.beans.KinderGardenInfoRowVO" />

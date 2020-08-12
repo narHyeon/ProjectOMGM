@@ -1,5 +1,6 @@
 package com.omgm.admin.kinderGarden.controller;
 
+import com.omgm.admin.kinderGarden.beans.KinderGardenDateVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
@@ -8,11 +9,14 @@ import com.omgm.user.common.beans.KinderGardenReservationVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 public class KinderGardenController {
@@ -86,5 +90,115 @@ public class KinderGardenController {
     @RequestMapping("/checkReservation.mdo")
     public void checkReservation(@RequestBody KinderGardenReservationVO vo) {
         kinderGardenService.checkReservation(vo);
+    }
+
+    // 관리자 예약취소 삭제
+    @ResponseBody
+    @RequestMapping("/deleteReservation.mdo")
+    public void deleteReservation(@RequestBody KinderGardenReservationVO vo) {
+        kinderGardenService.deleteReservation(vo);
+    }
+
+    // 관리자 유치원 정산
+    @RequestMapping("/kinderGardenCalculate.mdo")
+    public ModelAndView kinderGardenCalculate(KinderGardenDateVO vo,
+        @RequestParam(value="dateOne", defaultValue = "1") String dateOne) throws ParseException {
+
+        ModelAndView mav = new ModelAndView();
+        Map<String,String> map = new HashMap<String,String>();
+        Map<String,int[]> dowMap = new HashMap<String,int[]>();
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+
+        int price = 0;
+        int dayPrice = 0;
+        double weekPrice[] = new double[5];
+        double weekPercent[] = new double[5];
+        int weekTotal = 0;
+        int dayOfWeek[] = new int[7];
+        Date datePick = new Date();
+
+        if(!dateOne.equals("1")) datePick = sdf2.parse(dateOne);
+
+        // 현재부터 한달 전까지 불러오기
+        cal.setTime(datePick);
+        cal.add(Calendar.MONTH, -1);
+        vo.setDate1(cal.getTime());
+        vo.setDate2(datePick);
+        List<KinderGardenReservationVO> list = kinderGardenService.getKinderGardenCalculate(vo);
+
+        map.put("date1",sdf.format(vo.getDate1()));
+        map.put("date2",sdf.format(vo.getDate2()));
+
+        for(KinderGardenReservationVO rv : list) {
+            price += rv.getPrice();
+            if(rv.getRegDate().toString().matches(".*Mon.*")) dayOfWeek[0] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Tue.*")) dayOfWeek[1] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Wed.*")) dayOfWeek[2] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Thu.*")) dayOfWeek[3] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Fri.*")) dayOfWeek[4] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Sat.*")) dayOfWeek[5] += rv.getPrice();
+            else if(rv.getRegDate().toString().matches(".*Sun.*")) dayOfWeek[6] += rv.getPrice();
+        }
+
+        dowMap.put("dow",dayOfWeek);
+
+        // today 총합 구하기
+        cal.setTime(datePick);
+        cal.add(Calendar.DATE, -1);
+        vo.setDate1(cal.getTime());
+        List<KinderGardenReservationVO> dayList = kinderGardenService.getKinderGardenCalculate(vo);
+        for(KinderGardenReservationVO dv : dayList) dayPrice += dv.getPrice();
+
+        // 주차별 계산
+        for(int i=1; i<=4; i++) {
+            cal.setTime(datePick);
+            cal.add(Calendar.DATE, -7*i);
+            vo.setDate1(cal.getTime());
+            cal.setTime(datePick);
+            cal.add(Calendar.DATE, (-7*i)+7);
+            vo.setDate2(cal.getTime());
+            List<KinderGardenReservationVO> weekList = kinderGardenService.getKinderGardenCalculate(vo);
+            for(KinderGardenReservationVO wv : weekList) weekPrice[i] += wv.getPrice();
+            weekTotal += weekPrice[i];
+        }
+
+        for(int i=1; i<=4; i++) {
+            weekPercent[i] = (weekPrice[i]/weekTotal)*100;
+        }
+        
+        map.put("day", String.valueOf(price/30));
+        map.put("week", String.valueOf(price/4));
+        map.put("month", String.valueOf(price));
+        map.put("today",String.valueOf(dayPrice));
+        map.put("weekPercent1", String.valueOf((int) weekPercent[4]));
+        map.put("weekPercent2", String.valueOf((int) weekPercent[3]));
+        map.put("weekPercent3", String.valueOf((int) weekPercent[2]));
+        map.put("weekPercent4", String.valueOf((int) weekPercent[1]));
+
+        // 주간 최고, 최저 구하기기
+       Arrays.sort(weekPrice);
+
+        map.put("weekTop", String.valueOf((int)weekPrice[3]));
+        map.put("weekBottom", String.valueOf((int)weekPrice[1]));
+
+        // 요일별 최고 최저 구하기
+        for(int i=0; i<dayOfWeek.length; i++) {
+            if(i == 0) {
+                map.put("dowTop", String.valueOf(dayOfWeek[i]));
+                map.put("dowBottom", String.valueOf(dayOfWeek[i]));
+                continue;
+            }
+            if(dayOfWeek[i] > dayOfWeek[i-1]) map.put("dowTop", String.valueOf(dayOfWeek[i]));
+            else if(dayOfWeek[i] < dayOfWeek[i-1]) map.put("dowBottom", String.valueOf(dayOfWeek[i]));
+        }
+
+        mav.setViewName("/kinderGarden/kinderGardenCalculate");
+        mav.addObject("dateList", list);
+        mav.addObject("date", map);
+        mav.addObject("dow", dowMap);
+
+        return mav;
     }
 }
