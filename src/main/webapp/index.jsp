@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  <h3>클라이언트</h3>
+  <h2>클라이언트</h2>
   <a href="main.do">프로젝트 메인화면</a>
   <hr>
 
@@ -21,7 +21,9 @@
 <%--  <a href="introductionPage.do">오시는길 이용안내 페이지 이동</a>--%>
 <%--  <a href="toySales.do">상품 판매 페이지 이동</a>--%>
 <%--  <a href="roomIntroduction.do">방 소개 페이지 이동</a>--%>
-  <h2>클라이언트 개별 작업 페이지</h2>
+
+  <h3>클라이언트 개별 작업 페이지</h3>
+  <a href="chat.lo">webSocket 테스트</a>
   <hr>
   <h2>관리자 페이지</h2>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
@@ -41,13 +43,13 @@
 <%--  <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>--%>
 <%--  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>--%>
 
+  <hr><br>
   <form action="smsMessage.mdo">
     받는사람번호: <input type="text" name="sendNumber"><br>
     보내는사람번호: <input type="text" name="receiveNumber"><br>
     메세지: <input type="text" name="message"><br>
     <button type="submit">전송</button>
   </form>
-
 
 </body>
 </html>
