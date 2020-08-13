@@ -300,6 +300,12 @@
 			<version>2.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>5.2.7.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
