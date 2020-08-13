@@ -47,8 +47,6 @@
 			<param-value>/WEB-INF/servlet/admin-servelt.xml</param-value>
 
 		</init-param>
-		<load-on-startup>1</load-on-startup>
-		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin</servlet-name>
@@ -62,6 +60,8 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/servlet/member-servelt.xml</param-value>
 		</init-param>
+		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>member</servlet-name>
