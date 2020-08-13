@@ -138,10 +138,10 @@
 
             }),
             success : function(data) {
-                alert('성공');
+
             },
             error: function(xhr) {
-                alert('실패');
+
             },
         });</c:forEach>
 
