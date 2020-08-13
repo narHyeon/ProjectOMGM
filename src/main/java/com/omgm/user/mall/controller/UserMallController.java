@@ -1,5 +1,7 @@
 package com.omgm.user.mall.controller;
 
+import com.omgm.admin.mall.beans.MemberOrderVO;
+import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.mall.beans.CartListVO;
 import com.omgm.user.mall.beans.PageNavigatorMall;
 import com.omgm.user.mall.beans.UserMallFeedVO;
@@ -161,6 +163,38 @@ public class UserMallController {
         System.out.println(vo.getCartList_count());
         System.out.println(vo.getCartList_id());
         userMallService.updateCartListCount(vo);
+        return vo;
+    }
+
+    // 결제후 디비에 결제기록 저장 및 장바구니 삭제
+    @ResponseBody
+    @RequestMapping("/insertOrderCartList.do")
+    public OrderVO insertOrderCartList(@RequestBody OrderVO vo) throws Exception{
+        userMallService.insertOrderCartList(vo);
+        MemberOrderVO vo1 = new MemberOrderVO();
+        CartListVO vo2 = new CartListVO();
+        System.out.println("test1");
+
+        vo1.setId(vo.getOrder_id());
+        vo1.setPoint(vo.getOrder_point());
+        vo2.setCartList_id(vo.getOrder_id());
+
+        userMallService.updateMemberPoint(vo1);
+        userMallService.deleteCartListAll(vo2);
+        return vo;
+    }
+    //결제후 디비에 결제기록 저장 (즉시 결제)
+    @ResponseBody
+    @RequestMapping("/insertOrderImmediately.do")
+    public OrderVO insertOrderImmediately(@RequestBody OrderVO vo) throws Exception{
+        userMallService.insertOrderCartList(vo);
+        MemberOrderVO vo1 = new MemberOrderVO();
+
+        vo1.setId(vo.getOrder_id());
+        vo1.setPoint(vo.getOrder_point());
+
+        userMallService.updateMemberPoint(vo1);
+
         return vo;
     }
 }
