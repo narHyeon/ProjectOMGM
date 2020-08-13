@@ -1,5 +1,7 @@
 package com.omgm.user.mall.service;
 
+import com.omgm.admin.mall.beans.MemberOrderVO;
+import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.mall.beans.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,10 +65,20 @@ public class UserUserMallServiceImpl implements UserMallService {
         userMallDAO.insertCartList(vo);
     }
 
+    // 결제후 디비에 결제 정보 저장
+    @Override
+    public void insertOrderCartList(OrderVO vo) throws Exception {
+        userMallDAO.insertOrderCartList(vo);
+    }
     // 결제시 카트에 수량 변경
     @Override
     public void updateCartListCount(CartListVO vo) throws Exception {
         userMallDAO.updateCartListCount(vo);
+    }
+
+    @Override
+    public void updateMemberPoint(MemberOrderVO vo) throws Exception {
+        userMallDAO.updateMemberPoint(vo);
     }
 
     //카트에서 물품 하나 삭제하기

@@ -253,20 +253,20 @@ public class MallController {
         return mav;
     }
 
-    @ResponseBody
-    @RequestMapping("/insertOrderFeed.mdo")
-    public OrderVO insertOrderFeed(@RequestBody OrderVO vo) throws Exception{
-            mallService.insertOrderFeed(vo);
-            MemberOrderVO vo1 = new MemberOrderVO();
-        System.out.println("test1");
-
-        vo1.setId(vo.getOrder_id());
-        vo1.setPoint(vo.getOrder_point());
-
-            mallService.updateMemberPoint(vo1);
-
-            return vo;
-    }
+//    @ResponseBody
+//    @RequestMapping("/insertOrderFeed.mdo")
+//    public OrderVO insertOrderFeed(@RequestBody OrderVO vo) throws Exception{
+//            mallService.insertOrderFeed(vo);
+//            MemberOrderVO vo1 = new MemberOrderVO();
+//        System.out.println("test1");
+//
+//        vo1.setId(vo.getOrder_id());
+//        vo1.setPoint(vo.getOrder_point());
+//
+//            mallService.updateMemberPoint(vo1);
+//
+//            return vo;
+//    }
 
 }
 

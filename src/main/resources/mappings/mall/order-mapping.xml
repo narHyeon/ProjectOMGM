@@ -86,6 +86,15 @@
             VALUES(#{cartList_id},#{cartList_code},#{cartList_name},#{cartList_price},#{cartList_discount},#{cartList_stock},
                 #{cartList_point},#{cartList_info},#{cartList_img},1)
     </insert>
+    <!--  장바구니의 아이템 구매시 디비 저장  -->
+    <insert id="insertOrderCartList" parameterType="OrderVO">
+        INSERT INTO order_list (order_no, order_id, order_phone, order_price, order_state,
+                                    order_memo, order_address, order_receiver, order_zipcode,
+                                        order_point_used, order_name, order_quantity)
+        VALUES(order_no_seq.NEXTVAL, #{order_id}, #{order_phone}, #{order_price}, '배송중',
+                    '배송 잘 해 주세요', #{order_address}, #{order_receiver}, #{order_zipcode},
+                        #{order_point_used}, #{order_name}, #{order_quantity})
+    </insert>
     <update id="updateCartListCount" parameterType="CartListVO">
         update cartlist set cartlist_count=(#{cartList_count})
             where cartlist_id=#{cartList_id} and cartlist_code=#{cartList_code}
@@ -97,7 +106,7 @@
 
     <!--  장바구니 테이블 물품들 전부 삭제  -->
     <delete id="deleteCartListAll" parameterType="CartListVO">
-        delete from cartlist
+        delete from cartlist where cartlist_id=#{cartList_id}
     </delete>
     <!--  장바구니에 담긴거 삭제하기  -->
     <delete id="deleteCartListOne" parameterType="CartListVO">
