@@ -239,18 +239,22 @@
     });
 
     function paging(event,tbody,count,prev,next,pageCount,num) {
-        pagePick(event.target.parentNode,tbody);
+        event.preventDefault();
         if(num === 1) currentPage1 = count;
         else currentPage2 = count;
-        event.preventDefault();
+
+        pagePick(event.target.parentNode.parentNode,count);
+
         tbody.forEach((item,index) => {
             index++;
             if((5*count)-5 < index && index <= 5*count) item.style.display = '';
             else item.style.display = 'none';
             if(count === 1) {
                 prev.classList.toggle('disabled',true);
+                next.classList.toggle('disabled',false);
             } else if(count === pageCount) {
                 next.classList.toggle('disabled',true);
+                prev.classList.toggle('disabled',false);
             } else {
                 prev.classList.toggle('disabled',false);
                 next.classList.toggle('disabled',false);
@@ -274,9 +278,11 @@
         }
     }
 
-    function pagePick(target,tbody) {
-        console.log(target);
-        console.log(tbody);
+    function pagePick(target,count) {
+        target.querySelectorAll(`li`).forEach((item,index) => {
+            if(count === index+1) item.classList.toggle('active',true);
+            else item.classList.toggle('active',false);
+        });
     }
 
 </script>
