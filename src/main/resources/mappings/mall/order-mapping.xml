@@ -82,14 +82,14 @@
     <!-- 장바구니 담기 누를시 장바구니 테이블에 값 넣어주기 -->
     <insert id="insertCartList" parameterType="CartListVO">
         insert into cartlist (cartlist_id, cartlist_code,cartlist_name, cartlist_price, cartlist_discount,
-            cartlist_stock, cartlist_point, cartlist_info, cartlist_img)
+            cartlist_stock, cartlist_point, cartlist_info, cartlist_img, cartlist_count)
             VALUES(#{cartList_id},#{cartList_code},#{cartList_name},#{cartList_price},#{cartList_discount},#{cartList_stock},
-                #{cartList_point},#{cartList_info},#{cartList_img})
+                #{cartList_point},#{cartList_info},#{cartList_img},1)
     </insert>
-    <insert id="insertCartListCount" parameterType="CartListVO">
-        insert into cartlist (cartlist_count) values(#{cartList_count})
+    <update id="updateCartListCount" parameterType="CartListVO">
+        update cartlist set cartlist_count=(#{cartList_count})
             where cartlist_id=#{cartList_id} and cartlist_code=#{cartList_code}
-    </insert>
+    </update>
     <!--  장바구니 테이블에담긴 물품들 가져오기  -->
     <select id="selectCartList" resultType="CartListVO">
         select * from cartlist where cartlist_id=#{cartList_id}

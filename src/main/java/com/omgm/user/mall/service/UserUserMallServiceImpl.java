@@ -63,10 +63,10 @@ public class UserUserMallServiceImpl implements UserMallService {
         userMallDAO.insertCartList(vo);
     }
 
-    // 결제시 카트에 수량 담기
+    // 결제시 카트에 수량 변경
     @Override
-    public void insertCartListCount(CartListVO vo) throws Exception {
-        userMallDAO.insertCartListCount(vo);
+    public void updateCartListCount(CartListVO vo) throws Exception {
+        userMallDAO.updateCartListCount(vo);
     }
 
     //카트에서 물품 하나 삭제하기

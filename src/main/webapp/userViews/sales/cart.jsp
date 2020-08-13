@@ -81,7 +81,7 @@
 <%--                <span class="name"><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
                 <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${cartList.cartList_img}">
                 <span style="padding-left:4vw;" class="cart_info">${cartList.cartList_name}</span>
-    <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num${cartList.cartList_code}">${cartList.cartList_price}</div></span>
+    <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num${cartList.cartList_code}" value="${cartList.cartList_price}">${cartList.cartList_price}</div></span>
                 <span style="padding-left:4vw;" id="num" class="cart_info">
                     <div class="updown">
                     <input type="text" name="p_num1" id="p_num1${cartList.cartList_code}" size="2" maxlength="4" class="p_num" value="1" >
@@ -99,27 +99,22 @@
             </div>
         </c:forEach>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
-            <c:if test="${member != null}">
-                <form action="paymentCartList.do?cartList_id=${member.id}">
-                <a href=""><button class="abutton" style="border: none;">결제하기</button></a>
-                </form>
-            </c:if>
-            <c:if test="${member == null}">
-                <a href=""><button onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.')" class="abutton" style="border: none;">결제하기</button></a>
-            </c:if>
+                <button type="submit" class="abutton" style="border: none;" onclick="cartListPay()">결제하기</button>
         </div>
         </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
-<script>
 
+</div>
+
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>--%>
+<script>
     function upI(event){
         const num = event.target.value;
-        const price = document.querySelector('#sum_p_num'+num).innerHTML;
+        const price = document.querySelector('#sum_p_num'+num).value;
         document.querySelector('#p_num1'+num).value++;
-        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value)+parseInt(price);
-        // document.querySelector('#sum_p_price'+num).
+
+        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value)+price;
     }
+
     function downI(event){
         const num = event.target.value;
         const price = document.querySelector('#sum_p_num'+num).innerHTML;
@@ -127,28 +122,34 @@
             document.querySelector('#p_num1' + num).value -= 1;
             document.querySelector('#sum_p_price' + num).value = parseInt(document.querySelector('#sum_p_price' + num).value) - parseInt(price);
         }
-        }
-    //수량변경 - 이벤트 델리게이션으로 이벤트 종류 구분해 처리
+    }
+    function cartListPay() {
+        <c:forEach var="cartList" items="${cartList}">
+        $.ajax({
 
-    // document.querySelectorAll('.updown').forEach(
-    //     function(item, idx){
-    //         //수량 입력 필드 값 변경
-    //         item.querySelector('input').addEventListener('keyup', function(){
-    //             basket.changePNum(idx+1);
-    //         });
-    //         //수량 증가 화살표 클릭
-    //         item.children[1].addEventListener('click', function(){
-    //             basket.changePNum(idx+1);
-    //         });
-    //         //수량 감소 화살표 클릭
-    //         item.children[2].addEventListener('click', function(){
-    //             basket.changePNum(idx+1);
-    //         });
-    //
-    //     }
-    //
-    // );
-    //앵커 # 대체해 스크롤 탑 차단
+            type: 'POST',
+            url: "updateCartListCount.do", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType : 'application/json',
+            data: JSON.stringify({
+                cartList_id: "${member.id}",
+                cartList_code: "${cartList.cartList_code}",
+                cartList_count: document.querySelector('#p_num1${cartList.cartList_code}').value,
+
+            }),
+            success : function(data) {
+                alert('성공');
+            },
+            error: function(xhr) {
+                alert('실패');
+            },
+        });</c:forEach>
+
+        location.href="paymentCartList.do?cartList_id=${member.id}";
+    }
+
+
+
     document.querySelectorAll('a[href="#"]').forEach(function(item){
         item.setAttribute('href','javascript:void(0)');
     });

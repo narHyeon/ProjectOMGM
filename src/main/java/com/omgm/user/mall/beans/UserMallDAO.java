@@ -53,9 +53,9 @@ public class UserMallDAO {
             return sqlSessionTemplate.selectOne("UserMallDAO.getMallToyOneInfo", vo);
         }
 
-        // 장바구니에서 정한 수량 디비에 넣기
-        public void insertCartListCount(CartListVO vo) {
-            sqlSessionTemplate.insert("MallOrderDAO.insertCartListCount", vo);
+        // 장바구니에서 정한 수량 디비에서 변경
+        public void updateCartListCount(CartListVO vo) {
+            sqlSessionTemplate.update("MallOrderDAO.updateCartListCount", vo);
         }
 
         // 장바구니 입력 시 디비추가
