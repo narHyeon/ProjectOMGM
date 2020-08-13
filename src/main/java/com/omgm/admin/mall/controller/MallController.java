@@ -22,14 +22,6 @@ public class MallController {
     @Autowired
     MallService mallService;
 
-    // 차트 관련 실험 페이지이동
-    @RequestMapping("/mallCalculate.mdo")
-    public ModelAndView mallCalculate() throws Exception {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("mall/mallCalculate");
-        return mav;
-    }
-
 
     // 파일 업로드 관련 파일 이름 변수 선언
     String fileName;

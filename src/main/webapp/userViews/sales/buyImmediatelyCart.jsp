@@ -180,12 +180,14 @@
                     let cartPricePoint = 0;
                     let cartPriceCount = 0;
                     let cartProductName = "";
+                    let cartProductImg = "";
                     <c:forEach var="cartList" items="${cartList}">
                         cartPriceTotal = cartPriceTotal + ${cartList.cartList_count*cartList.cartList_price};
                         cartPriceDiscount = cartPriceDiscount + ${cartList.cartList_discount*cartList.cartList_count};
                         cartPricePoint = cartPricePoint + ${cartList.cartList_point};
                         cartProductName += "${cartList.cartList_name} ";
                         cartPriceCount = cartPriceCount + ${cartList.cartList_count};
+                        cartProductImg += "${cartList.cartList_img},";
                     </c:forEach>
 
                     document.querySelector('#buyImmediatelyDivSection02_01_02BeforePrice').innerHTML=cartPriceTotal;
@@ -247,6 +249,8 @@
                                             order_name: cartProductName,
                                             order_quantity: cartPriceCount,
                                             order_point: buyerPointLeft,
+                                            order_img: cartProductImg,
+                                            order_tn: rsp.merchant_uid,
                                             <%--id: "${member.id}",--%>
                                             <%--point: buyerPointUsed,--%>
 
@@ -268,6 +272,7 @@
                                     // msg += '\n고유ID : ' + rsp.imp_uid;
                                     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                     msg += '\n결제 금액 : ' + rsp.paid_amount;
+                                    msg += '\n운송장 번호 : ' + rsp.merchant_uid;
                                     alert(msg);
 
                                     //성공시 이동할 페이지

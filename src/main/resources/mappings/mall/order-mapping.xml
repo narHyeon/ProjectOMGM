@@ -90,10 +90,10 @@
     <insert id="insertOrderCartList" parameterType="OrderVO">
         INSERT INTO order_list (order_no, order_id, order_phone, order_price, order_state,
                                     order_memo, order_address, order_receiver, order_zipcode,
-                                        order_point_used, order_name, order_quantity)
+                                        order_point_used, order_name, order_quantity, order_img, order_tn)
         VALUES(order_no_seq.NEXTVAL, #{order_id}, #{order_phone}, #{order_price}, '배송중',
                     '배송 잘 해 주세요', #{order_address}, #{order_receiver}, #{order_zipcode},
-                        #{order_point_used}, #{order_name}, #{order_quantity})
+                        #{order_point_used}, #{order_name}, #{order_quantity}, #{order_img}, #{order_tn})
     </insert>
     <update id="updateCartListCount" parameterType="CartListVO">
         update cartlist set cartlist_count=(#{cartList_count})

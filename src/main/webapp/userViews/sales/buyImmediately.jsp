@@ -233,6 +233,8 @@
                                             order_name: "${feedInfo.feed_name}",
                                             order_quantity: QuantityFeed1,
                                             order_point: buyerPointLeft,
+                                            order_img: "${feedInfo.feed_img}",
+                                            order_tn: rsp.merchant_uid,
                                             <%--id: "${member.id}",--%>
                                             <%--point: buyerPointUsed,--%>
 
@@ -254,6 +256,7 @@
                                     // msg += '\n고유ID : ' + rsp.imp_uid;
                                     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                     msg += '\n결제 금액 : ' + rsp.paid_amount;
+                                    msg += '\n운송장 번호 : ' + rsp.merchant_uid;
                                     alert(msg);
 
                                     //성공시 이동할 페이지

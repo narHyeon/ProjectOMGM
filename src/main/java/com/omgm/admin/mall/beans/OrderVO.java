@@ -17,6 +17,24 @@ public class OrderVO {
     private String order_name;
     private int order_quantity;
     private int order_point;
+    private String order_img;
+    private String order_tn;
+
+    public String getOrder_img() {
+        return order_img;
+    }
+
+    public void setOrder_img(String order_img) {
+        this.order_img = order_img;
+    }
+
+    public String getOrder_tn() {
+        return order_tn;
+    }
+
+    public void setOrder_tn(String order_tn) {
+        this.order_tn = order_tn;
+    }
 
     public int getOrder_point() {
         return order_point;
