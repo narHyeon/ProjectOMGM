@@ -37,6 +37,11 @@
             font-size: 14px;
         }
 
+        .kinderGarden_pagination2, .kinderGarden_pagination2 {
+            display: flex;
+            flex-direction: row;
+        }
+
         @media all and (max-width: 1024px) {
             .reservation_head_tr th:nth-child(3), .reservation_head_tr th:nth-child(8),
             .reservation_tbody_tr td:nth-child(3), .reservation_tbody_tr td:nth-child(8) {
@@ -91,9 +96,9 @@
 
             <%--  pagination --%>
             <div class="kinderGarden_pagination1">
-                <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link">Prev</a> </ul>
+                <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link"  onclick="paging(event,tbody1,currentPage1-1,prev1,next1,pageCount1,1)">Prev</a> </ul>
                 <ul></ul>
-                <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
+                <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,tbody1,currentPage1+1,prev1,next1,pageCount1,1)">Next</a> </ul>
             </div>
 
             <table class="table table-bordered" class="kinderGarden_reservation_table" width="100%" cellspacing="0">
@@ -138,9 +143,9 @@
 
 <%--  pagination --%>
 <div class="kinderGarden_pagination2">
-    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link" onclick="paging(event,tbody2,`+i+`,prev`+index+`,next`+index+`,`+count+`)">Prev</a> </ul>
+    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link" onclick="paging(event,tbody2,currentPage2-1,prev2,next2,pageCount2,2)">Prev</a> </ul>
     <ul></ul>
-    <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
+    <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,tbody2,currentPage2+1,prev2,next2,pageCount2,2)">Next</a> </ul>
 </div>
 
 <div class="admin_kindergarden_schedule_button">
@@ -227,9 +232,14 @@
 
     });
 
-    function paging(event,tbody,count,prev,next,pageCount) {
+    function paging(event,tbody,count,prev,next,pageCount,num) {
+        console.log(count);
+        console.log(pageCount);
+        if(num === 1) currentPage1 = count;
+        else currentPage2 = count;
         event.preventDefault();
         tbody.forEach((item,index) => {
+            index++;
             if((5*count)-5 < index && index <= 5*count) item.style.display = '';
             else item.style.display = 'none';
             if(count === 1) {
@@ -247,7 +257,7 @@
         for(let i=1; i<=count; i++) {
             page.innerHTML += `
                 <li class="paginate_button page-item">
-                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`)">`+i+`</a>
+                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
                 </li>`;
         }
     }
