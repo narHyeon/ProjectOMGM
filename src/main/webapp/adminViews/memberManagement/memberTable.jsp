@@ -14,6 +14,16 @@
         #memberTable_drop {
             margin: 10px;
         }
+
+        .memberTable_pagination {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .memberTable_pagination ul {
+            display: flex;
+            flex-direction: row;
+        }
     </style>
 </head>
 <body>
@@ -75,9 +85,9 @@
 
 <%--  pagination --%>
 <div class="memberTable_pagination">
-    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link" onclick="paging(event,tbody2,currentPage2-1,prev2,next2,pageCount2,2)">Prev</a> </ul>
+    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link" onclick="paging(event,currentPage-1)">Prev</a> </ul>
     <ul></ul>
-    <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,tbody2,currentPage2+1,prev2,next2,pageCount2,2)">Next</a> </ul>
+    <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,currentPage+1)">Next</a> </ul>
 </div>
 <script>
     let className = 'memberTable_name';
@@ -85,6 +95,11 @@
         let value, name, item, i;
         value = document.querySelector("#memberTable_search").value.toUpperCase();
         item = document.getElementsByClassName("memberTable_member");
+
+        if(value === '') {
+            paging(event,currentPage);
+            return;
+        }
 
         for(i=0; i<item.length; i++){
             name = item[i].getElementsByClassName(className);
@@ -124,7 +139,7 @@
     let contentCount1 = 0; // 페이지 총 수
     let pageCount = 0; // 그룹 총 수
 
-    let currentPage1 = 1; // 현재 페이지
+    let currentPage = 1; // 현재 페이지
 
     const prev = document.querySelector('.memberTable_pagination ul:nth-child(1)');
     const next = document.querySelector('.memberTable_pagination ul:nth-child(3)');
@@ -147,7 +162,7 @@
     // 페이징 처리
     function paging(event,count) {
         event.preventDefault();
-        currentPage1 = count;
+        currentPage = count;
 
         pagePick(count);
 
