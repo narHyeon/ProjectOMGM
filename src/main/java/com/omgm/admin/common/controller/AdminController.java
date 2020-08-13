@@ -103,7 +103,7 @@ public class AdminController {
         mav.addObject("page", vo);
 
 
-        mav.setViewName("/adminReview");
+        mav.setViewName("/adminReview/adminReview");
         return mav;
     }
 }

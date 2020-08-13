@@ -46,7 +46,9 @@
             display: flex;
             flex-direction: row;
         }
-
+        .reser_h6 {
+            margin: 10px !important;
+        }
 
         @media all and (max-width: 1024px) {
             .reservation_head_tr th:nth-child(3), .reservation_head_tr th:nth-child(8),
@@ -60,12 +62,12 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-info">유치원 예약 현황</h6>
+        <h3 class="m-0 font-weight-bold text-info">유치원 예약 현황</h3>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" class="kinderGarden_reservation_table" width="100%" cellspacing="0">
-                <h6 class="m-0 font-weight-bold text-info">예약 확인</h6>
+                <h6 class="m-0 font-weight-bold text-primary reser_h6">예약 확인</h6>
                 <thead>
                     <tr class="reservation_head_tr">
                         <th>번호</th>
@@ -108,7 +110,7 @@
             </div>
 
             <table class="table table-bordered" class="kinderGarden_reservation_table" width="100%" cellspacing="0">
-                <h6 class="m-0 font-weight-bold text-info">예약 미확인</h6>
+                <h6 class="m-0 font-weight-bold text-danger reser_h6">예약 미확인</h6>
                 <thead>
                 <tr class="reservation_head_tr">
                     <th>번호</th>
