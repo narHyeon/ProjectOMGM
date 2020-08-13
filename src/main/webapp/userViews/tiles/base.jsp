@@ -131,7 +131,7 @@
 	<div class="scroll_menu">
 		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
 		<c:if test="${member != null}">
-		<a href="selectCartList.do"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
+		<a href="selectCartList.do?cartList_id=${member.id}"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
 		</c:if>
 		<c:if test="${member == null}">
 			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.');" class="fas fa-shopping-cart"></i></div></a>

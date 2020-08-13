@@ -91,7 +91,7 @@
                 </span>
     <input type="number" style="border: none;padding-bottom:7vw;padding-left:5vw;" class="cart_info" id="sum_p_price${cartList.cartList_code}" value="${cartList.cartList_price}" />
                 <span style="padding-left:4vw;" class="cart_info" id="basketcmd">
-                    <a href="deleteCartListOne.do?cartList_code=${cartList.cartList_code}" class="abutton">삭제</a></span>
+                    <a href="deleteCartListOne.do?cartList_code=${cartList.cartList_code}&cartList_id=${member.id}" class="abutton">삭제</a></span>
                 <div class="right-align basketrowcmd">
                     <a href="#" type="hidden" class="button"></a>
                     <a href="#" type="hidden" class="button"></a>
@@ -100,7 +100,9 @@
         </c:forEach>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
             <c:if test="${member != null}">
-                <a href="paymentCartList.do"><button class="abutton" style="border: none;">결제하기</button></a>
+                <form action="paymentCartList.do?cartList_id=${member.id}">
+                <a href=""><button class="abutton" style="border: none;">결제하기</button></a>
+                </form>
             </c:if>
             <c:if test="${member == null}">
                 <a href=""><button onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.')" class="abutton" style="border: none;">결제하기</button></a>

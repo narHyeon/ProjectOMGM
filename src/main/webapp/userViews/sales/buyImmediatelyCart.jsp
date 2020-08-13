@@ -59,7 +59,7 @@
     }
     #buyImmediatelyDivSection03Right{
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
     }
     #buyImmediatelyDivSection04{
         display: flex;
@@ -112,21 +112,22 @@
         <%--    ///////  왼쪽 페이지  ///////////////////////////////////////////////////////////--%>
         <div id="buyImmediatelyDivSection01">
             <div id="buyImmediatelyDivSection03">
-                <div id="buyImmediatelyDivSection03Left" style="width: 70%">
-                    <p style="margin-top: 5%; margin-bottom: 2%; font-weight: bold;">고르신 상품들</p>
-                    =><c:forEach var="cartList" items="${cartList}">
-                        ${cartList.cartList_name}(${cartList.cartList_price}원)&nbsp;&nbsp;
-                    </c:forEach>
-
-                    <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice"></p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice"></p>
-                </div>
+<%--                <div id="buyImmediatelyDivSection03Left" style="width: 70%">--%>
+<%--                    <p style="margin-top: 5%; margin-bottom: 2%; font-weight: bold;">고르신 상품들</p>--%>
+<%--                    =><c:forEach var="cartList" items="${cartList}">--%>
+<%--                        ${cartList.cartList_name}(${cartList.cartList_price}원)&nbsp;&nbsp;--%>
+<%--                    </c:forEach>--%>
+<%--                    <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>--%>
+<%--                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice"></p>--%>
+<%--                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice"></p>--%>
+<%--                </div>--%>
                 <div id="buyImmediatelyDivSection03Right" >
-                    <div style="display: flex; flex-direction: column">
-
+                    <c:forEach var="cartList" items="${cartList}">
+                    <div style="display: flex; margin-left: 3%; margin-right: 3%; flex-direction: column">
+                        <img src="resources/img/product/${cartList.cartList_img}" style="width: 100%; ">
+                        <p style="text-align: center">${cartList.cartList_name}(${cartList.cartList_price}원)</p>
                     </div>
-                    <img src="resources/img/product/" style="width: 74%; ">
+                    </c:forEach>
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">
@@ -314,47 +315,47 @@
         })
     })
 
-    //수량 가져오기
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
+    <%--//수량 가져오기--%>
+    <%--function getParameterByName(name) {--%>
+    <%--    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");--%>
+    <%--    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),--%>
+    <%--        results = regex.exec(location.search);--%>
+    <%--    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));--%>
+    <%--}--%>
 
-    var QuantityFeed = getParameterByName("feed_Quantity");
-    var QuantityFeedInput = document.getElementById("buyImmediatelyDivSection03Left01");
+    <%--var QuantityFeed = getParameterByName("feed_Quantity");--%>
+    <%--var QuantityFeedInput = document.getElementById("buyImmediatelyDivSection03Left01");--%>
 
-    QuantityFeedInput.innerHTML="수량 : "+QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection03Left01TotalPrice").innerHTML="할인 적용 금액 : " + ${feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection03Left01DiscountPrice").innerHTML="할인 금액 : " + ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML= ${feedInfo.feed_price}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML= ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_price}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    // 우편번호 체크
-    function buyImmediatelyZipCheck() {
-        const width = 380;
-        const height = 480;
-        return new daum.Postcode({
-            width: width,
-            height: height,
-            oncomplete: function(data) {
-                const zipcode = document.querySelector('#buyImmediatelyDivSection07Zipcode');
-                const address = document.querySelector('#buyImmediatelyDivSection07Address01');
-                zipcode.classList.add('focus');
-                address.classList.add('focus');
-                zipcode.value = data.zonecode;
-                address.value = data.address;
-            },
-            theme: {
-                bgColor: '#F28888'
-            }
-        }).open({
-            popupName: '우편번호 검색',
-            left: (window.screen.width / 2) - (width / 2),
-            top: (window.screen.height / 2) - (height / 2)
-        });
-    }
+    <%--QuantityFeedInput.innerHTML="수량 : "+QuantityFeed;--%>
+    <%--document.getElementById("buyImmediatelyDivSection03Left01TotalPrice").innerHTML="할인 적용 금액 : " + ${feedInfo.feed_discount}*QuantityFeed;--%>
+    <%--document.getElementById("buyImmediatelyDivSection03Left01DiscountPrice").innerHTML="할인 금액 : " + ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;--%>
+    <%--document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML= ${feedInfo.feed_price}*QuantityFeed;--%>
+    <%--document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML= ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;--%>
+    <%--document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_price}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;--%>
+    <%--// 우편번호 체크--%>
+    <%--function buyImmediatelyZipCheck() {--%>
+    <%--    const width = 380;--%>
+    <%--    const height = 480;--%>
+    <%--    return new daum.Postcode({--%>
+    <%--        width: width,--%>
+    <%--        height: height,--%>
+    <%--        oncomplete: function(data) {--%>
+    <%--            const zipcode = document.querySelector('#buyImmediatelyDivSection07Zipcode');--%>
+    <%--            const address = document.querySelector('#buyImmediatelyDivSection07Address01');--%>
+    <%--            zipcode.classList.add('focus');--%>
+    <%--            address.classList.add('focus');--%>
+    <%--            zipcode.value = data.zonecode;--%>
+    <%--            address.value = data.address;--%>
+    <%--        },--%>
+    <%--        theme: {--%>
+    <%--            bgColor: '#F28888'--%>
+    <%--        }--%>
+    <%--    }).open({--%>
+    <%--        popupName: '우편번호 검색',--%>
+    <%--        left: (window.screen.width / 2) - (width / 2),--%>
+    <%--        top: (window.screen.height / 2) - (height / 2)--%>
+    <%--    });--%>
+    <%--}--%>
 </script>
 </body>
 </html>

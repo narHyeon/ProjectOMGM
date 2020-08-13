@@ -133,9 +133,10 @@ public class UserMallController {
 
     // 장바구니에서 하나 삭제하기(테이블에서도 삭제)
     @RequestMapping("/deleteCartListOne.do")
-    public ModelAndView deleteCartListOne(CartListVO vo) throws Exception {
+    public ModelAndView deleteCartListOne(CartListVO vo, HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect: /selectCartList.do");
+        String id = request.getParameter("cartList_id");
+        mav.setViewName("redirect: /selectCartList.do?cartList_id="+id);
         userMallService.deleteCartListOne(vo);
         return mav;
     }
@@ -144,6 +145,7 @@ public class UserMallController {
     @RequestMapping("/paymentCartList.do")
     public ModelAndView paymentCartList(CartListVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
+        userMallService.insertCartListCount(vo);
         mav.setViewName("/sales/buyImmediatelyCart");
         mav.addObject("cartList",userMallService.selectCartList(vo));
         return mav;
