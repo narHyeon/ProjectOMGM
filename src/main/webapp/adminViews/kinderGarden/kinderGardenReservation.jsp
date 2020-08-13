@@ -37,10 +37,16 @@
             font-size: 14px;
         }
 
-        .kinderGarden_pagination2, .kinderGarden_pagination2 {
+        .kinderGarden_pagination1, .kinderGarden_pagination2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .kinderGarden_pagination1 ul, .kinderGarden_pagination2 ul {
             display: flex;
             flex-direction: row;
         }
+
 
         @media all and (max-width: 1024px) {
             .reservation_head_tr th:nth-child(3), .reservation_head_tr th:nth-child(8),
@@ -227,14 +233,13 @@
         pageCount2 = Math.ceil(contentCount2/5); // 올림
 
 
-        pagination(page1,pageCount1,1);
-        pagination(page2,pageCount2,2);
+        pagination(page1,pageCount1,1,currentPage1);
+        pagination(page2,pageCount2,2,currentPage2);
 
     });
 
     function paging(event,tbody,count,prev,next,pageCount,num) {
-        console.log(count);
-        console.log(pageCount);
+        pagePick(event.target.parentNode,tbody);
         if(num === 1) currentPage1 = count;
         else currentPage2 = count;
         event.preventDefault();
@@ -253,13 +258,25 @@
         });
     }
 
-    function pagination(page,count,index) {
+    function pagination(page,count,index,current) {
         for(let i=1; i<=count; i++) {
-            page.innerHTML += `
+            if(i === current) {
+                page.innerHTML += `
+                <li class="paginate_button page-item active">
+                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
+                </li>`;
+            } else {
+                page.innerHTML += `
                 <li class="paginate_button page-item">
                     <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
                 </li>`;
+            }
         }
+    }
+
+    function pagePick(target,tbody) {
+        console.log(target);
+        console.log(tbody);
     }
 
 </script>
