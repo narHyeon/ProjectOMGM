@@ -14,8 +14,8 @@ public class SmsController {
     @RequestMapping("/smsMessage.mdo")
     public void smsMessage(SmsVO vo) {
 
-        String api_key = "본인의 API KEY";
-        String api_secret = "본인의 API SECRET";
+        String api_key = "NCSW55PCQLBTRFLS";
+        String api_secret = "WCSFGDE7ERINMKSRPG1RTPEQLTCZHQIJ";
         Message coolsms = new Message(api_key, api_secret);
 
         // 4 params(to, from, type, text) are mandatory. must be filled
