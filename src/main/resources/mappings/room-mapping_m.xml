@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RoomDAO_M">
+	<select id="selectListROOM" resultType="room_m" parameterType="room_m">
+		SELECT * FROM ROOM ORDER by room_for DESC , room_kind DESC, room_rank DESC
+	</select>
+	<select id="selectCountRoom" resultType="int" parameterType="room_m">
+		SELECT count(*) FROM ROOM
+	</select>
+	<insert id="roomInsert" parameterType="room_m">
+		INSERT INTO ROOM 
+		(ROOM_NO, ROOM_NAME, ROOM_CONTENT, ROOM_PRICE, ROOM_SALERATE, ROOM_KIND, ROOM_RANK, ROOM_FOR) 
+		VALUES((select nvl(max(ROOM_NO), 0)+1 from ROOM),#{ROOM_NAME},#{ROOM_CONTENT},#{ROOM_PRICE},#{ROOM_SALERATE},#{ROOM_KIND},#{ROOM_RANK},#{ROOM_FOR})	
+	</insert>
+	<select id="roomRead" resultType="room_m" parameterType="room_m">
+		SELECT * FROM ROOM WHERE ROOM_NO=#{ROOM_NO}
+	</select>
+	<delete id="roomDelete" parameterType="room_m">
+		DELETE FROM ROOM WHERE ROOM_NO=#{ROOM_NO}
+	</delete>
+	<update id="roomUpdate" parameterType="room_m">
+		UPDATE ROOM
+		<set>
+			<if test="ROOM_NAME != null">ROOM_NAME=#{ROOM_NAME},</if>
+    	    <if test="ROOM_CONTENT != null">ROOM_CONTENT=#{ROOM_CONTENT},</if>
+    	    <if test="!ROOM_PRICE.equals(0)">ROOM_PRICE=#{ROOM_PRICE},</if>
+    	    <if test="!ROOM_SALERATE.equals(0)">ROOM_SALERATE=#{ROOM_SALERATE},</if>
+    	    <if test="ROOM_KIND != null">ROOM_KIND=#{ROOM_KIND},</if>
+    	    <if test="!ROOM_RANK.equals(0)">ROOM_RANK=#{ROOM_RANK},</if> 
+    	    <if test="ROOM_FOR != null">ROOM_FOR=#{ROOM_FOR},</if>
+		</set>    	 
+		WHERE ROOM_NO=#{ROOM_NO}
+	</update>
+</mapper>

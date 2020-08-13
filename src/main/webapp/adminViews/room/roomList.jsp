@@ -48,9 +48,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("#insert_button").click(function() {
+			window.location.href = 'roomInsert.mdo';	
+		});
 		$(".roomList_room").click(function() {
+			
 			const roomnum = $(this).data("no");
-			window.location.href = 'roomRead.do?ROOM_NO='+roomnum;
+			window.location.href = 'roomRead.mdo?ROOM_NO='+roomnum;
 		});
 	});
 </script>
@@ -101,19 +105,27 @@
 	</ul>
 </div>
 </main>
+<div id="room_buttons">
+	<div class="btn btn-primary btn-icon-split" id="insert_button" >
+  		<span class="icon text-white-50">
+        <i class="fas fa-check"></i>
+        </span>
+		<span class="text">방 등록하기</span>
+	</div>
+</div>
 <div class="reviewList_page00">
-	<a href="roomList.do" class="reviewList_page01">&lt;&lt;</a>
-	<a href="roomList.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
+	<a href="roomList.mdo" class="reviewList_page01">&lt;&lt;</a>
+	<a href="roomList.mdo?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
 	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
 		<c:if test="${page == counter}">	
-			<a href="roomList.do?page=${counter}" class="reviewList_page" style="background-color: orange">&nbsp;&nbsp;${counter}</a>
+			<a href="roomList.mdo?page=${counter}" class="reviewList_page" style="background-color: orange">&nbsp;&nbsp;${counter}</a>
 		</c:if>
 		<c:if test="${page != counter}">
-			<a href="roomList.do?page=${counter}" class="reviewList_page" >&nbsp;&nbsp;${counter}</a>
+			<a href="roomList.mdo?page=${counter}" class="reviewList_page" >&nbsp;&nbsp;${counter}</a>
 		</c:if>
 	</c:forEach>
-	<a href="roomList.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a> 
-	<a href="roomList.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
+	<a href="roomList.mdo?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a> 
+	<a href="roomList.mdo?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
 </div><!-- end paging -->
 </div><!-- end roomList_wrap -->
 </body>

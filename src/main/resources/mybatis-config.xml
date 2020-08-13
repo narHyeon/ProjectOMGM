@@ -52,6 +52,8 @@
 			type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
 		<typeAlias alias="mypet"
 			type="com.omgm.user.mypet.beans.MyPetVO" />
+		<typeAlias alias="room" type="com.omgm.user.room.beans.RoomVO"/>
+		<typeAlias alias="room_m" type="com.omgm.admin.room.beans.RoomVO_M"/>
 	</typeAliases>
 	<mappers>
 		<!-- 회원 -->
@@ -76,5 +78,7 @@
 		<mapper resource="mappings/category_m-mapping.xml" />
 		<mapper resource="mappings/catcarelog-mapping.xml" />
 		<mapper resource="mappings/mypet-mapping.xml" />
+		<mapper resource="mappings/room-mapping.xml" />
+		<mapper resource="mappings/room-mapping_m.xml" />
 	</mappers>
 </configuration>
