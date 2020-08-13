@@ -138,7 +138,7 @@
 
 <%--  pagination --%>
 <div class="kinderGarden_pagination2">
-    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link">Prev</a> </ul>
+    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link" onclick="paging(event,tbody2,`+i+`,prev`+index+`,next`+index+`,`+count+`)">Prev</a> </ul>
     <ul></ul>
     <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
 </div>
@@ -186,14 +186,17 @@
 
 
     // 페이지네이션 관련
-    let tbody1;
+    let tbody1; // 페이지네이션 몸체
     let tbody2;
-    let page1;
+    let page1; // 페이지 블럭 몸체
     let page2;
-    let contentCount1 = 0;
+    let contentCount1 = 0; // 페이지 총 수
     let contentCount2 = 0;
-    let pageCount1 = 0;
+    let pageCount1 = 0; // 그룹 총 수
     let pageCount2 = 0;
+
+    let currentPage1 = 1; // 현재 페이지
+    let currentPage2 = 1;
 
     const prev1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(1)');
     const prev2 = document.querySelector('.kinderGarden_pagination2 ul:nth-child(1)');
@@ -229,10 +232,6 @@
         tbody.forEach((item,index) => {
             if((5*count)-5 < index && index <= 5*count) item.style.display = '';
             else item.style.display = 'none';
-            if(index === count) {
-                console.log(event.target);
-                event.target.classList.toggle('disabled',true);
-            }
             if(count === 1) {
                 prev.classList.toggle('disabled',true);
             } else if(count === pageCount) {
