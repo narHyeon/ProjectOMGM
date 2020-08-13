@@ -15,13 +15,4 @@ public class EchoController {
 //        mav.addObject("userId",user.getUsername());
         return mav;
     }
-
-    @RequestMapping("/chat.echo")
-    public ModelAndView chat1(ModelAndView mav) {
-        mav.setViewName("chat/chat");
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        System.out.println("user name" + user.getUsername());
-//        mav.addObject("userId",user.getUsername());
-        return mav;
-    }
 }
