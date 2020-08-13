@@ -68,7 +68,7 @@
                         <th>상태</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="reser_confirm_tbody1">
                     <c:forEach var="reser" items="${reservation}">
                         <c:if test="${reser.state == '확인'}">
                             <tr class="reservation_tbody_tr">
@@ -89,6 +89,13 @@
                 </tbody>
             </table>
 
+            <%--  pagination --%>
+            <div class="kinderGarden_pagination1">
+                <ul class="paginate_button page-item previous"> <a href="#" class="page-link">Prev</a> </ul>
+                <ul></ul>
+                <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
+            </div>
+
             <table class="table table-bordered" class="kinderGarden_reservation_table" width="100%" cellspacing="0">
                 <h6 class="m-0 font-weight-bold text-info">예약 미확인</h6>
                 <thead>
@@ -104,7 +111,7 @@
                     <th>상태</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="reser_confirm_tbody2">
                 <c:forEach var="reser" items="${reservation}">
                     <c:if test="${reser.state == '미확인'}">
                         <tr class="reservation_tbody_tr">
@@ -128,6 +135,14 @@
         </div>
     </div>
 </div>
+
+<%--  pagination --%>
+<div class="kinderGarden_pagination2">
+    <ul class="paginate_button page-item previous"> <a href="#" class="page-link">Prev</a> </ul>
+    <ul></ul>
+    <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
+</div>
+
 <div class="admin_kindergarden_schedule_button">
     <a href="kinderGardenReservation.mdo" class="btn btn-info btn-user ">초기화</a>
     <a href="#" class="btn btn-success btn-user" onclick="checkBox()">적용</a>
@@ -168,5 +183,54 @@
         const data = { seq: event.target.value };
         xhr.send(JSON.stringify(data));
     }
+
+
+    // 페이지네이션 관련
+    let tbody1;
+    let tbody2;
+    let page1;
+    let page2;
+    let contentCount1 = 0;
+    let contentCount2 = 0;
+    let pageCount1 = 0;
+    let pageCount2 = 0;
+
+    window.addEventListener('DOMContentLoaded', () => {
+        tbody1 = document.querySelectorAll('#reser_confirm_tbody1 tr');
+        tbody2 = document.querySelectorAll('#reser_confirm_tbody2 tr');
+
+        tbody1.forEach((item,index) => {
+            contentCount1++;
+            if(index >= 5) item.style.display = 'none';
+        });
+        tbody2.forEach((item,index) => {
+            contentCount2++;
+            if(index >= 5) item.style.display = 'none';
+        });
+
+        page1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(2)');
+        page2 = document.querySelector('.kinderGarden_pagination2 ul:nth-child(2)');
+        pageCount1 = Math.ceil(contentCount1/5); // 올림
+        pageCount2 = Math.ceil(contentCount2/5); // 올림
+
+        pagination(page1,pageCount1,1);
+        pagination(page2,pageCount2,2);
+
+    });
+
+    function paging(event,tbody,count) {
+        event.preventDefault();
+        tbody.forEach((item,index) => {
+            if((5*count)-5 < index && index <= 5*count) item.style.display = '';
+            else item.style.display = 'none';
+        });
+    }
+
+    function pagination(page,count,index) {
+        for(let i=1; i<=count; i++) {
+            page.innerHTML += `<li class="paginate_button page-item"><a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`)">`+i+`</a></li>`;
+        }
+    }
+
 </script>
 </html>
