@@ -91,7 +91,7 @@
 
             <%--  pagination --%>
             <div class="kinderGarden_pagination1">
-                <ul class="paginate_button page-item previous"> <a href="#" class="page-link">Prev</a> </ul>
+                <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link">Prev</a> </ul>
                 <ul></ul>
                 <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
             </div>
@@ -138,7 +138,7 @@
 
 <%--  pagination --%>
 <div class="kinderGarden_pagination2">
-    <ul class="paginate_button page-item previous"> <a href="#" class="page-link">Prev</a> </ul>
+    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link">Prev</a> </ul>
     <ul></ul>
     <ul class="paginate_button page-item next"> <a href="#" class="page-link">Next</a> </ul>
 </div>
@@ -195,6 +195,11 @@
     let pageCount1 = 0;
     let pageCount2 = 0;
 
+    const prev1 = document.querySelector('.kinderGarden_pagination1 ul');
+    const prev2 = document.querySelector('.kinderGarden_pagination2 ul');
+    const next1 = document.querySelector('.kinderGarden_pagination1 ul');
+    const next2 = document.querySelector('.kinderGarden_pagination2 ul');
+
     window.addEventListener('DOMContentLoaded', () => {
         tbody1 = document.querySelectorAll('#reser_confirm_tbody1 tr');
         tbody2 = document.querySelectorAll('#reser_confirm_tbody2 tr');
@@ -213,22 +218,36 @@
         pageCount1 = Math.ceil(contentCount1/5); // 올림
         pageCount2 = Math.ceil(contentCount2/5); // 올림
 
+
         pagination(page1,pageCount1,1);
         pagination(page2,pageCount2,2);
 
     });
 
-    function paging(event,tbody,count) {
+    function paging(event,tbody,count,prev,next,pageCount) {
+        console.log(count);
+        console.log(pageCount);
         event.preventDefault();
         tbody.forEach((item,index) => {
             if((5*count)-5 < index && index <= 5*count) item.style.display = '';
             else item.style.display = 'none';
+            if(count === 1) {
+                prev.classList.add('disabled');
+            } else if(count === pageCount) {
+                next.classList.add('disabled');
+            } else {
+                // prev.classList.remove('disabled');
+                // next.classList.remove('disabled');
+            }
         });
     }
 
     function pagination(page,count,index) {
         for(let i=1; i<=count; i++) {
-            page.innerHTML += `<li class="paginate_button page-item"><a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`)">`+i+`</a></li>`;
+            page.innerHTML += `
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`),next`+index+`,pageCount`+index+`">`+i+`</a>
+                </li>`;
         }
     }
 
