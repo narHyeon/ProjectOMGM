@@ -7,8 +7,10 @@ import com.omgm.user.mall.beans.UserMallToyVO;
 import com.omgm.user.mall.service.UserMallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -122,20 +124,44 @@ public class UserMallController {
         return mav;
     }
 
+    // 장바구니에 담기(테이블에저장)
     @RequestMapping("/insertCartList.do")
     public ModelAndView insertCartList(CartListVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect: /selectCartList.do");
+        mav.setViewName("redirect: /getMallFeedList.do");
         userMallService.insertCartList(vo);
         return mav;
     }
 
+    // 장바구니에서 하나 삭제하기(테이블에서도 삭제)
     @RequestMapping("/deleteCartListOne.do")
-    public ModelAndView deleteCartListOne(CartListVO vo) throws Exception {
+    public ModelAndView deleteCartListOne(CartListVO vo, HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect: /selectCartList.do");
+        String id = request.getParameter("cartList_id");
+        mav.setViewName("redirect: /selectCartList.do?cartList_id="+id);
         userMallService.deleteCartListOne(vo);
         return mav;
+    }
+
+    // 장바구니에서 결제페이지로 이동
+    @RequestMapping("/paymentCartList.do")
+    public ModelAndView paymentCartList(CartListVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+//        userMallService.updateCartListCount(vo);
+        mav.setViewName("/sales/buyImmediatelyCart");
+        mav.addObject("cartList",userMallService.selectCartList(vo));
+        return mav;
+    }
+
+    // 장바구니에서 결제페이지로 이동
+    @ResponseBody
+    @RequestMapping("/updateCartListCount.do")
+    public CartListVO updateCartListCount(@RequestBody CartListVO vo) throws Exception {
+        System.out.println(vo.getCartList_code());
+        System.out.println(vo.getCartList_count());
+        System.out.println(vo.getCartList_id());
+        userMallService.updateCartListCount(vo);
+        return vo;
     }
 }
 

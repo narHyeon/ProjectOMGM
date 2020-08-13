@@ -81,18 +81,27 @@
     <!--#######  CARTLIST 관련 쿼리문  #########################################################################-->
     <!-- 장바구니 담기 누를시 장바구니 테이블에 값 넣어주기 -->
     <insert id="insertCartList" parameterType="CartListVO">
-        insert into cartlist (cartlist_code,cartlist_name, cartlist_price, cartlist_discount,
-            cartlist_stock, cartlist_point, cartlist_info, cartlist_img)
-            VALUES(#{cartList_code},#{cartList_name},#{cartList_price},#{cartList_discount},#{cartList_stock},
-                #{cartList_point},#{cartList_info},#{cartList_img})
+        insert into cartlist (cartlist_id, cartlist_code,cartlist_name, cartlist_price, cartlist_discount,
+            cartlist_stock, cartlist_point, cartlist_info, cartlist_img, cartlist_count)
+            VALUES(#{cartList_id},#{cartList_code},#{cartList_name},#{cartList_price},#{cartList_discount},#{cartList_stock},
+                #{cartList_point},#{cartList_info},#{cartList_img},1)
     </insert>
+    <update id="updateCartListCount" parameterType="CartListVO">
+        update cartlist set cartlist_count=(#{cartList_count})
+            where cartlist_id=#{cartList_id} and cartlist_code=#{cartList_code}
+    </update>
     <!--  장바구니 테이블에담긴 물품들 가져오기  -->
     <select id="selectCartList" resultType="CartListVO">
-        select * from cartlist
+        select * from cartlist where cartlist_id=#{cartList_id}
     </select>
+
+    <!--  장바구니 테이블 물품들 전부 삭제  -->
+    <delete id="deleteCartListAll" parameterType="CartListVO">
+        delete from cartlist
+    </delete>
     <!--  장바구니에 담긴거 삭제하기  -->
     <delete id="deleteCartListOne" parameterType="CartListVO">
-        delete from cartlist where cartlist_code=#{cartList_code}
+        delete from cartlist where cartlist_code=#{cartList_code} and cartlist_id=#{cartList_id}
     </delete>
 <!--    #################################################################################################-->
 

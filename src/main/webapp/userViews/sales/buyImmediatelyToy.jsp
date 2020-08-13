@@ -227,7 +227,7 @@
                                                 order_receiver: buyerName,
                                                 order_zipcode: buyerZipCode,
                                                 order_point_used: buyerPointUsed,
-                                                order_name: "${member.name}",
+                                                order_name: "${toyInfo.toy_name}",
                                                 order_quantity: QuantityFeed1,
                                                 order_point: buyerPointLeft,
                                                 <%--id: "${member.id}",--%>

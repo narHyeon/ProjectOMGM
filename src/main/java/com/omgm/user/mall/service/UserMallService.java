@@ -39,6 +39,9 @@ public interface UserMallService {
 
     /////////////// CARTLIST ///////////////////////////////////////////
     void insertCartList(com.omgm.user.mall.beans.CartListVO vo) throws Exception;
+    void updateCartListCount(CartListVO vo) throws Exception;
     public List<CartListVO> selectCartList(CartListVO vo) throws Exception;
     void deleteCartListOne(CartListVO vo) throws Exception;
+    void deleteCartListAll(CartListVO vo) throws Exception;
+
 }

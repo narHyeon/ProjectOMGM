@@ -1,4 +1,5 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -129,8 +130,13 @@
 	<div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
 	<div class="scroll_menu">
 		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
-		<a href="selectCartList.do"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
-		<div id="create-channel-chat-button"></div>
+		<c:if test="${member != null}">
+		<a href="selectCartList.do?cartList_id=${member.id}"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
+		</c:if>
+		<c:if test="${member == null}">
+			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.');" class="fas fa-shopping-cart"></i></div></a>
+		</c:if>
+			<div id="create-channel-chat-button"></div>
 	</div>
 	<script>
 		//top버튼
