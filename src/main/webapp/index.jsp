@@ -47,5 +47,14 @@
 <%--  <a href="pickupServiceManagement.mdo">픽업서비스관리 페이지 이동</a>--%>
 <%--  <a href="productDeleteUpdate.mdo"> 상품 수정 삭제 페이지 이동</a>--%>
 
+  <form action="smsMessage.mdo">
+    받는사람번호: <input type="text" name="sendNumber"><br>
+    보내는사람번호: <input type="text" name="receiveNumber"><br>
+    메세지: <input type="text" name="message"><br>
+    <button type="submit">전송</button>
+  </form>
+
+
+
 </body>
 </html>
