@@ -116,6 +116,8 @@
         document.querySelector('#memberTable_search').value = '';
         document.querySelectorAll('.memberTable_member').forEach(item => item.style.display = '');
 
+        paging(event,currentPage);
+
         const name = event.target.innerText;
         switch(name) {
             case '회원번호':
