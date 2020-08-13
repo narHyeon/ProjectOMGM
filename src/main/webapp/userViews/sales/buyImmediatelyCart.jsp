@@ -178,18 +178,23 @@
                     let cartPriceTotal = 0;
                     let cartPriceDiscount = 0;
                     let cartPricePoint = 0;
+                    let cartPriceCount = 0;
                     let cartProductName = "";
+                    let cartProductImg = "";
                     <c:forEach var="cartList" items="${cartList}">
                         cartPriceTotal = cartPriceTotal + ${cartList.cartList_count*cartList.cartList_price};
                         cartPriceDiscount = cartPriceDiscount + ${cartList.cartList_discount*cartList.cartList_count};
                         cartPricePoint = cartPricePoint + ${cartList.cartList_point};
                         cartProductName += "${cartList.cartList_name} ";
+                        cartPriceCount = cartPriceCount + ${cartList.cartList_count};
+                        cartProductImg += "${cartList.cartList_img},";
                     </c:forEach>
 
                     document.querySelector('#buyImmediatelyDivSection02_01_02BeforePrice').innerHTML=cartPriceTotal;
                     document.querySelector('#buyImmediatelyDivSection02_01_02DiscountPrice').innerHTML=cartPriceTotal-cartPriceDiscount;
                     document.querySelector('#buyImmediatelyDivSection02_01_02Price').innerHTML=cartPriceDiscount;
                     document.querySelector('#buyImmediatelyDivSection02_03Mileage').innerHTML=cartPricePoint + " 포인트가 적립이 됩니다."
+
                     <%--// 결제--%>
                     function kakaoPayCart() {
                         const buyI05Name = document.getElementById("buyImmediatelyDivSection05Name").value;
@@ -210,8 +215,8 @@
                             var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").value;
                             var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
                             var buyerPointLeft = ${member.point} - parseInt(document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML) + parseInt(document.querySelector('#buyImmediatelyDivSection02_03Mileage').innerHTML);
-                            var buyerPointUsed = ${member.point} - document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML;
-                            alert(buyerPointLeft + " " + buyerPointUsed);
+                            var buyerPointUsed = document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML;
+
                             IMP.request_pay({
 
                                 pg: 'kakaopay',
@@ -230,7 +235,7 @@
                                     //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
                                     $.ajax({
                                         type: 'POST',
-                                        url: "insertOrderFeed.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+                                        url: "insertOrderCartList.do", //cross-domain error가 발생하지 않도록 주의해주세요
                                         dataType: 'json',
                                         contentType : 'application/json',
                                         data: JSON.stringify({
@@ -242,8 +247,10 @@
                                             order_zipcode: buyerZipCode,
                                             order_point_used: buyerPointUsed,
                                             order_name: cartProductName,
-                                            order_quantity: QuantityFeed1,
+                                            order_quantity: cartPriceCount,
                                             order_point: buyerPointLeft,
+                                            order_img: cartProductImg,
+                                            order_tn: rsp.merchant_uid,
                                             <%--id: "${member.id}",--%>
                                             <%--point: buyerPointUsed,--%>
 
@@ -265,15 +272,16 @@
                                     // msg += '\n고유ID : ' + rsp.imp_uid;
                                     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                     msg += '\n결제 금액 : ' + rsp.paid_amount;
+                                    msg += '\n운송장 번호 : ' + rsp.merchant_uid;
                                     alert(msg);
 
                                     //성공시 이동할 페이지
-                                    location.href = '<%=request.getContextPath()%>/getMallFeedList.do';
+                                    location.href = 'getMallFeedList.do';
                                 } else {
                                     msg = '결제에 실패하였습니다.';
                                     // msg += '에러내용 : ' + rsp.error_msg;
                                     //실패시 이동할 페이지
-                                    location.href = "<%=request.getContextPath()%>/getMallFeedList.do";
+                                    location.href = "getMallFeedList.do";
                                     alert(msg);
                                 }
                             });

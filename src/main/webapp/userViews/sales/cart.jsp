@@ -109,10 +109,11 @@
 <script>
     function upI(event){
         const num = event.target.value;
-        const price = document.querySelector('#sum_p_num'+num).value;
+        const price = document.querySelector('#sum_p_num'+num).innerHTML;
+
         document.querySelector('#p_num1'+num).value++;
 
-        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value)+price;
+        document.querySelector('#sum_p_price'+num).value = parseInt(document.querySelector('#sum_p_price'+num).value)+parseInt(price);
     }
 
     function downI(event){
