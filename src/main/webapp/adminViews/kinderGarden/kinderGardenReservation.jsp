@@ -214,6 +214,7 @@
     const next1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(3)');
     const next2 = document.querySelector('.kinderGarden_pagination2 ul:nth-child(3)');
 
+    // 초기화 작업
     window.addEventListener('DOMContentLoaded', () => {
         tbody1 = document.querySelectorAll('#reser_confirm_tbody1 tr');
         tbody2 = document.querySelectorAll('#reser_confirm_tbody2 tr');
@@ -237,6 +238,7 @@
         pagination(page2,pageCount2,2,currentPage2);
     });
 
+    // 페이징 처리
     function paging(event,tbody,count,prev,next,pageCount,num) {
         event.preventDefault();
         if(num === 1) currentPage1 = count;
@@ -260,6 +262,7 @@
             }
         });
     }
+
     // 페이지그룹 생성
     function pagination(page,count,index,current) {
         for(let i=1; i<=count; i++) {
@@ -270,6 +273,7 @@
             if(i === current) pagePick(page,1);
         }
     }
+
     // 페이지 그룹 색상 변경
     function pagePick(target,count) {
         target.querySelectorAll(`li`).forEach((item,index) => {
