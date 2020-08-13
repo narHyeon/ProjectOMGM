@@ -65,7 +65,9 @@
             <c:if test="${member == null}">
                 <a href="" class="byt-immediately00" id="byt-immediately00" onclick="buyImmediately01()">즉시 구매하기</a>
             </c:if>
+            <c:if test="${member != null}">
             <form action="insertCartList.do">
+                <input type="hidden" name="cartList_id" value="${member.id}" />
                 <input type="hidden" name="cartList_code" value="${feedList.feed_code}"/>
                 <input type="hidden" name="cartList_name" value="${feedList.feed_name}" />
                 <input type="hidden" name="cartList_price" value="${feedList.feed_price}" />
@@ -76,6 +78,20 @@
                 <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />
             <button type="submit" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>
+            </c:if>
+            <c:if test="${member == null}">
+                <form action="getMallFeedList.do">
+<%--                    <input type="hidden" name="cartList_code" value="${feedList.feed_code}"/>--%>
+<%--                    <input type="hidden" name="cartList_name" value="${feedList.feed_name}" />--%>
+<%--                    <input type="hidden" name="cartList_price" value="${feedList.feed_price}" />--%>
+<%--                    <input type="hidden" name="cartList_discount" value="${feedList.feed_discount}" />--%>
+<%--                    <input type="hidden" name="cartList_stock" value="1" />--%>
+<%--                    <input type="hidden" name="cartList_point" value="${feedList.feed_point}" />--%>
+<%--                    <input type="hidden" name="cartList_info" value="${feedList.feed_info}" />--%>
+<%--                    <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />--%>
+                    <button type="submit" class="byt-immediately01" onclick="javascript:  alert('로그인을 먼저 해주시기 바랍니다.'); ">장바구니 담기</button>
+                </form>
+            </c:if>
         </div>
 
         <div class="toy-sales-section08">

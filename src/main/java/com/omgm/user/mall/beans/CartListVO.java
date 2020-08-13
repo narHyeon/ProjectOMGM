@@ -9,6 +9,24 @@ public class CartListVO {
     private String cartList_info;
     private String cartList_img;
     private int cartList_code;
+    private String cartList_id;
+    private int cartList_count;
+
+    public int getCartList_count() {
+        return cartList_count;
+    }
+
+    public void setCartList_count(int cartList_count) {
+        this.cartList_count = cartList_count;
+    }
+
+    public String getCartList_id() {
+        return cartList_id;
+    }
+
+    public void setCartList_id(String cartList_id) {
+        this.cartList_id = cartList_id;
+    }
 
     public int getCartList_code() {
         return cartList_code;

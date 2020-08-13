@@ -59,7 +59,7 @@
     }
     #buyImmediatelyDivSection03Right{
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
     }
     #buyImmediatelyDivSection04{
         display: flex;
@@ -112,18 +112,22 @@
         <%--    ///////  왼쪽 페이지  ///////////////////////////////////////////////////////////--%>
         <div id="buyImmediatelyDivSection01">
             <div id="buyImmediatelyDivSection03">
-                <div id="buyImmediatelyDivSection03Left" style="width: 70%">
-                    <p style="margin-top: 5%; font-weight: bold;">상품 이름 : ${feedInfo.feed_name}</p>
-                    <p style="margin-top: 2%; font-size: smaller; color: blue">가격 : ${feedInfo.feed_price}</p>
-                    <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice"></p>
-                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice"></p>
-                </div>
+<%--                <div id="buyImmediatelyDivSection03Left" style="width: 70%">--%>
+<%--                    <p style="margin-top: 5%; margin-bottom: 2%; font-weight: bold;">고르신 상품들</p>--%>
+<%--                    =><c:forEach var="cartList" items="${cartList}">--%>
+<%--                        ${cartList.cartList_name}(${cartList.cartList_price}원)&nbsp;&nbsp;--%>
+<%--                    </c:forEach>--%>
+<%--                    <p id="buyImmediatelyDivSection03Left01" style="margin-top: 2%; font-size: smaller; font-weight: bold;"></p>--%>
+<%--                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01DiscountPrice"></p>--%>
+<%--                    <p style="margin-top: 2%; font-size: smaller; font-weight: bold;" id="buyImmediatelyDivSection03Left01TotalPrice"></p>--%>
+<%--                </div>--%>
                 <div id="buyImmediatelyDivSection03Right" >
-                    <div style="display: flex; flex-direction: column">
-
+                    <c:forEach var="cartList" items="${cartList}">
+                    <div style="display: flex; margin-left: 3%; margin-right: 3%; flex-direction: column">
+                        <img src="resources/img/product/${cartList.cartList_img}" style="width: 100%; ">
+                        <p style="text-align: center">${cartList.cartList_name}(${cartList.cartList_price}원, ${cartList.cartList_count}개)</p>
                     </div>
-                    <img src="resources/img/product/${feedInfo.feed_img}" style="width: 74%; ">
+                    </c:forEach>
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">
@@ -165,22 +169,29 @@
                 </div>
             </div>
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
-            <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;">${feedInfo.feed_point} 구매완료후 적립됩니다</p></div>
+            <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;" id="buyImmediatelyDivSection02_03Mileage"> </p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
-            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPayFeed()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
+            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPayCart()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
             <div>
                 <script>
-                    //수량 가져오기
-                    function getParameterByName(name) {
-                        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-                        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                            results = regex.exec(location.search);
-                        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-                    }
+                    //상품금액, 할인금액, 최종 금액
+                    let cartPriceTotal = 0;
+                    let cartPriceDiscount = 0;
+                    let cartPricePoint = 0;
+                    let cartProductName = "";
+                    <c:forEach var="cartList" items="${cartList}">
+                        cartPriceTotal = cartPriceTotal + ${cartList.cartList_count*cartList.cartList_price};
+                        cartPriceDiscount = cartPriceDiscount + ${cartList.cartList_discount*cartList.cartList_count};
+                        cartPricePoint = cartPricePoint + ${cartList.cartList_point};
+                        cartProductName += "${cartList.cartList_name} ";
+                    </c:forEach>
 
-                    var QuantityFeed1 = getParameterByName("feed_Quantity");
-                   // 결제
-                    function kakaoPayFeed() {
+                    document.querySelector('#buyImmediatelyDivSection02_01_02BeforePrice').innerHTML=cartPriceTotal;
+                    document.querySelector('#buyImmediatelyDivSection02_01_02DiscountPrice').innerHTML=cartPriceTotal-cartPriceDiscount;
+                    document.querySelector('#buyImmediatelyDivSection02_01_02Price').innerHTML=cartPriceDiscount;
+                    document.querySelector('#buyImmediatelyDivSection02_03Mileage').innerHTML=cartPricePoint + " 포인트가 적립이 됩니다."
+                    <%--// 결제--%>
+                    function kakaoPayCart() {
                         const buyI05Name = document.getElementById("buyImmediatelyDivSection05Name").value;
                         const buyI06Phone = document.getElementById("buyImmediatelyDivSection06Phone").value;
                         const buyI07Zipcode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
@@ -198,9 +209,9 @@
                             var buyerPHNum = document.getElementById("buyImmediatelyDivSection06Phone").value;
                             var buyerAddress = document.getElementById("buyImmediatelyDivSection07Address01").value;
                             var buyerZipCode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
-                            var buyerPointLeft = ${member.point} - document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML+${feedInfo.feed_point};
+                            var buyerPointLeft = ${member.point} - parseInt(document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML) + parseInt(document.querySelector('#buyImmediatelyDivSection02_03Mileage').innerHTML);
                             var buyerPointUsed = ${member.point} - document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML;
-                            // alert(buyerZipCode + " "+buyerAddress + " " + buyerName +" "+ buyerPointUsed);
+                            alert(buyerPointLeft + " " + buyerPointUsed);
                             IMP.request_pay({
 
                                 pg: 'kakaopay',
@@ -230,7 +241,7 @@
                                             order_receiver: buyerName,
                                             order_zipcode: buyerZipCode,
                                             order_point_used: buyerPointUsed,
-                                            order_name: "${feedInfo.feed_name}",
+                                            order_name: cartProductName,
                                             order_quantity: QuantityFeed1,
                                             order_point: buyerPointLeft,
                                             <%--id: "${member.id}",--%>
@@ -310,24 +321,6 @@
             }
         })
     })
-
-    //수량 가져오기
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-
-    var QuantityFeed = getParameterByName("feed_Quantity");
-    var QuantityFeedInput = document.getElementById("buyImmediatelyDivSection03Left01");
-
-    QuantityFeedInput.innerHTML="수량 : "+QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection03Left01TotalPrice").innerHTML="할인 적용 금액 : " + ${feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection03Left01DiscountPrice").innerHTML="할인 금액 : " + ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML= ${feedInfo.feed_price}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML= ${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
-    document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=${feedInfo.feed_price}*QuantityFeed-${feedInfo.feed_price-feedInfo.feed_discount}*QuantityFeed;
     // 우편번호 체크
     function buyImmediatelyZipCheck() {
         const width = 380;

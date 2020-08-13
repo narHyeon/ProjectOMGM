@@ -53,6 +53,11 @@ public class UserMallDAO {
             return sqlSessionTemplate.selectOne("UserMallDAO.getMallToyOneInfo", vo);
         }
 
+        // 장바구니에서 정한 수량 디비에서 변경
+        public void updateCartListCount(CartListVO vo) {
+            sqlSessionTemplate.update("MallOrderDAO.updateCartListCount", vo);
+        }
+
         // 장바구니 입력 시 디비추가
         public void insertCartList(CartListVO vo) {
             sqlSessionTemplate.insert("MallOrderDAO.insertCartList", vo);
@@ -60,4 +65,7 @@ public class UserMallDAO {
 
         // 장바구니에서 물품 한개 삭제
         public void deleteCartListOne(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListOne", vo);}
+
+    // 장바구니에서 물품 전부 삭제
+    public void deleteCartListAll(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListAll", vo);}
 }
