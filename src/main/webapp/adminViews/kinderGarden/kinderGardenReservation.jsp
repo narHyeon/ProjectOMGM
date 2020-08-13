@@ -235,7 +235,6 @@
 
         pagination(page1,pageCount1,1,currentPage1);
         pagination(page2,pageCount2,2,currentPage2);
-
     });
 
     function paging(event,tbody,count,prev,next,pageCount,num) {
@@ -261,23 +260,17 @@
             }
         });
     }
-
+    // 페이지그룹 생성
     function pagination(page,count,index,current) {
         for(let i=1; i<=count; i++) {
-            if(i === current) {
-                page.innerHTML += `
-                <li class="paginate_button page-item active">
-                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
-                </li>`;
-            } else {
                 page.innerHTML += `
                 <li class="paginate_button page-item">
                     <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
                 </li>`;
-            }
+            if(i === current) pagePick(page,1);
         }
     }
-
+    // 페이지 그룹 색상 변경
     function pagePick(target,count) {
         target.querySelectorAll(`li`).forEach((item,index) => {
             if(count === index+1) item.classList.toggle('active',true);
