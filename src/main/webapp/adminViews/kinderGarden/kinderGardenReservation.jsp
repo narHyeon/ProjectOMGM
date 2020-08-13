@@ -195,10 +195,10 @@
     let pageCount1 = 0;
     let pageCount2 = 0;
 
-    const prev1 = document.querySelector('.kinderGarden_pagination1 ul');
-    const prev2 = document.querySelector('.kinderGarden_pagination2 ul');
-    const next1 = document.querySelector('.kinderGarden_pagination1 ul');
-    const next2 = document.querySelector('.kinderGarden_pagination2 ul');
+    const prev1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(1)');
+    const prev2 = document.querySelector('.kinderGarden_pagination2 ul:nth-child(1)');
+    const next1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(3)');
+    const next2 = document.querySelector('.kinderGarden_pagination2 ul:nth-child(3)');
 
     window.addEventListener('DOMContentLoaded', () => {
         tbody1 = document.querySelectorAll('#reser_confirm_tbody1 tr');
@@ -225,19 +225,21 @@
     });
 
     function paging(event,tbody,count,prev,next,pageCount) {
-        console.log(count);
-        console.log(pageCount);
         event.preventDefault();
         tbody.forEach((item,index) => {
             if((5*count)-5 < index && index <= 5*count) item.style.display = '';
             else item.style.display = 'none';
+            if(index === count) {
+                console.log(event.target);
+                event.target.classList.toggle('disabled',true);
+            }
             if(count === 1) {
-                prev.classList.add('disabled');
+                prev.classList.toggle('disabled',true);
             } else if(count === pageCount) {
-                next.classList.add('disabled');
+                next.classList.toggle('disabled',true);
             } else {
-                // prev.classList.remove('disabled');
-                // next.classList.remove('disabled');
+                prev.classList.toggle('disabled',false);
+                next.classList.toggle('disabled',false);
             }
         });
     }
@@ -246,7 +248,7 @@
         for(let i=1; i<=count; i++) {
             page.innerHTML += `
                 <li class="paginate_button page-item">
-                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`),next`+index+`,pageCount`+index+`">`+i+`</a>
+                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`)">`+i+`</a>
                 </li>`;
         }
     }
