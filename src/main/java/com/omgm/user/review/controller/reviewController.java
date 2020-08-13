@@ -35,8 +35,8 @@ public class reviewController {
     public ModelAndView reviewListBoard(ReviewVO vo, @RequestParam(value="page", defaultValue = "1") int page) {
         ModelAndView mav = new ModelAndView();
 
-        int COUNTPERPAGE = 5; // 페이지당 2개의 글
-        int PAGEPERGROUP = 3; // 페이지 그룹당 3개의 페이지
+        int COUNTPERPAGE = 9; // 페이지당 2개의 글
+        int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
 
         PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
         mav.setViewName("/review/reviewListBoard");
