@@ -415,8 +415,8 @@ let webSocket;
 let nickname;
 
 // 로그인 소켓
-function loginSocket() {
-
+function loginSocket(id) {
+    nickname = id;
     connect();
 
     function connect(){
@@ -425,26 +425,34 @@ function loginSocket() {
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;
         console.log('접속이 열렸습니다!');
-
-        send('안녕하세요!!');
     }
 
-    function send(msg){
-        if(webSocket.readyState !== 1){
-            console.log(webSocket.readyState, '아직 준비되지 않았습니다.');
-            return;
-        }
-        webSocket.send(nickname + " : " + msg);
-    }
     function onOpen(){
         webSocket.send(nickname + "님이 입장하셨습니다.");
     }
     function onMessage(evt){
-        console.log(evt.data);
+        const field = document.querySelector('#chatting_field');
+        field.innerHTML += `<p>${evt.data}<br></p>`;
     }
     function onClose(){
         console.log('접속이 닫혔습니다!');
     }
+}
+
+function send(){
+    if(webSocket.readyState !== 1){
+        console.log(webSocket.readyState);
+        return;
+    }
+    const input = document.querySelector('#chatting_input')
+    const msg = input.value;
+    webSocket.send(nickname + " : " + msg);
+    input.value = '';
+}
+
+function enterSend(event) {
+    if (event.keyCode !== 13) return;
+    send();
 }
 
 function logOut() {
@@ -460,5 +468,8 @@ function chatting(id) {
         alert('로그인을 먼저 해주세요!');
         return;
     }
-    console.log(id);
+
+    document.querySelector('#chatting_modal').checked = true;
+    setTimeout(() => document.querySelector('#chatting_input').focus(),50);
 }
+

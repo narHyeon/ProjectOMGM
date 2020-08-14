@@ -179,6 +179,7 @@
 
 
 	<%-- login --%>
+<login>
 	<input type="checkbox" id="login_popup">
 	<div>
 		<div>
@@ -210,6 +211,23 @@
 		</div>
 		<label for="login_popup"></label>
 	</div>
+</login>
+
+
+	<%-- 채팅 모달 --%>
+	<chatting>
+		<input type="checkbox" id="chatting_modal">
+		<div>
+			<div>
+				<label for="chatting_modal"></label>
+				<div id="chatting_field"></div>
+				<input type="text" id="chatting_input" onkeyup="enterSend(event)">
+				<button class="chatting_button" onclick="send()">전송</button>
+			</div>
+			<label for="chatting_modal"></label>
+		</div>
+	</chatting>
+
 
 	<div style="display: none" id="naverIdLogin"></div>
 
@@ -233,7 +251,7 @@
                      <li><p>|</p></li>
                      <li><a href="#" onclick="logOut()">logout</a></li>`;
 				window.addEventListener('DOMContentLoaded',() => {
-					loginSocket();
+					loginSocket('${member.id}');
 				});
 			</script>
 		</c:if>
