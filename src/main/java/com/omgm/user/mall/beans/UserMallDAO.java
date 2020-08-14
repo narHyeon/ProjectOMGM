@@ -1,5 +1,8 @@
 package com.omgm.user.mall.beans;
 
+import com.omgm.admin.mall.beans.MemberOrderVO;
+import com.omgm.admin.mall.beans.OrderVO;
+import com.omgm.member.beans.MemberVO;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,11 +56,24 @@ public class UserMallDAO {
             return sqlSessionTemplate.selectOne("UserMallDAO.getMallToyOneInfo", vo);
         }
 
+        // 장바구니에서 정한 수량 디비에서 변경
+        public void updateCartListCount(CartListVO vo) {
+            sqlSessionTemplate.update("MallOrderDAO.updateCartListCount", vo);
+        }
+        public void updateMemberPoint(MemberOrderVO vo) {
+            sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);
+        }
         // 장바구니 입력 시 디비추가
         public void insertCartList(CartListVO vo) {
             sqlSessionTemplate.insert("MallOrderDAO.insertCartList", vo);
         }
 
+        // 장바구니 결제시 디비에 정보 입력
+        public void insertOrderCartList(OrderVO vo) {sqlSessionTemplate.insert("MallOrderDAO.insertOrderCartList", vo);}
+
         // 장바구니에서 물품 한개 삭제
         public void deleteCartListOne(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListOne", vo);}
+
+    // 장바구니에서 물품 전부 삭제
+    public void deleteCartListAll(CartListVO vo) {sqlSessionTemplate.delete("MallOrderDAO.deleteCartListAll", vo);}
 }

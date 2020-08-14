@@ -141,10 +141,10 @@ public class MallServiceImpl implements MallService {
         mallOrderDAO.stateSuccess(vo);
     }
 
-    @Override
-    public void updateMemberPoint(MemberOrderVO vo) throws Exception{
-        mallOrderDAO.updateMemberPoint(vo);
-    }
+//    @Override
+//    public void updateMemberPoint(MemberOrderVO vo) throws Exception{
+//        mallOrderDAO.updateMemberPoint(vo);
+//    }
 
     /////////////////////// ORDER_LIST //////////////////////////////////
 

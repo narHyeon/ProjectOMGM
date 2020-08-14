@@ -13,7 +13,7 @@ import java.util.List;
 public interface MallService {
 
     // 멤버 포인트 업데이트 서비스
-    void updateMemberPoint(MemberOrderVO vo) throws Exception;
+//    void updateMemberPoint(MemberOrderVO vo) throws Exception;
 
     // 토이 관련 서비스
     void deleteMallToy(MallToyVO vo) throws Exception; // 장난감 등록 삭제

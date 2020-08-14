@@ -13,9 +13,9 @@ public class MallOrderDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     // 멤버 결제시 포인트 삭제
-    public void updateMemberPoint(MemberOrderVO vo) {
-        sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);
-    }
+//    public void updateMemberPoint(MemberOrderVO vo) {
+//        sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);
+//    }
 
     ///////// ORDER_lIST /////////////////////////////////////////
     // 주문했을시 주문 정보 ORDER_LIST 에 입력

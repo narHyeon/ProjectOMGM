@@ -1,5 +1,7 @@
 package com.omgm.user.mall.controller;
 
+import com.omgm.admin.mall.beans.MemberOrderVO;
+import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.mall.beans.CartListVO;
 import com.omgm.user.mall.beans.PageNavigatorMall;
 import com.omgm.user.mall.beans.UserMallFeedVO;
@@ -7,8 +9,10 @@ import com.omgm.user.mall.beans.UserMallToyVO;
 import com.omgm.user.mall.service.UserMallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -122,20 +126,76 @@ public class UserMallController {
         return mav;
     }
 
+    // 장바구니에 담기(테이블에저장)
     @RequestMapping("/insertCartList.do")
     public ModelAndView insertCartList(CartListVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect: /selectCartList.do");
+        mav.setViewName("redirect: /getMallFeedList.do");
         userMallService.insertCartList(vo);
         return mav;
     }
 
+    // 장바구니에서 하나 삭제하기(테이블에서도 삭제)
     @RequestMapping("/deleteCartListOne.do")
-    public ModelAndView deleteCartListOne(CartListVO vo) throws Exception {
+    public ModelAndView deleteCartListOne(CartListVO vo, HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect: /selectCartList.do");
+        String id = request.getParameter("cartList_id");
+        mav.setViewName("redirect: /selectCartList.do?cartList_id="+id);
         userMallService.deleteCartListOne(vo);
         return mav;
+    }
+
+    // 장바구니에서 결제페이지로 이동
+    @RequestMapping("/paymentCartList.do")
+    public ModelAndView paymentCartList(CartListVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+//        userMallService.updateCartListCount(vo);
+        mav.setViewName("/sales/buyImmediatelyCart");
+        mav.addObject("cartList",userMallService.selectCartList(vo));
+        return mav;
+    }
+
+    // 장바구니에서 결제페이지로 이동
+    @ResponseBody
+    @RequestMapping("/updateCartListCount.do")
+    public CartListVO updateCartListCount(@RequestBody CartListVO vo) throws Exception {
+        System.out.println(vo.getCartList_code());
+        System.out.println(vo.getCartList_count());
+        System.out.println(vo.getCartList_id());
+        userMallService.updateCartListCount(vo);
+        return vo;
+    }
+
+    // 결제후 디비에 결제기록 저장 및 장바구니 삭제
+    @ResponseBody
+    @RequestMapping("/insertOrderCartList.do")
+    public OrderVO insertOrderCartList(@RequestBody OrderVO vo) throws Exception{
+        userMallService.insertOrderCartList(vo);
+        MemberOrderVO vo1 = new MemberOrderVO();
+        CartListVO vo2 = new CartListVO();
+        System.out.println("test1");
+
+        vo1.setId(vo.getOrder_id());
+        vo1.setPoint(vo.getOrder_point());
+        vo2.setCartList_id(vo.getOrder_id());
+
+        userMallService.updateMemberPoint(vo1);
+        userMallService.deleteCartListAll(vo2);
+        return vo;
+    }
+    //결제후 디비에 결제기록 저장 (즉시 결제)
+    @ResponseBody
+    @RequestMapping("/insertOrderImmediately.do")
+    public OrderVO insertOrderImmediately(@RequestBody OrderVO vo) throws Exception{
+        userMallService.insertOrderCartList(vo);
+        MemberOrderVO vo1 = new MemberOrderVO();
+
+        vo1.setId(vo.getOrder_id());
+        vo1.setPoint(vo.getOrder_point());
+
+        userMallService.updateMemberPoint(vo1);
+
+        return vo;
     }
 }
 
