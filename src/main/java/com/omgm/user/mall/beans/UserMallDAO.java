@@ -42,6 +42,11 @@ public class UserMallDAO {
 
 
     //////////////// 장바구니 /////////////////////////////
+    // 배송현왕 확인시 값 불러오기
+    public OrderVO selectCartListWayBill(OrderVO vo) {
+        return sqlSessionTemplate.selectOne("MallOrderDAO.selectCartListWayBill", vo);
+    }
+
     //장바구니 출력
     public List<CartListVO> selectCartList(CartListVO vo) {
         return sqlSessionTemplate.selectList("MallOrderDAO.selectCartList", vo);
