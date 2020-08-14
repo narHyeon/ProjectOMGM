@@ -321,24 +321,24 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-   $("#myPageFs").click(function(){
-      window.location.href = 'myPage.do';
-   });
-   $("#myPetPageFs").click(function(){
-      window.location.href = 'myPetPage.do';
-   });
-   $("#myServiceListFs").click(function(){
-      window.location.href = 'myServiceList.do';
-   });
-   $("#myBuyListLogFs").click(function(){
-      window.location.href = 'myBuyListLog.do';
-   });
-   $("#myCatCareLogFs").click(function(){
-      window.location.href = 'myCatCareLog.do';
-   });
-   $("#myReViewFs").click(function(){
-      window.location.href = 'myReView.do';
-   });
+	$("#myPageFs").click(function(){
+		window.location.href = 'myPage.do';
+	});
+	$("#myCatPageFs").click(function(){
+		window.location.href = 'myPetPage.do';
+	});
+	$("#myServiceListFs").click(function(){
+		window.location.href = 'myServiceList.do';
+	});
+	$("#myBuyListLogFs").click(function(){
+		window.location.href = 'myBuyListLog.do';
+	});
+	$("#myCatCareLogFs").click(function(){
+		window.location.href = 'myCatCareLog.do';
+	});
+	$("#myReViewFs").click(function(){
+		window.location.href = 'myReView.do';
+	});
 });
    function goUpdate() {
       window.location.href = "myPageUpdate.do";
@@ -355,7 +355,7 @@ $(document).ready(function(){
 		<div id="mypetpage_body">
 			<div id="banner">
 				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
-				<fieldset class="fieldsetstyle" id="myPetPageFs">내 고양이 정보
+				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
 				</fieldset>
 				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
 				</fieldset>
