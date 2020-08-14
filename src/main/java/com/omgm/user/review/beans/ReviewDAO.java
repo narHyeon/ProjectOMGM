@@ -1,5 +1,6 @@
 package com.omgm.user.review.beans;
 
+import com.omgm.user.catcarelog.beans.CatCareLogVO;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,10 @@ public class ReviewDAO {
 
     public int selectCount(){
         return sqlSessionTemplate.selectOne("ReviewDAO.selectCount");
+    }
+
+    public void updateCatCareLog(CatCareLogVO vo) {
+        sqlSessionTemplate.update("CatCareLogDAO.updateCatCareLog",vo);
     }
 
 }

@@ -129,6 +129,17 @@ public class MallServiceImpl implements MallService {
         mallOrderDAO.deleteOrder(vo);
     }
 
+    // 주문상태 수정
+    @Override
+    public void updateState(OrderVO vo) throws Exception {
+        mallOrderDAO.updateState(vo);
+    }
+
+    // 주문상태 수정
+    @Override
+    public void stateSuccess(OrderVO vo) throws Exception {
+        mallOrderDAO.stateSuccess(vo);
+    }
 
 //    @Override
 //    public void updateMemberPoint(MemberOrderVO vo) throws Exception{

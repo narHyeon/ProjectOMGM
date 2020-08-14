@@ -236,6 +236,25 @@ public class MallController {
         return mav;
     }
 
+    // 주문상태(배송처리) 컨트롤러
+    @ResponseBody
+    @RequestMapping("/updateState.mdo")
+    public int updateState(@RequestBody OrderVO vo) throws Exception {
+        System.out.println(vo.getOrder_no());
+        mallService.updateState(vo);
+        return 0;
+    }
+
+    // 주문상태(배송완료) 컨트롤러
+    @RequestMapping("/stateSuccess.mdo")
+    public ModelAndView stateSuccess(OrderVO vo) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        Thread.sleep(7000);
+        mallService.stateSuccess(vo);
+        mav.setViewName("redirect:/productOrder.mdo");
+        return mav;
+    }
+
     // 포인트 적립 불러오기
     @RequestMapping("/getMallPointList.mdo")
     public ModelAndView getMallPointList(MallOrderVO vo) throws Exception{
@@ -259,6 +278,8 @@ public class MallController {
 //
 //            return vo;
 //    }
+
+
 
 }
 
