@@ -59,6 +59,12 @@ public class UserUserMallServiceImpl implements UserMallService {
     public List<CartListVO> selectCartList(CartListVO vo) throws Exception{
         return userMallDAO.selectCartList(vo);
     }
+
+    @Override
+    public OrderVO selectCartListWayBill(OrderVO vo) throws Exception {
+        return userMallDAO.selectCartListWayBill(vo);
+    }
+
     // 카트에 담기
     @Override
     public void insertCartList(CartListVO vo) throws Exception {

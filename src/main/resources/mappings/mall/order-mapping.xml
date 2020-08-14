@@ -33,6 +33,8 @@
         <result property="order_point_used" column="ORDER_POINT_USED" />
         <result property="order_name" column="ORDER_NAME" />
         <result property="order_quantity" column="ORDER_QUANTITY" />
+        <result property="order_img" column="ORDER_IMG" />
+        <result property="order_tn" column="ORDER_TN" />
     </resultMap>
 
     <resultMap type="CartListVO" id="CartList">
@@ -73,12 +75,26 @@
         DELETE FROM order_list WHERE order_no=#{order_no}
     </delete>
 
+    <!--    주문상태 수정(배송처리)-->
+    <update id="updateState" parameterType="OrderVO">
+        UPDATE order_list set order_state='발송처리' where order_no=#{order_no}
+    </update>
+
+    <!--    주문상태 수정(배송완료)-->
+    <update id="stateSuccess" parameterType="OrderVO">
+        UPDATE order_list set order_state='배송완료' where order_no=#{order_no}
+    </update>
 
     <!-- 포인트적립 불러오기  -->
     <select id="getMallPointList" resultType="mallOrderVO">
         SELECT * FROM order_status
     </select>
     <!--#######  CARTLIST 관련 쿼리문  #########################################################################-->
+    <!--  배송현왕 주문시 값 불러오기  -->
+    <select id="selectCartListWayBill" resultType="OrderVO" parameterType="OrderVO">
+        SELECT * FROM order_list where order_tn=#{order_tn}
+    </select>
+
     <!-- 장바구니 담기 누를시 장바구니 테이블에 값 넣어주기 -->
     <insert id="insertCartList" parameterType="CartListVO">
         insert into cartlist (cartlist_id, cartlist_code,cartlist_name, cartlist_price, cartlist_discount,

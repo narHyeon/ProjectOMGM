@@ -1,5 +1,7 @@
 package com.omgm.user.review.impl;
 
+import com.omgm.user.catcarelog.beans.CatCareLogDAO;
+import com.omgm.user.catcarelog.beans.CatCareLogVO;
 import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.review.beans.ReviewDAO;
 import com.omgm.user.review.beans.ReviewReplyVO;
@@ -16,6 +18,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Autowired
     ReviewDAO reviewDAO;
+    CatCareLogDAO catCareLogDAO;
 
     @Override
     public void insertReviewBoard(ReviewVO vo) {
@@ -46,5 +49,7 @@ public class ReviewServiceImpl implements ReviewService {
     public int selectCount() {
         return reviewDAO.selectCount();
     }
+
+
 
 }

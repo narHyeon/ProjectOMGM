@@ -1,5 +1,6 @@
 package com.omgm.user.mall.controller;
 
+import com.omgm.admin.common.beans.AdminVO;
 import com.omgm.admin.mall.beans.MemberOrderVO;
 import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.mall.beans.CartListVO;
@@ -22,6 +23,24 @@ public class UserMallController {
 
     @Autowired
     UserMallService userMallService;
+    /////////// 배송현왕 /////////////////////////////////////////////
+    // 배송 현황 페이지
+    @RequestMapping("/deliveryStatus.do")
+    public ModelAndView deliveryStatus(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/deliveryStatus");
+        return mav;
+    }
+
+    //배송현왕 값 불러오기
+    @ResponseBody
+    @RequestMapping("/selectCartListWayBill.do")
+    public OrderVO selectCartListWayBill(@RequestBody OrderVO vo) throws Exception {
+        System.out.println("test1");
+        vo = userMallService.selectCartListWayBill(vo);
+        System.out.println(vo.getOrder_state());
+        return vo;
+    }
 
     ////////////////////////// 사료 관련 컨트롤러 /////////////////////////
     //MallFeedList 사료(+ 페이징 처리 추가)
