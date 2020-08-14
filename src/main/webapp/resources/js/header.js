@@ -409,3 +409,42 @@ function kakaoPay(payment,url) {
         // console.log(rsp);
     });
 }
+
+
+let webSocket;
+let nickname;
+
+// 로그인 소켓
+function loginSocket() {
+
+    connect();
+
+    function connect(){
+        webSocket = new WebSocket("ws://localhost:8080/chat.lo");
+        webSocket.onopen = onOpen;
+        webSocket.onclose = onClose;
+        webSocket.onmessage = onMessage;
+        console.log('접속이 열렸습니다!');
+    }
+
+    function send(){
+        webSocket.send(nickname + " : " + msg);
+    }
+    function onOpen(){
+        webSocket.send(nickname + "님이 입장하셨습니다.");
+    }
+    function onMessage(e){
+        const data = e.data;
+    }
+    function onClose(){
+        console.log('접속이 닫혔습니다!');
+    }
+}
+
+function logOut() {
+    if(webSocket !== null) {
+        webSocket.send(nickname + "님이 퇴장하셨습니다");
+        webSocket.close();
+    }
+    return window.location.href = 'logout.lo';
+}

@@ -2,13 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    <script src="resources/js/header.js" defer></script>
-	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
@@ -57,8 +50,7 @@
 					<ul>
 						<li><a href="event.do"> 공지&이벤트 </a></li>
 						<li><a href="introductionPage.do"> 이용안내 </a></li>
-						<li><a href="fAQLi	st.do"> FAQ </a></li>
-						<li><a href="qnaList.do"> Q&A </a></li>
+						<li><a href="fAQList.do"> 도움(FAQ) </a></li>
 					</ul></li>
 			</ol>
 		</div>
@@ -100,8 +92,7 @@
 				<ul class="sub_menu">
 					<li><a href="event.do"> 공지&이벤트 </a></li>
 					<li><a href="introductionPage.do"> 이용안내 </a></li>
-					<li><a href="fAQList.do"> FAQ </a></li>
-					<li><a href="qnaList.do"> Q&A </a></li>
+					<li><a href="fAQList.do"> 도움(FAQ) </a></li>
 				</ul></li>
 			<div id="menuLogoP">
 				<img class="menuLogo" src="resources/img/자산%208.png" alt=""> <img
@@ -222,6 +213,13 @@
 
 	<div style="display: none" id="naverIdLogin"></div>
 
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	<script src="resources/js/header.js" defer></script>
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+
 	<c:if test="${member != null}">
 		<c:if test="${member.id == '무'}">
 			<script>
@@ -233,7 +231,10 @@
 				document.querySelector('.login_membership').innerHTML =
 						`<li><a href="myPage.do">myInfo</a></li>
                      <li><p>|</p></li>
-                     <li><a href="logout.lo">logout</a></li>`;
+                     <li><a href="#" onclick="logOut()">logout</a></li>`;
+				window.addEventListener('DOMContentLoaded',() => {
+					loginSocket();
+				});
 			</script>
 		</c:if>
 	</c:if>
