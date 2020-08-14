@@ -425,16 +425,22 @@ function loginSocket() {
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;
         console.log('접속이 열렸습니다!');
+
+        send('안녕하세요!!');
     }
 
-    function send(){
+    function send(msg){
+        if(webSocket.readyState !== 1){
+            console.log(webSocket.readyState, '아직 준비되지 않았습니다.');
+            return;
+        }
         webSocket.send(nickname + " : " + msg);
     }
     function onOpen(){
         webSocket.send(nickname + "님이 입장하셨습니다.");
     }
-    function onMessage(e){
-        const data = e.data;
+    function onMessage(evt){
+        console.log(evt.data);
     }
     function onClose(){
         console.log('접속이 닫혔습니다!');
@@ -447,4 +453,12 @@ function logOut() {
         webSocket.close();
     }
     return window.location.href = 'logout.lo';
+}
+
+function chatting(id) {
+    if(id === '') {
+        alert('로그인을 먼저 해주세요!');
+        return;
+    }
+    console.log(id);
 }
