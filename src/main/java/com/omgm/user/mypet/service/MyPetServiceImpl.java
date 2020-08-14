@@ -15,6 +15,21 @@ public class MyPetServiceImpl implements MyPetService {
 	MyPetDAO myPetDAO;
 	
 	@Override
+	public void insertMyPet(MyPetVO vo) {
+		myPetDAO.insertMyPet(vo);
+	}
+
+	@Override
+	public void updateMyPet(MyPetVO vo) {
+		myPetDAO.updateMyPet(vo);
+	}
+
+	@Override
+	public void deleteMyPet(MyPetVO vo) {
+		myPetDAO.deleteMyPet(vo);
+	}
+
+	@Override
 	public List<MyPetVO> getAllMyPetList(MyPetVO vo){
 		return myPetDAO.getAllMyPetList(vo);
 	} 

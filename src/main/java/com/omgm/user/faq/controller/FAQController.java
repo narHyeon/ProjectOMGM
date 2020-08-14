@@ -113,5 +113,19 @@ public class FAQController {
 		mav.setViewName("/myInfo/myCatPageUpdate");
 		return mav;
 	}
+	@RequestMapping(value = "/qnaWrite.do", method = RequestMethod.GET)
+	public ModelAndView qwerrrrrrr(FAQVO vo,ModelAndView mav) {
+		List<FAQVO> list = fAQService.getAllFAQList(vo);
+		mav.addObject("fAQList",list);
+		mav.setViewName("/qna/qnaWrite");
+		return mav;
+	}
+	@RequestMapping(value = "/qnaList.do", method = RequestMethod.GET)
+	public ModelAndView qwerrrrrr(FAQVO vo,ModelAndView mav) {
+		List<FAQVO> list = fAQService.getAllFAQList(vo);
+		mav.addObject("fAQList",list);
+		mav.setViewName("/qna/qnaList");
+		return mav;
+	}
 	
 }

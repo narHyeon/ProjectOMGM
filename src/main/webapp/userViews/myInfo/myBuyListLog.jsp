@@ -35,28 +35,29 @@
 	display: flex;
 	flex-direction: row;
 	margin-left: 3.5%;
-	max-width:1100px;
-	min-width:1100px;
+	max-width: 1100px;
+	min-width: 1100px;
 	width: 100%;
 	height: 70px;
-	margin-top:1%;
+	margin-top: 1%;
 }
-#board_title1 {
- 
-display:block;
-width:150px;
-height:150px;
-background-color:red;	
-flex-direction: column;
-}
-#board_title2 {
 
-display:block;
-width:600px;
-height:150px;
-background-color:blue;	
+#board_title1 {
+	display: block;
+	width: 150px;
+	height: 150px;
+	background-color: red;
 	flex-direction: column;
 }
+
+#board_title2 {
+	display: block;
+	width: 600px;
+	height: 150px;
+	background-color: blue;
+	flex-direction: column;
+}
+
 #banner {
 	display: flex;
 	height: 500px;
@@ -72,8 +73,8 @@ background-color:blue;
 }
 
 #banner-ul {
-	height:900px;
-	width:300px;
+	height: 900px;
+	width: 300px;
 	margin-left: 20px;
 	padding: 0px;
 }
@@ -135,46 +136,156 @@ background-color:blue;
 	height: 100%;
 }
 
-
-#check{background:pink; width:10%; height: 50px; border-radius: 5px 0px 0px 5px; text-align:center; color:white;}
-#check2{background:pink; width:60%; height: 50px; text-align:center; color:white;}
-#check3{background:pink; width:10%; height: 50px; text-align:center; color:white;}
-#check4{background:pink; width:10%; height: 50px; text-align:center; color:white;}
-#check5{background:pink; width:10%; height: 50px; border-radius: 0px 5px 5px 0px; text-align:center; color:white;}
-
-#check1-1{background:white; width:10%; height: 100px; border-radius: 5px 0px 0px 5px; text-align:center;}
-#check2-1{background:gray; width:60%; height: 100px; }
-#check3-1{background:white; width:10%; height: 100px; text-align:center;}
-#check4-1{background:white; width:10%; height: 100px; text-align:center;}
-#check5-1{background:white; width:10%; height: 100px; border-radius: 0px 5px 5px 0px; text-align:center;}
-#row{display:flex; flex-direction: column; margin-left:2%;}
-
-#fieldsetstyle{margin-top:5%; display:block; border:1px solid #FFABB9; border-radius: 10px; background-color:#FFABB9; color:white; padding:10px;}
-
-.alink:link{
-   color: white;
+#check {
+	background: pink;
+	width: 10%;
+	height: 50px;
+	border-radius: 5px 0px 0px 5px;
+	text-align: center;
+	color: white;
 }
-.alink:visited{
-   color: white;
+
+#check2 {
+	background: pink;
+	width: 60%;
+	height: 50px;
+	text-align: center;
+	color: white;
+}
+
+#check3 {
+	background: pink;
+	width: 10%;
+	height: 50px;
+	text-align: center;
+	color: white;
+}
+
+#check4 {
+	background: pink;
+	width: 10%;
+	height: 50px;
+	text-align: center;
+	color: white;
+}
+
+#check5 {
+	background: pink;
+	width: 10%;
+	height: 50px;
+	border-radius: 0px 5px 5px 0px;
+	text-align: center;
+	color: white;
+}
+
+#check1-1 {
+	background: white;
+	width: 10%;
+	height: 100px;
+	border-radius: 5px 0px 0px 5px;
+	text-align: center;
+}
+
+#check2-1 {
+	background: gray;
+	width: 60%;
+	height: 100px;
+}
+
+#check3-1 {
+	background: white;
+	width: 10%;
+	height: 100px;
+	text-align: center;
+}
+
+#check4-1 {
+	background: white;
+	width: 10%;
+	height: 100px;
+	text-align: center;
+}
+
+#check5-1 {
+	background: white;
+	width: 10%;
+	height: 100px;
+	border-radius: 0px 5px 5px 0px;
+	text-align: center;
+}
+
+#row {
+	display: flex;
+	flex-direction: column;
+	margin-left: 2%;
+}
+
+.fieldsetstyle {
+	margin-top: 5%;
+	display: block;
+	border: 1px solid #FFABB9;
+	border-radius: 10px;
+	background-color: #FFABB9;
+	color: white;
+	padding: 10px;
+}
+
+.alink:link {
+	color: white;
+}
+
+.alink:visited {
+	color: white;
 }
 
 #body {
-   display: flex;
-   flex-direction: row;
-   height: 100%;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
 }
 
-#table_content{display:flex; width:100%; height:100%; background-color:white;}
-#product_img{width:90px; height:90px; padding:5px;}
-#ul-style {	padding: 0px;width: 70%; }
-#li-style {	list-style-type: none; font-size: 15px; margin-top:5px;	list-style-type: none;	
-	padding: 0.5%;	color: gray;	font-size: 12px;	font: 정선동강;	padding-left: 2%;	padding-right: 2%;}
+#table_content {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+}
 
-#align_text{margin-top:15%;}
-#align_text_content{margin-top:2.5%;}
-#align_text_list{margin-top:33%;}
+#product_img {
+	width: 90px;
+	height: 90px;
+	padding: 5px;
+}
 
+#ul-style {
+	padding: 0px;
+	width: 70%;
+}
 
+#li-style {
+	list-style-type: none;
+	font-size: 15px;
+	margin-top: 5px;
+	list-style-type: none;
+	padding: 0.5%;
+	color: gray;
+	font-size: 12px;
+	font: 정선동강;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+#align_text {
+	margin-top: 15%;
+}
+
+#align_text_content {
+	margin-top: 2.5%;
+}
+
+#align_text_list {
+	margin-top: 33%;
+}
 
 @media ( max-width : 768px) {
 	* {
@@ -188,9 +299,9 @@ background-color:blue;
 		display: none;
 	}
 	#tle {
-		background:black;
-		width:600px;
-		height:600px;
+		background: black;
+		width: 600px;
+		height: 600px;
 		font-size: 13px;
 		margin-left: 25%;
 		margin-top: 7%;
@@ -262,66 +373,101 @@ background-color:blue;
 		}
 	}
 }
+
+.fieldsetstyle:hover {
+	cursor: pointer;
+}
 </style>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
-	function goUpdate() {
-		window.location.href = "myPageUpdate.do";
-	}
+	$(document).ready(function() {
+		$("#myPageFs").click(function() {
+			window.location.href = 'myPage.do';
+		});
+		$("#myCatPageFs").click(function() {
+			window.location.href = 'myPetPage.do';
+		});
+		$("#myServiceListFs").click(function() {
+			window.location.href = 'myServiceList.do';
+		});
+		$("#myBuyListLogFs").click(function() {
+			window.location.href = 'myBuyListLog.do';
+		});
+		$("#myCatCareLogFs").click(function() {
+			window.location.href = 'myCatCareLog.do';
+		});
+		$("#myReViewFs").click(function() {
+			window.location.href = 'myReView.do';
+		});
+	});
 </script>
 <body>
-<div id="wrap">
-	<h1 id="head">구매 내역</h1>
+	<div id="wrap">
+		<h1 id="head">구매 내역</h1>
 		<div id="body">
-		<div id="banner">
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">내 정보</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">내 고양이 정보</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">서비스 </a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">구매내역</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">반려묘 일지</a>
-			</fieldset>
-			<fieldset id="fieldsetstyle">
-			<a href="#" class="alink">내가 작성한 후기</a>
-			</fieldset>
-		</div>
-		<div id="row">
-		<div id="board_title">
-		<div id="check"><p id="align_text">주문번호</p></div>
-		 <div id="check2"><p id="align_text_content">상품정보</p></div>  
-		 <div id="check3"><p id="align_text">주문 일자</p></div> 
-		 <div id="check4"><p id="align_text">주문금액</p></div>
-		 <div id="check5"><p id="align_text">추가</p></div>
-		</div>
-		<div id="board_title">
-		<div id="check1-1"><p id="align_text_list">1</p></div> 
-		
-		<div id="check2-1">
-		<div id="table_content">
-		<img src="resources/img/images/dogfeed1.jpg" id="product_img">
-				<ul id="ul-style">
-					<li id="li-style">오묘가묘</li>
-					<li id="li-style">강아지상품1</li>
-					<li id="li-style">옵션:</li>
-				</ul>
-		</div><!-- end table_content --> 
-		
-		</div><!-- end check2-1 --> 
-		
-		 <div id="check3-1"><p id="align_text_list">2020.03.23~03.27</p></div> 
-		 
-		 <div id="check4-1"><p id="align_text_list">what</p></div>
-		 
-		 <div id="check5-1"><p id="align_text_list">the</p></div>
-		</div>
-		</div>
+			<div id="banner">
+				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myBuyListLogFs">구매내역
+				</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatCareLogFs">반려묘
+					일지</fieldset>
+				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
+				</fieldset>
+			</div>
+			<div id="row">
+				<div id="board_title">
+					<div id="check">
+						<p id="align_text">주문번호</p>
+					</div>
+					<div id="check2">
+						<p id="align_text_content">상품정보</p>
+					</div>
+					<div id="check3">
+						<p id="align_text">주문 일자</p>
+					</div>
+					<div id="check4">
+						<p id="align_text">주문금액</p>
+					</div>
+					<div id="check5">
+						<p id="align_text">추가</p>
+					</div>
+				</div>
+				<div id="board_title">
+					<div id="check1-1">
+						<p id="align_text_list">1</p>
+					</div>
+
+					<div id="check2-1">
+						<div id="table_content">
+							<img src="resources/img/images/dogfeed1.jpg" id="product_img">
+							<ul id="ul-style">
+								<li id="li-style">오묘가묘</li>
+								<li id="li-style">강아지상품1</li>
+								<li id="li-style">옵션:</li>
+							</ul>
+						</div>
+						<!-- end table_content -->
+
+					</div>
+					<!-- end check2-1 -->
+
+					<div id="check3-1">
+						<p id="align_text_list">2020.03.23~03.27</p>
+					</div>
+
+					<div id="check4-1">
+						<p id="align_text_list">what</p>
+					</div>
+
+					<div id="check5-1">
+						<p id="align_text_list">the</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

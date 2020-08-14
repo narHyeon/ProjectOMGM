@@ -3,18 +3,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="KinderGardenDAO">
-    <resultMap type="KinderGardenVO" id="KinderGardenResult">
-        <id property="seq" column="SEQ" />
-        <result property="title" column="TITLE"/>
-        <result property="regDate" column="REGDATE"/>
-    </resultMap>
+	<resultMap type="KinderGardenVO" id="KinderGardenResult">
+		<id property="seq" column="SEQ" />
+		<result property="title" column="TITLE" />
+		<result property="regDate" column="REGDATE" />
+	</resultMap>
 
-    <resultMap type="KinderGardenRowVO" id="KinderGardenRowResult">
-        <id property="seq" column="SEQ" />
-        <result property="no" column="NO"/>
-        <result property="time" column="TIME"/>
-        <result property="program" column="PROGRAM"/>
-    </resultMap>
+	<resultMap type="KinderGardenRowVO"
+		id="KinderGardenRowResult">
+		<id property="seq" column="SEQ" />
+		<result property="no" column="NO" />
+		<result property="time" column="TIME" />
+		<result property="program" column="PROGRAM" />
+	</resultMap>
 
     <resultMap type="KinderGardenRowMonthVO" id="KinderGardenRowMonthResult">
         <id property="seq" column="SEQ" />
@@ -61,9 +62,9 @@
         </choose>
     </select>
 
-    <select id="getScheduleRow" resultMap="KinderGardenRowResult">
-        SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
-    </select>
+	<select id="getScheduleRow" resultMap="KinderGardenRowResult">
+		SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
+	</select>
 
     <insert id="addSchedule" parameterType="KinderGardenVO">
         INSERT INTO kgday VALUES(kgday_seq.nextval,#{title},sysdate)
