@@ -104,12 +104,12 @@
 }
 
 .fa.fa-pull-left, .fas.fa-pull-left, .far.fa-pull-left, .fal.fa-pull-left,
-	.fab.fa-pull-left {
+.fab.fa-pull-left {
 	margin-right: .3em;
 }
 
 .fa.fa-pull-right, .fas.fa-pull-right, .far.fa-pull-right, .fal.fa-pull-right,
-	.fab.fa-pull-right {
+.fab.fa-pull-right {
 	margin-left: .3em;
 }
 
@@ -123,143 +123,40 @@
 	animation: fa-spin 1s infinite steps(8);
 }
 
-@
--webkit-keyframes fa-spin { 0% {
+@-webkit-keyframes fa-spin { 0% {
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
 
-100
-
-
-
-
-%
-{
--webkit-transform
-
-
-
-
-:
-
-
-
-
-rotate
-
-
-(
-
-
-
-
-360deg
-
-
-
-
-)
-
-
-;
-transform
-
-
-
-
-:
-
-
-
-
-rotate
-
-
-(
-
-
-
-
-360deg
-
-
-
-
-)
-
-
-;
+<<<<<<< HEAD
+100%{
+-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
+=======
+	100%{
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+>>>>>>> ebe6372da43c0c17551486a97d59cbe9f72c4e2b
 }
-@
-keyframes fa-spin { 0% {
+@keyframes fa-spin { 0% {
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
-
-100
-
-
-
-
-%
+<<<<<<< HEAD
+100%
 {
--webkit-transform
-
-
-
-
-:
-
-
-
-
-rotate
-
-
-(
-
-
-
-
-360deg
-
-
-
-
-)
-
-
-;
-transform
-
-
-
-
-:
-
-
-
-
-rotate
-
-
-(
-
-
-
-
-360deg
-
-
-
-
-)
-
-
-;
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
 }
+=======
+	100%
+	{
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+>>>>>>> ebe6372da43c0c17551486a97d59cbe9f72c4e2b
 }
 .fa-rotate-90 {
 	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
@@ -281,27 +178,27 @@ rotate
 
 .fa-flip-horizontal {
 	-ms-filter:
-		"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+			"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
 	-webkit-transform: scale(-1, 1);
 	transform: scale(-1, 1);
 }
 
 .fa-flip-vertical {
 	-ms-filter:
-		"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+			"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
 	-webkit-transform: scale(1, -1);
 	transform: scale(1, -1);
 }
 
 .fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
 	-ms-filter:
-		"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+			"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
 	-webkit-transform: scale(-1, -1);
 	transform: scale(-1, -1);
 }
 
 :root .fa-rotate-90, :root .fa-rotate-180, :root .fa-rotate-270, :root .fa-flip-horizontal,
-	:root .fa-flip-vertical, :root .fa-flip-both {
+:root .fa-flip-vertical, :root .fa-flip-both {
 	-webkit-filter: none;
 	filter: none;
 }
@@ -5768,6 +5665,7 @@ readers do not read off random characters that represent icons */
 	content: "\f973";
 }
 
+
 .fa-usps:before {
 	content: "\f7e1";
 }
@@ -6155,10 +6053,10 @@ readers do not read off random characters that represent icons */
 	font-display: block;
 	src: url("../webfonts/fa-brands-400.eot");
 	src: url("../webfonts/fa-brands-400.eot?#iefix")
-		format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2")
-		format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"),
-		url("../webfonts/fa-brands-400.ttf") format("truetype"),
-		url("../webfonts/fa-brands-400.svg#fontawesome") format("svg");
+	format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2")
+	format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"),
+	url("../webfonts/fa-brands-400.ttf") format("truetype"),
+	url("../webfonts/fa-brands-400.svg#fontawesome") format("svg");
 }
 
 .fab {
@@ -6173,10 +6071,10 @@ readers do not read off random characters that represent icons */
 	font-display: block;
 	src: url("../webfonts/fa-regular-400.eot");
 	src: url("../webfonts/fa-regular-400.eot?#iefix")
-		format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2")
-		format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"),
-		url("../webfonts/fa-regular-400.ttf") format("truetype"),
-		url("../webfonts/fa-regular-400.svg#fontawesome") format("svg");
+	format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2")
+	format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"),
+	url("../webfonts/fa-regular-400.ttf") format("truetype"),
+	url("../webfonts/fa-regular-400.svg#fontawesome") format("svg");
 }
 
 .far {
@@ -6191,10 +6089,10 @@ readers do not read off random characters that represent icons */
 	font-display: block;
 	src: url("../webfonts/fa-solid-900.eot");
 	src: url("../webfonts/fa-solid-900.eot?#iefix")
-		format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2")
-		format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"),
-		url("../webfonts/fa-solid-900.ttf") format("truetype"),
-		url("../webfonts/fa-solid-900.svg#fontawesome") format("svg");
+	format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2")
+	format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"),
+	url("../webfonts/fa-solid-900.ttf") format("truetype"),
+	url("../webfonts/fa-solid-900.svg#fontawesome") format("svg");
 }
 
 .fa, .fas {

@@ -18,15 +18,43 @@
 		<result property="program" column="PROGRAM" />
 	</resultMap>
 
-	<!-- 실 사용 -->
-	<select id="getSchedule" parameterType="KinderGardenInfoVO"
-		resultType="KinderGardenInfoVO">
-		SELECT * FROM( SELECT * FROM kgday ORDER BY rownum DESC) WHERE rownum = 1
-	</select>
+    <resultMap type="KinderGardenRowMonthVO" id="KinderGardenRowMonthResult">
+        <id property="seq" column="SEQ" />
+        <result property="no" column="NO"/>
+        <result property="mondayAM" column="MONDAY_AM"/>
+        <result property="tuesdayAM" column="TUESDAY_AM"/>
+        <result property="wednesdayAM" column="WEDNESDAY_AM"/>
+        <result property="thursdayAM" column="THURSDAY_AM"/>
+        <result property="fridayAM" column="FRIDAY_AM"/>
+        <result property="mondayPM" column="MONDAY_PM"/>
+        <result property="tuesdayPM" column="TUESDAY_PM"/>
+        <result property="wednesdayPM" column="WEDNESDAY_PM"/>
+        <result property="thursdayPM" column="THURSDAY_PM"/>
+        <result property="fridayPM" column="FRIDAY_PM"/>
+    </resultMap>
+
+    <!-- 실 사용 -->
+    <select id="getSchedule" parameterType="KinderGardenInfoVO" resultType="KinderGardenInfoVO">
+        SELECT * FROM( SELECT * FROM kgday ORDER BY seq DESC) WHERE rownum = 1
+    </select>
 
 	<select id="getScheduleRow"
 		resultMap="KinderGardenInfoRowResult">
 		SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
 	</select>
+
+    <select id="getScheduleMonth" parameterType="KinderGardenInfoVO" resultType="KinderGardenInfoVO">
+        SELECT * FROM( SELECT * FROM kgday_month ORDER BY seq DESC) WHERE rownum = 1
+    </select>
+
+    <select id="getScheduleRowMonth" resultMap="KinderGardenRowMonthResult">
+        SELECT * FROM kgdayrow_month WHERE no=#{seq} ORDER BY seq
+    </select>
+
+    <insert id="addKinderGardenReservation" parameterType="KinderGardenReservationVO">
+        INSERT INTO kg_reservation values(kg_reservation_seq.nextval,
+        #{name},#{service},#{price},#{buyerName},#{animal},#{animalAge},#{phone},#{email},
+        #{zipcode},#{address},#{etc},#{merchantUid},#{pgProvider},'미확인',sysdate)
+    </insert>
 
 </mapper>

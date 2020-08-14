@@ -66,6 +66,10 @@
 	border-top: 1px solid lightpink;
 	height: 30px;
 }
+.reviewList_button00 button {
+	height: 30px;
+}
+
 
 .reviewList_header {
 	display: flex;

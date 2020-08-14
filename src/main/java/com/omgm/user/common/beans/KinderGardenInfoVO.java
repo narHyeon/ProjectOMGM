@@ -4,13 +4,23 @@ public class KinderGardenInfoVO {
     private int seq;
     private String title;
     private String regDate;
+    private String formatDate;
 
     public KinderGardenInfoVO() { }
 
-    public KinderGardenInfoVO(int seq, String title, String regDate) {
+    public KinderGardenInfoVO(int seq, String title, String regDate, String formatDate) {
         this.seq = seq;
         this.title = title;
         this.regDate = regDate;
+        this.formatDate = formatDate;
+    }
+
+    public String getFormatDate() {
+        return formatDate;
+    }
+
+    public void setFormatDate(String formatDate) {
+        this.formatDate = formatDate;
     }
 
     public int getSeq() {
@@ -43,6 +53,7 @@ public class KinderGardenInfoVO {
                 "seq=" + seq +
                 ", title='" + title + '\'' +
                 ", regDate='" + regDate + '\'' +
+                ", formatDate='" + formatDate + '\'' +
                 '}';
     }
 }

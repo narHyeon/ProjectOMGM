@@ -24,6 +24,7 @@
 	display: block;
 	position: absolute;
 	top: 50%;
+	left: -30px;
 	transform: translateY(-50%);
 	width: 24px;
 	height: 24px;
@@ -107,6 +108,7 @@ input#sidebar:checked ~ .background {
 	opacity: 1;
 	visibility: visible;
 }
+
 /*  메뉴 로고  */
 #menuLogoP {
 	margin-top: 120px;

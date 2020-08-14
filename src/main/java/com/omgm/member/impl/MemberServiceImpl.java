@@ -32,4 +32,5 @@ public class MemberServiceImpl implements MemberService {
     public void addMember(MemberVO vo) {
         memberDAO.addMember(vo);
     }
+
 }

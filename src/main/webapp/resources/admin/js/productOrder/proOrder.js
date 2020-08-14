@@ -1,43 +1,28 @@
 'use strict';
 
-let order;
-let orderNum = 0;
-
-// 로그인 버튼
-function detail(event) {
-    const num01 = document.getElementById('orderSeq');
-    const num02 = document.getElementById('orderSeq2');
-    num02.value = num01.value;
-    event.preventDefault();
-    document.querySelector('#detail_popup').checked = true;
-}
-
-function createForm(order) {
-    const row =
-        ` <th id="orderSeq">`+order.no+`</th>
-                <th>`+order.id+`</th>
-                <th>`+order.date+`</th>
-                <th>`+order.phone+`</th>
-                <th>`+order.state+`</th>
-                <th>`+order.price+`</th>
-                <th><button onclick="detail(event)" type="button" class="btn btn-info btn-update">상세보기</button></th>
-            `;
-
-    const addOrder = document.createElement('tr');
-    addOrder.setAttribute('class',`pro_order_tr`);
-    addOrder.innerHTML = row;
-    document.querySelector('#productOrder_form').appendChild(addOrder);
-
-    const trOrder = document.querySelector(`#productOrder_form tr:nth-child(${++orderNum})`);
-    const th = document.createElement('th');
-    const button = document.createElement('button');
-    button.setAttribute('type','button');
-    button.setAttribute('class','btn btn-info btn-delete');
-    button.setAttribute('value',order.no);
-    button.innerText = '삭제';
-    button.addEventListener('click',() => {
-        window.location.href = 'productOrderDelete.mdo?order_no='+order.no;
+function sendData(no){
+    console.log(111111);
+    $.ajax({
+        type: 'POST',
+        url: "updateState.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+        dataType: 'json',
+        contentType : 'application/json',
+        data: JSON.stringify({
+            order_no : no
+        }),
+        success : function(data) {
+            console.log('success');
+            document.querySelector(`.order_feild${no} #orderState`).innerHTML = '발송처리';
+            // setTimeout(update,10000, no);
+            update(no);
+            // window.location.reload();
+        },
+        error: function(xhr) {
+            console.log(xhr);
+        }
     });
-    trOrder.appendChild(th);
-    th.appendChild(button);
 }
+
+
+
+

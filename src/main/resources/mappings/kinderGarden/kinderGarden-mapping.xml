@@ -17,21 +17,112 @@
 		<result property="program" column="PROGRAM" />
 	</resultMap>
 
-	<!-- 실 사용 -->
-	<select id="getSchedule" parameterType="KinderGardenVO"
-		resultType="KinderGardenVO">
-		<choose>
-			<when test="seq != 0">
-				SELECT * FROM kgday WHERE seq=#{seq}
-			</when>
-			<otherwise>
-				SELECT * FROM( SELECT * FROM kgday ORDER BY rownum DESC) WHERE rownum = 1
-			</otherwise>
-		</choose>
-	</select>
+    <resultMap type="KinderGardenRowMonthVO" id="KinderGardenRowMonthResult">
+        <id property="seq" column="SEQ" />
+        <result property="no" column="NO"/>
+        <result property="mondayAM" column="MONDAY_AM"/>
+        <result property="tuesdayAM" column="TUESDAY_AM"/>
+        <result property="wednesdayAM" column="WEDNESDAY_AM"/>
+        <result property="thursdayAM" column="THURSDAY_AM"/>
+        <result property="fridayAM" column="FRIDAY_AM"/>
+        <result property="mondayPM" column="MONDAY_PM"/>
+        <result property="tuesdayPM" column="TUESDAY_PM"/>
+        <result property="wednesdayPM" column="WEDNESDAY_PM"/>
+        <result property="thursdayPM" column="THURSDAY_PM"/>
+        <result property="fridayPM" column="FRIDAY_PM"/>
+    </resultMap>
+
+    <resultMap type="KinderGardenReservationVO" id="KinderGardenReservationResult">
+        <id property="seq" column="SEQ" />
+        <result property="name" column="NAME"/>
+        <result property="service" column="SERVICE"/>
+        <result property="price" column="PRICE"/>
+        <result property="buyerName" column="BUYER_NAME"/>
+        <result property="animal" column="ANIMAL"/>
+        <result property="animalAge" column="ANIMAL_AGE"/>
+        <result property="phone" column="PHONE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="zipcode" column="ZIPCODE"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="etc" column="ETC"/>
+        <result property="merchantUid" column="MERCHANT_UID"/>
+        <result property="pgProvider" column="PG_PROVIDER"/>
+        <result property="state" column="STATE"/>
+    </resultMap>
+
+    <!-- 실 사용 -->
+    <select id="getSchedule" parameterType="KinderGardenVO" resultType="KinderGardenVO">
+        <choose>
+            <when test="seq != 0">
+                SELECT * FROM kgday WHERE seq=#{seq}
+            </when>
+            <otherwise>
+                SELECT * FROM( SELECT * FROM kgday ORDER BY seq DESC) WHERE rownum = 1
+            </otherwise>
+        </choose>
+    </select>
 
 	<select id="getScheduleRow" resultMap="KinderGardenRowResult">
 		SELECT * FROM kgdayrow WHERE no=#{seq} ORDER BY seq
 	</select>
+
+    <insert id="addSchedule" parameterType="KinderGardenVO">
+        INSERT INTO kgday VALUES(kgday_seq.nextval,#{title},sysdate)
+    </insert>
+
+    <insert id="addScheduleRow" parameterType="KinderGardenRowVO">
+        INSERT INTO kgdayRow VALUES(kgdayrow_seq.nextval,(SELECT max(seq) FROM kgday),#{time},#{program})
+    </insert>
+
+
+    <!-- 달력 -->
+    <select id="getScheduleMonth" parameterType="KinderGardenVO" resultType="KinderGardenVO">
+        <choose>
+            <when test="seq != 0">
+                SELECT * FROM kgday_month WHERE seq=#{seq}
+            </when>
+            <otherwise>
+                SELECT * FROM( SELECT * FROM kgday_month ORDER BY seq DESC) WHERE rownum = 1
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getScheduleRowMonth" resultMap="KinderGardenRowMonthResult">
+        SELECT * FROM kgdayrow_month WHERE no=#{seq} ORDER BY seq
+    </select>
+
+    <insert id="addScheduleMonth" parameterType="KinderGardenVO">
+        INSERT INTO kgday_month VALUES(kgday_month_seq.nextval,#{title},sysdate)
+    </insert>
+
+    <insert id="addScheduleRowMonth" parameterType="KinderGardenRowMonthVO">
+        INSERT INTO kgdayRow_month VALUES(kgdayrow_month_seq.nextval,(SELECT max(seq) FROM kgday_month),
+        #{mondayAM},#{tuesdayAM},#{wednesdayAM},#{thursdayAM},#{fridayAM},
+        #{mondayPM},#{tuesdayPM},#{wednesdayPM},#{thursdayPM},#{fridayPM})
+    </insert>
+
+    <!--  예약 불러오기  -->
+    <select id="getKinderGardenReservation" resultMap="KinderGardenReservationResult">
+        SELECT * FROM kg_reservation ORDER BY seq
+    </select>
+
+    <!--  예약 확인 체크  -->
+    <update id="checkReservation" parameterType="KinderGardenReservationVO">
+        UPDATE kg_reservation SET state = '확인' WHERE seq = #{seq}
+    </update>
+
+    <!--  예약 취소  -->
+    <update id="deleteReservation" parameterType="KinderGardenReservationVO">
+        DELETE FROM kg_reservation WHERE seq = #{seq}
+    </update>
+
+    <!-- 정산  -->
+    <select id="getKinderGardenCalculate" resultMap="KinderGardenReservationResult">
+        <![CDATA[SELECT price, regdate FROM kg_reservation WHERE regdate >= #{date1} AND regdate <= #{date2}]]>
+    </select>
+
+    <select id="selectCount" resultType="int">
+       SELECT count(*) FROM kg_reservation
+    </select>
 
 </mapper>

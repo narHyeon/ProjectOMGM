@@ -1,168 +1,179 @@
 /* div 테그 설정*/
+
 #toy-sales-div {
-	display: flex;
-	flex-wrap: wrap-reverse;
-	justify-content: space-around;
-	margin-top: 5%;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: -15%;
 }
 
 #toy-img-section {
-	
+    vertical-align: center;
 }
 
 #toy-sales-section {
-	margin-left: 3%;
-	margin-right: 3%;
-	display: flex;
-	flex-direction: column;
-	width: 35%;
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
 }
 
 .toy-sales-section00 {
-	margin-top: 4%;
-	margin-bottom: 4%;
-	font-size: 25px;
-	font-weight: 600;
-	text-align: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
 }
 
 .toy-sales-section01 {
-	margin-bottom: 4%;
-	font-size: 20px;
-	color: coral;
+    margin-bottom: 4%;
+    font-size: 20px;
+    color: coral;
 }
 
 .toy-sales-section02 {
-	border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .toy-sales-section03 {
-	margin-top: 4%;
-	display: flex;
+    margin-top: 4%;
+    display: flex;
 }
 
 .toy-sales-section04 {
-	border-bottom: 1px solid black;
-	padding-bottom: 4%;
+    border-bottom: 1px solid black;
+    padding-bottom: 4%;
 }
 
 .toy-sales-section05 {
-	padding-top: 3%;
-	padding-bottom: 3%;
-	display: flex;
-	justify-content: flex-end;
-	border-bottom: 1px solid black;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid black;
 }
 
 .toy-sales-section06 {
-	margin-top: 3%;
-	display: flex;
-	margin-bottom: 10%;
+    margin-top: 3%;
+    display: flex;
+    margin-bottom: 10%;
 }
 
 .toy-sales-section08 {
-	width: 100%;
-	border: 1px solid #9da0a5;
-	height: 55px;
-	line-height: 55px;
-	font-size: 17px;
-	padding: 0 27px 0 69px;
-	box-sizing: border-box;
-	font-weight: 700;
-	margin-bottom: 30px;
-	margin-top: 3%;
+    width: 100%;
+    border: 1px solid #9da0a5;
+    height: 55px;
+    line-height: 55px;
+    font-size: 17px;
+    padding: 0 27px 0 69px;
+    box-sizing: border-box;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 3%;
 }
+
 
 /* text 테그 관련 설정 */
+
 .toy-delieve-price-text {
-	margin-bottom: 3%;
+    margin-bottom: 3%;
 }
 
 .toy-sales-infoText {
-	margin-top: 3%;
-	margin-bottom: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .toy-sales-infoText {
-	margin-bottom: 3%;
+    margin-bottom: 3%;
 }
 
 .toy-sales-color {
-	margin-bottom: 3%;
+    margin-bottom: 3%;
 }
 
 .number-of-toy {
-	margin-right: 3%;
-	margin-left: 3%;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 .total-toy-prices {
-	margin-left: 3%;
+    margin-left: 3%;
 }
 
+
 /* 버튼 테그 설정 */
+
 .add-of-toy {
-	align-content: flex-end;
+    align-content: flex-end;
 }
 
 .abs-of-toy {
-	align-content: flex-end;
+    align-content: flex-end;
 }
 
+
 /* a 관련 테그 설정 */
+
 .byt-immediately00 {
-	width: 49%;
-	height: 66px;
-	line-height: 66px;
-	font-size: 20px;
-	font-weight: bold;
-	background: #000;
-	color: #fff;
-	text-align: center;
-	border: 0;
-	padding: 0;
-	float: left;
-	box-sizing: border-box;
-	letter-spacing: 0;
+    width: 49%;
+    height: 66px;
+    line-height: 66px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    padding: 0;
+    float: left;
+    box-sizing: border-box;
+    letter-spacing: 0;
 }
 
 .byt-immediately01 {
-	width: 49%;
-	height: 66px;
-	line-height: 66px;
-	font-size: 20px;
-	font-weight: bold;
-	background: #fff;
-	color: #000;
-	text-align: center;
-	border: 0;
-	padding: 0;
-	float: right;
-	box-sizing: border-box;
-	border: 1px solid #707070;
-	letter-spacing: 0;
+    width: 49%;
+    height: 66px;
+    line-height: 66px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    border: 0;
+    padding: 0;
+    float: right;
+    box-sizing: border-box;
+    border: 1px solid #707070;
+    letter-spacing: 0;
 }
 
 .toy-sales-coupon {
-	padding-left: 7%;
+    padding-left: 7%;
 }
+
 
 /* 이미지 관련 테그 */
+
 .toy-img-01 {
-	width: 100%;
-	height: auto;
+    width: 400px;
+    height: auto;
+    margin-top: 30%;
+    margin-left: 10%;
 }
 
-@media ( max-width : 768px) {
-	#toy-sales-section {
-		margin-left: 3%;
-		margin-right: 3%;
-		display: flex;
-		flex-direction: column;
-		width: 80%;
-		margin-bottom: 10%;
-	}
+@media (max-width: 768px) {
+    #toy-sales-section {
+        margin-left: 3%;
+        margin-right: 3%;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-bottom: 10%;
+    }
 }
