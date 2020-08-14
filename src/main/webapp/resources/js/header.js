@@ -433,6 +433,9 @@ function loginSocket(id) {
     function onMessage(evt){
         const field = document.querySelector('#chatting_field');
         field.innerHTML += `<p>${evt.data}<br></p>`;
+
+        const height = document.querySelectorAll('#chatting_field p').length;
+        field.scrollTo({top:height*100, left:0, behavior:'auto'});
     }
     function onClose(){
         console.log('접속이 닫혔습니다!');

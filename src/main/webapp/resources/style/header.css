@@ -842,10 +842,11 @@ input[id*="chatting_modal"]:checked + div {opacity:1;visibility:visible;}
 	flex-direction: column;
 	height: 100%;
 	padding: 8px;
+	overflow-y: auto;
 }
 
 #chatting_field p{
-	margin: 5px 0;
+	margin: 2px 0;
 }
 
 
