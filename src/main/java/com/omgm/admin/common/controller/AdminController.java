@@ -25,13 +25,7 @@ public class AdminController {
         return mav;
     }
 
-    // 관리자 배송 현황 페이지
-    @RequestMapping("/deliveryStatus.mdo")
-    public ModelAndView deliveryStatus(AdminVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/delivery/deliveryStatus");
-        return mav;
-    }
+
 
     // 관리자 배송 현황 페이지
 //    @RequestMapping("/productInquiry.mdo")
