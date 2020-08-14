@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class EchoController {
 
-    @RequestMapping("/chat.lo")
+    @RequestMapping("/chatting.lo")
     public ModelAndView chat(ModelAndView mav) {
         mav.setViewName("chat/chat");
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

@@ -1,44 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <title>채팅 서비스</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>--%>
+
 
 </head>
 <body>
-<input type="text" id="msg" />
-<input type="button" id="btnSend" value="submit"/>
-<div id="messageArea"></div>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
-<script type="text/javascript">
-    var ws = new WebSocket("ws://localhost:8080/echo.lo");
+<input  style="margin-top:70px;" type="text" id="nickname" class="form-inline" placeholder="닉네임을 입력해주세요" required autofocus>
+<button class = "btn btn-primary" id = "name">확인</button>
+<div id = "chatroom" style = "width:400px; height: 300px; border:1px solid; background-color : gray"></div>
+<input type = "text" id = "message" style = "height : 30px; width : 340px" placeholder="내용을 입력하세요" autofocus>
+<button class = "btn btn-primary" id = "send">전송</button>
 
+<script>
+    var webSocket;
+    var nickname;
+    document.getElementById("name").addEventListener("click", function(){
+        nickname = document.getElementById("nickname").value;
+        document.getElementById("nickname").style.display="none";
+        document.getElementById("name").style.display="none";
+        connect();
+    })
+    document.getElementById("send").addEventListener("click",function(){
+        send();
+    })
+    function connect(){
+        webSocket = new WebSocket("ws://localhost:8080/chat.lo");
+        webSocket.onopen = onOpen;
+        webSocket.onclose = onClose;
+        webSocket.onmessage = onMessage;
 
-    ws.onopen = function () {
-        console.log('Info: connection opened.');
-        setTimeout( function(){ connect(); }, 1000); // retry connection!!
-    };
+    }
+    function disconnect(){
+        webSocket.send(nickname + "님이 퇴장하셨습니다");
+        webSocket.close();
+    }
+    function send(){
+        console.log(webSocket.readyState);
+        msg = document.getElementById("message").value;
+        webSocket.send(nickname + " : " + msg);
+        document.getElementById("message").value = "";
+    }
+    function onOpen(){
+        console.log(webSocket.readyState);
 
-
-    ws.onmessage = function (event) {
-        console.log(event.data+'\n');
-    };
-
-
-    ws.onclose = function (event) { console.log('Info: connection closed.'); };
-    ws.onerror = function (event) { console.log('Info: connection closed.'); };
-
-    $('#btnSend').on('click', function(evt) {
-        evt.preventDefault();
-        if (socket.readyState !== 1) return;
-        let msg = $('input#msg').val();
-        ws.send(msg);
-    });
-
+        webSocket.send(nickname + "님이 입장하셨습니다.");
+    }
+    function onMessage(e){
+        data = e.data;
+        chatroom = document.getElementById("chatroom");
+        chatroom.innerHTML = chatroom.innerHTML + "<br>" + data;
+    }
+    function onClose(){
+        console.log('접속 끊켰다');
+    }
 </script>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <%--  <a href="roomIntroduction.do">방 소개 페이지 이동</a>--%>
 
   <h3>클라이언트 개별 작업 페이지</h3>
-  <a href="chat.lo">webSocket 테스트</a>
+  <a href="chatting.lo">webSocket 테스트</a>
   <hr>
   <h2>관리자 페이지</h2>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
