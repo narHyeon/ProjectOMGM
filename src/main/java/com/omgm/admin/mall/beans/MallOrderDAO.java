@@ -33,6 +33,12 @@ public class MallOrderDAO {
         return sqlSessionTemplate.delete("MallOrderDAO.deleteOrder", vo);
     }
 
+    // 주문상태수정(배송처리)
+    public void updateState(OrderVO vo) {sqlSessionTemplate.update("MallOrderDAO.updateState", vo);}
+
+    // 주문상태수정(배송완료)
+    public void stateSuccess(OrderVO vo) {sqlSessionTemplate.update("MallOrderDAO.stateSuccess", vo);}
+
 
     //////// ORDER_STATUS ///////////////////////////////////////
     // 주문했을시 주문 정보 ORDER_STATUS 에 입력
@@ -62,6 +68,8 @@ public class MallOrderDAO {
     public List<MallOrderVO> getMallPointList() {
         return sqlSessionTemplate.selectList("MallOrderDAO.getMallPointList");
     }
+
+
 
 //    public OrderVO getDetail(OrderVO vo) {
 //        return sqlSessionTemplate.selectOne("MallOrderDAO.getDetail",vo);

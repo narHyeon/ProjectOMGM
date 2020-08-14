@@ -75,6 +75,15 @@
         DELETE FROM order_list WHERE order_no=#{order_no}
     </delete>
 
+    <!--    주문상태 수정(배송처리)-->
+    <update id="updateState" parameterType="OrderVO">
+        UPDATE order_list set order_state='발송처리' where order_no=#{order_no}
+    </update>
+
+    <!--    주문상태 수정(배송완료)-->
+    <update id="stateSuccess" parameterType="OrderVO">
+        UPDATE order_list set order_state='배송완료' where order_no=#{order_no}
+    </update>
 
     <!-- 포인트적립 불러오기  -->
     <select id="getMallPointList" resultType="mallOrderVO">
