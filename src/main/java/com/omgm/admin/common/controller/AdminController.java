@@ -88,6 +88,14 @@ public class AdminController {
         return mav;
     }
 
+    //정산페이지 이동
+    @RequestMapping("/CalculateTest.mdo")
+    public ModelAndView CalculateTest(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/calculate/CalculateTest");
+        return mav;
+    }
+
     //이용후기 관리 페이지
     @RequestMapping("/adminReview.mdo")
     public ModelAndView adminReview(ReviewVO vo,@RequestParam(value="page", defaultValue = "1") int page ) {
@@ -101,8 +109,6 @@ public class AdminController {
         mav.addObject("navi", navi);
         vo.setCnt(page);
         mav.addObject("page", vo);
-
-
         mav.setViewName("/adminReview");
         return mav;
     }

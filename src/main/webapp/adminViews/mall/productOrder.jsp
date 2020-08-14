@@ -100,7 +100,12 @@
             padding-bottom: 20px;
             padding-top: 20px;
         }
-
+        .admin_room_button{
+            margin: 0 auto;
+            padding-left: 1300px;
+            position: absolute;
+            top:10px;
+        }
         #m-bar-content{background-color:white; margin-left:5%;  margin-top:-0.5%; width:70%; height:50%; border: 1px solid #FFABB9;}
         #m-bar-content1{background-color:white; margin-left:5%;  width:70%; height:50%; }
         #m-bar-content2{background-color:white; margin-left:5%;  width:70%; height:50%; }
@@ -128,6 +133,7 @@
         input[id*="popup"]:checked ~ div {opacity:1;visibility:visible;}
 
     </style>
+
 </head>
 <body>
 <!-- DataTales Example -->
@@ -138,7 +144,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="order_table" width="100%" cellspacing="0">
+            <table class="table table-bordered table-hover" id="order_table" width="100%" cellspacing="0">
                 <thead>
                 <tr class="productOrder_col">
                     <th>주문번호</th>
@@ -151,72 +157,52 @@
                     <th>결제금액</th>
                     <th>배송메모</th>
                     <th>주문상태</th>
-                    <th>삭제</th>
+                    <th>발송처리</th>
                 </tr>
                 </thead>
-                <tbody id="productOrder_form"></tbody>
-            </table>
+                    <tbody>
+                        <c:forEach var="order" items="${order}" >
+                            <tr class="order_feild${order.order_no}">
+                                <th id="orderNO">${order.order_no}</th>
+                                <th>${order.order_date}</th>
+                                <th>${order.order_id}</th>
+                                <th>${order.order_phone}</th>
+                                <th>${order.order_receiver}</th>
+                                <th>${order.order_address}</th>
+                                <th id="orderDATE">${order.order_quantity}</th>
+                                <th>${order.order_price}</th>
+                                <th>${order.order_memo}</th>
+                                <th id="orderState">${order.order_state}</th>
+                                <th><a href="#" onclick="sendData(${order.order_no})" class="btn btn-success btn-user">발송처리</a></th>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
-<div>
-<%-- detailList --%>
-<input type="checkbox" id="detail_popup" >
-<div>
-    <div>
-        <label for="detail_popup" style="opacity : 0.7;"></label>
-        <form action="login.lo" class="detail-form">
-            <h1 style="font-weight:700; padding-left: 223px; padding-top: 26px;">주문상세</h1>
-
-        <div id="detail_order_header"></div>
-            <table class="table_table_bordered" id="order_list" width="100%" cellspacing="0">
-                <thead>
-                <tr class="productOrderField">
-                    <th>주문번호</th>
-                    <th>이미지</th>
-                    <th>상품명</th>
-                    <th>가격</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="orderDetail" items="${orderDetail}">
-                        <tr class="order_feild">
-                            <th>${orderDetail.order_status_no}</th>
-                            <th>${orderDetail.order_status_memo}</th>
-                            <th>${orderDetail.order_status_date}</th>
-                            <th>${orderDetail.order_status_price}</th>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-
-
-            <div id="detail_order_footer"></div>
-
-        </form>
-    </div>
-    <label for="detail_popup"></label>
-</div>
 </div>
 
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="resources/admin/js/productOrder/proOrder.js"></script>
-<c:forEach var="order" items="${order}">
-    <script>
-        order = {
-            no: '${order.order_no}',
-            id: '${order.order_id}',
-            date: '${order.order_date}',
-            phone: '${order.order_phone}',
-            state: '${order.order_state}',
-            price: '${order.order_price}',
-            address: '${order.order_address}',
-            receiver: '${order.order_receiver}',
-            memo: '${order.order_memo}',
-            quantity: '${order.order_quantity}'
+    <script type="text/javascript">
+        <%--        //행 눌렀을때 order_no값 불러오기--%>
+        <%--        $(document).ready(function(){--%>
+        <%--            $("#order_table tr").click(function(){--%>
+        <%--                    $(this).find("#orderNO").each(function(){--%>
+        <%--                            alert($(this).html());--%>
+        <%--                    });--%>
+        <%--            });--%>
+        <%--        });--%>
 
+
+        //3초 후 배송상태(배송완료) 변경&ndash;%&gt;--%>
+        function update(no) {
+           location.href = "stateSuccess.mdo?order_no="+no;
         }
-        createForm(order);
+
     </script>
-</c:forEach>
+
 </body>
+
 </html>
