@@ -119,6 +119,7 @@
 	margin-bottom: 0.5%;
 	font-size: 15px;
 }
+
 .main1:hover {
 	cursor: pointer;
 }

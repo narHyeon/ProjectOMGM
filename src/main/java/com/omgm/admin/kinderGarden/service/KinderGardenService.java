@@ -5,6 +5,7 @@ import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowVO;
 import com.omgm.admin.kinderGarden.beans.KinderGardenVO;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
+import com.omgm.user.review.beans.PageNavigator;
 
 import java.util.Date;
 import java.util.List;
@@ -22,11 +23,12 @@ public interface KinderGardenService {
     void addScheduleRowMonth(KinderGardenRowMonthVO vo);
 
     // 예약
-    List<KinderGardenReservationVO> getKinderGardenReservation();
+    List<KinderGardenReservationVO> getKinderGardenReservation(PageNavigator navi);
     void checkReservation(KinderGardenReservationVO vo);
     void deleteReservation(KinderGardenReservationVO vo);
 
     // 정산
     List<KinderGardenReservationVO> getKinderGardenCalculate(KinderGardenDateVO vo);
 
+    int selectCount();
 }

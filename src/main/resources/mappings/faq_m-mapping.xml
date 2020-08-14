@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FAQDAO_M">
+	<insert id="insertFAQ" parameterType="java.util.List">
+		<foreach item="item" collection="list" open="INSERT ALL"  close="SELECT * FROM DUAL" separator=" " index="index">
+			INTO FAQ (FAQ_NO, FAQ_ASK, FAQ_ANSWER, FAQ_CATEGORYNUM, FAQ_USE) 
+			VALUES ((select nvl(max(FAQ_NO), 0)+1 + #{index} from FAQ),#{item.FAQ_ASK},#{item.FAQ_ANSWER},#{item.FAQ_CATEGORYNUM},#{item.FAQ_USE})
+		</foreach>
+	</insert>
+	<update id="updateFAQ" parameterType="faq_m">
+		UPDATE FAQ 
+		<set>
+			<if test="!FAQ_USE.equals(-1)">FAQ_USE=#{FAQ_USE},</if>
+    	    <if test="FAQ_ANSWER != null">FAQ_ANSWER=#{FAQ_ANSWER},</if>
+		</set>    	    
+		WHERE FAQ_NO=#{FAQ_NO}
+	</update>
+	
+	<update id="updateManyFAQ" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" 
+      separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE FAQ
+			SET FAQ_USE=#{item.FAQ_USE}
+ 			WHERE FAQ_NO=#{item.FAQ_NO}
+		</foreach>
+	</update>
+
+	<delete id="deleteFAQ" parameterType="java.util.List" >
+		DELETE FROM FAQ
+		<where>
+			<foreach collection="list" item="item" separator="OR">
+				 FAQ_NO=#{item.FAQ_NO}
+			</foreach>		
+		</where>
+	</delete>
+
+	<select id="selectCount" resultType="int" parameterType="faq_m">
+		SELECT count(*) FROM FAQ
+		<choose>
+			<when test="FAQ_CATEGORYNUM.equals(0)">
+			</when>
+			<otherwise>
+				WHERE FAQ_CATEGORYNUM = #{FAQ_CATEGORYNUM}
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectFAQ" resultType="faq_m" parameterType="faq_m">
+	</select>
+	<select id="selectListAllFAQ" resultType="faq_m"
+		parameterType="faq_m">
+		SELECT FAQ_NO, FAQ_ASK, FAQ_ANSWER, FAQ_USE, FAQ_CATEGORYNUM, CATEGORY_NAME, CATEGORY_USE 
+		FROM FAQ ,CATEGORY
+		WHERE FAQ.FAQ_CATEGORYNUM = CATEGORY.CATEGORY_NO
+		AND CATEGORY_USE = 1 
+		<choose>
+			<when test="FAQ_CATEGORYNUM.equals(0)">
+			</when>
+			<otherwise>
+				AND FAQ_CATEGORYNUM = #{FAQ_CATEGORYNUM}
+			</otherwise>
+		</choose>
+		ORDER BY FAQ_USE DESC , FAQ_CATEGORYNUM ASC, FAQ_ASK ASC
+	</select>
+</mapper>
+

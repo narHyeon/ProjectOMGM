@@ -24,7 +24,7 @@
 						<div class="info">
 							<strong>오묘가묘 프로젝트 이벤트!</strong>
 							<p>
-								<span>이벤트기간</span> 2020.7.30 ~ 2020.9.3
+            			  		<span>이벤트기간</span> 2020.7.30 ~ 2020.9.3  
 							</p>
 						</div>
 				</a></li>

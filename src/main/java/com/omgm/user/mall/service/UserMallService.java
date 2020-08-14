@@ -1,6 +1,5 @@
 package com.omgm.user.mall.service;
 
-import com.omgm.admin.mall.beans.MallOrderVO;
 import com.omgm.admin.mall.beans.MemberOrderVO;
 import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.mall.beans.CartListVO;
@@ -43,6 +42,7 @@ public interface UserMallService {
     void insertCartList(com.omgm.user.mall.beans.CartListVO vo) throws Exception;
     void updateCartListCount(CartListVO vo) throws Exception;
     public List<CartListVO> selectCartList(CartListVO vo) throws Exception;
+    OrderVO selectCartListWayBill(OrderVO vo) throws Exception;
     void deleteCartListOne(CartListVO vo) throws Exception;
     void deleteCartListAll(CartListVO vo) throws Exception;
     void insertOrderCartList(OrderVO vo) throws Exception;

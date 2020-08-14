@@ -14,6 +14,16 @@
         #memberTable_drop {
             margin: 10px;
         }
+
+        .memberTable_pagination {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .memberTable_pagination ul {
+            display: flex;
+            flex-direction: row;
+        }
     </style>
 </head>
 <body>
@@ -53,7 +63,7 @@
                     <th>가입날짜</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="memberTable_tbody">
                     <c:forEach var="members" items="${memberTable}">
                         <tr class="memberTable_member">
                             <td class ="memberTable_seq">${members.seq}</td>
@@ -72,12 +82,24 @@
         </div>
     </div>
 </div>
+
+<%--  pagination --%>
+<div class="memberTable_pagination">
+    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link" onclick="paging(event,currentPage-1)">Prev</a> </ul>
+    <ul></ul>
+    <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,currentPage+1)">Next</a> </ul>
+</div>
 <script>
     let className = 'memberTable_name';
     function filter() {
         let value, name, item, i;
         value = document.querySelector("#memberTable_search").value.toUpperCase();
         item = document.getElementsByClassName("memberTable_member");
+
+        if(value === '') {
+            paging(event,currentPage);
+            return;
+        }
 
         for(i=0; i<item.length; i++){
             name = item[i].getElementsByClassName(className);
@@ -94,6 +116,8 @@
         document.querySelector('#memberTable_search').value = '';
         document.querySelectorAll('.memberTable_member').forEach(item => item.style.display = '');
 
+        paging(event,currentPage);
+
         const name = event.target.innerText;
         switch(name) {
             case '회원번호':
@@ -109,6 +133,75 @@
                 className = 'memberTable_name';
                 break;
         }
+    }
+
+    // 페이지네이션 관련
+    let tbody; // 페이지네이션 몸체
+    let page; // 페이지 블럭 몸체
+    let contentCount1 = 0; // 페이지 총 수
+    let pageCount = 0; // 그룹 총 수
+
+    let currentPage = 1; // 현재 페이지
+
+    const prev = document.querySelector('.memberTable_pagination ul:nth-child(1)');
+    const next = document.querySelector('.memberTable_pagination ul:nth-child(3)');
+
+    // 초기화 작업
+    window.addEventListener('DOMContentLoaded', () => {
+        tbody = document.querySelectorAll('#memberTable_tbody tr');
+
+        tbody.forEach((item,index) => {
+            contentCount1++;
+            if(index >= 5) item.style.display = 'none';
+        });
+
+        page = document.querySelector('.memberTable_pagination ul:nth-child(2)');
+        pageCount = Math.ceil(contentCount1/5); // 올림
+
+        pagination();
+    });
+
+    // 페이징 처리
+    function paging(event,count) {
+        event.preventDefault();
+        currentPage = count;
+
+        pagePick(count);
+
+        tbody.forEach((item,index) => {
+            index++;
+            if((5*count)-5 < index && index <= 5*count) item.style.display = '';
+            else item.style.display = 'none';
+            if(count === 1) {
+                prev.classList.toggle('disabled',true);
+                next.classList.toggle('disabled',false);
+            } else if(count === pageCount) {
+                next.classList.toggle('disabled',true);
+                prev.classList.toggle('disabled',false);
+            } else {
+                prev.classList.toggle('disabled',false);
+                next.classList.toggle('disabled',false);
+            }
+        });
+    }
+
+    // 페이지그룹 생성
+    function pagination() {
+        for(let i=1; i<=pageCount; i++) {
+            page.innerHTML += `
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="#" onclick="paging(event,`+i+`)">`+i+`</a>
+                </li>`;
+            if(i === 1) pagePick(1);
+        }
+    }
+
+    // 페이지 그룹 색상 변경
+    function pagePick(count) {
+        page.querySelectorAll(`li`).forEach((item,index) => {
+            if(count === index+1) item.classList.toggle('active',true);
+            else item.classList.toggle('active',false);
+        });
     }
 </script>
 </body>

@@ -1,6 +1,8 @@
 package com.omgm.admin.kinderGarden.beans;
 
 import com.omgm.user.common.beans.KinderGardenReservationVO;
+import com.omgm.user.review.beans.PageNavigator;
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -45,8 +47,9 @@ public class KinderGardenDAO {
         sqlSessionTemplate.insert("KinderGardenDAO.addScheduleRowMonth",vo);
     }
 
-    public List<KinderGardenReservationVO> getKinderGardenReservation() {
-        return sqlSessionTemplate.selectList("KinderGardenDAO.getKinderGardenReservation");
+    public List<KinderGardenReservationVO> getKinderGardenReservation(PageNavigator navi) {
+        RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
+        return sqlSessionTemplate.selectList("KinderGardenDAO.getKinderGardenReservation",rb);
     }
 
     public void checkReservation(KinderGardenReservationVO vo) {
@@ -59,5 +62,9 @@ public class KinderGardenDAO {
 
     public List<KinderGardenReservationVO> getKinderGardenCalculate(KinderGardenDateVO vo) {
         return sqlSessionTemplate.selectList("KinderGardenDAO.getKinderGardenCalculate",vo);
+    }
+
+    public int selectCount(){
+        return sqlSessionTemplate.selectOne("KinderGardenDAO.selectCount");
     }
 }

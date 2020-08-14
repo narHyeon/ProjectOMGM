@@ -2,6 +2,7 @@
 	margin-left: 3%;
 	margin-right: 3%;
 }
+
 #pickup-intro-section01 {
 	display: flex;
 	justify-content: center;
@@ -27,7 +28,6 @@
 	display: flex;
 	width: 100%;
 	height: auto;
-
 	margin-top: 7%;
 	margin-bottom: 3%;
 }
@@ -46,8 +46,6 @@
 .pickup-intro-h3, .pickup-intro-span00 {
 	text-align: center;
 }
-
-
 
 .pickup-intro-left02 {
 	display: flex;
@@ -136,14 +134,15 @@
 	margin-right: 5%;
 	line-height: normal;
 }
+
 .pickup-intro-td {
 	font-weight: lighter;
 	margin-top: -5%;
 }
+
 .pickup-intro-tr, .pickup-intro-td {
 	padding: 0.75rem;
 	vertical-align: top;
-
 	text-align: center;
 }
 
