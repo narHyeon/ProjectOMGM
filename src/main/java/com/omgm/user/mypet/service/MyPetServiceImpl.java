@@ -28,7 +28,11 @@ public class MyPetServiceImpl implements MyPetService {
 	public void deleteMyPet(MyPetVO vo) {
 		myPetDAO.deleteMyPet(vo);
 	}
-
+	
+	@Override
+	public MyPetVO getMyPet(MyPetVO vo) {
+		return myPetDAO.getMyPet(vo);
+	}
 	@Override
 	public List<MyPetVO> getAllMyPetList(MyPetVO vo){
 		return myPetDAO.getAllMyPetList(vo);

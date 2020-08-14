@@ -8,14 +8,20 @@
 		parameterType="mypet">
 		select * from pet order by pet_owner asc, pet_no asc
 	</select>
-	<insert id="myPetInsert" parameterType="mypet">
-		INSERT INTO pet
-		(pet_kind, pet_variety, pet_name, pet_age, pet_gender, pet_comment)
-		VALUES (#{pet_kind}, #{pet_variety}, #{pet_name}, #{pet_age},
-		#{pet_gender}, #{pet_comment})
+	
+	<select id="getMyPet" resultType="mypet" parameterType="mypet">
+		select * from pet where pet_no=#{PET_NO}
+	</select>
+
+	<insert id="insertMyPet" parameterType="mypet">
+		INSERT INTO PET (PET_NO, PET_OWNER, PET_KIND, PET_VARIETY, PET_NAME, PET_AGE, PET_GENDER, PET_COMMENT) 
+		VALUES ((select nvl(max(PET_NO), 0)+1 from PET), #{PET_OWNER}, #{PET_KIND}, #{PET_VARIETY}, #{PET_NAME}, #{PET_AGE}, #{PET_GENDER}, #{PET_COMMENT})
 	</insert>
-	<update id="myPetUpdate" parameterType="mypet">
+	
+	<update id="updateMyPet" parameterType="mypet">
 		UPDATE PET
+		SET pet_kind=#{PET_KIND}, pet_variety=#{PET_VARIETY}, pet_name=#{PET_NAME}, 
+		pet_age=#{PET_AGE}, pet_gender=#{PET_GENDER}, pet_comment=#{PET_COMMENT} where pet_no=#{PET_NO}
 		SET
 		pet_kind=#{pet_kind}, pet_variety=#{pet_variety},
 		pet_name=#{pet_name},

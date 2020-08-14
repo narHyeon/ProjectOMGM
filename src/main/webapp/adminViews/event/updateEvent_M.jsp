@@ -96,25 +96,28 @@
 <script src="resources/js/summernote/summernote-lite.js"></script>
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 <script>
-	$(document).ready(function() {
-		$('#summernote').summernote({
+var jqadmin = jQuery.noConflict();
+jqadmin(document).ready(function() {
+	jqadmin('#summernote').summernote({
 			height : 350, // 에디터 높이
 			minHeight : null, // 최소 높이
 			maxHeight : null, // 최대 높이
-			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+			focus : true, // 에디터 로딩후 포커스를 맞출지여부
 			lang : "ko-KR" // 한글 설정
-
 		});
+	jqadmin('#summernote').summernote('code', '${eventInfo.EVENT_CONTENT}');
 	});
+	
+	function goBack() {
+		window.history.go(-1);
+	}
 </script>
 </head>
 <body>
-	<form method="post" action="writeCatCareLog.do">
-		<input type="hidden" name="CATCARELOG_WRITER"
-			value="${careInfo.CATCARELOG_WRITER}">
+	<form method="post" action="updateEvent_M.mdo">
 		<div id="eventWrite_wrap">
 			<div id="eventWrite_head">
-				<h1>공지사항 N 이벤트 작성</h1>
+				<h1>공지사항 N 이벤트 수정</h1>
 			</div>
 			<div id="eventWrite_body">
 				<div id="eventWrite_setting">
@@ -122,37 +125,49 @@
 						<div class="eventWrite_leftsettings">
 							<div class="eventWrite_keys">글 번호</div>
 							<div class="eventWrite_values">
-								<input type="text" value="" name="CATCARELOG_USERNUM" />
+							<input type="text" readonly="readonly" name="EVENT_NO" value="${eventInfo.EVENT_NO}"/>
 							</div>
 						</div>
 						<div class="eventWrite_rightsettings">
 							<div class="eventWrite_keys">진행중or마감</div>
 							<div class="eventWrite_values">
-								<input type="text" value="" name="CATCARELOG_SERVICENUM" />
+							<input type="text"  value="${eventInfo.EVENT_STATUS}" name="EVENT_STATUS"/>
 							</div>
 						</div>
+					</div>
+					<div id="setting2" class="eventWrite_settings">
+						<div class="eventWrite_leftsettings">
+							<div class="eventWrite_keys">기간 시작</div>
+							<div class="eventWrite_values">
+							<input type="text" value="${eventInfo.EVENT_START}" name="EVENT_START"/>
+							</div>
+						</div>
+						<div class="eventWrite_rightsettings">
+							<div class="eventWrite_keys">기간 종료</div>
+							<div class="eventWrite_values">
+							<input type="text" value="${eventInfo.EVENT_END}" name="EVENT_END"/>
+							</div>
+						</div>								
 					</div>
 					<div id="setting3" class="eventWrite_settings">
 						<div class="eventWrite_centersettings">
 							<div class="eventWrite_keys" id="eventWrite_title_key">제 목</div>
 							<div class="eventWrite_values" id="eventWrite_title_value">
-								<input type="text" id="eventWrite_title_input"
-									name="CATCARELOG_TITLE" />
+								<input type="text" id="eventWrite_title_input" value="${eventInfo.EVENT_TITLE}"name="EVENT_TITLE"/>								
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="eventWrite_content">
-					내용
-					<textarea id="summernote" name="CATCARELOG_CONTNET">
+				<div id="eventWrite_content">내용	
+					<textarea id="summernote" name="EVENT_CONTENT">
 					</textarea>
 				</div>
 				<!-- end content -->
 			</div>
 			<!-- end body -->
 			<div id="eventWrite_leg">
-				<input type="submit" value="글 작성" class="eventWrite_buttons" /> <input
-					type="reset" value="리셋" class="eventWrite_buttons" />
+				<input type="submit" value="수정 완료" class="eventWrite_buttons" /> 
+				<input type="reset" value="취소" class="eventWrite_buttons" />
 			</div>
 			<!-- end foot -->
 		</div>

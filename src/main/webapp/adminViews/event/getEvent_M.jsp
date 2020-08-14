@@ -116,14 +116,15 @@
 <script src="resources/js/summernote/summernote-lite.js"></script>
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 <script>
-	$(document).ready(function() {
-		$('#summernote').summernote({
+
+	var jqadmin = jQuery.noConflict();
+	jqadmin(document).ready(function() {
+		jqadmin('#summernote').summernote({
 			height : 350, // 에디터 높이
 			minHeight : null, // 최소 높이
 			maxHeight : null, // 최대 높이
-			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
-			lang : "ko-KR", // 한글 설정
-			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
+			focus : true, // 에디터 로딩후 포커스를 맞출지여부
+			lang : "ko-KR" // 한글 설정
 		});
 	});
 	function goBack() {
@@ -138,69 +139,54 @@
 </script>
 </head>
 <body>
-	<form action="updateCatCareLog.do" name="mainfrom">
-		<input type="hidden" name="CATCARELOG_NO"
-			value="${careInfo.CATCARELOG_NO}">
+	<form action="updateEvent_M.mdo" method="GET">
+		<input type="hidden" name="EVENT_NO" value="${eventInfo.EVENT_NO}">
 		<div id="wrap">
 			<div id="head">
-				<h1>냥박일지 보기</h1>
+				<h1>이벤트 공지사항</h1>
 			</div>
 			<div id="body">
 				<div id="setting">
 					<div id="setting1" class="settings">
 						<div class="leftsettings">
 							<div class="keys">
-								<p>고객 번호</p>
+								<p>글 번호</p>
 							</div>
-							<div class="values">${careInfo.CATCARELOG_USERNUM}</div>
+							<div class="values">${eventInfo.EVENT_NO}</div>
 						</div>
-						<div class="rightsettings">
+						<div class="leftsettings">
 							<div class="keys">
-								<p>예약 번호</p>
+								<p>진행중 마감</p>
 							</div>
-							<div class="values">${careInfo.CATCARELOG_SERVICENUM}</div>
+							<div class="values">${eventInfo.EVENT_STATUS}</div>
 						</div>
 					</div>
 					<div id="setting2" class="settings">
 						<div class="leftsettings">
 							<div class="keys">
-								<p>냥박 시작</p>
+								<p>기간 시작</p>
 							</div>
-							<div class="values">${careInfo.CATCARELOG_CARESTART}</div>
+							<div class="values">${eventInfo.EVENT_START}</div>
 						</div>
 						<div class="rightsettings">
 							<div class="keys">
-								<p>냥박 종료</p>
+								<p>기간 종료</p>
 							</div>
-							<div class="values">${careInfo.CATCARELOG_CAREEND}</div>
+							<div class="values">${eventInfo.EVENT_END}</div>
 						</div>
 					</div>
 					<div id="setting3" class="settings">
 						<div class="leftsettings">
 							<div class="keys">
-								<p>작성자</p>
-							</div>
-							<div class="values">${careInfo.CATCARELOG_WRITER}</div>
-						</div>
-						<div class="rightsettings">
-							<div class="keys">
 								<p>작성일</p>
 							</div>
-							<div class="values">${careInfo.CATCARELOG_REGDATE}</div>
-						</div>
-					</div>
-					<div id="setting4" class="settings">
-						<div class="leftsettings">
-							<div class="keys">
-								<p>최종 수정자</p>
-							</div>
-							<div class="values">${careInfo.CATCARELOG_LASTUPDATER}</div>
+							<div class="values"></div>
 						</div>
 						<div class="rightsettings">
 							<div class="keys">
 								<p>최종 수정일</p>
 							</div>
-							<div class="values">${careInfo.CATCARELOG_LASTUPDATEDATE}</div>
+							<div class="values"></div>
 						</div>
 					</div>
 					<br />
@@ -210,7 +196,7 @@
 								<h1>제목</h1>
 							</div>
 							<div class="values" id="title_value">
-								<h1>${careInfo.CATCARELOG_TITLE}</h1>
+								<h1>${eventInfo.EVENT_TITLE}</h1>
 							</div>
 						</div>
 					</div>
@@ -218,11 +204,10 @@
 				<div id="content">
 					<div id="content_key"></div>
 					<div id="content_value">
-						<br> ${careInfo.CATCARELOG_CONTNET} <br>
+						<br> ${eventInfo.EVENT_CONTENT} <br>
 					</div>
 				</div>
 				<!-- end content -->
-				<!-- <img src="${careInfo.CATCARELOG_FILES}" width="200" height="300"> -->
 			</div>
 			<!-- end body -->
 			<div id="leg">
