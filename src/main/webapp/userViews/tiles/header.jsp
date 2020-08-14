@@ -57,7 +57,7 @@
 					<ul>
 						<li><a href="event.do"> 공지&이벤트 </a></li>
 						<li><a href="introductionPage.do"> 이용안내 </a></li>
-						<li><a href="fAQList.do"> FAQ </a></li>
+						<li><a href="fAQLi	st.do"> FAQ </a></li>
 						<li><a href="qnaList.do"> Q&A </a></li>
 					</ul></li>
 			</ol>
@@ -231,7 +231,7 @@
 		<c:if test="${member.name != null}">
 			<script>
 				document.querySelector('.login_membership').innerHTML =
-						`<li><a href="mypage.do">myInfo</a></li>
+						`<li><a href="myPage.do">myInfo</a></li>
                      <li><p>|</p></li>
                      <li><a href="logout.lo">logout</a></li>`;
 			</script>
