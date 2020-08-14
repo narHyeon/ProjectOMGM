@@ -1,5 +1,5 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -39,7 +39,7 @@
 					<tiles:insertAttribute name="header" />
 				</div>
 				<!-- Begin Page Content -->
-				<div style="min-height:565px;" class="container-fluid">
+				<div style="min-height: 565px;" class="container-fluid">
 					<tiles:insertAttribute name="body" />
 				</div>
 				<!-- /.container-fluid -->

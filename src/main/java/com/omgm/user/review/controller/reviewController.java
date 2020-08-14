@@ -40,7 +40,7 @@ public class reviewController {
 
     //이용후기 리스트 페이지 이동
     @RequestMapping(value="/reviewListBoard.do")
-    public ModelAndView reviewListBoard(ReviewVO vo,@RequestParam(value="page", defaultValue = "1") int page ) {
+    public ModelAndView reviewListBoard(ReviewVO vo, @RequestParam(value="page", defaultValue = "1") int page) {
         ModelAndView mav = new ModelAndView();
 
         int COUNTPERPAGE = 9; // 페이지당 2개의 글

@@ -11,6 +11,7 @@
 	display: flex;
 	flex-direction: column;
 }
+
 #head {
 	min-width: 60%;
 	margin-right: 15%;
@@ -21,11 +22,13 @@
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
+
 #body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 }
+
 #banner {
 	display: flex;
 	width: 15%;
@@ -34,13 +37,15 @@
 	margin-left: 7%;
 	border-radius: 10px;
 }
+
 #content {
-	display : flex;
-	flex-direction :column;
+	display: flex;
+	flex-direction: column;
 	margin-left: 6%;
 	width: 43%;
 	height: 100%;
 }
+
 .fieldsetstyle {
 	margin-top: 5%;
 	display: block;
@@ -50,15 +55,18 @@
 	color: white;
 	padding: 10px;
 }
-.fieldsetstyle:hover{
+
+.fieldsetstyle:hover {
 	cursor: pointer;
 }
+
 #bottom {
 	text-align: right; /*가운데 정렬*/
 	margin-top: 2%;
 	margin-right: 35%;
 	margin-bottom: 2%;
 }
+
 .buttons {
 	background-color: white;
 	cursor: pointer;
@@ -68,30 +76,32 @@
 	padding-right: 1%;
 	color: purple;
 	width: 18%;
-	
 }
+
 .bar {
 	display: flex;
 	height: 45px;
 	width: 100%;
 }
-.bar-title{
+
+.bar-title {
 	width: 20%;
 	height: 98%;
 	background-color: #FFABB9;
 	color: white;
 	padding-left: 1.5%;
-	padding-top : 1.5%;
+	padding-top: 1.5%;
 	border-right: 2px solid #f6f6f6;
 	border-top: 1px solid #f6f6f6;
 }
-.bar-content{
+
+.bar-content {
 	width: 40%;
 	height: 98%;
 	background-color: #F28888;
 	color: black;
 	padding-left: 3%;
-	padding-top : 1.5%;
+	padding-top: 1.5%;
 	border-top: 1px solid #f6f6f6;
 }
 
@@ -116,7 +126,6 @@
 		width: 300px;
 		height: 50%;
 	}
-
 	@media ( max-width : 480px) {
 		* {
 			margin: 0;
@@ -146,7 +155,6 @@
 			margin-bottom: 1%;
 		}
 	}
-
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -157,7 +165,7 @@ $(document).ready(function(){
 		window.location.href = 'myPage.do';
 	});
 	$("#myCatPageFs").click(function(){
-		window.location.href = 'myCatPage.do';
+		window.location.href = 'myPetPage.do';
 	});
 	$("#myServiceListFs").click(function(){
 		window.location.href = 'myServiceList.do';
@@ -183,23 +191,16 @@ $(document).ready(function(){
 		</div>
 		<div id="body">
 			<div id="banner">
-				<fieldset class="fieldsetstyle" id="myPageFs">
-					내 정보
+				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
+				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
 				</fieldset>
-				<fieldset class="fieldsetstyle" id="myCatPageFs">
-					내 고양이 정보
+				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
 				</fieldset>
-				<fieldset class="fieldsetstyle" id="myServiceListFs">
-					서비스
+				<fieldset class="fieldsetstyle" id="myBuyListLogFs">구매내역
 				</fieldset>
-				<fieldset class="fieldsetstyle" id="myBuyListLogFs">
-					구매내역
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myCatCareLogFs">
-					반려묘 일지
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myReViewFs">
-					내가 작성한 후기
+				<fieldset class="fieldsetstyle" id="myCatCareLogFs">반려묘
+					일지</fieldset>
+				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
 				</fieldset>
 			</div>
 			<div id="content">
@@ -236,8 +237,9 @@ $(document).ready(function(){
 					<div class="bar-content">서울</div>
 				</div>
 				<div id="bottom">
-					<input type="button" value="내 정보 수정" onclick="goUpdate()" class="buttons">
-					<input type="button" value="회원 탈퇴" onclick="" class="buttons">
+					<input type="button" value="내 정보 수정" onclick="goUpdate()"
+						class="buttons"> <input type="button" value="회원 탈퇴"
+						onclick="" class="buttons">
 				</div>
 			</div>
 		</div>

@@ -264,20 +264,18 @@
 							</p></li>
 					</ul>
 				</div>
-				<span id="reser_input"></span>
-					<label>
-						<select>
-							<option value="">방을 선택하세요</option>
-							<option value="1">1방</option>
-							<option value="2">2방</option>
-							<option value="3">3방</option>
-							<option value="4">4방</option>
-							<option value="5">5방</option>
-							<option value="6">6방</option>
-							<option value="7">7방</option>
-							<option value="8">8방</option>
-						</select>
-					</label>
+				<span id="reser_input"></span> <label> <select>
+						<option value="">방을 선택하세요</option>
+						<option value="1">1방</option>
+						<option value="2">2방</option>
+						<option value="3">3방</option>
+						<option value="4">4방</option>
+						<option value="5">5방</option>
+						<option value="6">6방</option>
+						<option value="7">7방</option>
+						<option value="8">8방</option>
+				</select>
+				</label>
 				<button onclick="roomSelect()">방 선택</button>
 			</div>
 		</div>
@@ -374,7 +372,7 @@
     function cellSelect(cell,today) {
         let cellState = false;
         const reserInput = document.querySelector('#reser_input');
-        let text = today.getMonth() + '월' + today.getDate() + '일 ';
+        let text = today.getMonth() + 1 + '월' + today.getDate() + '일 '; 
         const regx = new RegExp(text);
 
         return function() {
