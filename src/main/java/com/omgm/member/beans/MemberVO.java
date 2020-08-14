@@ -16,10 +16,12 @@ public class MemberVO {
     private String type;
     private Date regDate;
     private String code;
+    private String animal;
+    private int animalAge;
 
     public MemberVO() { }
 
-    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate, String code) {
+    public MemberVO(int seq, String id, String pwd, String name, String phone, String email, String zipcode, String address, int point, String rank, String type, Date regDate, String code, String animal, int animalAge) {
         this.seq = seq;
         this.id = id;
         this.pwd = pwd;
@@ -33,6 +35,8 @@ public class MemberVO {
         this.type = type;
         this.regDate = regDate;
         this.code = code;
+        this.animal = animal;
+        this.animalAge = animalAge;
     }
 
     public String getCode() {
@@ -139,6 +143,22 @@ public class MemberVO {
         this.type = type;
     }
 
+    public String getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(String animal) {
+        this.animal = animal;
+    }
+
+    public int getAnimalAge() {
+        return animalAge;
+    }
+
+    public void setAnimalAge(int animalAge) {
+        this.animalAge = animalAge;
+    }
+
     @Override
     public String toString() {
         return "MemberVO{" +
@@ -146,14 +166,17 @@ public class MemberVO {
                 ", id='" + id + '\'' +
                 ", pwd='" + pwd + '\'' +
                 ", name='" + name + '\'' +
-                ", phone=" + phone +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", zipcode=" + zipcode +
+                ", zipcode='" + zipcode + '\'' +
                 ", address='" + address + '\'' +
                 ", point=" + point +
                 ", rank='" + rank + '\'' +
                 ", type='" + type + '\'' +
                 ", regDate=" + regDate +
+                ", code='" + code + '\'' +
+                ", animal='" + animal + '\'' +
+                ", animalAge=" + animalAge +
                 '}';
     }
 }

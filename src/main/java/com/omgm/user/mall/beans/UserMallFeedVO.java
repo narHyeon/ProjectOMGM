@@ -13,6 +13,42 @@ public class UserMallFeedVO {
      private int feed_point;
      private String feed_info;
      private String feed_img;
+     private String searchCondition;
+     private String searchKeyword;
+     private int page;
+     private int Quantity;
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
+    }
+
+    public String getSearchKeyword() {
+        return searchKeyword;
+    }
+
+    public void setSearchKeyword(String searchKeyword) {
+        this.searchKeyword = searchKeyword;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public String getSearchCondition() {
+        return searchCondition;
+    }
+
+    public void setSearchCondition(String searchCondition) {
+        this.searchCondition = searchCondition;
+    }
 
     public int getFeed_code() {
         return feed_code;

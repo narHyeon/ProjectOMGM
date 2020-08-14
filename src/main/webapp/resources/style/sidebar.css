@@ -24,6 +24,7 @@
 	display: block;
 	position: absolute;
 	top: 50%;
+	left: -30px;
 	transform: translateY(-50%);
 	width: 24px;
 	height: 24px;
@@ -107,6 +108,7 @@ input#sidebar:checked ~ .background {
 	opacity: 1;
 	visibility: visible;
 }
+
 /*  메뉴 로고  */
 #menuLogoP {
 	margin-top: 120px;
@@ -117,7 +119,7 @@ input#sidebar:checked ~ .background {
 	width: 80%;
 }
 
-@media all and (min-width:871px) {
+@media all and (min-width:781px) {
 	/*  사이드바  */
 	.sidebar_content {
 		position: fixed; /* 브라우저 기준 */

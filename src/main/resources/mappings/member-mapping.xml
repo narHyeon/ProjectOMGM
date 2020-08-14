@@ -11,30 +11,38 @@
         <result property="name" column="NAME"/>
         <result property="phone" column="PHONE" />
         <result property="email" column="EMAIL" />
-        <result property="zipCode" column="ZIPCODE" />
+        <result property="zipcode" column="ZIPCODE" />
         <result property="address" column="ADDRESS" />
         <result property="point" column="POINT" />
         <result property="rank" column="RANK" />
         <result property="type" column="TYPE" />
         <result property="regDate" column="REGDATE"/>
+        <result property="code" column="CODE"/>
+        <result property="animal" column="ANIMAL"/>
+        <result property="animalAge" column="ANIMAL_AGE"/>
     </resultMap>
-
+<!--    // 회원 결제시 포인트 삭제-->
+<!--    <update id="updateMemberPoint" parameterType="MemberVO">-->
+<!--        UPDATE member SET point=#{point} WHERE id=#{id}-->
+<!--    </update>-->
     <!-- 실 사용 -->
     <insert id="addMember" parameterType="MemberVO">
         INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address, type, code)
         VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address}, #{type}, #{code})
     </insert>
 
-    <select id="idCheck" parameterType="MemberVO" resultType="int">
-        SELECT count(*) FROM member WHERE id = #{id}
-    </select>
+	<select id="idCheck" parameterType="MemberVO" resultType="int">
+		SELECT count(*) FROM member WHERE id = #{id}
+	</select>
 
-    <select id="snsCheck" parameterType="MemberVO" resultType="MemberVO">
-        SELECT * FROM member WHERE code = #{code}
-    </select>
+	<select id="snsCheck" parameterType="MemberVO"
+		resultType="MemberVO">
+		SELECT * FROM member WHERE code = #{code}
+	</select>
 
-    <select id="getMember" resultType="MemberVO" parameterType="MemberVO">
-            SELECT * FROM member WHERE id=#{id}
-    </select>
+	<select id="getMember" resultType="MemberVO"
+		parameterType="MemberVO">
+		SELECT * FROM member WHERE id=#{id}
+	</select>
 
 </mapper>

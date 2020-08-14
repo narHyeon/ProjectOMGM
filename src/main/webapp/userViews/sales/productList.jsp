@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -32,40 +31,44 @@
 <main class="proList_main">
     <h2>ALL PRODUCT</h2>
     <div class="category">
-    <button>사료</button>
-    <button>장난감</button>
+        <button>사료</button>
+        <button>장난감</button>
     </div>
     <div class="event_list">
         <ul>
             <form action="productDetail.do">
-          <c:forEach var="FeedList" items="${FeedList}">
-            <li>
-                <a href="">
-                    <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
-                    <em>NEW</em>
-                    <div class="info">
-                        <strong>${FeedList.feed_name}</strong>
-                        <p>
-                            <span>${FeedList.feed_price}</span>
-                        </p>
-                    </div>
-                </a>
-            </li>
-          </c:forEach>
-            <c:forEach var="ToyList" items="${ToyList}">
-                <li>
-                    <a href="">
-                        <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
-                        <em>NEW</em>
-                        <div class="info">
-                            <strong>${ToyList.toy_name}</strong>
-                            <p>
-                              <span>${ToyList.toy_price}</span>
-                            </p>
-                        </div>
-                    </a>
-                </li>
-            </c:forEach>
+                <c:forEach var="FeedList" items="${FeedList}">
+                    <li>
+                        <a href="">
+                            <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                            <div class="menu" style="display: none;">
+                                <em>NEW</em>
+                            </div>
+                            <div class="info">
+                                <strong>${FeedList.feed_name}</strong>
+                                <p>
+                                    <span>${FeedList.feed_inStock}</span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </c:forEach>
+                <c:forEach var="ToyList" items="${ToyList}">
+                    <li>
+                        <a href="">
+                            <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
+                            <div class="menu" style="display: none;">
+                                <em>NEW</em>
+                            </div>
+                            <div class="info">
+                                <strong class="toyname">${ToyList.toy_name}</strong>
+                                <p>
+                                    <span>${ToyList.toy_price}</span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </c:forEach>
             </form>
         </ul>
     </div>
@@ -79,18 +82,6 @@
             <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
-
-    <div class="scroll_menu">
-        <div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
-        <div class="wishlist_menu" style="cursor:pointer;"><a href="#"></a> <i class="fas fa-shopping-cart"></i></div>
-        <div id="create-channel-chat-button"></div>
-    </div>
-
-<%--    <div class="scroll_menu2">--%>
-<%--        <div class="wishlist_menu2"><i class="far fa-heart"></i></div>--%>
-<%--    </div>--%>
-
-    <div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
 
 </main>
 
@@ -115,51 +106,9 @@
 
     }
 
+    //상품상태출력
+    if ($('.toyname').text() != '') { $('.menu').show(); }
 
-    //스크롤메뉴
-    $(function(){
-        var t;
-        var timer;
-
-        // $(window).scroll(function(){
-        // 	t=$(window).scrollTop();
-        // 	$(".ball").animate({top:t+300}, 300);
-        // });
-
-        $(window).scroll(function(){
-            clearTimeout(timer);
-            timer=setTimeout(function(){
-                t=$(window).scrollTop();
-                $(".wishlist_menu, .wishlist_menu2, #create-channel-chat-button").animate({top:t+400},1);
-            }, 150);
-        });
-    });
-
-    //top버튼
-    $(function() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 200) {
-                $('#MOVE_TOP_BTN').fadeIn();
-            } else {
-                $('#MOVE_TOP_BTN').fadeOut();
-            }
-        });
-
-        $("#MOVE_TOP_BTN").click(function() {
-            $('.pro_html, .proList_body').animate({
-                scrollTop : 0
-            }, 200);
-            return false;
-        });
-    });
-
-        //카카오 플러스친구 1:1
-        Kakao.init('c089c8172def97eb00c07217cae17495');
-        Kakao.Channel.createChatButton({
-            container: '#create-channel-chat-button',
-            channelPublicId: '_VmDAK'
-        });
-        //]]>
 
 </script>
 </body>

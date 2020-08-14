@@ -7,22 +7,41 @@ import java.util.Date;
 public class UserMallToyVO {
     private int toy_code;
     private String toy_name;
-    private Date toy_instock;
-    private Date toy_expiration;
+    private Date toy_inStock;
     private String toy_price;
     private String toy_discount;
     private String toy_stock;
     private String toy_point;
     private String toy_info;
     private String toy_img;
-    private MultipartFile uploadFile;
+    private String searchConditionToy;
+    private String searchKeywordToy;
+    private int page;
 
-    public MultipartFile getUploadFile() {
-        return uploadFile;
+    public int getPage() {
+        return page;
     }
-    public void setUploadFile(MultipartFile uploadFile) {
-        this.uploadFile = uploadFile;
+
+    public void setPage(int page) {
+        this.page = page;
     }
+
+    public String getsearchConditionToy() {
+        return searchConditionToy;
+    }
+
+    public void setsearchConditionToy(String searchConditionToy) {
+        this.searchConditionToy = searchConditionToy;
+    }
+
+    public String getsearchKeywordToy() {
+        return searchKeywordToy;
+    }
+
+    public void setsearchKeywordToy(String searchKeywordToy) {
+        this.searchKeywordToy = searchKeywordToy;
+    }
+
     public UserMallToyVO() {
     }
 
@@ -31,8 +50,8 @@ public class UserMallToyVO {
         return "MallToyVO{" +
                 "toy_code=" + toy_code +
                 ", toy_name='" + toy_name + '\'' +
-                ", toy_instock=" + toy_instock +
-                ", toy_expiration=" + toy_expiration +
+                ", toy_inStock=" + toy_inStock +
+               
                 ", toy_price=" + toy_price +
                 ", toy_discount=" + toy_discount +
                 ", toy_stock=" + toy_stock +
@@ -58,21 +77,15 @@ public class UserMallToyVO {
         this.toy_name = toy_name;
     }
 
-    public Date getToy_instock() {
-        return toy_instock;
+    public Date getToy_inStock() {
+        return toy_inStock;
     }
 
-    public void setToy_instock(Date toy_instock) {
-        this.toy_instock = toy_instock;
+    public void setToy_inStock(Date toy_inStock) {
+        this.toy_inStock = toy_inStock;
     }
 
-    public Date getToy_expiration() {
-        return toy_expiration;
-    }
 
-    public void setToy_expiration(Date toy_expiration) {
-        this.toy_expiration = toy_expiration;
-    }
 
     public String getToy_price() {
         return toy_price;

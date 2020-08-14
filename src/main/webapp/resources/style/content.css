@@ -1,0 +1,465 @@
+body {
+	background-color: white;
+}
+
+#wrap {
+	width: 100%
+}
+
+#content1 {
+	margin-left: 20%;
+	max-width: 1240px;
+	overflow: hidden;
+}
+
+#content1 .nav {
+	float: left;
+	width: 40%;
+	height: 800px;
+	background-color: white;
+}
+
+#content1 .article_tle {
+	background-color: white;
+	float: left;
+	width: 60%;
+	height: 800px;
+}
+
+#content1 .article_tle .article_right1 {
+	float: left;
+	width: 50%;
+	height: 400px;
+}
+
+#content1 .article_tle .article_right2 {
+	float: right;
+	width: 50%;
+	height: 400px;
+}
+
+#content1 .article_tle .article_right3 {
+	float: left;
+	width: 50%;
+}
+
+#content1 .article_tle .article_right4 {
+	float: right;
+	width: 50%;
+}
+
+#content2 {
+	max-width: 1240px;
+	height: 500px;
+	margin-left: 20%;
+}
+
+/* ����Ʈ ���� ���ڸ� ����ִ� ĭ*/
+.boxbundle {
+	display: flex;
+	height: 100%;
+	justify-content: space-around;
+	flex-direction: row;
+}
+
+/* ����Ʈ �ȿ� ���� ���� 3ĭ box�� ���� ĭ */
+.boxtle {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+/* ����Ʈ �ȿ� ������ ���� 3ĭ box�� ���� ĭ */
+.boxtle1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+/* box������ 1�̶�� �θ��� ���η� ���� ���ֽ��ϴ�. ����� ��� ���������� ����(?) �� */
+.box1-1 {
+	display: inline-block;
+	display: flex;
+	flex-direction: row;
+	border-radius: 10%;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/images/catroom1.PNG);
+	background-size: 200px 200px;
+	justify-content: space-around;
+}
+
+.box1-2 {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10%;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/images/catroom2.PNG);
+	background-size: 200px 200px;
+	justify-content: space-around;
+}
+
+.box1-3 {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10%;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/images/share4.jpg);
+	background-size: 200px 200px;
+	justify-content: space-around;
+}
+
+/* box�������� 2�̶�� �θ��� ���η� ���� ���ֽ��ϴ�. ��������� ���������� ����(?) �� */
+.box2-1 {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10%;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/images/dogroom2.PNG);
+	background-size: 200px 200px;
+	justify-content: space-around;
+}
+
+.box2-2 {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10%;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/images/dogroom3.PNG);
+	background-size: 200px 200px;
+	justify-content: space-around;
+}
+
+.box2-3 {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10%;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/images/share1.jpg);
+	background-size: 200px 200px;
+	justify-content: space-around;
+}
+
+/*�̹��� article_right1 �� articleright2 �� height ����*/
+#img_height {
+	background-size: 100% 100%;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+/*���콺 ������ ����� �漳�� �̹��� �±� CSS*/
+#img_hide1-1 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 80%;
+	background-image: url(../img/images/catroom1.PNG);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide1-2 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 80%;
+	background-image: url(../img/images/catroom2.PNG);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide1-3 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 80%;
+	background-image: url(../img/images/share7.jpg);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide2-1 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 80%;
+	background-image: url(../img/images/dogroom2.PNG);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide2-2 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 80%;
+	background-image: url(../img/images/dogroom5.png);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide2-3 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 80%;
+	background-image: url(../img/images/share1.jpg);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+/* ������ �κ� css*/
+.article_right1_tle {
+	width: 100%;
+	height: 100%;
+}
+
+.slider {
+	height: 100%;
+	width: 100%;
+}
+
+.slider .indicators .indicator-item.active {
+	background-color: #FFABB9;
+}
+
+.slider .indicators {
+	bottom: 60px;
+	z-index: 100;
+}
+
+.hide1-1 {
+	border-radius: 33%;
+}
+
+.hide_title {
+	width: 100%;
+	height: 10%;
+}
+
+.hide_content {
+	width: 100%;
+	height: 30%;
+}
+
+.slider .slides li img {
+	height: 90%;
+	width: 90%;
+	background-size: cover;
+	background-position: center;
+	background-color: #ffffff;
+}
+
+/* �����̴�  CSS : �����Ѿ�� ��� */
+.slider .slides li {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: inherit;
+	overflow: hidden;
+	background-color: white;
+}
+
+.slider .indicators .indicator-item {
+	border: 3px solid #FFABB9;
+	background-color: #ffffff;
+	height: 12px;
+	width: 12px;
+}
+
+.slider .indicators {
+	bottom: 50px;
+	z-index: 100;
+}
+
+/* <------------------------ȭ�� 768ȭ�� �϶� --------------------->*/
+@media ( max-width : 768px) {
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	#content1 {
+		margin: 0;
+	}
+	#content2 {
+		margin: 0;
+	}
+	#content1 .nav {
+		width: 100%;
+		height: 400px;
+	}
+	#content1 .article_tle {
+		width: 100%;
+		height: 50%;
+	}
+	#content1 .article_right1 {
+		width: 100%;
+		height: 200px;
+	}
+	#content1 .article_right3 {
+		display: none;
+		width: 100%;
+		height: 200px;
+	}
+	#content1 .article_right4 {
+		display: none;
+		width: 100%;
+		height: 200px;
+	}
+	.boxbundle {
+		display: flex;
+		height: 100%;
+		justify-content: space-around;
+		flex-direction: column;
+	}
+	.boxtle {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.boxtle1 {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.box1-1 {
+		display: flex;
+		flex-direction: row;
+		border-radius: 33%;
+		width: 150px;
+		height: 150px;
+		background-image: url(../img/images/catroom1.PNG);
+		background-size: 150px 150px;
+		justify-content: space-around;
+	}
+	.box1-2 {
+		display: flex;
+		flex-direction: row;
+		border-radius: 33%;
+		width: 150px;
+		height: 150px;
+		background-image: url(../img/images/catroom2.PNG);
+		background-size: 150px 150px;
+		justify-content: space-around;
+	}
+	.box1-3 {
+		display: flex;
+		flex-direction: row;
+		border-radius: 33%;
+		width: 150px;
+		height: 150px;
+		background-image: url(../img/images/share7.jpg);
+		justify-content: space-around;
+	}
+	.box2-1 {
+		display: inline-block;
+		display: flex;
+		flex-direction: row;
+		border-radius: 33%;
+		width: 150px;
+		height: 150px;
+		background-image: url(../img/images/dogroom2.PNG);
+		background-size: 150px 150px;
+		justify-content: space-around;
+	}
+	.box2-2 {
+		display: flex;
+		flex-direction: row;
+		border-radius: 33%;
+		width: 150px;
+		height: 150px;
+		background-image: url(../img/images/dogroom3.PNG);
+		background-size: 150px 150px;
+		justify-content: space-around;
+	}
+	.box2-3 {
+		display: flex;
+		flex-direction: row;
+		border-radius: 33%;
+		width: 150px;
+		height: 150px;
+		background-image: url(../img//images/share1.jpg);
+		background-size: 150px 150px;
+		justify-content: space-around;
+	}
+}
+
+#img_hide1-1 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 350px;
+	background-image: url(../img/images/catroom1.PNG);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide1-2 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 350px;
+	background-image: url(../img/images/catroom2.PNG);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide1-3 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 350px;
+	background-image: url(../img/images/share7.jpg);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide2-1 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 350px;
+	background-image: url(../img/images/dogroom2.PNG);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide2-2 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 350px;
+	background-image: url(../img/images/dogroom5.png);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}
+
+#img_hide2-3 {
+	background-size: 100% 100%;
+	border-radius: 2%;
+	width: 95%;
+	height: 350px;
+	background-image: url(../img/images/share1.jpg);
+	margin-left: 2.5%;
+	margin-top: 30px;
+	background-repeat: no-repeat;
+}

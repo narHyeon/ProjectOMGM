@@ -82,10 +82,12 @@
 
 .event_list ul {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     flex-flow: row wrap;
     align-content: space-between;
-    padding-left: 11%;
-    padding-top: 80px;
+    padding-left: 5%;
+    /*padding-top: 80px;*/
 }
 
 .event_list li {
@@ -148,7 +150,7 @@
     top: 3%;
     z-index: 2;
     width: 24%;
-    height:  15%;
+    height: 15%;
     border-radius: 100%;
     background: rgba(0, 0, 0, .5);
     color: #fff;
@@ -156,6 +158,16 @@
     text-align: center;
     line-height: 60px;
 }
+
+.product_form{
+    display:flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    /*padding-top: 60px;*/
+}
+
+
+
 
 /*하단 페이징*/
 .pro_paging {
@@ -173,13 +185,15 @@
     height: 42px;
     text-align: center;
     line-height: 42px;
+    padding-right: 0.5%;
     font-size: 15px;
     color: #555;
 }
 
 .pro_paging a:hover,
 .pro_paging a.on {
-    background: #F28888;
+    background: lightpink;
+
     color: #fff;
 }
 
@@ -242,70 +256,10 @@ a:hover {
     text-decoration: none;
 }
 
-/*플로팅메뉴*/
-.wishlist_menu {
-    border: 1px solid #EEE;
-    position: absolute;
-    top: 400px;
-    right: 50px;
-    width: 60px;
-    height: 60px;
-    -webkit-transition: top 0.4s;
-    transition: top 0.4s;
-    font-size: 30px;
-    color: #5a5a5a;
-    padding-left: 12px;
-    padding-top: 16px;
-
-}
-
-.wishlist_menu2 {
-    border: 1px solid #EEE;
-    position: absolute;
-    top: 400px;
-    right: 50px;
-    width: 60px;
-    height: 120px;
-    -webkit-transition: top 0.4s;
-    transition: top 0.4s;
-    font-size: 30px;
-    color: #5a5a5a;
-    padding-left: 15px;
-    padding-top: 75px;
-
-}
-
-.wishlist_menu i:hover, .wishlist_menu2 i:hover {
-    color: #F28888;
-}
-
-#MOVE_TOP_BTN {
-    position: fixed;
-    right: 60px;
-    bottom: 50px;
-    display: none;
-    z-index: 999;
-    background: #F28888;
-    color:white;
-    width: 50px;
-    height: 50px;
-    border-radius: 40px;
-    padding-left: 11px;
-    padding-top: 17px;
-}
-
-/*카카오 1:1상담 버튼*/
-#create-channel-chat-button {
-    position: absolute;
-    top: 400px;
-    right: 90px;
-    width: 60px;
-    height: 60px;
-    -webkit-transition: top 0.4s;
-    transition: top 0.4s;
-    font-size: 30px;
-    padding-left: 15px;
-    padding-top: 120px;
+/* 페이지 네이션 */
+#pageNextColor:hover, #pageNextColor:focus {
+    border:1px solid #ff4081;
+    background-color: #ff4081;
 }
 
 @media screen and (max-width: 1024px) {
@@ -336,24 +290,6 @@ a:hover {
         margin: 0 auto;
     }
 
-    /*플로팅메뉴*/
-    .wishlist_menu {
-        right: 18px;
-    }
-
-    .wishlist_menu2 {
-        right: 18px;
-    }
-
-    #MOVE_TOP_BTN {
-        right: 30px;
-    }
-
-    /*카카오 1:1상담 버튼*/
-    #create-channel-chat-button {
-        right: 57px;
-    }
-
     /*   상품리스트   */
     .proList_main h2{
         padding-top:45%;
@@ -363,13 +299,13 @@ a:hover {
         flex-flow: row wrap;
         align-content: space-between;
         padding-left: 7%;
-        padding-top: 80px;
+        padding-top: 30px;;
     }
 
     .event_list li {
         flex: 0 1 18%;
-        padding: 0 13px 34px;
-        padding-left: 4%;
+        padding: 0 0 34px;
+
     }
 
     .event_list li a {
@@ -389,6 +325,9 @@ a:hover {
         border-bottom: 1px solid #ddd;
     }
 }
+
+
+
 
 
 

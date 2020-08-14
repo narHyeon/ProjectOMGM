@@ -15,7 +15,7 @@ public class MallToyVO {
     private String toy_info;
     private String toy_img;
     private MultipartFile uploadFile;
-
+    private MultipartFile update_uploadFile;
     public MultipartFile getUpdate_uploadFile() {
         return update_uploadFile;
     }
@@ -24,7 +24,7 @@ public class MallToyVO {
         this.update_uploadFile = update_uploadFile;
     }
 
-    private MultipartFile update_uploadFile;
+
 
     public MultipartFile getUploadFile() {
         return uploadFile;

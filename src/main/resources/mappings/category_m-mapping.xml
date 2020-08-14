@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CategoryDAO_M">
+	<insert id="insertCategory" parameterType="java.util.List">
+		<foreach item="item" collection="list" open="INSERT ALL"  close="SELECT * FROM DUAL" separator=" " index="index">
+			INTO CATEGORY (CATEGORY_NO, CATEGORY_NAME, CATEGORY_USE) 
+			VALUES ((select nvl(max(CATEGORY_NO), 0)+1 + #{index} from CATEGORY),#{item.CATEGORY_NAME},#{item.CATEGORY_USE})
+		</foreach>
+	</insert>
+	<update id="updateCategory" parameterType="category_m">
+		UPDATE CATEGORY 
+		<set>
+	        <if test="CATEGORY_NAME != null">CATEGORY_NAME=#{CATEGORY_NAME},</if>
+    	    <if test="CATEGORY_USE != null">CATEGORY_USE=#{CATEGORY_USE},</if>
+ 		</set>
+		WHERE CATEGORY_NO=#{CATEGORY_NO}
+	</update>
+	
+	<update id="updateManyCategory" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" 
+      separator=";" open="DECLARE BEGIN" close="; END;">
+			UPDATE CATEGORY
+			<set>
+	        	<if test="item.CATEGORY_NAME != null">CATEGORY_NAME=#{item.CATEGORY_NAME},</if>
+    	    	<if test="item.CATEGORY_USE != null">CATEGORY_USE=#{item.CATEGORY_USE},</if>
+ 			</set>
+ 			WHERE CATEGORY_NO=#{item.CATEGORY_NO}
+		</foreach>
+	</update>
+	
+	<delete id="deleteCategory" parameterType="java.util.List" >
+		DELETE FROM CATEGORY
+		<where>
+			<foreach collection="list" item="item" separator="OR">
+				 CATEGORY_NO=#{item.CATEGORY_NO}
+			</foreach>		
+		</where>
+	</delete>
+	
+	<select id="selectCategory" resultType="category_m"
+		parameterType="category_m">
+		SELECT * FROM CATEGORY WHERE CATEGORY_NO=#{CATEGORY_NO}
+	</select>
+	<select id="selectListUseCategory" resultType="category_m" >
+		SELECT * FROM CATEGORY 
+		WHERE CATEGORY_USE = 1
+		ORDER BY CATEGORY_USE DESC ,
+		CATEGORY_NO ASC
+	</select>
+	<select id="selectListAllCategory" resultType="category_m" >
+		SELECT * FROM CATEGORY ORDER BY CATEGORY_USE DESC ,
+		CATEGORY_NO ASC
+	</select>
+</mapper>

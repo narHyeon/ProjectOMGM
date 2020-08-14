@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ManagementDAO">
+
+	<resultMap type="ManagementVO" id="ManagementResult">
+		<id property="seq" column="SEQ" />
+		<result property="id" column="ID" />
+		<result property="pwd" column="PWD" />
+		<result property="name" column="NAME" />
+		<result property="phone" column="PHONE" />
+		<result property="email" column="EMAIL" />
+		<result property="zipcode" column="ZIPCODE" />
+		<result property="address" column="ADDRESS" />
+		<result property="point" column="POINT" />
+		<result property="rank" column="RANK" />
+		<result property="type" column="TYPE" />
+		<result property="regDate" column="REGDATE" />
+		<result property="code" column="CODE" />
+	</resultMap>
+
+	<!-- 실 사용 -->
+	<select id="memberTable" parameterType="ManagementVO"
+		resultMap="ManagementResult">
+		<choose>
+			<when test="type != '관리자'">
+				SELECT * FROM member WHERE type != '관리자' ORDER BY seq
+			</when>
+			<otherwise>
+				SELECT * FROM member WHERE type = '관리자' ORDER BY seq
+			</otherwise>
+		</choose>
+	</select>
+
+
+</mapper>

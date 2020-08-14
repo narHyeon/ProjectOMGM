@@ -1,4 +1,5 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -23,7 +24,7 @@
 		background-color: white;
 		position: absolute;
 		top: 300px;
-		right: 50px;
+		right: 20px;
 		width: 55px;
 		height: 55px;
 		-webkit-transition: top 0.4s;
@@ -39,8 +40,8 @@
 		border-radius: 100%;
 		background-color: white;
 		position: absolute;
-		top: 360px;
-		right: 50px;
+		top: 370px;
+		right: 20px;
 		width: 55px;
 		height: 55px;
 		-webkit-transition: top 0.4s;
@@ -56,7 +57,7 @@
 	}
 	#MOVE_TOP_BTN {
 		position: fixed;
-		right: 50px;
+		right: 20px;
 		bottom: 50px;
 		display: none;
 		z-index: 999;
@@ -71,8 +72,8 @@
 	/*카카오 1:1상담 버튼*/
 	#create-channel-chat-button {
 		position: absolute;
-		top: 415px;
-		right: 65px;
+		top: 425px;
+		right: 35px;
 		width: 55px;
 		height: 55px;
 		-webkit-transition: top 0.4s;
@@ -96,7 +97,8 @@
 	right: 0;
 	z-index: 1000;
 }
-	@media ( max-width : 870px) {
+
+	@media all and (max-width:780px) {
 		#base {
 			overflow: hidden;
 			display: flex;
@@ -105,7 +107,12 @@
 
 			padding-top: 60px;
 		}
+
+		#create-channel-chat-button, .wishlist_menu, .wishlist_menu2 {
+			display: none;
+		}
 	}
+
 </style>
 </head>
 <body>
@@ -123,8 +130,13 @@
 	<div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
 	<div class="scroll_menu">
 		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
-		<div class="wishlist_menu" style="cursor:pointer;"><a href="#"></a> <i class="fas fa-shopping-cart"></i></div>
-		<div id="create-channel-chat-button"></div>
+		<c:if test="${member != null}">
+		<a href="selectCartList.do?cartList_id=${member.id}"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
+		</c:if>
+		<c:if test="${member == null}">
+			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.');" class="fas fa-shopping-cart"></i></div></a>
+		</c:if>
+			<div id="create-channel-chat-button"></div>
 	</div>
 	<script>
 		//top버튼

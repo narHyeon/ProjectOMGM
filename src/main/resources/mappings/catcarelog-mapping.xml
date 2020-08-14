@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CatCareLogDAO">
+
+	<insert id="insertCatCareLog" parameterType="catcarelog">
+		INSERT INTO
+		CATCARELOG (CATCARELOG_NO, CATCARELOG_USERNUM, CATCARELOG_SERVICENUM,
+		CATCARELOG_WRITER, CATCARELOG_TITLE, CATCARELOG_CONTNET,
+		CATCARELOG_CARESTART,
+		CATCARELOG_CAREEND)
+		VALUES((select nvl(max(CATCARELOG_NO), 0)+1 from CATCARELOG),#{CATCARELOG_USERNUM},
+		#{CATCARELOG_SERVICENUM}, #{CATCARELOG_WRITER}, #{CATCARELOG_TITLE},
+		#{CATCARELOG_CONTNET},
+		#{CATCARELOG_CARESTART}, #{CATCARELOG_CAREEND} )
+	</insert>
+
+	<select id="getCatCareLog" parameterType="catcarelog"
+		resultType="catcarelog">
+		SELECT * FROM CATCARELOG WHERE CATCARELOG_NO =
+		#{CATCARELOG_NO}
+	</select>
+
+	<update id="updateCatCareLog" parameterType="catcarelog">
+		UPDATE CATCARELOG
+		SET CATCARELOG_TITLE=#{CATCARELOG_TITLE},
+		CATCARELOG_CONTNET=#{CATCARELOG_CONTNET},
+		CATCARELOG_CARESTART=#{CATCARELOG_CARESTART},
+		CATCARELOG_CAREEND=#{CATCARELOG_CAREEND},
+		CATCARELOG_LASTUPDATER=#{CATCARELOG_LASTUPDATER},
+		CATCARELOG_LASTUPDATEDATE=sysdate
+		WHERE CATCARELOG_NO=#{CATCARELOG_NO}
+	</update>
+
+	<delete id="deleteCatCareLog" parameterType="catcarelog">
+		DELETE FROM
+		CATCARELOG
+		WHERE CATCARELOG_NO = #{CATCARELOG_NO}
+	</delete>
+
+</mapper>

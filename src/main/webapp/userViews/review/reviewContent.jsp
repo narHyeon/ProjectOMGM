@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -58,6 +58,10 @@
 .review_content_prne {
 	margin-top: 30px;
 	border-top: 2px solid #a94442 !important;
+}
+
+.review_content_prne:hover {
+	cursor: pointer;
 }
 
 .review_content_reply {
@@ -136,9 +140,7 @@
 				<td>${review.id}</td>
 			</tr>
 		</table>
-		<div class="review_content_body">
-			${review.content}
-		</div>
+		<div class="review_content_body">${review.content}</div>
 		<hr>
 		<div class="review_content_button">
 			<button onclick="reviewList()">목록</button>
@@ -151,8 +153,9 @@
 
 			<c:forEach var="rv" items="${reply}">
 				<div>
-					<p>${rv.id} : </p>
+					<p>${rv.id}:</p>
 					<p>${rv.content}</p>
+					<p>${rv.formatDate}</p>
 				</div>
 			</c:forEach>
 		</div>
@@ -160,10 +163,10 @@
 		<%--  댓글 달기  --%>
 		<div class="review_content_reply">
 			<div>
-				<label for="review_content_reply_name">이름</label>
-				<input id="review_content_reply_name" type="text">
-				<label for="review_content_reply_pass">패스워드</label>
-				<input id="review_content_reply_pass" type="password">
+				<label for="review_content_reply_name">이름</label> <input
+					id="review_content_reply_name" type="text"> <label
+					for="review_content_reply_pass">패스워드</label> <input
+					id="review_content_reply_pass" type="password">
 			</div>
 			<textarea name="" id="review_content_reply_text" cols="15" rows="5"></textarea>
 			<button type="submit" id="review_content_reply_button"

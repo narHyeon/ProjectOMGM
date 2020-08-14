@@ -21,6 +21,7 @@ $(".txt input, .txtboxID input, .txtboxTEL1 input, .txtbox input, .txt_zipCode i
 // 회원가입 버튼
 function signUp(event) {
     event.preventDefault();
+    document.querySelector('#login_popup').checked = false;
     document.querySelector('#popup').checked = true;
     document.querySelectorAll('.signup-form div input')
         .forEach((sign) => {
@@ -33,6 +34,7 @@ function signUp(event) {
 // 로그인 버튼
 function login(event) {
     event.preventDefault();
+    document.querySelector('#popup').checked = false;
     document.querySelector('#login_popup').checked = true;
 }
 
@@ -258,19 +260,19 @@ function snsSignCheck(event, result) {
 // sns 아이디 가입 여부 검사
 function snsSignDuple(result) {
     const xhr = new XMLHttpRequest();
+    const data = result;
 
     xhr.onload = function() {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(object.id === '유') {
-                alert('이미 가입된 계정입니다. 이용하시려면 로그인해주세요!');
+                loginSNS(data);
                 return;
             }
             return snsSign(result);
         }
     }
 
-    const data = result;
 
     xhr.open('POST', 'snsSignDuple.lo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
@@ -278,8 +280,9 @@ function snsSignDuple(result) {
 };
 
 function signKakao() {
+    document.querySelector('#login_popup').checked = false;
     return new Promise((resolve, reject) => {
-        Kakao.init('24643592d6715878e7cd5aa89f148e76');
+        // Kakao.init('24643592d6715878e7cd5aa89f148e76');
         Kakao.Auth.login({
             success: function (authObj) {
                 // 로그인 성공시, API를 호출합니다.
@@ -309,4 +312,100 @@ function signKakao() {
 function signNaver() {
     const url = 'https://nid.naver.com/nidlogin.login?oauth_token=eJvN5z7x5d6QzpKZNA&consumer_key=epIAIQoP1jJTDyUpzFxX&logintp=oauth2&nurl=https%3A%2F%2Fnid.naver.com%2Foauth2.0%2Fauthorize%3Fresponse_type%3Dtoken%26state%3D43d2d90f-736b-4f0b-8de6-d7bb1bbbf95a%26client_id%3DepIAIQoP1jJTDyUpzFxX%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252FnaverCallback.lo%26locale%3Dko_KR%26inapp_view%3D%26oauth_os%3D&locale=ko_KR&inapp_view=&svctype=1';
     window.location.href = url;
+
+    // window.location.href = naverLogin.generateAuthorizeUrl();
+    // document.querySelector('#naverIdLogin').innerHTML = '';
+    // document.querySelector('#naverIdLogin').style = 'display:flex';
 };
+
+// 네이버 로그인
+function loginSNS(data) {
+    const form = document.createElement("form");
+    form.setAttribute("charset", "UTF-8");
+    form.setAttribute("method", "GET"); // Get 또는 Post 입력
+    form.setAttribute("action", "snsLogin.lo");
+
+    const hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "code");
+    hiddenField.setAttribute("value", data.code);
+    hiddenField.setAttribute("type", data.type);
+    form.appendChild(hiddenField);
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}
+
+function mainLogo() {
+    window.location.href = 'main.do';
+}
+
+/* 설정정보를 초기화하고 연동을 준비 */
+window.addEventListener('DOMContentLoaded', (event) => {
+    const naverLogin = new naver.LoginWithNaverId(
+        {
+            clientId: "epIAIQoP1jJTDyUpzFxX",
+            callbackUrl: "http://localhost:8080/naverCallback.lo",
+            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+            loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+        }
+    );
+    naverLogin.init();
+},{once: true});
+
+
+// 카카오 결제 관련
+function kakaoPay(payment,url) {
+    let IMP = window.IMP;
+    IMP.init('imp95616027');
+    IMP.request_pay({
+        pg : 'kakao', // version 1.1.0부터 지원.
+        pay_method : 'card',
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : payment.name,
+        amount : payment.price,
+        buyer_email : payment.email,
+        buyer_name : payment.buyer_name,
+        buyer_tel : payment.phone,
+        buyer_addr : payment.address,
+        buyer_postcode : payment.zipcode,
+        // m_redirect_url : 'https://localhost:8080/main.do'
+        }, function(rsp) {
+            if ( rsp.success ) {
+                console.log(rsp);
+                alert('결제가 완료되었습니다. 감사합니다!');
+                const data = {
+                    name: rsp.name, // "주문명:결제테스트"
+                    merchantUid: rsp.merchant_uid, // 거래 고유번호
+                    pgProvider: rsp.pg_provider, // "kakaopay"
+                    price: rsp.paid_amount, // 결제가격
+                    buyerName: rsp.buyer_name, // 주문자 이름
+                    phone: rsp.buyer_tel, // 주문자 전화번호
+                    email: rsp.buyer_email, // 주문자 이메일
+                    address: rsp.buyer_addr, // 주문자 주소
+                    zipcode: rsp.buyer_postcode, // 주문자 우편번호
+                    service: payment.service,
+                    animal: payment.animal,
+                    animalAge: payment.animal_age,
+                    etc: payment.etc
+                };
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.onload = () => {
+                    if(xhr.status === 200) {
+                        window.location.href = 'main.do';
+                    }
+                }
+
+                xhr.open('POST',url,true);
+                xhr.setRequestHeader('content-type','application/json');
+                xhr.send(JSON.stringify(data));
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+        // console.log(rsp);
+    });
+}

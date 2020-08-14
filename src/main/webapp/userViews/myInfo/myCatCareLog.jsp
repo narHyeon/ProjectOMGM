@@ -19,7 +19,9 @@
 #wrap {
 	display: flex;
 	flex-direction: column;
+	height: 800px;
 }
+
 #head {
 	min-width: 60%;
 	margin-right: 15%;
@@ -30,13 +32,14 @@
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
+
 #body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 	margin-bottom: 3%;
-		
 }
+
 #banner {
 	display: flex;
 	width: 15%;
@@ -45,13 +48,15 @@
 	margin-left: 7%;
 	border-radius: 10px;
 }
+
 #content {
-	display : flex;
-	flex-direction :column;
+	display: flex;
+	flex-direction: column;
 	margin-left: 6%;
 	width: 60%;
 	height: 100%;
 }
+
 .fieldsetstyle {
 	margin-top: 5%;
 	display: block;
@@ -61,9 +66,11 @@
 	color: white;
 	padding: 10px;
 }
-.fieldsetstyle:hover{
+
+.fieldsetstyle:hover {
 	cursor: pointer;
 }
+
 .hideth {
 	background: #F28888;
 }
@@ -71,9 +78,19 @@
 .maintr:hover {
 	cursor: pointer;
 }
+
+#insertbt {
+	height: 20pt;
+	width: 10%;
+	margin-top: 2%;
+	margin-left: 90%;
+	background-color: white;
+	cursor: pointer;
+	border: 2px solid #e2e2e2;
+	font-size: 13px;
+	color: purple;
+}
 </style>
-<script src="js/jquery.min.js"></script>
-<script src="js/flat.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -89,7 +106,7 @@
 			window.location.href = 'myPage.do';
 		});
 		$("#myCatPageFs").click(function() {
-			window.location.href = 'myCatPage.do';
+			window.location.href = 'myPetPage.do';
 		});
 		$("#myServiceListFs").click(function() {
 			window.location.href = 'myServiceList.do';
@@ -104,6 +121,13 @@
 			window.location.href = 'myReView.do';
 		});
 	});
+	
+function goWrite() {
+	window.location.href = 'writeCatCareLog.do';
+}
+	
+	
+	
 </script>
 </head>
 <body>
@@ -174,8 +198,11 @@
 						</tr>
 					</tbody>
 				</table>
+				<input type="button" onclick="goWrite()" value="냥박일지 작성"
+					id="insertbt">
 			</div>
 		</div>
+
 	</div>
 </body>
 </html>
