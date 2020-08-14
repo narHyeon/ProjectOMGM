@@ -55,9 +55,10 @@
 					</ul></li>
 				<li><a href="#">Info </a>
 					<ul>
-						<li><a href="#"> 공지&이벤트 </a></li>
+						<li><a href="event.do"> 공지&이벤트 </a></li>
 						<li><a href="introductionPage.do"> 이용안내 </a></li>
-						<li><a href="#"> 도움(Q&A) </a></li>
+						<li><a href="fAQList.do"> FAQ </a></li>
+						<li><a href="qnaList.do"> Q&A </a></li>
 					</ul></li>
 			</ol>
 		</div>
@@ -97,9 +98,10 @@
 				</ul></li>
 			<li><a href="#">Info</a>
 				<ul class="sub_menu">
-					<li><a href="#"> 공지&이벤트 </a></li>
+					<li><a href="event.do"> 공지&이벤트 </a></li>
 					<li><a href="introductionPage.do"> 이용안내 </a></li>
-					<li><a href="#"> 도움(Q&A) </a></li>
+					<li><a href="fAQList.do"> FAQ </a></li>
+					<li><a href="qnaList.do"> Q&A </a></li>
 				</ul></li>
 			<div id="menuLogoP">
 				<img class="menuLogo" src="resources/img/자산%208.png" alt=""> <img
@@ -229,7 +231,7 @@
 		<c:if test="${member.name != null}">
 			<script>
 				document.querySelector('.login_membership').innerHTML =
-						`<li><a href="" onclick="login(event)">myInfo</a></li>
+						`<li><a href="mypage.do">myInfo</a></li>
                      <li><p>|</p></li>
                      <li><a href="logout.lo">logout</a></li>`;
 			</script>
