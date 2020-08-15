@@ -95,21 +95,4 @@ public class AdminController {
         mav.setViewName("/calculate/calculateTest");
         return mav;
     }
-
-    //이용후기 관리 페이지
-    @RequestMapping("/adminReview.mdo")
-    public ModelAndView adminReview(ReviewVO vo,@RequestParam(value="page", defaultValue = "1") int page ) {
-        ModelAndView mav = new ModelAndView();
-
-        int COUNTPERPAGE = 9; // 페이지당 2개의 글
-        int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
-
-        PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, adminService.selectCount());
-        mav.addObject("reviewList", adminService.getReviewList(vo, navi));
-        mav.addObject("navi", navi);
-        vo.setCnt(page);
-        mav.addObject("page", vo);
-        mav.setViewName("/adminReview");
-        return mav;
-    }
 }

@@ -206,12 +206,12 @@
 			</tr>
 		</table>
 	</div>
-	<form id="review_throw" action="reviewContent.do"></form>
+	<form id="review_throw" action="reviewContent.mdo"></form>
 	<script>
         function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
 
-            xhr.open('POST', 'reviewContentReply.do',true);
+            xhr.open('POST', 'reviewContentReply.mdo',true);
             xhr.setRequestHeader('Content-type', 'application/json');
             const data = { id: id, pwd: pwd, content: content, boardSeq: ${review.seq} };
             xhr.send(JSON.stringify(data));
@@ -234,7 +234,7 @@
         }
 
         function reviewList() {
-        	window.location.href = 'reviewListBoard.do';
+        	window.location.href = 'adminReview.mdo';
 		}
 
 		function prevContent(prev) {
@@ -258,11 +258,11 @@
 		}
 
 		function fixedReview() {
-        	window.location.href = 'fixedReview.do?seq=${review.seq}';
+        	window.location.href = 'fixedReview.mdo?seq=${review.seq}';
 		}
 		function deleteReview() {
         	let boo = confirm('정말 삭제하시겠습니까?');
-        	if(boo) window.location.href = 'deleteReview.do?seq=${review.seq}'
+        	if(boo) window.location.href = 'deleteReview.mdo?seq=${review.seq}'
 		}
     </script>
 </body>

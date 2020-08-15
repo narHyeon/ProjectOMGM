@@ -14,11 +14,10 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
-public class reviewController {
+public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
-    private String save_folder;
 
     // 이용후기 글쓰기 페이지로 이동
     @RequestMapping(value="/reviewWrite.do")
@@ -36,7 +35,6 @@ public class reviewController {
         int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
 
         PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
-        mav.setViewName("/review/reviewListBoard");
         List<ReviewVO> list = reviewService.getListRoom(vo, navi);
         mav.addObject("reviewList",list);
         mav.addObject("navi",navi);
