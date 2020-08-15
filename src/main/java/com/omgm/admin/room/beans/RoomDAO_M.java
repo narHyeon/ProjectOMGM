@@ -14,6 +14,7 @@ public class RoomDAO_M {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
+	//jury
 	public List<RoomVO_M> getListRoom(RoomVO_M vo, PageNavigator navi) {
 		RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
 		return sqlSessionTemplate.selectList("RoomDAO_M.selectListROOM", vo, rb);

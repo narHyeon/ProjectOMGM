@@ -1,5 +1,7 @@
 package com.omgm.user.review.controller;
 
+import com.omgm.admin.room.beans.RoomVO_M;
+import com.omgm.admin.room.service.RoomService_M;
 import com.omgm.user.catcarelog.beans.CatCareLogVO;
 import com.omgm.user.catcarelog.service.CatCareLogService;
 import com.omgm.user.review.beans.PageNavigator;
@@ -39,19 +41,21 @@ public class reviewController {
     }
 
     //이용후기 리스트 페이지 이동
-    @RequestMapping(value="/reviewListBoard.do")
+    @RequestMapping(value="/reviewListBoard.do", method = RequestMethod.GET)
     public ModelAndView reviewListBoard(ReviewVO vo, @RequestParam(value="page", defaultValue = "1") int page) {
         ModelAndView mav = new ModelAndView();
-
         int COUNTPERPAGE = 9; // 페이지당 2개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
 
         PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
         mav.setViewName("/review/reviewListBoard");
-        mav.addObject("reviewList",reviewService.getReviewList(vo, navi));
+        List<ReviewVO> list = reviewService.getListRoom(vo, navi);
+        System.out.println(list);
+        mav.addObject("reviewList",list);
         mav.addObject("navi",navi);
         vo.setCnt(page);
         mav.addObject("page",vo);
+        mav.setViewName("/review/reviewListBoard");
         return mav;
     }
 
@@ -88,6 +92,10 @@ public class reviewController {
     public ModelAndView insertReviewBoard(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         reviewService.insertReviewBoard(vo);
+
+//        List<ReviewVO> list = reviewService.getListRoom(vo);
+//
+//        mav.addObject("roomList",list);
         mav.setViewName("redirect:/reviewListBoard.do");
         return mav;
     }
@@ -133,6 +141,16 @@ public class reviewController {
 
         return fileDBName;
     }
+
+//    //RoomController_m
+//    @RequestMapping(value = "/reviewListBoardTEST.do" , method = RequestMethod.GET)
+//    public ModelAndView getRoomList(ReviewVO vo, ModelAndView mav) {
+//        List<ReviewVO> list = reviewService.getListRoom(vo);
+//        mav.addObject("roomList",list);
+//        mav.setViewName("redirect:/reviewListBoard.do");
+//        return mav;
+//    }
+
 
 
 }
