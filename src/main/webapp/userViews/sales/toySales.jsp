@@ -101,6 +101,9 @@
 <%--            </script>--%>
 <%--        </div>--%>
     </div>
+    <div style="width: 50%; margin-top: 5%;margin-bottom: 5%;">
+        ${toyList.toy_info}
+    </div>
     <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%; margin-bottom: 5%;">
 <%--    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>

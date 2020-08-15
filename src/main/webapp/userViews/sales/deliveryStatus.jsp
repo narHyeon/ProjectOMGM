@@ -52,22 +52,38 @@
                 order_tn : wayBillNum,
             }),
             success: function(data) {
-                document.querySelector('.boxImg').src="resources/img/product/"+data.order_img;
+
                 const order_state = data.order_state;
+                const order_img = data.order_img;
                 const order_simple = "배송중";
                 const order_simple01 = "발송처리";
-                const order_simple02 = "배송완료"
-                alert(data.order_state)
-                if(order_state.indexOf(",")){
-                    alert('여러개의 문자입니다.');
+                const order_simple02 = "배송완료";
+
+
+                if(order_img.indexOf(",") != -1){
+
+                    var strArray = order_img.split(',');
+                    for(const i in strArray){
+                        document.querySelector('.boxImg').src="resources/img/product/"+strArray[0];
+                    }
+                    if(order_state == order_simple) {
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "입니다. 신속히 처리하겠습니다 ";
+                    } else if(order_state == order_simple01) {
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "중입니다. 신속히 처리하겠습니다 ";
+                    } else if(order_state == order_simple02) {
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "했습니다. 이용해 주셔서 감사합니다 ";
+                    }
+                }else{
+                    document.querySelector('.boxImg').src="resources/img/product/"+data.order_img;
+                    if(order_state == order_simple) {
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "입니다. 신속히 처리하겠습니다 ";
+                    } else if(order_state == order_simple01) {
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "중입니다. 신속히 처리하겠습니다 ";
+                    } else if(order_state == order_simple02) {
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "했습니다. 이용해 주셔서 감사합니다 ";
+                    }
                 }
-                if(order_state == order_simple) {
-                    document.querySelector('.box-p-text').innerHTML = data.order_state + "입니다. 신속히 처리하겠습니다 ";
-                } else if(order_state == order_simple01) {
-                    document.querySelector('.box-p-text').innerHTML = data.order_state + "중입니다. 신속히 처리하겠습니다 ";
-                } else if(order_state == order_simple02) {
-                    document.querySelector('.box-p-text').innerHTML = data.order_state + "했습니다. 이용해 주셔서 감사합니다 ";
-                }
+
             },
             error: function(xhr) {
                 alert('운송장 번호가 올바르지 않습니다.')
