@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="resources/js/summernote/summernote-lite.js"></script>
+	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 <style type="text/css">
 #roomInsert_head-1{
 	display: flex;
@@ -35,9 +38,7 @@
 }
 
 </style>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="resources/js/summernote/summernote-lite.js"></script>
-<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
+
 <script type="text/javascript">
 var jqncf = jQuery.noConflict();
 jqncf(document).ready(function() {
@@ -52,7 +53,7 @@ jqncf(document).ready(function() {
 		var frm = document.mainfrom;
 		frm.action = "roomInsert.mdo";
 		frm.method = "post";
-		frm.submit();	
+		frm.submit();
 	});
 	
 });

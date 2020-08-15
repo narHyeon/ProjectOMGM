@@ -82,7 +82,8 @@ public class RoomController_M {
 		
 		return mav;
 	}
-	
+
+	//jury
 	@RequestMapping(value = "/roomList.mdo" , method = RequestMethod.GET)
 	public ModelAndView getRoomList(RoomVO_M vo, ModelAndView mav,
 			@RequestParam(value="page", defaultValue = "1") int page

@@ -70,22 +70,24 @@
 	/*transform: translate(-50%,-50%);*/
 }
 </style>
+	<link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
 </head>
 <body>
-
+<div
+		style="margin-top: 30%;margin-right: 5%; display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
+	<a href="productInquiryFeed.mdo"><button class="btn btn-info">사료
+		현왕 페이지로 이동</button></a>
+</div>
+<form style="margin-left: 7%; margin-right: 7%;" method="post" name="productDeleteUpdate_form"
+	  enctype="multipart/form-data" id="pro_form1" class="pro_form">
 	<div id="productDeleteUpdate_main_div"
 		style="padding-left: 5%; padding-right: 0%">
 		<h2>사료 물품현황 페이지</h2>
 		<br>
 		<br>
 		<br>
-		<div
-			style="display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
-			<a href="productInquiryFeed.mdo"><button class="btn btn-info">사료
-					현왕 페이지로 이동</button></a>
-		</div>
-		<form method="post" name="productDeleteUpdate_form"
-			enctype="multipart/form-data" id="pro_form1" class="pro_form">
+
+
 
 			<div id="productDeleteUpdate_section_div00"
 				style="display: flex; width: 100%">
@@ -142,7 +144,7 @@
 					</div>
 				</div>
 				<div id="productDeleteUpdate_img_div"
-					style="padding-bottom: 10%; width: 50%; display: flex; flex-direction: column; margin-right: 10%;">
+					style="padding-bottom: 2%; width: 50%; display: flex; flex-direction: column; margin-right: 10%;">
 
 					<img name="" style="vertical-align: center; width: 90%;"
 						src="resources/img/product/${mallFeedOne.feed_img}"> <input
@@ -152,24 +154,41 @@
 						style="width: 42%"><이미지 변경하기></label>
 				</div>
 			</div>
-			<div class="inputArea">
-				<label>상품설명</label>
-				<textarea name="feed_info" rows="10" cols="100"
-					id="productDeleteUpdate_Intro_inputText" style="resize: none;">${mallFeedOne.feed_info}</textarea>
-			</div>
-
-			<div id="productDeleteUpdate_button_div"
-				style="padding-right: 15%; display: flex; justify-content: flex-end">
-				<input type="submit" style="margin-left: 0.5%; margin-right: 0.5%;"
-					id="" class="btn btn-info"
-					onclick="javascript: productDeleteUpdate_form.action='updateMallFeed.mdo'"
-					value="수정" /> <input type="submit"
-					style="margin-left: 0.5%; margin-right: 0.5%;" id=""
-					class="btn btn-info" onclick="confrimDelete1()" value="삭제" />
-			</div>
-		</form>
 	</div>
+	<div class="inputArea">
+		<label>상품설명</label>
+		<textarea name="feed_info" rows="10" cols="100"
+				  id="summernote" style="resize: none;padding-right: 10%; padding-left: 10%;">${mallFeedOne.feed_info}</textarea>
+	</div>
+
+	<div id="productDeleteUpdate_button_div"
+		 style=" display: flex; justify-content: flex-end; margin-top: 1%;">
+		<input type="submit" style="margin-left: 0.5%; margin-right: 0.5%;"
+			   id="" class="btn btn-info"
+			   onclick="javascript: productDeleteUpdate_form.action='updateMallFeed.mdo'"
+			   value="수정" /> <input type="submit"
+									style="margin-left: 0.5%; margin-right: 0.5%;" id=""
+									class="btn btn-info" onclick="confrimDelete1()" value="삭제" />
+	</div>
+	</form>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="resources/js/summernote/summernote-lite.js"></script>
+	<script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
 	<script>
+		// $(document).ready(function() {
+		//    $('#summernote').summernote();
+		// });
+		var jqncf = jQuery.noConflict();
+		jqncf(document).ready(function () {
+			jqncf('#summernote').summernote({
+				height: 350, // 에디터 높이
+				minHeight: null, // 최소 높이
+				maxHeight: null, // 최대 높이
+				focus: true, // 에디터 로딩후 포커스를 맞출지 여부
+				lang: "ko-KR" // 한글 설정
+			});
+		});
+
     function confrimDelete1(){
         const confirmDelete = confirm('정말 삭제하시겠습니까?');
         if(confirmDelete === true) {

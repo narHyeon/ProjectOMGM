@@ -15,6 +15,7 @@ public class RoomServiceImpl_M implements RoomService_M {
 	@Autowired
 	RoomDAO_M roomDAO_M;
 
+	//jury
 	@Override
 	public List<RoomVO_M> getListRoom(RoomVO_M vo, PageNavigator navi) {
 		
