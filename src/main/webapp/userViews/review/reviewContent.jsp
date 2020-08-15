@@ -130,6 +130,13 @@
 	font-weight: 500;
 }
 
+#review_content_reply_content div p:nth-child(3) {
+	margin-left: 20px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #777;
+}
+
 @media all and (max-width: 768px) {
 	#review_content {
 		margin: 100px 0;
@@ -155,7 +162,7 @@
 			<tr>
 				<td>아이디</td>
 				<td>${review.id}</td>
-				<td>${review.cnt}</td>
+				<td>조회수 : ${review.cnt}</td>
 			</tr>
 		</table>
 		<div class="review_content_body">${review.content}</div>
@@ -172,7 +179,7 @@
 
 			<c:forEach var="rv" items="${reply}">
 				<div>
-					<p>${rv.id}:</p>
+					<p>${rv.id} : </p>
 					<p>${rv.content}</p>
 					<p>${rv.formatDate}</p>
 				</div>
@@ -221,10 +228,12 @@
             const id = document.querySelector('#review_content_reply_name');
             const pwd = document.querySelector('#review_content_reply_pass');
             const content = document.querySelector('#review_content_reply_text');
-            document.querySelector('#review_content_reply_content').innerHTML += `
+			const date = new Date();
+			document.querySelector('#review_content_reply_content').innerHTML += `
                 <div>
                     <p>`+id.value+` : </p>
                     <p>`+content.value+`</p>
+					<p>날짜 : `+date.format('yyyy-MM-dd, HH:mm')+`</p>
                 </div>
             `;
             sendData(id.value,pwd.value,content.value);

@@ -51,7 +51,7 @@ public class ReviewController {
         mav.setViewName("/review/reviewContent");
         rvo.setBoardSeq(vo.getSeq());
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("날짜 : yyyy-MM-dd, HH:mm");
         List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
         for(ReviewReplyVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
 
