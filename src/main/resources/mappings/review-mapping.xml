@@ -75,7 +75,7 @@
 	</update>
 
 	<update id="updateReview" parameterType="ReviewVO">
-		UPDATE reviewBoard SET title = {title}, pwd = #{pwd}, content = #{content} WHERE seq = #{seq}
+		UPDATE reviewBoard SET title = #{title}, pwd = #{pwd}, content = #{content} WHERE seq = #{seq}
 	</update>
 
 	<delete id="deleteReview" parameterType="ReviewVO">

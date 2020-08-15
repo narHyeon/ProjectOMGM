@@ -255,6 +255,14 @@
 			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
 			el.submit();
 		}
+
+		function fixedReview() {
+        	window.location.href = 'fixedReview.do?seq=${review.seq}';
+		}
+		function deleteReview() {
+        	let boo = confirm('정말 삭제하시겠습니까?');
+        	if(boo) window.location.href = 'deleteReview.do?seq=${review.seq}'
+		}
     </script>
 </body>
 </html>
