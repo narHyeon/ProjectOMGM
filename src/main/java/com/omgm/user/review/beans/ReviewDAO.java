@@ -15,26 +15,21 @@ public class ReviewDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     public List<ReviewVO> getReviewList(ReviewVO vo, PageNavigator navi) {
-        System.out.println("---> MyBatis로 getReviewList() 기능 처리");
         RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
         return sqlSessionTemplate.selectList("ReviewDAO.getReviewList", vo, rb);
     }
     public void insertReviewBoard(ReviewVO vo) {
-        System.out.println("---> MyBatis로 insertBoard() 기능 처리");
         sqlSessionTemplate.insert("ReviewDAO.insertBoard", vo);
     }
     public ReviewVO getReview(ReviewVO vo) {
-        System.out.println("---> MyBatis로 getReview() 기능 처리");
         return sqlSessionTemplate.selectOne("ReviewDAO.getReview", vo);
     }
 
     public void addReviewReply(ReviewReplyVO rvo) {
-        System.out.println("---> MyBatis로 addReviewReply() 기능 처리");
         sqlSessionTemplate.selectOne("ReviewDAO.addReviewReply", rvo);
     }
 
     public List<ReviewReplyVO> getReviewReply(ReviewReplyVO rvo) {
-        System.out.println("---> MyBatis로 getReviewReply() 기능 처리");
         return sqlSessionTemplate.selectList("ReviewDAO.getReviewReply", rvo);
     }
 

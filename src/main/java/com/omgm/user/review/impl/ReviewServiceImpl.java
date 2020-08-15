@@ -71,6 +71,7 @@ public class ReviewServiceImpl implements ReviewService {
     public List<ReviewVO> getListRoom(ReviewVO vo,PageNavigator navi) {
 
         List<ReviewVO> roomList = reviewDAO.getListRoom(vo,navi);
+        System.out.println(roomList);
         for (int j = 0; j < roomList.size(); j++) {
             ReviewVO room = roomList.get(j);
             String content = room.getContent();
@@ -91,7 +92,6 @@ public class ReviewServiceImpl implements ReviewService {
                 }
             }
             room.setImgRef(list2.get(0));
-
         }
         return roomList;
     }

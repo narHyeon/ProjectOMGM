@@ -27,15 +27,14 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding-bottom: 1%;
-	justify-content: space-around;
 }
 
 .reviewList_line {
 	display: flex;
 	width: 32%;
 	flex-direction: column;
-	margin-right: 0%;
-	margin-left: 0%;
+	margin-right: 0;
+	margin-left: 0;
 	margin-bottom: 3%;
 	border: 1px solid lightgrey;
 	/*justify-content: space-between;*/
