@@ -1,8 +1,9 @@
-package com.omgm.user.review.service;
+package com.omgm.admin.management.review.service;
 
 import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.review.beans.ReviewReplyVO;
 import com.omgm.user.review.beans.ReviewVO;
+
 import java.util.List;
 
 public interface ReviewService {

@@ -1,17 +1,16 @@
-package com.omgm.user.review.impl;
+package com.omgm.admin.management.review.impl;
 
+import com.omgm.admin.management.review.beans.ReviewDAO;
+import com.omgm.admin.management.review.service.ReviewService;
 import com.omgm.user.catcarelog.beans.CatCareLogDAO;
 import com.omgm.user.review.beans.PageNavigator;
-import com.omgm.user.review.beans.ReviewDAO;
 import com.omgm.user.review.beans.ReviewReplyVO;
 import com.omgm.user.review.beans.ReviewVO;
-import com.omgm.user.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService {
@@ -68,7 +67,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     //RoomServiceImpl_m
     @Override
-    public List<ReviewVO> getListRoom(ReviewVO vo,PageNavigator navi) {
+    public List<ReviewVO> getListRoom(ReviewVO vo, PageNavigator navi) {
 
         List<ReviewVO> roomList = reviewDAO.getListRoom(vo,navi);
         for (int j = 0; j < roomList.size(); j++) {

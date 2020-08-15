@@ -32,7 +32,7 @@
         <%--        <div class="reviesList_text_div">--%>
         <%--        <input type="text" class="reviewList_text" >--%>
         <%--        </div>--%>
-        <form action="reviewListBoard.do" method="post">
+        <form action="adminReview.mdo" method="post">
             <table border="1">
                 <tr>
                     <td>
@@ -63,22 +63,22 @@
     </div>
     <div class="pro_paging">
         <ul>
-            <li class="first"><a href="reviewListBoard.do"><span class="hide">첫페이지</span></a></li>
-            <li class="prev"><a href="reviewListBoard.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
+            <li class="first"><a href="adminReview.mdo"><span class="hide">첫페이지</span></a></li>
+            <li class="prev"><a href="adminReview.mdo?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.cnt == counter}">
-                    <a href="reviewListBoard.do?page=${counter}"  style="background-color:lightpink; padding-right: 0.5%" >&nbsp;&nbsp;${counter}</a>
+                    <a href="adminReview.mdo?page=${counter}"  style="background-color:lightpink; padding-right: 0.5%" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
                 <c:if test="${page.cnt != counter}">
-                    <a href="reviewListBoard.do?page=${counter}" >&nbsp;&nbsp;${counter}</a>
+                    <a href="adminReview.mdo?page=${counter}" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
             </c:forEach>
-            <li class="next"><a href="reviewListBoard.do?page=${navi.endPageGroup+1}"><span class="hide">다음페이지</span></a></li>
-            <li class="last"><a href="reviewListBoard.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
+            <li class="next"><a href="adminReview.mdo?page=${navi.endPageGroup+1}"><span class="hide">다음페이지</span></a></li>
+            <li class="last"><a href="adminReview.mdo?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
 </div>
-<form id="review_throw" action="reviewContent.do"></form>
+<form id="review_throw" action="reviewContent.mdo"></form>
 <script>
     function changeColor(counter){
         let value = document.getElementsByClassName('reviewList_page').value();
@@ -96,7 +96,7 @@
     }
 
     function reviewWrite() {
-        window.location.href = 'reviewWrite.do';
+        window.location.href = 'reviewWrite.mdo';
     }
 </script>
 </body>

@@ -1,9 +1,9 @@
-package com.omgm.user.review.controller;
+package com.omgm.admin.management.review.controller;
 
+import com.omgm.admin.management.review.service.ReviewService;
 import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.review.beans.ReviewReplyVO;
 import com.omgm.user.review.beans.ReviewVO;
-import com.omgm.user.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,15 +20,15 @@ public class ReviewController {
     private ReviewService reviewService;
 
     // 이용후기 글쓰기 페이지로 이동
-    @RequestMapping(value="/reviewWrite.do")
+    @RequestMapping(value="/reviewWrite.mdo")
     public ModelAndView reviewWrite(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/reviewWrite");
+        mav.setViewName("/adminReview/reviewWrite");
         return mav;
     }
 
     //이용후기 리스트 페이지 이동
-    @RequestMapping(value="/reviewListBoard.do", method = RequestMethod.GET)
+    @RequestMapping(value="/adminReview.mdo", method = RequestMethod.GET)
     public ModelAndView reviewListBoard(ReviewVO vo, @RequestParam(value="page", defaultValue = "1") int page) {
         ModelAndView mav = new ModelAndView();
         int COUNTPERPAGE = 9; // 페이지당 2개의 글
@@ -40,15 +40,15 @@ public class ReviewController {
         mav.addObject("navi",navi);
         vo.setCnt(page);
         mav.addObject("page",vo);
-        mav.setViewName("/review/reviewListBoard");
+        mav.setViewName("/adminReview/adminReview");
         return mav;
     }
 
     // 이용후기 본문 페이지 이동
-    @RequestMapping(value="/reviewContent.do")
+    @RequestMapping(value="/reviewContent.mdo")
     public ModelAndView reviewContent(ReviewVO vo, ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/reviewContent");
+        mav.setViewName("/adminReview/reviewContent");
         rvo.setBoardSeq(vo.getSeq());
 
         DateFormat dateFormat = new SimpleDateFormat("날짜 : yyyy-MM-dd, HH:mm");
@@ -68,44 +68,44 @@ public class ReviewController {
 
     // 이용후기 댓글 주고받기
     @ResponseBody
-    @RequestMapping(value = "/reviewContentReply.do")
+    @RequestMapping(value = "/reviewContentReply.mdo")
     public ModelAndView map(@RequestBody ReviewReplyVO rvo) {
         ModelAndView mav = new ModelAndView();
 
         // DB INSERT Reply 작업
         reviewService.addReview(rvo); // 댓글 데이터베이스 넣기
-        mav.setViewName("/review/reviewContent");
+        mav.setViewName("/adminReview/reviewContent");
         return mav;
     }
 
     //리뷰 게시판 입력하기
-    @RequestMapping(value="/insertReviewBoard.do")
+    @RequestMapping(value="/insertReviewBoard.mdo")
     public ModelAndView insertReviewBoard(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
         reviewService.insertReviewBoard(vo);
 
-        mav.setViewName("redirect:/reviewListBoard.do");
+        mav.setViewName("redirect:/adminReview.mdo");
         return mav;
     }
 
     @RequestMapping("fixedReview")
     public ModelAndView fixedReview(ReviewVO vo, ModelAndView mav) {
-        mav.setViewName("/review/reviewFix");
+        mav.setViewName("/adminReview/reviewFix");
         mav.addObject("vo",reviewService.getReview(vo));
         return mav;
     }
 
-    @RequestMapping("updateReview.do")
+    @RequestMapping("updateReview.mdo")
     public ModelAndView updateReview(ReviewVO vo, ModelAndView mav) {
         reviewService.updateReview(vo);
-        mav.setViewName("redirect:reviewListBoard.do");
+        mav.setViewName("redirect:adminReview.mdo");
         return mav;
     }
 
-    @RequestMapping("deleteReview.do")
+    @RequestMapping("deleteReview.mdo")
     public ModelAndView deleteReview(ReviewVO vo, ModelAndView mav) {
         reviewService.deleteReview(vo);
-        mav.setViewName("redirect:reviewListBoard.do");
+        mav.setViewName("redirect:adminReview.mdo");
         return mav;
     }
 }

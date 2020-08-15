@@ -163,12 +163,4 @@ public class OneController {
         commonService.addKinderGardenReservation(vo);
         System.out.println(vo);
     }
-
-    //reviewWriteTest페이지 이동
-    @RequestMapping(value="/reviewWriteTest.do")
-    public ModelAndView reviewWriteTest(ReviewVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/review/reviewWriteTest");
-        return mav;
-    }
 }

@@ -68,7 +68,7 @@
 
         if('${member.id}' === "") {
             alert("로그인이 필요한 서비스입니다.");
-            location.replace("reviewListBoard.do");
+            location.replace("adminReview.mdo");
         } else if('#reviewPwd' === "") {
             alert("비밀번호를 입력해주세요.");
         }
@@ -93,7 +93,7 @@
 <h2>글작성</h2><br><br><br>
 
 <div id="review_write">
-    <form method="post" id="reviewWrite" action="insertReviewBoard.do" name="forms" onsubmit="return writeReview()">
+    <form method="post" id="reviewWrite" action="insertReviewBoard.mdo" name="forms" onsubmit="return writeReview()">
         <span id=review_box><input type="password"  name="pwd"  id="reviewPwd" placeholder="비밀번호를 입력해주세요." required/></span>
         <br><br>
         <input type="hidden" name="id"  id="login_id" placeholder="ID" value="${member.id}"/>
@@ -103,7 +103,7 @@
             <textarea id="summernote" name="content"></textarea>
         </div><!-- end content -->
         <button class="review_write_button" type="submit">글 작성</button>
-        <button class="review_write_button" type="button" onclick="window.location.href = 'reviewListBoard.do';">목록으로</button>
+        <button class="review_write_button" type="button" onclick="window.location.href = 'adminReview.mdo';">목록으로</button>
 
     </form>
 </div>

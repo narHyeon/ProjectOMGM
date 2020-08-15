@@ -60,7 +60,7 @@
                 lang : "ko-KR", // 한글 설정
                 placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
             });
-            $('#summernote').summernote('code', '${review.content}');
+            $('#summernote').summernote('code', '${vo.content}');
         });
 
         const actionForm = document.getElementById("reviewWrite");
@@ -68,7 +68,7 @@
 
         if('${member.id}' === "") {
             alert("로그인이 필요한 서비스입니다.");
-            location.replace("reviewListBoard.do");
+            location.replace("adminReview.mdo");
         } else if('#reviewPwd' === "") {
             alert("비밀번호를 입력해주세요.");
         }
@@ -90,20 +90,21 @@
 </head>
 <body>
 
-<h2>글작성</h2><br><br><br>
+<h2>글수정</h2><br><br><br>
 
 <div id="review_write">
-    <form method="post" id="reviewWrite" action="insertReviewBoard.do" name="forms" onsubmit="return writeReview()">
+    <form method="post" id="reviewWrite" action="updateReview.mdo" name="forms" onsubmit="return writeReview()">
+        <input type="hidden" name="seq" value="${vo.seq}">
         <span id=review_box><input type="password"  name="pwd"  id="reviewPwd" placeholder="비밀번호를 입력해주세요." required/></span>
         <br><br>
         <input type="hidden" name="id"  id="login_id" placeholder="ID" value="${member.id}"/>
-            <input id="review_title" type="text" name="title" placeholder="제목" required/>
+            <input id="review_title" type="text" name="title" placeholder="제목" required value="${vo.title}"/>
             <br><br>
         <div id="review_content">
             <textarea id="summernote" name="content"></textarea>
         </div><!-- end content -->
-        <button class="review_write_button" type="submit">글 작성</button>
-        <button class="review_write_button" type="button" onclick="window.location.href = 'reviewListBoard.do';">목록으로</button>
+        <button class="review_write_button" type="submit">글 수정</button>
+        <button class="review_write_button" type="button" onclick="window.location.href = 'adminReview.mdo';">목록으로</button>
 
     </form>
 </div>

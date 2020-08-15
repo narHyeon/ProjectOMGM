@@ -484,6 +484,7 @@ function myInfo() {
 
 window.addEventListener('click',() => {
     const info = document.querySelector('#header_myInfo');
+    if(info === null) return;
     info.style.display = 'none';
 });
 
