@@ -267,11 +267,14 @@
 		}
 
 		function fixedReview() {
-        	window.location.href = 'fixedReview.do?seq=${review.seq}';
+			let boo = prompt('비밀번호를 입력해주세요','Password');
+			if(boo === '${review.pwd}') window.location.href = 'fixedReview.do?seq=${review.seq}';
+			else alert('비밀번호가 다릅니다!');
 		}
 		function deleteReview() {
-        	let boo = confirm('정말 삭제하시겠습니까?');
-        	if(boo) window.location.href = 'deleteReview.do?seq=${review.seq}'
+        	let boo = prompt('비밀번호를 입력해주세요','Password');
+        	if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
+			else alert('비밀번호가 다릅니다!');
 		}
     </script>
 </body>
