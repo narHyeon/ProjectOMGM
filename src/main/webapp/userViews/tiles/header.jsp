@@ -247,13 +247,15 @@
 		<c:if test="${member.name != null}">
 			<script>
 				document.querySelector('.login_membership').innerHTML =
-						`<li id="header_myInfo"><a href="myPage.do">myInfo</a>
-<ul id="infoslo">
-<li>1번 목록</li>
-<li>2번 목록</li>
-<li>3번 목록</li>
-</ul></li>
-                     <li><p>|</p></li>
+					`<li><a href="myPage.do">myInfo</a></li>
+					<ul id="header_myInfo">
+						<div></div>
+						<li>내 정보</li>
+						<li>서비스 정보</li>
+						<li>구매정보</li>
+						<li>냥박일지</li>
+					</ul>
+                     	<li><p>|</p></li>
                      <li><a href="#" onclick="logOut()">logout</a></li>`;
 				window.addEventListener('DOMContentLoaded',() => {
 					loginSocket('${member.id}');
@@ -263,16 +265,3 @@
 	</c:if>
 </body>
 </html>
-<style>
-	#infoslo {
-		position: absolute;
-		top: 65px;
-		right: 100px;
-		background-color: white;
-	}
-	#infoslo li {
-		padding: 0;
-		margin:10px;
-		color: pink;
-	}
-</style>

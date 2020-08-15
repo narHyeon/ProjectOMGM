@@ -477,11 +477,13 @@ function chatting(id) {
 }
 
 
-// 내 정보
 
+// 내 정보
 function myInfo() {
-    const info = document.querySelector('#header_myInfo');
-    const ul = document.createElement('ul');
-    ul.setAttribute()
 }
+
+window.addEventListener('click',() => {
+    const info = document.querySelector('#header_myInfo');
+    info.style.display = 'none';
+});
 
