@@ -1,9 +1,9 @@
 package com.omgm.admin.management.review.controller;
 
-import com.omgm.admin.management.review.beans.beans.PageNavigator;
-import com.omgm.admin.management.review.beans.beans.ReviewReplyVO;
-import com.omgm.admin.management.review.beans.beans.ReviewVO;
 import com.omgm.admin.management.review.service.ReviewService;
+import com.omgm.user.review.beans.PageNavigator;
+import com.omgm.user.review.beans.ReviewReplyVO;
+import com.omgm.user.review.beans.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

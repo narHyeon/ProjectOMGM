@@ -1,8 +1,8 @@
 package com.omgm.admin.management.review.service;
 
-import com.omgm.admin.management.review.beans.beans.PageNavigator;
-import com.omgm.admin.management.review.beans.beans.ReviewReplyVO;
-import com.omgm.admin.management.review.beans.beans.ReviewVO;
+import com.omgm.user.review.beans.PageNavigator;
+import com.omgm.user.review.beans.ReviewReplyVO;
+import com.omgm.user.review.beans.ReviewVO;
 
 import java.util.List;
 

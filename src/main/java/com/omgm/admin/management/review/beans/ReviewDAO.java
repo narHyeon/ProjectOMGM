@@ -1,6 +1,9 @@
-package com.omgm.admin.management.review.beans.beans;
+package com.omgm.admin.management.review.beans;
 
 import com.omgm.user.catcarelog.beans.CatCareLogVO;
+import com.omgm.user.review.beans.PageNavigator;
+import com.omgm.user.review.beans.ReviewReplyVO;
+import com.omgm.user.review.beans.ReviewVO;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
