@@ -61,26 +61,26 @@
 
 
                 if(order_img.indexOf(",") != -1){
-                    
+
                     var strArray = order_img.split(',');
                     for(const i in strArray){
                         document.querySelector('.boxImg').src="resources/img/product/"+strArray[0];
                     }
                     if(order_state == order_simple) {
-                        document.querySelector('.box-p-text').innerHTML = data.order_state + "입니다. 신속히 처리하겠습니다 ";
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "입니다. 신속히 처리하겠습니다 ";
                     } else if(order_state == order_simple01) {
-                        document.querySelector('.box-p-text').innerHTML = data.order_state + "중입니다. 신속히 처리하겠습니다 ";
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "중입니다. 신속히 처리하겠습니다 ";
                     } else if(order_state == order_simple02) {
-                        document.querySelector('.box-p-text').innerHTML = data.order_state + "했습니다. 이용해 주셔서 감사합니다 ";
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "했습니다. 이용해 주셔서 감사합니다 ";
                     }
                 }else{
                     document.querySelector('.boxImg').src="resources/img/product/"+data.order_img;
                     if(order_state == order_simple) {
-                        document.querySelector('.box-p-text').innerHTML = data.order_state + "입니다. 신속히 처리하겠습니다 ";
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "입니다. 신속히 처리하겠습니다 ";
                     } else if(order_state == order_simple01) {
-                        document.querySelector('.box-p-text').innerHTML = data.order_state + "중입니다. 신속히 처리하겠습니다 ";
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "중입니다. 신속히 처리하겠습니다 ";
                     } else if(order_state == order_simple02) {
-                        document.querySelector('.box-p-text').innerHTML = data.order_state + "했습니다. 이용해 주셔서 감사합니다 ";
+                        document.querySelector('.box-p-text').innerHTML = "<strong>"+data.order_state+"</strong>" + "했습니다. 이용해 주셔서 감사합니다 ";
                     }
                 }
 
