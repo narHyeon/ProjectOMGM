@@ -13,8 +13,7 @@ public interface ReviewService {
     List<ReviewVO> getReviewList(ReviewVO vo, PageNavigator navi);
     int selectCount();
 
-
-    // RoomService_M
-    List<ReviewVO> getListRoom(ReviewVO vo,PageNavigator navi);
+//    // RoomService_M
+//    List<ReviewVO> getListRoom(ReviewVO vo,PageNavigator navi);
 }
 

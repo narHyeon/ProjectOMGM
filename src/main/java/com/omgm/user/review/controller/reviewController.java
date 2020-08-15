@@ -1,9 +1,6 @@
 package com.omgm.user.review.controller;
 
-import com.omgm.admin.room.beans.RoomVO_M;
-import com.omgm.admin.room.service.RoomService_M;
-import com.omgm.user.catcarelog.beans.CatCareLogVO;
-import com.omgm.user.catcarelog.service.CatCareLogService;
+
 import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.review.beans.ReviewReplyVO;
 import com.omgm.user.review.beans.ReviewVO;
@@ -13,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,8 +44,7 @@ public class reviewController {
         int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
 
         PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
-        mav.setViewName("/review/reviewListBoard");
-        List<ReviewVO> list = reviewService.getListRoom(vo, navi);
+        List<ReviewVO> list = reviewService.getReviewList(vo, navi);
         System.out.println(list);
         mav.addObject("reviewList",list);
         mav.addObject("navi",navi);
@@ -100,19 +95,19 @@ public class reviewController {
         return mav;
     }
 
-    @ResponseBody
-    @PostMapping("/reviewWriteTest.do")
-    public void reviewWriteTest(MultipartFile file, HttpServletRequest request,
-                             HttpServletResponse response) throws Exception {
-        response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = response.getWriter();
-        String file_name = file.getOriginalFilename();
-        String server_file_name = fileDBName(file_name, save_folder);
-        System.out.println("server file : " + server_file_name);
-        file.transferTo(new File(save_folder + server_file_name));
-        out.println("resources/admin/img"+server_file_name);
-        out.close();
-    }
+//    @ResponseBody
+//    @PostMapping("/reviewWriteTest.do")
+//    public void reviewWriteTest(MultipartFile file, HttpServletRequest request,
+//                             HttpServletResponse response) throws Exception {
+//        response.setContentType("text/html;charset=utf-8");
+//        PrintWriter out = response.getWriter();
+//        String file_name = file.getOriginalFilename();
+//        String server_file_name = fileDBName(file_name, save_folder);
+//        System.out.println("server file : " + server_file_name);
+//        file.transferTo(new File(save_folder + server_file_name));
+//        out.println("resources/admin/img"+server_file_name);
+//        out.close();
+//    }
     private String fileDBName(String fileName, String saveFolder) {
         Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
