@@ -7,7 +7,7 @@ import com.omgm.user.review.beans.PageNavigator;
 
 public interface RoomService_M {
 
-	List<RoomVO_M> getListRoom(RoomVO_M vo, PageNavigator navi);
+	List<RoomVO_M> getListRoom(RoomVO_M vo, PageNavigator navi); //jury
 
 	int selectCountRoom(RoomVO_M vo);
 

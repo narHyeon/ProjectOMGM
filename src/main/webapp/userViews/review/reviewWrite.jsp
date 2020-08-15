@@ -39,8 +39,12 @@
             margin-bottom: 70px;
         }
 
+        #reviewPwd{
+            width: 30%;
+            height:30px;
+        }
     </style>
-    <script>
+    <script language="JavaScript">
 
         $(document).ready(function() {
             $('#summernote').summernote({
@@ -57,12 +61,21 @@
         const actionForm = document.getElementById("reviewWrite");
         const review_login = document.getElementById("login_id");
 
-        if(review_login.value === "") {
+        if('${member.id}' === "") {
             alert("로그인이 필요한 서비스입니다.");
-          //  actionForm.action = "reviewWrite.do";
-        } else{
-            actionForm.action = "insertReviewBoard.do";
+            location.replace("reviewListBoard.do");
+        }else if('#reviewPwd' === "") {
+            alert("비밀번호를 입력해주세요.");
         }
+
+        function ps(){
+            if (this.forms.pwd.type="password")
+                box.innerHTML="<input type=\"html\" name=\"pwd\" size=\"20\" value="+this.forms.pwd.value+">";
+            click.innerHTML="<a href=\"javascript:txt()\">숨기기</a>"}
+        function txt(){
+            if (this.forms.pwd.type="text")
+                box.innerHTML="<input type=\"password\" name=\"pwd\" size=\"20\" value="+this.forms.pwd.value+">";
+            click.innerHTML="<a href=\"javascript:ps()\">보기</a>"}
 
     </script>
 </head>
@@ -71,7 +84,10 @@
 <h2>글작성</h2><br><br><br>
 
 <div id="review_write">
-<form method="post" id="reviewWrite">
+<form method="post" id="reviewWrite" action="insertReviewBoard.do" name="forms" >
+    <span id=box><input type="password"  name="pwd"  id="reviewPwd" placeholder="비밀번호를 입력해주세요."/>
+    <span id=click><a href="javascript:ps()">보기</a></span>
+    <br><br>
     <input type="hidden" name="id"  id="login_id" placeholder="ID" value="${member.id}"/>
         <input id="title" type="text" name="title" placeholder="제목"/>
         <br><br>

@@ -89,10 +89,10 @@ public class AdminController {
     }
 
     //정산페이지 이동
-    @RequestMapping("/CalculateTest.mdo")
-    public ModelAndView CalculateTest(AdminVO vo) {
+    @RequestMapping("/calculateTest.mdo")
+    public ModelAndView calculateTest(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/calculate/CalculateTest");
+        mav.setViewName("/calculate/calculateTest");
         return mav;
     }
 
