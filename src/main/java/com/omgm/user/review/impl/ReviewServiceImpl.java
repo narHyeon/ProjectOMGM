@@ -70,7 +70,6 @@ public class ReviewServiceImpl implements ReviewService {
             for(String tag : tags) {
                 if (tag.contains("img src=")) {
                     list.add(tag);
-                    System.out.println("1"+tag);
                 }
             }
             for (int i = 0; i < list.size(); i++) {
@@ -78,12 +77,10 @@ public class ReviewServiceImpl implements ReviewService {
                 for(String tag : tags2) {
                     if (tag.contains("data:image")) {
                         list2.add(tag);
-                        System.out.println("2"+tag);
                     }
                 }
             }
             room.setImgRef(list2.get(0));
-            System.out.println("3"+list2.get(0));
 
         }
         return roomList;
