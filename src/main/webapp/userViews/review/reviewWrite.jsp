@@ -60,6 +60,7 @@
                 lang : "ko-KR", // 한글 설정
                 placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
             });
+            $('#summernote').summernote('code', '${review.content}');
         });
 
         const actionForm = document.getElementById("reviewWrite");
@@ -99,7 +100,7 @@
             <input id="review_title" type="text" name="title" placeholder="제목" required/>
             <br><br>
         <div id="review_content">
-            <textarea id="summernote" name="review_content"></textarea>
+            <textarea id="summernote" name="content"></textarea>
         </div><!-- end content -->
         <button class="review_write_button" type="submit">글 작성</button>
         <button class="review_write_button" type="button" onclick="window.location.href = 'reviewListBoard.do';">목록으로</button>

@@ -101,7 +101,7 @@
             <input id="review_title" type="text" name="title" placeholder="제목" required value="${vo.title}"/>
             <br><br>
         <div id="review_content">
-            <textarea id="summernote" name="review_content"></textarea>
+            <textarea id="summernote" name="content"></textarea>
         </div><!-- end content -->
         <button class="review_write_button" type="submit">글 수정</button>
         <button class="review_write_button" type="button" onclick="window.location.href = 'reviewListBoard.do';">목록으로</button>

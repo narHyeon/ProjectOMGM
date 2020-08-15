@@ -84,11 +84,9 @@ public class reviewController {
     @RequestMapping(value="/insertReviewBoard.do")
     public ModelAndView insertReviewBoard(ReviewVO vo) {
         ModelAndView mav = new ModelAndView();
+        System.out.println(vo);
         reviewService.insertReviewBoard(vo);
 
-//        List<ReviewVO> list = reviewService.getListRoom(vo);
-//
-//        mav.addObject("roomList",list);
         mav.setViewName("redirect:/reviewListBoard.do");
         return mav;
     }
