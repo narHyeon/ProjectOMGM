@@ -93,6 +93,7 @@
 .reviewList_img {
 	width: 100%;
 	height: auto;
+	min-height: 77%;
 	margin-bottom: 3%;
 }
 

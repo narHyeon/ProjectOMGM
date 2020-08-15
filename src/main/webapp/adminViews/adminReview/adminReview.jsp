@@ -78,7 +78,7 @@
         </ul>
     </div>
 </div>
-<form id="review_throw" action="reviewContent.do"></form>
+<form id="review_throw" action="reviewContent.mdo"></form>
 <script>
     function changeColor(counter){
         let value = document.getElementsByClassName('reviewList_page').value();
@@ -96,7 +96,7 @@
     }
 
     function reviewWrite() {
-        window.location.href = 'reviewWrite.do';
+        window.location.href = 'reviewWrite.mdo';
     }
 </script>
 </body>
