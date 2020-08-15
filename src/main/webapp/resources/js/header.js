@@ -476,3 +476,12 @@ function chatting(id) {
     setTimeout(() => document.querySelector('#chatting_input').focus(),50);
 }
 
+
+// 내 정보
+
+function myInfo() {
+    const info = document.querySelector('#header_myInfo');
+    const ul = document.createElement('ul');
+    ul.setAttribute()
+}
+

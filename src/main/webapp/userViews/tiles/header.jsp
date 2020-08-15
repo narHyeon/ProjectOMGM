@@ -247,7 +247,12 @@
 		<c:if test="${member.name != null}">
 			<script>
 				document.querySelector('.login_membership').innerHTML =
-						`<li><a href="myPage.do">myInfo</a></li>
+						`<li id="header_myInfo"><a href="myPage.do">myInfo</a>
+<ul id="infoslo">
+<li>1번 목록</li>
+<li>2번 목록</li>
+<li>3번 목록</li>
+</ul></li>
                      <li><p>|</p></li>
                      <li><a href="#" onclick="logOut()">logout</a></li>`;
 				window.addEventListener('DOMContentLoaded',() => {
@@ -258,3 +263,16 @@
 	</c:if>
 </body>
 </html>
+<style>
+	#infoslo {
+		position: absolute;
+		top: 65px;
+		right: 100px;
+		background-color: white;
+	}
+	#infoslo li {
+		padding: 0;
+		margin:10px;
+		color: pink;
+	}
+</style>
