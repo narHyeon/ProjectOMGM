@@ -42,15 +42,15 @@ public class ReviewDAO {
         return sqlSessionTemplate.selectOne("ReviewDAO.selectCount");
     }
 
-    public void updateCatCareLog(CatCareLogVO vo) {
-        sqlSessionTemplate.update("CatCareLogDAO.updateCatCareLog",vo);
-    }
+//    public void updateCatCareLog(CatCareLogVO vo) {
+//        sqlSessionTemplate.update("CatCareLogDAO.updateCatCareLog",vo);
+//    }
 
-    //RoomDAO_M
-    public List<ReviewVO> getListRoom(ReviewVO vo, PageNavigator navi) {
-        RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
-        return sqlSessionTemplate.selectList("ReviewDAO.selectListROOM", vo, rb);
-
-    }
+//    //RoomDAO_M
+//    public List<ReviewVO> getListRoom(ReviewVO vo, PageNavigator navi) {
+//        RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
+//        return sqlSessionTemplate.selectList("ReviewDAO.selectListROOM", vo, rb);
+//
+//    }
 
 }

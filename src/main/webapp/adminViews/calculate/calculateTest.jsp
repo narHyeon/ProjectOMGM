@@ -49,8 +49,8 @@
             display: flex;
             flex-direction: row;
         }
-        .mall_p_cal p:nth-child(1), .kinder_p_cal2 p:nth-child(1){
-            color:#0f9d58;
+        .mall_p_cal p:nth-child(1), .kinder_p_cal2 p:nth-child(1) {
+            color: #0f9d58;
             margin: 10px;
         }
         .mall_p_cal p:nth-child(2), .kinder_p_cal2 p:nth-child(2){
@@ -119,7 +119,7 @@
                     <canvas id="myPieChart"></canvas>
                 </div>
                 <hr>
-                <div class="kinder_p_cal2">
+                <div class="mall_p_cal2">
                     <p>주차별 최대 매출 : 900000원</p>
                     <p>주차별 최소 매출 :90000원</p>
                 </div>
@@ -128,23 +128,70 @@
     </div>
 </div>
 
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
-    </div>
-    <div id="mall_chart_bot" class="card-body">
-        <div>
-            <p style="color: #3c85dc; font-size: 19px;">Today : 10000000</p>
-            <br>
-            <p id="mall_date_pick">
-                2020sus 08월 15일 ~ 2020년 09월 14일의 매출현황</p>
+<%--복사--%>
+<div id="mall_chart">
+    <!-- Area Chart -->
+    <div id="mall_chart_graph" style="height: 200px; width: 900px;" class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
         </div>
-        <div id="kinder_dwm" class="text-right">
-            <p>DAY : 110000원</p>
-            <p>WEEK : 1000000원</p>
-            <p>MONTH : 100000000원</p>
+        <div id="mall_chart_bot" class="card-body">
+            <div>
+                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">Today : 10000000</p>
+                <br>
+                <p id="mall_date_pick" style="font-size: 17px;">
+                    2020년 08월 15일 ~ 2020년 09월 14일의 매출현황</p>
+            </div>
+            <div id="mall_dwm" class="text-right">
+                <p>DAY : 110000원</p>
+                <p>WEEK : 1000000원</p>
+                <p>MONTH : 100000000원</p>
+            </div>
         </div>
     </div>
+
+    &nbsp;&nbsp;&nbsp;
+    <div id="mall_chart_graph" style="height: 200px; width: 685px;" class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-info">판매현황</h6>
+        </div>
+        <div id="mall_chart_bot" class="card-body">
+            <div>
+                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">가장 많이 팔린 상품:<br> 냥냥이 사료 </p>
+                <br>
+                <p id="mall_date_pick" style="font-size: 17px;">
+                    가장 적게 팔린 상품:댕댕이 사료 </p>
+            </div>
+<%--            <div id="kinder_dwm" style="padding-top: 20px; padding-right: 120px;" class="text-center">--%>
+<%--                <p>장난감1 99개</p><br>--%>
+<%--                <p>사료2 6개</p>--%>
+<%--            </div>--%>
+            <div id="kinder_dwm" style="padding-top: 20px;" class="text-right">
+                <p> 99개</p><br>
+                <p>6개</p>
+            </div>
+        </div>
+    </div>
+<%--    <!--  -->--%>
+<%--    <div id="mall_chart_donut" style="height: 200px;" class="col-xl-4 col-lg-5">--%>
+<%--        <div class="card shadow mb-4">--%>
+<%--            <!-- Card Header - Dropdown -->--%>
+<%--            <div class="card-header py-3">--%>
+<%--                <h6 class="m-0 font-weight-bold text-info">판매현황</h6>--%>
+<%--            </div>--%>
+<%--            <!-- Card Body -->--%>
+<%--            <div class="card-body" style="height: 147px; width:700px;">--%>
+<%--                <div>--%>
+<%--                    <p style="color: #3c85dc; font-size: 19px;">가장 많이 팔린상품 : 사료1</p>--%>
+<%--                    <br>--%>
+<%--                    <p id="mall_date_pick">--%>
+<%--                        가장 적게 팔린상품 : 강아지사료2</p>--%>
+<%--                </div>--%>
+
+
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 </div>
 
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
@@ -170,6 +217,6 @@
 <%--        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;--%>
 <%--        else alert('날짜를 선택해주세요!');--%>
 <%--    }--%>
-</script>
+
 </body>
 </html>
