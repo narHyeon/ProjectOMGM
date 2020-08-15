@@ -56,4 +56,12 @@ public class ReviewDAO {
         sqlSessionTemplate.update("ReviewDAO.addCount",vo);
     }
 
+    public void updateReview(ReviewVO vo) {
+        sqlSessionTemplate.update("ReviewDAO.updateReview",vo);
+    }
+
+    public void deleteReview(ReviewVO vo) {
+        sqlSessionTemplate.delete("ReviewDAO.deleteReview",vo);
+    }
+
 }

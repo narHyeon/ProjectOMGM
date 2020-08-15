@@ -90,20 +90,20 @@
 </head>
 <body>
 
-<h2>글작성</h2><br><br><br>
+<h2>글수정</h2><br><br><br>
 
 <div id="review_write">
     <form method="post" id="reviewWrite" action="insertReviewBoard.do" name="forms" onsubmit="return writeReview()">
         <span id=review_box><input type="password"  name="pwd"  id="reviewPwd" placeholder="비밀번호를 입력해주세요." required/></span>
         <br><br>
         <input type="hidden" name="id"  id="login_id" placeholder="ID" value="${member.id}"/>
-            <input id="review_title" type="text" name="title" placeholder="제목" required/>
+            <input id="review_title" type="text" name="title" placeholder="제목" required value="${vo.title}"/>
             <br><br>
         <div id="review_content">
-            <textarea id="summernote" name="review_content"></textarea>
+            <textarea id="summernote" name="review_content">${vo.content}</textarea>
         </div><!-- end content -->
         <button class="review_write_button" type="button" onclick="window.location.href = 'reviewListBoard.do';">목록으로</button>
-        <button class="review_write_button" type="submit">글 작성</button>
+        <button class="review_write_button" type="submit">글 수정</button>
 
     </form>
 </div>

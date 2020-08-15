@@ -92,4 +92,25 @@ public class reviewController {
         mav.setViewName("redirect:/reviewListBoard.do");
         return mav;
     }
+
+    @RequestMapping("fixedReview")
+    public ModelAndView fixedReview(ReviewVO vo, ModelAndView mav) {
+        mav.setViewName("/review/reviewFix");
+        mav.addObject("vo",reviewService.getReview(vo));
+        return mav;
+    }
+
+    @RequestMapping("updateReview.do")
+    public ModelAndView updateReview(ReviewVO vo, ModelAndView mav) {
+        reviewService.updateReview(vo);
+        mav.setViewName("redirect:reviewListBoard.do");
+        return mav;
+    }
+
+    @RequestMapping("deleteReview.do")
+    public ModelAndView deleteReview(ReviewVO vo, ModelAndView mav) {
+        reviewService.deleteReview(vo);
+        mav.setViewName("redirect:reviewListBoard.do");
+        return mav;
+    }
 }

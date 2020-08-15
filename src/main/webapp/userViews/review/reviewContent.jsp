@@ -159,6 +159,8 @@
 		</table>
 		<div class="review_content_body">${review.content}</div>
 		<div class="review_content_button">
+			<button onclick="fixedReview()">글 수정</button>
+			<button onclick="deleteReview()">글 삭제</button>
 			<button onclick="reviewList()">목록</button>
 		</div>
 

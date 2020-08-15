@@ -14,6 +14,9 @@ public interface ReviewService {
     int selectCount();
     void addCount(ReviewVO vo);
 
+    void updateReview(ReviewVO vo);
+    void deleteReview(ReviewVO vo);
+
 
     // RoomService_M
     List<ReviewVO> getListRoom(ReviewVO vo,PageNavigator navi);
