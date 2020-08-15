@@ -70,7 +70,10 @@ public class reviewController {
         List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
         for(ReviewReplyVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
 
-        mav.addObject("review",reviewService.getReview(vo));
+        vo = reviewService.getReview(vo);
+        vo.set
+
+        mav.addObject("review",vo);
         mav.addObject("reply",list);
         return mav;
     }

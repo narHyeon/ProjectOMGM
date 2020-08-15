@@ -18,13 +18,22 @@
 
 #review_content button {
 	width: 100px;
-	border: 1px solid gray;
+	background-color: pink;
+	color: white;
+	border: 1px solid #cb5e6b;
+	height: 25px;
+	font-weight: 600;
+}
+#review_content button:hover {
+	cursor: pointer;
+	background-color: #cb5e6b;
 }
 
 #review_content .review_content_head {
 	width: 100%;
 	border-top: 2px solid #219af7;
-	border-bottom: 1px solid gray;
+	background-color: white;
+	border-bottom: 1px solid pink;
 	border-collapse: collapse;
 	text-align: center;
 	font-size: 12px;

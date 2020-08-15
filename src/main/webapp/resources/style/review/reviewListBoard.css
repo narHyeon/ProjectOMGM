@@ -66,8 +66,23 @@
 	border-top: 1px solid lightpink;
 	height: 30px;
 }
+
+.reviewList_line:hover {
+	cursor: pointer;
+ }
+
+.submit_button:hover, .button:hover {
+	cursor: pointer;
+	background-color: #cb5e6b;
+}
+
 .reviewList_button00 button {
-	height: 30px;
+	width: 100px;
+	background-color: pink;
+	color: white;
+	border: 1px solid #cb5e6b;
+	height: 25px;
+	font-weight: 600;
 }
 
 
@@ -133,9 +148,12 @@
 }
 
 .submit_button {
-	background-color: #F28888;
-	color: black;
-	border: 1px solid #F28888;
+	width: 100px;
+	background-color: pink;
+	color: white;
+	border: 1px solid #cb5e6b;
+	height: 22px;
+	font-weight: 600;
 }
 
 .reviewList_page {
