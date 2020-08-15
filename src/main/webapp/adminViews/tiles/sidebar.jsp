@@ -44,9 +44,8 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">운영관리:</h6>
-                <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 예정</a>
+                <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 보류</a>
 				<a class="collapse-item" href="cards.html">이용후기 - 예정</a>
-				<a class="collapse-item" href="cards.html">프로모션 - 보류</a>
 				<a class="collapse-item" href="cards.html">고객센터 - 예정</a>
             </div>
         </div>
@@ -142,7 +141,6 @@
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">판매:</h6>
 					<a class="collapse-item" href="productOrder.mdo">주문현황</a>
-					<a class="collapse-item" href="deliveryStatus.mdo">배송현황</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">관리:</h6>
 					<a class="collapse-item" href="blank.html">MALL 정산 - 예정</a>

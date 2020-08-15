@@ -119,7 +119,8 @@
 							can help me with a problem I've been having.</div>
 						<div class="small text-gray-500">Emily Fowler · 58m</div>
 					</div>
-				</a> <a class="dropdown-item d-flex align-items-center" href="#">
+				</a>
+				<a class="dropdown-item d-flex align-items-center" href="#">
 					<div class="dropdown-list-image mr-3">
 						<img class="rounded-circle"
 							src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">

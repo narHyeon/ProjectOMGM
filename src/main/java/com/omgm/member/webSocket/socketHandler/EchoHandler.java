@@ -21,13 +21,14 @@ public class EchoHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         sessionList.add(session);
         logger.info("{} 접속", session.getId());
-        System.out.println("입장"+session.getId());
+        System.out.println("입장: "+session.getId());
     }
 
     // 웹 소켓 서버로 데이터를 전송했을 경우
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        System.out.println("message"+session+" -:- "+message );
+        System.out.println("message: "+session+" -:- "+message );
+        System.out.println(message.getPayload());
         for(WebSocketSession sess : sessionList){
             TextMessage msg = new TextMessage(message.getPayload());
             sess.sendMessage(msg);
@@ -38,6 +39,6 @@ public class EchoHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         sessionList.remove(session);
-        System.out.println("퇴장"+session.getId());
+        System.out.println("퇴장: "+session.getId());
     }
 }

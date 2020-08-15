@@ -409,3 +409,81 @@ function kakaoPay(payment,url) {
         // console.log(rsp);
     });
 }
+
+
+let webSocket;
+let nickname;
+
+// 로그인 소켓
+function loginSocket(id) {
+    nickname = id;
+    connect();
+
+    function connect(){
+        webSocket = new WebSocket("ws://localhost:8080/chat.lo");
+        webSocket.onopen = onOpen;
+        webSocket.onclose = onClose;
+        webSocket.onmessage = onMessage;
+        console.log('접속이 열렸습니다!');
+    }
+
+    function onOpen(){
+        webSocket.send(nickname + "님이 입장하셨습니다.");
+    }
+    function onMessage(evt){
+        const field = document.querySelector('#chatting_field');
+        field.innerHTML += `<p>${evt.data}<br></p>`;
+
+        const height = document.querySelectorAll('#chatting_field p').length;
+        field.scrollTo({top:height*100, left:0, behavior:'auto'});
+    }
+    function onClose(){
+        console.log('접속이 닫혔습니다!');
+    }
+}
+
+function send(){
+    if(webSocket.readyState !== 1){
+        console.log(webSocket.readyState);
+        return;
+    }
+    const input = document.querySelector('#chatting_input')
+    const msg = input.value;
+    webSocket.send(nickname + " : " + msg);
+    input.value = '';
+}
+
+function enterSend(event) {
+    if (event.keyCode !== 13) return;
+    send();
+}
+
+function logOut() {
+    if(webSocket !== null) {
+        webSocket.send(nickname + "님이 퇴장하셨습니다");
+        webSocket.close();
+    }
+    return window.location.href = 'logout.lo';
+}
+
+function chatting(id) {
+    if(id === '') {
+        alert('로그인을 먼저 해주세요!');
+        return;
+    }
+
+    document.querySelector('#chatting_modal').checked = true;
+    setTimeout(() => document.querySelector('#chatting_input').focus(),50);
+}
+
+
+
+// 내 정보
+function myInfo() {
+}
+
+window.addEventListener('click',() => {
+    const info = document.querySelector('#header_myInfo');
+    info.style.display = 'none';
+});
+

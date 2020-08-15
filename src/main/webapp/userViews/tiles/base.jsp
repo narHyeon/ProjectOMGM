@@ -129,12 +129,12 @@
 	</div>
 	<div id="MOVE_TOP_BTN" style=" cursor:pointer;" onclick="window.scrollTo(0,0);">TOP</div>
 	<div class="scroll_menu">
-		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i class="far fa-heart"></i></div>
+		<div class="wishlist_menu2" style="cursor:pointer;"><a href="#"></a><i onclick="chatting('${member.id}')" class="fas fa-comment-dots"></i></div>
 		<c:if test="${member != null}">
 		<a href="selectCartList.do?cartList_id=${member.id}"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
 		</c:if>
 		<c:if test="${member == null}">
-			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주시기 바랍니다.');" class="fas fa-shopping-cart"></i></div></a>
+			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주세요!');" class="fas fa-shopping-cart"></i></div></a>
 		</c:if>
 			<div id="create-channel-chat-button"></div>
 	</div>
