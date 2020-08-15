@@ -246,13 +246,6 @@
 			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
 			el.submit();
 		}
-
-		window.addEventListener('DOMContentLoaded',() => {
-			const xhr = new XMLHttpRequest();
-			xhr.open('POST','addCount.do',true);
-			xhr.setRequestHeader('content-type','application/json');
-			xhr.send(null);
-		});
     </script>
 </body>
 </html>
