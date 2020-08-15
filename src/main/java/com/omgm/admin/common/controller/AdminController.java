@@ -80,14 +80,6 @@ public class AdminController {
         return mav;
     }
 
-    //객실등록 페이지 이동
-    @RequestMapping("/hotelRegister.mdo")
-    public ModelAndView hotelRegister(AdminVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/hotel/hotelRegister");
-        return mav;
-    }
-
     //정산페이지 이동
     @RequestMapping("/calculateTest.mdo")
     public ModelAndView calculateTest(AdminVO vo) {

@@ -30,9 +30,6 @@
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
   <hr>
   <h3>관리자 개별 작업 페이지</h3>
-  <a href="hotelList.mdo">객실정보 페이지 이동 - 확인 바람</a>
-  <a href="hotelRegister.mdo">객실등록 페이지 이동 - 확인 바람</a>
-  <a href="adminReview.mdo">이용후기 관리 페이지 이동</a>
 
   <a href="roomList.mdo">방등록 페이지 이동</a>
   <a href="calculateTest.mdo">정산 관리 페이지 이동</a>
