@@ -9,6 +9,10 @@
 	font-family: 'noto-sans';
 }
 
+#review_content img {
+	width: 70% !important;
+}
+
 #review_content h1 {
 	font-size: 26px;
 	margin: 30px 0;
@@ -61,6 +65,8 @@
 }
 
 .review_content_button {
+	border-top: 2px solid pink;
+	padding: 5px;
 	text-align: right;
 }
 
@@ -77,6 +83,8 @@
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
+	margin-top: 20px;
+	border-top: 1px solid pink;
 }
 
 #review_content_reply_content_title {
@@ -150,7 +158,6 @@
 			</tr>
 		</table>
 		<div class="review_content_body">${review.content}</div>
-		<hr>
 		<div class="review_content_button">
 			<button onclick="reviewList()">목록</button>
 		</div>

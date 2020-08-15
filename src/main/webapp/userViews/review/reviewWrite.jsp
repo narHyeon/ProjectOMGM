@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
     <link rel="stylesheet" href="resources/style/review/reviewWrite.css">
@@ -24,19 +23,26 @@
             margin: auto;
         }
 
-        #title{
+        #review_title{
             width: 100%;
             height:30px;
         }
 
-        #writebtn{
+        #review_write_button{
             float: right;
-            padding: 7px 15px;
-            background-color: #F28888;
-            border: none;
-            color:white;
-            font-weight:bold;
-            margin-bottom: 70px;
+            width: 100px;
+            background-color: pink;
+            color: white;
+            border: 1px solid #cb5e6b;
+            height: 33px;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+
+        #review_write_button:hover {
+            cursor: pointer;
+            background-color: #cb5e6b;
         }
 
         #reviewPwd{
@@ -64,18 +70,23 @@
         if('${member.id}' === "") {
             alert("로그인이 필요한 서비스입니다.");
             location.replace("reviewListBoard.do");
-        }else if('#reviewPwd' === "") {
+        } else if('#reviewPwd' === "") {
             alert("비밀번호를 입력해주세요.");
         }
 
-        function ps(){
-            if (this.forms.pwd.type="password")
-                box.innerHTML="<input type=\"html\" name=\"pwd\" size=\"20\" value="+this.forms.pwd.value+">";
-            click.innerHTML="<a href=\"javascript:txt()\">숨기기</a>"}
-        function txt(){
-            if (this.forms.pwd.type="text")
-                box.innerHTML="<input type=\"password\" name=\"pwd\" size=\"20\" value="+this.forms.pwd.value+">";
-            click.innerHTML="<a href=\"javascript:ps()\">보기</a>"}
+        function writeReview() {
+            const pwd = document.querySelector(`#reviewPwd`);
+            const title = document.querySelector(`#review_title`);
+            const content = document.querySelector(`#summernote`);
+            console.log(content);
+            if(pwd.value === '') return false;
+            if(title.value === '') return false;
+            if(content.value === '') {
+                alert('내용을 작성해주세요!')
+                return false;
+            }
+            return true;
+        }
 
     </script>
 </head>
@@ -84,19 +95,18 @@
 <h2>글작성</h2><br><br><br>
 
 <div id="review_write">
-<form method="post" id="reviewWrite" action="insertReviewBoard.do" name="forms" >
-    <span id=box><input type="password"  name="pwd"  id="reviewPwd" placeholder="비밀번호를 입력해주세요."/>
-    <span id=click><a href="javascript:ps()">보기</a></span>
-    <br><br>
-    <input type="hidden" name="id"  id="login_id" placeholder="ID" value="${member.id}"/>
-        <input id="title" type="text" name="title" placeholder="제목"/>
+    <form method="post" id="reviewWrite" action="insertReviewBoard.do" name="forms" onsubmit="return writeReview()">
+        <span id=review_box><input type="password"  name="pwd"  id="reviewPwd" placeholder="비밀번호를 입력해주세요." required/></span>
         <br><br>
-    <div id="content">
-        <textarea id="summernote" name="content"></textarea>
-    </div><!-- end content -->
-    <button id="writebtn" type="submit">글 작성</button>
+        <input type="hidden" name="id"  id="login_id" placeholder="ID" value="${member.id}"/>
+            <input id="review_title" type="text" name="title" placeholder="제목" required/>
+            <br><br>
+        <div id="review_content">
+            <textarea id="summernote" name="review_content"></textarea>
+        </div><!-- end content -->
+        <button id="review_write_button" type="submit">글 작성</button>
 
-</form>
+    </form>
 </div>
 </body>
 </html>
