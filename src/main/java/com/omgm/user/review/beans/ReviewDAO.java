@@ -50,7 +50,10 @@ public class ReviewDAO {
     public List<ReviewVO> getListRoom(ReviewVO vo, PageNavigator navi) {
         RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
         return sqlSessionTemplate.selectList("ReviewDAO.selectListROOM", vo, rb);
+    }
 
+    public void addCount(ReviewVO vo) {
+        sqlSessionTemplate.update("ReviewDAO.addCount",vo);
     }
 
 }

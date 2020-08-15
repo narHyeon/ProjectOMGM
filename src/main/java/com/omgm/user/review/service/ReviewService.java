@@ -12,6 +12,7 @@ public interface ReviewService {
     void addReview(ReviewReplyVO rvo);
     List<ReviewVO> getReviewList(ReviewVO vo, PageNavigator navi);
     int selectCount();
+    void addCount(ReviewVO vo);
 
 
     // RoomService_M

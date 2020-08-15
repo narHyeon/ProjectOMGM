@@ -81,4 +81,8 @@
 		</if>
 		ORDER BY seq DESC
 	</select>
+
+	<update id="addCount" parameterType="ReviewVO">
+		UPDATE reviewBoard SET cnt = cnt+1 WHERE  seq = #{seq}
+	</update>
 </mapper>

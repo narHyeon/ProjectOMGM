@@ -141,12 +141,12 @@
 			<tr>
 				<td>제목</td>
 				<td>${review.title}</td>
-				<td>${review.regDate}</td>
+				<td>${review.formatDate}</td>
 			</tr>
 			<tr>
-				<td>대표이미지</td>
-				<td>${review.imgRef}</td>
+				<td>아이디</td>
 				<td>${review.id}</td>
+				<td>${review.cnt}</td>
 			</tr>
 		</table>
 		<div class="review_content_body">${review.content}</div>
@@ -184,15 +184,15 @@
 
 		<%-- 목차 --%>
 		<table class="review_content_head review_content_prne">
-			<tr onclick="prevContent('${review.prevTitle}')">
-				<td>이전</td>
-				<td>${review.prevTitle}</td>
-				<td>${review.prevDate}</td>
-			</tr>
 			<tr onclick="nextContent('${review.nextTitle}')">
-				<td>다음</td>
+				<td>이전</td>
 				<td>${review.nextTitle}</td>
-				<td>${review.nextDate}</td>
+				<td>${review.formatNextDate}</td>
+			</tr>
+			<tr onclick="prevContent('${review.prevTitle}')">
+				<td>다음</td>
+				<td>${review.prevTitle}</td>
+				<td>${review.formatPrevDate}</td>
 			</tr>
 		</table>
 	</div>
@@ -246,6 +246,13 @@
 			el.innerHTML = '<input type=hidden name=seq value='+(${review.nextSeq})+'>';
 			el.submit();
 		}
+
+		window.addEventListener('DOMContentLoaded',() => {
+			const xhr = new XMLHttpRequest();
+			xhr.open('POST','addCount.do',true);
+			xhr.setRequestHeader('content-type','application/json');
+			xhr.send(null);
+		});
     </script>
 </body>
 </html>

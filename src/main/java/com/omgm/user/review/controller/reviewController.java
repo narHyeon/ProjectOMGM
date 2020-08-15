@@ -66,12 +66,16 @@ public class reviewController {
         mav.setViewName("/review/reviewContent");
         rvo.setBoardSeq(vo.getSeq());
 
+        reviewService.addCount(vo);
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
         List<ReviewReplyVO> list = reviewService.getReviewReply(rvo);
         for(ReviewReplyVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
 
         vo = reviewService.getReview(vo);
-        vo.set
+        vo.setFormatDate(dateFormat.format(vo.getRegDate()));
+        if(vo.getPrevDate() != null) vo.setFormatPrevDate(dateFormat.format(vo.getPrevDate()));
+        if(vo.getNextDate() != null) vo.setFormatNextDate(dateFormat.format(vo.getNextDate()));
 
         mav.addObject("review",vo);
         mav.addObject("reply",list);

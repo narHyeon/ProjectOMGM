@@ -50,6 +50,10 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewDAO.selectCount();
     }
 
+    @Override
+    public void addCount(ReviewVO vo) {
+        reviewDAO.addCount(vo);
+    }
 
 
     //RoomServiceImpl_m

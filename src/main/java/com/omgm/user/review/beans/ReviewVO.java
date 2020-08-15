@@ -22,11 +22,10 @@ public @Data class ReviewVO {
     private int prevSeq;
     private String prevTitle;
     private Date prevDate;
+    private String formatPrevDate;
     // next content
     private int nextSeq;
     private String nextTitle;
     private Date nextDate;
-
-    public ReviewVO() {
-    }
+    private String formatNextDate;
 }
