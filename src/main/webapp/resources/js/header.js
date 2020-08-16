@@ -432,7 +432,7 @@ function loginSocket(id) {
     }
     function onMessage(evt){
         const field = document.querySelector('#chatting_field');
-        field.innerHTML += `<p>${evt.data}<br></p>`;
+        field.innerHTML += `<p>${evt.data}</p><br>`;
 
         const height = document.querySelectorAll('#chatting_field p').length;
         field.scrollTo({top:height*100, left:0, behavior:'auto'});
