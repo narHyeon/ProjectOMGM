@@ -847,8 +847,17 @@ input[id*="chatting_modal"]:checked + div {opacity:1;visibility:visible;}
 
 #chatting_field p{
 	margin: 2px 0;
+	font-size: 13px;
 }
 
+#chatting_header {
+	width: 100%;
+	text-align: center;
+	height: 45px;
+	padding: 15px;
+	background-color: pink;
+	color: white;
+}
 
 /* 내 정보 */
 #header_myInfo {
@@ -872,7 +881,6 @@ input[id*="chatting_modal"]:checked + div {opacity:1;visibility:visible;}
 	color: #808080;
 	font-size: 13px;
 }
-
 
 
 

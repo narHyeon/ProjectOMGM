@@ -220,6 +220,7 @@
 		<div>
 			<div>
 				<label for="chatting_modal"></label>
+				<div id="chatting_header">관리자와 대화</div>
 				<div id="chatting_field"></div>
 				<input type="text" id="chatting_input" onkeyup="enterSend(event)">
 				<button class="chatting_button" onclick="send()">전송</button>
