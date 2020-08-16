@@ -804,7 +804,7 @@ input[id*="chatting_modal"] {display:none;}
 input[id*="chatting_modal"] + div {position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;}
 input[id*="chatting_modal"] + div > div {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:500px;background:#fff;z-index:2;}
 input[id*="chatting_modal"] + div > div > label {position:absolute;top:0%;right:0%;transform:translate(40%,-40%);padding:20px;background:#dd5347;border-radius:100%;z-index:1;}
-input[id*="chatting_modal"] + div > label {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:1;}
+input[id*="chatting_modal"] + div > label {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1;}
 
 input[id*="chatting_modal"] + div {opacity:0;visibility:hidden;transition:all 0.3s;}
 input[id*="chatting_modal"]:checked + div {opacity:1;visibility:visible;}
