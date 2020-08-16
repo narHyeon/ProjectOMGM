@@ -476,15 +476,15 @@ function chatting(id) {
     setTimeout(() => document.querySelector('#chatting_input').focus(),50);
 }
 
-
-
-// 내 정보
-function myInfo() {
-}
-
-window.addEventListener('click',() => {
+window.addEventListener('click',(event) => {
     const info = document.querySelector('#header_myInfo');
     if(info === null) return;
+    else if(event.target.id === 'myInfo_menu') {
+        info.style.display = 'block';
+        return;
+    }
     info.style.display = 'none';
 });
+
+
 
