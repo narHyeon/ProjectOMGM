@@ -29,7 +29,8 @@ function loginSocket(id) {
     }
 }
 
-function send(){
+function send(event){
+    if(event !== undefined && event.button === 0) event.stopPropagation();
     if(webSocket.readyState !== 1){
         console.log(webSocket.readyState);
         return;

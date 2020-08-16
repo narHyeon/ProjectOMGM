@@ -2,6 +2,8 @@
 <style>
 	#admin_chatting_field {
 		height: 400px;
+		padding: 8px;
+		overflow-y: auto;
 	}
 	#admin_chatting button {
 		width: 100%;
@@ -116,8 +118,8 @@
 				aria-labelledby="messagesDropdown">
 				<h6 class="dropdown-header">Message Center</h6>
 				<div id="admin_chatting_field"></div>
-				<input onkeyup="enterSend(event)" class="form-control form-control-user admin_kindergarden_schedule_program" type="text">
-				<button onclick="send()" class="btn btn-info btn-user">전송</button>
+				<input id="chatting_input" onkeyup="enterSend(event)" class="form-control form-control-user admin_kindergarden_schedule_program" type="text">
+				<button onclick="send(event)" class="btn btn-info btn-user">전송</button>
 			</div></li>
 
 		<div class="topbar-divider d-none d-sm-block"></div>
