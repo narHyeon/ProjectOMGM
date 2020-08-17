@@ -6,6 +6,7 @@ import com.omgm.user.myInfo.service.MyInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -50,8 +51,10 @@ public class MyInfoController {
 
     @ResponseBody
     @RequestMapping("/checkPass.do")
-    public int CheckPass(MemberVO vo) {
-        myInfoService.deleteMember(vo);
-        return mav;
+    public int checkPass(@RequestBody MemberVO vo, int boo) {
+        MemberVO mvo = myInfoService.checkPass(vo);
+        if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) boo = 10;
+        else boo = 0;
+        return boo;
     }
 }

@@ -36,8 +36,7 @@
         DELETE FROM memebr where seq = {seq}
     </delete>
 
-    <select id="getMember" resultType="MemberVO"
-            parameterType="MemberVO">
+    <select id="checkPass" parameterType="MemberVO">
 		SELECT * FROM member WHERE seq = #{seq}
 	</select>
 

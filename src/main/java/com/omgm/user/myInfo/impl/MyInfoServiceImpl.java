@@ -29,7 +29,7 @@ public class MyInfoServiceImpl implements MyInfoService {
     }
 
     @Override
-    public int checkPass(MemberVO vo) {
-        return 0;
+    public MemberVO checkPass(MemberVO vo) {
+        return myInfoDAO.checkPass(vo);
     }
 }

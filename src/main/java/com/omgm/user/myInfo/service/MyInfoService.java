@@ -6,5 +6,5 @@ public interface MyInfoService {
     void updateMember(MemberVO vo);
     void updatePassword(MemberVO vo);
     void deleteMember(MemberVO vo);
-    int checkPass(MemberVO vo);
+    MemberVO checkPass(MemberVO vo);
 }

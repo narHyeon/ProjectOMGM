@@ -125,25 +125,29 @@
         if(pass2 === null) return;
         else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
         else if(pass1 !== pass2) return;
-        console.log('성공');
+        checkPass(pass1);
     }
     function fixedMember() {
         const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
         if(pass1 === null) return ;
         else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
-        const xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            if(xhr.status === 200) {
-
-            }
-        }
-
-        xhr.open('POST','fixedMember.do',true);
-        xhr.setRequestHeader('content-type','application/json');
-        xhr.send(JSON.stringify());
+        checkPass(pass1);
     }
     function deleteMember() {
 
+    }
+    function checkPass(pass) {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        }
+
+        xhr.open('POST','checkPass.do',true);
+        xhr.setRequestHeader('content-type','application/json');
+        const data = { pwd : pass };
+        xhr.send(JSON.stringify(data));
     }
 </script>
 </html>

@@ -23,7 +23,7 @@ public class MyInfoDAO {
         sqlSessionTemplate.update("MyInfoDAO.updatePassword", vo);
     }
 
-    public int CheckPass(MemberVO vo) {
-        sqlSessionTemplate.selectOne("")
+    public MemberVO checkPass(MemberVO vo) {
+        return sqlSessionTemplate.selectOne("MyInfoDAO.checkPass",vo);
     }
 }
