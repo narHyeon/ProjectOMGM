@@ -36,7 +36,6 @@ public class MyInfoController {
 
     @RequestMapping("/updatePassword.do")
     public ModelAndView updatePassword(MemberVO vo, ModelAndView mav) {
-        System.out.println(vo);
         vo.setPwd(bCryptPasswordEncoder.encode(vo.getPwd()));
         myInfoService.updatePassword(vo);
         mav.setViewName("/newInfo/myInfo");

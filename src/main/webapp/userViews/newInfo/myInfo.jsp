@@ -124,11 +124,11 @@
             const pass = prompt('비밀번호를 입력해주세요','Password');
             if(pass === null) return ;
             else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
-            checkPass(pass);
+            checkPass(pass,'${member.seq}');
         }
     }
 
-    function checkPass(pass) {
+    function checkPass(pass, seq) {
         const xhr = new XMLHttpRequest();
 
         xhr.onload = () => {
@@ -142,8 +142,7 @@
                 if(pass2 === null) return;
                 else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
                 else if(pass1 !== pass2) return alert('입력하신 비밀번호가 다릅니다!');
-                console.log('${member.seq}');
-                <%--return window.location.href = 'updatePassword.do?seq'+'${member.seq}'+'&pwd='+pass1;--%>
+                return window.location.href = 'updatePassword.do?seq='+seq+'&pwd='+pass1;
             }
         }
 
