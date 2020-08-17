@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%--
   Created by IntelliJ IDEA.
@@ -28,7 +29,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-m font-weight-bold text-primary text-uppercase mb-1">호텔예약</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">10건</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="mainAreaChartMallCount04">10건</div>
                         </div>
                         <div class="col-auto">
                             <i class="far fa-calendar-alt fa-2x text-gray-300"></i>
@@ -45,7 +46,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-m font-weight-bold text-success text-uppercase mb-1">유치원예약</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">10건</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="mainAreaChartMallCount05">10건</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-school fa-2x text-gray-300"></i>
@@ -61,10 +62,10 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-m font-weight-bold text-info text-uppercase mb-1">주문</div>
+                            <div class="text-m font-weight-bold text-info text-uppercase mb-1" >주문</div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">5건</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="mainAreaChartMallCount06">5건</div>
                                 </div>
                                 <div class="col">
 <%--                                                <div class="progress progress-sm mr-2">--%>
@@ -88,7 +89,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-m font-weight-bold text-warning text-uppercase mb-1">신규가입</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18명</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="mainAreaChartMallCount07">18명</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-plus fa-2x text-gray-300"></i>
@@ -128,7 +129,11 @@
                         <canvas id="myAreaChart"></canvas>
                     </div>
                     <hr>
-                    <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%; font-weight: 600; "> <code>주문:</code> 5000건 <code>회원가입:</code>500명 <code>유치원예약:</code>2,000,000원 <code>호텔예약:</code>9,000,000원</p>
+                    <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%; font-weight: 600;"> <code>주문:</code> <code id="mainAreaChartMallCount00"style="font-size: larger; color: #36b9cc">5000건</code>
+                        <code>회원가입:</code><code id="mainAreaChartMallCount01"style="font-size: larger; color: #36b9cc"></code>
+                        <code>유치원예약:</code>
+                        <code id="mainAreaChartMallCount02"style="font-size: larger; color: #36b9cc"></code>
+                        <code>호텔예약:</code><code id="mainAreaChartMallCount03"style="font-size: larger; color: #36b9cc"></code></p>
                 </div>
             </div>
 
@@ -140,22 +145,22 @@
                     <!-- 호텔 예약 현황 -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">호텔 예약 현황</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">금일 호텔 예약 현황</h6>
                         </div>
                         <div class="card-body">
-                            <div class="text-left" style="font-size:90%; font-weight:600;">
-                                <li>2020년 08월 17일 스위트드림룸 홍길동 페르시안</li>
-                                <li>2020년 08월 17일 화이트와인룸 손오공 스핑크스</li>
-                                <li>2020년 08월 17일 디즈니월드룸 나랑구 브리티시 숏헤어</li>
+                            <div class="text-left" id="mainAreaChartMallCount08" style="font-size:90%; font-weight:600;">
+                                <c:forEach var="RRList" items="${RRList}">
+                                    <li><fmt:formatDate value="${RRList.roomReservation_payDay}" pattern="yyyy-MM-dd"></fmt:formatDate> ${RRList.roomReservation_memberNo}번손님 ${RRList.roomReservation_roomNo}번방</li>
+                                </c:forEach>
                             </div>
-                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 3개의 예약이 있습니다!</p>
+                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;"></p>
                         </div>
                     </div>
 
                     <!-- 유치원 예약 현황 -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">유치원 예약 현황</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">금일 유치원 예약 현황</h6>
                         </div>
                         <div class="card-body">
                             <div class="text-left" style="font-size:90%; font-weight:600;">
@@ -191,7 +196,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Mall 주문 현황</h6>
+                <h6 class="m-0 font-weight-bold text-primary">금일 Mall 주문 현황</h6>
             </div>
             <div class="card-body">
                 <div class="text-left" style="font-size:90%; font-weight:600;">
@@ -265,18 +270,21 @@
             dataType: 'json',
             contentType: 'application/json',
             data: JSON.stringify({
-
                 order_address: '2020-'+i+'-01',
                 order_receiver: '2020-'+i+'-29',
             }),
             success: function (data) {
-
-                myLineChart.data.datasets[0].data[count-1] = data;
+                // alert(data.order_quantity);
+                document.querySelector('#mainAreaChartMallCount00').innerHTML=data.order_quantity+'건';
+                document.querySelector('#mainAreaChartMallCount01').innerHTML=data.order_point+'명';
+                document.querySelector('#mainAreaChartMallCount02').innerHTML=data.order_point_used+'원';
+                document.querySelector('#mainAreaChartMallCount03').innerHTML=data.order_no+'원';
+                myLineChart.data.datasets[0].data[count-1] = data.order_price;
                 myLineChart.update();
 
             },
             error: function (xhr) {
-                myLineChart.data.datasets[2].data[counts-1] = 0;
+                // myLineChart.data.datasets[2].data[counts-1] = 0;
             }
         });
     }
@@ -299,13 +307,13 @@
 
             },
             error: function (xhr) {
-                myLineChart.data.datasets[2].data[counts-1] = 0;
+                // myLineChart.data.datasets[2].data[counts-1] = 0;
             }
         });
     }
     // 호텔 예약 매출
     for(var i=1; i<13; i++) {
-        let counts = i;
+        let countss = i;
         $.ajax({
             type: 'POST',
             url: "getAreaChartMonthlySales02.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
@@ -317,11 +325,15 @@
                 roomReservation_pickupAddress: '2020-'+i+'-29',
             }),
             success: function (data) {
-                myLineChart.data.datasets[2].data[counts-1] = data;
+                document.querySelector('#mainAreaChartMallCount04').innerHTML=data.roomReservation_roomNo+'건';
+                document.querySelector('#mainAreaChartMallCount05').innerHTML=data.roomReservation_memberNo+'건';
+                document.querySelector('#mainAreaChartMallCount06').innerHTML=data.roomReservation_foodNo+'건';
+                document.querySelector('#mainAreaChartMallCount07').innerHTML=data.roomReservation_toyNo+'명';
+                myLineChart.data.datasets[2].data[countss-1] = data.roomReservation_no;
                 myLineChart.update();
             },
             error: function (xhr) {
-                myLineChart.data.datasets[2].data[counts-1] = 0;
+                myLineChart.data.datasets[2].data[countss-1] = 0;
             }
         });
     }
