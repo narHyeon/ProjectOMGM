@@ -29,6 +29,7 @@ public class MyInfoController {
 
     @RequestMapping("/updateMember.do")
     public ModelAndView updateMember(MemberVO vo, ModelAndView mav) {
+        System.out.println(vo);
         myInfoService.updateMember(vo);
         mav.setViewName("/newInfo/myInfo");
         return mav;

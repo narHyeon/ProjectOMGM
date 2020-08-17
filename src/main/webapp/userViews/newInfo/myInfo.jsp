@@ -183,15 +183,30 @@
             }
         }
 
+
+        let blank = false;
+        const list = document.querySelectorAll('#info_data_list li input');
+        list.forEach(item => {
+            if(item.value === '') {
+                return blank = true;
+            }
+        });
+        if(blank) return alert('입력하지 않은 사항이 있습니다!');
+        const data = {
+            seq : '${member.seq}',
+            name: list[2].value,
+            phone: list[3].value,
+            email: list[4].value,
+            zipcode: list[5].value,
+            address: list[6].value,
+            animal: list[9].value,
+            animalAge: list[10].value
+        };
+
         xhr.open('POST','updateMember.do',true);
         xhr.setRequestHeader('content-type','application/json');
-        const data = {
-            seq : '${member.seq}', // TODO: 고쳐야함 
-            pwd : pass
-        };
         xhr.send(JSON.stringify(data));
     }
-
 
     function deleteMember(type) {
         if(boo === false && type === '일반') {
@@ -202,7 +217,7 @@
         } else {
             const pass1 = confirm('정말 변경하시겠습니까?');
             if(!pass1) return ;
-            window.location.href = 'deleteMember.do?seq='+${member.seq};
+            window.location.href = 'deleteMember.do?seq='+'${member.seq}';
         }
     }
 </script>
