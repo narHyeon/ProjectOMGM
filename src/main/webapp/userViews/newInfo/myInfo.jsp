@@ -95,7 +95,7 @@
                 <li>반려동물</li>
                 <li>반려동물 나이</li>
             </ul>
-            <ul>
+            <ul id="info_data_list">
                 <li><input type="text" placeholder="아이디" value="${member.id}" disabled></li>
                 <li><input type="password" placeholder="비밀번호" value="12345678" disabled></li>
                 <li><input type="text" placeholder="이름" value="${member.name}"></li>
@@ -105,49 +105,93 @@
                 <li><input type="text" placeholder="주소" value="${member.address}"></li>
                 <li><input type="text" placeholder="포인트" value="${member.point}" disabled></li>
                 <li><input type="text" placeholder="회원등급" value="${member.rank}" disabled></li>
-                <li><input type="text" placeholder="반려동물" value="${member.animal}"></li>
+                <li><input type="text" required placeholder="반려동물" value="${member.animal}"></li>
                 <li><input type="text" placeholder="반려동물 나이" value="${member.animalAge}"></li>
             </ul>
         </div>
     </div>
     <div id="info_my_button">
-        <button onClick="fixedPass()">비밀번호 변경</button>
-        <button onclick="fixedMember()">수정</button>
-        <button onclick="deleteMember()">탈퇴</button>
+        <button onClick="fixedPass('${member.type}')">비밀번호 변경</button>
+        <button onclick="updateMember('${member.type}')">수정</button>
+        <button onclick="deleteMember('${member.type}')">탈퇴</button>
     </div>
 </body>
 <script>
-    function fixedPass() {
-        const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
-        if(pass1 === null) return ;
-        else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
-        const pass2 = prompt('변경하실 비밀번호를 다시 한번 입력해주세요','Password');
-        if(pass2 === null) return;
-        else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
-        else if(pass1 !== pass2) return;
-        checkPass(pass1);
-    }
-    function fixedMember() {
-        const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
-        if(pass1 === null) return ;
-        else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
-        checkPass(pass1);
-    }
-    function deleteMember() {
+    let boo = false;
 
+    function fixedPass(type) {
+        if(boo === false || type === '일반') {
+            const pass = prompt('비밀번호를 입력해주세요','Password');
+            if(pass === null) return ;
+            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            checkPass(pass);
+        }
     }
+
     function checkPass(pass) {
         const xhr = new XMLHttpRequest();
+
         xhr.onload = () => {
             if(xhr.status === 200) {
-                console.log(xhr.responseText);
+                if(xhr.responseText !== '10') return alert('잘못된 비밀번호입니다!');
+                boo = true;
+                const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
+                if(pass1 === null) return ;
+                else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
+                const pass2 = prompt('변경하실 비밀번호를 다시 한번 입력해주세요','Password');
+                if(pass2 === null) return;
+                else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
+                else if(pass1 !== pass2) return alert('입력하신 비밀번호가 다릅니다!');
+                console.log('${member.seq}');
+                <%--return window.location.href = 'updatePassword.do?seq'+'${member.seq}'+'&pwd='+pass1;--%>
             }
         }
-        console.log('${member.seq}');
 
         xhr.open('POST','checkPass.do',true);
         xhr.setRequestHeader('content-type','application/json');
         const data = { seq : '${member.seq}', pwd : pass };
+        xhr.send(JSON.stringify(data));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function updateMember(type) {
+        if(type === '일반') {
+            const pass1 = prompt('비밀번호를 입력해주세요','Password');
+            if(pass1 === null) return ;
+            else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            if (checkPass(pass1)) return window.location.href = 'updateMember.do';
+        } else {
+            const pass1 = confirm('정말 변경하시겠습니까?');
+            if(!pass1) return ;
+            return window.location.href = 'updateMember.do';
+        }
+    }
+
+    function deleteMember() {
+
+    }
+
+    function updateData(data,url) {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+                return window.location.href = 'myInfo.do';
+            }
+        }
+
+        xhr.open('POST',url,true);
+        xhr.setRequestHeader('content-type','application/json');
         xhr.send(JSON.stringify(data));
     }
 </script>
