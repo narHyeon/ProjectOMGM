@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MyInfoController {
@@ -29,9 +30,10 @@ public class MyInfoController {
 
     @ResponseBody
     @RequestMapping("/updateMember.do")
-    public void updateMember(@RequestBody MemberVO vo) {
-        System.out.println(vo);
+    public void updateMember(@RequestBody MemberVO vo, HttpSession session) {
         myInfoService.updateMember(vo);
+        session.setAttribute('member',myInfoService.checkPass(vo));
+
     }
 
     @RequestMapping("/updatePassword.do")
