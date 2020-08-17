@@ -876,6 +876,11 @@ input[id*="chatting_modal"]:checked + div {opacity:1;visibility:visible;}
 	font-size: 13px;
 }
 
+#header_myInfo li a:hover {
+	cursor: pointer;
+	color: #F28888;
+}
+
 
 
 
