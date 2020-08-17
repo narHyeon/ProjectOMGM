@@ -111,9 +111,39 @@
         </div>
     </div>
     <div id="info_my_button">
-        <button>비밀번호 변경</button>
-        <button>수정</button>
-        <button>탈퇴</button>
+        <button onClick="fixedPass()">비밀번호 변경</button>
+        <button onclick="fixedMember()">수정</button>
+        <button onclick="deleteMember()">탈퇴</button>
     </div>
 </body>
+<script>
+    function fixedPass() {
+        const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
+        if(pass1 === null) return ;
+        else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
+        const pass2 = prompt('변경하실 비밀번호를 다시 한번 입력해주세요','Password');
+        if(pass2 === null) return;
+        else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
+        else if(pass1 !== pass2) return;
+        console.log('성공');
+    }
+    function fixedMember() {
+        const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
+        if(pass1 === null) return ;
+        else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+
+            }
+        }
+
+        xhr.open('POST','fixedMember.do',true);
+        xhr.setRequestHeader('content-type','application/json');
+        xhr.send(JSON.stringify());
+    }
+    function deleteMember() {
+
+    }
+</script>
 </html>

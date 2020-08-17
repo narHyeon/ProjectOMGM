@@ -27,4 +27,9 @@ public class MyInfoServiceImpl implements MyInfoService {
     public void deleteMember(MemberVO vo) {
         myInfoDAO.deleteMember(vo);
     }
+
+    @Override
+    public int checkPass(MemberVO vo) {
+        return 0;
+    }
 }

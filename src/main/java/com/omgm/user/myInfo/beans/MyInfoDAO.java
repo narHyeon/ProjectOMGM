@@ -12,14 +12,18 @@ public class MyInfoDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     public void updateMember(MemberVO vo) {
-        sqlSessionTemplate.update("myInfoDAO.updateMember", vo);
+        sqlSessionTemplate.update("MyInfoDAO.updateMember", vo);
     }
 
     public void deleteMember(MemberVO vo) {
-        sqlSessionTemplate.update("myInfoDAO.deleteMember", vo);
+        sqlSessionTemplate.update("MyInfoDAO.deleteMember", vo);
     }
 
     public void updatePassword(MemberVO vo) {
-        sqlSessionTemplate.update("myInfoDAO.updatePassword", vo);
+        sqlSessionTemplate.update("MyInfoDAO.updatePassword", vo);
+    }
+
+    public int CheckPass(MemberVO vo) {
+        sqlSessionTemplate.selectOne("")
     }
 }
