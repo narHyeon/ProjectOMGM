@@ -246,6 +246,7 @@
     </div>
     </div>
 </div>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <!-- Page level plugins -->
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
@@ -254,3 +255,31 @@
 <script src="resources/admin/js/main/chart-bar-demo.js"></script>
 <%--<script src="resources/admin/js/demo/chart-pie-demo.js"></script>--%>
 <script src="resources/admin/js/main/chart-area-demo.js"></script>
+<script>
+    $ = jQuery;
+
+    for(var i=1; i<13; i++) {
+        let count = i;
+        $.ajax({
+            type: 'POST',
+            url: "getAreaChartMonthlySales.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+
+                order_address: '2020-'+i+'-01',
+                order_receiver: '2020-'+i+'-29',
+            }),
+            success: function (data) {
+
+                myLineChart.data.datasets[0].data[count-1] = data;
+                myLineChart.update();
+
+            },
+            error: function (xhr) {
+
+            }
+        });
+    }
+</script>
+

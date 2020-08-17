@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminMainDAO">
+    <resultMap type="OrderVO" id="order_list">
+        <id property="order_no" column="ORDER_NO" />
+        <result property="order_id" column="ORDER_ID" />
+        <result property="order_date" column="ORDER_DATE" />
+        <result property="order_state" column="ORDER_STATE" />
+        <result property="order_phone" column="ORDER_PHONE" />
+        <result property="order_price" column="ORDER_PRICE" />
+        <result property="order_address" column="ORDER_ADDRESS" />
+        <result property="order_receiver" column="ORDER_RECEIVER" />
+        <result property="order_memo" column="ORDER_MEMO" />
+        <result property="order_zipcode" column="ORDER_ZIPCODE" />
+        <result property="order_point_used" column="ORDER_POINT_USED" />
+        <result property="order_name" column="ORDER_NAME" />
+        <result property="order_quantity" column="ORDER_QUANTITY" />
+        <result property="order_img" column="ORDER_IMG" />
+        <result property="order_tn" column="ORDER_TN" />
+    </resultMap>
+
+<!--    메인페이지 areaChart 값 불러오기(월 매출)-->
+    <select id="getAreaChartMonthlySales" parameterType="OrderVO" resultType="int">
+        select sum(ORDER_PRICE) from ORDER_LIST where order_date between #{order_address} and last_day(#{order_receiver})
+    </select>
+</mapper>
