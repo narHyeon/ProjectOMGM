@@ -151,6 +151,7 @@
                 switch(key) {
                     case 'pass': updatePassword(seq); break;
                     case 'member': updateMember(seq); break;
+                    case 'delete': window.location.href = 'deleteMember.do?seq='+'${member.seq}';
                 }
             }
         }

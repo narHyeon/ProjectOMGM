@@ -33,7 +33,7 @@
     </update>
 
     <delete id="deleteMember" parameterType="MemberVO">
-        DELETE FROM memebr where seq = {seq}
+        DELETE FROM member where seq = #{seq}
     </delete>
 
     <select id="checkPass" parameterType="MemberVO" resultType="MemberVO">

@@ -44,9 +44,10 @@ public class MyInfoController {
     }
 
     @RequestMapping("/deleteMember.do")
-    public ModelAndView deleteMember(MemberVO vo, ModelAndView mav) {
+    public ModelAndView deleteMember(MemberVO vo, ModelAndView mav, HttpSession session) {
+        session.invalidate();
         myInfoService.deleteMember(vo);
-        mav.setViewName("/newInfo/myInfo");
+        mav.setViewName("/main");
         return mav;
     }
 
