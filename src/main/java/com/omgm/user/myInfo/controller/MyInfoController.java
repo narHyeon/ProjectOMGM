@@ -1,7 +1,6 @@
 package com.omgm.user.myInfo.controller;
 
 import com.omgm.member.beans.MemberVO;
-import com.omgm.user.myInfo.beans.MyInfoDAO;
 import com.omgm.user.myInfo.service.MyInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -51,10 +50,10 @@ public class MyInfoController {
 
     @ResponseBody
     @RequestMapping("/checkPass.do")
-    public int checkPass(@RequestBody MemberVO vo, int boo) {
+    public int checkPass(@RequestBody MemberVO vo) {
+        int boo = 0;
         MemberVO mvo = myInfoService.checkPass(vo);
         if(mvo != null && bCryptPasswordEncoder.matches(vo.getPwd(), mvo.getPwd())) boo = 10;
-        else boo = 0;
         return boo;
     }
 }

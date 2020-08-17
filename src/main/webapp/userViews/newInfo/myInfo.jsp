@@ -143,10 +143,11 @@
                 console.log(xhr.responseText);
             }
         }
+        console.log('${member.seq}');
 
         xhr.open('POST','checkPass.do',true);
         xhr.setRequestHeader('content-type','application/json');
-        const data = { pwd : pass };
+        const data = { seq : '${member.seq}', pwd : pass };
         xhr.send(JSON.stringify(data));
     }
 </script>
