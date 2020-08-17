@@ -106,7 +106,7 @@
                 <li><input type="text" placeholder="포인트" value="${member.point}" disabled></li>
                 <li><input type="text" placeholder="회원등급" value="${member.rank}" disabled></li>
                 <li><input type="text" required placeholder="반려동물" value="${member.animal}"></li>
-                <li><input type="text" placeholder="반려동물 나이" value="${member.animalAge}"></li>
+                <li><input type="number" placeholder="반려동물 나이" value="${member.animalAge}"></li>
             </ul>
         </div>
     </div>

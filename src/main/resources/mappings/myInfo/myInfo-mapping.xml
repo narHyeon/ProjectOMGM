@@ -25,7 +25,7 @@
 
     <update id="updateMember" parameterType="MemberVO">
         UPDATE member SET name = #{name}, phone = #{phone}, email = #{email}, zipcode = #{zipcode},
-         address = #{address}, animal = {animal}, animalAge = #{animalAge} WHERE seq = #{seq}
+         address = #{address}, animal = #{animal}, animal_age = #{animalAge} WHERE seq = #{seq}
     </update>
 
     <update id="updatePassword" parameterType="MemberVO">
