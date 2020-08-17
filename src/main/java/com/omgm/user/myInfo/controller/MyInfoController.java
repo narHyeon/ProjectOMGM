@@ -32,8 +32,7 @@ public class MyInfoController {
     @RequestMapping("/updateMember.do")
     public void updateMember(@RequestBody MemberVO vo, HttpSession session) {
         myInfoService.updateMember(vo);
-        session.setAttribute('member',myInfoService.checkPass(vo));
-
+        session.setAttribute("member",myInfoService.checkPass(vo));
     }
 
     @RequestMapping("/updatePassword.do")
