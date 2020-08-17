@@ -25,6 +25,7 @@
   <h3>클라이언트 개별 작업 페이지</h3>
   <a href="chatting.lo">webSocket 테스트</a>
   <a href="deliveryStatus.do">배송현황</a>
+  <a href="myInfo.do">내 정보</a>
   <hr>
   <h2>관리자 페이지</h2>
   <a href="adminMain.mdo">관리자 메인 화면 이동</a>
