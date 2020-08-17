@@ -11,7 +11,7 @@ public class Scheduler {
 //    초 분 시 일 월 요일
     @Scheduled(fixedDelay = 1000)
     public void autoUpdate() {
-        System.out.println("test12");
+
     }
 
     public static void main(String[] args) {

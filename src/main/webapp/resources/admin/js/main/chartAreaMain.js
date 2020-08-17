@@ -34,7 +34,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
     datasets: [{
-      label: "주문",
+      label: "Mall_상품",
       lineTension: 0.3,
       backgroundColor: "rgba(0,0,0,0)",
       borderColor: "rgba(54,185,204,1)",
@@ -48,21 +48,6 @@ var myLineChart = new Chart(ctx, {
       pointBorderWidth: 2,
       data: [0, 10000, 3000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
     },
-      {
-        label: "신규가입",
-        lineTension: 0.3,
-        backgroundColor: "rgba(0,0,0,0)",
-        borderColor: "rgba(246,194,62,1)",
-        pointRadius: 3,
-        pointBackgroundColor: "rgba(78, 115, 223, 1)",
-        pointBorderColor: "rgba(78, 115, 223, 1)",
-        pointHoverRadius: 3,
-        pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-        pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-        pointHitRadius: 10,
-        pointBorderWidth: 2,
-        data: [0, 20000, 7000, 13000, 10500, 20000, 15000, 25000, 20000, 30000, 25000, 8000],
-      },
       {
         label: "유치원예약",
         lineTension: 0.3,
@@ -91,7 +76,7 @@ var myLineChart = new Chart(ctx, {
         pointHoverBorderColor: "rgba(78, 115, 223, 1)",
         pointHitRadius: 10,
         pointBorderWidth: 2,
-        data: [0, 20000, 2000, 13000, 10000, 20000, 45000, 25000, 20000, 15000, 25000, 4000],
+        data: [500000, 200000, 20000, 1300000, 100000, 200000, 1000000, 800000, 20000, 0, 0, 0],
       }
     ],
 

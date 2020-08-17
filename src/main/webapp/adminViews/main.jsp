@@ -250,14 +250,13 @@
 
 <!-- Page level plugins -->
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
-
 <!-- Page level custom scripts -->
-<script src="resources/admin/js/main/chart-bar-demo.js"></script>
+<script src="resources/admin/js/main/chartBarMain.js"></script>
 <%--<script src="resources/admin/js/demo/chart-pie-demo.js"></script>--%>
-<script src="resources/admin/js/main/chart-area-demo.js"></script>
+<script src="resources/admin/js/main/chartAreaMain.js"></script>
 <script>
     $ = jQuery;
-
+    // 상품 몰 매출
     for(var i=1; i<13; i++) {
         let count = i;
         $.ajax({
@@ -277,9 +276,56 @@
 
             },
             error: function (xhr) {
-
+                myLineChart.data.datasets[2].data[counts-1] = 0;
             }
         });
     }
+    // 유치원 예약 매출
+    for(var i=1; i<13; i++) {
+        let counts = i;
+        $.ajax({
+            type: 'POST',
+            url: "getAreaChartMonthlySales01.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+
+                zipcode: '2020-'+i+'-01',
+                address: '2020-'+i+'-29',
+            }),
+            success: function (data) {
+                myLineChart.data.datasets[1].data[counts-1] = data;
+                myLineChart.update();
+
+            },
+            error: function (xhr) {
+                myLineChart.data.datasets[2].data[counts-1] = 0;
+            }
+        });
+    }
+    // 호텔 예약 매출
+    for(var i=1; i<13; i++) {
+        let counts = i;
+        $.ajax({
+            type: 'POST',
+            url: "getAreaChartMonthlySales02.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+
+                roomReservation_pickupYn: '2020-'+i+'-01',
+                roomReservation_pickupAddress: '2020-'+i+'-29',
+            }),
+            success: function (data) {
+                myLineChart.data.datasets[2].data[counts-1] = data;
+                myLineChart.update();
+            },
+            error: function (xhr) {
+                myLineChart.data.datasets[2].data[counts-1] = 0;
+            }
+        });
+    }
+
 </script>
+
 

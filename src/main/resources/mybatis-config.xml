@@ -7,6 +7,8 @@
 		<setting name="cacheEnabled" value="false" />
 	</settings>
 	<typeAliases>
+		<!--	메인화면	-->
+		<typeAlias alias="RoomReservationVO" type="com.omgm.admin.main.beans.RoomReservationVO" />
 		<!--	회원관련	-->
 		<typeAlias alias="MemberVO" type="com.omgm.member.beans.MemberVO"/>
 		<typeAlias alias="ManagementVO" type="com.omgm.admin.memberManagement.beans.ManagementVO"/>
