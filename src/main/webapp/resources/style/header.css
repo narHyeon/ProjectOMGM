@@ -790,12 +790,6 @@ input[id*="sns_popup"]:checked ~ div {
 }
 
 
-
-
-
-
-
-
 /* 채팅 모달 */
 
 input[id*="chatting_modal"] {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);} /* 예제파일 확인시 가운데 정렬 스타일 - 삭제 후 사용하세요 */

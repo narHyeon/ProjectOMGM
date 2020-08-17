@@ -113,7 +113,7 @@
 			<form action="#" class="signup-form" onsubmit="return joinCheck(event)">
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
-					<input name="id" type="text" required autocomplete=off>
+					<input id="join_id_input" name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID"></span>
 				</div>
 				<input type="button" class="checkbtn" value="check" onclick="idCheck(false)">
@@ -188,7 +188,7 @@
 				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
 				<div class="txtbox"> <!-- ID필드-->
-					<input name="id" type="text" required autocomplete=off>
+					<input id="login_id_input" name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID" ></span>
 				</div>
 

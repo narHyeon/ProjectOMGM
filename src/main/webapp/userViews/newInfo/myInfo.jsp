@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <style>
@@ -111,7 +112,9 @@
         </div>
     </div>
     <div id="info_my_button">
-        <button onClick="fixedPass('${member.type}')">비밀번호 변경</button>
+        <c:if test="${member.type == '일반'}">
+            <button onClick="fixedPass('${member.type}')">비밀번호 변경</button>
+        </c:if>
         <button onclick="fixedMember('${member.type}')">수정</button>
         <button onclick="deleteMember('${member.type}')">탈퇴</button>
     </div>
@@ -216,7 +219,7 @@
             else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
             return checkPass(pass, '${member.seq}','delete');
         } else {
-            const pass1 = confirm('정말 변경하시겠습니까?');
+            const pass1 = confirm('정말 탈퇴하시겠습니까?');
             if(!pass1) return ;
             window.location.href = 'deleteMember.do?seq='+'${member.seq}';
         }

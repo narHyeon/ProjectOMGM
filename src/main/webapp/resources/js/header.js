@@ -29,6 +29,8 @@ function signUp(event) {
             sign.blur();
             sign.classList.remove('focus');
         });
+    setTimeout(() => document.querySelector('#join_id_input').focus(),50);
+
 }
 
 // 로그인 버튼
@@ -36,6 +38,7 @@ function login(event) {
     event.preventDefault();
     document.querySelector('#popup').checked = false;
     document.querySelector('#login_popup').checked = true;
+    setTimeout(() => document.querySelector('#login_id_input').focus(),50);
 }
 
 
