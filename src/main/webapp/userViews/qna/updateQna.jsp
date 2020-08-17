@@ -29,6 +29,7 @@
 	border-bottom: 2px solid #FFABB9;
 	text-align: center;
 	margin-bottom: 50px;
+	
 }
 
 #m-bar {

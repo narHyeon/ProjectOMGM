@@ -534,7 +534,6 @@ $(document).ready(function(){
 </script>
 
 <body>
-
 	<div id="qna_wrap">
 		<h1 id="qna_head">Q and A</h1>
 		<div id="qna_body">
@@ -611,23 +610,25 @@ $(document).ready(function(){
 	</div>
 
 </body>
+
 <div id="ex1" class="modal">
 
 	<div id="m-wrap">
 		<div id="m-head">
 			<h1 align="center">QNA</h1>
 		</div>
+		<form action="qnaList.do" method="POST">
 		<div id="m-bar">
-			<div id="m-bar-content1">
-				문의 유형 <select id="selectstyle">
+			<div id="m-bar-content2">
+				문의 유형 <select id="selectstyle" name="QNA_TYPE">
 
 					<option value>문의 유형 선택</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
+					<option value="상품">상품</option>
+					<option value="유치원">유치원</option>
+					<option value="환불">환불</option>
+					<option value="반품">반품</option>
+					<option value="등">등</option>
+					<option value="등">등</option>
 
 				</select>
 			</div>
@@ -636,44 +637,44 @@ $(document).ready(function(){
 		<div id="m-bar1">
 			작성자
 			<div id="m-bar-content2">
-				<input id="m-inputstyle" type="text">
+				<input id="m-inputstyle" type="text" name="QNA_NAME">
 			</div>
 		</div>
 
 		<div id="m-bar2">
 			휴대전화
-
 			<div id="m-bar-content3">
-				<input id="m-inputstylephone" type="text">
+				<input id="m-inputstyle" type="text" name="QNA_PHONE">
 			</div>
 		</div>
 
 		<div id="m-bar3">
 			이메일
-
 			<div id="m-bar-content5">
-				<input id="m-inputstylemail" type="text">
+				<input id="m-inputstyle" type="text" name="QNA_EMAIL">
 			</div>
 		</div>
 
 		<div id="m-bar2">
 			제목
-
 			<div id="m-bar-content5">
-				<input id="m-inputstyle" type="text">
+				<input id="m-inputstyle" type="text" name="QNA_TITLE">
 			</div>
 		</div>
 
 		<div id="m-bar4">
 			문의내용
 			<div id="m-bar-content6">
-				<textarea id="m-textareastyle"></textarea>
+				<textarea id="m-textareastyle" name="QNA_CONTEXT"></textarea>
 			</div>
 		</div>
-
+		<input type="submit" value="완료" class="buttons">
+	</form>
 	</div>
-	<a href="#" rel="modal:close"> <input type="button" value="완료"
-		onclick="insertTag()" class="buttons"></a> <a href="#"
+	
+	<a href="#" rel="modal:close"> </a> 
+	<a href="#"
 		rel="modal:close">닫기</a>
+		
 </div>
 </html>

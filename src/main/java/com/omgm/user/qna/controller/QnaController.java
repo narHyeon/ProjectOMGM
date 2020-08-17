@@ -1,5 +1,6 @@
 package com.omgm.user.qna.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +54,12 @@ public class QnaController {
 		return "";	
 	}
 	
-	@RequestMapping(value="/qnaWrite.do", method = RequestMethod.GET)
-	public ModelAndView insertQna(QnaVO vo) {
+	@RequestMapping(value="/qnaList.do", method = RequestMethod.POST)
+	public ModelAndView insertQna(QnaVO vo) throws IOException{
 		ModelAndView mav = new ModelAndView();
 		qnaService.insertQna(vo);
-		mav.addObject("eventInfo", vo);
-		mav.setViewName("/qna/qnaWrite");
+		mav.addObject("qnaInfo", vo);
+		mav.setViewName("redirect:/qnaList.do");
 		return mav;
 	}
 	

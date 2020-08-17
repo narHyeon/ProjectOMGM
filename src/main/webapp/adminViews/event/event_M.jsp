@@ -55,12 +55,12 @@ function goWrite() {
 
   <div class="paging">
     <ul>
-      <li class="first"><a href=""><span class="hide">이전페이지</span></a></li>
-      <li class="prev"><a href=""><span class="hide">다음페이지</span></a></li>
+      <li class="first"><a href=""><span class="hide"></span></a></li>
+      <li class="prev"><a href=""><span class="hide"></span></a></li>
       <li><a href="" class="on">1</a></li>
       <li><a href="">2</a></li>
-      <li class="next"><a href=""><span class="hide">다음페이지</span></a></li>
-      <li class="last"><a href=""><span class="hide">다음페이지</span></a></li>
+      <li class="next"><a href=""><span class="hide"></span></a></li>
+      <li class="last"><a href=""><span class="hide"></span></a></li>
     </ul>
   </div>
 

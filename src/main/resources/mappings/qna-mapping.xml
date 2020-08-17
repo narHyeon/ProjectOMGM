@@ -3,13 +3,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="QnaDAO">
-  	<select id="getAllQnaList">
+  	<select id="getAllQnaList" resultType="qna" parameterType="qna">
+  		select * from qna order by QNA_NO asc
   	</select>
-  	<select id="getQna">
+  	<select id="getQna" resultType="qna" parameterType="qna">
+  		select * from qna WHERE QNA_NO=#{QNA_NO} order by QNA_NO asc
   	</select>
   	<insert id="insertQna">
+  		insert into qna (QNA_NO, QNA_NAME, QNA_TYPE, QNA_PHONE, QNA_CONTEXT, QNA_TITLE)
+  		VALUES ((select nvl(max(QNA_NO), 0 ) +1 from QNA), #{QNA_TYPE}, #{QNA_NAME}, #{QNA_PHONE}, #{QNA_CONTEXT}, #{QNA_TITLE})                           
   	</insert>
   	<update id="updateQna">
+  	
   	</update>
   	
   

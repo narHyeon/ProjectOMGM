@@ -161,8 +161,8 @@
 	}
 }
 
-<!--
-모달창-->#m-wrap {
+<!--모달창-->
+#m-wrap {
 	display: flex;
 	height: 700px;
 	width: 60%;
@@ -348,7 +348,6 @@ $(document).ready(function(){
    }
 </script>
 <body>
-<<<<<<< HEAD
    <div id="mypetpage_wrap">
       <div id="mypetpage_head">
          <h1>My CatPage</h1>
@@ -464,69 +463,7 @@ $(document).ready(function(){
 		<div id="m-bar4">특이사항
 		<div id="m-bar-content6">
 			<textarea id="m-textareastyle" name="PET_COMMENT"></textarea>
-=======
-	<div id="mypetpage_wrap">
-		<div id="mypetpage_head">
-			<h1>My CatPage</h1>
-		</div>
-		<div id="mypetpage_body">
-			<div id="banner">
-				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
-				<fieldset class="fieldsetstyle" id="myPetPageFs">내 고양이 정보
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myBuyListLogFs">구매내역
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myCatCareLogFs">반려묘
-					일지</fieldset>
-				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
-				</fieldset>
-			</div>
-
-			<div id="mypetpage_content">
-				<a href="#ex1" rel="modal:open" id="modalstyle">고양이 정보 추가</a>
-
-				<div id="catinfo_tle">
-					<c:forEach var="mypetpage" items="${MyPetPageList}" varStatus="num">
-						<div class="bar">
-							<div class="bar-title">종류</div>
-							<div class="bar-content">${mypetpage.PET_KIND}</div>
-						</div>
-						<div class="bar">
-							<div class="bar-title">종류의종류</div>
-							<div class="bar-content">${mypetpage.PET_VARIETY}</div>
-						</div>
-						<div class="bar">
-							<div class="bar-title">이름</div>
-							<div class="bar-content">${mypetpage.PET_NAME}</div>
-						</div>
-						<div class="bar">
-							<div class="bar-title">나이</div>
-							<div class="bar-content">${mypetpage.PET_AGE}</div>
-						</div>
-						<div class="bar">
-							<div class="bar-title">성별</div>
-							<div class="bar-content">${mypetpage.PET_GENDER}</div>
-						</div>
-						<div class="bar">
-							<div class="bar-title">특이사항</div>
-							<div class="bar-content">${mypetpage.PET_COMMENT}</div>
-						</div>
-						<div id="bottom">
-							<input type="button" value="수  정" onclick="goPetUpdate()"
-								class="buttons"> <input type="button" value="삭  제"
-								onclick="" class="buttons">
-
-						</div>
-					</c:forEach>
-				</div>
-				<!-- catinfo tle -->
-
-				<div></div>
-
-			</div>
->>>>>>> 9aa0e7d462240c01c13265b8547014802c3857b9
+				<input type="submit" value="완  료" class="myPetPage_buttons" >
 		</div>
 	</div>
 	<div id="ex1" class="modal">
@@ -583,7 +520,6 @@ $(document).ready(function(){
 				</div>
 			</form>
 		</div>
-<<<<<<< HEAD
 		<input type="submit" value="완  료" class="myPetPage_buttons" >
 		</form>
 	</div>
@@ -592,12 +528,6 @@ $(document).ready(function(){
 	 </a>
   <a href="#" rel="modal:close">닫기</a>
 </div>   
-=======
-		<a href="#" rel="modal:close"> <input type="submit" value="완료"
-			class="myPetPage_buttons">
-		</a> <a href="#" rel="modal:close">닫기</a>
-	</div>
->>>>>>> 9aa0e7d462240c01c13265b8547014802c3857b9
 </body>
 </html>
 
