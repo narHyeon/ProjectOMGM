@@ -46,8 +46,7 @@
 	<mappers>
 		<!-- 회원 -->
 		<mapper resource="mappings/member-mapping.xml" />
-		<mapper
-			resource="mappings/memberManagement/management-mapping.xml" />
+		<mapper resource="mappings/memberManagement/management-mapping.xml" />
 		<!-- 이용후기 -->
 		<mapper resource="mappings/review-mapping.xml" />
 		<!-- 유치원 -->
@@ -55,6 +54,7 @@
 			resource="mappings/kinderGarden/kinderGarden-mapping.xml" />
 		<!-- 유저 공통 -->
 		<mapper resource="mappings/common-mapping.xml" />
+		<mapper resource="mappings/myInfo/myInfo-mapping.xml" />
 		<!-- 몰 -->
 		<mapper resource="mappings/mall/productList-mapping.xml" />
 		<mapper resource="mappings/mall/order-mapping.xml" />
