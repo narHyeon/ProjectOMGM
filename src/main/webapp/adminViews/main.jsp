@@ -132,6 +132,19 @@
                 </div>
             </div>
 
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">주간판매매출</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart"></canvas>
+                    </div>
+                    <%--                            <hr style="width:300px;" >--%>
+                    <%--                            Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.--%>
+                </div>
+            </div>
+
         </div>
 
         <!-- 호텔 & 유치원 예약 현황 -->
@@ -143,7 +156,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">호텔 예약 현황</h6>
                         </div>
                         <div class="card-body">
-                            <div class="text-left" style="font-size:90%; font-weight:600;">
+                            <div class="text-left" style="font-size:81%; font-weight:600;">
                                 <li>2020년 08월 17일 스위트드림룸 홍길동 페르시안</li>
                                 <li>2020년 08월 17일 화이트와인룸 손오공 스핑크스</li>
                                 <li>2020년 08월 17일 디즈니월드룸 나랑구 브리티시 숏헤어</li>
@@ -158,7 +171,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">유치원 예약 현황</h6>
                         </div>
                         <div class="card-body">
-                            <div class="text-left" style="font-size:90%; font-weight:600;">
+                            <div class="text-left" style="font-size:81%; font-weight:600;">
                                 <li>2020년 08월 17일 (1주일 코스) 홍길동 페르시안</li>
                                 <li>2020년 08월 17일 (1주일 코스) 손오공 스핑크스</li>
                                 <li>2020년 08월 17일 (1주일 코스) 나랑구 브리티시 숏헤어</li>
@@ -168,84 +181,64 @@
                             <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 5개의 예약이 있습니다!</p>
                         </div>
                     </div>
-        </div>
 
-        <!--주간판매매출 (Bar Chart) -->
-        <div class="col-xl-8 col-lg-7">
             <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">주간판매매출</h6>
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Mall 주문 현황</h6>
                 </div>
                 <div class="card-body">
-                    <div class="chart-bar">
-                        <canvas id="myBarChart"></canvas>
+                    <div class="text-left" style="font-size:90%; font-weight:600;">
+                        <table class="table table_bordered" id="order_list" width="100%" cellspacing="0">
+                            <thead>
+                            <tr class="productOrderField">
+                                <th>주문번호</th>
+                                <th>이미지</th>
+                                <th>상품명</th>
+                                <th>가격</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="orderDetail" items="${orderDetail}">
+                                <tr class="order_feild">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                                <tr class="order_feild">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                                <tr class="order_feild">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                                <tr class="order_feild">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                                <tr class="order_feild">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+
+                            </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
-<%--                            <hr style="width:300px;" >--%>
-<%--                            Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.--%>
-                 </div>
-            </div>
-        </div>
-
-    <!-- Mall 주문 현황 -->
-    <div class="col-xl-4 col-lg-5">
-
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Mall 주문 현황</h6>
-            </div>
-            <div class="card-body">
-                <div class="text-left" style="font-size:90%; font-weight:600;">
-                    <table class="table table_bordered" id="order_list" width="100%" cellspacing="0">
-                        <thead>
-                        <tr class="productOrderField">
-                            <th>주문번호</th>
-                            <th>이미지</th>
-                            <th>상품명</th>
-                            <th>가격</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="orderDetail" items="${orderDetail}">
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-
-                        </c:forEach>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-</div>
+
 
 <!-- Page level plugins -->
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>

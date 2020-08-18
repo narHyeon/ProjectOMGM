@@ -9,7 +9,7 @@
         }
 
         #mall_chart #mall_chart_graph {
-            width: 70%;
+            width: 100%;
         }
         #mall_chart #mall_chart_donut {
             width: 30%;
@@ -73,14 +73,12 @@
             color:#2e59d9;
             font-size: 20px;
         }
-
-
     </style>
 </head>
 <body>
 <div id="mall_chart_title" class="card mb-4 py-3 border-bottom-info">
     <div class="card-body" style="font-weight: 500;">
-        Mall 매출현황
+        Hotel 매출현황
     </div>
 </div>
 
@@ -93,7 +91,7 @@
     <!-- Area Chart -->
     <div id="mall_chart_graph" class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-info">Mall 요일별 매출 현황</h6>
+            <h6 class="m-0 font-weight-bold text-info">Hotel 요일별 매출 현황</h6>
         </div>
         <div class="card-body">
             <div class="chart-area">
@@ -112,7 +110,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-info">주차별 매출현황</h6>
+                <h6 class="m-0 font-weight-bold text-info">객실별 매출현황</h6>
             </div>
             <!-- Card Body -->
             <div class="card-body">
@@ -120,19 +118,74 @@
                     <canvas id="myPieChart"></canvas>
                 </div>
                 <hr>
-                <div class="mall_p_cal2">
-                    <p>주차별 최대 매출 : 900000원</p>
-                    <p>주차별 최소 매출 :90000원</p>
+                <div class="mall_p_cal2" style="padding-top: 18px;">
+                    <p style="color: #3c85dc;">최대 매출 객실 :  &nbsp; &nbsp; 일반룸&nbsp; &nbsp; 90000000원</p>
+                    <p style="color: #dc7070;">최소 매출 객실 :  &nbsp;  &nbsp;&nbsp; VIP룸  &nbsp; &nbsp; 900000원</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<%--복사--%>
+<%--<div class="card shadow mb-4">--%>
+<%--    <div class="card-header py-3">--%>
+<%--        <h6 class="m-0 font-weight-bold text-primary">Hotel 객실별 매출 현황</h6>--%>
+<%--    </div>--%>
+<%--    <div class="card-body">--%>
+<%--        <div class="text-left" style="font-size:90%; font-weight:600;">--%>
+<%--            <table class="table table_bordered" id="order_list" width="100%" cellspacing="0">--%>
+<%--                <thead>--%>
+<%--                <tr class="productOrderField">--%>
+<%--                    <th>객실번호</th>--%>
+<%--                    <th>이미지</th>--%>
+<%--                    <th>상품명</th>--%>
+<%--                    <th>매출</th>--%>
+<%--                </tr>--%>
+<%--                </thead>--%>
+<%--                <tbody>--%>
+<%--                <c:forEach var="orderDetail" items="${orderDetail}">--%>
+<%--                    <tr class="order_feild">--%>
+<%--                        <th>1</th>--%>
+<%--                        <th>2</th>--%>
+<%--                        <th>3</th>--%>
+<%--                        <th>4</th>--%>
+<%--                    </tr>--%>
+<%--                    <tr class="order_feild">--%>
+<%--                        <th>1</th>--%>
+<%--                        <th>2</th>--%>
+<%--                        <th>3</th>--%>
+<%--                        <th>4</th>--%>
+<%--                    </tr>--%>
+<%--                    <tr class="order_feild">--%>
+<%--                        <th>1</th>--%>
+<%--                        <th>2</th>--%>
+<%--                        <th>3</th>--%>
+<%--                        <th>4</th>--%>
+<%--                    </tr>--%>
+<%--                    <tr class="order_feild">--%>
+<%--                        <th>1</th>--%>
+<%--                        <th>2</th>--%>
+<%--                        <th>3</th>--%>
+<%--                        <th>4</th>--%>
+<%--                    </tr>--%>
+<%--                    <tr class="order_feild">--%>
+<%--                        <th>1</th>--%>
+<%--                        <th>2</th>--%>
+<%--                        <th>3</th>--%>
+<%--                        <th>4</th>--%>
+<%--                    </tr>--%>
+
+<%--                </c:forEach>--%>
+<%--                </tbody>--%>
+<%--            </table>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<%--hotel 매출현황--%>
 <div id="mall_chart">
     <!-- Area Chart -->
-    <div id="mall_chart_graph" style="height: 200px; width: 60%;" class="card shadow mb-4">
+    <div id="mall_chart_graph" style="height: 200px;" class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
         </div>
@@ -150,85 +203,29 @@
             </div>
         </div>
     </div>
+</div>
 
-    &nbsp;&nbsp;&nbsp;
-    <div id="mall_chart_graph" style="height: 200px; width: 38.8%;" class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-info">판매현황</h6>
-        </div>
-        <div id="mall_chart_bot" class="card-body">
-            <div>
-                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">가장 많이 팔린 상품: 냥냥이 사료 </p>
-                <br>
-                <p id="mall_date_pick" style="font-size: 17px;">
-                    가장 적게 팔린 상품: 댕댕이 사료 </p>
-            </div>
-<%--            <div id="kinder_dwm" style="padding-top: 20px; padding-right: 120px;" class="text-center">--%>
-<%--                <p>장난감1 99개</p><br>--%>
-<%--                <p>사료2 6개</p>--%>
+
+
+<%--    <div class="card shadow mb-4">--%>
+<%--        <div class="card-header py-3">--%>
+<%--            <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>--%>
+<%--        </div>--%>
+<%--        <div id="kinderGarden_chart_bot" class="card-body">--%>
+<%--            <div>--%>
+<%--                <p style="color: #3c85dc; font-size: 19px;">Today : ${date.today}</p>--%>
+<%--                <br>--%>
+<%--                <p id="kinder_date_pick">--%>
+<%--                    ${date.date1} ~ ${date.date2}의 매출현황</p>--%>
 <%--            </div>--%>
-            <div id="kinder_dwm" style="padding-top: 20px; font-weight: 650;" class="text-right">
-                <p style="font-size: 20px; color:#2e59d9;"> 99개</p><br>
-                <p style="font-size: 20px; color:red;">6개</p>
-            </div>
-        </div>
-    </div>
-</div>
+<%--            <div id="kinder_dwm" class="text-right">--%>
+<%--                <p>DAY : ${date.day}원</p>--%>
+<%--                <p>WEEK : ${date.week}원</p>--%>
+<%--                <p>MONTH : ${date.month}원</p>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-info">상품별 매출 현황(Month)</h6>
-    </div>
-    <div class="card-body">
-        <div class="text-left" style="font-size:90%; font-weight:600;">
-            <table class="table table_bordered" id="order_list" width="100%" cellspacing="0">
-                <thead>
-                <tr class="productOrderField">
-                    <th>상품번호</th>
-                    <th>이미지</th>
-                    <th>상품명</th>
-                    <th>총매출</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="orderDetail" items="${orderDetail}">
-                    <tr class="order_feild">
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                    </tr>
-                    <tr class="order_feild">
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                    </tr>
-                    <tr class="order_feild">
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                    </tr>
-                    <tr class="order_feild">
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                    </tr>
-                    <tr class="order_feild">
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                    </tr>
-
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 <script src="resources/admin/js/kinderGarden/chartPie.js"></script>
