@@ -82,7 +82,7 @@ public class AdminController {
         return mav;
     }
 
-    //정산페이지 이동
+    //정산페이지테스트 이동
     @RequestMapping("/calculateTest.mdo")
     public ModelAndView calculateTest(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
@@ -90,20 +90,27 @@ public class AdminController {
         return mav;
     }
 
-    //이용후기 관리 페이지
-    @RequestMapping("/adminReview.mdo")
-    public ModelAndView adminReview(ReviewVO vo,@RequestParam(value="page", defaultValue = "1") int page ) {
+    //호텔정산페이지 이동
+    @RequestMapping("/hotelCalculate.mdo")
+    public ModelAndView hotelCalculate(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
+        mav.setViewName("/hotel/hotelCalculate");
+        return mav;
+    }
 
-        int COUNTPERPAGE = 9; // 페이지당 2개의 글
-        int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
+    //쇼핑몰 정산페이지 이동
+    @RequestMapping("/mallCalculate.mdo")
+    public ModelAndView mallCalculate(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/mallCalculate");
+        return mav;
+    }
 
-        PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, adminService.selectCount());
-        mav.addObject("reviewList", adminService.getReviewList(vo, navi));
-        mav.addObject("navi", navi);
-        vo.setCnt(page);
-        mav.addObject("page", vo);
-        mav.setViewName("/adminReview");
+    //메시지 보내는 페이지 이동
+    @RequestMapping("/message.mdo")
+    public ModelAndView messgae(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/calculate/message");
         return mav;
     }
 }

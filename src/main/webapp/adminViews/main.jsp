@@ -137,7 +137,26 @@
                 </div>
             </div>
 
+
+            <!--주간판매매출 (Bar Chart) -->
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">주간판매매출</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart"></canvas>
+                    </div>
+                    <%--                            <hr style="width:300px;" >--%>
+                    <%--                            Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.--%>
+                </div>
+            </div>
         </div>
+
+
+
+
 
         <!-- 호텔 & 유치원 예약 현황 -->
         <div class="col-xl-4 col-lg-5">
@@ -173,26 +192,11 @@
                             <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 5개의 예약이 있습니다!</p>
                         </div>
                     </div>
-        </div>
 
-        <!--주간판매매출 (Bar Chart) -->
-        <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">주간판매매출</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-bar">
-                        <canvas id="myBarChart"></canvas>
-                    </div>
-<%--                            <hr style="width:300px;" >--%>
-<%--                            Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.--%>
-                 </div>
-            </div>
-        </div>
+
+
 
     <!-- Mall 주문 현황 -->
-    <div class="col-xl-4 col-lg-5">
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -250,7 +254,6 @@
         </div>
     </div>
     </div>
-</div>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <!-- Page level plugins -->

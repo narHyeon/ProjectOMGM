@@ -16,7 +16,6 @@
 	<%-- 방이랑 고양이 사진 --%>
 
 
-
 	<%--  메인 서비스 페이지  --%>
 	<div id="head-text">
 		<H1>BEST SERVICE FOR MY PET</H1>

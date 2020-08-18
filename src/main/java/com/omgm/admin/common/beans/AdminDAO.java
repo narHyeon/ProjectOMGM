@@ -16,7 +16,6 @@ public class AdminDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     public List<ReviewVO> getReviewList(ReviewVO vo, PageNavigator navi) {
-        System.out.println("---> MyBatis로 getReviewList() 기능 처리");
         RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
         return sqlSessionTemplate.selectList("ReviewDAO.getReviewList", vo, rb);
     }

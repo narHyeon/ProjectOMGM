@@ -130,13 +130,6 @@
 	font-weight: 500;
 }
 
-#review_content_reply_content div p:nth-child(3) {
-	margin-left: 20px;
-	font-size: 13px;
-	font-weight: 500;
-	color: #777;
-}
-
 @media all and (max-width: 768px) {
 	#review_content {
 		margin: 100px 0;
@@ -213,12 +206,12 @@
 			</tr>
 		</table>
 	</div>
-	<form id="review_throw" action="reviewContent.do"></form>
+	<form id="review_throw" action="reviewContent.mdo"></form>
 	<script>
         function sendData(id,pwd,content) {
             const xhr = new XMLHttpRequest();
 
-            xhr.open('POST', 'reviewContentReply.do',true);
+            xhr.open('POST', 'reviewContentReply.mdo',true);
             xhr.setRequestHeader('Content-type', 'application/json');
             const data = { id: id, pwd: pwd, content: content, boardSeq: ${review.seq} };
             xhr.send(JSON.stringify(data));
@@ -228,12 +221,12 @@
             const id = document.querySelector('#review_content_reply_name');
             const pwd = document.querySelector('#review_content_reply_pass');
             const content = document.querySelector('#review_content_reply_text');
-			const date = new Date();
-			document.querySelector('#review_content_reply_content').innerHTML += `
+            const date = new Date();
+            document.querySelector('#review_content_reply_content').innerHTML += `
                 <div>
                     <p>`+id.value+` : </p>
                     <p>`+content.value+`</p>
-					<p>날짜 : `+date.format('yyyy-MM-dd, HH:mm')+`</p>
+                    <p>날짜 : `+date.format('yyyy-MM-dd, HH:mm')+`</p>
                 </div>
             `;
             sendData(id.value,pwd.value,content.value);
@@ -243,7 +236,7 @@
         }
 
         function reviewList() {
-        	window.location.href = 'reviewListBoard.do';
+        	window.location.href = 'adminReview.mdo';
 		}
 
 		function prevContent(prev) {
@@ -267,14 +260,11 @@
 		}
 
 		function fixedReview() {
-			let boo = prompt('비밀번호를 입력해주세요','Password');
-			if(boo === '${review.pwd}') window.location.href = 'fixedReview.do?seq=${review.seq}';
-			else alert('비밀번호가 다릅니다!');
+        	window.location.href = 'fixedReview.mdo?seq=${review.seq}';
 		}
 		function deleteReview() {
-        	let boo = prompt('비밀번호를 입력해주세요','Password');
-        	if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
-			else alert('비밀번호가 다릅니다!');
+        	let boo = confirm('정말 삭제하시겠습니까?');
+        	if(boo) window.location.href = 'deleteReview.mdo?seq=${review.seq}'
 		}
     </script>
 </body>
