@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/style/header.css">
 <link rel="shortcut icon" href="resources/img/자산%208.png">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+<script src="resources/js/swal/sweetswal.min.js"></script>
 <script src="https://kit.fontawesome.com/844385d242.js" crossorigin="anonymous"></script>
 <style>
 	/*플로팅메뉴*/
@@ -138,6 +139,7 @@
 		</c:if>
 			<div id="create-channel-chat-button"></div>
 	</div>
+
 	<script>
 		//top버튼
 		$(function() {
