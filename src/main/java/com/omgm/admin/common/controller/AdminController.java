@@ -17,13 +17,7 @@ public class AdminController {
     @Resource(name="adminService")
     private AdminService adminService;
 
-    // 관리자 메인 불러오기
-    @RequestMapping("/adminMain.mdo")
-    public ModelAndView main(AdminVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/main");
-        return mav;
-    }
+
 
     // 관리자 배송 현황 페이지
     @RequestMapping("/deliveryStatus.mdo")

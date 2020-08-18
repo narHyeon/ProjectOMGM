@@ -26,6 +26,7 @@
     border-right: 1px solid gray;
     border-right-style: dashed;
     width: 50%;
+    background-color: whitesmoke;
 }
 
 .left-box02 {
@@ -38,7 +39,7 @@
 }
 
 .right-box01 {
-
+    background-color: whitesmoke;
     padding-left: 3%;
     width: 50%;
 }
