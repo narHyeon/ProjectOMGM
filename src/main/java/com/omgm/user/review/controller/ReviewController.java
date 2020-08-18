@@ -30,6 +30,7 @@ public class ReviewController {
     //이용후기 리스트 페이지 이동
     @RequestMapping(value="/reviewListBoard.do", method = RequestMethod.GET)
     public ModelAndView reviewListBoard(ReviewVO vo, @RequestParam(value="page", defaultValue = "1") int page) {
+        if(page < 1) page = 1;
         ModelAndView mav = new ModelAndView();
         int COUNTPERPAGE = 9; // 페이지당 2개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 3개의 페이지
@@ -37,6 +38,7 @@ public class ReviewController {
         PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
         List<ReviewVO> list = reviewService.getListRoom(vo, navi);
         mav.addObject("reviewList",list);
+        if(page > navi.getEndPageGroup()) page = navi.getEndPageGroup();
         mav.addObject("navi",navi);
         vo.setCnt(page);
         mav.addObject("page",vo);

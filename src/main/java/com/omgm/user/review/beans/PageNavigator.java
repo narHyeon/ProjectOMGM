@@ -19,12 +19,12 @@ public class PageNavigator {
         totalPageCount = (totalRecordsCount + countPerPage -1) / countPerPage;
         if(currentPage < 1) currentPage = 1;
         if(currentPage > totalPageCount) currentPage = totalPageCount;
-        this.currentGroup = (currentPage) / pagePerGroup;
+        this.currentGroup = (currentPage -1) / pagePerGroup;
         startPageGroup = currentGroup * pagePerGroup + 1;
         startPageGroup = startPageGroup < 1 ? 1 : startPageGroup;
         endPageGroup = startPageGroup + pagePerGroup -1;
         endPageGroup = endPageGroup < totalPageCount ? endPageGroup : totalPageCount;
-        startRecord = (currentPage) * countPerPage;
+        startRecord = (currentPage -1) * countPerPage;
     }
 
     public int getCountPerPage() {
