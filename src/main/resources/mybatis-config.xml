@@ -7,6 +7,8 @@
 		<setting name="cacheEnabled" value="false" />
 	</settings>
 	<typeAliases>
+		<!--	메인화면	-->
+		<typeAlias alias="RoomReservationVO" type="com.omgm.admin.main.beans.RoomReservationVO" />
 		<!--	회원관련	-->
 		<typeAlias alias="MemberVO" type="com.omgm.member.beans.MemberVO"/>
 		<typeAlias alias="ManagementVO" type="com.omgm.admin.memberManagement.beans.ManagementVO"/>
@@ -44,6 +46,8 @@
 		<typeAlias alias="room_m" type="com.omgm.admin.room.beans.RoomVO_M"/>
 	</typeAliases>
 	<mappers>
+		<!--	메인페이지	-->
+		<mapper resource="mappings/adminMainPage/adminMainPage.xml" />
 		<!-- 회원 -->
 		<mapper resource="mappings/member-mapping.xml" />
 		<mapper resource="mappings/memberManagement/management-mapping.xml" />

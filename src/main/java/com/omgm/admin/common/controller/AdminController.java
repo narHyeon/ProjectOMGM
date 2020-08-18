@@ -17,13 +17,7 @@ public class AdminController {
     @Resource(name="adminService")
     private AdminService adminService;
 
-    // 관리자 메인 불러오기
-    @RequestMapping("/adminMain.mdo")
-    public ModelAndView main(AdminVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/main");
-        return mav;
-    }
+
 
     // 관리자 배송 현황 페이지
     @RequestMapping("/deliveryStatus.mdo")
@@ -79,12 +73,44 @@ public class AdminController {
         mav.setViewName("/hotel/room");
         return mav;
     }
+    
+    //객실등록 페이지 이동
+    @RequestMapping("/hotelRegister.mdo")
+    public ModelAndView hotelRegister(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/hotel/hotelRegister");
+        return mav;
+    }
 
-    //정산페이지 이동
+    //정산페이지테스트 이동
     @RequestMapping("/calculateTest.mdo")
     public ModelAndView calculateTest(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/calculate/calculateTest");
+        return mav;
+    }
+
+    //호텔정산페이지 이동
+    @RequestMapping("/hotelCalculate.mdo")
+    public ModelAndView hotelCalculate(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/hotel/hotelCalculate");
+        return mav;
+    }
+
+    //쇼핑몰 정산페이지 이동
+    @RequestMapping("/mallCalculate.mdo")
+    public ModelAndView mallCalculate(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/mall/mallCalculate");
+        return mav;
+    }
+
+    //메시지 보내는 페이지 이동
+    @RequestMapping("/message.mdo")
+    public ModelAndView messgae(AdminVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/calculate/message");
         return mav;
     }
 }
