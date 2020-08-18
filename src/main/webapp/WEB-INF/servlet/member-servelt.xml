@@ -15,9 +15,7 @@
 		base-package="com.omgm.member" />
 	<mvc:annotation-driven />
 
-	<bean
-		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
-		id="bcryiptPasswordEncoder" />
+	<bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" id="bcryiptPasswordEncoder" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

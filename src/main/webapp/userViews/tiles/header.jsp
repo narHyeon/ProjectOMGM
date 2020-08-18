@@ -113,7 +113,7 @@
 			<form action="#" class="signup-form" onsubmit="return joinCheck(event)">
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
-					<input name="id" type="text" required autocomplete=off>
+					<input id="join_id_input" name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID"></span>
 				</div>
 				<input type="button" class="checkbtn" value="check" onclick="idCheck(false)">
@@ -188,7 +188,7 @@
 				<h1 style="font-weight:700;">오묘가묘에 <br>오신것을 환영합니다!</h1>
 
 				<div class="txtbox"> <!-- ID필드-->
-					<input name="id" type="text" required autocomplete=off>
+					<input id="login_id_input" name="id" type="text" required autocomplete=off>
 					<span data-placeholder="ID" ></span>
 				</div>
 
@@ -220,6 +220,7 @@
 		<div>
 			<div>
 				<label for="chatting_modal"></label>
+				<div id="chatting_header">관리자와 대화</div>
 				<div id="chatting_field"></div>
 				<input type="text" id="chatting_input" onkeyup="enterSend(event)">
 				<button class="chatting_button" onclick="send()">전송</button>
@@ -247,13 +248,12 @@
 		<c:if test="${member.name != null}">
 			<script>
 				document.querySelector('.login_membership').innerHTML =
-					`<li><a href="myPage.do">myInfo</a></li>
+					`<li><a href="#" id="myInfo_menu">myInfo</a></li>
 					<ul id="header_myInfo">
-						<div></div>
-						<li>내 정보</li>
-						<li>서비스 정보</li>
-						<li>구매정보</li>
-						<li>냥박일지</li>
+						<li><a href="myInfo.do">내 정보</a></li>
+						<li><a href="#">서비스 정보</a></li>
+						<li><a href="#">구매정보</a></li>
+						<li><a href="#">냥박일지</a></li>
 					</ul>
                      	<li><p>|</p></li>
                      <li><a href="#" onclick="logOut()">logout</a></li>`;
