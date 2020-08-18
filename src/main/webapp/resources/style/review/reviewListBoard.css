@@ -84,7 +84,6 @@
 	font-weight: 600;
 }
 
-
 .reviewList_header {
 	display: flex;
 	justify-content: center;
@@ -135,6 +134,7 @@
 
 .text_input {
 	color: black;
+	height: 22px;
 }
 
 .select_search {
@@ -152,7 +152,7 @@
 	background-color: pink;
 	color: white;
 	border: 1px solid #cb5e6b;
-	height: 20px;
+	height: 22px;
 	font-weight: 600;
 }
 
