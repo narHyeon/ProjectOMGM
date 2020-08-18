@@ -202,7 +202,7 @@
                         const buyI07Zipcode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
                         const buyI07Address01 = document.getElementById("buyImmediatelyDivSection07Address01").value;
                         if(buyI05Name==="" || buyI06Phone==="" || buyI07Zipcode==="" || buyI07Address01===""){
-                            alert('구매자 정보를 입력해 주시기 바랍니다')
+                            swal('구매자 정보를 입력해 주시기 바랍니다')
 
                         }else{
                         $(function () {
@@ -262,10 +262,10 @@
                                             //     // msg += '\n고유ID : ' + rsp.imp_uid;
                                             //     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                             //     msg += '\n결제 금액 : ' + rsp.paid_amount;
-                                            //     alert(msg);
+                                            //     swal(msg);
                                         },
                                         error: function(xhr) {
-                                            alert(xhr);
+                                            swal(xhr);
                                             }
                                     });
                                     msg = '결제가 완료되었습니다.';
@@ -273,7 +273,7 @@
                                     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                     msg += '\n결제 금액 : ' + rsp.paid_amount;
                                     msg += '\n운송장 번호 : ' + rsp.merchant_uid;
-                                    alert(msg);
+                                    swal(msg);
 
                                     //성공시 이동할 페이지
                                     location.href = 'getMallFeedList.do';
@@ -282,7 +282,7 @@
                                     // msg += '에러내용 : ' + rsp.error_msg;
                                     //실패시 이동할 페이지
                                     location.href = "getMallFeedList.do";
-                                    alert(msg);
+                                    swal(msg);
                                 }
                             });
 
@@ -302,7 +302,7 @@
         const totalPrice = parseInt(document.getElementById("buyImmediatelyDivSection02_01_02BeforePrice").innerHTML)-parseInt(document.getElementById("buyImmediatelyDivSection02_01_02DiscountPrice").innerHTML)-buyImmediatelyDivSection04Mil.value;
 
         if(buyImmediatelyDivSection04Mil.value > ${member.point}){
-            alert("마일리지를 초과하였습니다"); buyImmediatelyDivSection04Mil.value = 0;
+            swal("마일리지를 초과하였습니다"); buyImmediatelyDivSection04Mil.value = 0;
         }else{
             document.getElementById("buyImmediatelyDivSection02_01_02Use").innerHTML=buyImmediatelyDivSection04Mil.value;
             document.getElementById("buyImmediatelyDivSection02_01_02Price").innerHTML=totalPrice.toString();

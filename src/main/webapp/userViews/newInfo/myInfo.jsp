@@ -126,7 +126,7 @@
         if(boo === false && type === '일반') {
             const pass = prompt('비밀번호를 입력해주세요','Password');
             if(pass === null) return ;
-            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            else if(pass.length < 8) return swal('비밀번호는 8자 이상입니다!');
             return checkPass(pass, '${member.seq}','pass');
         } else {
             return updatePassword('${member.seq}');
@@ -136,11 +136,11 @@
     function updatePassword(seq) {
         const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
         if(pass1 === null) return ;
-        else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
+        else if(pass1.length < 8) return swal('비밀번호는 8자 이상입니다!');
         const pass2 = prompt('변경하실 비밀번호를 다시 한번 입력해주세요','Password');
         if(pass2 === null) return;
-        else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
-        else if(pass1 !== pass2) return alert('입력하신 비밀번호가 다릅니다!');
+        else if(pass2.length < 8) return swal('비밀번호는 8자 이상입니다!');
+        else if(pass1 !== pass2) return swal('입력하신 비밀번호가 다릅니다!');
         return window.location.href = 'updatePassword.do?seq='+seq+'&pwd='+pass1;
     }
 
@@ -149,7 +149,7 @@
 
         xhr.onload = () => {
             if(xhr.status === 200) {
-                if(xhr.responseText !== '10') return alert('잘못된 비밀번호입니다!');
+                if(xhr.responseText !== '10') return swal('잘못된 비밀번호입니다!');
                 boo = true;
                 switch(key) {
                     case 'pass': updatePassword(seq); break;
@@ -169,7 +169,7 @@
         if(boo === false && type === '일반') {
             const pass = prompt('비밀번호를 입력해주세요','Password');
             if(pass === null) return ;
-            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            else if(pass.length < 8) return swal('비밀번호는 8자 이상입니다!');
             return checkPass(pass, '${member.seq}','member');
         } else {
             const pass1 = confirm('정말 변경하시겠습니까?');
@@ -195,7 +195,7 @@
                 return blank = true;
             }
         });
-        if(blank) return alert('입력하지 않은 사항이 있습니다!');
+        if(blank) return swal('입력하지 않은 사항이 있습니다!');
         const data = {
             seq : '${member.seq}',
             name: list[2].value,
@@ -216,7 +216,7 @@
         if(boo === false && type === '일반') {
             const pass = prompt('비밀번호를 입력해주세요','Password');
             if(pass === null) return ;
-            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            else if(pass.length < 8) return swal('비밀번호는 8자 이상입니다!');
             return checkPass(pass, '${member.seq}','delete');
         } else {
             const pass1 = confirm('정말 탈퇴하시겠습니까?');

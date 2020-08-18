@@ -238,11 +238,12 @@
 	<script src="resources/js/header.js" defer></script>
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+	<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 
 	<c:if test="${member != null}">
 		<c:if test="${member.id == '무'}">
 			<script>
-				alert('로그인 할 수 없습니다!');
+				swal('로그인 할 수 없습니다!');
 			</script>
 		</c:if>
 		<c:if test="${member.name != null}">

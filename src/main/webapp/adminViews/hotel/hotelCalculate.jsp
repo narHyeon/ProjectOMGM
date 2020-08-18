@@ -248,7 +248,7 @@
 <%--        const date1 = document.querySelector('#mall_date1').value;--%>
 
 <%--        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;--%>
-<%--        else alert('날짜를 선택해주세요!');--%>
+<%--        else swal('날짜를 선택해주세요!');--%>
 <%--    }--%>
 
 </body>

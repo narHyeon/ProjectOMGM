@@ -277,7 +277,7 @@
                 order_receiver: '2020-'+i+'-29',
             }),
             success: function (data) {
-                // alert(data.order_quantity);
+                // swal(data.order_quantity);
                 document.querySelector('#mainAreaChartMallCount00').innerHTML=data.order_quantity+'건';
                 document.querySelector('#mainAreaChartMallCount01').innerHTML=data.order_point+'명';
                 document.querySelector('#mainAreaChartMallCount02').innerHTML=data.order_point_used+'원';

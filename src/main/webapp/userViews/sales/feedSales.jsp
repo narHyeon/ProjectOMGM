@@ -76,7 +76,7 @@
                 <input type="hidden" name="cartList_point" value="${feedList.feed_point}" />
                 <input type="hidden" name="cartList_info" value="${feedList.feed_info}" />
                 <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />
-            <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
+            <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  swal('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>
             </c:if>
             <c:if test="${member == null}">
@@ -89,7 +89,7 @@
 <%--                    <input type="hidden" name="cartList_point" value="${feedList.feed_point}" />--%>
 <%--                    <input type="hidden" name="cartList_info" value="${feedList.feed_info}" />--%>
 <%--                    <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />--%>
-                    <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  alert('로그인을 먼저 해주시기 바랍니다.'); ">장바구니 담기</button>
+                    <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  swal('로그인을 먼저 해주시기 바랍니다.'); ">장바구니 담기</button>
                 </form>
             </c:if>
         </div>
@@ -121,9 +121,9 @@
         var byeImmediately00 = document.getElementById("byt-immediately01");
         var numberOfToyQuantity = document.getElementById("number-of-toy");
         if(salesOption.value === "selected disabled"){
-            alert("옵션을 선택해 주세요.")
+            swal("옵션을 선택해 주세요.")
         } else if(countProduct.innerHTML === '0') {
-            alert("수량을 선택해 주세요");
+            swal("수량을 선택해 주세요");
         }else {
 
             byeImmediately00.href="getMallFeedOneInfoBuyImmediately.do?feed_Quantity="+numberOfToyQuantity.innerHTML+"&feed_code=${feedList.feed_code}";
@@ -135,11 +135,11 @@
         var byeImmediately00 = document.getElementById("byt-immediately00");
 
          if(salesOption.value === "selected disabled"){
-            alert("옵션을 선택해 주세요.")
+            swal("옵션을 선택해 주세요.")
         } else if(countProduct.innerHTML === '0') {
-            alert("수량을 선택해 주세요");
+            swal("수량을 선택해 주세요");
         }else {
-             alert("로그인을 하셔야 구입이 가능합니다");
+             swal("로그인을 하셔야 구입이 가능합니다");
              // if(confirmCheck===true){
              //     login(event);
              // } else{

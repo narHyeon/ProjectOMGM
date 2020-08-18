@@ -67,10 +67,10 @@
         const review_login = document.getElementById("login_id");
 
         if('${member.id}' === "") {
-            alert("로그인이 필요한 서비스입니다.");
+            swal("로그인이 필요한 서비스입니다.");
             location.replace("adminReview.mdo");
         } else if('#reviewPwd' === "") {
-            alert("비밀번호를 입력해주세요.");
+            swal("비밀번호를 입력해주세요.");
         }
 
         function writeReview() {
@@ -80,7 +80,7 @@
             if(pwd.value === '') return false;
             if(title.value === '') return false;
             if(content.value === '') {
-                alert('내용을 작성해주세요!')
+                swal('내용을 작성해주세요!')
                 return false;
             }
             return true;

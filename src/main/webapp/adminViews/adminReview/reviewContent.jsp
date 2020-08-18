@@ -241,7 +241,7 @@
 
 		function prevContent(prev) {
         	if(prev === '없음') {
-        		alert('마지막 페이지입니다.');
+        		swal('마지막 페이지입니다.');
         		return;
 			}
 			const el = document.querySelector('#review_throw');
@@ -251,7 +251,7 @@
 
 		function nextContent(next) {
 			if(next === '없음') {
-				alert('마지막 페이지입니다.');
+				swal('마지막 페이지입니다.');
 				return;
 			}
 			const el = document.querySelector('#review_throw');
