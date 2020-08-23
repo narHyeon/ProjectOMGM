@@ -64,7 +64,7 @@
     <div class="pro_paging">
         <ul>
             <li class="first"><a href="adminReview.mdo"><span class="hide">첫페이지</span></a></li>
-            <li class="prev"><a href="adminReview.mdo?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
+            <li class="prev"><a href="adminReview.mdo?page=${page.cnt-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.cnt == counter}">
                     <a href="adminReview.mdo?page=${counter}"  style="background-color:lightpink; padding-right: 0.5%" >&nbsp;&nbsp;${counter}</a>
@@ -73,8 +73,8 @@
                     <a href="adminReview.mdo?page=${counter}" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
             </c:forEach>
-            <li class="next"><a href="adminReview.mdo?page=${navi.endPageGroup+1}"><span class="hide">다음페이지</span></a></li>
-            <li class="last"><a href="adminReview.mdo?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
+            <li class="next"><a href="adminReview.mdo?page=${page.cnt+1}"><span class="hide">다음페이지</span></a></li>
+            <li class="last"><a href="adminReview.mdo?page=${navi.endPageGroup}"><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
 </div>
