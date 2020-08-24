@@ -12,16 +12,11 @@
 </head>
 <body>
 	<!-- Page Heading -->
-	<h1 class="h3 mb-2 text-gray-800">픽업 서비스 관리</h1>
-	<p class="mb-4">
-		픽업 서비스 관리 테이블입니다<a target="_blank" href="https://datatables.net">official
-			DataTables documentation</a>.
-	</p>
 
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-info">Tables</h6>
+			<h6 class="m-0 font-weight-bold text-info">픽업 서비스 관리</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -43,8 +38,9 @@
 					</thead>
 
 					<tbody>
-						<tr>
-							<td>123455</td>
+					<c:forEach var="reser" items="">
+						<tr class="reservation_tbody_tr">
+							<td></td>
 							<td>123456</td>
 							<td>2020.05.20</td>
 							<td>13:00</td>
@@ -54,35 +50,12 @@
 							<td>2마리</td>
 							<td>동승</td>
 							<td>귀여움</td>
-						</tr>
-						<tr>
-							<td>123455</td>
-							<td>123456</td>
-							<td>2020.05.20</td>
-							<td>13:00</td>
-							<td>청와대</td>
-							<td>010-1234-1234</td>
-							<td>차우차우</td>
-							<td>2마리</td>
-							<td>동승</td>
-							<td>귀여움</td>
-						</tr>
-						<tr>
-							<td>123455</td>
-							<td>123456</td>
-							<td>2020.05.20</td>
-							<td>13:00</td>
-							<td>청와대</td>
-							<td>010-1234-1234</td>
-							<td>차우차우</td>
-							<td>2마리</td>
-							<td>동승</td>
-							<td>귀여움</td>
-						</tr>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			<button style="background-color: #0D47A1; color: white">수정하기</button>
+<%--			<button type="submit" id="register_Btn" class="btn btn-info" onclick="changeAction()"></button>--%>
 		</div>
 	</div>
 

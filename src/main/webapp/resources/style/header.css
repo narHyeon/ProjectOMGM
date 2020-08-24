@@ -369,6 +369,23 @@ body {
 	border-radius: 7px;
 }
 
+/*이메일 인증번호받기*/
+.checkbtnSend{
+	display: block;
+	width: 21%;
+	height: 26px;
+	border: none;
+	background: aliceblue;
+	background-size: 200%;
+	color: #F28888;
+	outline: none;
+	cursor: pointer;
+	position: absolute;
+	top: 57%;
+	left: 69%;
+	border-radius: 7px;
+}
+
 .searchbtn {
 	display: block;
 	width: 21%;
@@ -440,7 +457,7 @@ body {
 }
 
 /*회원가입버튼에 올렸을 때*/
-.signup:hover, .signup2:hover, .signup3:hover, .signup4:hover, .checkbtn:hover
+.signup:hover, .signup2:hover, .signup3:hover, .signup4:hover, .checkbtn:hover, .searchbtn:hover, .checkbtnSend:hover
 	{
 	font-size: 16px;
 }

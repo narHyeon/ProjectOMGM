@@ -163,4 +163,13 @@ public class OneController {
         commonService.addKinderGardenReservation(vo);
         System.out.println(vo);
     }
+
+
+    // 주문목록 페이지
+    @RequestMapping(value="/orderList.do")
+    public ModelAndView orderList(ReviewVO vo) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/orderList");
+        return mav;
+    }
 }

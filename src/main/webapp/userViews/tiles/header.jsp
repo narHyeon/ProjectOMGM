@@ -104,13 +104,20 @@
 	<!-- sidebar 외 영역 -->
 	<label for="sidebar" class="background"> </label>
 
+	<%-- 이메일 인증번호(랜덤)	--%>
+	<%! public int getRandom(){
+		int random = 0;
+		random = (int)Math.floor((Math.random()*(99999-10000+1)))+10000;
+		return random;
+	} %>
+
 	<%-- signUp --%>
 <signUp>
 	<input type="checkbox" id="popup">
 	<div>
 		<div>
 			<label for="popup"></label>
-			<form action="#" class="signup-form" onsubmit="return joinCheck(event)">
+			<form action="javascript:getPassword()" id="form2" class="signup-form" onsubmit="return joinCheck(event)">
 				<h1 style="font-weight: 700;">회원가입</h1>
 				<div class="txtboxID"> <!-- ID-->
 					<input name="id" type="text" required autocomplete=off>
@@ -134,9 +141,15 @@
 				</div>
 
 				<div class="txt"> <!--e-mail-->
-					<input name="email"  type="email" pattern="^\w+@\w+\.[A-z]+$" required autocomplete=off>
-					<span data-placeholder="E-Mail"></span>
+					<input name="email" id="original1" type="email" pattern="^\w+@\w+\.[A-z]+$" required autocomplete=off>
+					<span  id="original" data-placeholder="E-Mail"></span>
+
+					<input type="hidden" readonly="readonly" name="code_check"
+							   id="code_check" value="<%=getRandom()%>" />
+					<input type="hidden" readonly="readonly" name="code_check"
+							   id="code_check" value="<%=request.getAttribute("code")%>"/>
 				</div>
+				<input type="button" id="checkbtnSend" class="checkbtnSend" value="send" onclick="emailCheck(false)">
 
 				<div class="txtboxTEL1"> <!--Tel1-->
 					<input name="tel1"  type="tel" pattern="0[0-9]{2}" required autocomplete=off>
