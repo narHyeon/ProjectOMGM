@@ -15,10 +15,9 @@
 
 	<context:component-scan
 		base-package="com.omgm.admin" />
-		<task:scheduler id="jobScheduler" pool-size="10" />
-		<task:annotation-driven scheduler="jobScheduler" />
-	<mvc:annotation-driven />
 
+	<mvc:annotation-driven />
+	<task:annotation-driven />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/adminViews" />

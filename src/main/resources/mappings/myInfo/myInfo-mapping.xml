@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="MemberDAO">
+<mapper namespace="MyInfoDAO">
 
     <resultMap type="MemberVO" id="MemberResult">
         <id property="seq" column="SEQ" />
@@ -21,28 +21,23 @@
         <result property="animal" column="ANIMAL"/>
         <result property="animalAge" column="ANIMALAGE"/>
     </resultMap>
-<!--    // 회원 결제시 포인트 삭제-->
-<!--    <update id="updateMemberPoint" parameterType="MemberVO">-->
-<!--        UPDATE member SET point=#{point} WHERE id=#{id}-->
-<!--    </update>-->
-    <!-- 실 사용 -->
-    <insert id="addMember" parameterType="MemberVO">
-        INSERT INTO member(seq, id, pwd, name, phone, email, zipcode, address, type, code)
-        VALUES (member_seq.nextval, #{id}, #{pwd}, #{name}, #{phone}, #{email}, #{zipcode}, #{address}, #{type}, #{code})
-    </insert>
 
-	<select id="idCheck" parameterType="MemberVO" resultType="int">
-		SELECT count(*) FROM member WHERE id = #{id}
-	</select>
 
-	<select id="snsCheck" parameterType="MemberVO"
-		resultType="MemberVO">
-		SELECT * FROM member WHERE code = #{code}
-	</select>
+    <update id="updateMember" parameterType="MemberVO">
+        UPDATE member SET name = #{name}, phone = #{phone}, email = #{email}, zipcode = #{zipcode},
+         address = #{address}, animal = #{animal}, animalAge = #{animalAge} WHERE seq = #{seq}
+    </update>
 
-	<select id="getMember" resultType="MemberVO"
-		parameterType="MemberVO">
-		SELECT * FROM member WHERE id=#{id}
+    <update id="updatePassword" parameterType="MemberVO">
+        UPDATE member SET pwd = #{pwd} WHERE seq = #{seq}
+    </update>
+
+    <delete id="deleteMember" parameterType="MemberVO">
+        DELETE FROM member where seq = #{seq}
+    </delete>
+
+    <select id="checkPass" parameterType="MemberVO" resultType="MemberVO">
+		SELECT * FROM member WHERE seq = #{seq}
 	</select>
 
 </mapper>

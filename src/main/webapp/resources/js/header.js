@@ -29,6 +29,8 @@ function signUp(event) {
             sign.blur();
             sign.classList.remove('focus');
         });
+    setTimeout(() => document.querySelector('#join_id_input').focus(),50);
+
 }
 
 // 로그인 버튼
@@ -36,6 +38,7 @@ function login(event) {
     event.preventDefault();
     document.querySelector('#popup').checked = false;
     document.querySelector('#login_popup').checked = true;
+    setTimeout(() => document.querySelector('#login_id_input').focus(),50);
 }
 
 
@@ -452,7 +455,7 @@ function loginSocket(id) {
     }
     function onMessage(evt){
         const field = document.querySelector('#chatting_field');
-        field.innerHTML += `<p>${evt.data}<br></p>`;
+        field.innerHTML += `<p>${evt.data}</p><br>`;
 
         const height = document.querySelectorAll('#chatting_field p').length;
         field.scrollTo({top:height*100, left:0, behavior:'auto'});
@@ -496,15 +499,15 @@ function chatting(id) {
     setTimeout(() => document.querySelector('#chatting_input').focus(),50);
 }
 
-
-
-// 내 정보
-function myInfo() {
-}
-
-window.addEventListener('click',() => {
+window.addEventListener('click',(event) => {
     const info = document.querySelector('#header_myInfo');
     if(info === null) return;
+    else if(event.target.id === 'myInfo_menu') {
+        info.style.display = 'block';
+        return;
+    }
     info.style.display = 'none';
 });
+
+
 
