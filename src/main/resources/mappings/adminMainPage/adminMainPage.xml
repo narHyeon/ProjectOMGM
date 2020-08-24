@@ -68,7 +68,25 @@
         <result property="regDate" column="REGDATE" />
         <result property="code" column="CODE" />
     </resultMap>
-
+<!--    메인페이지 barChart 값 불러오기(한 주)-->
+    <!--  몰 한주 매출  -->
+    <select id="getBarChartWeekSales" parameterType="OrderVO" resultType="int">
+        select sum(ORDER_PRICE) from ORDER_LIST where to_char(order_date, 'yyyy-mm-dd') = (select
+            to_char( sysdate-( (select to_char(sysdate,'D') from dual) -2 )+#{order_point}, 'yyyy-mm-dd'    )
+                from dual)
+    </select>
+    <!--  유치원 한주 매출  -->
+    <select id="getBarChartWeekSales01" parameterType="KinderGardenReservationVO" resultType="int">
+        select sum(PRICE) from kg_reservation where to_char(regdate, 'yyyy-mm-dd') = (select
+            to_char( sysdate-( (select to_char(sysdate,'D') from dual) -2 )+#{animalAge}, 'yyyy-mm-dd'    )
+                from dual)
+    </select>
+    <!--  호텔 한주 매출  -->
+    <select id="getBarChartWeekSales02" parameterType="RoomReservationVO" resultType="int">
+        select sum(roomreservation_fee) from roomreservation where to_char(roomreservation_payday, 'yyyy-mm-dd') = (select
+            to_char( sysdate-( (select to_char(sysdate,'D') from dual) -2 )+#{roomReservation_roomNo}, 'yyyy-mm-dd'    )
+                from dual)
+    </select>
 <!--    메인페이지 areaChart 값 불러오기(월 매출)-->
     <!--  몰 월 매출  -->
     <select id="getAreaChartMonthlySales" parameterType="OrderVO" resultType="int">
@@ -128,5 +146,15 @@
     <!--  금일 호텔 에약 현왕  -->
     <select id="getRRListToday" resultType="RoomReservationVO">
         select * from roomreservation where to_char(sysdate,'YYYYMMDD') = to_char(roomreservation_payday,'YYYYMMDD')
+    </select>
+
+    <!--  금일 유치원 에약 현왕  -->
+    <select id="getKGListToday" resultType="KinderGardenReservationVO">
+        select * from kg_reservation where to_char(sysdate,'YYYYMMDD') = to_char(regdate,'YYYYMMDD')
+    </select>
+
+    <!--  금일 몰 주문 현왕  -->
+    <select id="getMallListToday" resultType="OrderVO">
+        select * from order_list where to_char(sysdate,'YYYYMMDD') = to_char(order_date,'YYYYMMDD')
     </select>
 </mapper>

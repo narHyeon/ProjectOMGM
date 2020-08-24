@@ -183,13 +183,11 @@
                         </div>
                         <div class="card-body">
                             <div class="text-left" style="font-size:90%; font-weight:600;">
-                                <li>2020년 08월 17일 (1주일 코스) 홍길동 페르시안</li>
-                                <li>2020년 08월 17일 (1주일 코스) 손오공 스핑크스</li>
-                                <li>2020년 08월 17일 (1주일 코스) 나랑구 브리티시 숏헤어</li>
-                                <li>2020년 08월 24일 (1주일 코스) 안녕맨 먼치킨</li>
-                                <li>2020년 08월 24일 (1주일 코스) 학원걸 랙돌</li>
+                                <c:forEach var="KGList" items="${KGList}">
+                                    <li> <${KGList.name}>예약  ${KGList.animal}</li>
+                                </c:forEach>
                             </div>
-                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 5개의 예약이 있습니다!</p>
+                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;"></p>
                         </div>
                     </div>
 
@@ -208,44 +206,19 @@
                         <thead>
                         <tr class="productOrderField">
                             <th>주문번호</th>
-                            <th>이미지</th>
+<%--                            <th>이미지</th>--%>
                             <th>상품명</th>
                             <th>가격</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="orderDetail" items="${orderDetail}">
+                        <c:forEach var="MallList" items="${MList}">
                             <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
+                                <td>${MallList.order_tn}</td>
+<%--                                <td>${MList}</td>--%>
+                                <td>${MallList.order_name}</td>
+                                <td>${MallList.order_price}</td>
                             </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr class="order_feild">
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-
                         </c:forEach>
                         </tbody>
                     </table>
@@ -258,8 +231,7 @@
 
 <!-- Page level plugins -->
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
-<!-- Page level custom scripts -->
-<script src="resources/admin/js/main/chartBarMain.js"></script>
+
 <%--<script src="resources/admin/js/demo/chart-pie-demo.js"></script>--%>
 <script src="resources/admin/js/main/chartAreaMain.js"></script>
 <script>
@@ -340,7 +312,82 @@
             }
         });
     }
+</script>
+    <!-- Page level plugins -->
+    <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="resources/admin/js/main/chartBarMain.js"></script>
+    <script>
+    // 상품 몰 매출(한주)
+        for(var i=0; i<7; i++) {
+            let countsss = i;
+            $.ajax({
+                type: 'POST',
+                url: "getBarChartWeekSales.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    order_point: i,
 
+                }),
+                success: function (data) {
+                    // alert('몰 : '+data.order_price);
+
+                    myBarChart.data.datasets[0].data[countsss] = data.order_price;
+                    myBarChart.update();
+                },
+                error: function (xhr) {
+                    myBarChart.data.datasets[0].data[countsss] = 0;
+                    myBarChart.update();
+                }
+            });
+        }
+    // 상품 유치원 매출(한주)
+    for(var i=0; i<7; i++) {
+        let countsss = i;
+        $.ajax({
+            type: 'POST',
+            url: "getBarChartWeekSales01.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                animalAge: i,
+
+            }),
+            success: function (data) {
+                // alert('유치원 : '+data.price);
+                myBarChart.data.datasets[1].data[countsss] = data.price;
+                myBarChart.update();
+            },
+            error: function (xhr) {
+                myBarChart.data.datasets[1].data[countsss] = 0;
+                myBarChart.update();
+            }
+        });
+    }
+    // 호텔 유치원 매출(한주)
+    for(var i=0; i<7; i++) {
+        let countsss = i;
+        $.ajax({
+            type: 'POST',
+            url: "getBarChartWeekSales02.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                roomReservation_roomNo: i,
+
+            }),
+            success: function (data) {
+                // alert('호텔 : '+data.roomReservation_fee);
+                myBarChart.data.datasets[2].data[countsss] = data.roomReservation_fee;
+                myBarChart.update();
+            },
+            error: function (xhr) {
+                myBarChart.data.datasets[2].data[countsss] = 0;
+                myBarChart.update();
+            }
+        });
+    }
 </script>
 
 
