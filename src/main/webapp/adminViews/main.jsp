@@ -183,7 +183,7 @@
                         </div>
                         <div class="card-body">
                             <div class="text-left" style="font-size:90%; font-weight:600;">
-                                <c:forEach begin="0" step="4" items="${kgReservation}" var="${reservation}">
+                                <c:forEach begin="0" step="1" end="4" items="${kgReservation}" var="reservation">
                                     <li>${reservation.name} ${reservation.buyerName} ${reservation.animal}</li>
                                 </c:forEach>
                             </div>

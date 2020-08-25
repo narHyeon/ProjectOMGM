@@ -36,7 +36,7 @@
         <result property="merchantUid" column="MERCHANT_UID"/>
         <result property="pgProvider" column="PG_PROVIDER"/>
         <result property="state" column="STATE"/>
-        <result property="regdate" column="REGDATE"/>
+        <result property="regDate" column="REGDATE"/>
     </resultMap>
     <resultMap id="RoomReservation" type="RoomReservationVO">
         <id property="roomReservation_no" column="ROOMRESERVATION_NO" />
@@ -131,7 +131,7 @@
     </select>
 
     <!--  호텔  예약 현황  -->
-    <select id="getKGReservation" resultType="KinderGardenReservationResult">
+    <select id="getKGReservation" resultMap="KinderGardenReservationResult">
         SELECT * FROM kg_reservation ORDER BY seq ASC
     </select>
 </mapper>

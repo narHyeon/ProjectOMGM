@@ -48,6 +48,7 @@
         <result property="merchantUid" column="MERCHANT_UID"/>
         <result property="pgProvider" column="PG_PROVIDER"/>
         <result property="state" column="STATE"/>
+        <result property="regDate" column="REGDATE"/>
     </resultMap>
 
     <!-- 실 사용 -->
