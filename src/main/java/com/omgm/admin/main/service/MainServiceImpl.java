@@ -75,4 +75,9 @@ public class MainServiceImpl implements MainService {
         return mainDAO.getRRListToday();
     }
 
+    @Override
+    public List<KinderGardenReservationVO> getKGReservation() {
+        return mainDAO.getKGReservation();
+    }
+
 }

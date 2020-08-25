@@ -129,4 +129,9 @@
     <select id="getRRListToday" resultType="RoomReservationVO">
         select * from roomreservation where to_char(sysdate,'YYYYMMDD') = to_char(roomreservation_payday,'YYYYMMDD')
     </select>
+
+    <!--  호텔  예약 현황  -->
+    <select id="getKGReservation" resultType="KinderGardenReservationResult">
+        SELECT * FROM kg_reservation
+    </select>
 </mapper>

@@ -36,4 +36,7 @@ public interface MainService {
 
     // 금일 호텍 예약 현왕
     List<RoomReservationVO> getRRListToday() throws Exception;
+
+    // 유치원 예약 현황
+    List<KinderGardenReservationVO> getKGReservation();
 }

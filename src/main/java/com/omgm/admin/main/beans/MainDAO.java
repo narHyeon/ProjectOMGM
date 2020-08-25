@@ -71,4 +71,8 @@ public class MainDAO {
     public List<RoomReservationVO> getRRListToday(){
         return sqlSessionTemplate.selectList("adminMainDAO.getRRListToday");
     }
+
+    public List<KinderGardenReservationVO> getKGReservation() {
+        return sqlSessionTemplate.selectList("adminMainDAO.getKGReservation");
+    }
 }
