@@ -1,6 +1,5 @@
 package com.omgm.admin.main.controller;
 
-import com.omgm.admin.common.beans.AdminVO;
 import com.omgm.admin.main.beans.RoomReservationVO;
 import com.omgm.admin.main.service.MainService;
 import com.omgm.admin.mall.beans.OrderVO;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -55,6 +56,15 @@ public class MainController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/main");
         mav.addObject("RRList", mainService.getRRListToday());
+        List<KinderGardenReservationVO> kgList = mainService.getKGReservation();
+        int notConfirm = 0;
+        for(KinderGardenReservationVO list : kgList) {
+            if(list.getState().equals("미확인")) {
+                notConfirm++;
+            }
+        }
+        mav.addObject("kgReservation",kgList);
+        mav.addObject("kgCount",notConfirm);
         return mav;
     }
     //금일 호텍 예약

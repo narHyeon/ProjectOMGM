@@ -183,13 +183,11 @@
                         </div>
                         <div class="card-body">
                             <div class="text-left" style="font-size:90%; font-weight:600;">
-                                <li>2020년 08월 17일 (1주일 코스) 홍길동 페르시안</li>
-                                <li>2020년 08월 17일 (1주일 코스) 손오공 스핑크스</li>
-                                <li>2020년 08월 17일 (1주일 코스) 나랑구 브리티시 숏헤어</li>
-                                <li>2020년 08월 24일 (1주일 코스) 안녕맨 먼치킨</li>
-                                <li>2020년 08월 24일 (1주일 코스) 학원걸 랙돌</li>
+                                <c:forEach begin="0" step="4" items="${kgReservation}" var="${reservation}">
+                                    <li>${reservation.name} ${reservation.buyerName} ${reservation.animal}</li>
+                                </c:forEach>
                             </div>
-                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 5개의 예약이 있습니다!</p>
+                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 ${kgCount}개의 예약이 있습니다!</p>
                         </div>
                     </div>
 
