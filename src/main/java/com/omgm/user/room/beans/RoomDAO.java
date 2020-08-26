@@ -27,5 +27,8 @@ public class RoomDAO {
 		return sqlSessionTemplate.selectOne("RoomDAO.roomRead",vo);
 	}
 
+	public List<RoomVO> getListRoomAll() {
+		return sqlSessionTemplate.selectList("RoomDAO.selectListRoomAll");
+	}
 	
 }

@@ -500,7 +500,7 @@
 				<div class="modal_input_key">질문</div>
 				<div class="modal_input_value">
 					<input type="text" class="modal_ask">
-				</div>s
+				</div>
 		    </div>
 		    <div class="modal_input2">
 				<div class="modal_input_key">답변</div>
