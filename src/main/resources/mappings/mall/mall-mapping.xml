@@ -62,6 +62,9 @@
 		select toy_img from toy where toy_code=#{toy_code}
 	</select>
 	<!-- /////////////// 사료 관련 쿼리문 ///////////////////////////////////////////////////////// -->
+	<select id="getExpirationFeedList" resultType="mallFeedVO">
+		<![CDATA[select * from feed where feed_expiration<=3]]>
+	</select>
 	<!--  사료 유통기한 -1 쿼리문	-->
 	<update id="expirationFeed" parameterType="mallFeedVO">
 		UPDATE feed set feed_expiration = feed_expiration-1

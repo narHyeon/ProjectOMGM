@@ -4,6 +4,7 @@ import com.omgm.admin.common.beans.AdminVO;
 import com.omgm.admin.main.beans.RoomReservationVO;
 import com.omgm.admin.main.service.MainService;
 import com.omgm.admin.mall.beans.OrderVO;
+import com.omgm.admin.mall.service.MallService;
 import com.omgm.user.common.beans.KinderGardenReservationVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
     @Autowired
     MainService mainService;
-
+    @Autowired
+    MallService mallService;
     // barChart
     // 몰(상품) 관련
     @ResponseBody
@@ -79,6 +81,7 @@ public class MainController {
         mav.addObject("RRList", mainService.getRRListToday());
         mav.addObject("KGList",mainService.getKGListToday());
         mav.addObject("MList", mainService.getMallListToday());
+        mav.addObject("ExDate", mallService.getExpirationFeedList());
         return mav;
     }
     //금일 호텍 예약
