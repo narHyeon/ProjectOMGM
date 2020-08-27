@@ -143,17 +143,17 @@
     </div>
     <ul class="kinderGarden_info">
         <li>
-            <img src="resources/img/main_image.jpg" alt="">
+            <img src="resources/img/kinderGarden/01.jpg" alt="">
             <h3>체계적인 학습 커리큘럼</h3>
             <p>행동 전문 수의사와 교육 전문가가 설계한 학습 커리큘럼을 통해 반려견의 사회성 향상과 행동 발달을 목표로 합니다.</p>
         </li>
         <li>
-            <img src="resources/img/main_image.jpg" alt="">
+            <img src="resources/img/kinderGarden/02.jpg" alt="">
             <h3>반려견 교육 전문가</h3>
             <p>국제공인자격증을 갖춘 전문가들이 교육과 케어 서비스를 제공하는 프리미엄 유치원 입니다.</p>
         </li>
         <li>
-            <img src="resources/img/main_image.jpg" alt="">
+            <img src="resources/img/kinderGarden/03.jpg" alt="">
             <h3>긍정강화 교육 진행</h3>
             <p>체벌은 일체 하지 않으며, 간식이나 장난감 등을 활용한 동기 부여 교육으로 올바른 행동을 가르칩니다.</p>
         </li>
