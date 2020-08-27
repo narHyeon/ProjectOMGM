@@ -124,10 +124,15 @@
 
     function fixedPass(type) {
         if(boo === false && type === '일반') {
-            const pass = prompt('비밀번호를 입력해주세요','Password');
-            if(pass === null) return ;
-            else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
-            return checkPass(pass, '${member.seq}','pass');
+            swal({
+                title: '비밀번호를 입력해주세요!',
+                content: 'input',
+                button: ['취소','확인']
+            }).then(console.log);
+            <%--const pass = prompt('비밀번호를 입력해주세요','Password');--%>
+            <%--if(pass === null) return ;--%>
+            <%--else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');--%>
+            <%--return checkPass(pass, '${member.seq}','pass');--%>
         } else {
             return updatePassword('${member.seq}');
         }
@@ -230,7 +235,7 @@
         } else {
             swal({
                 title: "정말 탈퇴하시겠습니까?",
-                text: "탈퇴하신 후에 다시 로그인 하시려면 재가입하셔야 합니다.!",
+                text: "탈퇴하신 후에 다시 로그인 하시려면 재가입하셔야 합니다!",
                 icon: "warning",
                 buttons: ['아니오','예'],
                 dangerMode: true,
@@ -238,11 +243,10 @@
                 if(!pass) return ;
                 swal("성공적으로 탈퇴되었습니다!", {
                     icon: "success",
-                }).then(updateMember);
+                }).then(() => {
+                    window.location.href = 'deleteMember.do?seq='+'${member.seq}';
+                });
             });
-            const pass1 = confirm('정말 탈퇴하시겠습니까?');
-            if(!pass1) return ;
-            window.location.href = 'deleteMember.do?seq='+'${member.seq}';
         }
     }
 </script>
