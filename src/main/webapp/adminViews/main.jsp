@@ -254,12 +254,11 @@
                 document.querySelector('#mainAreaChartMallCount01').innerHTML=data.order_point+'명';
                 document.querySelector('#mainAreaChartMallCount02').innerHTML=data.order_point_used+'원';
                 document.querySelector('#mainAreaChartMallCount03').innerHTML=data.order_no+'원';
-                myLineChart.data.datasets[0].data[count-1] = data.order_price;
+                myLineChart.data.datasets[0].data[count - 1] = data.order_price;
                 myLineChart.update();
-
             },
             error: function (xhr) {
-                // myLineChart.data.datasets[2].data[counts-1] = 0;
+
             }
         });
     }
@@ -282,7 +281,7 @@
 
             },
             error: function (xhr) {
-                // myLineChart.data.datasets[2].data[counts-1] = 0;
+                myLineChart.data.datasets[1].data[counts-1] = 0;
             }
         });
     }

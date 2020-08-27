@@ -53,7 +53,11 @@ public class MallServiceImpl implements MallService {
 
 
     //  ###### 사료 관련 서비스 ###########################################################
-
+    // 사료 유통기한 설정
+    @Override
+    public void expirationFeed(MallFeedVO vo) throws Exception {
+        mallDAO.expirationFeed(vo);
+    }
     // 사료(상품) 상품등록
     @Override
     public void insertMallFeed(MallFeedVO vo) throws Exception {

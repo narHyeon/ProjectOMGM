@@ -24,6 +24,7 @@ public interface MallService {
     MallToyVO getMallToyImgOne(MallToyVO vo) throws Exception; // 장난감 이미지 불러오기
 
     // 사료 관련 서비스
+    void expirationFeed(MallFeedVO vo) throws Exception; // 사료 유통기한 설정
     void insertMallFeed(MallFeedVO vo) throws Exception; // 사료 등록
     void updateMallFeed(MallFeedVO vo) throws Exception; // 사료 정보 수정
     void deleteMallFeed(MallFeedVO vo) throws Exception; // 사료 등록 삭제

@@ -62,6 +62,10 @@
 		select toy_img from toy where toy_code=#{toy_code}
 	</select>
 	<!-- /////////////// 사료 관련 쿼리문 ///////////////////////////////////////////////////////// -->
+	<!--  사료 유통기한 -1 쿼리문	-->
+	<update id="expirationFeed" parameterType="mallFeedVO">
+		UPDATE feed set feed_expiration = feed_expiration-1
+	</update>
 	<!-- 사료 등록 쿼리문 -->
 	<insert id="insertMallFeed" parameterType="mallFeedVO">
 		INSERT INTO feed (feed_code, feed_name, feed_expiration, feed_price,
