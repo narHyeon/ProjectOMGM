@@ -99,4 +99,11 @@ public class UserUserMallServiceImpl implements UserMallService {
         userMallDAO.deleteCartListAll(vo);
     }
 
+    //////////// mypage mall order /////////////////////////////////////////
+
+    @Override
+    public List<OrderVO> myOrder(OrderVO vo) throws Exception{
+        return userMallDAO.myOrder(vo);
+    }
+
 }

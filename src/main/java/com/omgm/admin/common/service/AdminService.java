@@ -8,4 +8,6 @@ import java.util.List;
 public interface AdminService {
     List<ReviewVO> getReviewList(ReviewVO vo, PageNavigator navi);
     int selectCount();
+
+
 }

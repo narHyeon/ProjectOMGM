@@ -1,6 +1,7 @@
 package com.omgm.user.common.controller;
 
 import com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO;
+import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.common.beans.CommonVO;
 import com.omgm.user.common.beans.KinderGardenInfoRowVO;
 import com.omgm.user.common.beans.KinderGardenInfoVO;
@@ -162,5 +163,12 @@ public class OneController {
     public void kinderGardenReservation(@RequestBody KinderGardenReservationVO vo) {
         commonService.addKinderGardenReservation(vo);
         System.out.println(vo);
+    }
+    @RequestMapping(value="/myReservation.do")
+    public ModelAndView myReservation(ReviewVO vo){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/myReservation");
+//        mav.addObject("myReservation", userMallService.myReservation(vo));
+        return mav;
     }
 }
