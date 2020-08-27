@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <style>
         #orderList_hr{
            display: flex;
@@ -80,6 +81,7 @@
         }
     </style>
 </head>
+<body>
 <h6 style="  display:flex; padding-left: 15%; padding-top:117px; font-size:28px; font-weight:900;  margin: 0 auto; ">주문내역<span style="font-size: 15px; padding-top: 1%;
             padding-left: 0.5%;">지난 3년간의 주문 내역 조회가 가능합니다.</span></h6>
 <%--<div><h1 style=" padding-left: 55%;">지난 3년간의 주문 내역 조회가 가능합니다.</h1></div>--%>
@@ -98,27 +100,39 @@
 </div>
 
 <ul class="orderView">
-<%--    <c:forEach items="${orderView}" var="orderView">--%>
-        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d">2020.08.22(15시 30분)</div>
+    <c:forEach items="${myOrder}" var="myOrder">
+<%--        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d">2020.08.22(15시 30분)</div>--%>
+        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d"name = "order_date" ></div>
         <li class="myOrder_list">
-<%--            <hr size="5" width="95%" color="pink" style="margin: 0 auto; margin-top:70px;">--%>
-<%--            <div class="order_img_border">--%>
-<%--            <img id="order_img" src="../../resources/img/roomIntroduction/03.jpg" />--%>
-<%--            </div>--%>
-
                 <div style="font-size:30px; font-weight: 900; padding-left:1%; padding-top:30px;">
-                    <span style="margin-left:4%; margin-top:20px;">[사료]</span> 사료1<br/>
+                    <input type="hidden" id="order_id" name="order_id">${member.id}</input>
+                    <span style="margin-left:4%; margin-top:20px;" name="order_name" id="order_name">[사료]${myOrder.order_name}</span><br/>
                     <hr size="1" width="93%" color="#9da0a5" style="margin: 0 auto; margin-top:26px; margin-bottom: 30px; ">
                     <img id="order_img" style=" float:left; margin-left:4%; margin-right: 20px;"  src="../../resources/img/roomIntroduction/03.jpg"/>
-                    <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span class="myorderInfo">   11111121515565</span><br/>
-                    <span class="order_pro">최종 가격 <fmt:formatNumber pattern="###,###,###" value="50000"/></span><span class="myorderInfo">  50000원</span><br/>
-                    <span class="order_pro">주문상태</span><span class="myorderInfo">   배송완료</span></div>
-                    <div class="myorderBtn"><button id="myorderReview" type="button"> 후기쓰기</button>
+                    <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span name="order_no" class="myorderInfo">   ${myOrder.order_no}</span><br/>
+                    <span class="order_pro">최종 가격 <fmt:formatNumber pattern="###,###,###" value="50000"/></span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
+                    <span class="order_pro">주문상태</span><span class="myorderInfo">   ${myOrder.order_state}</span></div>
+                    <div class="myorderBtn"><a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
                     <button id="myorderChat" type="button"> 1:1 문의 </button></div>
                 </div>
         </li>
-
-<%--    </c:forEach>--%>
+<%--&lt;%&ndash;    </c:forEach>&ndash;%&gt;--%>
+<%--&lt;%&ndash;    <c:forEach items="${myOrder}" var="myOrder">&ndash;%&gt;--%>
+<%--        &lt;%&ndash;        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d">2020.08.22(15시 30분)</div>&ndash;%&gt;--%>
+<%--        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d"></div>--%>
+<%--        <li class="myOrder_list">--%>
+<%--            <div style="font-size:30px; font-weight: 900; padding-left:1%; padding-top:30px;">--%>
+<%--                <span style="margin-left:4%; margin-top:20px;">[사료]</span> <br/>--%>
+<%--                <hr size="1" width="93%" color="#9da0a5" style="margin: 0 auto; margin-top:26px; margin-bottom: 30px; ">--%>
+<%--                <img id="order_img" style=" float:left; margin-left:4%; margin-right: 20px;"  src="../../resources/img/roomIntroduction/03.jpg"/>--%>
+<%--                <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span class="myorderInfo">   </span><br/>--%>
+<%--                    <span class="order_pro">최종 가격 <fmt:formatNumber pattern="###,###,###" value="50000"/></span><span class="myorderInfo">  </span><br/>--%>
+<%--                    <span class="order_pro">주문상태</span><span class="myorderInfo">   </span></div>--%>
+<%--                <div class="myorderBtn"><a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>--%>
+<%--                    <button id="myorderChat" type="button"> 1:1 문의 </button></div>--%>
+<%--            </div>--%>
+<%--        </li>--%>
+<%--&lt;%&ndash;    </c:forEach>&ndash;%&gt;--%>
 </ul>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.omgm.user.common;
 
+import org.springframework.stereotype.Controller;
+
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 
@@ -75,7 +77,7 @@ public class send extends HttpServlet {
             msg_e.printStackTrace();
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/userViews/tiles/header.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/userViews/main.do");
         rd.forward(request, response);
     }
 }
