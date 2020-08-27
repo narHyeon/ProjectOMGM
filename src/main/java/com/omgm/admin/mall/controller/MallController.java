@@ -2,11 +2,9 @@ package com.omgm.admin.mall.controller;
 
 import com.omgm.admin.mall.beans.*;
 import com.omgm.admin.mall.service.MallService;
-import com.omgm.member.beans.MemberVO;
-import com.omgm.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
-import java.util.List;
 
 @Controller
 public class MallController {
@@ -30,6 +27,14 @@ public class MallController {
 //    String fileName03;
 
     /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
+    //정산페이지테스트 이동
+    @RequestMapping("/calculateTest.mdo")
+    public ModelAndView calculateTest() throws Exception {
+        ModelAndView mav = new ModelAndView();
+//        mallService.expirationFeed(vo);
+        mav.setViewName("/calculate/calculateTest");
+        return mav;
+    }
 
     // 장난감상품 상세히 불러오기
         @RequestMapping("/productDeleteUpdate.mdo")

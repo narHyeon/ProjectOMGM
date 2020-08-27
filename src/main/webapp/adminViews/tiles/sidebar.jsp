@@ -143,7 +143,7 @@
 					<a class="collapse-item" href="productOrder.mdo">주문현황</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">관리:</h6>
-					<a class="collapse-item" href="blank.html">MALL 정산 - 예정</a>
+					<a class="collapse-item" href="calculateTest.mdo">MALL 정산 - 예정</a>
             </div>
         </div>
     </li>

@@ -284,8 +284,8 @@
 <%--</div>--%>
 
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
-<script src="resources/admin/js/kinderGarden/chartPie.js"></script>
-<script src="resources/admin/js/kinderGarden/chartArea.js"></script>
+<script src="resources/admin/js/mall/chartPie.js"></script>
+<script src="resources/admin/js/mall/chartArea.js"></script>
 <%--<c:forEach items="#{dow.dow}" var="dow" varStatus="status">--%>
 <%--    <script>--%>
 <%--        myLineChart.data.datasets[0].data[${status.index}] = ${dow};--%>
