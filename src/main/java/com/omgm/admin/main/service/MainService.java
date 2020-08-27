@@ -7,6 +7,13 @@ import com.omgm.user.common.beans.KinderGardenReservationVO;
 import java.util.List;
 
 public interface MainService {
+    //barChart 관련 서비스
+    // 상품(몰)
+    int getBarChartWeekSales(OrderVO vo) throws Exception;
+    // 유치원 매출
+    int getBarChartWeekSales01(KinderGardenReservationVO vo) throws Exception;
+    // 호텔 매출
+    int getBarChartWeekSales02(RoomReservationVO vo) throws Exception;
 
     //areaChart 관련 서비스
     // 상품(몰)
@@ -34,6 +41,10 @@ public interface MainService {
     // 이번달 회원가입 수 명
     int getMemberCount() throws Exception;
 
-    // 금일 호텍 예약 현왕
+    // 금일 호텍 예약 현황
     List<RoomReservationVO> getRRListToday() throws Exception;
+    // 금일 유치원 예약 현황
+    List<KinderGardenReservationVO> getKGListToday() throws Exception;
+    // 금일 몰 주문 현황
+    List<OrderVO> getMallListToday() throws Exception;
 }

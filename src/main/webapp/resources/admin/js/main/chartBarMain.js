@@ -38,19 +38,14 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "#36b9cc",
       hoverBackgroundColor: "#36b9cc",
       borderColor: "#36b9cc",
-      data: [3215, 4312, 5251, 6841, 8821, 24984,10000],
-    },{
-      label: "신규가입",
-      backgroundColor: "#f6c23e",
-      hoverBackgroundColor: "#f6c23e",
-      borderColor: "#f6c23e",
-      data: [5215, 6312, 7251, 8841, 10821, 24984,9000],
-    },{
+      data: [3215, 4312, 5251, 6841, 8821, 24984, 10000],
+    },
+      {
       label: "유치원예약",
       backgroundColor: "#1cc88a",
       hoverBackgroundColor: "#1cc88a",
       borderColor: "#1cc88a",
-      data: [2215, 3312, 4251, 5841, 7821, 9984,8000],
+      data: [2215, 3312, 4251, 5841, 7821, 9984, 8000],
     },{
       label: "호텔예약",
       backgroundColor: "#4e73df",
@@ -86,7 +81,7 @@ var myBarChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 150000,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks

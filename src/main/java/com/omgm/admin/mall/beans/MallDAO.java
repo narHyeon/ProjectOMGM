@@ -38,6 +38,12 @@ public class MallDAO {
     public MallToyVO getMallToyImgOng(MallToyVO vo){return sqlSessionTemplate.selectOne("MallDAO.getMallToyImgOng", vo);}
 
     /////////////////  feed 관련 DAO 설정  ///////////////////////////////////////////////////////////
+    // 사료 유통기한 3일 이하로 남은 리스트
+    public List<MallFeedVO> getExpirationFeedList() {
+        return sqlSessionTemplate.selectList("MallDAO.getExpirationFeedList");
+    }
+    // 사료 유통기한 설정
+    public void expirationFeed(MallFeedVO vo) {sqlSessionTemplate.update("MallDAO.expirationFeed", vo);}
     // 사료 디비 정보 입력
     public void insertMallFeed(MallFeedVO vo) {
         sqlSessionTemplate.insert("MallDAO.insertMallFeed", vo);

@@ -15,6 +15,22 @@ public class MainServiceImpl implements MainService {
 
     @Autowired
     MainDAO mainDAO;
+
+    // 상품 몰 한주 매출
+    @Override
+    public int getBarChartWeekSales(OrderVO vo) throws Exception {
+        return mainDAO.getBarChartWeekSales(vo);
+    }
+    // 유치원 한주 매출
+    @Override
+    public int getBarChartWeekSales01(KinderGardenReservationVO vo) throws Exception {
+        return mainDAO.getBarChartWeekSales01(vo);
+    }
+    // 호텔 한주 매출
+    @Override
+    public int getBarChartWeekSales02(RoomReservationVO vo) throws Exception {
+        return mainDAO.getBarChartWeekSales02(vo);
+    }
     // 상품 몰  월 매출
     @Override
     public int getAreaChartMonthlySales(OrderVO vo) throws Exception {
@@ -69,10 +85,21 @@ public class MainServiceImpl implements MainService {
     public int getMemberCount() throws Exception {
         return mainDAO.getMemberCount();
     }
-    // 금일 호텍예약 현왕
+    // 금일 호텍예약 현황
     @Override
     public List<RoomReservationVO> getRRListToday() throws Exception {
         return mainDAO.getRRListToday();
     }
 
+    //금일 유치원예약 현황
+    @Override
+    public List<KinderGardenReservationVO> getKGListToday() throws Exception{
+        return mainDAO.getKGListToday();
+    }
+
+    // 금일 몰 주문 현황
+    @Override
+    public List<OrderVO> getMallListToday() throws Exception{
+        return mainDAO.getMallListToday();
+    }
 }
