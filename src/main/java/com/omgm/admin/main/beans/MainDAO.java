@@ -13,8 +13,21 @@ public class MainDAO {
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
+    // barChart 관련 값 불러오기(주)
+    // 상품 매출
+    public int getBarChartWeekSales(OrderVO vo) {
+        return sqlSessionTemplate.selectOne("adminMainDAO.getBarChartWeekSales", vo);
+    }
+    // 유치원 한주 매출
+    public int getBarChartWeekSales01(KinderGardenReservationVO vo){
+        return sqlSessionTemplate.selectOne("adminMainDAO.getBarChartWeekSales01", vo);
+    }
+    // 호텔 한주 매출
+    public int getBarChartWeekSales02(RoomReservationVO vo){
+        return sqlSessionTemplate.selectOne("adminMainDAO.getBarChartWeekSales02", vo);
+    }
 
-    // areaChart 관련 값 불러오기
+    // areaChart 관련 값 불러오기(월)
     // 상품 매출
     public int getAreaChartMonthlySales(OrderVO vo){
         return sqlSessionTemplate.selectOne("adminMainDAO.getAreaChartMonthlySales", vo);
@@ -67,12 +80,22 @@ public class MainDAO {
         return sqlSessionTemplate.selectOne("adminMainDAO.getMemberCount");
     }
 
-    // 금일 효텔 예약 현왕
+    // 금일 효텔 예약 현황
     public List<RoomReservationVO> getRRListToday(){
         return sqlSessionTemplate.selectList("adminMainDAO.getRRListToday");
     }
 
     public List<KinderGardenReservationVO> getKGReservation() {
         return sqlSessionTemplate.selectList("adminMainDAO.getKGReservation");
+    }
+
+    //금일 유치원 예약 현황
+    public List<KinderGardenReservationVO> getKGListToday(){
+        return sqlSessionTemplate.selectList("adminMainDAO.getKGListToday");
+    }
+
+    //금일 몰 주문 현황
+    public List<OrderVO> getMallListToday() {
+        return sqlSessionTemplate.selectList("adminMainDAO.getMallListToday");
     }
 }

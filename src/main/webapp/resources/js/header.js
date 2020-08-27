@@ -126,6 +126,27 @@ function joinCheck(event) {
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(data));
 }
+//이메일 인증번호받기
+function emailCheck(){
+
+    const original = document.getElementById("original");
+    $("#original").attr({"data-placeholder":"인증번호"});
+    const original1 = document.getElementById("original1");
+    $("#original1").attr({"name":"code","type":"text"});
+    original1.value='';
+    const checkbtnSend = document.getElementById("checkbtnSend");
+    $("#checkbtnSend").attr({"type":"hidden"});
+
+    const v1 = form2.code_check.value;
+    const v2 = form2.code.value;
+    if(v2!="") {
+        if (v1 != v2) {
+            $("#original").attr({"data-placeholder": "Email"});
+        } else {
+            alert("인증번호가 틀렸습니다.");
+        }
+    }
+}
 
 // 우편번호 체크
 function zipCheck() {

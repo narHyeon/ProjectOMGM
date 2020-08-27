@@ -184,7 +184,7 @@
 </div>
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="resources/admin/js/productOrder/proOrder.js"></script>
+    <script src="resources/admin/js/productOrder/proOrder.js"></script>
     <script type="text/javascript">
         <%--        //행 눌렀을때 order_no값 불러오기--%>
         <%--        $(document).ready(function(){--%>

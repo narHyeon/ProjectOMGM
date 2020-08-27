@@ -125,7 +125,7 @@
     function fixedPass(type) {
         if(boo === false && type === '일반') {
             swal({
-                title: '비밀번호를 입력해주세요!',
+                text: '비밀번호를 입력해주세요!',
                 content: 'input',
                 button: ['취소','확인']
             }).then(console.log);

@@ -48,4 +48,6 @@ public interface UserMallService {
     void insertOrderCartList(OrderVO vo) throws Exception;
     void updateMemberPoint(MemberOrderVO vo) throws Exception;
 
+    /////////////// mypage mall order ///////////////////////////////////////////
+    public List<OrderVO> myOrder(OrderVO vo) throws Exception;
 }
