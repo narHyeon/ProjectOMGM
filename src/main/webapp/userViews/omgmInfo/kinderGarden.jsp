@@ -122,11 +122,15 @@
             margin: 0 auto;
         }
 
+        .education_schedule {
+            padding: 20px;
+        }
+
         .education_schedule table {
             margin: 30px auto;
             width: 100%;
             text-align: center;
-            font-size: 13px;
+            font-size: 12px;
 
             font-weight: 600;
             color: #444;
