@@ -5,13 +5,11 @@
     }
 </style>
 <!-- Sidebar -->
-<ul
-        class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion"
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion"
         id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a
-            class="sidebar-brand d-flex align-items-center justify-content-center"
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
             href="adminMain.mdo">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
@@ -121,7 +119,6 @@
                 <h6 class="collapse-header">서비스 관리:</h6>
                 <a class="collapse-item" href="pickupServiceManagement.mdo">픽업 서비스</a>
                 <a class="collapse-item" href="404.html">문자알림 서비스 - 예정</a>
-                <a class="collapse-item" href="blank.html">서비스 정산 - 예정</a>
             </div>
         </div>
     </li>
