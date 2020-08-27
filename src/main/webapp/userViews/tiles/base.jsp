@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/style/header.css">
 <link rel="shortcut icon" href="resources/img/자산%208.png">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+<script src="resources/js/swal/sweetswal.min.js"></script>
 <script src="https://kit.fontawesome.com/844385d242.js" crossorigin="anonymous"></script>
 <style>
 	/*플로팅메뉴*/
@@ -134,10 +135,11 @@
 		<a href="selectCartList.do?cartList_id=${member.id}"><div class="wishlist_menu" style="cursor:pointer;"> <i class="fas fa-shopping-cart"></i></div></a>
 		</c:if>
 		<c:if test="${member == null}">
-			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주세요!');" class="fas fa-shopping-cart"></i></div></a>
+			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: swal('로그인을 먼저 해주세요!');" class="fas fa-shopping-cart"></i></div></a>
 		</c:if>
 			<div id="create-channel-chat-button"></div>
 	</div>
+
 	<script>
 		//top버튼
 		$(function() {

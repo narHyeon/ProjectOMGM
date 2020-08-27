@@ -43,6 +43,9 @@ public interface MainService {
 
     // 금일 호텍 예약 현황
     List<RoomReservationVO> getRRListToday() throws Exception;
+
+    // 유치원 예약 현황
+    List<KinderGardenReservationVO> getKGReservation();
     // 금일 유치원 예약 현황
     List<KinderGardenReservationVO> getKGListToday() throws Exception;
     // 금일 몰 주문 현황

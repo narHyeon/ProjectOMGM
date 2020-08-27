@@ -244,18 +244,16 @@
 
 
 	<div style="display: none" id="naverIdLogin"></div>
-
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 	<script src="resources/js/header.js" defer></script>
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-
 	<c:if test="${member != null}">
 		<c:if test="${member.id == '무'}">
 			<script>
-				alert('로그인 할 수 없습니다!');
+				swal('로그인 할 수 없습니다!');
 			</script>
 		</c:if>
 		<c:if test="${member.name != null}">

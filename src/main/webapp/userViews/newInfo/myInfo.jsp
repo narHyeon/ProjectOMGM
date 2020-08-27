@@ -124,10 +124,15 @@
 
     function fixedPass(type) {
         if(boo === false && type === '일반') {
-            const pass = prompt('비밀번호를 입력해주세요','Password');
-            if(pass === null) return ;
-            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
-            return checkPass(pass, '${member.seq}','pass');
+            swal({
+                text: '비밀번호를 입력해주세요!',
+                content: 'input',
+                button: ['취소','확인']
+            }).then(console.log);
+            <%--const pass = prompt('비밀번호를 입력해주세요','Password');--%>
+            <%--if(pass === null) return ;--%>
+            <%--else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');--%>
+            <%--return checkPass(pass, '${member.seq}','pass');--%>
         } else {
             return updatePassword('${member.seq}');
         }
@@ -136,11 +141,11 @@
     function updatePassword(seq) {
         const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
         if(pass1 === null) return ;
-        else if(pass1.length < 8) return alert('비밀번호는 8자 이상입니다!');
+        else if(pass1.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
         const pass2 = prompt('변경하실 비밀번호를 다시 한번 입력해주세요','Password');
         if(pass2 === null) return;
-        else if(pass2.length < 8) return alert('비밀번호는 8자 이상입니다!');
-        else if(pass1 !== pass2) return alert('입력하신 비밀번호가 다릅니다!');
+        else if(pass2.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
+        else if(pass1 !== pass2) return swal('Error','입력하신 비밀번호가 다릅니다!','error');
         return window.location.href = 'updatePassword.do?seq='+seq+'&pwd='+pass1;
     }
 
@@ -149,7 +154,7 @@
 
         xhr.onload = () => {
             if(xhr.status === 200) {
-                if(xhr.responseText !== '10') return alert('잘못된 비밀번호입니다!');
+                if(xhr.responseText !== '10') return swal('Error','잘못된 비밀번호입니다!','error');
                 boo = true;
                 switch(key) {
                     case 'pass': updatePassword(seq); break;
@@ -169,12 +174,21 @@
         if(boo === false && type === '일반') {
             const pass = prompt('비밀번호를 입력해주세요','Password');
             if(pass === null) return ;
-            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
             return checkPass(pass, '${member.seq}','member');
         } else {
-            const pass1 = confirm('정말 변경하시겠습니까?');
-            if(!pass1) return ;
-            updateMember();
+            swal({
+                title: "정말 변경하시겠습니까?",
+                text: "변경하신 후에도 재변경할 수 있습니다!",
+                icon: "warning",
+                buttons: ['아니오','예'],
+                dangerMode: true,
+            }).then(pass => {
+                if(!pass) return ;
+                swal("성공적으로 변경되었습니다!", {
+                    icon: "success",
+                }).then(updateMember);
+            });
         }
     }
 
@@ -195,7 +209,7 @@
                 return blank = true;
             }
         });
-        if(blank) return alert('입력하지 않은 사항이 있습니다!');
+        if(blank) return swal('Warning','입력하지 않은 사항이 있습니다!','warning');
         const data = {
             seq : '${member.seq}',
             name: list[2].value,
@@ -216,12 +230,23 @@
         if(boo === false && type === '일반') {
             const pass = prompt('비밀번호를 입력해주세요','Password');
             if(pass === null) return ;
-            else if(pass.length < 8) return alert('비밀번호는 8자 이상입니다!');
+            else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
             return checkPass(pass, '${member.seq}','delete');
         } else {
-            const pass1 = confirm('정말 탈퇴하시겠습니까?');
-            if(!pass1) return ;
-            window.location.href = 'deleteMember.do?seq='+'${member.seq}';
+            swal({
+                title: "정말 탈퇴하시겠습니까?",
+                text: "탈퇴하신 후에 다시 로그인 하시려면 재가입하셔야 합니다!",
+                icon: "warning",
+                buttons: ['아니오','예'],
+                dangerMode: true,
+            }).then(pass => {
+                if(!pass) return ;
+                swal("성공적으로 탈퇴되었습니다!", {
+                    icon: "success",
+                }).then(() => {
+                    window.location.href = 'deleteMember.do?seq='+'${member.seq}';
+                });
+            });
         }
     }
 </script>

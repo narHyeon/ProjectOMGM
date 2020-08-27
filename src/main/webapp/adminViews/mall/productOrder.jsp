@@ -190,7 +190,7 @@
         <%--        $(document).ready(function(){--%>
         <%--            $("#order_table tr").click(function(){--%>
         <%--                    $(this).find("#orderNO").each(function(){--%>
-        <%--                            alert($(this).html());--%>
+        <%--                            swal($(this).html());--%>
         <%--                    });--%>
         <%--            });--%>
         <%--        });--%>

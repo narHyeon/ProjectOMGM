@@ -47,7 +47,7 @@ function login(event) {
 function idCheck(check) {
     const input = document.querySelector('.txtboxID input');
     if(input.value === '') {
-        alert('아이디를 입력해주세요!');
+        swal('아이디를 입력해주세요!');
         return true;
     }
     const xhr = new XMLHttpRequest();
@@ -56,11 +56,11 @@ function idCheck(check) {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(0 !== object.point) {
-                alert('이미 사용하고 있는 아이디입니다!');
+                swal('이미 사용하고 있는 아이디입니다!');
                 return true;
             }
             else if(!check) {
-                alert('사용할 수 있는 아이디입니다.');
+                swal('사용할 수 있는 아이디입니다.');
                 return false;
             }
         }
@@ -79,7 +79,7 @@ function pwdCheck() {
 
     if(pwd === copwd) return false;
     else {
-        alert('비밀번호가 일치하지 않습니다');
+        swal('비밀번호가 일치하지 않습니다');
         return true;
     };
 }
@@ -321,12 +321,12 @@ function signKakao() {
                         snsSignDuple(result);
                     },
                     fail: function (error) {
-                        alert(JSON.stringify(error));
+                        swal(JSON.stringify(error));
                     }
                 });
             },
             fail: function (err) {
-                alert(JSON.stringify(err));
+                swal(JSON.stringify(err));
             }
         })
     })
@@ -398,7 +398,7 @@ function kakaoPay(payment,url) {
         }, function(rsp) {
             if ( rsp.success ) {
                 console.log(rsp);
-                alert('결제가 완료되었습니다. 감사합니다!');
+                swal('결제가 완료되었습니다. 감사합니다!');
                 const data = {
                     name: rsp.name, // "주문명:결제테스트"
                     merchantUid: rsp.merchant_uid, // 거래 고유번호
@@ -492,7 +492,7 @@ function logOut() {
 
 function chatting(id) {
     if(id === '') {
-        alert('로그인을 먼저 해주세요!');
+        swal('로그인을 먼저 해주세요!');
         return;
     }
 
