@@ -165,6 +165,7 @@
     myPieChart.update();
 
     function datePick() {
+
         const date1 = document.querySelector('#kinderGarden_date1').value;
 
         if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;

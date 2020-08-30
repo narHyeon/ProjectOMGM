@@ -26,13 +26,23 @@ public class MallController {
 //    String fileName02;
 //    String fileName03;
 
+
+    ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    @ResponseBody
+    @RequestMapping("/getDayPrice.mdo")
+    public int getDayPrice(@RequestBody OrderVO vo) throws Exception {
+        int sum = mallService.getDayPrice(vo);
+        System.out.println(vo.getOrder_state() + " " + vo.getOrder_memo() + " " +vo.getOrder_no()+" "+sum );
+        return sum;
+    }
+
     /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
     //정산페이지테스트 이동
     @RequestMapping("/calculateTest.mdo")
     public ModelAndView calculateTest() throws Exception {
         ModelAndView mav = new ModelAndView();
 //        mallService.expirationFeed(vo);
-        mav.setViewName("/calculate/calculateTest");
+        mav.setViewName("/mall/mallCalculate");
         return mav;
     }
 

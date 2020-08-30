@@ -12,6 +12,12 @@ public class MallOrderDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    // 몰 요일별 매출
+    public int getDayPrice(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getDayPrice", vo);}
+
+    public MallToyVO getMallToyOne(MallToyVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallToyOne", vo);}
+
     // 멤버 결제시 포인트 삭제
 //    public void updateMemberPoint(MemberOrderVO vo) {
 //        sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);

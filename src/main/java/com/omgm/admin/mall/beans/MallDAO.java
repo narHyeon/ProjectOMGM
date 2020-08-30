@@ -14,6 +14,8 @@ public class MallDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate; // 마이베티스 연결
 
+
+
     /////////////////  toy 관련 DAO 설정  ///////////////////////////////////////////////////////////
     // 장난감 디비테이블에 정보 입력
     public void insertMallToy(MallToyVO vo) {

@@ -83,8 +83,9 @@
 </div>
 
 <div id="mall_chart_date">
-    <input id="mall_date1" type="date" class="form-control form-control-user">
-    <button class="btn btn-primary btn-user" onClick="datePick()">검색</button>
+    <input id="mall_date01" type="date" class="form-control form-control-user">
+    <input id="mall_date02" type="date" class="form-control form-control-user01" name="date02">
+    <button class="btn btn-primary btn-user" onClick="dataPick()">검색</button>
 </div>
 
 <div id="mall_chart">
@@ -185,7 +186,7 @@
 <%--Mall관련 판매현황--%>
 <div id="mall_chart">
     <!-- Area Chart -->
-    <div id="mall_chart_graph" style="height: 200px; width: 60%;" class="card shadow mb-4">
+    <div id="mall_chart_graph01" style="height: 200px; width: 60%;" class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
         </div>
@@ -196,7 +197,7 @@
                 <p id="mall_date_pick" style="font-size: 17px;">
                     2020년 08월 15일 ~ 2020년 09월 14일 매출</p>
             </div>
-            <div id="mall_dwm" style="font-weight: 650; width:31%;" class="text-right">
+            <div id="mall_dwm" style="font-weight: bolder; width:31%;" class="text-right">
                 <p>DAY : 110000원</p>
                 <p>WEEK : 1000000원</p>
                 <p>MONTH : 100000000원</p>
@@ -205,22 +206,22 @@
     </div>
 
     &nbsp;&nbsp;&nbsp;
-    <div id="mall_chart_graph" style="height: 200px; width: 38.8%;" class="card shadow mb-4">
+    <div id="mall_chart_graph02" style="height: 200px; width: 38.8%;" class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-info">판매현황</h6>
         </div>
-        <div id="mall_chart_bot" class="card-body">
+        <div id="mall_chart_bot01" class="card-body">
             <div>
                 <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">가장 많이 팔린 상품: 냥냥이 사료 </p>
                 <br>
-                <p id="mall_date_pick" style="font-size: 17px;">
+                <p id="mall_date_pick01" style="font-size: 17px;">
                     가장 적게 팔린 상품: 댕댕이 사료 </p>
             </div>
 <%--            <div id="kinder_dwm" style="padding-top: 20px; padding-right: 120px;" class="text-center">--%>
 <%--                <p>장난감1 99개</p><br>--%>
 <%--                <p>사료2 6개</p>--%>
 <%--            </div>--%>
-            <div id="kinder_dwm" style="padding-top: 20px; font-weight: 650;" class="text-right">
+            <div id="kinder_dwm" style="padding-top: 20px; font-weight: bolder;" class="text-right">
                 <p style="font-size: 20px; color:#2e59d9;"> 99개</p><br>
                 <p style="font-size: 20px; color:red;">6개</p>
             </div>
@@ -228,84 +229,40 @@
     </div>
 </div>
 
-<%--<div class="card shadow mb-4">--%>
-<%--    <div class="card-header py-3">--%>
-<%--        <h6 class="m-0 font-weight-bold text-info">상품별 매출 현황(Month)</h6>--%>
-<%--    </div>--%>
-<%--    <div class="card-body">--%>
-<%--        <div class="text-left" style="font-size:90%; font-weight:600;">--%>
-<%--            <table class="table table_bordered" id="order_list" width="100%" cellspacing="0">--%>
-<%--                <thead>--%>
-<%--                <tr class="productOrderField">--%>
-<%--                    <th>상품번호</th>--%>
-<%--                    <th>이미지</th>--%>
-<%--                    <th>상품명</th>--%>
-<%--                    <th>총매출</th>--%>
-<%--                </tr>--%>
-<%--                </thead>--%>
-<%--                <tbody>--%>
-<%--                <c:forEach var="orderDetail" items="${orderDetail}">--%>
-<%--                    <tr class="order_feild">--%>
-<%--                        <th>1</th>--%>
-<%--                        <th>2</th>--%>
-<%--                        <th>3</th>--%>
-<%--                        <th>4</th>--%>
-<%--                    </tr>--%>
-<%--                    <tr class="order_feild">--%>
-<%--                        <th>1</th>--%>
-<%--                        <th>2</th>--%>
-<%--                        <th>3</th>--%>
-<%--                        <th>4</th>--%>
-<%--                    </tr>--%>
-<%--                    <tr class="order_feild">--%>
-<%--                        <th>1</th>--%>
-<%--                        <th>2</th>--%>
-<%--                        <th>3</th>--%>
-<%--                        <th>4</th>--%>
-<%--                    </tr>--%>
-<%--                    <tr class="order_feild">--%>
-<%--                        <th>1</th>--%>
-<%--                        <th>2</th>--%>
-<%--                        <th>3</th>--%>
-<%--                        <th>4</th>--%>
-<%--                    </tr>--%>
-<%--                    <tr class="order_feild">--%>
-<%--                        <th>1</th>--%>
-<%--                        <th>2</th>--%>
-<%--                        <th>3</th>--%>
-<%--                        <th>4</th>--%>
-<%--                    </tr>--%>
-
-<%--                </c:forEach>--%>
-<%--                </tbody>--%>
-<%--            </table>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 <script src="resources/admin/js/mall/chartPie.js"></script>
 <script src="resources/admin/js/mall/chartArea.js"></script>
-<%--<c:forEach items="#{dow.dow}" var="dow" varStatus="status">--%>
-<%--    <script>--%>
-<%--        myLineChart.data.datasets[0].data[${status.index}] = ${dow};--%>
-<%--        myLineChart.update();--%>
-<%--    </script>--%>
-<%--</c:forEach>--%>
-<%--<script>--%>
-<%--    myPieChart.data.datasets[0].data[0] = ${date.weekPercent1};--%>
-<%--    myPieChart.data.datasets[0].data[1] = ${date.weekPercent2};--%>
-<%--    myPieChart.data.datasets[0].data[2] = ${date.weekPercent3};--%>
-<%--    myPieChart.data.datasets[0].data[3] = ${date.weekPercent4};--%>
+<script>
 
-<%--    myPieChart.update();--%>
 
-<%--    function datePick() {--%>
-<%--        const date1 = document.querySelector('#mall_date1').value;--%>
+    $ = jQuery;
+    function dataPick() {
+        const day1 = document.querySelector('#mall_date01').value;
+        const day2 = document.querySelector('#mall_date02').value;
 
-<%--        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;--%>
-<%--        else alert('날짜를 선택해주세요!');--%>
-<%--    }--%>
+        for (let i = 2; i < 8; i++) {
+            $.ajax({
+                type: 'POST',
+                url: "getDayPrice.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    order_no: i,
+                    order_state: day1,
+                    order_memo: day2,
+
+                }),
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (xhr) {
+                    alert(xhr);
+                }
+            });
+        }
+    }
+</script>
 
 </body>
 </html>
