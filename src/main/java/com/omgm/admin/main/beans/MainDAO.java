@@ -84,10 +84,16 @@ public class MainDAO {
     public List<RoomReservationVO> getRRListToday(){
         return sqlSessionTemplate.selectList("adminMainDAO.getRRListToday");
     }
+
+    public List<KinderGardenReservationVO> getKGReservation() {
+        return sqlSessionTemplate.selectList("adminMainDAO.getKGReservation");
+    }
+
     //금일 유치원 예약 현황
     public List<KinderGardenReservationVO> getKGListToday(){
         return sqlSessionTemplate.selectList("adminMainDAO.getKGListToday");
     }
+
     //금일 몰 주문 현황
     public List<OrderVO> getMallListToday() {
         return sqlSessionTemplate.selectList("adminMainDAO.getMallListToday");

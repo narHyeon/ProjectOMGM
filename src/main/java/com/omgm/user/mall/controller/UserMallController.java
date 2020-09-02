@@ -217,6 +217,7 @@ public class UserMallController {
 
         return vo;
     }
+<<<<<<< HEAD
     // 결제시 사료 수량 감소
     @ResponseBody
     @RequestMapping("/feedStockDecrease.do")
@@ -232,6 +233,27 @@ public class UserMallController {
         userMallService.toyStockDecrease(vo);
         return vo;
     }
+=======
+
+    ///////////////////// 몰 주문내역(마이페이지) ///////////////////////////////////
+
+    @RequestMapping("/myOrder.do")
+    public ModelAndView myOrder(OrderVO vo) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/sales/orderList");
+        mav.addObject("myOrder", userMallService.myOrder(vo));
+        return mav;
+    }
+
+//    @RequestMapping("/myReservation.do")
+//    public ModelAndView myReservation(OrderVO vo) throws Exception{
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("/sales/myReservation");
+////        mav.addObject("myReservation", userMallService.myReservation(vo));
+//        return mav;
+//    }
+
+>>>>>>> 8ab5f2369047ffe4309251c60ecb754009f7b113
 }
 
 

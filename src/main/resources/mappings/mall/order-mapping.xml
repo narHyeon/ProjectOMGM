@@ -178,6 +178,11 @@ from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+21,
         UPDATE member SET point=#{point} WHERE id=#{id}
     </update>
 
+    <!--#######  mypage mall order 관련 쿼리문  #########################################################################-->
+
+    <select id="myOrder" resultType="OrderVO" >
+         select * from order_list
+    </select>
 
 </mapper>
 

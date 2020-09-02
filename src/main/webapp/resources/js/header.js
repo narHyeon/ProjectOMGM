@@ -47,7 +47,7 @@ function login(event) {
 function idCheck(check) {
     const input = document.querySelector('.txtboxID input');
     if(input.value === '') {
-        alert('아이디를 입력해주세요!');
+        swal('아이디를 입력해주세요!');
         return true;
     }
     const xhr = new XMLHttpRequest();
@@ -56,11 +56,11 @@ function idCheck(check) {
         if (xhr.status === 200) {
             const object = JSON.parse(xhr.responseText);
             if(0 !== object.point) {
-                alert('이미 사용하고 있는 아이디입니다!');
+                swal('이미 사용하고 있는 아이디입니다!');
                 return true;
             }
             else if(!check) {
-                alert('사용할 수 있는 아이디입니다.');
+                swal('사용할 수 있는 아이디입니다.');
                 return false;
             }
         }
@@ -79,7 +79,7 @@ function pwdCheck() {
 
     if(pwd === copwd) return false;
     else {
-        alert('비밀번호가 일치하지 않습니다');
+        swal('비밀번호가 일치하지 않습니다');
         return true;
     };
 }
@@ -125,6 +125,27 @@ function joinCheck(event) {
     xhr.open('POST', 'addMember.lo',true);
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(data));
+}
+//이메일 인증번호받기
+function emailCheck(){
+
+    const original = document.getElementById("original");
+    $("#original").attr({"data-placeholder":"인증번호"});
+    const original1 = document.getElementById("original1");
+    $("#original1").attr({"name":"code","type":"text"});
+    original1.value='';
+    const checkbtnSend = document.getElementById("checkbtnSend");
+    $("#checkbtnSend").attr({"type":"hidden"});
+
+    const v1 = form2.code_check.value;
+    const v2 = form2.code.value;
+    if(v2!="") {
+        if (v1 != v2) {
+            $("#original").attr({"data-placeholder": "Email"});
+        } else {
+            alert("인증번호가 틀렸습니다.");
+        }
+    }
 }
 
 // 우편번호 체크
@@ -300,12 +321,12 @@ function signKakao() {
                         snsSignDuple(result);
                     },
                     fail: function (error) {
-                        alert(JSON.stringify(error));
+                        swal(JSON.stringify(error));
                     }
                 });
             },
             fail: function (err) {
-                alert(JSON.stringify(err));
+                swal(JSON.stringify(err));
             }
         })
     })
@@ -377,7 +398,7 @@ function kakaoPay(payment,url) {
         }, function(rsp) {
             if ( rsp.success ) {
                 console.log(rsp);
-                alert('결제가 완료되었습니다. 감사합니다!');
+                swal('결제가 완료되었습니다. 감사합니다!');
                 const data = {
                     name: rsp.name, // "주문명:결제테스트"
                     merchantUid: rsp.merchant_uid, // 거래 고유번호
@@ -471,7 +492,7 @@ function logOut() {
 
 function chatting(id) {
     if(id === '') {
-        alert('로그인을 먼저 해주세요!');
+        swal('로그인을 먼저 해주세요!');
         return;
     }
 

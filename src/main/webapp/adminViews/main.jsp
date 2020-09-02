@@ -183,11 +183,16 @@
                         </div>
                         <div class="card-body">
                             <div class="text-left" style="font-size:90%; font-weight:600;">
-                                <c:forEach var="KGList" items="${KGList}">
-                                    <li> <${KGList.name}>예약  ${KGList.animal}</li>
+                                <c:forEach begin="0" step="1" end="4" items="${kgReservation}" var="reservation">
+                                    <li>${reservation.name} ${reservation.buyerName} ${reservation.animal}</li>
                                 </c:forEach>
                             </div>
-                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;"></p>
+                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 ${kgCount}개의 예약이 있습니다!</p>
+<%--                                <c:forEach var="KGList" items="${KGList}">--%>
+<%--                                    <li> <${KGList.name}>예약  ${KGList.animal}</li>--%>
+<%--                                </c:forEach>--%>
+<%--                            </div>--%>
+<%--                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;"></p>--%>
                         </div>
                     </div>
 
@@ -252,7 +257,7 @@
                 order_receiver: '2020-'+i+'-29',
             }),
             success: function (data) {
-                // alert(data.order_quantity);
+                // swal(data.order_quantity);
                 document.querySelector('#mainAreaChartMallCount00').innerHTML=data.order_quantity+'건';
                 document.querySelector('#mainAreaChartMallCount01').innerHTML=data.order_point+'명';
                 document.querySelector('#mainAreaChartMallCount02').innerHTML=data.order_point_used+'원';

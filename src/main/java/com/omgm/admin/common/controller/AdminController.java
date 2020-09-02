@@ -4,18 +4,24 @@ import com.omgm.admin.common.beans.AdminVO;
 import com.omgm.admin.common.service.AdminService;
 import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.review.beans.ReviewVO;
+import net.minidev.json.JSONObject;
+import net.nurigo.java_sdk.Coolsms;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 @Controller
 public class AdminController {
 
     @Resource(name="adminService")
     private AdminService adminService;
+
 
 
 
@@ -104,7 +110,10 @@ public class AdminController {
     @RequestMapping("/message.mdo")
     public ModelAndView messgae(AdminVO vo) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/calculate/message");
+        mav.setViewName("/message/message");
         return mav;
     }
+
+
+
 }

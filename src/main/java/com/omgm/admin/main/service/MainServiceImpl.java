@@ -91,6 +91,11 @@ public class MainServiceImpl implements MainService {
         return mainDAO.getRRListToday();
     }
 
+    @Override
+    public List<KinderGardenReservationVO> getKGReservation() {
+        return mainDAO.getKGReservation();
+    }
+
     //금일 유치원예약 현황
     @Override
     public List<KinderGardenReservationVO> getKGListToday() throws Exception{
