@@ -212,11 +212,24 @@
 	cursor: pointer;
 	background-color: 
 }
-
+#reservation_selectedopton{
+	color: #FF7737;
+	font-size: 18px;
+}
+#reservationy{
+	color: #2ecc71;
+}
+#reservationn{
+	color: #FF3737;
+}
 </style>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		var todayid
@@ -233,6 +246,8 @@
 			const year = $(this).data('year');				
 			const month = $(this).data('month');
 			const day = $(this).data('day');
+			let stayDay = new Date();
+			stayDay = moment(year+"-"+month+"-"+day).format('YYYYMMDD');
 			const parent_td = $(this).parent();
 			const tdcol = parent_td.css("background-color");
 			const thiscol = $(this).css("background-color");
@@ -252,9 +267,7 @@
 					$("#reser_input").data("month", month);
 					$("#reser_input").data("day", day);
 					$("#reservation_selectedopton").html(year+"년"+month+"월"+day+"일");
-					$("#reservation_selectedopton").data("year", year);
-					$("#reservation_selectedopton").data("month", month);
-					$("#reservation_selectedopton").data("day", day);
+					$("#reservation_selectedopton").data("roomreservation_strstayday", stayDay);
 				}else {
 					alert('지난 날자는 선택할수 없습니다.');	
 				};
@@ -268,6 +281,7 @@
     				},
     				dataType: "json",
     				success: function(data) {
+    					
     					$("#room_select").html("");
     					let countUl = 0;
     					data.forEach(function(e,i) {
@@ -288,12 +302,12 @@
 								const mox = i/4;
 								let reservationYN = "";
 								if (e.room_RESERVATIONYN == "Y") {
-									reservationYN ="예약가능";
+									reservationYN = "<div id='reservationy'>*예약 가능*</div>";
 								}else {
-									reservationYN ="예약불가";
+									reservationYN = "<div id='reservationn'>*예약 불가*</div>";
 								}
 								if ((j<=mox)&&(mox<(j+1))) {
-									
+													
 								const toInsert2 =
 									"<li> <img src="
 	        						+ e.room_IMG + 
@@ -313,12 +327,15 @@
 								$("#reservation_roomselect").html("");
 								$("#reservation_roomselect").append(defaultOption);	
 							}
-							console.log(e.room_RESERVATIONYN);
 							if (e.room_RESERVATIONYN == "Y") {
 								const roomOption = 
-								"<option value="
+								"<option value='"
 								+ e.room_NO + 
-								">"
+								"' data-roomprice='"
+								+ e.room_PRICE+ 
+								"' data-roomsalerate='"
+								+ e.room_SALERATE+
+								"'>"
 								+ e.room_NAME + 
 								"</option>";
 								$("#reservation_roomselect").append(roomOption);
@@ -328,9 +345,8 @@
     				error: function(err) {
     					alert('예약정보 불러오기에 실패하셧습니다.');
     				}
-    			}) ;
+    			});
 			});
-		
 		/*오늘날자 자동으로 선택해주는 기능*/
 		$("#"+todayid+"").click();
 		/* 날자 선택 안하고 방 선택할려시 유효성 검사*/  
@@ -340,12 +356,64 @@
 				$(this).val(0);
 			};
 		});
-		
-		function endReservation() {
-			window.location.href = 'selectListFAQ.do';
-		};
-		
 	});
+	function endReservation() {
+		
+		const pickuptime = $("#pickup_time").val();
+		const pickupaddress = $("#pickup_address").val();
+		const pickupphone = $("#pickup_phone").val();
+		const pickupyn = $("#pickup_yn").val();
+		
+		
+		if (pickupyn =="Y") {
+			if (pickupaddress=="" || pickupphone=="") {
+				alert("픽업정보를 입력해주세요");
+			}else {
+				$("#reservation_selectedopton").data("roomreservation_pickuptime",pickuptime);
+				$("#reservation_selectedopton").data("roomreservation_pickupaddress",pickupaddress);
+				$("#reservation_selectedopton").data("roomreservation_pickupphonenum",pickupphone);	
+				$("#reservation_selectedopton").data("roomreservation_pickupyn",pickupyn);
+				const data = $("#reservation_selectedopton").data();
+				const datakey = new Array(); 
+				const datavalue = new Array();
+				let urlparam = "";
+				for(var i in data){
+					datakey.push(i.toUpperCase());
+					datavalue.push(data[i]);
+				};
+				for (var i = 0; i < datakey.length; i++) {
+					urlparam += datakey[i] + "=" + datavalue[i];
+					if (i==(datakey.length-1)) {
+						
+					}else {
+						urlparam += "&" ;
+					}
+				};
+				window.location.href = 'insertPayRoomReservation.do?'+urlparam;
+			}
+		}else {
+			$("#reservation_selectedopton").data("roomreservation_pickupyn",pickupyn);
+			const data = $("#reservation_selectedopton").data();
+			const datakey = new Array(); 
+			const datavalue = new Array();
+			let urlparam = "";
+			for(var i in data){
+				datakey.push(i.toUpperCase());
+				datavalue.push(data[i]);
+			};
+			for (var i = 0; i < datakey.length; i++) {
+				urlparam += datakey[i] + "=" + datavalue[i];
+				if (i==(datakey.length-1)) {
+					
+				}else {
+					urlparam += "&" ;
+				}
+			};
+			window.location.href = 'insertPayRoomReservation.do?'+urlparam;
+		}
+		
+		
+	};
 </script>
 </head>
 <body>
@@ -411,6 +479,7 @@
 			const year = $(this).data('year');				
 			const month = $(this).data('month');
 			const day = $(this).data('day');
+			const stayDay = moment(year+"-"+month+"-"+day).format('YYYY MM DD');
 			const parent_td = $(this).parent();
 			const tdcol = parent_td.css("background-color");
 			const thiscol = $(this).css("background-color");
@@ -430,9 +499,7 @@
 					$("#reser_input").data("month", month);
 					$("#reser_input").data("day", day);
 					$("#reservation_selectedopton").html(year+"년"+month+"월"+day+"일");
-					$("#reservation_selectedopton").data("year", year);
-					$("#reservation_selectedopton").data("month", month);
-					$("#reservation_selectedopton").data("day", day);
+					$("#reservation_selectedopton").data("roomreservation_strstayday", stayDay);
 				}else {
 					alert('지난 날자는 선택할수 없습니다.');	
 				};
@@ -466,9 +533,9 @@
 								const mox = i/4;
 								let reservationYN = "";
 								if (e.room_RESERVATIONYN == "Y") {
-									reservationYN ="예약가능";
+									reservationYN = "<div id='reservationy'>*예약 가능*</div>";
 								}else {
-									reservationYN ="예약불가";
+									reservationYN = "<div id='reservationn'>*예약 불가*</div>";
 								}
 								if ((j<=mox)&&(mox<(j+1))) {
 									
@@ -491,12 +558,15 @@
 								$("#reservation_roomselect").html("");
 								$("#reservation_roomselect").append(defaultOption);	
 							}
-							console.log(e.room_RESERVATIONYN);
 							if (e.room_RESERVATIONYN == "Y") {
 								const roomOption = 
-								"<option value="
+								"<option value='"
 								+ e.room_NO + 
-								">"
+								"' data-roomprice='"
+								+ e.room_PRICE+ 
+								"' data-roomsalerate='"
+								+ e.room_SALERATE+
+								"'>"
 								+ e.room_NAME + 
 								"</option>";
 								$("#reservation_roomselect").append(roomOption);
@@ -506,7 +576,7 @@
     				error: function(err) {
     					alert('예약정보 불러오기에 실패하셧습니다.');
     				}
-    			}) ;
+    			});
 			});
         /*end 기능*/
     };
@@ -523,6 +593,7 @@
 			const year = $(this).data('year');				
 			const month = $(this).data('month');
 			const day = $(this).data('day');
+			const stayDay = moment(year+"-"+month+"-"+day).format('YYYY MM DD');
 			const parent_td = $(this).parent();
 			const tdcol = parent_td.css("background-color");
 			const thiscol = $(this).css("background-color");
@@ -542,9 +613,7 @@
 					$("#reser_input").data("month", month);
 					$("#reser_input").data("day", day);
 					$("#reservation_selectedopton").html(year+"년"+month+"월"+day+"일");
-					$("#reservation_selectedopton").data("year", year);
-					$("#reservation_selectedopton").data("month", month);
-					$("#reservation_selectedopton").data("day", day);
+					$("#reservation_selectedopton").data("roomreservation_strstayday", stayDay);
 				}else {
 					alert('지난 날자는 선택할수 없습니다.');	
 				};
@@ -578,9 +647,9 @@
 								const mox = i/4;
 								let reservationYN = "";
 								if (e.room_RESERVATIONYN == "Y") {
-									reservationYN ="예약가능";
+									reservationYN = "<div id='reservationy'>*예약 가능*</div>";
 								}else {
-									reservationYN ="예약불가";
+									reservationYN = "<div id='reservationn'>*예약 불가*</div>";
 								}
 								if ((j<=mox)&&(mox<(j+1))) {
 									
@@ -603,12 +672,15 @@
 								$("#reservation_roomselect").html("");
 								$("#reservation_roomselect").append(defaultOption);	
 							}
-							console.log(e.room_RESERVATIONYN);
 							if (e.room_RESERVATIONYN == "Y") {
 								const roomOption = 
-								"<option value="
+								"<option value='"
 								+ e.room_NO + 
-								">"
+								"' data-roomprice='"
+								+ e.room_PRICE+ 
+								"' data-roomsalerate='"
+								+ e.room_SALERATE+
+								"'>"
 								+ e.room_NAME + 
 								"</option>";
 								$("#reservation_roomselect").append(roomOption);
@@ -618,7 +690,7 @@
     				error: function(err) {
     					alert('예약정보 불러오기에 실패하셧습니다.');
     				}
-    			}) ;
+    			});
 			});
         /*end 기능*/
     };
@@ -706,35 +778,39 @@
     // 방선택 버튼 클릭시 고양이 식단 선택창 으로 바뀌는 함수
     function roomSelect() {
     	if ($("#reservation_roomselect").val()!=0) {
-    		if ($("#reservation_selectedopton").data("foodno") == null) {
-        		const addinfo = $("#reservation_roomselect").val();
-        		const addinfoKey = $("#reservation_roomselect option:selected").text();
-				console.log(addinfoKey);
+    		if ($("#reservation_selectedopton").data("roomreservation_roomno") == null) {
+        		const roomno = $("#reservation_roomselect").val();
+        		const roomname = $("#reservation_roomselect option:selected").text();
+        		const roomprice = $("#reservation_roomselect option:selected").data("roomprice");
+        		const roomsalerate = $("#reservation_roomselect option:selected").data("roomsalerate");
         		const beforeinfo = $("#reservation_selectedopton").html();
-        		$("#reservation_selectedopton").html(beforeinfo + "/" + addinfoKey);
-        		$("#reservation_selectedopton").data("roomno",addinfo);
+        		$("#reservation_selectedopton").html(beforeinfo + "→" + roomname);
+        		$("#reservation_selectedopton").data("roomreservation_roomno",roomno); 
+        		$("#reservation_selectedopton").data("roomreservation_roomname",roomname);
+        		$("#reservation_selectedopton").data("room_price",roomprice);
+        		$("#reservation_selectedopton").data("room_salerate",roomsalerate);
     		}else {
-    			const removeinfo = $("#reservation_selectedopton").data("foodno");
+    			const removeinfo = $("#reservation_selectedopton").data("roomreservation_foodname");
         		const beforeinfo = $("#reservation_selectedopton").html();
-        		$("#reservation_selectedopton").html(beforeinfo.replace("/" + removeinfo + "번 사료",""));
+        		$("#reservation_selectedopton").html(beforeinfo.replace("→" + removeinfo +"",""));
 			}
     		document.querySelector('#reser_room_info').innerHTML = `
                 <div id="feed_select">
                     <h3>식단 선택</h3>
                     <ul>
-                        <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 식단 베스트1</p></li>
-                        <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 식단 베스트2</p></li>
+                        <li><img src="resources/img/reservation/food/catfood1.jpg" alt=""><p>인네이쳐(고양이)</p></li>
+                        <li><img src="resources/img/reservation/food/catfood2.jpg" alt=""><p>펫큐리안(고양이)</p></li>
                     </ul>
                     <ul>
-                        <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 식단 베스트1</p></li>
-                        <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 식단 베스트2</p></li>
+                        <li><img src="resources/img/reservation/food/dogfood1.jpg" alt=""><p>네이쳐플렌(강아지)</p></li>
+                        <li><img src="resources/img/reservation/food/dogfood2.jpg" alt=""><p>펫큐리안(강아지)</p></li>
                     </ul>
                 </div>
                 <select id="room_food">
-                    <option value="1">식단 베스트1</option>
-                    <option value="2">식단 베스트2</option>
-                    <option value="3">식단 베스트3</option>
-                    <option value="4">식단 베스트4</option>
+                    <option value="1">인네이쳐(고양이)</option>
+                    <option value="2">펫큐리안(고양이)</option>
+                    <option value="3">네이쳐플렌(강아지)</option>
+                    <option value="4">펫큐리안(강아지)</option>
                 </select>
                 <div id="feed_button" >
                     <button style="background-color: pink;" onclick="window.location.reload()">뒤로</button>
@@ -751,36 +827,37 @@
 
     // 식단선택 버튼 클릭시 장난감 선택 창으로 바뀌는 함수
     function feedSelect() {
-    	if ($("#reservation_selectedopton").data("toyno") == null) {
-    		const addinfo= $("#room_food").val();
+    	if ($("#reservation_selectedopton").data("roomreservation_toyno") == null) {
+    		const foodno = $("#room_food").val();
+    		const foodname = $("#room_food option:selected").text(); 
     		const beforeinfo = $("#reservation_selectedopton").html();
-    		$("#reservation_selectedopton").html(beforeinfo + "/" + addinfo + "번 사료");
-    		$("#reservation_selectedopton").data("foodno",addinfo);
+    		$("#reservation_selectedopton").html(beforeinfo + "→" + foodname);
+    		$("#reservation_selectedopton").data("roomreservation_foodno",foodno);
+    		$("#reservation_selectedopton").data("roomreservation_foodname",foodname);
 		}else {
-			const removeinfo = $("#reservation_selectedopton").data("toyno");
+			const removeinfo = $("#reservation_selectedopton").data("roomreservation_toyname");
     		const beforeinfo = $("#reservation_selectedopton").html();
-    		$("#reservation_selectedopton").html(beforeinfo.replace("/" + removeinfo + "번 장난감",""));
+    		$("#reservation_selectedopton").html(beforeinfo.replace("→" + removeinfo,""));
 		}
-    	
     	
     		
         document.querySelector('#reser_room_info').innerHTML = `
             <div id="feed_select">
                 <h3>장난감 선택</h3>
                 <ul>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 장난감 베스트1</p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 장난감 베스트2</p></li>
+                    <li><img src="resources/img/reservation/toy/cattoy1.png" alt=""><p>우주링(고양이)</p></li>
+                    <li><img src="resources/img/reservation/toy/cattoy2.png" alt=""><p>공작깃털 캣닢볼(고양이)</p></li>
                 </ul>
                 <ul>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 장난감 베스트1</p></li>
-                    <li><img src="resources/img/main_image.jpg" alt=""><p>좋아하는 장난감 베스트2</p></li>
+                    <li><img src="resources/img/reservation/toy/dogtoy1.png" alt=""><p>럭비공 인형(강아지)</p></li>
+                    <li><img src="resources/img/reservation/toy/dogtoy2.png" alt=""><p>축구공 인형(강아지)</p></li>
                 </ul>
             </div>
             <select id="room_toy">
-                <option value="1">장난감 베스트1</option>
-                <option value="2">장난감 베스트2</option>
-                <option value="3">장난감 베스트3</option>
-                <option value="4">장난감 베스트4</option>
+                <option value="1">우주링(고양이)</option>
+                <option value="2">공작깃털 캣닢볼(고양이)</option>
+                <option value="3">럭비공 인형(강아지)</option>
+                <option value="4">축구공 인형(강아지)</option>
             </select>
             <div id="feed_button" >
                 <button style="background-color: pink;" onclick="roomSelect()">뒤로</button>
@@ -790,11 +867,12 @@
     }
  // 장난감 선택 버튼 클릭시 픽업 서비스로 바뀌는 함수
     function pickupSelect() {
-    	const addinfo= $("#room_toy").val();
+    	const toyno = $("#room_toy").val();
+    	const toyname = $("#room_toy option:selected").text();
 		const beforeinfo = $("#reservation_selectedopton").html();
-		$("#reservation_selectedopton").html(beforeinfo + "/" + addinfo + "번 장난감");
-		$("#reservation_selectedopton").data("toyno",addinfo);
-	 
+		$("#reservation_selectedopton").html(beforeinfo + "→" + toyname);
+		$("#reservation_selectedopton").data("roomreservation_toyno",toyno);
+		$("#reservation_selectedopton").data("roomreservation_toyname",toyname);
         document.querySelector('#reser_room_info').innerHTML = `
             <div id="feed_select">
                 <h3>픽업서비스 선택</h3>
@@ -802,7 +880,7 @@
                     <ul>
                         <li>
                             <p>시간 선택</p>
-                            <select>
+                            <select id="pickup_time">
                                 <option value="8">08:00</option>
                                 <option value="9">09:00</option>
                                 <option value="10">10:00</option>
@@ -820,14 +898,17 @@
                             </select>
                         </li>
                         <li>
-                            <p>주소</p> <input type="text">
+                            <p>주소</p> <input type="text" id="pickup_address">
                         </li>
+                        <li>
+                        	<p>연락처</p> <input type="text" id="pickup_phone">
+                    	</li>
                     </ul>
                 </div>
             </div>
-            <select>
-                <option value="1">픽업 서비스 신청</option>
-                <option value="-1">선택안함</option>
+            <select id="pickup_yn">
+                <option value="Y">픽업 서비스 신청</option>
+                <option value="N">픽업 서비스 신청 안함</option>
             </select>
             <div id="feed_button" >
                 <button style="background-color: pink;" onclick="feedSelect()">뒤로</button>
