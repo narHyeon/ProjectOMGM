@@ -12,7 +12,9 @@ public interface MallService {
 
     ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
     int getDayPrice(OrderVO vo) throws Exception; // 몰 요일별 매출
-
+    int getTodaySales(OrderVO vo) throws Exception; // 몰 하루 매출
+    int getWeekSales(OrderVO vo) throws Exception; // 몰 한주 매출
+    int getMonthSales(OrderVO vo) throws Exception; // 몰 이번달 매출
     // 토이 관련 서비스
     void deleteMallToy(MallToyVO vo) throws Exception; // 장난감 등록 삭제
     void insertMallToy(MallToyVO vo) throws Exception; // 장난감 등록

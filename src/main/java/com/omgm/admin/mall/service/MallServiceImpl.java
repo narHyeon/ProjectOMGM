@@ -105,6 +105,21 @@ public class MallServiceImpl implements MallService {
     public int getDayPrice(OrderVO vo) throws Exception {
         return mallOrderDAO.getDayPrice(vo);
     }
+    // 몰 정산 페이지 하루 매출
+    @Override
+    public int getTodaySales(OrderVO vo) throws Exception{
+        return mallOrderDAO.getTodaySales(vo);
+    }
+    // 몰 정산 페이지 이번주 매출
+    @Override
+    public int getWeekSales(OrderVO vo) throws Exception {
+        return mallOrderDAO.getWeekSales(vo);
+    }
+    // 몰 정산 페이지 이번달 매출
+    @Override
+    public int getMonthSales(OrderVO vo) throws Exception {
+        return mallOrderDAO.getMonthSales(vo);
+    }
 //    //주문등록(상세)
 //    @Override
 //    public void insertMallOrder(MallOrderVO vo) {

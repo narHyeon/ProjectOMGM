@@ -55,11 +55,33 @@
 <!--            #{toy_discount}, #{toy_stock}, #{toy_point}, #{toy_info}, #{toy_img})-->
 <!--    </insert>-->
 
+<!--    /////// 몰 정산  //////////////////////////////////////////////-->
 <!--    몰 정산 페이지 요일별 매출-->
     <select id="getDayPrice" parameterType="OrderVO" resultType="int">
         select sum(order_price) from order_list where (order_date between #{order_state}and #{order_memo}) and to_char( order_date , 'D') = #{order_no}
     </select>
-
+<!--    몰 정산 페이지 주차별 매출-->
+<!--    <select id="getWeekPrice" parameterType="OrderVO" resultType="int">-->
+<!--        select order_price from order_list where (order_date between #{order_state}and #{order_memo}) and to_char( order_date , 'D') = #{order_no}-->
+<!--    </select>-->
+<!--    몰 상품별 매출-->
+<!--    <select id="getProductSales" resultType="OrderVO">-->
+<!--        select order_no,  from order_list where order_date-->
+<!--    </select>-->
+<!--    오늘 매출-->
+    <select id="getTodaySales" parameterType="OrderVO" resultType="int">
+        select sum(order_price) from order_list where to_char(order_date,'YYYY-MM-dd') = to_char(sysdate,'YYYY-MM-dd')
+    </select>
+<!--    이번주 매출-->
+    <select id="getWeekSales" parameterType="OrderVO" resultType="int">
+        select sum(order_price) from order_list where order_date between
+          (SELECT TRUNC(sysdate, 'iw') dt_date FROM dual) and
+          (SELECT TRUNC(sysdate, 'iw') + 6 dt_date FROM dual)
+    </select>
+<!--    이번달 매출-->
+    <select id="getMonthSales" parameterType="OrderVO" resultType="int">
+        select sum(order_price) from ORDER_LIST where to_char(order_date, 'yyyymmdd') between (select TO_CHAR(TRUNC(SYSDATE,'MM'),'yyyymmdd') from dual) and (select to_char(LAST_DAY(SYSDATE),'yyyymmdd') from dual)
+    </select>
 <!--    결제 완료된 feed order 테이블 두개에 넣어주기-->
     <insert id="insertOrderFeed" parameterType="OrderVO">
         INSERT INTO order_list (order_no, order_id, order_phone, order_price, order_state,

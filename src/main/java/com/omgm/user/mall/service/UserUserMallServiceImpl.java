@@ -15,6 +15,11 @@ public class UserUserMallServiceImpl implements UserMallService {
     UserMallDAO userMallDAO;
 
     ///////////// 사료 관련 서비스 임플 ////////////////////////////
+     // 사료 수량 감소
+    @Override
+    public void feedStockDecrease(UserMallFeedVO vo) throws Exception{
+        userMallDAO.feedStockDecrease(vo);
+    }
     // 사료 상품 나열(페이징 처리)
     @Override
     public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo, PageNavigatorMall navi) throws Exception {
@@ -35,6 +40,11 @@ public class UserUserMallServiceImpl implements UserMallService {
 
 
     ///////////// 장난감 관련 서비스 임플 ////////////////////////////
+    // 장난감 수량 감소
+    @Override
+    public void toyStockDecrease(UserMallToyVO vo) throws Exception{
+        userMallDAO.toyStockDecrease(vo);
+    }
     @Override
     public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception {
         return userMallDAO.getMallToyList(vo, navi);

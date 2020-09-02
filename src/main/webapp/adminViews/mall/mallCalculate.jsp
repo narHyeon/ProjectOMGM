@@ -49,15 +49,18 @@
             display: flex;
             flex-direction: row;
         }
-        .mall_p_cal p:nth-child(1), .kinder_p_cal2 p:nth-child(1) {
-            color: #0f9d58;
+        /*.mall_p_cal p:nth-child(1), .kinder_p_cal2 p:nth-child(1) {*/
+        /*    color: #0f9d58;*/
+        /*    margin: 10px;*/
+        /*}*/
+        /*.mall_p_cal p:nth-child(2), .kinder_p_cal2 p:nth-child(2){*/
+        /*    color:#a94442;*/
+        /*    margin: 10px;*/
+        /*}*/
+        .mall_p_cal {
+            /*color:#a94442;*/
             margin: 10px;
         }
-        .mall_p_cal p:nth-child(2), .kinder_p_cal2 p:nth-child(2){
-            color:#a94442;
-            margin: 10px;
-        }
-
         #mall_date_pick {
             color: #dc7070;
             font-size: 20px;
@@ -100,8 +103,10 @@
             </div>
             <hr>
             <div class="mall_p_cal">
-                <p>요일별 최대 매출 : 500000원</p>
-                <p>요일별 최소 매출 : 50000원</p>
+                <p>최대 요일 매출 : </p>
+                <p id="topPriceDay"style="margin-right: 20px;">10000</p>
+                <p>최소 요일 매출 : </p>
+                <p id="downPriceDay">10000</p>
             </div>
         </div>
     </div>
@@ -192,15 +197,15 @@
         </div>
         <div id="mall_chart_bot" class="card-body">
             <div>
-                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">Today : 10000000</p>
+                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;" id="todayOrderSales">Today : ${today}</p>
                 <br>
                 <p id="mall_date_pick" style="font-size: 17px;">
-                    2020년 08월 15일 ~ 2020년 09월 14일 매출</p>
+                    </p>
             </div>
             <div id="mall_dwm" style="font-weight: bolder; width:31%;" class="text-right">
-                <p>DAY : 110000원</p>
-                <p>WEEK : 1000000원</p>
-                <p>MONTH : 100000000원</p>
+                <p>DAY : ${today}원</p>
+                    <p id="mallWeekSales">0</p>
+                <p id="mallMonthSales">MONTH : 100000000원</p>
             </div>
         </div>
     </div>
@@ -211,20 +216,23 @@
             <h6 class="m-0 font-weight-bold text-info">판매현황</h6>
         </div>
         <div id="mall_chart_bot01" class="card-body">
-            <div>
+            <div style="display: flex; justify-content: space-around">
                 <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">가장 많이 팔린 상품: 냥냥이 사료 </p>
-                <br>
+                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;"> 99개</p><br>
+            </div>
+            <div style="display: flex; justify-content: space-around">
                 <p id="mall_date_pick01" style="font-size: 17px;">
                     가장 적게 팔린 상품: 댕댕이 사료 </p>
+                <p style="font-size: 17px; color:red;">6개</p>
             </div>
 <%--            <div id="kinder_dwm" style="padding-top: 20px; padding-right: 120px;" class="text-center">--%>
 <%--                <p>장난감1 99개</p><br>--%>
 <%--                <p>사료2 6개</p>--%>
 <%--            </div>--%>
-            <div id="kinder_dwm" style="padding-top: 20px; font-weight: bolder;" class="text-right">
-                <p style="font-size: 20px; color:#2e59d9;"> 99개</p><br>
-                <p style="font-size: 20px; color:red;">6개</p>
-            </div>
+<%--            <div id="kinder_dwm" style="padding-top: 20px; font-weight: bolder;" class="text-right">--%>
+<%--                <p style="font-size: 20px; color:#2e59d9;"> 99개</p><br>--%>
+<%--                <p style="font-size: 20px; color:red;">6개</p>--%>
+<%--            </div>--%>
         </div>
     </div>
 </div>
@@ -235,33 +243,104 @@
 <script src="resources/admin/js/mall/chartArea.js"></script>
 <script>
 
-
     $ = jQuery;
+    // 상품 몰 매출(한주)
+
+        $.ajax({
+            type: 'POST',
+            url: "getDayPrice01.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+
+            }),
+            success: function (data) {
+                document.querySelector('#mallWeekSales').innerHTML = 'WEEK : ' + data.order_price+'원';
+                document.querySelector('#mallMonthSales').innerHTML = 'MONTH : '+ data.order_quantity + '원';
+            },
+            error: function (xhr) {
+
+            }
+        });
+
+
     function dataPick() {
         const day1 = document.querySelector('#mall_date01').value;
         const day2 = document.querySelector('#mall_date02').value;
 
-        for (let i = 2; i < 8; i++) {
-            $.ajax({
-                type: 'POST',
-                url: "getDayPrice.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    order_no: i,
-                    order_state: day1,
-                    order_memo: day2,
+        const ar1 = day1.split('-');
+        const ar2 = day2.split('-');
+        const da1 = new Date(ar1[0], ar1[1], ar1[2]);
+        const da2 = new Date(ar2[0], ar2[1], ar2[2]);
+        const dif = da2 - da1;
+        const cDay = 24 * 60 * 60 * 1000;
+        alert(parseInt(dif/cDay));
 
-                }),
-                success: function (data) {
-                    alert(data);
-                },
-                error: function (xhr) {
-                    alert(xhr);
-                }
-            });
+        document.querySelector('#mall_date_pick').innerHTML=day1 + ' ~ '+day2+' 매출';
+        if(day1 === '' || day2===''){
+            alert('날짜를 입력해 주세요')
+        } else{
+        for (let i = 2; i < 9; i++) {
+            let hihi = i;
+
+            if (hihi === 8) {
+                let hoho = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: "getDayPrice.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        order_no: hoho,
+                        order_state: day1,
+                        order_memo: day2,
+                    }),
+                    success: function (data) {
+                        let numTop = document.querySelector('#topPriceDay').innerHTML;
+                        let numDown = document.querySelector('#downPriceDay').innerHTML;
+                        if(parseInt(numTop) < data.order_price)  document.querySelector('#topPriceDay').innerHTML = data.order_price.toString();
+                        if(parseInt(numDown) > data.order_price) document.querySelector('#downPriceDay').innerHTML = data.order_price.toString();
+                        myLineChart.data.datasets[0].data[6] = data.order_price;
+                        myLineChart.update();
+                    },
+                    error: function (xhr) {
+                        myLineChart.data.datasets[0].data[6] = 0;
+                        myLineChart.update();
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: "getDayPrice.mdo", //cross-domain error가 발생하지 않도록 주의해주세요
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+
+                        order_no: hihi,
+                        order_state: day1,
+                        order_memo: day2,
+                    }),
+                    success: function (data) {
+                        let numTop = document.querySelector('#topPriceDay').innerHTML;
+                        let numDown = document.querySelector('#downPriceDay').innerHTML;
+                        if(parseInt(numTop) < data.order_price)  document.querySelector('#topPriceDay').innerHTML = data.order_price.toString();
+                        if(parseInt(numDown) > data.order_price) document.querySelector('#downPriceDay').innerHTML = data.order_price.toString();
+                        myLineChart.data.datasets[0].data[hihi - 2] = data.order_price;
+                        myLineChart.update();
+                    },
+                    error: function (xhr) {
+                        myLineChart.data.datasets[0].data[6] = 0;
+                        myLineChart.update();
+                    }
+                });
+            }
         }
+        }
+
     }
+
+
+
 </script>
 
 </body>

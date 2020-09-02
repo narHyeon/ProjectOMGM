@@ -17,7 +17,12 @@ public class MallOrderDAO {
     public int getDayPrice(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getDayPrice", vo);}
 
     public MallToyVO getMallToyOne(MallToyVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallToyOne", vo);}
-
+    // 몰 하루 매출
+    public int getTodaySales(OrderVO vo){return sqlSessionTemplate.selectOne("MallOrderDAO.getTodaySales", vo);}
+    // 몰 한주 매출
+    public int getWeekSales(OrderVO vo){return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekSales", vo);}
+    // 몰 이번달 매출
+    public int getMonthSales(OrderVO vo){return sqlSessionTemplate.selectOne("MallOrderDAO.getMonthSales", vo);}
     // 멤버 결제시 포인트 삭제
 //    public void updateMemberPoint(MemberOrderVO vo) {
 //        sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);
