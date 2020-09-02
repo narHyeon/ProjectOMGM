@@ -13,6 +13,15 @@ public class MallOrderDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    // 몰 주차별 매출
+    public int getWeekPrice00(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice00", vo);}
+    // 몰 주차별 매출
+    public int getWeekPrice01(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice01", vo);}
+    // 몰 주차별 매출
+    public int getWeekPrice02(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice02", vo);}
+    // 몰 주차별 매출
+    public int getWeekPrice03(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice03", vo);}
+
     // 몰 요일별 매출
     public int getDayPrice(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getDayPrice", vo);}
 

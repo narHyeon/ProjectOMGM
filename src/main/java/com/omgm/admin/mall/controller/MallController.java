@@ -57,6 +57,12 @@ public class MallController {
         // 몰 하루 매출
         OrderVO vo = new OrderVO();
         mav.addObject("today",mallService.getTodaySales(vo));
+        mav.addObject("toyCal",mallService.getMallToyList() );
+        mav.addObject("feedCal", mallService.getMallFeedList());
+        mav.addObject("week00",mallService.getWeekPrice00(vo));
+        mav.addObject("week01",mallService.getWeekPrice01(vo));
+        mav.addObject("week02",mallService.getWeekPrice02(vo));
+        mav.addObject("week03",mallService.getWeekPrice03(vo));
         return mav;
     }
 

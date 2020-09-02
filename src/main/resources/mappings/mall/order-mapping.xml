@@ -56,6 +56,24 @@
 <!--    </insert>-->
 
 <!--    /////// 몰 정산  //////////////////////////////////////////////-->
+<!--    몰 정산 페이지 주차별 매출-->
+    <select id="getWeekPrice00" parameterType="OrderVO" resultType="int">
+        select sum(order_price)
+            from order_list where order_date
+            between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+06,'YYYY-MM-DD') FROM DUAL)
+    </select>
+    <select id="getWeekPrice01" parameterType="OrderVO" resultType="int">
+select sum(order_price)
+from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+07,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+13,'YYYY-MM-DD') FROM DUAL)
+</select>
+    <select id="getWeekPrice02" parameterType="OrderVO" resultType="int">
+select sum(order_price)
+from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+14,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+20,'YYYY-MM-DD') FROM DUAL)
+</select>
+    <select id="getWeekPrice03" parameterType="OrderVO" resultType="int">
+select sum(order_price)
+from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+21,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(LAST_DAY(SYSDATE),'YYYY-MM-DD') FROM DUAL)
+    </select>
 <!--    몰 정산 페이지 요일별 매출-->
     <select id="getDayPrice" parameterType="OrderVO" resultType="int">
         select sum(order_price) from order_list where (order_date between #{order_state}and #{order_memo}) and to_char( order_date , 'D') = #{order_no}
@@ -64,10 +82,7 @@
 <!--    <select id="getWeekPrice" parameterType="OrderVO" resultType="int">-->
 <!--        select order_price from order_list where (order_date between #{order_state}and #{order_memo}) and to_char( order_date , 'D') = #{order_no}-->
 <!--    </select>-->
-<!--    몰 상품별 매출-->
-<!--    <select id="getProductSales" resultType="OrderVO">-->
-<!--        select order_no,  from order_list where order_date-->
-<!--    </select>-->
+
 <!--    오늘 매출-->
     <select id="getTodaySales" parameterType="OrderVO" resultType="int">
         select sum(order_price) from order_list where to_char(order_date,'YYYY-MM-dd') = to_char(sysdate,'YYYY-MM-dd')
@@ -126,9 +141,9 @@
     <!-- 장바구니 담기 누를시 장바구니 테이블에 값 넣어주기 -->
     <insert id="insertCartList" parameterType="CartListVO">
         insert into cartlist (cartlist_id, cartlist_code,cartlist_name, cartlist_price, cartlist_discount,
-            cartlist_stock, cartlist_point, cartlist_info, cartlist_img, cartlist_count)
+            cartlist_stock, cartlist_point, cartlist_img, cartlist_count)
             VALUES(#{cartList_id},#{cartList_code},#{cartList_name},#{cartList_price},#{cartList_discount},#{cartList_stock},
-                #{cartList_point},#{cartList_info},#{cartList_img},1)
+                #{cartList_point},#{cartList_img},1)
     </insert>
     <!--  장바구니의 아이템 구매시 디비 저장  -->
     <insert id="insertOrderCartList" parameterType="OrderVO">
