@@ -71,7 +71,7 @@
                 <input type="hidden" name="cartList_discount" value="${toyList.toy_discount}" />
                 <input type="hidden" name="cartList_stock" value="1" />
                 <input type="hidden" name="cartList_point" value="${toyList.toy_point}" />
-                <input type="hidden" name="cartList_info" value="${toyList.toy_info}" />
+<%--                <input type="hidden" name="cartList_info" value="${toyList.toy_info}" />--%>
                 <input type="hidden" name="cartList_img" value="${toyList.toy_img}" />
                 <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>

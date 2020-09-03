@@ -242,7 +242,7 @@
 <script>
     $ = jQuery;
     <c:forEach var="ExDate" items="${ExDate}">
-        alert('코드번호 : ${ExDate.feed_code}\n상품이름 : ${ExDate.feed_name}\n유통기한 : ${ExDate.feed_expiration} 남았습니다');
+        alert('코드번호 : ${ExDate.feed_code}\n상품이름 : ${ExDate.feed_name}\n유통기한 : ${ExDate.feed_expiration}일 남았습니다');
     </c:forEach>
     // 상품 몰 매출
     for(var i=1; i<13; i++) {

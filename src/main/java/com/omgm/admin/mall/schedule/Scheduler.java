@@ -13,7 +13,7 @@ public class Scheduler {
     @Autowired
     MallService mallService;
 //    초 분 시 일 월 요일
-    @Scheduled(cron = "0 15 14 * * *")
+    @Scheduled(cron = "0 30 21 * * *")
     public void autoUpdate() throws Exception {
         MallFeedVO vo = new MallFeedVO();
         mallService.expirationFeed(vo);

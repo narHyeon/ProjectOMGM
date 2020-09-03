@@ -34,7 +34,6 @@
   <a href="roomList.mdo">방등록 페이지 이동</a>
   <a href="calculateTest.mdo">정산 관리 테스트 페이지 이동</a>
   <a href="hotelCalculate.mdo">호텔 정산 페이지 이동</a>
-  <a href="mallCalculate.mdo">mall 정산 페이지 이동</a>
   <a href="message.mdo">message 보내기 페이지 이동</a>
   <a href="myOrder.do">주문목록 페이지 이동</a>
   <a href="myReservation.do">호텔예약 페이지 이동</a>

@@ -181,6 +181,7 @@
                     var QuantityFeed1 = getParameterByName("feed_Quantity");
                    // 결제
                     function kakaoPayFeed() {
+
                         const buyI05Name = document.getElementById("buyImmediatelyDivSection05Name").value;
                         const buyI06Phone = document.getElementById("buyImmediatelyDivSection06Phone").value;
                         const buyI07Zipcode = document.getElementById("buyImmediatelyDivSection07Zipcode").value;
@@ -235,6 +236,7 @@
                                             order_point: buyerPointLeft,
                                             order_img: "${feedInfo.feed_img}",
                                             order_tn: rsp.merchant_uid,
+
                                             <%--id: "${member.id}",--%>
                                             <%--point: buyerPointUsed,--%>
 
@@ -251,6 +253,22 @@
                                         error: function(xhr) {
                                             swal(xhr);
                                             }
+                                    });
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "feedStockDecrease.do", //cross-domain error가 발생하지 않도록 주의해주세요
+                                        dataType: 'json',
+                                        contentType : 'application/json',
+                                        data: JSON.stringify({
+                                            feed_name:"${feedInfo.feed_name}",
+                                            feed_stock: QuantityFeed1,
+                                        }),
+                                        success : function(data) {
+                                            alert('수량 업데이트 성공')
+                                        },
+                                        error: function(xhr) {
+                                            alert(xhr);
+                                        }
                                     });
                                     msg = '결제가 완료되었습니다.';
                                     // msg += '\n고유ID : ' + rsp.imp_uid;
@@ -323,6 +341,8 @@
     }
 
     var QuantityFeed = getParameterByName("feed_Quantity");
+
+
     var QuantityFeedInput = document.getElementById("buyImmediatelyDivSection03Left01");
 
     QuantityFeedInput.innerHTML="수량 : "+QuantityFeed;

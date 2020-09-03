@@ -249,7 +249,22 @@
                                                 swal(xhr);
                                             }
                                         });
-
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: "toyStockDecrease.do", //cross-domain error가 발생하지 않도록 주의해주세요
+                                            dataType: 'json',
+                                            contentType : 'application/json',
+                                            data: JSON.stringify({
+                                                toy_name:"${toyInfo.toy_name}",
+                                                toy_stock: QuantityFeed1,
+                                            }),
+                                            success : function(data) {
+                                                alert('수량 업데이트 성공')
+                                            },
+                                            error: function(xhr) {
+                                                alert(xhr);
+                                            }
+                                        });
                                         msg = '결제가 완료되었습니다.';
                                         // msg += '\n고유ID : ' + rsp.imp_uid;
                                         // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
