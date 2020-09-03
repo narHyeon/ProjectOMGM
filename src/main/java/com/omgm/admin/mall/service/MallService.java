@@ -4,17 +4,21 @@ import com.omgm.admin.mall.beans.MallOrderVO;
 import com.omgm.admin.mall.beans.MallFeedVO;
 import com.omgm.admin.mall.beans.MallToyVO;
 import com.omgm.admin.mall.beans.OrderVO;
-import com.omgm.admin.mall.beans.*;
-import com.omgm.member.beans.MemberVO;
 
 import java.util.List;
 
 
 public interface MallService {
 
-    // 멤버 포인트 업데이트 서비스
-//    void updateMemberPoint(MemberOrderVO vo) throws Exception;
-
+    ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    int getWeekPrice00(OrderVO vo) throws Exception; // 몰 주차별 매출
+    int getWeekPrice01(OrderVO vo) throws Exception; // 몰 주차별 매출
+    int getWeekPrice02(OrderVO vo) throws Exception; // 몰 주차별 매출
+    int getWeekPrice03(OrderVO vo) throws Exception; // 몰 주차별 매출
+    int getDayPrice(OrderVO vo) throws Exception; // 몰 요일별 매출
+    int getTodaySales(OrderVO vo) throws Exception; // 몰 하루 매출
+    int getWeekSales(OrderVO vo) throws Exception; // 몰 한주 매출
+    int getMonthSales(OrderVO vo) throws Exception; // 몰 이번달 매출
     // 토이 관련 서비스
     void deleteMallToy(MallToyVO vo) throws Exception; // 장난감 등록 삭제
     void insertMallToy(MallToyVO vo) throws Exception; // 장난감 등록

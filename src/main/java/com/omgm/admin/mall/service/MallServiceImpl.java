@@ -2,7 +2,6 @@ package com.omgm.admin.mall.service;
 
 
 import com.omgm.admin.mall.beans.*;
-import com.omgm.member.beans.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +12,9 @@ public class MallServiceImpl implements MallService {
 
     @Autowired
     MallDAO mallDAO;
+
+
+
 
     //  ###### 장난감 관련 서비스 ###########################################################
     // 장난감(상품) 등록 삭제
@@ -97,7 +99,47 @@ public class MallServiceImpl implements MallService {
     @Autowired
     MallOrderDAO mallOrderDAO;
 
-
+    ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    //몰 정산 페이지 주차별 매출
+    @Override
+    public int getWeekPrice00(OrderVO vo) throws Exception {
+        return mallOrderDAO.getWeekPrice00(vo);
+    }
+    //몰 정산 페이지 주차별 매출
+    @Override
+    public int getWeekPrice01(OrderVO vo) throws Exception {
+        return mallOrderDAO.getWeekPrice01(vo);
+    }
+    //몰 정산 페이지 주차별 매출
+    @Override
+    public int getWeekPrice02(OrderVO vo) throws Exception {
+        return mallOrderDAO.getWeekPrice02(vo);
+    }
+    //몰 정산 페이지 주차별 매출
+    @Override
+    public int getWeekPrice03(OrderVO vo) throws Exception {
+        return mallOrderDAO.getWeekPrice03(vo);
+    }
+    // 몰 정산 페이지 요일별 매출
+    @Override
+    public int getDayPrice(OrderVO vo) throws Exception {
+        return mallOrderDAO.getDayPrice(vo);
+    }
+    // 몰 정산 페이지 하루 매출
+    @Override
+    public int getTodaySales(OrderVO vo) throws Exception{
+        return mallOrderDAO.getTodaySales(vo);
+    }
+    // 몰 정산 페이지 이번주 매출
+    @Override
+    public int getWeekSales(OrderVO vo) throws Exception {
+        return mallOrderDAO.getWeekSales(vo);
+    }
+    // 몰 정산 페이지 이번달 매출
+    @Override
+    public int getMonthSales(OrderVO vo) throws Exception {
+        return mallOrderDAO.getMonthSales(vo);
+    }
 //    //주문등록(상세)
 //    @Override
 //    public void insertMallOrder(MallOrderVO vo) {

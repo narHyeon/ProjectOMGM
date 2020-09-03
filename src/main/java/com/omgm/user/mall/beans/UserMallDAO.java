@@ -18,6 +18,10 @@ public class UserMallDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     ///////////// 사료 관련 메서드 //////////////////
+    // 사료 상품 샀을시 수량 감소
+    public void feedStockDecrease(UserMallFeedVO vo) {
+        sqlSessionTemplate.update("MallDAO.feedStockDecrease", vo);
+    }
     // 사료 상품 나열(페이징 처리 추가)
     public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo, PageNavigatorMall navi) {
         RowBounds rb = new RowBounds(navi.getStartRecord(), navi.getCountPerPage());
@@ -35,6 +39,10 @@ public class UserMallDAO {
     }
 
     ///////////// 장난감 관련 메서드 //////////////////
+    // 장난감 상품 샀을시 수량 감소
+    public void toyStockDecrease(UserMallToyVO vo) {
+        sqlSessionTemplate.update("MallDAO.toyStockDecrease", vo);
+    }
     // 장난감 상품 나열(페이징 처리 추가)
     public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) {
         RowBounds rb = new RowBounds(navi.getStartRecord(), navi.getCountPerPage());

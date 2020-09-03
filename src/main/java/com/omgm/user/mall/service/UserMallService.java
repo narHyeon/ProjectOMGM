@@ -13,6 +13,8 @@ import java.util.List;
 public interface UserMallService {
 
     /////////////// 사료 관련 서비스 //////////////////////
+    // 사료 구매시 수량 감소
+    void feedStockDecrease(UserMallFeedVO vo) throws Exception;
     //사료 상품 나열
     public List<UserMallFeedVO> getMallFeedList(UserMallFeedVO vo, PageNavigatorMall navi) throws Exception;
 
@@ -23,6 +25,8 @@ public interface UserMallService {
     UserMallFeedVO getMallFeedOneInfo(UserMallFeedVO vo) throws Exception;
 
     /////////////// 장난감 관련 서비스 //////////////////////
+    // 장난감 구매시 수량 감소
+    void toyStockDecrease(UserMallToyVO vo) throws Exception;
     // 장난감 상품 나열
     public List<UserMallToyVO> getMallToyList(UserMallToyVO vo, PageNavigatorMall navi) throws Exception;
 

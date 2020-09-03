@@ -12,6 +12,26 @@ public class MallOrderDAO {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    // 몰 주차별 매출
+    public int getWeekPrice00(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice00", vo);}
+    // 몰 주차별 매출
+    public int getWeekPrice01(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice01", vo);}
+    // 몰 주차별 매출
+    public int getWeekPrice02(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice02", vo);}
+    // 몰 주차별 매출
+    public int getWeekPrice03(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice03", vo);}
+
+    // 몰 요일별 매출
+    public int getDayPrice(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getDayPrice", vo);}
+
+    public MallToyVO getMallToyOne(MallToyVO vo) { return sqlSessionTemplate.selectOne("MallDAO.getMallToyOne", vo);}
+    // 몰 하루 매출
+    public int getTodaySales(OrderVO vo){return sqlSessionTemplate.selectOne("MallOrderDAO.getTodaySales", vo);}
+    // 몰 한주 매출
+    public int getWeekSales(OrderVO vo){return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekSales", vo);}
+    // 몰 이번달 매출
+    public int getMonthSales(OrderVO vo){return sqlSessionTemplate.selectOne("MallOrderDAO.getMonthSales", vo);}
     // 멤버 결제시 포인트 삭제
 //    public void updateMemberPoint(MemberOrderVO vo) {
 //        sqlSessionTemplate.update("MallOrderDAO.updateMemberPoint", vo);

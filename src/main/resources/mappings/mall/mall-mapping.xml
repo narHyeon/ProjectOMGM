@@ -28,7 +28,11 @@
 		<result property="feed_info" column="FEED_INFO" />
 		<result property="feed_img" column="FEED_IMG" />
 	</resultMap>
-	<!-- 장난감 관련 쿼리문 -->
+	<!-- ///////////// 장난감 관련 쿼리문 //////////////////////-->
+	<!--	 물건을 샀을씨 수량 감소-->
+	<update id="toyStockDecrease" parameterType="mallToyVO">
+		update toy set toy_stock = toy_stock-${toy_stock} where toy_name = #{toy_name}
+	</update>
 	<!-- 장난감 등록 쿼리문 -->
 	<insert id="insertMallToy" parameterType="mallToyVO">
 		INSERT INTO toy (toy_code, toy_name, toy_inStock, toy_price,
@@ -62,6 +66,11 @@
 		select toy_img from toy where toy_code=#{toy_code}
 	</select>
 	<!-- /////////////// 사료 관련 쿼리문 ///////////////////////////////////////////////////////// -->
+<!--	 물건을 샀을씨 수량 감소-->
+	<update id="feedStockDecrease" parameterType="mallFeedVO">
+		update feed set feed_stock = feed_stock-${feed_stock} where feed_name = #{feed_name}
+	</update>
+
 	<select id="getExpirationFeedList" resultType="mallFeedVO">
 		<![CDATA[select * from feed where feed_expiration<=3]]>
 	</select>
