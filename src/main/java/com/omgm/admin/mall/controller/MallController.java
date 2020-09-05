@@ -35,7 +35,7 @@ public class MallController {
     public OrderVO getDayPrice(@RequestBody OrderVO vo) throws Exception {
         int sum = mallService.getDayPrice(vo);
         vo.setOrder_price(sum);
-
+        vo.setOrder_point(mallService.getBetweenPrice(vo));
         return vo;
     }
     @ResponseBody

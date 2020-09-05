@@ -100,6 +100,11 @@ public class MallServiceImpl implements MallService {
     MallOrderDAO mallOrderDAO;
 
     ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    // 몰 날짜 기간내 총 매출
+    @Override
+    public int getBetweenPrice(OrderVO vo) throws Exception {
+        return mallOrderDAO.getBetweenPrice(vo);
+    }
     //몰 정산 페이지 주차별 매출
     @Override
     public int getWeekPrice00(OrderVO vo) throws Exception {

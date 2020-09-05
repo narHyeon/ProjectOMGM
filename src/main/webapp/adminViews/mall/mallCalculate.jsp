@@ -174,19 +174,18 @@
 <%--Mall관련 판매현황--%>
 <div id="mall_chart">
     <!-- Area Chart -->
-    <div id="mall_chart_graph01" style="height: 200px; width: 60%;" class="card shadow mb-4">
+    <div id="mall_chart_graph01" style="height: 200px; width: 100%;" class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
         </div>
         <div id="mall_chart_bot" class="card-body">
             <div>
-                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;" id="todayOrderSales">Today : ${today}</p>
-                <br>
-                <p id="mall_date_pick" style="font-size: 17px;">
-                    </p>
+<%--                <p style="color: #3c85dc; padding-top: 25px;padding-left: 18px; font-size: 25px;" id="todayOrderSales"></p>--%>
+                <p id="mall_date_pick" style=" font-size: 25px;"></p><br>
+
             </div>
-            <div id="mall_dwm" style="font-weight: bolder; width:31%;" class="text-right">
-                <p>DAY : ${today}원</p>
+            <div id="mall_dwm" style="font-weight: bolder; width:31%; " class="text-right">
+                <p>오늘(Today) : ${today}원</p>
                     <p id="mallWeekSales">0</p>
                 <p id="mallMonthSales">MONTH : 100000000원</p>
             </div>
@@ -267,8 +266,8 @@
 
             }),
             success: function (data) {
-                document.querySelector('#mallWeekSales').innerHTML = 'WEEK : ' + data.order_price+'원';
-                document.querySelector('#mallMonthSales').innerHTML = 'MONTH : '+ data.order_quantity + '원';
+                document.querySelector('#mallWeekSales').innerHTML = '이번주(This Week) : ' + data.order_price+'원';
+                document.querySelector('#mallMonthSales').innerHTML = '이번달(This Month) : '+ data.order_quantity + '원';
             },
             error: function (xhr) {
 
@@ -288,7 +287,16 @@
         const cDay = 24 * 60 * 60 * 1000;
         alert(parseInt(dif/cDay));
 
-        document.querySelector('#mall_date_pick').innerHTML=day1 + ' ~ '+day2+' 매출';
+
+        if(parseInt(dif/cDay)<=7){
+            myLineChart.data.datasets[0].data[0] = 0;
+            myLineChart.data.datasets[0].data[1] = 0;
+            myLineChart.data.datasets[0].data[2] = 0;
+            myLineChart.data.datasets[0].data[3] = 0;
+            myLineChart.data.datasets[0].data[4] = 0;
+            myLineChart.data.datasets[0].data[5] = 0;
+            myLineChart.data.datasets[0].data[6] = 0;
+        }
         if(day1 === '' || day2===''){
             alert('날짜를 입력해 주세요')
         } else{
@@ -333,6 +341,7 @@
                         order_memo: day2,
                     }),
                     success: function (data) {
+                        document.querySelector('#mall_date_pick').innerHTML=day1 + ' ~ '+day2+' </br>'+'매출 : ' + data.order_point;
                         let numTop = document.querySelector('#topPriceDay').innerHTML;
                         let numDown = document.querySelector('#downPriceDay').innerHTML;
                         if(parseInt(numTop) < data.order_price)  document.querySelector('#topPriceDay').innerHTML = data.order_price.toString();
