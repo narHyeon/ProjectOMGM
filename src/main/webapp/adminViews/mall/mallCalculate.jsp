@@ -353,13 +353,12 @@
 
 
 
-<<<<<<< HEAD
+
 </script>
-=======
 <%--        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;--%>
 <%--        else swal('날짜를 선택해주세요!');--%>
 <%--    }--%>
->>>>>>> 8ab5f2369047ffe4309251c60ecb754009f7b113
+
 
 </body>
 </html>

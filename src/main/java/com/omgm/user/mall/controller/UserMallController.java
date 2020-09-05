@@ -217,7 +217,7 @@ public class UserMallController {
 
         return vo;
     }
-<<<<<<< HEAD
+
     // 결제시 사료 수량 감소
     @ResponseBody
     @RequestMapping("/feedStockDecrease.do")
@@ -233,7 +233,7 @@ public class UserMallController {
         userMallService.toyStockDecrease(vo);
         return vo;
     }
-=======
+
 
     ///////////////////// 몰 주문내역(마이페이지) ///////////////////////////////////
 
@@ -253,7 +253,7 @@ public class UserMallController {
 //        return mav;
 //    }
 
->>>>>>> 8ab5f2369047ffe4309251c60ecb754009f7b113
+
 }
 
 
