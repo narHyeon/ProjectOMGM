@@ -101,9 +101,10 @@ public class UserMallDAO {
     }
 
 
-    ///////////// mypage mall order //////////////////
-    //mall order출력
+    //마이페이지 주문내역 출력
     public List<OrderVO> myOrder(OrderVO vo) {
         return sqlSessionTemplate.selectList("MallOrderDAO.myOrder", vo);
     }
+
+
 }
