@@ -56,23 +56,30 @@
 <!--    </insert>-->
 
 <!--    /////// 몰 정산  //////////////////////////////////////////////-->
+    <!--    몰 정산 페이지 기간내 매출-->
+    <select id="getBetweenPrice" parameterType="OrderVO" resultType="int">
+        select sum(order_price) from order_list where order_date between #{order_state}and #{order_memo}
+    </select>
 <!--    몰 정산 페이지 주차별 매출-->
     <select id="getWeekPrice00" parameterType="OrderVO" resultType="int">
         select sum(order_price)
             from order_list where order_date
-            between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+06,'YYYY-MM-DD') FROM DUAL)
+        between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM'),'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+06,'YYYY-MM-DD') FROM DUAL)
     </select>
+
     <select id="getWeekPrice01" parameterType="OrderVO" resultType="int">
-select sum(order_price)
-from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+07,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+13,'YYYY-MM-DD') FROM DUAL)
-</select>
+            select sum(order_price)
+                from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+07,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+13,'YYYY-MM-DD') FROM DUAL)
+    </select>
+
     <select id="getWeekPrice02" parameterType="OrderVO" resultType="int">
-select sum(order_price)
-from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+14,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+20,'YYYY-MM-DD') FROM DUAL)
-</select>
+        select sum(order_price)
+            from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+14,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+20,'YYYY-MM-DD') FROM DUAL)
+    </select>
+
     <select id="getWeekPrice03" parameterType="OrderVO" resultType="int">
-select sum(order_price)
-from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+21,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(LAST_DAY(SYSDATE),'YYYY-MM-DD') FROM DUAL)
+        select sum(order_price)
+            from order_list where order_date between (SELECT TO_CHAR(TRUNC(SYSDATE,'MM')+21,'YYYY-MM-DD') FROM DUAL) and (SELECT TO_CHAR(LAST_DAY(SYSDATE),'YYYY-MM-DD') FROM DUAL)
     </select>
 <!--    몰 정산 페이지 요일별 매출-->
     <select id="getDayPrice" parameterType="OrderVO" resultType="int">

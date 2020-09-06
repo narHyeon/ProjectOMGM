@@ -79,7 +79,7 @@
 							일반택시미터기의 1.1배로 이동거리 및 시간에 따라 택시와 동일한 방식으로 요금이 산정됩니다.</p>
 					</div>
 				</div>
-				<div class="pickup-intro-left01">
+				<div class="pickup-intro-left03">
 					<ul class="pickup-intro-ul">
 						<li class="pickup-intro-li">목적지와 출발지가 바우라움 서울숲 캠퍼스인 경우에만 할인이
 							적용됩니다.</li>
@@ -88,15 +88,18 @@
 
 					</ul>
 				</div>
+
+			</div>
+			<div class="pickup-intro-left">
 				<div class="pickup-intro-left01">
 					<img src="resources/img/pickupService_info/icon-phone.png"
-						class=left-img01>
+						 class=left-img01>
 					<div class="left-div01">
 						<h2 class="left-h201">주의사항</h2>
 						<p class="left-p01">펫택시 이용 시 주의사항</p>
 					</div>
 				</div>
-				<div class="pickup-intro-left01">
+				<div class="pickup-intro-left03">
 					<ul class="pickup-intro-ul">
 						<li class="pickup-intro-li">예약 시간 3시간 이내에 취소하는 경우 취소 수수료
 							8,000원이 청구됩니다.</li>
@@ -106,8 +109,6 @@
 
 					</ul>
 				</div>
-			</div>
-			<div class="pickup-intro-left">
 				<div class="pickup-intro-left01">
 					<img src="resources/img/pickupService_info/icon-phone.png"
 						class=left-img01>
@@ -124,7 +125,7 @@
 					</ul>
 				</div>
 				<div class="left-div-img">
-					<img src="resources/img/pickupService_info/자동차.jpg"
+					<img src="resources/img/pickupService_info/애완견.png"
 						class="pickup-car">
 				</div>
 			</div>

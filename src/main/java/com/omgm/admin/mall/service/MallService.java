@@ -10,6 +10,8 @@ import java.util.List;
 public interface MallService {
 
     ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    int getBetweenPrice(OrderVO vo) throws Exception; // 몰 기간내 매출
+
     int getWeekPrice00(OrderVO vo) throws Exception; // 몰 주차별 매출
     int getWeekPrice01(OrderVO vo) throws Exception; // 몰 주차별 매출
     int getWeekPrice02(OrderVO vo) throws Exception; // 몰 주차별 매출

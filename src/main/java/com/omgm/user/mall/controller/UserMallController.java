@@ -235,6 +235,7 @@ public class UserMallController {
         return vo;
     }
 
+
     ///////////////////// 몰 주문내역(마이페이지) ///////////////////////////////////
 
     @RequestMapping("/myOrder.do")
@@ -252,7 +253,7 @@ public class UserMallController {
 ////        mav.addObject("myReservation", userMallService.myReservation(vo));
 //        return mav;
 //    }
-
+    
 }
 
 
