@@ -13,6 +13,8 @@ public class MallOrderDAO {
     private SqlSessionTemplate sqlSessionTemplate;
 
     ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    // 몰 날짜 기간내 매출
+    public int getBetweenPrice(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getBetweenPrice", vo);}
     // 몰 주차별 매출
     public int getWeekPrice00(OrderVO vo) {return sqlSessionTemplate.selectOne("MallOrderDAO.getWeekPrice00", vo);}
     // 몰 주차별 매출

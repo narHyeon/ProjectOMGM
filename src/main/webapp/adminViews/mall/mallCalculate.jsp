@@ -76,6 +76,15 @@
             color:#2e59d9;
             font-size: 20px;
         }
+        .kinderGarden_pagination1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .kinderGarden_pagination1 ul{
+            display: flex;
+            flex-direction: row;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +157,7 @@
                     <th>총매출</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="reser_confirm_tbody11">
                 <c:forEach var="toyCal" items="${toyCal}">
                     <tr class="order_feild">
                         <td>${toyCal.toy_code}</td>
@@ -167,57 +176,39 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <div id="feedToyTotalSum" style="display: flex; justify-content: flex-end"></div>
         </div>
     </div>
+</div>
+
+<%--  pagination --%>
+<div class="kinderGarden_pagination1">
+    <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link"  onclick="paging(event,tbody1,currentPage1-1,prev1,next1,pageCount1,1)">Prev</a> </ul>
+    <ul></ul>
+    <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,tbody1,currentPage1+1,prev1,next1,pageCount1,1)">Next</a> </ul>
 </div>
 
 <%--Mall관련 판매현황--%>
 <div id="mall_chart">
     <!-- Area Chart -->
-    <div id="mall_chart_graph01" style="height: 200px; width: 60%;" class="card shadow mb-4">
+    <div id="mall_chart_graph01" style="height: 200px; width: 100%;" class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-info">매출 현황</h6>
         </div>
         <div id="mall_chart_bot" class="card-body">
             <div>
-                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;" id="todayOrderSales">Today : ${today}</p>
-                <br>
-                <p id="mall_date_pick" style="font-size: 17px;">
-                    </p>
+<%--                <p style="color: #3c85dc; padding-top: 25px;padding-left: 18px; font-size: 25px;" id="todayOrderSales"></p>--%>
+                <p id="mall_date_pick" style=" font-size: 25px;"></p><br>
+
             </div>
-            <div id="mall_dwm" style="font-weight: bolder; width:31%;" class="text-right">
-                <p>DAY : ${today}원</p>
+            <div id="mall_dwm" style="font-weight: bolder; width:31%; " class="text-right">
+                <p>오늘(Today) : ${today}원</p>
                     <p id="mallWeekSales">0</p>
                 <p id="mallMonthSales">MONTH : 100000000원</p>
             </div>
         </div>
     </div>
 
-    &nbsp;&nbsp;&nbsp;
-<%--    <div id="mall_chart_graph02" style="height: 200px; width: 38.8%;" class="card shadow mb-4">--%>
-<%--        <div class="card-header py-3">--%>
-<%--            <h6 class="m-0 font-weight-bold text-info">판매현황</h6>--%>
-<%--        </div>--%>
-<%--        <div id="mall_chart_bot01" class="card-body">--%>
-<%--            <div style="display: flex; justify-content: space-around">--%>
-<%--                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;">가장 많이 팔린 상품: 냥냥이 사료 </p>--%>
-<%--                <p style="color: #3c85dc; padding-top: 18px; font-size: 17px;"> 99개</p><br>--%>
-<%--            </div>--%>
-<%--            <div style="display: flex; justify-content: space-around">--%>
-<%--                <p id="mall_date_pick01" style="font-size: 17px;">--%>
-<%--                    가장 적게 팔린 상품: 댕댕이 사료 </p>--%>
-<%--                <p style="font-size: 17px; color:red;">6개</p>--%>
-<%--            </div>--%>
-<%--            <div id="kinder_dwm" style="padding-top: 20px; padding-right: 120px;" class="text-center">--%>
-<%--                <p>장난감1 99개</p><br>--%>
-<%--                <p>사료2 6개</p>--%>
-<%--            </div>--%>
-<%--            <div id="kinder_dwm" style="padding-top: 20px; font-weight: bolder;" class="text-right">--%>
-<%--                <p style="font-size: 20px; color:#2e59d9;"> 99개</p><br>--%>
-<%--                <p style="font-size: 20px; color:red;">6개</p>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
 </div>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -225,6 +216,91 @@
 <script src="resources/admin/js/mall/chartPie.js"></script>
 <script src="resources/admin/js/mall/chartArea.js"></script>
 <script>
+
+    // 상품별 총 매출합산
+    let toySum= 0;
+    let feedSum = 0;
+    <c:forEach var="toyCal" items="${toyCal}">
+        toySum += ${(100-toyCal.toy_stock)*toyCal.toy_discount}
+    </c:forEach>
+    <c:forEach var="feedCal" items="${feedCal}">
+        feedSum += ${(100-feedCal.feed_stock)*feedCal.feed_discount}
+    </c:forEach>
+    document.querySelector('#feedToyTotalSum').innerHTML='장난감 총 매출 : '+toySum+'원 &nbsp;&nbsp;&nbsp;&nbsp; 사료 총 매출 : '+feedSum+'원'+'&nbsp;&nbsp;&nbsp;&nbsp;'+'총 매출 : '+(toySum+feedSum);
+<%--    ///// 페이지 네이션 //////////////////////////////////////////////////////////////////////////////--%>
+
+// 페이지네이션 관련
+let tbody1; // 페이지네이션 몸체
+let page1; // 페이지 블럭 몸체
+let contentCount1 = 0; // 페이지 총 수
+let pageCount1 = 0; // 그룹 총 수
+
+let currentPage1 = 1; // 현재 페이지
+
+const prev1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(1)');
+const next1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(3)');
+
+// 초기화 작업
+window.addEventListener('DOMContentLoaded', () => {
+    tbody1 = document.querySelectorAll('#reser_confirm_tbody11 tr');
+
+    tbody1.forEach((item,index) => {
+        contentCount1++;
+        if(index >= 5) item.style.display = 'none';
+    });
+
+    page1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(2)');
+    pageCount1 = Math.ceil(contentCount1/5); // 올림
+
+
+    pagination(page1,pageCount1,1,currentPage1);
+});
+
+// 페이징 처리
+function paging(event,tbody,count,prev,next,pageCount,num) {
+    event.preventDefault();
+    if(num === 1) currentPage1 = count;
+    else currentPage2 = count;
+
+    pagePick(event.target.parentNode.parentNode,count);
+
+    tbody.forEach((item,index) => {
+        index++;
+        if((5*count)-5 < index && index <= 5*count) item.style.display = '';
+        else item.style.display = 'none';
+        if(count === 1) {
+            prev.classList.toggle('disabled',true);
+            next.classList.toggle('disabled',false);
+        } else if(count === pageCount) {
+            next.classList.toggle('disabled',true);
+            prev.classList.toggle('disabled',false);
+        } else {
+            prev.classList.toggle('disabled',false);
+            next.classList.toggle('disabled',false);
+        }
+    });
+}
+
+// 페이지그룹 생성
+function pagination(page,count,index,current) {
+    for(let i=1; i<=count; i++) {
+        page.innerHTML += `
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
+                </li>`;
+        if(i === current) pagePick(page,1);
+    }
+}
+
+// 페이지 그룹 색상 변경
+function pagePick(target,count) {
+    target.querySelectorAll(`li`).forEach((item,index) => {
+        if(count === index+1) item.classList.toggle('active',true);
+        else item.classList.toggle('active',false);
+    });
+}
+    
+<%--    //////////////////////////////////////////////////////////////////////////////--%>
     myPieChart.data.datasets[0].data[0] = ${week00};
     myPieChart.data.datasets[0].data[1] = ${week01};
     myPieChart.data.datasets[0].data[2] = ${week02};
@@ -267,8 +343,8 @@
 
             }),
             success: function (data) {
-                document.querySelector('#mallWeekSales').innerHTML = 'WEEK : ' + data.order_price+'원';
-                document.querySelector('#mallMonthSales').innerHTML = 'MONTH : '+ data.order_quantity + '원';
+                document.querySelector('#mallWeekSales').innerHTML = '이번주(This Week) : ' + data.order_price+'원';
+                document.querySelector('#mallMonthSales').innerHTML = '이번달(This Month) : '+ data.order_quantity + '원';
             },
             error: function (xhr) {
 
@@ -288,7 +364,16 @@
         const cDay = 24 * 60 * 60 * 1000;
         alert(parseInt(dif/cDay));
 
-        document.querySelector('#mall_date_pick').innerHTML=day1 + ' ~ '+day2+' 매출';
+
+        if(parseInt(dif/cDay)<=7){
+            myLineChart.data.datasets[0].data[0] = 0;
+            myLineChart.data.datasets[0].data[1] = 0;
+            myLineChart.data.datasets[0].data[2] = 0;
+            myLineChart.data.datasets[0].data[3] = 0;
+            myLineChart.data.datasets[0].data[4] = 0;
+            myLineChart.data.datasets[0].data[5] = 0;
+            myLineChart.data.datasets[0].data[6] = 0;
+        }
         if(day1 === '' || day2===''){
             alert('날짜를 입력해 주세요')
         } else{
@@ -333,6 +418,7 @@
                         order_memo: day2,
                     }),
                     success: function (data) {
+                        document.querySelector('#mall_date_pick').innerHTML=day1 + ' ~ '+day2+' </br>'+'매출 : ' + data.order_point+'원';
                         let numTop = document.querySelector('#topPriceDay').innerHTML;
                         let numDown = document.querySelector('#downPriceDay').innerHTML;
                         if(parseInt(numTop) < data.order_price)  document.querySelector('#topPriceDay').innerHTML = data.order_price.toString();
@@ -353,13 +439,12 @@
 
 
 
-<<<<<<< HEAD
+
 </script>
-=======
 <%--        if(date1 !== '') window.location.href = 'kinderGardenCalculate.mdo?dateOne='+date1;--%>
 <%--        else swal('날짜를 선택해주세요!');--%>
 <%--    }--%>
->>>>>>> 8ab5f2369047ffe4309251c60ecb754009f7b113
+
 
 </body>
 </html>
