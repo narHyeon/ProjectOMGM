@@ -34,7 +34,7 @@
 	</select>
 
 	<update id="memberRankUp" parameterType="ManagementVO">
-		UPDATE member SET rank = #{rank} WHERE seq = #{seq}
+		UPDATE member SET rank = #{rank}, point = #{point} WHERE seq = #{seq}
 	</update>
 
 

@@ -80,7 +80,9 @@
                             <td>${members.address}</td>
                             <td>${members.point}</td>
                             <td>${members.rank}
-                                <button id="memberTable_button" class="btn btn-success btn-circle" onclick="rankUp(event)" value="{rank: ${members.rank}, seq: ${members.seq}}">up</button>
+                                <c:if test="${members.rank != VVIP}">
+                                    <button id="memberTable_button" class="btn btn-success btn-circle" onclick="rankUp(event)" value="${members.rank}, ${members.seq}">up</button>
+                                </c:if>
                             </td>
                             <td>${members.formatDate}</td>
                         </tr>
@@ -213,20 +215,20 @@
     }
 
     function rankUp(event) {
-        console.log(event.target.value);
-        // const xhr = XMLHttpRequest;
-        //
-        // xhr.onload = () => {
-        //     if(xhr.status === 200) {
-        //         swal('등급 조정이 완료되었습니다!');
-        //         window.location.reload();
-        //     }
-        // };
-        //
-        // xhr.open('POST','memberRankUp.mdo',true);
-        // xhr.setRequestHeader('content-type','application/json');
-        // const data = { seq: event.target.value };
-        // xhr.send(JSON.stringify(data));
+        const value = event.target.value.split(',');
+        const xhr = XMLHttpRequest;
+
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+                swal('등급 조정이 완료되었습니다!');
+                window.location.reload();
+            }
+        };
+
+        xhr.open('POST','memberRankUp.mdo',true);
+        xhr.setRequestHeader('content-type','application/json');
+        const data = { rank: value[0], seq: value[1] };
+        xhr.send(JSON.stringify(data));
     }
 </script>
 </body>
