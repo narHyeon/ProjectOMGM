@@ -80,7 +80,7 @@
                             <td>${members.address}</td>
                             <td>${members.point}</td>
                             <td>${members.rank}
-                                <c:if test="${members.rank != VVIP}">
+                                <c:if test="${members.rank != 'VVIP'}">
                                     <button id="memberTable_button" class="btn btn-success btn-circle" onclick="rankUp(event)" value="${members.rank}, ${members.seq}">up</button>
                                 </c:if>
                             </td>
@@ -216,12 +216,11 @@
 
     function rankUp(event) {
         const value = event.target.value.split(',');
-        const xhr = XMLHttpRequest;
+        const xhr = new XMLHttpRequest();
 
         xhr.onload = () => {
             if(xhr.status === 200) {
-                swal('등급 조정이 완료되었습니다!');
-                window.location.reload();
+                swal('등급 조정이 완료되었습니다!').then(() => window.location.reload());
             }
         };
 
