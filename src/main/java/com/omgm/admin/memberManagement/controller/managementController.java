@@ -3,7 +3,9 @@ package com.omgm.admin.memberManagement.controller;
 import com.omgm.admin.memberManagement.beans.ManagementVO;
 import com.omgm.admin.memberManagement.service.ManagementService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -42,5 +44,11 @@ public class managementController {
 
         mav.addObject("adminTable",list);
         return mav;
+    }
+
+    @ResponseBody
+    @RequestMapping("/memberRankUp.mdo")
+    public void memberRankUp(@RequestBody ManagementVO vo) {
+        managementService.memberRankUp(vo);
     }
 }

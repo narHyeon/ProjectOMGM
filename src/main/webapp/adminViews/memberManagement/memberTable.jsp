@@ -24,6 +24,12 @@
             display: flex;
             flex-direction: row;
         }
+
+        #memberTable_button {
+            height: 25px;
+            width: 25px;
+        }
+
     </style>
 </head>
 <body>
@@ -73,7 +79,9 @@
                             <td>${members.zipcode}</td>
                             <td>${members.address}</td>
                             <td>${members.point}</td>
-                            <td>${members.rank}</td>
+                            <td>${members.rank}
+                                <button id="memberTable_button" class="btn btn-success btn-circle" onclick="rankUp(event)" value="{rank: ${members.rank}, seq: ${members.seq}}">up</button>
+                            </td>
                             <td>${members.formatDate}</td>
                         </tr>
                     </c:forEach>
@@ -202,6 +210,23 @@
             if(count === index+1) item.classList.toggle('active',true);
             else item.classList.toggle('active',false);
         });
+    }
+
+    function rankUp(event) {
+        console.log(event.target.value);
+        // const xhr = XMLHttpRequest;
+        //
+        // xhr.onload = () => {
+        //     if(xhr.status === 200) {
+        //         swal('등급 조정이 완료되었습니다!');
+        //         window.location.reload();
+        //     }
+        // };
+        //
+        // xhr.open('POST','memberRankUp.mdo',true);
+        // xhr.setRequestHeader('content-type','application/json');
+        // const data = { seq: event.target.value };
+        // xhr.send(JSON.stringify(data));
     }
 </script>
 </body>

@@ -18,4 +18,9 @@ public class ManagementServiceImpl implements ManagementService {
     public List<ManagementVO> memberTable(ManagementVO vo) {
         return managementDAO.memberTable(vo);
     }
+
+    @Override
+    public void memberRankUp(ManagementVO vo) {
+        managementDAO.memberRankUp(vo);
+    }
 }
