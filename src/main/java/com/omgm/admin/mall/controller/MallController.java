@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+import java.awt.*;
 import java.io.File;
+import java.util.Set;
 
 @Controller
 public class MallController {
@@ -78,13 +82,14 @@ public class MallController {
 
         //장난감 등록 정보 수정
         @RequestMapping("/updateMallToy.mdo")
-        public ModelAndView updateMallToy(MallToyVO vo) throws Exception {
+        public ModelAndView updateMallToy(MallToyVO vo,HttpServletRequest request) throws Exception {
             ModelAndView mav = new ModelAndView();
 
             MultipartFile update_uploadFile = vo.getUpdate_uploadFile();
             if(!update_uploadFile.isEmpty()) {
                 String fileName02 = update_uploadFile.getOriginalFilename();
-                update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+                String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+                update_uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName02));
                 vo.setToy_img(fileName02);
             }
 
@@ -102,8 +107,8 @@ public class MallController {
 
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
-                String path =  request.getServletContext().getRealPath("");
-                uploadFile.transferTo(new File(path+"\\resources\\img\\product\\" + fileName));
+                String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+                uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
             }else{
                 this.fileName = "cat.jpg";
             }
@@ -146,12 +151,13 @@ public class MallController {
 
     // 사료 관련 등록 컨트롤러
     @RequestMapping("/insertMallFeed.mdo")
-    public ModelAndView insertMallFeed(MallFeedVO vo) throws Exception {
+    public ModelAndView insertMallFeed(MallFeedVO vo, HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
         MultipartFile feed_uploadFile = vo.getFeed_uploadFile();
         if(!feed_uploadFile.isEmpty()) {
             this.fileName01 = feed_uploadFile.getOriginalFilename();
-            feed_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName01));
+            String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+            feed_uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName01));
         }else{
             this.fileName01 = "cat.jpg";
         }
@@ -181,13 +187,14 @@ public class MallController {
 
     // 사료 등록정보 수정 컨트롤러
     @RequestMapping("/updateMallFeed.mdo")
-    public ModelAndView updateMallFeed(MallFeedVO vo) throws Exception {
+    public ModelAndView updateMallFeed(MallFeedVO vo,HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
 
         MultipartFile feed_update_uploadFile = vo.getFeed_update_uploadFile();
         if(!feed_update_uploadFile.isEmpty()) {
             String fileName03 = feed_update_uploadFile.getOriginalFilename();
-            feed_update_uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+            String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+            feed_update_uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName03));
             vo.setFeed_img(fileName03);
         }
 
