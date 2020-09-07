@@ -48,14 +48,6 @@ public class AdminController {
         return mav;
     }
 
-    //픽업서비스 관리 페이지
-    @RequestMapping("/pickupServiceManagement.mdo")
-    public ModelAndView pickupServiceManagement(AdminVO vo) {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/manageMent/pickupServiceManagement");
-        return mav;
-    }
-
     //주문조회 페이지 이동
     @RequestMapping("/orderInquiry.mdo")
     public ModelAndView orderInquiry(AdminVO vo) {

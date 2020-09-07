@@ -253,7 +253,7 @@ public class UserMallController {
 ////        mav.addObject("myReservation", userMallService.myReservation(vo));
 //        return mav;
 //    }
-    
+
 }
 
 
