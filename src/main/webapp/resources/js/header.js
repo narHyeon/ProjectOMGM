@@ -510,5 +510,10 @@ window.addEventListener('click',(event) => {
     info.style.display = 'none';
 });
 
+function shopping(event) {
+    event.preventDefault();
+    swal('로그인을 먼저 해주세요!');
+}
+
 
 
