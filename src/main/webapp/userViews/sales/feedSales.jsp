@@ -113,7 +113,6 @@
 </div>
 <%--    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
-    <script src="resources/js/header.js" defer></script>
 
 <script>
     function buyImmediately00() {

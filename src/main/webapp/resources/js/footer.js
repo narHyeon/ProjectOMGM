@@ -17,6 +17,15 @@ const footer = new Vue({
             const left = Math.ceil((window.screen.width - width) / 2);
 
             window.open('term.do?termTitle='+name, '약관', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
+        },
+        facebook() {
+            window.location.href = 'https://ko-kr.facebook.com';
+        },
+        youtube() {
+            window.location.href = 'https://youtu.be/hmYVuY7VDZc';
+        },
+        instagram() {
+            window.location.href = 'https://www.instagram.com';
         }
     },
     created() {
