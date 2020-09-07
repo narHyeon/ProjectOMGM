@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="PickUpDAO">
-	<!-- 토이 테이블 -->
+
 	<resultMap type="PickUpVO" id="pickUp">
 		<id property="ROOMRESERVATION_NO" column="ROOMRESERVATION_NO" />
 		<result property="ROOMRESERVATION_ROOMNO" column="ROOMRESERVATION_ROOMNO" />
@@ -26,12 +26,32 @@
 		<result property="ROOMRESERVATION_FIANLFEE" column="ROOMRESERVATION_FIANLFEE" />
 	</resultMap>
 
+	<resultMap type="MemberVO" id="pickUpInfo">
+		<id property="seq" column="SEQ" />
+		<result property="id" column="ID"/>
+		<result property="pwd" column="PWD"/>
+		<result property="name" column="NAME"/>
+		<result property="phone" column="PHONE" />
+		<result property="email" column="EMAIL" />
+		<result property="zipcode" column="ZIPCODE" />
+		<result property="address" column="ADDRESS" />
+		<result property="point" column="POINT" />
+		<result property="rank" column="RANK" />
+		<result property="type" column="TYPE" />
+		<result property="regDate" column="REGDATE"/>
+		<result property="code" column="CODE"/>
+		<result property="animal" column="ANIMAL"/>
+		<result property="animalAge" column="ANIMALAGE"/>
+	</resultMap>
 
-	<select id="getPickUpList" resultMap="pickUp">
+	<select id="getPickUpList" resultMap="pickUp,pickUpInfo">
 		SELECT * FROM ROOMRESERVATION WHERE ROOMRESERVATION_PICKUPYN = 'Y' ORDER BY ROOMRESERVATION_NO ASC
 	</select>
 
-	<select id="getPickUpListInfo" resultMap="pickUp">
-		SELECT * FROM KG_RESERVATION WHERE  = 'Y' ORDER BY ROOMRESERVATION_NO ASC
+
+	<select id="getPickUpListInfo" resultMap="pickUpInfo">
+		SELECT * FROM ROOMRESERVATION T1, MEMBER T2 WHERE T1.ROOMRESERVATION_MEMBERNO = T2.SEQ
 	</select>
+
+
 </mapper>
