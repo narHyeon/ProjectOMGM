@@ -13,9 +13,6 @@ public class MallServiceImpl implements MallService {
     @Autowired
     MallDAO mallDAO;
 
-
-
-
     //  ###### 장난감 관련 서비스 ###########################################################
     // 장난감(상품) 등록 삭제
     @Override
