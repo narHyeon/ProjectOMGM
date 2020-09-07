@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>FLAT DESIGN - 문의사항</title>
 <link rel="stylesheet" type="text/css"
 	href="resources/style/faq/faq.css">
 <link rel="stylesheet" type="text/css"
@@ -130,22 +130,22 @@
 		$(".main1").click(function() {
 			window.location.href = 'getMyService.do';
 		});
-		$("#myPageFs").click(function(){
+		$("#myPageFs").click(function() {
 			window.location.href = 'myPage.do';
 		});
-		$("#myCatPageFs").click(function(){
+		$("#myCatPageFs").click(function() {
 			window.location.href = 'myPetPage.do';
 		});
-		$("#myServiceListFs").click(function(){
+		$("#myServiceListFs").click(function() {
 			window.location.href = 'myServiceList.do';
 		});
-		$("#myBuyListLogFs").click(function(){
+		$("#myBuyListLogFs").click(function() {
 			window.location.href = 'myBuyListLog.do';
 		});
-		$("#myCatCareLogFs").click(function(){
+		$("#myCatCareLogFs").click(function() {
 			window.location.href = 'myCatCareLog.do';
 		});
-		$("#myReViewFs").click(function(){
+		$("#myReViewFs").click(function() {
 			window.location.href = 'myReView.do';
 		});
 	});
@@ -179,21 +179,24 @@
 						<thead id="thead1">
 							<tr>
 								<th id="t1">번호</th>
-								<th id="t2">서비스 종류</th>
-								<th id="t3">서비스종료 일시</th>
+								<th id="t2">방이름</th>
+								<th id="t3">숙박일자</th>
+								<th id="t4">결제일시</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="main1">
-								<td>1</td>
-								<td>이용중인 서비스1</td>
-								<td>오늘</td>
-							</tr>
-							<tr class="main1">
-								<td>2</td>
-								<td>이용중인 서비스2</td>
-								<td>오늘</td>
-							</tr>
+							<c:forEach var="reservation" items="${reservationList}" varStatus="num">
+								<tr class="main1">
+									<td>${num.count}</td>
+									<td>${reservation.ROOMRESERVATION_ROOMNAME}</td>
+									<td>
+									<fmt:formatDate value="${reservation.ROOMRESERVATION_STAYDAY}" type="date" pattern="yyyy년 MM월 dd일"/>
+									</td>
+									<td>
+									<fmt:formatDate value="${reservation.ROOMRESERVATION_PAYDAY}" type="date" pattern="yyyy년 MM월 dd일"/>
+									</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

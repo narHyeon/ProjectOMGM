@@ -222,6 +222,9 @@
 #reservationn{
 	color: #FF3737;
 }
+td{
+	border: 1px solid black;
+}
 </style>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>

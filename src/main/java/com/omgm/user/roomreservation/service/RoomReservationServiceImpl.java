@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.room.beans.RoomDAO;
 import com.omgm.user.room.beans.RoomVO;
 import com.omgm.user.roomreservation.beans.RoomReservationDAO;
@@ -23,8 +24,7 @@ public class RoomReservationServiceImpl implements RoomReservationService{
 	public List<RoomVO> getSelectedDateInfo(String selectedDate){
 
 		List<RoomVO> roomList =	roomdao.getListRoomAll(); //모든 방의 종류
-		List<RoomReservationVO>	seletedDateReservedRoomList =
-				roomReservationDAO.getSelectedDateInfo(selectedDate); // 그날 예약된 예약 정보 리스트
+		List<RoomReservationVO>	seletedDateReservedRoomList = roomReservationDAO.getSelectedDateInfo(selectedDate); // 그날 예약된 예약 정보 리스트
 		for (int j = 0; j < roomList.size(); j++) {
 			RoomVO room = roomList.get(j);
 			String content = room.getROOM_CONTENT();
@@ -45,23 +45,46 @@ public class RoomReservationServiceImpl implements RoomReservationService{
 				}
 			}
 			room.setROOM_IMG(list2.get(0));
-		}
-		
-		if (seletedDateReservedRoomList.size()==0) {
+		}// end 썸네일 이미지 만들기
+
+		if (seletedDateReservedRoomList.size() != 0) {
 			for (int i = 0; i < roomList.size(); i++) {
-				roomList.get(i).setROOM_RESERVATIONYN("Y");
-				
-			}
-		}else {
-			int j = 0;
-		      for (int i = 0; i < roomList.size(); i++) {
-		            if (roomList.get(i).getROOM_NO() == seletedDateReservedRoomList.get(j).getROOMRESERVATION_ROOMNO()) {
-		                  roomList.get(i).setROOM_RESERVATIONYN("Y");
-		                  j++; // 이거 추가된부분
-		            }
-		      }
+				for (int j = 0; j < seletedDateReservedRoomList.size(); j++) {
+					if (roomList.get(i).getROOM_NO() == seletedDateReservedRoomList.get(j)
+							.getROOMRESERVATION_ROOMNO()) {
+						roomList.get(i).setROOM_RESERVATIONYN("N");
+					}//end if
+				}//end for seletedDateReservedRoomList
+			}//end for roomlist
 		}
+//			int j = 0;
+//		      for (int i = 0; i < roomList.size(); i++) {
+//		            if (roomList.get(i).getROOM_NO() == seletedDateReservedRoomList.get(j).getROOMRESERVATION_ROOMNO()) {
+//		                  roomList.get(i).setROOM_RESERVATIONYN("Y");
+//		                  j++; // 이거 추가된부분
+//		            }
 		
 		return roomList;
+	}//end getSelectedDateInfo(String selectedDate)
+
+	@Override
+	public void insertReservation(RoomReservationVO vo) {
+		roomReservationDAO.insertReservation(vo);
+	}
+
+	@Override
+	public RoomReservationVO selectRoomReservation(RoomReservationVO vo) {
+		
+		return roomReservationDAO.selectRoomReservation(vo);
+	}
+
+	@Override
+	public int selectCountReservation(RoomReservationVO vo) {
+		return roomReservationDAO.selectCountReservation(vo);
+	}
+
+	@Override
+	public List<RoomReservationVO> selectListRoomReservation(RoomReservationVO vo, PageNavigator navi) {
+		return roomReservationDAO.selectListRoomReservation(vo,navi);
 	}
 }

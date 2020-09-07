@@ -14,7 +14,7 @@ public class RoomVO {
 	private String ROOM_RESERVATIONYN;
 	
 	public RoomVO() {
-		ROOM_RESERVATIONYN = "N";
+		ROOM_RESERVATIONYN = "Y";
 	}
 	public int getROOM_NO() {
 		return ROOM_NO;

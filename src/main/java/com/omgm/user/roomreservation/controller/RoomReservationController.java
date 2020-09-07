@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.omgm.member.beans.MemberVO;
+import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.room.beans.RoomVO;
 import com.omgm.user.roomreservation.beans.RoomReservationVO;
 import com.omgm.user.roomreservation.service.RoomReservationService;
@@ -27,9 +28,6 @@ public class RoomReservationController {
 
 	@Autowired
 	RoomReservationService roomReservationService;
-	
-
-	
 	
 	//날자 클릭시 db서 예약 현황 ajax로 받아오는 컨트롤러
 	@RequestMapping(value = "/ajaxinsertRoomReservation.do", method = RequestMethod.POST)
@@ -52,11 +50,8 @@ public class RoomReservationController {
 		return roomList;
 	}
 	@RequestMapping(value = "/insertRoomReservation.do", method = RequestMethod.GET)
-	public ModelAndView goRoomReservation(ModelAndView mav , HttpSession session) {
+	public ModelAndView goRoomReservation(ModelAndView mav) {
 		mav.setViewName("/roomReservation/insertRoomReservation");
-	//	MemberVO memvo = new MemberVO();
-	//	memvo = (MemberVO) session.getAttribute("member");
-	//	System.out.println(memvo.toString());
 		return mav;
 	}
 	
@@ -70,7 +65,6 @@ public class RoomReservationController {
 		//System.out.println(vo.toString());
 		MemberVO memvo = new MemberVO();
 		memvo = (MemberVO) session.getAttribute("member");
-		System.out.println(memvo.toString());
 		mav.addObject("reservationInfo",vo);
 		mav.addObject("userInfo",memvo);
 		
@@ -78,10 +72,50 @@ public class RoomReservationController {
 		return mav;
 	}
 	@RequestMapping(value = "/insertPayRoomReservation.do", method = RequestMethod.POST)
-	public ModelAndView afterPayRoomReservation(RoomReservationVO vo,  ModelAndView mav){
+	public ModelAndView afterPayRoomReservation(RoomReservationVO vo, ModelAndView mav){
 		
-		System.out.println(vo.toString2());
 		mav.setViewName("redirect:/insertRoomReservation.do");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/ajaxinsertPayRoomReservation.do", method = RequestMethod.POST)
+	@ResponseBody
+	public void  insertPayReservation(RoomReservationVO vo) {
+		roomReservationService.insertReservation(vo);
+		
+	}
+	
+	@RequestMapping(value = "/myRoomReservationList.do", method = RequestMethod.GET)
+	public ModelAndView selectListRoomReservation(RoomReservationVO vo, ModelAndView mav, HttpSession session,
+			@RequestParam(value="page", defaultValue = "1") int page){
+
+		MemberVO memvo = (MemberVO) session.getAttribute("member");
+		vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
+		
+		int COUNTPERPAGE = 10; // 페이지당 10개의 글
+        int PAGEPERGROUP = 5; // 페이지 그룹당 5개의 페이지
+        int count = roomReservationService.selectCountReservation(vo);
+        PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP, page,count);
+		List<RoomReservationVO> list = roomReservationService.selectListRoomReservation(vo, navi);
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).toString2());
+		}
+		
+		mav.addObject("reservationList",list);
+		mav.addObject("userInfo", memvo);
+		mav.setViewName("myInfo/myRoomReservationList");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/selectRoomReservation.do", method = RequestMethod.GET)
+	public ModelAndView selectRoomReservation(RoomReservationVO vo,  ModelAndView mav, HttpSession session){
+		MemberVO memvo = (MemberVO) session.getAttribute("member");
+		RoomReservationVO reservo = roomReservationService.selectRoomReservation(vo);
+		mav.addObject("reservationInfo", reservo);
+		mav.addObject("userInfo", memvo);
+		mav.setViewName("myInfo/getMyService");
+		return mav;
+	}
+	
 }
