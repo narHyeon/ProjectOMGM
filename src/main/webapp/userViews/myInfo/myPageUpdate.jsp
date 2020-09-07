@@ -124,22 +124,22 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#myPageFs").click(function() {
+		$("#myPageFs").click(function(){
 			window.location.href = 'myPage.do';
 		});
-		$("#myCatPageFs").click(function() {
-			window.location.href = 'myCatPage.do';
+		$("#myCatPageFs").click(function(){
+			window.location.href = 'myPetPage.do';
 		});
-		$("#myServiceListFs").click(function() {
+		$("#myServiceListFs").click(function(){
 			window.location.href = 'myServiceList.do';
 		});
-		$("#myBuyListLogFs").click(function() {
+		$("#myBuyListLogFs").click(function(){
 			window.location.href = 'myBuyListLog.do';
 		});
-		$("#myCatCareLogFs").click(function() {
+		$("#myCatCareLogFs").click(function(){
 			window.location.href = 'myCatCareLog.do';
 		});
-		$("#myReViewFs").click(function() {
+		$("#myReViewFs").click(function(){
 			window.location.href = 'myReView.do';
 		});
 	});

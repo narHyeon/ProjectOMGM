@@ -162,7 +162,7 @@ $(document).ready(function(){
 		window.location.href = 'myPage.do';
 	});
 	$("#myCatPageFs").click(function(){
-		window.location.href = 'myCatPage.do';
+		window.location.href = 'myPetPage.do';
 	});
 	$("#myServiceListFs").click(function(){
 		window.location.href = 'myServiceList.do';
