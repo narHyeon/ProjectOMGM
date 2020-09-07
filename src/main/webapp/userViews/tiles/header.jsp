@@ -249,7 +249,7 @@
 					<ul id="header_myInfo">
 						<li><a href="myInfo.do">내 정보</a></li>
 						<li><a href="#">서비스 정보</a></li>
-						<li><a href="myOrder.do">구매정보</a></li>
+						<li><a href="myOrder.do?order_id=${member.id}">구매정보</a></li>
 						<li><a href="#">냥박일지</a></li>
 					</ul>
                      	<li><p>|</p></li>

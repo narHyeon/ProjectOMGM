@@ -188,8 +188,9 @@
     <!--#######  mypage mall order 관련 쿼리문  #########################################################################-->
 
     <select id="myOrder" resultType="OrderVO" >
-         select * from order_list  order by order_no asc
+         select * from order_list  WHERE order_id=#{order_id} order by order_no asc
     </select>
+
 
 </mapper>
 

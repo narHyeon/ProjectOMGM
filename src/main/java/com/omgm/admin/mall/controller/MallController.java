@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.File;
 
 @Controller
@@ -102,8 +103,8 @@ public class MallController {
 
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
-                String path =  request.getServletContext().getRealPath("");
-                uploadFile.transferTo(new File(path+"\\resources\\img\\product\\" + fileName));
+                String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+                uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
             }else{
                 this.fileName = "cat.jpg";
             }
