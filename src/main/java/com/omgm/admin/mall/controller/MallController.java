@@ -1,5 +1,7 @@
 package com.omgm.admin.mall.controller;
 
+import com.omgm.admin.main.beans.MainDAO;
+import com.omgm.admin.main.service.MainService;
 import com.omgm.admin.mall.beans.*;
 import com.omgm.admin.mall.service.MallService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +28,41 @@ public class MallController {
 //    String fileName02;
 //    String fileName03;
 
+
+    ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
+    @ResponseBody
+    @RequestMapping("/getDayPrice.mdo")
+    public OrderVO getDayPrice(@RequestBody OrderVO vo) throws Exception {
+        int sum = mallService.getDayPrice(vo);
+        vo.setOrder_price(sum);
+        vo.setOrder_point(mallService.getBetweenPrice(vo));
+        return vo;
+    }
+    @ResponseBody
+    @RequestMapping("/getDayPrice01.mdo")
+    public OrderVO getDayPrice01(@RequestBody OrderVO vo) throws Exception {
+
+        vo.setOrder_price(mallService.getWeekSales(vo));
+        vo.setOrder_quantity(mallService.getMonthSales(vo));
+        return vo;
+    }
     /////////   장난감 관련 설정   ///////////////////////////////////////////////////////////////
+
     //정산페이지테스트 이동
     @RequestMapping("/calculateTest.mdo")
     public ModelAndView calculateTest() throws Exception {
         ModelAndView mav = new ModelAndView();
 //        mallService.expirationFeed(vo);
-        mav.setViewName("/calculate/calculateTest");
+        mav.setViewName("/mall/mallCalculate");
+        // 몰 하루 매출
+        OrderVO vo = new OrderVO();
+        mav.addObject("today",mallService.getTodaySales(vo));
+        mav.addObject("toyCal",mallService.getMallToyList() );
+        mav.addObject("feedCal", mallService.getMallFeedList());
+        mav.addObject("week00",mallService.getWeekPrice00(vo));
+        mav.addObject("week01",mallService.getWeekPrice01(vo));
+        mav.addObject("week02",mallService.getWeekPrice02(vo));
+        mav.addObject("week03",mallService.getWeekPrice03(vo));
         return mav;
     }
 

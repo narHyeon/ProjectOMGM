@@ -57,10 +57,10 @@
         </div>
         <div class="toy-sales-section07">
             <c:if test="${member != null}">
-                <a href="" class="byt-immediately00" id="byt-immediately01" onclick="buyImmediately00()">즉시 구매하기</a>
+                <a  class="byt-immediately00" id="byt-immediately01" onclick="buyImmediately00()">즉시 구매하기</a>
             </c:if>
             <c:if test="${member == null}">
-                <a href="" class="byt-immediately00" id="byt-immediately00" onclick="buyImmediately01()">즉시 구매하기</a>
+                <a  class="byt-immediately00" id="byt-immediately00" onclick="buyImmediately01()">즉시 구매하기</a>
             </c:if>
             <c:if test="${member != null}">
             <form action="insertCartList.do">
@@ -71,7 +71,7 @@
                 <input type="hidden" name="cartList_discount" value="${toyList.toy_discount}" />
                 <input type="hidden" name="cartList_stock" value="1" />
                 <input type="hidden" name="cartList_point" value="${toyList.toy_point}" />
-                <input type="hidden" name="cartList_info" value="${toyList.toy_info}" />
+<%--                <input type="hidden" name="cartList_info" value="${toyList.toy_info}" />--%>
                 <input type="hidden" name="cartList_img" value="${toyList.toy_img}" />
                 <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>
@@ -104,7 +104,8 @@
     <div style="width: 50%; margin-top: 5%;margin-bottom: 5%;">
         ${toyList.toy_info}
     </div>
-    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%; margin-bottom: 5%;">
+    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%;">
+    <img src="../../resources/img/product/detail2.jpg" style="width: 55%; margin-bottom: 23%;">
 <%--    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
@@ -128,19 +129,19 @@
         var countProduct = document.getElementById("number-of-toy");
         var salesOption = document.getElementById("toy-sales-option");
         var byeImmediately00 = document.getElementById("byt-immediately00");
-
-        if(salesOption.value === "selected disabled"){
-            alert("옵션을 선택해 주세요.")
-        } else if(countProduct.innerHTML === '0') {
-            alert("수량을 선택해 주세요");
-        }else {
-            alert("로그인을 하셔야 구입이 가능합니다");
-            // if(confirmCheck===true){
-            //     login(event);
-            // } else{
-            //     byeImmediately00.href=""
-            // }
-        }
+        alert("로그인을 하셔야 구입이 가능합니다");
+        // if(salesOption.value === "selected disabled"){
+        //     alert("옵션을 선택해 주세요.")
+        // } else if(countProduct.innerHTML === '0') {
+        //     alert("수량을 선택해 주세요");
+        // }else {
+        //
+        //     // if(confirmCheck===true){
+        //     //     login(event);
+        //     // } else{
+        //     //     byeImmediately00.href=""
+        //     // }
+        // }
     }
 </script>
 </body>

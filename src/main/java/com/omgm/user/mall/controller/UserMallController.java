@@ -23,6 +23,7 @@ public class UserMallController {
 
     @Autowired
     UserMallService userMallService;
+
     /////////// 배송현왕 /////////////////////////////////////////////
     // 배송 현황 페이지
     @RequestMapping("/deliveryStatus.do")
@@ -211,11 +212,29 @@ public class UserMallController {
 
         vo1.setId(vo.getOrder_id());
         vo1.setPoint(vo.getOrder_point());
+        // 수량 감소
 
         userMallService.updateMemberPoint(vo1);
 
         return vo;
     }
+
+    // 결제시 사료 수량 감소
+    @ResponseBody
+    @RequestMapping("/feedStockDecrease.do")
+    public UserMallFeedVO feedStockDecrease(@RequestBody UserMallFeedVO vo) throws Exception {
+        userMallService.feedStockDecrease(vo);
+        System.out.println("test");
+        return vo;
+    }
+    // 결제시 장난감 수량 감소
+    @ResponseBody
+    @RequestMapping("/toyStockDecrease.do")
+    public UserMallToyVO toyStockDecrease(@RequestBody UserMallToyVO vo) throws Exception {
+        userMallService.toyStockDecrease(vo);
+        return vo;
+    }
+
 
     ///////////////////// 몰 주문내역(마이페이지) ///////////////////////////////////
 

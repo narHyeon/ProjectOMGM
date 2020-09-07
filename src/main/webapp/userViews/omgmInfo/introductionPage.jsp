@@ -22,7 +22,10 @@
 
 		<div id="top-1">
 
-			<div id="img_phone"></div>
+			<div id="img_phone">
+				<img src="resources/img/introductionPage/ico_phone.png"
+					 class="emoticon-map01">
+			</div>
 			<div id="margin">
 				<h5 id="title-1">운영시간</h5>
 				<br>
@@ -40,7 +43,10 @@
 
 		<div id="top-2">
 
-			<div id="img_time"></div>
+			<div id="img_time">
+				<img src="resources/img/introductionPage/ico_time.png"
+					 class="emoticon-map02">
+			</div>
 			<div id="margin">
 				<h2>상담문의</h2>
 				<br>
@@ -58,7 +64,10 @@
 
 		<div id="top-3">
 
-			<div id="img_info"></div>
+			<div id="img_info">
+				<img src="resources/img/introductionPage/ico_plus.png"
+					 class="emoticon-map02">
+			</div>
 			<div id="margin">
 				<h2>안내사항</h2>
 				<br>

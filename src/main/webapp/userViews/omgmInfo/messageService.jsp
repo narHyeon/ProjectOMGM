@@ -32,6 +32,7 @@
 	font-weight: 600;
 	color: #555;
 	letter-spacing: -1px;
+	padding-bottom: 3%;
 }
 
 .message_title p {

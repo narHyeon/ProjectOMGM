@@ -38,7 +38,7 @@
     </div>
 
     <div class="event_list">
-        <div style="display: flex; justify-content: flex-end; margin-right: 10.7%;
+        <div style="display: flex; justify-content: flex-end; margin-right: 15.3%;
                                 margin-bottom: 1.5%; margin-top: 3%">
             <form action = "getMallFeedList.do" method="post">
                 <table border="1">
