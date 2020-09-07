@@ -3,6 +3,7 @@ package com.omgm.user.mall.controller;
 import com.omgm.admin.common.beans.AdminVO;
 import com.omgm.admin.mall.beans.MemberOrderVO;
 import com.omgm.admin.mall.beans.OrderVO;
+import com.omgm.member.beans.MemberVO;
 import com.omgm.user.mall.beans.CartListVO;
 import com.omgm.user.mall.beans.PageNavigatorMall;
 import com.omgm.user.mall.beans.UserMallFeedVO;

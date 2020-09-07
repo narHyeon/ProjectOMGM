@@ -34,9 +34,9 @@
 					@click="footTerm" name="고객센터">고객센터</a></li>
 			</div>
 			<div id="sns">
-				<img class="snsIcon" src="resources/img/자산%2017.png" alt=""> <img
-					class="snsIcon" src="resources/img/자산%2018.png" alt=""> <img
-					class="snsIcon" src="resources/img/자산%2019.png" alt="">
+				<img class="snsIcon" src="resources/img/자산%2017.png" alt="" @click="youtube">
+				<img class="snsIcon" src="resources/img/자산%2018.png" alt="" @click="facebook">
+				<img class="snsIcon" src="resources/img/자산%2019.png" alt="" @click="instagram">
 			</div>
 		</ul>
 		<ul id="footSection2">

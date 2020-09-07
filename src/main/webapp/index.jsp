@@ -50,8 +50,8 @@
 
   <hr><br>
   <form action="smsMessage.mdo">
-    받는사람번호: <input type="text" name="sendNumber"><br>
-    보내는사람번호: <input type="text" name="receiveNumber"><br>
+    보내는사람번호: <input type="text" name="sendNumber"><br>
+    받는사람번호: <input type="text" name="receiveNumber"><br>
     메세지: <input type="text" name="message"><br>
     <button type="submit">전송</button>
   </form>
