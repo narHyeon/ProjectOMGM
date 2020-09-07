@@ -68,6 +68,7 @@
 						<h4 class="m-0 font-weight-bold text-primary">방 정보</h4>
 					</div>
 					<div class="card-body">
+						<div class="card-header py-3">
 						<div id="roomInsert_head">
 							<div id="roomInsert_head-1">
 								<div id="head-1_key-1" class="keys">
@@ -118,6 +119,7 @@
 									</c:choose>	
 								</div>
 							</div>
+						</div>
 						</div>
 						<div id="roomInsert_content">
 							${roomInfo.ROOM_CONTENT}

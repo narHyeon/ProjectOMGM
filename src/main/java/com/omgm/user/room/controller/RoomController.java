@@ -35,7 +35,7 @@ public class RoomController {
 	public ModelAndView getRoomList(RoomVO vo, ModelAndView mav,
 			@RequestParam(value="page", defaultValue = "1") int page
 			) {
-		int COUNTPERPAGE = 8; // 페이지당 10개의 글
+		int COUNTPERPAGE = 8; // 페이지당 8개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 5개의 페이지
         int count = roomService.selectCountRoom(vo);
         PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP, page,count);

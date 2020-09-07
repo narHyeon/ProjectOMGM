@@ -16,7 +16,7 @@ public class RoomDAO {
 
 	public List<RoomVO> getListRoom(RoomVO vo, PageNavigator navi) {
 		RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
-		return sqlSessionTemplate.selectList("RoomDAO.selectListROOM", vo, rb);
+		return sqlSessionTemplate.selectList("RoomDAO.selectListRoom", vo, rb);
 	}
 
 	public int selectCountRoom(RoomVO vo) {
@@ -27,5 +27,8 @@ public class RoomDAO {
 		return sqlSessionTemplate.selectOne("RoomDAO.roomRead",vo);
 	}
 
+	public List<RoomVO> getListRoomAll() {
+		return sqlSessionTemplate.selectList("RoomDAO.selectListRoomAll");
+	}
 	
 }

@@ -136,7 +136,7 @@
 		</c:if>
 		<c:if test="${member == null}">
 <%--			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: swal('로그인을 먼저 해주세요!');" class="fas fa-shopping-cart"></i></div></a>--%>
-			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="javascript: alert('로그인을 먼저 해주세요!!');" class="fas fa-shopping-cart"></i></div></a>
+			<a href=""><div class="wishlist_menu" style="cursor:pointer;"> <i onclick="shopping(event)" class="fas fa-shopping-cart"></i></div></a>
 		</c:if>
 			<div id="create-channel-chat-button"></div>
 	</div>

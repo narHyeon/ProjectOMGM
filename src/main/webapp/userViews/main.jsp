@@ -26,26 +26,26 @@
 	<div class="service-content-all">
 		<div class="service-content">
 
-			<div class="class-img">
+			<div class="class-img" onclick="window.location.href = 'roomIntroduction.do';">
 				<img src="resources/img/mainService/01.jpg" class="div-img">
 				<p class="img-text">
 					<strong>호텔</strong><br>hotel
 				</p>
 			</div>
 
-			<div class="class-img">
+			<div class="class-img" onclick="window.location.href = 'kinderGarden.do';">
 				<img src="resources/img/mainService/02.jpg" class="div-img">
 				<p class="img-text">
 					<strong>유치원</strong><br>kindergarden
 				</p>
 			</div>
-			<div class="class-img">
+			<div class="class-img"  onclick="window.location.href = 'getMallFeedList.do';">
 				<img src="resources/img/mainService/03.jpg" class="div-img">
 				<p class="img-text">
 					<strong>샵</strong><br>shop
 				</p>
 			</div>
-			<div class="class-img">
+			<div class="class-img"  onclick="window.location.href = 'pickupService_info.do';">
 				<img src="resources/img/mainService/04.jpg" class="div-img">
 				<p class="img-text">
 					<strong>픽업서비스</strong><br>pickup & service
@@ -53,25 +53,25 @@
 			</div>
 		</div>
 		<div class="service-content">
-			<div class="class-img">
+			<div class="class-img"  onclick="window.location.href = 'messageService.do';">
 				<img src="resources/img/mainService/05.jpg" class="div-img">
 				<p class="img-text">
 					<strong>문자알림</strong><br>message & service
 				</p>
 			</div>
-			<div class="class-img">
+			<div class="class-img"  onclick="window.location.href = 'introductionPage.do';">
 				<img src="resources/img/mainService/06.jpg" class="div-img">
 				<p class="img-text">
 					<strong>오시는길</strong><br>directions
 				</p>
 			</div>
-			<div class="class-img">
+			<div class="class-img"  onclick="window.location.href = 'reviewListBoard.do';">
 				<img src="resources/img/mainService/07.jpg" class="div-img">
 				<p class="img-text">
 					<strong>이용후기</strong><br>reviews
 				</p>
 			</div>
-			<div class="class-img">
+			<div class="class-img"  onclick="window.location.href = 'fAQList.do';">
 				<img src="resources/img/mainService/08.jpg" class="div-img">
 				<p class="img-text">
 					<strong>질문</strong><br>Q & A

@@ -95,6 +95,9 @@
 	<!-- Custom scripts for all pages-->
 	<script src="resources/admin/js/sb-admin-2.min.js"></script>
 
+	<%-- sweetswal	--%>
+	<script src="resources/js/swal/sweetswal.min.js"></script>
+
 	<!-- Page level plugins -->
 <%--	<script src="resources/admin/vendor/chart.js/Chart.min.js"></script>--%>
 

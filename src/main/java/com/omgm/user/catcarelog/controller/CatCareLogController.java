@@ -95,5 +95,9 @@ public class CatCareLogController {
 		return "redirect:/myCatCareLog.do";
 	}
 
-    
+	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
+	public ModelAndView gqt(ModelAndView mav) {
+		mav.setViewName("/roomReservation/test");
+		return mav;
+	}
 }

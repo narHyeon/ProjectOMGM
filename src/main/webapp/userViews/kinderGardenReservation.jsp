@@ -317,20 +317,34 @@
         const etc = document.querySelector('#kinder_reser_input textarea').value;
 
         let price = 100000;
+        let sale = '';
 
-        document.querySelector('#education_reservation_schedule').innerHTML =
-            ` <div id="reservation_confirm">
-                    <p>예약 : `+courseValue+`</p>
-                    <p>서비스 : `+serviceValue+`</p>
-                    <p>보호자명 : `+name+`</p>
-                    <p>반려동물 : `+animalSpecies+`</p>
-                    <p>반려동물 나이 : `+animalAge+`</p>
-                    <p>전화번호 : `+phone+`</p>
-                    <p>이메일 : ${member.email}</p>
-                    <p>기타 반려동물 관련사항 : `+etc+`</p>
-                    <br>
-                    <p>가격 : `+price+`원</p>
-                </div> `;
+        switch('${member.rank}') {
+            case 'FAMILY' :
+                price -= 5000;
+                sale = '(FAMILY 할인 5000원)'
+                break;
+            case 'BRONZE' :
+                price -= 10000;
+                sale = '(FAMILY 할인 10000원)'
+                break;
+            case 'SILVER' :
+                price -= 15000;
+                sale = '(FAMILY 할인 15000원)'
+                break;
+            case 'GOLD' :
+                price -= 20000;
+                sale = '(FAMILY 할인 20000원)'
+                break;
+            case 'VIP' :
+                price -= 25000;
+                sale = '(FAMILY 할인 25000원)'
+                break;
+            case 'VVIP' :
+                price -= 30000;
+                sale = '(FAMILY 할인 30000원)'
+                break;
+        }
 
         const rexp = /픽업서비스/;
 
@@ -346,7 +360,8 @@
                     <p>이메일 : ${member.email}</p>
                     <p>기타 반려동물 관련사항 : `+etc+`</p>
                     <br>
-                    <p>가격 : `+price+`원</p>
+                    <p>가격 : 100000원</p>
+                    <p>할인가 : `+price+`원`+sale+`</p>
                 </div> `;
         } else {
             document.querySelector('#education_reservation_schedule').innerHTML =
@@ -364,7 +379,8 @@
                         <p style="border-bottom: 1px solid gray" id="kinder_reser_zipcode">우편번호 : <input type="text" value="${member.zipcode}"></p>
                         <p style="border-bottom: 1px solid gray" id="kinder_reser_address">주소 : <input type="text" value="${member.address}"></p>
                         <br>
-                        <p>가격 : `+price+`원</p>
+                        <p>가격 : 100000원</p>
+                        <p>할인가 : `+price+`원`+sale+`</p>
                     </div> `;
         }
 
