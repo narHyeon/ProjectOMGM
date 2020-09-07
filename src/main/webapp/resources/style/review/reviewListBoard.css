@@ -128,6 +128,7 @@
 }
 /* 텍스트 관련 설정*/
 .reviewList_text {
+	font-size: 1.8vw;
 	margin-right: 3%;
 	color: #F28888;
 }
@@ -180,6 +181,7 @@
 		height: auto;
 	}
 	.reviewList_sub_text {
+		display:none;
 		margin-bottom: 9%;
 		opacity: 80%;
 		font-size: small;
