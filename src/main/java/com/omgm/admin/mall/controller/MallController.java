@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 
 @Controller
@@ -94,14 +95,15 @@ public class MallController {
         }
         // 장난감 등록 컨트롤러
     @RequestMapping("/insertMallToy.mdo")
-    public ModelAndView insertMallToy(MallToyVO vo) throws Exception {
+    public ModelAndView insertMallToy(MallToyVO vo, HttpServletRequest request) throws Exception {
 
         ModelAndView mav = new ModelAndView();
         MultipartFile uploadFile = vo.getUploadFile();
 
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
-                uploadFile.transferTo(new File("C:\\Users\\YongSun Jang\\Desktop\\메인 프로젝트\\코딩\\mainProject\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+                String path =  request.getServletContext().getRealPath("");
+                uploadFile.transferTo(new File(path+"\\resources\\img\\product\\" + fileName));
             }else{
                 this.fileName = "cat.jpg";
             }
