@@ -125,7 +125,7 @@
 					</ul>
 				</div>
 				<div class="left-div-img">
-					<img src="resources/img/pickupService_info/애완견.png"
+					<img src="resources/img/pickupService_info/9844_6684_2444.jpg"
 						class="pickup-car">
 				</div>
 			</div>

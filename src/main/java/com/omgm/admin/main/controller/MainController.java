@@ -38,9 +38,9 @@ public class MainController {
     // 유치원 관련
     @ResponseBody
     @RequestMapping("/getBarChartWeekSales02.mdo")
-    public RoomReservationVO getBarChartWeekSales02(@RequestBody RoomReservationVO vo) throws Exception {
-        vo.setRoomReservation_fee(mainService.getBarChartWeekSales02(vo));
-        return vo;
+    public int getBarChartWeekSales02(@RequestBody RoomReservationVO vo) throws Exception {
+
+        return mainService.getBarChartWeekSales02(vo);
     }
     // areaChart
     // 상품 몰 매출
@@ -48,10 +48,6 @@ public class MainController {
     @RequestMapping("/getAreaChartMonthlySales.mdo")
     public OrderVO getAreaChartMonthlySales(@RequestBody OrderVO vo) throws Exception {
         vo.setOrder_price(mainService.getAreaChartMonthlySales(vo));
-        vo.setOrder_quantity(mainService.getTotalMallCount(vo));
-        vo.setOrder_point(mainService.getTotalMemberCount());
-        vo.setOrder_point_used(mainService.getTotalKGSales());
-        vo.setOrder_no(mainService.getTotalRRSales());
         return vo;
     }
     // 유치원 예약
@@ -65,21 +61,30 @@ public class MainController {
     // 호텔 예약
     @ResponseBody
     @RequestMapping("/getAreaChartMonthlySales02.mdo")
-    public RoomReservationVO getAreaChartMonthlySales02(@RequestBody RoomReservationVO vo) throws Exception {
-        vo.setRoomReservation_no( mainService.getAreaChartMonthlySales02(vo));
-        vo.setRoomReservation_roomNo(mainService.getRoomReservationCount());
-        vo.setRoomReservation_memberNo(mainService.getKGReservationCount());
-        vo.setRoomReservation_foodNo(mainService.getMallSalesCount());
-        vo.setRoomReservation_toyNo(mainService.getMemberCount());
-        return vo;
+    public int getAreaChartMonthlySales02(@RequestBody RoomReservationVO vo) throws Exception {
+        System.out.println(vo.getDay1()+ "~"+vo.getDay2());
+        int sum = mainService.getAreaChartMonthlySales02(vo);
+        return sum;
     }
 
     // 관리자 메인 불러오기
     @RequestMapping("/adminMain.mdo")
     public ModelAndView main(RoomReservationVO vo) throws Exception {
         ModelAndView mav = new ModelAndView();
+        OrderVO vo1 = new OrderVO();
         mav.setViewName("/main");
-        mav.addObject("RRList", mainService.getRRListToday());
+        // 월간판매 매출 하단 값들
+        mav.addObject("RRSales",mainService.getTotalRRSales());
+        mav.addObject("TMCount",mainService.getTotalMallCount(vo1));
+        mav.addObject("TMEMCount",mainService.getTotalMemberCount());
+        mav.addObject("TKGSales",mainService.getTotalKGSales());
+
+        // 메인페이지 맨 상단 값들
+        mav.addObject("RRCount",mainService.getRoomReservationCount());
+        mav.addObject("KGRCount", mainService.getKGReservationCount());
+        mav.addObject("MSCount", mainService.getMallSalesCount());
+        mav.addObject("MCount", mainService.getMemberCount());
+
         List<KinderGardenReservationVO> kgList = mainService.getKGReservation();
         int notConfirm = 0;
         for(KinderGardenReservationVO list : kgList) {
@@ -87,10 +92,13 @@ public class MainController {
                 notConfirm++;
             }
         }
-        mav.addObject("kgReservation",kgList);
-        mav.addObject("kgCount",notConfirm);
-        mav.addObject("KGList",mainService.getKGListToday());
+//        mav.addObject("kgReservation",kgList);
+//        mav.addObject("kgCount",mainService.);
+        // 금일
+        mav.addObject("RRList", mainService.getRRListToday());
+        mav.addObject("kgReservation",mainService.getKGListToday());
         mav.addObject("MList", mainService.getMallListToday());
+
         mav.addObject("ExDate", mallService.getExpirationFeedList());
         return mav;
     }

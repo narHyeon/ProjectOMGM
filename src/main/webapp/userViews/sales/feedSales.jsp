@@ -76,7 +76,7 @@
                 <input type="hidden" name="cartList_point" value="${feedList.feed_point}" />
 <%--                <input type="hidden" name="cartList_info" value="${feedList.feed_info}" />--%>
                 <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />
-            <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  swal('등록이 완료 되었습니다.'); ">장바구니 담기</button>
+            <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>
             </c:if>
             <c:if test="${member == null}">

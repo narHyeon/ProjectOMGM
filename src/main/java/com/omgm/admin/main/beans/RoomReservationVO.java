@@ -3,141 +3,195 @@ package com.omgm.admin.main.beans;
 import java.util.Date;
 
 public class RoomReservationVO {
-    private int roomReservation_no;
-    private int roomReservation_roomNo;
-    private int roomReservation_memberNo;
-    private Date roomReservation_stayDay;
+    private int ROOMRESERVATION_NO;
+    private int ROOMRESERVATION_ROOMNO;
+    private  int ROOMRESERVATION_ROOMPRICE;
+    private String ROOMRESERVATION_ROOMNAME;
+    private int ROOMRESERVATION_MEMBERNO;
+    private Date ROOMRESERVATION_STAYDAY;
+    private Date ROOMRESERVATION_PAYDAY;
+    private int ROOMRESERVATION_FOODNO;
+    private String ROOMRESERVATION_FOODNAME;
+    private int ROOMRESERVATION_TOYNO;
+    private String ROOMRESERVATION_TOYNAME;
+    private String ROOMRESERVATION_PICKUPYN;
+    private int ROOMRESERVATION_PICKUPTIME;
+    private  String ROOMRESERVATION_PICKUPADDRESS;
+    private String ROOMRESERVATION_PICKUPPHONENUM;
+    private String ROOMRESERVATION_USEPOINTYN;
+    private int  ROOMRESERVATION_USEPOINT;
+    private int ROOMRESERVATION_PLUSPOINT;
+    private int ROOMRESERVATION_FIANLFEE;
+    private String day1;
 
-    @Override
-    public String toString() {
-        return "RoomReservationVO{" +
-                "roomReservation_no=" + roomReservation_no +
-                ", roomReservation_roomNo=" + roomReservation_roomNo +
-                ", roomReservation_memberNo=" + roomReservation_memberNo +
-                ", roomReservation_stayDay=" + roomReservation_stayDay +
-                ", roomReservation_payDay=" + roomReservation_payDay +
-                ", roomReservation_foodNo=" + roomReservation_foodNo +
-                ", roomReservation_toyNo=" + roomReservation_toyNo +
-                ", roomReservation_pickupYn='" + roomReservation_pickupYn + '\'' +
-                ", roomReservation_pickupTime=" + roomReservation_pickupTime +
-                ", roomReservation_pickupAddress='" + roomReservation_pickupAddress + '\'' +
-                ", roomReservation_fee=" + roomReservation_fee +
-                ", roomReservation_usePointYn='" + roomReservation_usePointYn + '\'' +
-                ", roomReservation_usePoint=" + roomReservation_usePoint +
-                '}';
+    public String getDay1() {
+        return day1;
     }
 
-    public int getRoomReservation_no() {
-        return roomReservation_no;
+    public void setDay1(String day1) {
+        this.day1 = day1;
     }
 
-    public void setRoomReservation_no(int roomReservation_no) {
-        this.roomReservation_no = roomReservation_no;
+    public String getDay2() {
+        return day2;
     }
 
-    public int getRoomReservation_roomNo() {
-        return roomReservation_roomNo;
+    public void setDay2(String day2) {
+        this.day2 = day2;
     }
 
-    public void setRoomReservation_roomNo(int roomReservation_roomNo) {
-        this.roomReservation_roomNo = roomReservation_roomNo;
+    private String day2;
+
+    public int getROOMRESERVATION_NO() {
+        return ROOMRESERVATION_NO;
     }
 
-    public int getRoomReservation_memberNo() {
-        return roomReservation_memberNo;
+    public void setROOMRESERVATION_NO(int ROOMRESERVATION_NO) {
+        this.ROOMRESERVATION_NO = ROOMRESERVATION_NO;
     }
 
-    public void setRoomReservation_memberNo(int roomReservation_memberNo) {
-        this.roomReservation_memberNo = roomReservation_memberNo;
+    public int getROOMRESERVATION_ROOMNO() {
+        return ROOMRESERVATION_ROOMNO;
     }
 
-    public Date getRoomReservation_stayDay() {
-        return roomReservation_stayDay;
+    public void setROOMRESERVATION_ROOMNO(int ROOMRESERVATION_ROOMNO) {
+        this.ROOMRESERVATION_ROOMNO = ROOMRESERVATION_ROOMNO;
     }
 
-    public void setRoomReservation_stayDay(Date roomReservation_stayDay) {
-        this.roomReservation_stayDay = roomReservation_stayDay;
+    public int getROOMRESERVATION_ROOMPRICE() {
+        return ROOMRESERVATION_ROOMPRICE;
     }
 
-    public Date getRoomReservation_payDay() {
-        return roomReservation_payDay;
+    public void setROOMRESERVATION_ROOMPRICE(int ROOMRESERVATION_ROOMPRICE) {
+        this.ROOMRESERVATION_ROOMPRICE = ROOMRESERVATION_ROOMPRICE;
     }
 
-    public void setRoomReservation_payDay(Date roomReservation_payDay) {
-        this.roomReservation_payDay = roomReservation_payDay;
+    public String getROOMRESERVATION_ROOMNAME() {
+        return ROOMRESERVATION_ROOMNAME;
     }
 
-    public int getRoomReservation_foodNo() {
-        return roomReservation_foodNo;
+    public void setROOMRESERVATION_ROOMNAME(String ROOMRESERVATION_ROOMNAME) {
+        this.ROOMRESERVATION_ROOMNAME = ROOMRESERVATION_ROOMNAME;
     }
 
-    public void setRoomReservation_foodNo(int roomReservation_foodNo) {
-        this.roomReservation_foodNo = roomReservation_foodNo;
+    public int getROOMRESERVATION_MEMBERNO() {
+        return ROOMRESERVATION_MEMBERNO;
     }
 
-    public int getRoomReservation_toyNo() {
-        return roomReservation_toyNo;
+    public void setROOMRESERVATION_MEMBERNO(int ROOMRESERVATION_MEMBERNO) {
+        this.ROOMRESERVATION_MEMBERNO = ROOMRESERVATION_MEMBERNO;
     }
 
-    public void setRoomReservation_toyNo(int roomReservation_toyNo) {
-        this.roomReservation_toyNo = roomReservation_toyNo;
+    public Date getROOMRESERVATION_STAYDAY() {
+        return ROOMRESERVATION_STAYDAY;
     }
 
-    public String getRoomReservation_pickupYn() {
-        return roomReservation_pickupYn;
+    public void setROOMRESERVATION_STAYDAY(Date ROOMRESERVATION_STAYDAY) {
+        this.ROOMRESERVATION_STAYDAY = ROOMRESERVATION_STAYDAY;
     }
 
-    public void setRoomReservation_pickupYn(String roomReservation_pickupYn) {
-        this.roomReservation_pickupYn = roomReservation_pickupYn;
+    public Date getROOMRESERVATION_PAYDAY() {
+        return ROOMRESERVATION_PAYDAY;
     }
 
-    public int getRoomReservation_pickupTime() {
-        return roomReservation_pickupTime;
+    public void setROOMRESERVATION_PAYDAY(Date ROOMRESERVATION_PAYDAY) {
+        this.ROOMRESERVATION_PAYDAY = ROOMRESERVATION_PAYDAY;
     }
 
-    public void setRoomReservation_pickupTime(int roomReservation_pickupTime) {
-        this.roomReservation_pickupTime = roomReservation_pickupTime;
+    public int getROOMRESERVATION_FOODNO() {
+        return ROOMRESERVATION_FOODNO;
     }
 
-    public String getRoomReservation_pickupAddress() {
-        return roomReservation_pickupAddress;
+    public void setROOMRESERVATION_FOODNO(int ROOMRESERVATION_FOODNO) {
+        this.ROOMRESERVATION_FOODNO = ROOMRESERVATION_FOODNO;
     }
 
-    public void setRoomReservation_pickupAddress(String roomReservation_pickupAddress) {
-        this.roomReservation_pickupAddress = roomReservation_pickupAddress;
+    public String getROOMRESERVATION_FOODNAME() {
+        return ROOMRESERVATION_FOODNAME;
     }
 
-    public int getRoomReservation_fee() {
-        return roomReservation_fee;
+    public void setROOMRESERVATION_FOODNAME(String ROOMRESERVATION_FOODNAME) {
+        this.ROOMRESERVATION_FOODNAME = ROOMRESERVATION_FOODNAME;
     }
 
-    public void setRoomReservation_fee(int roomReservation_fee) {
-        this.roomReservation_fee = roomReservation_fee;
+    public int getROOMRESERVATION_TOYNO() {
+        return ROOMRESERVATION_TOYNO;
     }
 
-    public String getRoomReservation_usePointYn() {
-        return roomReservation_usePointYn;
+    public void setROOMRESERVATION_TOYNO(int ROOMRESERVATION_TOYNO) {
+        this.ROOMRESERVATION_TOYNO = ROOMRESERVATION_TOYNO;
     }
 
-    public void setRoomReservation_usePointYn(String roomReservation_usePointYn) {
-        this.roomReservation_usePointYn = roomReservation_usePointYn;
+    public String getROOMRESERVATION_TOYNAME() {
+        return ROOMRESERVATION_TOYNAME;
     }
 
-    public int getRoomReservation_usePoint() {
-        return roomReservation_usePoint;
+    public void setROOMRESERVATION_TOYNAME(String ROOMRESERVATION_TOYNAME) {
+        this.ROOMRESERVATION_TOYNAME = ROOMRESERVATION_TOYNAME;
     }
 
-    public void setRoomReservation_usePoint(int roomReservation_usePoint) {
-        this.roomReservation_usePoint = roomReservation_usePoint;
+    public String getROOMRESERVATION_PICKUPYN() {
+        return ROOMRESERVATION_PICKUPYN;
     }
 
-    private Date roomReservation_payDay;
-    private int roomReservation_foodNo;
-    private int roomReservation_toyNo;
-    private String roomReservation_pickupYn;
-    private int roomReservation_pickupTime;
-    private String roomReservation_pickupAddress;
-    private int roomReservation_fee;
-    private String roomReservation_usePointYn;
-    private int roomReservation_usePoint;
+    public void setROOMRESERVATION_PICKUPYN(String ROOMRESERVATION_PICKUPYN) {
+        this.ROOMRESERVATION_PICKUPYN = ROOMRESERVATION_PICKUPYN;
+    }
+
+    public int getROOMRESERVATION_PICKUPTIME() {
+        return ROOMRESERVATION_PICKUPTIME;
+    }
+
+    public void setROOMRESERVATION_PICKUPTIME(int ROOMRESERVATION_PICKUPTIME) {
+        this.ROOMRESERVATION_PICKUPTIME = ROOMRESERVATION_PICKUPTIME;
+    }
+
+    public String getROOMRESERVATION_PICKUPADDRESS() {
+        return ROOMRESERVATION_PICKUPADDRESS;
+    }
+
+    public void setROOMRESERVATION_PICKUPADDRESS(String ROOMRESERVATION_PICKUPADDRESS) {
+        this.ROOMRESERVATION_PICKUPADDRESS = ROOMRESERVATION_PICKUPADDRESS;
+    }
+
+    public String getROOMRESERVATION_PICKUPPHONENUM() {
+        return ROOMRESERVATION_PICKUPPHONENUM;
+    }
+
+    public void setROOMRESERVATION_PICKUPPHONENUM(String ROOMRESERVATION_PICKUPPHONENUM) {
+        this.ROOMRESERVATION_PICKUPPHONENUM = ROOMRESERVATION_PICKUPPHONENUM;
+    }
+
+    public String getROOMRESERVATION_USEPOINTYN() {
+        return ROOMRESERVATION_USEPOINTYN;
+    }
+
+    public void setROOMRESERVATION_USEPOINTYN(String ROOMRESERVATION_USEPOINTYN) {
+        this.ROOMRESERVATION_USEPOINTYN = ROOMRESERVATION_USEPOINTYN;
+    }
+
+    public int getROOMRESERVATION_USEPOINT() {
+        return ROOMRESERVATION_USEPOINT;
+    }
+
+    public void setROOMRESERVATION_USEPOINT(int ROOMRESERVATION_USEPOINT) {
+        this.ROOMRESERVATION_USEPOINT = ROOMRESERVATION_USEPOINT;
+    }
+
+    public int getROOMRESERVATION_PLUSPOINT() {
+        return ROOMRESERVATION_PLUSPOINT;
+    }
+
+    public void setROOMRESERVATION_PLUSPOINT(int ROOMRESERVATION_PLUSPOINT) {
+        this.ROOMRESERVATION_PLUSPOINT = ROOMRESERVATION_PLUSPOINT;
+    }
+
+    public int getROOMRESERVATION_FIANLFEE() {
+        return ROOMRESERVATION_FIANLFEE;
+    }
+
+    public void setROOMRESERVATION_FIANLFEE(int ROOMRESERVATION_FIANLFEE) {
+        this.ROOMRESERVATION_FIANLFEE = ROOMRESERVATION_FIANLFEE;
+    }
+
 }
