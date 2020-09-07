@@ -42,6 +42,10 @@
 	/* overflow: hidden; */
 }
 
+.class-img:hover {
+	cursor: pointer;
+}
+
 .img-text {
 	text-align: center;
 }

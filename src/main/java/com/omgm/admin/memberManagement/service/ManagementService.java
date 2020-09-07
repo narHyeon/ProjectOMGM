@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ManagementService {
     List<ManagementVO> memberTable(ManagementVO vo);
+    void memberRankUp(ManagementVO vo);
 }
