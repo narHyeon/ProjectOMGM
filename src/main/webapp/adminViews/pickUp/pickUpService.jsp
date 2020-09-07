@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: YongSun Jang
@@ -11,8 +12,6 @@
 <title>Title</title>
 </head>
 <body>
-	<!-- Page Heading -->
-
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
@@ -31,33 +30,27 @@
 							<th>픽업할 주소</th>
 							<th>연락처</th>
 							<th>반려동물 종류</th>
-							<th>반려동물 수</th>
-							<th>보호자 동승 여부</th>
 							<th>특이사항</th>
 						</tr>
 					</thead>
-
 					<tbody>
-					<c:forEach var="reser" items="">
-						<tr class="reservation_tbody_tr">
-							<td></td>
-							<td>123456</td>
-							<td>2020.05.20</td>
-							<td>13:00</td>
-							<td>청와대</td>
-							<td>010-1234-1234</td>
-							<td>차우차우</td>
-							<td>2마리</td>
-							<td>동승</td>
-							<td>귀여움</td>
-							</tr>
-						</c:forEach>
+					<c:forEach var="pickUp" items="${pickUp}" >
+						<tr class="ROOMRESERVATION_NO${pickUp.ROOMRESERVATION_NO}">
+							<th id="ROOMRESERVATION_NO">${pickUp.ROOMRESERVATION_NO}</th>
+							<th>${pickUp.ROOMRESERVATION_MEMBERNO}</th>
+							<th>${pickUp.ROOMRESERVATION_USEPOINT}</th>
+							<th>${pickUp.ROOMRESERVATION_PICKUPTIME}</th>
+							<th>${pickUp.ROOMRESERVATION_PICKUPADDRESS}</th>
+							<th>${pickUp.ROOMRESERVATION_PICKUPPHONENUM}</th>
+							<th>${pickUp.ROOMRESERVATION_USEPOINT}</th>
+							<th>${pickUp.ROOMRESERVATION_USEPOINT}</th>
+
+						</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
-<%--			<button type="submit" id="register_Btn" class="btn btn-info" onclick="changeAction()"></button>--%>
 		</div>
 	</div>
-
 </body>
 </html>

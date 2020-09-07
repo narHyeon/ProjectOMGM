@@ -4,6 +4,7 @@ import com.omgm.admin.mall.beans.MemberOrderVO;
 import com.omgm.admin.mall.beans.OrderVO;
 import com.omgm.user.mall.beans.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class UserUserMallServiceImpl implements UserMallService {
 
     @Autowired
     UserMallDAO userMallDAO;
+
 
     ///////////// 사료 관련 서비스 임플 ////////////////////////////
      // 사료 수량 감소

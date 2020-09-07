@@ -7,7 +7,6 @@ import com.omgm.admin.mall.beans.OrderVO;
 
 import java.util.List;
 
-
 public interface MallService {
 
     ///////////////// 몰 정산 관련 DAO 설정 ////////////////////////////////////////
@@ -54,6 +53,5 @@ public interface MallService {
 
    //포인트 적립 페이지
    List<MallOrderVO> getMallPointList(MallOrderVO vo) throws Exception;
-
 
 }

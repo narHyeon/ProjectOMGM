@@ -127,26 +127,40 @@
             swal({
                 text: '비밀번호를 입력해주세요!',
                 content: 'input',
-                button: ['취소','확인']
-            }).then(console.log);
-            <%--const pass = prompt('비밀번호를 입력해주세요','Password');--%>
-            <%--if(pass === null) return ;--%>
-            <%--else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');--%>
-            <%--return checkPass(pass, '${member.seq}','pass');--%>
+                buttons: ['취소','확인']
+            }).then(pass => {
+                if(pass === null) return ;
+                else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
+                return checkPass(pass, '${member.seq}','pass');
+            });
         } else {
             return updatePassword('${member.seq}');
         }
     }
 
     function updatePassword(seq) {
-        const pass1 = prompt('변경하실 비밀번호를 입력해주세요','Password');
-        if(pass1 === null) return ;
-        else if(pass1.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
-        const pass2 = prompt('변경하실 비밀번호를 다시 한번 입력해주세요','Password');
-        if(pass2 === null) return;
-        else if(pass2.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
-        else if(pass1 !== pass2) return swal('Error','입력하신 비밀번호가 다릅니다!','error');
-        return window.location.href = 'updatePassword.do?seq='+seq+'&pwd='+pass1;
+        swal({
+            text: '변경하실 비밀번호를 입력해주세요!',
+            content: 'input',
+            buttons: ['취소','확인']
+        }).then(pass1 => {
+            if (pass1 === null) return;
+            else if (pass1.length < 8) return swal('Warning', '비밀번호는 8자 이상입니다!', 'warning');
+            swal({
+                text: '변경하실 비밀번호를 다시 입력해주세요!',
+                content: 'input',
+                buttons: ['취소', '확인']
+            }).then(pass2 => {
+                if (pass2 === null) return;
+                else if (pass2.length < 8) return swal('Warning', '비밀번호는 8자 이상입니다!', 'warning');
+                else if (pass1 !== pass2) return swal('Error', '입력하신 비밀번호가 다릅니다!', 'error');
+                swal("성공적으로 변경되었습니다!", {
+                    icon: "success",
+                }).then(() => {
+                    return window.location.href = 'updatePassword.do?seq=' + seq + '&pwd=' + pass1;
+                });
+            });
+        });
     }
 
     function checkPass(pass, seq, key) {
@@ -172,10 +186,15 @@
 
     function fixedMember(type) {
         if(boo === false && type === '일반') {
-            const pass = prompt('비밀번호를 입력해주세요','Password');
-            if(pass === null) return ;
-            else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
-            return checkPass(pass, '${member.seq}','member');
+            swal({
+                text: '비밀번호를 입력해주세요!',
+                content: 'input',
+                buttons: ['취소','확인']
+            }).then(pass => {
+                if(pass === null) return ;
+                else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
+                return checkPass(pass, '${member.seq}','member');
+            });
         } else {
             swal({
                 title: "정말 변경하시겠습니까?",
@@ -228,10 +247,15 @@
 
     function deleteMember(type) {
         if(boo === false && type === '일반') {
-            const pass = prompt('비밀번호를 입력해주세요','Password');
-            if(pass === null) return ;
-            else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
-            return checkPass(pass, '${member.seq}','delete');
+            swal({
+                text: '비밀번호를 입력해주세요!',
+                content: 'input',
+                buttons: ['취소','확인']
+            }).then(pass => {
+                if(pass === null) return ;
+                else if(pass.length < 8) return swal('Warning','비밀번호는 8자 이상입니다!','warning');
+                return checkPass(pass, '${member.seq}','delete');
+            });
         } else {
             swal({
                 title: "정말 탈퇴하시겠습니까?",

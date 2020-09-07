@@ -15,4 +15,8 @@ public class ManagementDAO {
     public List<ManagementVO> memberTable(ManagementVO vo) {
         return sqlSessionTemplate.selectList("ManagementDAO.memberTable",vo);
     }
+
+    public void memberRankUp(ManagementVO vo) {
+        sqlSessionTemplate.update("ManagementDAO.memberRankUp",vo);
+    }
 }

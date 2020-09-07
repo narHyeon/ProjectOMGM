@@ -23,6 +23,7 @@ public class UserMallController {
 
     @Autowired
     UserMallService userMallService;
+
     /////////// 배송현왕 /////////////////////////////////////////////
     // 배송 현황 페이지
     @RequestMapping("/deliveryStatus.do")
@@ -252,7 +253,6 @@ public class UserMallController {
 ////        mav.addObject("myReservation", userMallService.myReservation(vo));
 //        return mav;
 //    }
-
 
 }
 
