@@ -35,7 +35,6 @@
 						<li><a href="roomIntroduction.do"> 객실소개 </a></li>
 						<li><a href="kinderGarden.do"> 유치원 </a></li>
 						<li><a href="pickupService_info.do"> 픽업 </a></li>
-						<li><a href="messageService.do"> 문자알림 </a></li>
 					</ul></li>
 				<li><a href="#"> Review </a>
 					<ul>
@@ -78,7 +77,6 @@
 					<li><a href="roomIntroduction.do"> 객실소개 </a></li>
 					<li><a href="kinderGarden.do"> 유치원 </a></li>
 					<li><a href="pickupService_info.do"> 픽업 </a></li>
-					<li><a href="messageService.do"> 문자알림 </a></li>
 				</ul></li>
 			<li><a href="#">Review</a>
 				<ul class="sub_menu">
