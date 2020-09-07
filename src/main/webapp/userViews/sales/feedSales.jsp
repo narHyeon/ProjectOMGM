@@ -27,7 +27,7 @@
             ${feedList.feed_name}
         </div>
         <div class="toy-sales-section01" id="toy-sales-section01" value="${feedList.feed_discount}">
-            ${feedList.feed_discount}
+            ${feedList.feed_discount}원
         </div>
         <div class="toy-sales-section02">
             <p class="toy-delieve-price-text">
@@ -109,11 +109,11 @@
         ${feedList.feed_info}
     </div>
     <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%; margin-top: 5%;">
-    <img src="resources/img/product/detail.jpg" style="width: 55%; margin-top:3%;  margin-bottom: 20%; ">
+    <img src="resources/img/product/detail.jpg" style="width: 55%; margin-top:3%;  margin-bottom: 40%; ">
+</div>
 <%--    <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
-</div>
 
 <script>
     function buyImmediately00() {

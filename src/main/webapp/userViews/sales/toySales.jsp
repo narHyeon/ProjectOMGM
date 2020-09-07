@@ -25,7 +25,7 @@
             ${toyList.toy_name}
         </div>
         <div class="toy-sales-section01" id="toy-sales-section01" value="${toyList.toy_discount}">
-            ${toyList.toy_discount}
+            ${toyList.toy_discount}원
         </div>
         <div class="toy-sales-section02">
             <p class="toy-delieve-price-text">
@@ -105,7 +105,7 @@
         ${toyList.toy_info}
     </div>
     <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%;">
-    <img src="../../resources/img/product/detail2.jpg" style="width: 55%; margin-bottom: 23%;">
+    <img src="../../resources/img/product/detail2.jpg" style="width: 55%; margin-bottom: 40%;">
 <%--    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
     <script src="resources/js/header.js" defer></script>
