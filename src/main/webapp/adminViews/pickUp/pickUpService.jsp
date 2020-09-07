@@ -37,7 +37,7 @@
 					<c:forEach var="pickUp" items="${pickUp}" >
 						<tr class="ROOMRESERVATION_NO${pickUp.ROOMRESERVATION_NO}">
 							<th id="ROOMRESERVATION_NO">${pickUp.ROOMRESERVATION_NO}</th>
-							<th>${pickUp.ROOMRESERVATION_MEMBERNO}</th>
+							<th>${member.id}</th>
 							<th>${pickUp.ROOMRESERVATION_USEPOINT}</th>
 							<th>${pickUp.ROOMRESERVATION_PICKUPTIME}</th>
 							<th>${pickUp.ROOMRESERVATION_PICKUPADDRESS}</th>

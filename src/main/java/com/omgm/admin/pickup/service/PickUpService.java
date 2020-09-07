@@ -9,5 +9,5 @@ public interface PickUpService {
 
     List<PickUpVO> getPickUpList() throws Exception;
 
-    List<PickUpVO> getPickUpListInfo() throws Exception;
+//    List<PickUpVO> getPickUpListInfo() throws Exception;
 }

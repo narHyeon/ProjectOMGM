@@ -21,8 +21,8 @@ public class PickUpServiceImpl implements PickUpService {
         return pickUpDAO.getPickUpList();
     }
 
-    @Override
-    public List<PickUpVO> getPickUpListInfo() throws Exception {
-        return pickUpDAO.getPickUpListInfo();
-    }
+//    @Override
+//    public List<PickUpVO> getPickUpListInfo() throws Exception {
+//        return pickUpDAO.getPickUpListInfo();
+//    }
 }
