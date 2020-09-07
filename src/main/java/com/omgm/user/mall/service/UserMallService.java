@@ -54,4 +54,5 @@ public interface UserMallService {
 
     /////////////// mypage mall order ///////////////////////////////////////////
     public List<OrderVO> myOrder(OrderVO vo) throws Exception;
+
 }

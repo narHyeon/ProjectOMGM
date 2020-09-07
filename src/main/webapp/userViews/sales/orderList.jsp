@@ -102,8 +102,8 @@
 
 <ul class="orderView">
     <c:forEach var="myOrder" items="${myOrder}" >
-<%--        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d">2020.08.22(15시 30분)</div>--%>
-        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d"></div>
+        <div style="padding-top:37px; padding-left:15.2%; padding-bottom:1%; font-weight:900; font-size:22px; color:#6b6d7d">${myOrder.order_date}</div>
+
         <li class="myOrder_list">
                 <div style="font-size:30px; font-weight: 900; padding-left:1%; padding-top:30px;">
                     <input type="hidden" id="order_id" name="order_id">${member.id}</input>
