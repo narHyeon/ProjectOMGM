@@ -206,7 +206,7 @@
 
                                 pg: 'kakaopay',
                                 pay_method: 'card',
-                                merchant_uid: 'merchant_' + new Date().getTime(),
+                                merchant_uid: new Date().getTime(),
                                 name: '오묘가묘 결제',
                                 amount: totalPrice,
                                 buyer_email: '',
