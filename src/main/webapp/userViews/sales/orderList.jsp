@@ -113,7 +113,7 @@
                     <span class="order_pro">최종 가격 <fmt:formatNumber pattern="###,###,###" value="50000"/></span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
                     <span class="order_pro">주문상태</span><span class="myorderInfo">   ${myOrder.order_state}</span></div>
                     <div class="myorderBtn"><a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
-                    <button id="myorderChat" type="button"> 1:1 문의 </button></div>
+                    <button id="myorderChat" type="button" onclick="modal()"> 1:1 문의 </button></div>
                 </div>
         </li>
     </c:forEach>
@@ -142,5 +142,10 @@
 
 
 </ul>
+<script>
+    function modal() {
+        swal('안녕하세요');
+    }
+</script>
 </body>
 </html>
