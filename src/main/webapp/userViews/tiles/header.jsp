@@ -68,8 +68,7 @@
 		<ul>
 			<li><a href="#">Reservation</a>
 				<ul class="sub_menu">
-					<li><a href="
-"> 방 빌리기 </a></li>
+					<li><a href=""> 방 빌리기 </a></li>
 					<li><a href="kinderGardenReservation.do"> 유치원 등록 </a></li>
 				</ul></li>
 			<li><a href="#">Service</a>
