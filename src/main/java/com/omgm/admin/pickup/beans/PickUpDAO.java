@@ -17,6 +17,6 @@ public class PickUpDAO {
         return sqlSessionTemplate.selectList("PickUpDAO.getPickUpList");
     }
 
-//    public List<PickUpVO> getPickUpListInfo() {return sqlSessionTemplate.selectList("PickUpDAO.getPickUpListInfo");
-//    }
+    public List<PickUpVO> getPickUpListInfo() {return sqlSessionTemplate.selectList("PickUpDAO.getPickUpListInfo");
+    }
 }

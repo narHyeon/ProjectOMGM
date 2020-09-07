@@ -20,7 +20,7 @@ public class PickUpController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/pickUp/pickUpService");
         mav.addObject("pickUp", pickUpService.getPickUpList());
-//        mav.addObject("pickUpInfo", pickUpService.getPickUpListInfo());
+        mav.addObject("pickUpInfo", pickUpService.getPickUpListInfo());
         return mav;
     }
 

@@ -31,7 +31,7 @@
 		SELECT * FROM ROOMRESERVATION WHERE ROOMRESERVATION_PICKUPYN = 'Y' ORDER BY ROOMRESERVATION_NO ASC
 	</select>
 
-	<select id="getPickUpListInfo" resultMap="pickUpInfo">
-		SELECT * FROM KG_RESERVATION WHERE  = 'Y' ORDER BY ROOMRESERVATION_NO ASC
+	<select id="getPickUpListInfo" resultMap="pickUp">
+		SELECT * FROM KG_RESERVATION ORDER BY  ASC
 	</select>
 </mapper>
