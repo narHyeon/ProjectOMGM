@@ -76,6 +76,10 @@
 	height: 50px;
 	margin: 10px;
 }
+#foot .snsIcon:hover {
+	cursor: pointer;
+}
+
 
 #foot #footSection1 .footValue {
 	margin: 10px;

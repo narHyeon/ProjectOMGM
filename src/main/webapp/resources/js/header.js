@@ -189,14 +189,11 @@ function signGoogle() {
         xhr.send(null);
 };
 
-let oauthData;
-
 // sns 아이디로 회원가입 진행
 function snsSign(result) {
-    oauthData = result;
     document.querySelector('signUp div div').innerHTML =
         `<label for="sns_popup"></label>
-                <form action="#" class="sns_signup-form" onsubmit="return snsSignCheck(event, oauthData)">
+                <form action="#" class="sns_signup-form" onsubmit="return snsSignCheck(event, result)">
                     <h1 style="font-weight: 700;">${result.type} 회원가입</h1>
                     <div class="txtboxID">
                        <input name="id" type="text" required autocomplete=off>
@@ -434,9 +431,8 @@ function kakaoPay(payment,url) {
     });
 }
 
-
-let webSocket;
-let nickname;
+let webSocket = null;
+let nickname = null;
 
 // 로그인 소켓
 function loginSocket(id) {

@@ -35,7 +35,6 @@
 						<li><a href="roomIntroduction.do"> 객실소개 </a></li>
 						<li><a href="kinderGarden.do"> 유치원 </a></li>
 						<li><a href="pickupService_info.do"> 픽업 </a></li>
-						<li><a href="messageService.do"> 문자알림 </a></li>
 					</ul></li>
 				<li><a href="#"> Review </a>
 					<ul>
@@ -69,8 +68,7 @@
 		<ul>
 			<li><a href="#">Reservation</a>
 				<ul class="sub_menu">
-					<li><a href="
-"> 방 빌리기 </a></li>
+					<li><a href=""> 방 빌리기 </a></li>
 					<li><a href="kinderGardenReservation.do"> 유치원 등록 </a></li>
 				</ul></li>
 			<li><a href="#">Service</a>
@@ -78,7 +76,6 @@
 					<li><a href="roomIntroduction.do"> 객실소개 </a></li>
 					<li><a href="kinderGarden.do"> 유치원 </a></li>
 					<li><a href="pickupService_info.do"> 픽업 </a></li>
-					<li><a href="messageService.do"> 문자알림 </a></li>
 				</ul></li>
 			<li><a href="#">Review</a>
 				<ul class="sub_menu">
