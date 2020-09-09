@@ -29,6 +29,7 @@
 							<th>예약시간</th>
 							<th>픽업할주소</th>
 							<th>연락처</th>
+							<th>동승자여부</th>
 							<th>반려동물 종류</th>
 							<th>특이사항</th>
 						</tr>
@@ -42,8 +43,9 @@
 							<th>${pickUp.ROOMRESERVATION_PICKUPTIME}</th>
 							<th>${pickUp.ROOMRESERVATION_PICKUPADDRESS}</th>
 							<th>${pickUp.ROOMRESERVATION_PICKUPPHONENUM}</th>
-							<th>${pickUp.ROOMRESERVATION_USEPOINT}</th>
-							<th>${pickUp.ROOMRESERVATION_USEPOINT}</th>
+							<th>${pickUp.ROOMRESERVATION_PICKUPOWNER}</th>
+							<th>${pickUp.ROOMRESERVATION_PICKUPANIMAL}</th>
+							<th>${pickUp.ROOMRESERVATION_PICKUPNOTE}</th>
 						</tr>
 					</c:forEach>
 					</tbody>

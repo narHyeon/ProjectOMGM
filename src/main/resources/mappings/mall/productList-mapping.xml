@@ -41,7 +41,11 @@
             AND feed_info LIKE '%'||#{searchKeyword}||'%'
         </if>ORDER BY feed_code DESC
     </select>
-
+<!--    <select id="getMallFeedList" resultType="userMallFeedVO">-->
+<!--        SELECT * FROM FEED WHERE 1=1-->
+<!--        <if test="searchCondition == 'FEED_NAME'">AND (feed_name LIKE '%' || #{searchKeyword} || '%' or feed_info LIKE '%' || #{searchKeyword} || '%')</if>-->
+<!--        <if test="searchCondition == 'FEED_INFO'">AND (feed_name LIKE '%' || #{searchKeyword} || '%' or feed_info LIKE '%' || #{searchKeyword} || '%')</if>ORDER BY feed_code DESC-->
+<!--    </select>-->
 <!--     페이징 처리를 위한 인트형 타입으로 게시판 갯수 가지고오기-->
     <select id="selectCountMall" resultType="int">
         SELECT COUNT(*) from feed
