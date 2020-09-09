@@ -13,7 +13,6 @@
 	href="resources/style/payRoomReservation/pay.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/style/payRoomReservation/pay2.css">
-<link rel="shortcut icon" href="images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="images/icon/flat-design-touch.png">
 <style type="text/css">
@@ -204,6 +203,7 @@
 			reservationData = {
                 	ROOMRESERVATION_ROOMNO: $("#ROOMRESERVATION_ROOMNO").val(),
                 	ROOMRESERVATION_ROOMPRICE: $("#ROOMRESERVATION_ROOMPRICE").val(),
+                	ROOMRESERVATION_ROOMSALERATE: $("#ROOMRESERVATION_ROOMSALERATE").val(),
                 	ROOMRESERVATION_ROOMNAME: $("#ROOMRESERVATION_ROOMNAME").val(),
                 	ROOMRESERVATION_MEMBERNO: $("#ROOMRESERVATION_MEMBERNO").val(), 
                 	ROOMRESERVATION_STAYDAY: $("#ROOMRESERVATION_STAYDAY").val(),
@@ -213,8 +213,11 @@
                 	ROOMRESERVATION_TOYNAME: $("#ROOMRESERVATION_TOYNAME").val(),
                 	ROOMRESERVATION_PICKUPYN: $("#ROOMRESERVATION_PICKUPYN").val(),
                 	ROOMRESERVATION_PICKUPTIME: $("#ROOMRESERVATION_PICKUPTIME").val(),
+                	ROOMRESERVATION_PICKUPANIMAL: $("#ROOMRESERVATION_PICKUPANIMAL").val(),
                 	ROOMRESERVATION_PICKUPADDRESS: $("#ROOMRESERVATION_PICKUPADDRESS").val(),
                 	ROOMRESERVATION_PICKUPPHONENUM: $("#ROOMRESERVATION_PICKUPPHONENUM").val(),
+                	ROOMRESERVATION_PICKUPOWNER: $("#ROOMRESERVATION_PICKUPOWNER").val(),
+                	ROOMRESERVATION_PICKUPNOTE: $("#ROOMRESERVATION_PICKUPNOTE").val(),
                 	ROOMRESERVATION_USEPOINTYN: $("#ROOMRESERVATION_USEPOINTYN").val(),
                 	ROOMRESERVATION_USEPOINT: $("#ROOMRESERVATION_USEPOINT").val(),
                 	ROOMRESERVATION_PLUSPOINT: $("#ROOMRESERVATION_PLUSPOINT").val(),
@@ -224,6 +227,7 @@
 			reservationData = {
                 	ROOMRESERVATION_ROOMNO: $("#ROOMRESERVATION_ROOMNO").val(),
                 	ROOMRESERVATION_ROOMPRICE: $("#ROOMRESERVATION_ROOMPRICE").val(),
+                	ROOMRESERVATION_ROOMSALERATE: $("#ROOMRESERVATION_ROOMSALERATE").val(),
                 	ROOMRESERVATION_ROOMNAME: $("#ROOMRESERVATION_ROOMNAME").val(),
                 	ROOMRESERVATION_MEMBERNO: $("#ROOMRESERVATION_MEMBERNO").val(),
                 	ROOMRESERVATION_STAYDAY: $("#ROOMRESERVATION_STAYDAY").val(),
@@ -284,6 +288,9 @@
 	<input type="hidden" name="ROOMRESERVATION_ROOMPRICE"
 		id="ROOMRESERVATION_ROOMPRICE" 
 		value="${reservationInfo.ROOM_PRICE}">
+	<input type="hidden" name="ROOMRESERVATION_ROOMSALERATE"
+		id="ROOMRESERVATION_ROOMSALERATE" 
+		value="${reservationInfo.ROOM_SALERATE}">	
 	<input type="hidden" name="ROOMRESERVATION_ROOMNAME"
 		id="ROOMRESERVATION_ROOMNAME"
 		value="${reservationInfo.ROOMRESERVATION_ROOMNAME}">
@@ -312,12 +319,21 @@
 			<input type="hidden" name="ROOMRESERVATION_PICKUPTIME"
 				id="ROOMRESERVATION_PICKUPTIME"
 				value="${reservationInfo.ROOMRESERVATION_PICKUPTIME}">
+			<input type="hidden" name="ROOMRESERVATION_PICKUPANIMAL"
+				id="ROOMRESERVATION_PICKUPANIMAL"
+				value="${reservationInfo.ROOMRESERVATION_PICKUPANIMAL}">
 			<input type="hidden" name="ROOMRESERVATION_PICKUPADDRESS"
 				id="ROOMRESERVATION_PICKUPADDRESS"
 				value="${reservationInfo.ROOMRESERVATION_PICKUPADDRESS}">
 			<input type="hidden" name="ROOMRESERVATION_PICKUPPHONENUM"
 				id="ROOMRESERVATION_PICKUPPHONENUM"
 				value="${reservationInfo.ROOMRESERVATION_PICKUPPHONENUM}">
+			<input type="hidden" name="ROOMRESERVATION_PICKUPNOTE"
+				id="ROOMRESERVATION_PICKUPNOTE"
+				value="${reservationInfo.ROOMRESERVATION_PICKUPNOTE}">
+			<input type="hidden" name="ROOMRESERVATION_PICKUPOWNER"
+				id="ROOMRESERVATION_PICKUPOWNER"
+				value="${reservationInfo.ROOMRESERVATION_PICKUPOWNER}">		
 		</c:when>
 	</c:choose>
 	<input type="hidden" name="ROOMRESERVATION_USEPOINTYN"
@@ -368,13 +384,30 @@
 							</c:otherwise>
 						</c:choose>
 						<td class="reservation_td_key">픽업시간</td>
-						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPTIME}</td>
+						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPTIME}시</td>
 					</tr>
 					<tr>
 						<td class="reservation_td_key">픽업연락처</td>
 						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPPHONENUM}</td>
 						<td class="reservation_td_key">픽업주소</td>
 						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPADDRESS}</td>
+					</tr>
+					<tr>
+						<td class="reservation_td_key">애완동물 종류</td>
+						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPANIMAL}</td>
+						<td class="reservation_td_key">주인 동승여부</td>
+						<c:choose>
+							<c:when test="${reservationInfo.ROOMRESERVATION_PICKUPOWNER eq 'Y'}">
+							<td class="reservation_td_value">주인동승</td>
+							</c:when>
+							<c:otherwise>
+							<td class="reservation_td_value">동승안함</td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+					<tr>
+						<td class="reservation_td_key">메모 사항</td>
+						<td class="reservation_td_value" colspan="3">${reservationInfo.ROOMRESERVATION_PICKUPNOTE}</td>
 					</tr>
 				</tbody>
 			</table>
