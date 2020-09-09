@@ -81,8 +81,8 @@
              aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">호텔:</h6>
-					<a class="collapse-item" href="hotelReservation.mdo">호텔 예약</a>
-					<a class="collapse-item" href="register.html">객실 관리 - 예정</a>
+					<a class="collapse-item" href="roomReservationList.mdo">호텔 예약</a>
+					<a class="collapse-item" href="roomList.mdo">객실 관리</a>
 					<a class="collapse-item" href="blank.html">호텔 정산 - 예정</a>
                 <div class="collapse-divider"></div>
             </div>

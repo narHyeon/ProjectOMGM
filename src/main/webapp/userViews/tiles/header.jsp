@@ -26,13 +26,13 @@
 			<ol class="navbar_menu">
 				<li><a href="#"> Reservation </a>
 					<ul>
-						<li><a href="reservation.do"> 방 빌리기 </a></li>
+						<li><a href="insertRoomReservation.do"> 방 빌리기 </a></li>
 						<li><a href="kinderGardenReservation.do"> 유치원 등록 </a></li>
 					</ul></li>
 
 				<li><a href="#"> Service </a>
 					<ul>
-						<li><a href="roomIntroduction.do"> 객실소개 </a></li>
+						<li><a href="roomList.do"> 객실소개 </a></li>
 						<li><a href="kinderGarden.do"> 유치원 </a></li>
 						<li><a href="pickupService_info.do"> 픽업 </a></li>
 					</ul></li>
@@ -68,12 +68,12 @@
 		<ul>
 			<li><a href="#">Reservation</a>
 				<ul class="sub_menu">
-					<li><a href=""> 방 빌리기 </a></li>
+					<li><a href="insertRoomReservation.do"> 방 빌리기 </a></li>
 					<li><a href="kinderGardenReservation.do"> 유치원 등록 </a></li>
 				</ul></li>
 			<li><a href="#">Service</a>
 				<ul class="sub_menu">
-					<li><a href="roomIntroduction.do"> 객실소개 </a></li>
+					<li><a href="roomList.do"> 객실소개 </a></li>
 					<li><a href="kinderGarden.do"> 유치원 </a></li>
 					<li><a href="pickupService_info.do"> 픽업 </a></li>
 				</ul></li>
@@ -248,7 +248,7 @@
 					`<li><a href="#" id="myInfo_menu">myInfo</a></li>
 					<ul id="header_myInfo">
 						<li><a href="myInfo.do">내 정보</a></li>
-						<li><a href="#">예약 정보</a></li>
+						<li><a href="myRoomReservationList.do">예약 정보</a></li>
 						<li><a href="myOrder.do?order_id=${member.id}">구매 정보</a></li>
 						<li><a href="#">냥박일지</a></li>
 					</ul>
