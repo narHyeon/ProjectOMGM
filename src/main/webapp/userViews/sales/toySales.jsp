@@ -110,6 +110,23 @@
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
 </div>
 <script>
+    function addToys() {
+        let foo = document.getElementById("number-of-toy").innerHTML;
+        foo++;
+        const priceOfToyOfSelect = document.querySelector("#toy-sales-section01").innerHTML;
+
+        document.getElementById("number-of-toy").innerHTML = foo;
+        document.getElementById("total-toy-prices").innerHTML = foo * ${toyList.toy_discount};
+    }
+
+    function absToys() {
+        var foo = document.getElementById("number-of-toy").innerHTML;
+        foo--;
+        if (foo < 0) foo = 0;
+        document.getElementById("number-of-toy").innerHTML = foo;
+        document.getElementById("total-toy-prices").innerHTML = foo * ${toyList.toy_discount};
+    }
+
     function buyImmediately00() {
         var countProduct = document.getElementById("number-of-toy");
         var salesOption = document.getElementById("toy-sales-option");
