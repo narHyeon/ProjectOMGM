@@ -131,7 +131,17 @@
 
         input[id*="popup"] ~ div {opacity:0;visibility:hidden;transition:all 1s;}
         input[id*="popup"]:checked ~ div {opacity:1;visibility:visible;}
-
+        
+    /*     페이지 네이션*/
+        .kinderGarden_pagination1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .kinderGarden_pagination1 ul{
+            display: flex;
+            flex-direction: row;
+        }
     </style>
 
 </head>
@@ -160,7 +170,7 @@
                     <th>발송처리</th>
                 </tr>
                 </thead>
-                    <tbody>
+                    <tbody id="reser_confirm_tbody111">
                         <c:forEach var="order" items="${order}" >
                             <tr class="order_feild${order.order_no}">
                                 <th id="orderNO">${order.order_no}</th>
@@ -180,12 +190,88 @@
                 </table>
         </div>
     </div>
+    <%--  pagination --%>
+    <div class="kinderGarden_pagination1">
+        <ul class="paginate_button page-item previous disabled"> <a href="#" class="page-link"  onclick="paging(event,tbody1,currentPage1-1,prev1,next1,pageCount1,1)">Prev</a> </ul>
+        <ul></ul>
+        <ul class="paginate_button page-item next"> <a href="#" class="page-link"  onclick="paging(event,tbody1,currentPage1+1,prev1,next1,pageCount1,1)">Next</a> </ul>
+    </div>
 </div>
 </div>
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/admin/js/productOrder/proOrder.js"></script>
     <script type="text/javascript">
+        // 페이지네이션 관련
+        let tbody1; // 페이지네이션 몸체
+        let page1; // 페이지 블럭 몸체
+        let contentCount1 = 0; // 페이지 총 수
+        let pageCount1 = 0; // 그룹 총 수
+
+        let currentPage1 = 1; // 현재 페이지
+
+        const prev1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(1)');
+        const next1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(3)');
+
+        // 초기화 작업
+        window.addEventListener('DOMContentLoaded', () => {
+            tbody1 = document.querySelectorAll('#reser_confirm_tbody111 tr');
+
+            tbody1.forEach((item,index) => {
+                contentCount1++;
+                if(index >= 5) item.style.display = 'none';
+            });
+
+            page1 = document.querySelector('.kinderGarden_pagination1 ul:nth-child(2)');
+            pageCount1 = Math.ceil(contentCount1/5); // 올림
+
+
+            pagination(page1,pageCount1,1,currentPage1);
+        });
+
+        // 페이징 처리
+        function paging(event,tbody,count,prev,next,pageCount,num) {
+            event.preventDefault();
+            if(num === 1) currentPage1 = count;
+            else currentPage2 = count;
+
+            pagePick(event.target.parentNode.parentNode,count);
+
+            tbody.forEach((item,index) => {
+                index++;
+                if((5*count)-5 < index && index <= 5*count) item.style.display = '';
+                else item.style.display = 'none';
+                if(count === 1) {
+                    prev.classList.toggle('disabled',true);
+                    next.classList.toggle('disabled',false);
+                } else if(count === pageCount) {
+                    next.classList.toggle('disabled',true);
+                    prev.classList.toggle('disabled',false);
+                } else {
+                    prev.classList.toggle('disabled',false);
+                    next.classList.toggle('disabled',false);
+                }
+            });
+        }
+
+        // 페이지그룹 생성
+        function pagination(page,count,index,current) {
+            for(let i=1; i<=count; i++) {
+                page.innerHTML += `
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="#" onclick="paging(event,tbody`+index+`,`+i+`,prev`+index+`,next`+index+`,`+count+`,`+index+`)">`+i+`</a>
+                </li>`;
+                if(i === current) pagePick(page,1);
+            }
+        }
+
+        // 페이지 그룹 색상 변경
+        function pagePick(target,count) {
+            target.querySelectorAll(`li`).forEach((item,index) => {
+                if(count === index+1) item.classList.toggle('active',true);
+                else item.classList.toggle('active',false);
+            });
+        }
         <%--        //행 눌렀을때 order_no값 불러오기--%>
         <%--        $(document).ready(function(){--%>
         <%--            $("#order_table tr").click(function(){--%>

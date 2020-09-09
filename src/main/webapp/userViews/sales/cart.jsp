@@ -100,8 +100,11 @@
             </div>
         </c:forEach>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
+            <c:if test="${cartList!= null}">
                 <button type="submit" class="abutton" style="border: none;" onclick="cartListPay()">결제하기</button>
+            </c:if>
         </div>
+
         </div>
 
 </div>
