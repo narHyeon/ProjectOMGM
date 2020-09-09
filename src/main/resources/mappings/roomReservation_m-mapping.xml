@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RoomReservationDAO_M">
+	<select id="countRoomReservation" parameterType="roomreservation_m" resultType="int">
+		SELECT count(*) FROM ROOMRESERVATION
+	</select>
+	<select id="roomReservationList" parameterType="roomreservation_m" resultType="roomreservation_m">
+		SELECT * FROM ROOMRESERVATION
+		ORDER BY ROOMRESERVATION_STAYDAY DESC, ROOMRESERVATION_NO DESC
+	</select>
+	<select id="getRoomReservation" parameterType="roomreservation_m" resultType="roomreservation_m">
+		SELECT * FROM ROOMRESERVATION 
+		WHERE ROOMRESERVATION_NO = #{ROOMRESERVATION_NO}
+	</select>
+	
+
+</mapper>
