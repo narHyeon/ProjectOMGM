@@ -366,7 +366,9 @@ td{
 		const pickupaddress = $("#pickup_address").val();
 		const pickupphone = $("#pickup_phone").val();
 		const pickupyn = $("#pickup_yn").val();
-		
+		const pickupanimalkind = $("#pickup_animalkind").val();
+		const pickupnote = $("#pickup_note").val();
+		const pickupwithowner = $("#pickup_withowner").val();
 		
 		if (pickupyn =="Y") {
 			if (pickupaddress=="" || pickupphone=="") {
@@ -376,6 +378,9 @@ td{
 				$("#reservation_selectedopton").data("roomreservation_pickupaddress",pickupaddress);
 				$("#reservation_selectedopton").data("roomreservation_pickupphonenum",pickupphone);	
 				$("#reservation_selectedopton").data("roomreservation_pickupyn",pickupyn);
+				$("#reservation_selectedopton").data("roomreservation_pickupanimal",pickupanimalkind);
+				$("#reservation_selectedopton").data("roomreservation_pickupnote",pickupnote);
+				$("#reservation_selectedopton").data("roomreservation_pickupowner",pickupwithowner);
 				const data = $("#reservation_selectedopton").data();
 				const datakey = new Array(); 
 				const datavalue = new Array();
@@ -901,11 +906,28 @@ td{
                             </select>
                         </li>
                         <li>
+                        <p>반려동물</p>
+                        <select id="pickup_animalkind">
+                            <option value="강아지">강아지</option>
+                            <option value="고양이">고양이</option>
+                        </select>
+                    	</li>
+                        <li>
+                        <p>주인 동승</p>
+                        	<select id="pickup_withowner">
+                            	<option value="Y">주인 동승</option>
+                            	<option value="N">주인 동승 안함</option>
+                        	</select>
+                    	</li>
+                        <li>
                             <p>주소</p> <input type="text" id="pickup_address">
                         </li>
                         <li>
                         	<p>연락처</p> <input type="text" id="pickup_phone">
                     	</li>
+                    	<li>
+                    		<p>메모 사항</p> <textarea rows="4" cols="45" id="pickup_note"></textarea>
+                		</li>
                     </ul>
                 </div>
             </div>

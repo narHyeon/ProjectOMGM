@@ -9,10 +9,12 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css"
-	href="resources/style/faq/faq.css">
+	href="resources/style/myRoomReservationList/myReservation.css">
 <link rel="stylesheet" type="text/css"
-	href="resources/style/faq/faq2.css">
+	href="resources/style/myRoomReservationList/myReservation2.css">
 <link rel="shortcut icon" href="images/favicon/favicon.ico">
+<!-- 페이징 디자인  -->
+<link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
 <style type="text/css">
 #wrap {
 	display: flex;
@@ -123,12 +125,25 @@
 .main1:hover {
 	cursor: pointer;
 }
+.use_soon{
+	color: #5AC351;
+}
+.use_done{
+	color: #FF1300;
+}
+.use_using{
+	color: #008DFF;
+}
+.reviewList_page{
+	text-align: center;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".main1").click(function() {
-			window.location.href = 'getMyService.do';
+			const reserNo = $(this).data("reserno");
+			window.location.href = 'getMyRoomReservation.do?ROOMRESERVATION_NO=' + reserNo ;
 		});
 		$("#myPageFs").click(function() {
 			window.location.href = 'myPage.do';
@@ -154,7 +169,7 @@
 <body>
 	<div id="wrap">
 		<div id="head">
-			<h1>My Service</h1>
+			<h1>예약 정보</h1>
 		</div>
 		<div id="body">
 			<div id="banner">
@@ -172,92 +187,62 @@
 			</div>
 			<div id="content">
 				<div id="tables">
-					<div class="serviceType">
-						<h1>이용중인 서비스</h1>
-					</div>
 					<table class="board_table">
-						<thead id="thead1">
+						<thead id="thead">
 							<tr>
-								<th id="t1">번호</th>
-								<th id="t2">방이름</th>
-								<th id="t3">숙박일자</th>
-								<th id="t4">결제일시</th>
+								<th id="t1">상태</th>
+								<th id="t2">예약번호</th>
+								<th id="t3">방이름</th>
+								<th id="t4">숙박일자</th>
+								<th id="t5">결제일시</th>
+								<th id="t6">결제금액</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="reservation" items="${reservationList}" varStatus="num">
-								<tr class="main1">
-									<td>${num.count}</td>
+								<tr class="main1" data-reserno="${reservation.ROOMRESERVATION_NO}">
+								<c:set var="todayTime"><fmt:formatDate value="${reservation.ROOMRESERVATION_NOWDATE}" pattern="yyyy-MM-dd"/></c:set> 
+								<c:set var="stayTime"><fmt:formatDate value="${reservation.ROOMRESERVATION_STAYDAY}" pattern="yyyy-MM-dd"/></c:set>
+									
+									<c:choose>
+										<c:when test="${stayTime gt todayTime}">
+											<td class="use_soon">이용예정</td>																					
+										</c:when>
+										<c:when test="${stayTime lt todayTime}">
+											<td class="use_done">이용완료</td>
+										</c:when>
+										<c:otherwise>
+											<td class="use_using">이용중</td>
+										</c:otherwise>
+									</c:choose>
+									<td>${reservation.ROOMRESERVATION_NO}</td>
 									<td>${reservation.ROOMRESERVATION_ROOMNAME}</td>
 									<td>
-									<fmt:formatDate value="${reservation.ROOMRESERVATION_STAYDAY}" type="date" pattern="yyyy년 MM월 dd일"/>
+										<fmt:formatDate value="${reservation.ROOMRESERVATION_STAYDAY}" type="date" pattern="yyyy/MM/dd"/>
 									</td>
 									<td>
-									<fmt:formatDate value="${reservation.ROOMRESERVATION_PAYDAY}" type="date" pattern="yyyy년 MM월 dd일"/>
+										<fmt:formatDate value="${reservation.ROOMRESERVATION_PAYDAY}" type="date" pattern="yyyy/MM/dd"/><br>
+										<fmt:formatDate value="${reservation.ROOMRESERVATION_PAYDAY}" type="date" pattern="hh:mm:ss"/>
 									</td>
+									<td><fmt:formatNumber type="currency" value="${reservation.ROOMRESERVATION_FIANLFEE}" /></td>
 								</tr>
 							</c:forEach>
 						</tbody>
-					</table>
-				</div>
-				<br />
-				<div class="content_row_1">
-					<div class="serviceType">
-						<h1 class="service_kind">이용예정 서비스</h1>
-					</div>
-					<table class="board_table">
-						<thead id="thead2">
-							<tr>
-								<th>번호</th>
-								<th>서비스 종류</th>
-								<th>서비스종료 일시</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="main1">
-								<td>1</td>
-								<td>이용중인 서비스1</td>
-								<td>오늘</td>
-							</tr>
-							<tr class="main1">
-								<td>2</td>
-								<td>이용중인 서비스2</td>
-								<td>오늘</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<br />
-				<div class="content_row_1">
-					<div class="serviceType">
-						<h1 class="service_kind">이용했던 서비스</h1>
-					</div>
-					<table class="board_table">
-						<thead id="thead">
-							<tr>
-								<th>번호</th>
-								<th>서비스 종류</th>
-								<th>서비스종료 일시</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="main1">
-								<td>1</td>
-								<td>이용했던 서비스1</td>
-								<td>어제</td>
-							</tr>
-							<tr class="main1">
-								<td>2</td>
-								<td>이용했던 서비스2</td>
-								<td>그재</td>
-							</tr>
-							<tr class="main1">
-								<td>3</td>
-								<td>이용했던 서비스3</td>
-								<td>지난주</td>
-							</tr>
-						</tbody>
-					</table>
+					</table><br>
+							<div class="reviewList_page00">
+	<a href="myRoomReservationList.do" class="reviewList_page01">&lt;&lt;</a>
+	<a href="myRoomReservationList.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
+	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+		<c:if test="${page == counter}">	
+			<a href="myRoomReservationList.do?page=${counter}" class="reviewList_page" style="background-color:orange ">&nbsp;${counter}</a>
+		</c:if>
+		<c:if test="${page != counter}">
+			<a href="myRoomReservationList.do?page=${counter}" class="reviewList_page" >&nbsp;${counter}</a>
+		</c:if>
+	</c:forEach>
+	<a href="myRoomReservationList.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a> 
+	<a href="myRoomReservationList.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
+</div><!-- end paging -->
 				</div>
 			</div>
 		</div>

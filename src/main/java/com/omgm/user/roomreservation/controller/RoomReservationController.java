@@ -88,33 +88,29 @@ public class RoomReservationController {
 	@RequestMapping(value = "/myRoomReservationList.do", method = RequestMethod.GET)
 	public ModelAndView selectListRoomReservation(RoomReservationVO vo, ModelAndView mav, HttpSession session,
 			@RequestParam(value="page", defaultValue = "1") int page){
-
-		MemberVO memvo = (MemberVO) session.getAttribute("member");
-		vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
 		
-		int COUNTPERPAGE = 10; // 페이지당 10개의 글
+		
+		//MemberVO memvo = (MemberVO) session.getAttribute("member");
+		//vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
+		vo.setROOMRESERVATION_MEMBERNO(23);
+		int COUNTPERPAGE = 5; // 페이지당 10개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 5개의 페이지
         int count = roomReservationService.selectCountReservation(vo);
         PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP, page,count);
 		List<RoomReservationVO> list = roomReservationService.selectListRoomReservation(vo, navi);
-		
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString2());
-		}
-		
 		mav.addObject("reservationList",list);
-		mav.addObject("userInfo", memvo);
+		mav.addObject("navi",navi);
+		mav.addObject("page", page);
+		//mav.addObject("userInfo", memvo);
 		mav.setViewName("myInfo/myRoomReservationList");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/selectRoomReservation.do", method = RequestMethod.GET)
-	public ModelAndView selectRoomReservation(RoomReservationVO vo,  ModelAndView mav, HttpSession session){
-		MemberVO memvo = (MemberVO) session.getAttribute("member");
+	@RequestMapping(value = "/getMyRoomReservation.do", method = RequestMethod.GET)
+	public ModelAndView selectRoomReservation(RoomReservationVO vo,  ModelAndView mav){
 		RoomReservationVO reservo = roomReservationService.selectRoomReservation(vo);
 		mav.addObject("reservationInfo", reservo);
-		mav.addObject("userInfo", memvo);
-		mav.setViewName("myInfo/getMyService");
+		mav.setViewName("myInfo/getMyRoomReservation");
 		return mav;
 	}
 	

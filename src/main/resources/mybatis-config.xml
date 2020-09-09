@@ -44,6 +44,7 @@
 		<typeAlias alias="room" type="com.omgm.user.room.beans.RoomVO"/>
 		<typeAlias alias="room_m" type="com.omgm.admin.room.beans.RoomVO_M"/>
 		<typeAlias alias="roomreservation" type="com.omgm.user.roomreservation.beans.RoomReservationVO"/>
+		<typeAlias alias="roomreservation_m" type="com.omgm.admin.roomreservation.beans.RoomReservationVO_M"/>
 	</typeAliases>
 	<mappers>
 		<!-- 회원 -->
@@ -73,5 +74,6 @@
 		<mapper resource="mappings/room-mapping.xml" />
 		<mapper resource="mappings/room-mapping_m.xml" />
 		<mapper resource="mappings/roomReservation-mapping.xml" />
+		<mapper resource="mappings/roomReservation_m-mapping.xml" />
 	</mappers>
 </configuration>
