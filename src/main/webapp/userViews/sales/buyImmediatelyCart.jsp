@@ -171,9 +171,19 @@
             <div id="buyImmediatelyDivSection02_02" style="margin-top: 9%; margin-bottom: 9%;"><p style="font-weight: bolder; font-size: 25px;">구매혜택</p></div>
             <div id="buyImmediatelyDivSection02_03" style="display: flex; font-weight: lighter; border-bottom: 1px solid lightgrey; font-size: smaller; padding-bottom: 5%;"><p style="margin-right: 3%;">마일리지 : </p><p style="margin-left: 3%;" id="buyImmediatelyDivSection02_03Mileage"> </p></div>
             <div id="buyImmediatelyDivSection02_04"  style="margin-top: 9%; border-bottom: 1px solid lightgrey; padding-bottom: 5%; "><p style="font-weight: bolder; margin-bottom: 5%;">결제정보입력</p><p style="font-weight: lighter; font-size: smaller;">결제 수단을 선택하신후 결제하기 버튼을 클릭하세요</p></div>
-            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" ><button onclick="kakaoPayCart()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button></div>
+            <div id="buyImmediatelyDivSection02_05" style="display: flex; justify-content: center; margin-top: 5%; padding-top: 5%; align-items: center;" >
+                <button onclick="kakaoPayCart()" style="color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">구매하기</button>
+                <button onclick="payCancel()" style="margin-left: 3%; color: white; height: 55px; width: 75px; border-radius: 20%; background-color: deeppink; border: none;">취소하기</button>
+            </div>
             <div>
                 <script>
+                    // 결제취소
+                    function payCancel(){
+                        let test = confirm('정말 취소하시겠습니까?');
+                        if(test == true) {
+                            location.href = "selectCartList.do?cartList_id=${member.id}";
+                        }
+                    }
                     //상품금액, 할인금액, 최종 금액
                     let cartPriceTotal = 0;
                     let cartPriceDiscount = 0;
@@ -273,10 +283,11 @@
                                     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                     msg += '\n결제 금액 : ' + rsp.paid_amount;
                                     msg += '\n운송장 번호 : ' + rsp.merchant_uid;
-                                    swal(msg);
+
 
                                     //성공시 이동할 페이지
                                     location.href = 'getMallFeedList.do';
+                                    alert(msg);
                                 } else {
                                     msg = '결제에 실패하였습니다.';
                                     // msg += '에러내용 : ' + rsp.error_msg;
