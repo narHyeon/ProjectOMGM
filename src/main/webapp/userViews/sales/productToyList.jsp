@@ -20,7 +20,15 @@
     <link rel="stylesheet" href="../../resources/style/sales/productList.css">
     <script src="https://kit.fontawesome.com/844385d242.js" crossorigin="anonymous"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <style>
+        .search { padding: 20px 0; text-align: center; font-size: 0;}
+        .search * { margin: 0 5px; height: 53px; border: 1px solid #ccc;}
+        .search select { width: 30%;height: 41px;font-size: 16px;}
+        .search #searchKeywordToy { width: 38%;height: 41px;font-size: 16px;}
+        .search #submit { width: 22%;height: 41px;border-color: #F28888;color:white; background: #F28888; cursor: pointer;}
+        /*.search button { width:150px; border: none; background: #ed1846; color:#fff;}*/
 
+    </style>
 </head>
 <body class="proList_body">
 <div class="slider_img">
@@ -38,18 +46,18 @@
     </div>
 
     <div class="event_list">
-        <div style="display: flex; justify-content: flex-end; margin-right: 15.3%;
+        <div style="display: flex; justify-content: flex-end; margin-right: 13.3%;
                                 margin-bottom: 1.5%; margin-top: 3%">
             <form action = "getMallToyList.do" method="post">
                 <table border="1">
                     <tr>
-                        <td>
-                            <select name="searchConditionToy" style="border: none; color: deeppink ">
-                                <option value="TOY_NAME" style="color: deeppink">상품 이름</option>
-                                <option value="TOY_INFO" style="color: deeppink">상품 정보</option>
+                        <td class="search">
+                            <select name="searchConditionToy">
+                                <option value="TOY_NAME" >상품 이름</option>
+                                <option value="TOY_INFO">상품 정보</option>
                             </select>
-                            <input type="text" name="searchKeywordToy" style="border-color: deeppink"/>
-                            <input type="submit" value="검색" style="border: none; color: deeppink; background-color: white" />
+                            <input id="searchKeywordToy" type="text" name="searchKeywordToy"/>
+                            <input id="submit" type="submit" value="검색"/>
                         </td>
                     </tr>
                 </table>
@@ -66,9 +74,10 @@
                             </div>
                             <div class="info">
                                 <strong>${toyList.toy_name}</strong>
-                                <p>
-                                    <span><fmt:formatDate value="${toyList.toy_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
-                                </p>
+                                <p style="font-size: 18px; color:#F28888;">${toyList.toy_discount}원</p>
+<%--                                <p>--%>
+<%--                                    <span><fmt:formatDate value="${toyList.toy_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
+<%--                                </p>--%>
                             </div>
                         </a>
                     </li>
