@@ -273,10 +273,11 @@
                                     // msg += '\n상점 거래ID : ' + rsp.merchant_uid;
                                     msg += '\n결제 금액 : ' + rsp.paid_amount;
                                     msg += '\n운송장 번호 : ' + rsp.merchant_uid;
-                                    swal(msg);
+
 
                                     //성공시 이동할 페이지
                                     location.href = 'getMallFeedList.do';
+                                    alert(msg);
                                 } else {
                                     msg = '결제에 실패하였습니다.';
                                     // msg += '에러내용 : ' + rsp.error_msg;
