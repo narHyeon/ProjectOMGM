@@ -177,6 +177,7 @@
             </div>
             <div>
                 <script>
+
                     // 결제취소
                     function payCancel(){
                         let test = confirm('정말 취소하시겠습니까?');
@@ -242,6 +243,7 @@
                                 //m_redirect_url : 'http://www.naver.com'
                             }, function (rsp) {
                                 if (rsp.success) {
+
                                     //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
                                     $.ajax({
                                         type: 'POST',
@@ -288,6 +290,51 @@
                                     //성공시 이동할 페이지
                                     location.href = 'getMallFeedList.do';
                                     alert(msg);
+                                    // 물품들 수량 감소
+                                    <c:forEach var="cartList" items="${cartList}">
+                                    // 장난감일 경우
+                                    <c:if test="${cartList.cartList_modify == 1}">
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "toyStockAbs.do", //cross-domain error가 발생하지 않도록 주의해주세요
+                                        dataType: 'json',
+                                        contentType : 'application/json',
+                                        data: JSON.stringify({
+                                            toy_stock : "${cartList.cartList_count}",
+                                            toy_name : "${cartList.cartList_name}",
+                                        }),
+                                        success : function(data) {
+                                            alert('장난감성공');
+                                        },
+                                        error: function(xhr) {
+                                            alert('장난감 실패')
+                                        }
+                                    });
+                                    </c:if>
+
+                                    // 사료일 경우
+                                    <c:if test="${cartList.cartList_modify == 2}">
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "feedStockAbs.do", //cross-domain error가 발생하지 않도록 주의해주세요
+                                        dataType: 'json',
+                                        contentType : 'application/json',
+                                        data: JSON.stringify({
+                                            feed_stock : "${cartList.cartList_count}",
+                                            feed_name : "${cartList.cartList_name}",
+                                        }),
+                                        success : function(data) {
+                                            alert('사료성공');
+                                        },
+                                        error: function(xhr) {
+                                            alert('사료 실패')
+                                        }
+                                    });
+                                    </c:if>
+
+                                    </c:forEach>
                                 } else {
                                     msg = '결제에 실패하였습니다.';
                                     // msg += '에러내용 : ' + rsp.error_msg;
