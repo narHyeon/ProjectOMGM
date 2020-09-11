@@ -99,8 +99,13 @@
                 </div>
             </div>
         </c:forEach>
+        <c:if test="${empty cartList}">
+            <div style="text-align: center; font-weight: lighter; margin-top: 5%;">
+            장바구니에 담겨 있는 상품이 없습니다
+            </div>
+        </c:if>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
-            <c:if test="${cartList!= null}">
+            <c:if test="${!empty cartList}">
                 <button type="submit" class="abutton" style="border: none;" onclick="cartListPay()">결제하기</button>
             </c:if>
             <c:if test="${cartList== null}">

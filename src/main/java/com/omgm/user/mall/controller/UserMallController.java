@@ -136,7 +136,20 @@ public class UserMallController {
     }
 
     ///////////////////// 카트 리스트 ///////////////////////////////////
-
+    // 카트리스트 장난감수량감소
+    @ResponseBody
+    @RequestMapping("/toyStockAbs.do")
+    public UserMallToyVO toyStockAbs(@RequestBody UserMallToyVO vo) throws Exception {
+        userMallService.toyStockDecrease(vo);
+        return vo;
+    }
+    // 카트리스트 사료 수량감소
+    @ResponseBody
+    @RequestMapping("/feedStockAbs.do")
+    public UserMallFeedVO toyStockAbs(@RequestBody UserMallFeedVO vo) throws Exception {
+        userMallService.feedStockDecrease(vo);
+        return vo;
+    }
     //장바구니 리스트 출력(미완성-현재는 사료리스트가 출력)
     @RequestMapping("/selectCartList.do")
     public ModelAndView cartList(CartListVO vo) throws Exception{

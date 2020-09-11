@@ -50,6 +50,7 @@
 		<!--	픽업서비스	-->
 		<typeAlias alias="PickUpVO" type="com.omgm.admin.pickup.beans.PickUpVO"/>
 
+		<typeAlias alias="roomreservation_m" type="com.omgm.admin.roomreservation.beans.RoomReservationVO_M"/>
 	</typeAliases>
 	<mappers>
 		<!--	메인페이지	-->
@@ -86,5 +87,6 @@
 		<!--	픽업서비스	-->
 		<mapper resource="mappings/pickUp/pickUp-mapping.xml" />
 
+		<mapper resource="mappings/roomReservation_m-mapping.xml" />
 	</mappers>
 </configuration>

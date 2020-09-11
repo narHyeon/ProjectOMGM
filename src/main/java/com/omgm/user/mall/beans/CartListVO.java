@@ -11,6 +11,32 @@ public class CartListVO {
     private int cartList_code;
     private String cartList_id;
     private int cartList_count;
+    private int cartList_modify;
+
+    @Override
+    public String toString() {
+        return "CartListVO{" +
+                "cartList_name='" + cartList_name + '\'' +
+                ", cartList_price=" + cartList_price +
+                ", cartList_discount=" + cartList_discount +
+                ", cartList_stock=" + cartList_stock +
+                ", cartList_point=" + cartList_point +
+                ", cartList_info='" + cartList_info + '\'' +
+                ", cartList_img='" + cartList_img + '\'' +
+                ", cartList_code=" + cartList_code +
+                ", cartList_id='" + cartList_id + '\'' +
+                ", cartList_count=" + cartList_count +
+                ", cartList_modify=" + cartList_modify +
+                '}';
+    }
+
+    public int getCartList_modify() {
+        return cartList_modify;
+    }
+
+    public void setCartList_modify(int cartList_modify) {
+        this.cartList_modify = cartList_modify;
+    }
 
     public int getCartList_count() {
         return cartList_count;
