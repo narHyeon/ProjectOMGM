@@ -84,7 +84,7 @@
         </div>
         <div style="margin-top: -0.5%;">
             <input name="uploadFile"
-                   id="productRegister_change_text_00" type="file" class="title"/><br
+                   id="productRegister_change_text_00" type="file" class="title"/><br>
         </div>
         <div style="display: flex">
         <div style="width: 50%;">

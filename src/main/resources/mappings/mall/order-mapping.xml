@@ -189,9 +189,16 @@
     <!--#######  mypage mall order 관련 쿼리문  #########################################################################-->
 
     <select id="myOrder" resultType="OrderVO" >
-         select * from order_list  WHERE order_id=#{order_id} order by order_no asc
+         select * from order_list  WHERE order_id=#{order_id} order by order_no DESC
     </select>
 
+    <update id="updateOrder" parameterType="OrderVO">
+        UPDATE order_list set order_state='반품처리' where order_no=#{order_no}
+    </update>
+
+    <update id="exchangeOrder" parameterType="OrderVO">
+        UPDATE order_list set order_state='교환처리' where order_no=#{order_no}
+    </update>
 
 </mapper>
 
