@@ -298,14 +298,24 @@
 		}
 
 		function fixedReview() {
-			let boo = prompt('비밀번호를 입력해주세요','Password');
-			if(boo === '${review.pwd}') window.location.href = 'fixedReview.do?seq=${review.seq}';
-			else swal('비밀번호가 다릅니다!');
+			swal({
+				text: '비밀번호를 입력해주세요!',
+				content: 'input',
+				buttons: ['취소','확인']
+			}).then(boo => {
+				if(boo === '${review.pwd}') window.location.href = 'fixedReview.do?seq=${review.seq}';
+				else swal('비밀번호가 다릅니다!');
+			});
 		}
 		function deleteReview() {
-        	let boo = prompt('비밀번호를 입력해주세요','Password');
-        	if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
-			else swal('비밀번호가 다릅니다!');
+			swal({
+				text: '비밀번호를 입력해주세요!',
+				content: 'input',
+				buttons: ['취소','확인']
+			}).then(boo => {
+				if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
+				else swal('비밀번호가 다릅니다!');
+			});
 		}
 
 		function deleteReply() {
