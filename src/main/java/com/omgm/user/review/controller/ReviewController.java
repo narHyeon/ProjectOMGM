@@ -113,7 +113,9 @@ public class ReviewController {
 
     @ResponseBody
     @RequestMapping("deleteReply.do")
-    public void deleteReply(@RequestBody ReviewReplyVO vo) {
+    public ModelAndView deleteReply(@RequestBody ReviewReplyVO vo, ModelAndView mav) {
         reviewService.deleteReply(vo);
+        mav.setViewName("/review/reviewContent");
+        return mav;
     }
 }

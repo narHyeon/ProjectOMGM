@@ -310,10 +310,11 @@
 
 		function deleteReply() {
         	const seq = event.target.value;
+        	console.log(seq);
 			const xhr = new XMLHttpRequest();
 
 			xhr.onload = () => {
-				if(xhr.readyState === 200) {
+				if(xhr.status === 200) {
 					swal('댓글이 삭제되었습니다!');
 				}
 			}
