@@ -183,7 +183,7 @@
 					<p>${rv.content}</p>
 					<p>${rv.formatDate}</p>
 					<c:if test="${member.id == rv.writer}">
-						<p><button style="height:20px;">삭제</button></p>
+						<p><button style="height:20px;" value="${rv.seq}" onClick="deleteReply()">삭제</button></p>
 					</c:if>
 				</div>
 			</c:forEach>
@@ -306,6 +306,23 @@
         	let boo = prompt('비밀번호를 입력해주세요','Password');
         	if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
 			else swal('비밀번호가 다릅니다!');
+		}
+
+		function deleteReply() {
+        	const seq = event.target.value;
+			const xhr = new XMLHttpRequest();
+
+			xhr.onload = () => {
+				if(xhr.readyState === 200) {
+					swal('댓글이 삭제되었습니다!');
+				}
+			}
+
+			xhr.open('POST', 'deleteReply.do',true);
+			xhr.setRequestHeader('Content-type', 'application/json');
+
+			const data = { seq: seq };
+			xhr.send(JSON.stringify(data));
 		}
     </script>
 </body>

@@ -110,4 +110,10 @@ public class ReviewController {
         mav.setViewName("redirect:reviewListBoard.do");
         return mav;
     }
+
+    @ResponseBody
+    @RequestMapping("deleteReply.do")
+    public void deleteReply(@RequestBody ReviewReplyVO vo) {
+        reviewService.deleteReply(vo);
+    }
 }

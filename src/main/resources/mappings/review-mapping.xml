@@ -86,4 +86,8 @@
 	<delete id="deleteReview" parameterType="ReviewVO">
 		DELETE FROM reviewBoard WHERE seq = #{seq}
 	</delete>
+
+	<delete id="deleteReply" parameterType="ReviewReplyVO">
+		DELETE FROM reviewReply WHERE seq = #{seq}
+	</delete>
 </mapper>
