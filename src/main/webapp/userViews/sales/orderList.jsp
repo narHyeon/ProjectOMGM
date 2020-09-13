@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: Jury
@@ -219,7 +219,10 @@
 
     <c:forEach var="myOrder" items="${myOrder}">
 
-        <div id="orderView_div">${myOrder.order_date}</div>
+        <div id="orderView_div">${myOrder.order_date}
+<%--            <fmt:formatDate value="${myOrder.order_date}" pattern="yyyy-MM-dd HH:mm:ss">--%>
+<%--            </fmt:formatDate>--%>
+        </div>
 
         <li class="myOrder_list">
 
@@ -230,9 +233,17 @@
                     <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span  class="myorderInfo">   ${myOrder.order_no}</span><br/>
                         <span class="order_pro">최종 가격 </span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
                     <span class="order_pro">주문상태</span><span class="myorderInfo" id="status">   ${myOrder.order_state}</span></div>
-                    <div class="myorderBtn"><a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
-<%--                        <button id="myorderChat" class="update" type="button" onclick="modal('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 교환/반품 </button>--%>
-                        <button id="myorderChat" class="detail" type="button" onclick="modal('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
+                    <div class="myorderBtn">
+                        <c:if test="${myOrder.order_state != '배송중'}">
+                        <a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
+                        </c:if>
+                       <c:if test="${myOrder.order_state == '배송완료'}">
+                           <button id="myorderChat" type="button" onclick="modal1('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
+                        </c:if>
+                        <c:if test="${myOrder.order_state != '배송완료'}">
+                             <button id="myorderChat" type="button" onclick="modal2('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
+                        </c:if>
+
                 </div>
         </li>
     </c:forEach>
@@ -240,24 +251,7 @@
 </ul>
 <script language="JavaScript">
 
-<%--    <c:forEach var="myOrder" items="${myOrder}" >--%>
-
-<%--    $(document).ready(function() {--%>
-<%--        <c:if test="${myOrder.order_state == '배송완료'}">--%>
-<%--            $(".update").show();--%>
-<%--            $( ".detail" ).hide();--%>
-<%--        </c:if>--%>
-<%--        <c:if test="${myOrder.order_state != '배송완료'}">--%>
-<%--            $( ".update" ).hide();--%>
-<%--            $(".detail").show();--%>
-<%--        </c:if>--%>
-
-<%--        console.log("${myOrder.order_state}");--%>
-<%--    });--%>
-
-<%--    </c:forEach>--%>
-
-function modal(ido,no,status,receiver, zipcode, address, price,phone) {
+function modal1(ido,no,status,receiver, zipcode, address, price,phone) {
 
     swal({
         title: "주문상세정보",
@@ -347,6 +341,20 @@ function modal(ido,no,status,receiver, zipcode, address, price,phone) {
                     });
                 }
             });
+        }
+    });
+}
+
+function modal2(ido,no,status,receiver, zipcode, address, price,phone) {
+
+    swal({
+        title: "주문상세정보",
+        text: '\n수령인:' + receiver + '\n우편번호' + zipcode + '\n주소:' + address + '\n전화번호:' + phone + '\n최종가격:' + price,
+        buttons: {
+
+            confirm: {
+                text: '확인',
+            }
         }
     });
 }

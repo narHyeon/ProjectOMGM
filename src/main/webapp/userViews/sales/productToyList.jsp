@@ -33,8 +33,7 @@
 <body class="proList_body">
 <div class="slider_img">
     <div class="slider_slide" style="background-image: url(../../resources/img/mall/OMGMALL.jpg);"></div>
-    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall1.jpg);"></div>
-    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall2.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall3.jpg);"></div>
     <a class="slider_prev" onclick="button_click(-1)">&#10094</a>
     <a class="slider_next" onclick="button_click(1)">&#10095</a>
 </div>
