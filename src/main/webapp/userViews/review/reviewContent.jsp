@@ -182,6 +182,9 @@
 					<p>${rv.id} : </p>
 					<p>${rv.content}</p>
 					<p>${rv.formatDate}</p>
+					<c:if test="${member.id == rv.writer}">
+						<p><button style="height:20px;" value="${rv.seq}" onClick="deleteReply()">삭제</button></p>
+					</c:if>
 				</div>
 			</c:forEach>
 		</div>
@@ -189,10 +192,8 @@
 		<%--  댓글 달기  --%>
 		<div class="review_content_reply">
 			<div>
-				<label for="review_content_reply_name">이름</label> <input
-					id="review_content_reply_name" type="text"> <label
-					for="review_content_reply_pass">패스워드</label> <input
-					id="review_content_reply_pass" type="password">
+				<label for="review_content_reply_name">이름</label>
+				<input id="review_content_reply_name" type="text">
 			</div>
 			<textarea name="" id="review_content_reply_text" cols="15" rows="5"></textarea>
 			<button type="submit" id="review_content_reply_button"
@@ -215,30 +216,60 @@
 	</div>
 	<form id="review_throw" action="reviewContent.do"></form>
 	<script>
-        function sendData(id,pwd,content) {
+        function sendData(id,content) {
             const xhr = new XMLHttpRequest();
 
             xhr.open('POST', 'reviewContentReply.do',true);
             xhr.setRequestHeader('Content-type', 'application/json');
-            const data = { id: id, pwd: pwd, content: content, boardSeq: ${review.seq} };
+
+            let writer;
+
+            if('${member.id}' === '') {
+            	writer = Math.random()
+			} else {
+            	writer = '${member.id}';
+			}
+
+            const data = { id: id, content: content, boardSeq: ${review.seq}, writer: writer};
             xhr.send(JSON.stringify(data));
         }
 
         function addReply() {
             const id = document.querySelector('#review_content_reply_name');
-            const pwd = document.querySelector('#review_content_reply_pass');
             const content = document.querySelector('#review_content_reply_text');
 			const date = new Date();
+			const dateStr = String(date);
+
+			function dowPick(item) {
+				switch(item) {
+					case 'Jan': return 1;
+					case 'Feb': return 2;
+					case 'Mar': return 3;
+					case 'Apr': return 4;
+					case 'May': return 5;
+					case 'Jun': return 6;
+					case 'Jul': return 7;
+					case 'Aug': return 8;
+					case 'Sep': return 9;
+					case 'Oct': return 10;
+					case 'Nov': return 11;
+					case 'Dec': return 12;
+				}
+			}
+			const dateArr = dateStr.split(' ');
+			const month = dowPick(dateArr[1]);
+			const timeArr = dateArr[4].split(':');
+			const time = timeArr[0] + ':' + timeArr[1];
+
 			document.querySelector('#review_content_reply_content').innerHTML += `
                 <div>
                     <p>`+id.value+` : </p>
                     <p>`+content.value+`</p>
-					<p>날짜 : `+date.format('yyyy-MM-dd, HH:mm')+`</p>
+					<p>날짜 : `+dateArr[3]+`-`+month+`-`+dateArr[2]+`, `+time+`</p>
                 </div>
             `;
-            sendData(id.value,pwd.value,content.value);
+            sendData(id.value,content.value);
             id.value = '';
-            pwd.value = '';
             content.value = '';
         }
 
@@ -248,7 +279,7 @@
 
 		function prevContent(prev) {
         	if(prev === '없음') {
-        		alert('마지막 페이지입니다.');
+        		swal('마지막 페이지입니다.');
         		return;
 			}
 			const el = document.querySelector('#review_throw');
@@ -258,7 +289,7 @@
 
 		function nextContent(next) {
 			if(next === '없음') {
-				alert('마지막 페이지입니다.');
+				swal('마지막 페이지입니다.');
 				return;
 			}
 			const el = document.querySelector('#review_throw');
@@ -267,14 +298,43 @@
 		}
 
 		function fixedReview() {
-			let boo = prompt('비밀번호를 입력해주세요','Password');
-			if(boo === '${review.pwd}') window.location.href = 'fixedReview.do?seq=${review.seq}';
-			else alert('비밀번호가 다릅니다!');
+			swal({
+				text: '비밀번호를 입력해주세요!',
+				content: 'input',
+				buttons: ['취소','확인']
+			}).then(boo => {
+				if(boo === '${review.pwd}') window.location.href = 'fixedReview.do?seq=${review.seq}';
+				else swal('비밀번호가 다릅니다!');
+			});
 		}
 		function deleteReview() {
-        	let boo = prompt('비밀번호를 입력해주세요','Password');
-        	if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
-			else alert('비밀번호가 다릅니다!');
+			swal({
+				text: '비밀번호를 입력해주세요!',
+				content: 'input',
+				buttons: ['취소','확인']
+			}).then(boo => {
+				if(boo === '${review.pwd}') window.location.href = 'deleteReview.do?seq=${review.seq}';
+				else swal('비밀번호가 다릅니다!');
+			});
+		}
+
+		function deleteReply() {
+        	const seq = event.target.value;
+        	const parent = event.target.parentNode.parentNode;
+			const xhr = new XMLHttpRequest();
+
+			xhr.onload = () => {
+				if(xhr.status === 200) {
+					swal('댓글이 삭제되었습니다!');
+					parent.remove();
+				}
+			}
+
+			xhr.open('POST', 'deleteReply.do',true);
+			xhr.setRequestHeader('Content-type', 'application/json');
+
+			const data = { seq: seq };
+			xhr.send(JSON.stringify(data));
 		}
     </script>
 </body>

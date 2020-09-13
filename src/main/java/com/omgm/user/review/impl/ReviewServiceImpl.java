@@ -65,6 +65,11 @@ public class ReviewServiceImpl implements ReviewService {
         reviewDAO.deleteReview(vo);
     }
 
+    @Override
+    public void deleteReply(ReviewReplyVO vo) {
+        reviewDAO.deleteReply(vo);
+    }
+
 
     //RoomServiceImpl_m
     @Override

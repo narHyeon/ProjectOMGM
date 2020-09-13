@@ -37,6 +37,10 @@ public class ReviewController {
 
         PageNavigator navi = new PageNavigator(COUNTPERPAGE, PAGEPERGROUP, page, reviewService.selectCount());
         List<ReviewVO> list = reviewService.getListRoom(vo, navi);
+
+        DateFormat dateFormat = new SimpleDateFormat("날짜 : yyyy-MM-dd, HH:mm");
+        for(ReviewVO li : list) li.setFormatDate(dateFormat.format(li.getRegDate()));
+
         mav.addObject("reviewList",list);
         if(page > navi.getEndPageGroup()) page = navi.getEndPageGroup();
         mav.addObject("navi",navi);
@@ -108,6 +112,14 @@ public class ReviewController {
     public ModelAndView deleteReview(ReviewVO vo, ModelAndView mav) {
         reviewService.deleteReview(vo);
         mav.setViewName("redirect:reviewListBoard.do");
+        return mav;
+    }
+
+    @ResponseBody
+    @RequestMapping("deleteReply.do")
+    public ModelAndView deleteReply(@RequestBody ReviewReplyVO vo, ModelAndView mav) {
+        reviewService.deleteReply(vo);
+        mav.setViewName("/review/reviewContent");
         return mav;
     }
 }
