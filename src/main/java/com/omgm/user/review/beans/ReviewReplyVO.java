@@ -8,7 +8,6 @@ public @Data class ReviewReplyVO {
     private int seq;
     private int boardSeq;
     private String id;
-    private String pwd;
     private String content;
     private Date regDate;
     private String formatDate;

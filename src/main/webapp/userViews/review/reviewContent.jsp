@@ -182,7 +182,9 @@
 					<p>${rv.id} : </p>
 					<p>${rv.content}</p>
 					<p>${rv.formatDate}</p>
-					<p><button style="height:20px;">삭제</button></p>
+					<c:if test="${member.id == rv.writer}">
+						<p><button style="height:20px;">삭제</button></p>
+					</c:if>
 				</div>
 			</c:forEach>
 		</div>
@@ -190,10 +192,8 @@
 		<%--  댓글 달기  --%>
 		<div class="review_content_reply">
 			<div>
-				<label for="review_content_reply_name">이름</label> <input
-					id="review_content_reply_name" type="text"> <label
-					for="review_content_reply_pass">패스워드</label> <input
-					id="review_content_reply_pass" type="password">
+				<label for="review_content_reply_name">이름</label>
+				<input id="review_content_reply_name" type="text">
 			</div>
 			<textarea name="" id="review_content_reply_text" cols="15" rows="5"></textarea>
 			<button type="submit" id="review_content_reply_button"
@@ -216,18 +216,26 @@
 	</div>
 	<form id="review_throw" action="reviewContent.do"></form>
 	<script>
-        function sendData(id,pwd,content) {
+        function sendData(id,content) {
             const xhr = new XMLHttpRequest();
 
             xhr.open('POST', 'reviewContentReply.do',true);
             xhr.setRequestHeader('Content-type', 'application/json');
-            const data = { id: id, pwd: pwd, content: content, boardSeq: ${review.seq}, writer:${member.id}};
+
+            let writer;
+
+            if('${member.id}' === '') {
+            	writer = Math.random()
+			} else {
+            	writer = '${member.id}';
+			}
+
+            const data = { id: id, content: content, boardSeq: ${review.seq}, writer: writer};
             xhr.send(JSON.stringify(data));
         }
 
         function addReply() {
             const id = document.querySelector('#review_content_reply_name');
-            const pwd = document.querySelector('#review_content_reply_pass');
             const content = document.querySelector('#review_content_reply_text');
 			const date = new Date();
 			const dateStr = String(date);
@@ -260,9 +268,8 @@
 					<p>날짜 : `+dateArr[3]+`-`+month+`-`+dateArr[2]+`, `+time+`</p>
                 </div>
             `;
-            sendData(id.value,pwd.value,content.value);
+            sendData(id.value,content.value);
             id.value = '';
-            pwd.value = '';
             content.value = '';
         }
 
