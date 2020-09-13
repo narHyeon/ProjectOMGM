@@ -62,7 +62,7 @@
 </style>
 
 <div class="header">
-    <h1 style="padding-left: 50%; padding-top: 50px; font-weight: bold;">장바구니</h1>
+    <h1 style="padding-left: 50%; padding-top: 50px; font-size:24px; font-weight: bold;">장바구니</h1>
     <!-- "장바구니 기능 버튼" -->
 
 </div>
@@ -99,9 +99,17 @@
                 </div>
             </div>
         </c:forEach>
+        <c:if test="${empty cartList}">
+            <div style="text-align: center; font-weight: lighter; margin-top: 5%;">
+            장바구니에 담겨 있는 상품이 없습니다
+            </div>
+        </c:if>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
-            <c:if test="${cartList!= null}">
+            <c:if test="${!empty cartList}">
                 <button type="submit" class="abutton" style="border: none;" onclick="cartListPay()">결제하기</button>
+            </c:if>
+            <c:if test="${cartList== null}">
+                <button type="submit" class="abutton" style="display:none; border: none;" onclick="cartListPay()">결제하기</button>
             </c:if>
         </div>
 
@@ -111,6 +119,13 @@
 
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>--%>
 <script>
+
+    $(document).ready(function() {
+
+
+        }
+    });
+
     function upI(event){
         const num = event.target.value;
         const price = document.querySelector('#sum_p_num'+num).innerHTML;
@@ -140,10 +155,9 @@
                 cartList_id: "${member.id}",
                 cartList_code: "${cartList.cartList_code}",
                 cartList_count: document.querySelector('#p_num1${cartList.cartList_code}').value,
-
             }),
             success : function(data) {
-
+                
             },
             error: function(xhr) {
 
