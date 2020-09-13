@@ -355,7 +355,7 @@
                 myBarChart.update();
             },
             error: function (xhr) {
-                alert('유치원'+countsss)
+                // alert('유치원'+countsss)
                 myBarChart.data.datasets[1].data[countsss] = 0;
                 myBarChart.update();
             }
@@ -379,7 +379,7 @@
                 myBarChart.update();
             },
             error: function (xhr) {
-                alert('호텔'+countsss)
+                // alert('호텔'+countsss)
                 myBarChart.data.datasets[2].data[countsss] = 0;
                 myBarChart.update();
             }
