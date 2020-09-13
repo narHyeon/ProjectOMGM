@@ -231,7 +231,7 @@
                         <span class="order_pro">최종 가격 </span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
                     <span class="order_pro">주문상태</span><span class="myorderInfo" id="status">   ${myOrder.order_state}</span></div>
                     <div class="myorderBtn"><a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
-                        <button id="myorderChat" class="update" type="button" onclick="modal('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 교환/반품 </button>
+<%--                        <button id="myorderChat" class="update" type="button" onclick="modal('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 교환/반품 </button>--%>
                         <button id="myorderChat" class="detail" type="button" onclick="modal('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
                 </div>
         </li>
@@ -240,90 +240,116 @@
 </ul>
 <script language="JavaScript">
 
-    <c:forEach var="myOrder" items="${myOrder}" >
+<%--    <c:forEach var="myOrder" items="${myOrder}" >--%>
 
-    $(document).ready(function() {
-        <c:if test="${myOrder.order_state == '배송완료'}">
-            $(".update").show();
-            $( ".detail" ).hide();
-        </c:if>
-        <c:if test="${myOrder.order_state != '배송완료'}">
-            $( ".update" ).hide();
-            $(".detail").show();
-        </c:if>
+<%--    $(document).ready(function() {--%>
+<%--        <c:if test="${myOrder.order_state == '배송완료'}">--%>
+<%--            $(".update").show();--%>
+<%--            $( ".detail" ).hide();--%>
+<%--        </c:if>--%>
+<%--        <c:if test="${myOrder.order_state != '배송완료'}">--%>
+<%--            $( ".update" ).hide();--%>
+<%--            $(".detail").show();--%>
+<%--        </c:if>--%>
 
-        console.log("${myOrder.order_state}");
-    });
+<%--        console.log("${myOrder.order_state}");--%>
+<%--    });--%>
 
-    </c:forEach>
+<%--    </c:forEach>--%>
 
-    function modal(ido,no,status,receiver, zipcode, address, price,phone) {
+function modal(ido,no,status,receiver, zipcode, address, price,phone) {
 
-        swal({
-            title: "주문상세정보",
-            text: '\n수령인:' + receiver + '\n우편번호' + zipcode + '\n주소:' + address + '\n전화번호:' + phone + '\n최종가격:' + price,
-            buttons: {
-                update: {
-                    text: '교환/반품',
-                    value: true
-                },
-                confirm: {
-                    text: '확인',
-                    value: false
-                }
+    swal({
+        title: "주문상세정보",
+        text: '\n수령인:' + receiver + '\n우편번호' + zipcode + '\n주소:' + address + '\n전화번호:' + phone + '\n최종가격:' + price,
+        buttons: {
+            update: {
+                text: '교환/반품',
+                value: true
+            },
+            confirm: {
+                text: '확인',
+                value: false
             }
-        }).then(function (value) {
-            if (value) {
-                console.log("교환/반품");
-                swal({
-                    title: "교환/반품처리를 하시겠습니까?",
-                    icon: "warning",
-                    buttons: {
-                        update1: {
-                            text: '네',
-                            value: true
-                        },
-                        update2: {
-                            text: '아니요',
-                            value: false
-                        }
+        }
+    }).then(function (value) {
+        if (value) {
+            console.log("교환/반품");
+            swal({
+                title: "교환/반품처리를 신속히 처리해드리겠습니다.",
+                icon: "warning",
+                buttons: {
+                    update1: {
+                        text: '교환',
+                        value: true
                     },
-                    dangerMode: true
-                }).then((willDelete) => {
-                    if (willDelete) {
-                        swal({
-                            title: "교환/반품을 신속히 처리해드리겠습니다.",
-                            icon: "warning",
-                            buttons: {
-                                update1: {
-                                    text: '교환',
-                                    value: true
-                                },
-                                update2: {
-                                    text: '반품',
-                                    value: false
-                                }
-                            },
-                            dangerMode: true
-                        }).then((willDelete) => {
-                            if (willDelete) {
-                                window.location = "/myOrderExchange.do?order_no=" + no + "&&id=" + ido;
-                                swal("교환처리가 되었습니다.", {
-                                    icon: "success",
-                                });
-
-                            } else {
-                                window.location = "/myOrderUpdate.do?order_no=" + no + "&&id=" + ido;
-                                swal("반품처리가 되었습니다.", {
-                                    icon: "success"
-                                });
-                            }
-                        });
+                    update2: {
+                        text: '반품',
+                        value: false
                     }
-                });
-            }
-        });
-    }
+                },
+                dangerMode: true
+            }).then((willDelete) => {
+                if (willDelete) {
+                    swal({
+                        title: "교환처리를 진행합니다.",
+                        icon: "warning",
+                        buttons: {
+                            update1: {
+                                text: '네',
+                                value: true
+                            },
+                            update2: {
+                                text: '아니요',
+                                value: false
+                            }
+                        },
+                        dangerMode: true
+                    }).then((willDelete) => {
+                        if (willDelete) {
+                            window.location = "/myOrderExchange.do?order_no=" + no + "&&id=" + ido;
+                            swal("교환처리가 되었습니다.", {
+                                icon: "success",
+                            });
+
+                        } else {
+                            // window.location = "/myOrderUpdate.do?order_no=" + no + "&&id=" + ido;
+                            // swal("반품처리가 되었습니다.", {
+                            //     icon: "success"
+                            // });
+                        }
+                    });
+                }else{
+                    swal({
+                        title: "반품처리를 진행합니다.",
+                        icon: "warning",
+                        buttons: {
+                            update1: {
+                                text: '네',
+                                value: true
+                            },
+                            update2: {
+                                text: '아니요',
+                                value: false
+                            }
+                        },
+                        dangerMode: true
+                    }).then((willDelete) => {
+                        if (willDelete) {
+                            window.location = "/myOrderUpdate.do?order_no=" + no + "&&id=" + ido;
+                            swal("반품처리가 되었습니다.", {
+                                icon: "success"
+                            });
+
+                        } else {
+
+                        }
+                    });
+                }
+            });
+        }
+    });
+}
 
 </script>
 </body>
