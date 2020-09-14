@@ -15,4 +15,7 @@
 	<select id="selectListRoomAll" resultType="room">
 		SELECT * FROM ROOM ORDER by room_for DESC , room_kind DESC, room_rank DESC
 	</select>
+	<select id="getRoomListInfoAfterLoadReserve" resultType="room">
+		SELECT * FROM ROOM ORDER by room_for DESC , room_kind DESC, room_rank DESC
+	</select>
 </mapper>

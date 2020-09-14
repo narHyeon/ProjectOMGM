@@ -36,21 +36,20 @@
 		<typeAlias alias="CartListVO" type="com.omgm.user.mall.beans.CartListVO" />
 		<!--		-->
 		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
+		<typeAlias alias="faq_m" type="com.omgm.admin.faq.beans.FAQVO_M" />
 		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
+		<typeAlias alias="category_m" type="com.omgm.admin.category.beans.CategoryVO_M" />
 		<typeAlias alias="catcarelog" type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
+		<typeAlias alias="catcarelog_m" type="com.omgm.admin.catcarelog.beans.CatCareLogVO_M" />
 		<typeAlias alias="mypet" type="com.omgm.user.mypet.beans.MyPetVO" />
 		<!-- 객실관리	-->
 		<typeAlias alias="hotel" type="com.omgm.admin.hotel.beans.HotelVO" />
-		<typeAlias alias="faq_m" type="com.omgm.admin.faq.beans.FAQVO_M" />
-		<typeAlias alias="category_m" type="com.omgm.admin.category.beans.CategoryVO_M" />
 		<typeAlias alias="room" type="com.omgm.user.room.beans.RoomVO"/>
 		<typeAlias alias="room_m" type="com.omgm.admin.room.beans.RoomVO_M"/>
 		<typeAlias alias="roomreservation" type="com.omgm.user.roomreservation.beans.RoomReservationVO"/>
-
+		<typeAlias alias="roomreservation_m" type="com.omgm.admin.roomreservation.beans.RoomReservationVO_M"/>
 		<!--	픽업서비스	-->
 		<typeAlias alias="PickUpVO" type="com.omgm.admin.pickup.beans.PickUpVO"/>
-
-		<typeAlias alias="roomreservation_m" type="com.omgm.admin.roomreservation.beans.RoomReservationVO_M"/>
 	</typeAliases>
 	<mappers>
 		<!--	메인페이지	-->
@@ -72,21 +71,21 @@
 		<mapper resource="mappings/mall/mall-mapping.xml" />
 		<!-- -->
 		<mapper resource="mappings/faq-mapping.xml" />
-		<mapper resource="mappings/category-mapping.xml" />
 		<mapper resource="mappings/faq_m-mapping.xml" />
+		<mapper resource="mappings/category-mapping.xml" />
 		<mapper resource="mappings/category_m-mapping.xml" />
 		<mapper resource="mappings/catcarelog-mapping.xml" />
+		<mapper resource="mappings/catcarelog_m-mapping.xml" />
 		<mapper resource="mappings/mypet-mapping.xml" />
 		<!-- 객실관리 -->
 		<mapper resource="mappings/hotel-mapping.xml" />
 		<mapper resource="mappings/room-mapping.xml" />
 		<mapper resource="mappings/room-mapping_m.xml" />
-
 		<mapper resource="mappings/roomReservation-mapping.xml" />
-
+		<mapper resource="mappings/roomReservation_m-mapping.xml" />
 		<!--	픽업서비스	-->
 		<mapper resource="mappings/pickUp/pickUp-mapping.xml" />
 
-		<mapper resource="mappings/roomReservation_m-mapping.xml" />
+		
 	</mappers>
 </configuration>

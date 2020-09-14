@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.omgm.member.beans.MemberVO;
 import com.omgm.user.review.beans.PageNavigator;
 import com.omgm.user.room.beans.RoomVO;
+import com.omgm.user.room.service.RoomService;
 import com.omgm.user.roomreservation.beans.RoomReservationVO;
 import com.omgm.user.roomreservation.service.RoomReservationService;
 
@@ -28,16 +29,17 @@ public class RoomReservationController {
 
 	@Autowired
 	RoomReservationService roomReservationService;
+	@Autowired
+	RoomService roomService;
 	
 	//날자 클릭시 db서 예약 현황 ajax로 받아오는 컨트롤러
 	@RequestMapping(value = "/ajaxinsertRoomReservation.do", method = RequestMethod.POST)
 	@ResponseBody
-	public List<RoomVO>  getAllFAQList(RoomReservationVO vo, Model model,
+	public List<RoomVO>  getSelectedReserveInfo(RoomReservationVO vo, Model model,
 			@RequestParam(value = "year", defaultValue = "9999") String year,
 			@RequestParam(value = "month", defaultValue = "99") String month,
 			@RequestParam(value = "day", defaultValue = "99") String day
 			) {
-
 		if (month.length()==1) {
 			month = "0" + month;
 		}
@@ -46,11 +48,20 @@ public class RoomReservationController {
 		}
 		String selectedDate = year+month+day;	
 		List<RoomVO> roomList = roomReservationService.getSelectedDateInfo(selectedDate);
-		
 		return roomList;
 	}
+	
+	@RequestMapping(value = "/getRoomListInfoAfterLoadReserve.do", method = RequestMethod.POST)
+	@ResponseBody
+	public List<RoomVO> getRoomListInfoAfterLoadReserve() {
+		List<RoomVO> roomList = roomService.getRoomListInfoAfterLoadReserve();
+		return roomList;
+	}
+	
 	@RequestMapping(value = "/insertRoomReservation.do", method = RequestMethod.GET)
 	public ModelAndView goRoomReservation(ModelAndView mav) {
+		
+		
 		mav.setViewName("/roomReservation/insertRoomReservation");
 		return mav;
 	}
@@ -62,7 +73,6 @@ public class RoomReservationController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		Date date = sdf.parse(strdate);
 		vo.setROOMRESERVATION_STAYDAY(date);
-		//System.out.println(vo.toString());
 		MemberVO memvo = new MemberVO();
 		memvo = (MemberVO) session.getAttribute("member");
 		mav.addObject("reservationInfo",vo);
