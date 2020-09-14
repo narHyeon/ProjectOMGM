@@ -22,14 +22,11 @@ public class RoomReservationController_M {
 	@RequestMapping(value = "/roomReservationList.mdo", method = RequestMethod.GET)
 	public ModelAndView roomReservationList(RoomReservationVO_M vo, ModelAndView mav,
 			@RequestParam(value="page", defaultValue = "1") int page) {
-
 		int COUNTPERPAGE = 5; // 페이지당 10개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 5개의 페이지
         int count = roomReservationService_M.countRoomReservation(vo);
-        System.out.println(count);
         PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP, page,count);
 		List<RoomReservationVO_M> list = roomReservationService_M.roomReservationList(vo, navi);
-		System.out.println(list.size());
         mav.addObject("navi",navi);
 		mav.addObject("page", page);
 		mav.addObject("roomReservationList", list);

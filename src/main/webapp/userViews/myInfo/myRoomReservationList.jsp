@@ -23,38 +23,29 @@
 
 #head {
 	min-width: 60%;
-	margin-right: 15%;
-	margin-top: 2%;
-	margin-left: 28%;
+	width: 70%;
+	margin-top: 4%;
+	margin-left: 15%;
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding-bottom: 1%;
 	border-bottom: 2px solid #FFABB9;
 }
-
+#content {
+	display: flex;
+	flex-direction: column;
+	margin-left: 15%;
+	width: 70%;
+	height: 100%;
+}
 #body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
-	margin-bottom: 3%;
+	margin-bottom: 5%;
 }
 
-#banner {
-	display: flex;
-	width: 15%;
-	height: 30%;
-	flex-direction: column;
-	margin-left: 7%;
-	border-radius: 10px;
-}
 
-#content {
-	display: flex;
-	flex-direction: column;
-	margin-left: 6%;
-	width: 60%;
-	height: 100%;
-}
 
 .fieldsetstyle {
 	margin-top: 5%;
@@ -137,6 +128,9 @@
 .reviewList_page{
 	text-align: center;
 }
+.reviewList_page00{
+	margin-top: 2%;
+}
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -144,24 +138,6 @@
 		$(".main1").click(function() {
 			const reserNo = $(this).data("reserno");
 			window.location.href = 'getMyRoomReservation.do?ROOMRESERVATION_NO=' + reserNo ;
-		});
-		$("#myPageFs").click(function() {
-			window.location.href = 'myPage.do';
-		});
-		$("#myCatPageFs").click(function() {
-			window.location.href = 'myPetPage.do';
-		});
-		$("#myServiceListFs").click(function() {
-			window.location.href = 'myServiceList.do';
-		});
-		$("#myBuyListLogFs").click(function() {
-			window.location.href = 'myBuyListLog.do';
-		});
-		$("#myCatCareLogFs").click(function() {
-			window.location.href = 'myCatCareLog.do';
-		});
-		$("#myReViewFs").click(function() {
-			window.location.href = 'myReView.do';
 		});
 	});
 </script>
@@ -172,19 +148,6 @@
 			<h1>예약 정보</h1>
 		</div>
 		<div id="body">
-			<div id="banner">
-				<fieldset class="fieldsetstyle" id="myPageFs">내 정보</fieldset>
-				<fieldset class="fieldsetstyle" id="myCatPageFs">내 고양이 정보
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myServiceListFs">서비스
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myBuyListLogFs">구매내역
-				</fieldset>
-				<fieldset class="fieldsetstyle" id="myCatCareLogFs">반려묘
-					일지</fieldset>
-				<fieldset class="fieldsetstyle" id="myReViewFs">내가 작성한 후기
-				</fieldset>
-			</div>
 			<div id="content">
 				<div id="tables">
 					<table class="board_table">
@@ -203,7 +166,6 @@
 								<tr class="main1" data-reserno="${reservation.ROOMRESERVATION_NO}">
 								<c:set var="todayTime"><fmt:formatDate value="${reservation.ROOMRESERVATION_NOWDATE}" pattern="yyyy-MM-dd"/></c:set> 
 								<c:set var="stayTime"><fmt:formatDate value="${reservation.ROOMRESERVATION_STAYDAY}" pattern="yyyy-MM-dd"/></c:set>
-									
 									<c:choose>
 										<c:when test="${stayTime gt todayTime}">
 											<td class="use_soon">이용예정</td>																					
@@ -229,6 +191,7 @@
 							</c:forEach>
 						</tbody>
 					</table><br>
+							
 							<div class="reviewList_page00">
 	<a href="myRoomReservationList.do" class="reviewList_page01">&lt;&lt;</a>
 	<a href="myRoomReservationList.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>

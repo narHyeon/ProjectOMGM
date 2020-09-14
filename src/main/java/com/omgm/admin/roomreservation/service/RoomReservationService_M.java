@@ -13,4 +13,6 @@ public interface RoomReservationService_M {
 
 	RoomReservationVO_M getRoomReservation(RoomReservationVO_M vo);
 
+	List<RoomReservationVO_M> roomReservationListAndCatCareLog(RoomReservationVO_M vo, PageNavigator navi);
+
 }
