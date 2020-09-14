@@ -101,7 +101,7 @@
         </c:forEach>
         <c:if test="${empty cartList}">
             <div style="text-align: center; font-weight: lighter; margin-top: 5%;">
-            장바구니에 담겨 있는 상품이 없습니다
+            장바구니에 담겨 있는 상품이 없습니다.
             </div>
         </c:if>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
