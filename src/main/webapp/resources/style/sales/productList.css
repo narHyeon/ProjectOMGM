@@ -291,7 +291,7 @@ a:hover {
     }
 }
 
-    @media screen and (max-width: 1008px) {
+@media screen and (max-width: 1008px) {
 
     .event_list ul {
         display: flex;
