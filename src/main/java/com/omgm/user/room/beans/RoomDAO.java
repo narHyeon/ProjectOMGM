@@ -30,5 +30,9 @@ public class RoomDAO {
 	public List<RoomVO> getListRoomAll() {
 		return sqlSessionTemplate.selectList("RoomDAO.selectListRoomAll");
 	}
+
+	public List<RoomVO> getRoomListInfoAfterLoadReserve() {
+		return sqlSessionTemplate.selectList("RoomDAO.getRoomListInfoAfterLoadReserve");
+	}
 	
 }
