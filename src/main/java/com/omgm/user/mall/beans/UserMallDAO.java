@@ -105,6 +105,11 @@ public class UserMallDAO {
     public List<OrderVO> myOrder(OrderVO vo) {
         return sqlSessionTemplate.selectList("MallOrderDAO.myOrder",vo);
     }
-
+    public void updateOrder(OrderVO vo) {
+        sqlSessionTemplate.update("MallOrderDAO.updateOrder", vo);
+    }
+    public void exchangeOrder(OrderVO vo) {
+        sqlSessionTemplate.update("MallOrderDAO.exchangeOrder", vo);
+    }
 
 }

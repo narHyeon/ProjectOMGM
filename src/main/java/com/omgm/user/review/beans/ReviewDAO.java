@@ -59,4 +59,8 @@ public class ReviewDAO {
         sqlSessionTemplate.delete("ReviewDAO.deleteReview",vo);
     }
 
+    public void deleteReply(ReviewReplyVO vo) {
+        sqlSessionTemplate.delete("ReviewDAO.deleteReply",vo);
+    }
+
 }

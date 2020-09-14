@@ -113,9 +113,21 @@ public class UserUserMallServiceImpl implements UserMallService {
 
     //////////// mypage mall order /////////////////////////////////////////
 
+    //마이페이지 구매리스트
     @Override
     public List<OrderVO> myOrder(OrderVO vo) throws Exception{
         return userMallDAO.myOrder(vo);
     }
 
+    //반품
+    @Override
+    public void updateOrder(OrderVO vo) throws Exception {
+        userMallDAO.updateOrder(vo);
+    }
+
+    //교환
+    @Override
+    public void exchangeOrder(OrderVO vo) throws Exception {
+        userMallDAO.exchangeOrder(vo);
+    }
 }

@@ -92,8 +92,13 @@ public class MainController {
                 notConfirm++;
             }
         }
+        mav.addObject("kgReservation",kgList);
+        mav.addObject("kgCount",notConfirm);
+        mav.addObject("KGList",mainService.getKGListToday());
 //        mav.addObject("kgReservation",kgList);
 //        mav.addObject("kgCount",mainService.);
+//        mav.addObject("KGList", mainService.getKGReservation());
+
         // 금일
         mav.addObject("RRList", mainService.getRRListToday());
         mav.addObject("kgReservation",mainService.getKGListToday());

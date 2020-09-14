@@ -15,7 +15,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <h1 class="h3 mb-0 text-gray-800">이번달 예약 현황</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
 
@@ -182,12 +182,12 @@
                                 <c:forEach begin="0" step="1" end="4" items="${kgReservation}" var="reservation">
                                     <li>${reservation.name} ${reservation.buyerName} ${reservation.animal}</li>
                                 </c:forEach>
-                            </div>
-<%--                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 개의 예약이 있습니다!</p>--%>
+
+                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;">현재 확인되지 않은 <strong>${kgCount}</strong> 개의 예약이 있습니다!</p>
 <%--                                <c:forEach var="KGList" items="${KGList}">--%>
 <%--                                    <li> <${KGList.name}>예약  ${KGList.animal}</li>--%>
 <%--                                </c:forEach>--%>
-<%--                            </div>--%>
+                            </div>
 <%--                            <p style="color:#36b9cc; margin: 20px 0 0 20px; font-size:90%;"></p>--%>
                         </div>
                     </div>
@@ -355,7 +355,7 @@
                 myBarChart.update();
             },
             error: function (xhr) {
-                alert('유치원'+countsss)
+                // alert('유치원'+countsss)
                 myBarChart.data.datasets[1].data[countsss] = 0;
                 myBarChart.update();
             }
@@ -379,7 +379,7 @@
                 myBarChart.update();
             },
             error: function (xhr) {
-                alert('호텔'+countsss)
+                // alert('호텔'+countsss)
                 myBarChart.data.datasets[2].data[countsss] = 0;
                 myBarChart.update();
             }

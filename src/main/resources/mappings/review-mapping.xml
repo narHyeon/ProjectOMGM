@@ -19,9 +19,9 @@
 		<id property="seq" column="SEQ" />
 		<result property="boardSeq" column="BOARDSEQ" />
 		<result property="id" column="ID" />
-		<result property="pwd" column="PWD" />
 		<result property="content" column="CONTENT" />
 		<result property="regDate" column="REGDATE" />
+		<result property="writer" column="WRITER" />
 	</resultMap>
 
 	<!-- 실 사용 -->
@@ -31,8 +31,8 @@
 	</insert>
 
 	<insert id="addReviewReply" parameterType="ReviewReplyVO">
-		INSERT INTO reviewReply (seq, boardSeq, id, pwd, content)
-		VALUES (review_reply_seq.nextval, #{boardSeq}, #{id}, #{pwd}, #{content})
+		INSERT INTO reviewReply (seq, boardSeq, id, content, writer)
+		VALUES (review_reply_seq.nextval, #{boardSeq}, #{id}, #{content}, #{writer})
 	</insert>
 	<select id="getReviewReply" resultMap="reply">
 		SELECT * FROM reviewReply WHERE boardSeq=#{boardSeq} ORDER BY seq
@@ -85,5 +85,9 @@
 
 	<delete id="deleteReview" parameterType="ReviewVO">
 		DELETE FROM reviewBoard WHERE seq = #{seq}
+	</delete>
+
+	<delete id="deleteReply" parameterType="ReviewReplyVO">
+		DELETE FROM reviewReply WHERE seq = #{seq}
 	</delete>
 </mapper>
