@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
 
 <mapper namespace="RoomReservationDAO_M">
+
+	<resultMap type="com.omgm.admin.roomreservation.beans.RoomReservationVO_M" id="roomReservationMap">
+		<id column ="ROOMRESERVATION_NO" property="ROOMRESERVATION_NO"/>
+		<result column="ROOMRESERVATION_ROOMNO" property="ROOMRESERVATION_ROOMNO"/>
+		<result column="ROOMRESERVATION_ROOMPRICE" property="ROOMRESERVATION_ROOMPRICE"/>
+		<result column="ROOMRESERVATION_ROOMSALERATE" property="ROOMRESERVATION_ROOMSALERATE"/>
+		<result column="ROOMRESERVATION_ROOMNAME" property="ROOMRESERVATION_ROOMNAME"/>
+		<result column="ROOMRESERVATION_MEMBERNO" property="ROOMRESERVATION_MEMBERNO"/>
+		<result column="ROOMRESERVATION_STAYDAY" property="ROOMRESERVATION_STAYDAY"/>
+		<result column="ROOMRESERVATION_PAYDAY" property="ROOMRESERVATION_PAYDAY"/>
+		<result column="ROOMRESERVATION_FOODNO" property="ROOMRESERVATION_FOODNO"/>
+		<result column="ROOMRESERVATION_FOODNAME" property="ROOMRESERVATION_FOODNAME"/>
+		<result column="ROOMRESERVATION_TOYNO" property="ROOMRESERVATION_TOYNO"/>
+		<result column="ROOMRESERVATION_TOYNAME" property="ROOMRESERVATION_TOYNAME"/>
+		<result column="ROOMRESERVATION_PICKUPYN" property="ROOMRESERVATION_PICKUPYN"/>
+		<result column="ROOMRESERVATION_PICKUPTIME" property="ROOMRESERVATION_PICKUPTIME"/>
+		<result column="ROOMRESERVATION_PICKUPADDRESS" property="ROOMRESERVATION_PICKUPADDRESS"/>
+		<result column="ROOMRESERVATION_PICKUPPHONENUM" property="ROOMRESERVATION_PICKUPPHONENUM"/>
+		<result column="ROOMRESERVATION_PICKUPANIMAL" property="ROOMRESERVATION_PICKUPANIMAL"/>
+		<result column="ROOMRESERVATION_PICKUPOWNER" property="ROOMRESERVATION_PICKUPOWNER"/>
+		<result column="ROOMRESERVATION_PICKUPNOTE" property="ROOMRESERVATION_PICKUPNOTE"/>
+		<result column="ROOMRESERVATION_USEPOINTYN" property="ROOMRESERVATION_USEPOINTYN"/>
+		<result column="ROOMRESERVATION_USEPOINT" property="ROOMRESERVATION_USEPOINT"/>
+		<result column="ROOMRESERVATION_PLUSPOINT" property="ROOMRESERVATION_PLUSPOINT"/>
+		<result column="ROOMRESERVATION_FIANLFEE" property="ROOMRESERVATION_FIANLFEE"/>
+		<result column = "SEQ" property="MEMBER_SEQ"/>
+		<result column = "ID" property="MEMBER_ID"/>
+		<result column = "NAME" property="MEMBER_NAME"/>
+		<result column = "PHONE" property="MEMBER_PHONE"/>
+		<result column = "ADDRESS" property="MEMBER_ADDRESS"/>
+		<result column = "POINT" property="MEMBER_POINT"/>
+		<result column = "RANK" property="MEMBER_RANK"/>
+	</resultMap>
+
 	<select id="countRoomReservation" parameterType="roomreservation_m" resultType="int">
 		SELECT count(*) FROM ROOMRESERVATION
 	</select>
-	<select id="roomReservationList" parameterType="roomreservation_m" resultType="roomreservation_m">
-		SELECT * FROM ROOMRESERVATION
+	<select id="roomReservationList" parameterType="roomreservation_m" resultMap="roomReservationMap">
+		SELECT ROOMRESERVATION.*, MEMBER.* 
+		FROM ROOMRESERVATION, MEMBER
+		WHERE ROOMRESERVATION.ROOMRESERVATION_MEMBERNO = MEMBER.SEQ
 		ORDER BY ROOMRESERVATION_STAYDAY DESC, ROOMRESERVATION_NO DESC
 	</select>
-	<select id="getRoomReservation" parameterType="roomreservation_m" resultType="roomreservation_m">
-		SELECT * FROM ROOMRESERVATION 
-		WHERE ROOMRESERVATION_NO = #{ROOMRESERVATION_NO}
+	<select id="getRoomReservation" parameterType="roomreservation_m" resultMap="roomReservationMap">
+		SELECT ROOMRESERVATION.*, MEMBER.* 
+		FROM ROOMRESERVATION, MEMBER 
+		WHERE ROOMRESERVATION.ROOMRESERVATION_MEMBERNO = MEMBER.SEQ
+		AND ROOMRESERVATION_NO = #{ROOMRESERVATION_NO}
 	</select>
-	
-
 </mapper>

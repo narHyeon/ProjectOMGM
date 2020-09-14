@@ -12,4 +12,6 @@ public interface RoomService {
 	int selectCountRoom(RoomVO vo);
 
 	RoomVO roomRead(RoomVO vo);
+
+	List<RoomVO> getRoomListInfoAfterLoadReserve();
 }

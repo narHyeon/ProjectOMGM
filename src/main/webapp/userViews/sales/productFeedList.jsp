@@ -157,8 +157,9 @@
         });
     });
     //상품상태출력
-    if ($('.toyname').text() != '') { $('.menu').show(); }
-
+    if ($('.toyname').text() != '') {
+    	$('.menu').show(); 
+    	}
 </script>
 </body>
 </html>

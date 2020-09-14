@@ -372,43 +372,63 @@
 						<td class="reservation_td_key">장난감명</td>
 						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_TOYNAME}</td>
 					</tr>
-					<tr>
 						<c:choose>
 							<c:when test="${reservationInfo.ROOMRESERVATION_PICKUPYN eq 'Y'}">
+							<tr>	
 								<td class="reservation_td_key">픽업신청여부</td>
 								<td class="reservation_td_value">픽업 서비스 신청</td>
+								<td class="reservation_td_key">픽업시간</td>
+								<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPTIME}시</td>
+							</tr>
+							<tr>
+								<td class="reservation_td_key">픽업연락처</td>
+								<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPPHONENUM}</td>
+								<td class="reservation_td_key">픽업주소</td>
+								<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPADDRESS}</td>
+							</tr>
+							<tr>
+								<td class="reservation_td_key">애완동물 종류</td>
+								<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPANIMAL}</td>
+								<td class="reservation_td_key">주인 동승여부</td>
+								<c:choose>
+									<c:when test="${reservationInfo.ROOMRESERVATION_PICKUPOWNER eq 'Y'}">
+										<td class="reservation_td_value">주인동승</td>
+									</c:when>
+									<c:otherwise>
+										<td class="reservation_td_value">동승안함</td>
+									</c:otherwise>
+								</c:choose>
+							</tr>
+							<tr>
+								<td class="reservation_td_key">메모 사항</td>
+								<td class="reservation_td_value" colspan="3">${reservationInfo.ROOMRESERVATION_PICKUPNOTE}</td>
+							</tr>
 							</c:when>
 							<c:otherwise>
+							<tr>
 								<td class="reservation_td_key">픽업신청여부</td>
 								<td class="reservation_td_value">픽업 서비스 신청 안함</td>
+								<td class="reservation_td_key">픽업시간</td>
+								<td class="reservation_td_value"></td>
+							</tr>
+							<tr>
+								<td class="reservation_td_key">픽업연락처</td>
+								<td class="reservation_td_value"></td>
+								<td class="reservation_td_key">픽업주소</td>
+								<td class="reservation_td_value"></td>
+							</tr>
+							<tr>
+								<td class="reservation_td_key">애완동물 종류</td>
+								<td class="reservation_td_value"></td>
+								<td class="reservation_td_key">주인 동승여부</td>
+								<td class="reservation_td_value"></td>
+							</tr>
+							<tr>
+								<td class="reservation_td_key">메모 사항</td>
+								<td class="reservation_td_value" colspan="3">${reservationInfo.ROOMRESERVATION_PICKUPNOTE}</td>
+							</tr>
 							</c:otherwise>
 						</c:choose>
-						<td class="reservation_td_key">픽업시간</td>
-						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPTIME}시</td>
-					</tr>
-					<tr>
-						<td class="reservation_td_key">픽업연락처</td>
-						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPPHONENUM}</td>
-						<td class="reservation_td_key">픽업주소</td>
-						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPADDRESS}</td>
-					</tr>
-					<tr>
-						<td class="reservation_td_key">애완동물 종류</td>
-						<td class="reservation_td_value">${reservationInfo.ROOMRESERVATION_PICKUPANIMAL}</td>
-						<td class="reservation_td_key">주인 동승여부</td>
-						<c:choose>
-							<c:when test="${reservationInfo.ROOMRESERVATION_PICKUPOWNER eq 'Y'}">
-							<td class="reservation_td_value">주인동승</td>
-							</c:when>
-							<c:otherwise>
-							<td class="reservation_td_value">동승안함</td>
-							</c:otherwise>
-						</c:choose>
-					</tr>
-					<tr>
-						<td class="reservation_td_key">메모 사항</td>
-						<td class="reservation_td_value" colspan="3">${reservationInfo.ROOMRESERVATION_PICKUPNOTE}</td>
-					</tr>
 				</tbody>
 			</table>
 		</section>

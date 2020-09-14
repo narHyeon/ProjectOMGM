@@ -339,6 +339,7 @@
     			const remove_form = $(click_form).parent().parent(); 
     			$(remove_form).remove();
     		});
+    		$("#modal_wrap")[0].scrollTop = $("#modal_wrap")[0].scrollHeight
     	});
     	$('.fab_minus').click(function() {
     		const click_form = $(this);
