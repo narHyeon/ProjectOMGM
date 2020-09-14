@@ -51,14 +51,15 @@ public class CatCareLogController_M {
 		return mav;
 	}
 
-	//냥박일지 작성 페이지로 이동
+	// 냥박일지 작성 페이지로 이동
 	@RequestMapping(value = "/writeCatCareLog.mdo", method = RequestMethod.GET)
 	public ModelAndView goInsertCatCareLog(CatCareLogVO_M vo, ModelAndView mav) {
 		mav.addObject("catcarelogInfo", vo);
 		mav.setViewName("catcarelog/writeCatCareLog");
 		return mav;
 	}
-	//냥박일지 작성후 작성 로직 처리
+
+	// 냥박일지 작성후 작성 로직 처리
 	@RequestMapping(value = "/writeCatCareLog.mdo", method = RequestMethod.POST)
 	public ModelAndView afterInsertCatCareLog(CatCareLogVO_M vo, ModelAndView mav, HttpSession session) {
 		MemberVO memvo = new MemberVO();
@@ -68,4 +69,31 @@ public class CatCareLogController_M {
 		mav.setViewName("redirect:/catCareLogList.mdo");
 		return mav;
 	}
+
+	// 냥박일지 수정 페이지로 이동
+	@RequestMapping(value = "/updateCatCareLog.mdo", method = RequestMethod.GET)
+	public ModelAndView goUpdateCatCareLog(CatCareLogVO_M vo, ModelAndView mav) {
+		CatCareLogVO_M getvo = new CatCareLogVO_M();
+		getvo = catCareLogService_M.getCatCareLog(vo);
+		mav.addObject("catcarelogInfo", getvo);
+		mav.setViewName("catcarelog/updateCatCareLog");
+		return mav;
+	}
+	
+	// 냥박일지 수정 로직 처리
+	@RequestMapping(value = "/updateCatCareLog.mdo", method = RequestMethod.POST)
+	public ModelAndView afterUpdateCatCareLog(CatCareLogVO_M vo, ModelAndView mav) {
+		catCareLogService_M.updateCatCareLog(vo);
+		mav.setViewName("redirect:/getCatCareLog.mdo?CATCARELOG_NO=" + vo.getCATCARELOG_NO());
+		return mav;
+	}
+
+	// 냥박일지 삭제 로직 처리
+	@RequestMapping(value = "/deleteCatCareLog.mdo", method = RequestMethod.GET)
+	public ModelAndView deleteCatCareLog(CatCareLogVO_M vo, ModelAndView mav) {
+		catCareLogService_M.deleteCatCareLog(vo);
+		mav.setViewName("redirect:/catCareLogList.mdo");
+		return mav;
+	}
+
 }

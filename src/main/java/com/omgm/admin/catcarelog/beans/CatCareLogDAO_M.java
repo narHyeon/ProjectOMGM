@@ -24,5 +24,13 @@ public class CatCareLogDAO_M {
 	public void insertCatCareLog(CatCareLogVO_M vo) {
 		sqlSessionTemplate.insert("CatCareLogDAO_M.insertCatCareLog",vo);
 	}
+
+	public void updateCatCareLog(CatCareLogVO_M vo) {
+		sqlSessionTemplate.update("CatCareLogDAO_M.updateCatCareLog", vo);
+	}
+
+	public void deleteCatCareLog(CatCareLogVO_M vo) {
+		sqlSessionTemplate.delete("CatCareLogDAO_M.deleteCatCareLog", vo);
+	}
 	
 }
