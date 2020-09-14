@@ -358,7 +358,7 @@
             buttons: {
 
                 confirm: {
-                    text: '확인',
+                    text: '확인'
                 }
             }
         });
