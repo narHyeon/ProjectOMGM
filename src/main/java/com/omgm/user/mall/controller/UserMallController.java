@@ -11,13 +11,12 @@ import com.omgm.user.mall.beans.UserMallToyVO;
 import com.omgm.user.mall.service.UserMallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static java.lang.System.console;
 
 @Controller
 public class UserMallController {
@@ -137,7 +136,20 @@ public class UserMallController {
     }
 
     ///////////////////// 카트 리스트 ///////////////////////////////////
-
+    // 카트리스트 장난감수량감소
+    @ResponseBody
+    @RequestMapping("/toyStockAbs.do")
+    public UserMallToyVO toyStockAbs(@RequestBody UserMallToyVO vo) throws Exception {
+        userMallService.toyStockDecrease(vo);
+        return vo;
+    }
+    // 카트리스트 사료 수량감소
+    @ResponseBody
+    @RequestMapping("/feedStockAbs.do")
+    public UserMallFeedVO toyStockAbs(@RequestBody UserMallFeedVO vo) throws Exception {
+        userMallService.feedStockDecrease(vo);
+        return vo;
+    }
     //장바구니 리스트 출력(미완성-현재는 사료리스트가 출력)
     @RequestMapping("/selectCartList.do")
     public ModelAndView cartList(CartListVO vo) throws Exception{
@@ -240,21 +252,32 @@ public class UserMallController {
     ///////////////////// 몰 주문내역(마이페이지) ///////////////////////////////////
 
     @RequestMapping("/myOrder.do")
-    public ModelAndView myOrder(OrderVO vo) throws Exception{
+    public ModelAndView myOrder(OrderVO vo,MemberVO vo1) throws Exception{
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/sales/orderList");
         mav.addObject("myOrder", userMallService.myOrder(vo));
         return mav;
     }
 
-//    @RequestMapping("/myReservation.do")
-//    public ModelAndView myReservation(OrderVO vo) throws Exception{
-//        ModelAndView mav = new ModelAndView();
-//        mav.setViewName("/sales/myReservation");
-////        mav.addObject("myReservation", userMallService.myReservation(vo));
-//        return mav;
-//    }
+    //반품처리
+    @RequestMapping("/myOrderUpdate.do")
+    public ModelAndView myOrderUpdate(OrderVO vo,MemberVO vo1, HttpServletRequest request) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        String id = request.getParameter("id");
+        userMallService.updateOrder(vo);
+        mav.setViewName("redirect:/myOrder.do?order_id="+id);
+        return mav;
+    }
 
+    //교환처리
+    @RequestMapping("/myOrderExchange.do")
+    public ModelAndView myOrderExchange(OrderVO vo,MemberVO vo1, HttpServletRequest request) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        String id = request.getParameter("id");
+        userMallService.exchangeOrder(vo);
+        mav.setViewName("redirect:/myOrder.do?order_id="+id);
+        return mav;
+    }
 }
 
 

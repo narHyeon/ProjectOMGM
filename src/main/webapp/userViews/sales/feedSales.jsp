@@ -76,6 +76,7 @@
                 <input type="hidden" name="cartList_point" value="${feedList.feed_point}" />
 <%--                <input type="hidden" name="cartList_info" value="${feedList.feed_info}" />--%>
                 <input type="hidden" name="cartList_img" value="${feedList.feed_img}" />
+                <input type="hidden" name="cartList_modify" value="2" />
             <button type="submit" style="cursor: pointer" class="byt-immediately01" onclick="javascript:  alert('등록이 완료 되었습니다.'); ">장바구니 담기</button>
             </form>
             </c:if>
@@ -115,6 +116,22 @@
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
 
 <script>
+    function addToys() {
+        let foo = document.getElementById("number-of-toy").innerHTML;
+        foo++;
+        const priceOfToyOfSelect = document.querySelector("#toy-sales-section01").innerHTML;
+
+        document.getElementById("number-of-toy").innerHTML = foo;
+        document.getElementById("total-toy-prices").innerHTML = foo * ${feedList.feed_discount};
+    }
+
+    function absToys() {
+        var foo = document.getElementById("number-of-toy").innerHTML;
+        foo--;
+        if (foo < 0) foo = 0;
+        document.getElementById("number-of-toy").innerHTML = foo;
+        document.getElementById("total-toy-prices").innerHTML = foo * ${feedList.feed_discount};
+    }
     function buyImmediately00() {
         var countProduct = document.getElementById("number-of-toy");
         var salesOption = document.getElementById("toy-sales-option");

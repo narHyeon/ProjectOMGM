@@ -32,9 +32,9 @@
 </head>
 <body class="proList_body">
 <div class="slider_img">
-    <div class="slider_slide" style="background-image: url(../../resources/img/roomIntroduction/01.jpg);"></div>
-    <div class="slider_slide" style="background-image: url(../../resources/img/roomIntroduction/04.jpg);"></div>
-    <div class="slider_slide" style="background-image: url(../../resources/img/roomIntroduction/02.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(../../resources/img/mall/OMGMALL.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall1.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall2.jpg);"></div>
     <a class="slider_prev" onclick="button_click(-1)">&#10094</a>
     <a class="slider_next" onclick="button_click(1)">&#10095</a>
 </div>
@@ -75,9 +75,9 @@
                             <div class="info">
                                 <strong>${toyList.toy_name}</strong>
                                 <p style="font-size: 18px; color:#F28888;">${toyList.toy_discount}원</p>
-<%--                                <p>--%>
-<%--                                    <span><fmt:formatDate value="${toyList.toy_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
-<%--                                </p>--%>
+                                    <%--                                <p>--%>
+                                    <%--                                    <span><fmt:formatDate value="${toyList.toy_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
+                                    <%--                                </p>--%>
                             </div>
                         </a>
                     </li>
@@ -92,7 +92,7 @@
             <li class="prev"><a href="getMallToyList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.page == counter}">
-                <a href="getMallToyList.do?page=${counter}"style="background-color: lightpink; padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
+                    <a href="getMallToyList.do?page=${counter}"style="background-color: lightpink; padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
                 <c:if test="${page.page != counter}">
                     <a href="getMallToyList.do?page=${counter}" >&nbsp;&nbsp;${counter}</a>
@@ -102,16 +102,16 @@
             <li class="last"><a href="getMallToyList.do?page=${navi.totalRecordsCount}"><span class="hide">마지막페이지</span></a></li>
         </ul>
     </div>
-<%--    <div class="pro_paging">--%>
-<%--        <ul>--%>
-<%--            <li class="first"><a href=""><span class="hide">첫페이지</span></a></li>--%>
-<%--            <li class="prev"><a href=""><span class="hide">이전페이지</span></a></li>--%>
-<%--            <li><a href="" class="on">1</a></li>--%>
-<%--            <li><a href="">2</a></li>--%>
-<%--            <li class="next"><a href=""><span class="hide">다음페이지</span></a></li>--%>
-<%--            <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
+    <%--    <div class="pro_paging">--%>
+    <%--        <ul>--%>
+    <%--            <li class="first"><a href=""><span class="hide">첫페이지</span></a></li>--%>
+    <%--            <li class="prev"><a href=""><span class="hide">이전페이지</span></a></li>--%>
+    <%--            <li><a href="" class="on">1</a></li>--%>
+    <%--            <li><a href="">2</a></li>--%>
+    <%--            <li class="next"><a href=""><span class="hide">다음페이지</span></a></li>--%>
+    <%--            <li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>--%>
+    <%--        </ul>--%>
+    <%--    </div>--%>
 
 </main>
 
