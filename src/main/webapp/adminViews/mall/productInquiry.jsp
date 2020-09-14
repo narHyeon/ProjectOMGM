@@ -49,22 +49,25 @@
 }
 </style>
 
-	<a href="productInquiryFeed.mdo">사료 상품 조회 이동</a>
+
 
 	<div id="productInquiry_searchbox">
-		<div class="header">
+		<div class="container">
+			<a href="productInquiryFeed.mdo">사료 상품 조회 이동</a>
+
+			<div class="header">
 			<h1>장난감 상품 조회</h1>
 			<input onkeyup="filter()" type="text" id="value" placeholder="코드 검색">
 		</div>
 		<div
-			style="display: flex; justify-content: flex-end; padding-right: 10%; margin-bottom: -2%;">
+			style="display: flex; justify-content: flex-end; padding-right: 4%; margin-bottom: -2%;">
 			<a href="productRegister.mdo"><button class="btn btn-info">상품
 					등록하기</button></a>
 		</div>
 		<div style="display: flex; margin-top: 2%; margin-bottom: 2%;">
 			<%--        <p style="margin">장난감 코드</p>--%>
 		</div>
-		<div class="container">
+
 			<span class="name01">장난감 이미지</span> <span class="name01">장난감
 				코드</span> <span class="name01">장난감 이름</span> <span class="name01">장난감
 				입고날짜</span> <span class="name01">장난감 가격</span> <span class="name01">장난감
