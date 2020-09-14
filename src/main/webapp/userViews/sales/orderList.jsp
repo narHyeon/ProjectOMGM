@@ -216,42 +216,42 @@
 <hr id="orderList_hr" size="5" color="pink" style="width:70%; margin: 0 auto; margin-top:31px;">
 
 <ul class="orderView">
-<c:if test="${!empty myOrder}">
-    <c:forEach var="myOrder" items="${myOrder}">
+    <c:if test="${!empty myOrder}">
+        <c:forEach var="myOrder" items="${myOrder}">
 
-        <div id="orderView_div">
-            <fmt:formatDate
-                    value="${myOrder.order_date}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate>
-        </div>
-
-        <li class="myOrder_list">
-
-            <div id="myOrder_div">
-                <span style="display:inline-block; width: 80%; white-space:nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:4%; margin-top:20px;" class="order_name" value="${myOrder.order_name}">[OMGMALL] ${myOrder.order_name}</span><br/>
-                <hr size="1" width="93%" color="#9da0a5" style="margin: 0 auto; margin-top:26px; margin-bottom: 30px; ">
-                <img id="order_img"  src="../../resources/img/product/${fn:split(myOrder.order_img,',')[0]}"/>
-                <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span  class="myorderInfo">   ${myOrder.order_no}</span><br/>
-                    <span class="order_pro">최종 가격 </span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
-                    <span class="order_pro">주문상태</span><span class="myorderInfo" id="status">   ${myOrder.order_state}</span></div>
-                <div class="myorderBtn">
-                    <c:if test="${myOrder.order_state != '배송중'}">
-                        <a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
-                    </c:if>
-                    <c:if test="${myOrder.order_state == '배송완료'}">
-                    <button id="myorderChat" type="button" onclick="modal1('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
-                </c:if>
-                <c:if test="${myOrder.order_state != '배송완료'}">
-                <button id="myorderChat" type="button" onclick="modal2('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
-            </c:if>
-
+            <div id="orderView_div">
+                <fmt:formatDate
+                        value="${myOrder.order_date}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate>
             </div>
-        </li>
-    </c:forEach>
-</c:if>
-    <div style="text-align: center; font-weight: lighter; margin-top: 5%;">
-    <c:if test="${empty myOrder}">
-        구매하신 물품이 없습니다.
+
+            <li class="myOrder_list">
+
+                <div id="myOrder_div">
+                    <span style="display:inline-block; width: 80%; white-space:nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:4%; margin-top:20px;" class="order_name" value="${myOrder.order_name}">[OMGMALL] ${myOrder.order_name}</span><br/>
+                    <hr size="1" width="93%" color="#9da0a5" style="margin: 0 auto; margin-top:26px; margin-bottom: 30px; ">
+                    <img id="order_img"  src="../../resources/img/product/${fn:split(myOrder.order_img,',')[0]}"/>
+                    <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span  class="myorderInfo">   ${myOrder.order_no}</span><br/>
+                        <span class="order_pro">최종 가격 </span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
+                        <span class="order_pro">주문상태</span><span class="myorderInfo" id="status">   ${myOrder.order_state}</span></div>
+                    <div class="myorderBtn">
+                        <c:if test="${myOrder.order_state != '배송중'}">
+                            <a href="/reviewWrite.do"><button id="myorderReview" type="button"> 후기쓰기</button></a>
+                        </c:if>
+                        <c:if test="${myOrder.order_state == '배송완료'}">
+                        <button id="myorderChat" type="button" onclick="modal1('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
+                    </c:if>
+                    <c:if test="${myOrder.order_state != '배송완료'}">
+                    <button id="myorderChat" type="button" onclick="modal2('${member.id}','${myOrder.order_no}','${myOrder.order_state}','${myOrder.order_receiver}','${myOrder.order_zipcode}','${myOrder.order_address}','${myOrder.order_price}','${myOrder.order_phone}')" > 주문상세보기 </button></div>
+                </c:if>
+
+                </div>
+            </li>
+        </c:forEach>
     </c:if>
+    <div style="text-align: center; font-weight: lighter; margin-top: 5%;">
+        <c:if test="${empty myOrder}">
+            구매하신 물품이 없습니다.
+        </c:if>
     </div>
 </ul>
 <script >

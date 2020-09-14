@@ -20,15 +20,15 @@
     <link rel="stylesheet" href="../../resources/style/sales/productList.css">
     <script src="https://kit.fontawesome.com/844385d242.js" crossorigin="anonymous"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<style>
-    .search { padding: 20px 0; text-align: center; font-size: 0;}
-    .search * { margin: 0 5px; height: 53px; border: 1px solid #ccc;}
-    .search select { width: 30%;height: 41px;font-size: 16px;}
-    .search #searchKeyword { width: 38%;height: 41px;font-size: 16px;}
-    .search #submit { width: 22%;height: 41px;border-color: #F28888;color:white; background: #F28888; cursor: pointer;}
-    /*.search button { width:150px; border: none; background: #ed1846; color:#fff;}*/
+    <style>
+        .search { padding: 20px 0; text-align: center; font-size: 0;}
+        .search * { margin: 0 5px; height: 53px; border: 1px solid #ccc;}
+        .search select { width: 30%;height: 41px;font-size: 16px;}
+        .search #searchKeyword { width: 38%;height: 41px;font-size: 16px;}
+        .search #submit { width: 22%;height: 41px;border-color: #F28888;color:white; background: #F28888; cursor: pointer;}
+        /*.search button { width:150px; border: none; background: #ed1846; color:#fff;}*/
 
-</style>
+    </style>
 </head>
 <body class="proList_body">
 <div class="slider_img">
@@ -67,23 +67,23 @@
 
             <form action="productDetail.do" class="product_form">
 
-          <c:forEach var="FeedList" items="${FeedList}">
-            <li class="pro_Li" style="padding-left:5%;">
-                <a href="getMallFeedOneInfoSales.do?feed_code=${FeedList.feed_code}">
-                    <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
-                    <div class="menu" style="display: none;">
-                        <em>NEW</em>
-                    </div>
-                    <div class="info">
-                        <strong>${FeedList.feed_name}</strong>
-                        <p style="font-size: 18px; color:#F28888;">${FeedList.feed_discount}원</p>
-<%--                        <p>--%>
-<%--                            <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
-<%--                        </p>--%>
-                    </div>
-                </a>
-            </li>
-          </c:forEach>
+                <c:forEach var="FeedList" items="${FeedList}">
+                    <li class="pro_Li" style="padding-left:5%;">
+                        <a href="getMallFeedOneInfoSales.do?feed_code=${FeedList.feed_code}">
+                            <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                            <div class="menu" style="display: none;">
+                                <em>NEW</em>
+                            </div>
+                            <div class="info">
+                                <strong>${FeedList.feed_name}</strong>
+                                <p style="font-size: 18px; color:#F28888;">${FeedList.feed_discount}원</p>
+                                    <%--                        <p>--%>
+                                    <%--                            <span><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
+                                    <%--                        </p>--%>
+                            </div>
+                        </a>
+                    </li>
+                </c:forEach>
             </form>
         </ul>
     </div>
@@ -94,7 +94,7 @@
             <li class="prev"><a href="getMallFeedList.do?page=${navi.startPageGroup-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.page == counter}">
-                <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" style="background-color: lightpink;  padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
+                    <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" style="background-color: lightpink;  padding-right: 0.4%" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
                 <c:if test="${page.page != counter}">
                     <a href="getMallFeedList.do?page=${counter}" name="${page.page}"id="pageNextColorB" >&nbsp;&nbsp;${counter}</a>
@@ -113,12 +113,12 @@
         const color = document.getElementsByName(${page.page});
 
     }
-<%--    페이지 번호 누를때 색깔 입히기--%>
+    <%--    페이지 번호 누를때 색깔 입히기--%>
 
-// $(document).on("click","pageNextColorB",function(){
-//    var pageNext = $(this).attr('value');
-//    alert(pageNext);
-// });
+    // $(document).on("click","pageNextColorB",function(){
+    //    var pageNext = $(this).attr('value');
+    //    alert(pageNext);
+    // });
     <%--  이미지 슬라이더  --%>
     let currSlide = 1;
     showSlide(currSlide);
