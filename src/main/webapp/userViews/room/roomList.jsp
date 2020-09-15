@@ -65,7 +65,6 @@
    		<li>
 			<a class="roomList_room" data-no="${room.ROOM_NO}">
         	<div class="img"><img src="${room.ROOM_IMG}" width="271px" height="272px"></div>
-        	<em id="roomList_em">예약하기</em>
 	        <div class="info">
     	    	<strong id="roomList_content_strong">${room.ROOM_NAME}</strong>
         	    <p id="roomList_content_p">

@@ -17,6 +17,8 @@ public interface RoomReservationService {
 	int selectCountReservation(RoomReservationVO vo);
 
 	List<RoomReservationVO> selectListRoomReservation(RoomReservationVO vo, PageNavigator navi);
+
+	List<RoomReservationVO> selectListRoomReservationAndCatCareLog(RoomReservationVO vo, PageNavigator navi);
 	
 
 }
