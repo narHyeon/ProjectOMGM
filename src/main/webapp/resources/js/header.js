@@ -416,7 +416,13 @@ function kakaoPay(payment,url) {
 
                 xhr.onload = () => {
                     if(xhr.status === 200) {
-                        window.location.href = 'main.do';
+                        swal({
+                            title: "결제완료",
+                            text: "메인페이지로 이동합니다.",
+                            icon: "success",
+                        }).then(() => {
+                            window.location.href = 'main.do';
+                        });
                     }
                 }
 
