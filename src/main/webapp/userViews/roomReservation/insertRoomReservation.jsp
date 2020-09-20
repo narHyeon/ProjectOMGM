@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>Title</title>
@@ -35,6 +36,7 @@
 	color: black;
 	margin: 30px;
 	font-size: 21px;
+	font-weight: bold;
 }
 
 #calendar #calendar_table {
@@ -215,21 +217,27 @@
 	color: #FF7737;
 	font-size: 18px;
 }
-#reservationy{
+.reservationy{
 	color: #2ecc71;
 }
-#reservationn{
+.reservationn{
 	color: #FF3737;
 }
 td{
 	border: 1px solid black;
+}
+#reserve_head{
+	font-weight: bold;
+}
+#reser_input{
+	font-weight: bold;
 }
 </style>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-
+<script> window.contextPath = "<c:url value="/"/>";</script>
 
 
 <script type="text/javascript">
@@ -242,7 +250,6 @@ td{
 				todayid = $(this).attr("id");
 			};
 		});
-
 		/* 날자 선택했을때*/
 		$(".reservation_dates").click(function() {
 			const year = $(this).data('year');
@@ -264,7 +271,7 @@ td{
 					});
 					$(this).css("background-color","#F28888");
 
-					$("#reser_input").html(year+"년"+month+"월"+day+"일");
+					$("#reser_input").html("방 선택");
 					$("#reser_input").data("year", year);
 					$("#reser_input").data("month", month);
 					$("#reser_input").data("day", day);
@@ -273,82 +280,10 @@ td{
 				}else {
 					alert('지난 날자는 선택할수 없습니다.');
 				};
-				$.ajax({
-    				url: 'ajaxinsertRoomReservation.do',
-    				method: 'post',
-    				data: {
-    					year:$("#reser_input").data("year"),
-    					month:$("#reser_input").data("month"),
-    					day:$("#reser_input").data("day")
-    				},
-    				dataType: "json",
-    				success: function(data) {
-
-    					$("#room_select").html("");
-    					let countUl = 0;
-    					data.forEach(function(e,i) {
-    						if (i%4==0) {
-    							const toInsert1 = "<ul></ul>";
-    							$("#room_select").append(toInsert1);
-    							countUl ++;
-    						}
-    					});
-    					let ulArray = new Array();
-    					for (var i = 0; i < countUl; i++) {
-    						const ulnum = i+1;
-    						const ul = $("#room_select > ul:nth-child("+ulnum+")");
-    						ulArray.push(ul);
-						};
-						for (var j = 0; j < ulArray.length; j++) {
-							data.forEach(function(e,i) {
-								const mox = i/4;
-								let reservationYN = "";
-								if (e.room_RESERVATIONYN == "Y") {
-									reservationYN = "<div id='reservationy'>*예약 가능*</div>";
-								}else {
-									reservationYN = "<div id='reservationn'>*예약 불가*</div>";
-								}
-								if ((j<=mox)&&(mox<(j+1))) {
-
-								const toInsert2 =
-									"<li> <img src="
-	        						+ e.room_IMG +
-	    							"><p>"
-	    							+ e.room_NAME +
-	    							"<br></p>"
-	    							+ reservationYN +
-									"</li>";
-								ulArray[j].append(toInsert2);
-								}
-							});
-						}/*end for UlArray */
-						data.forEach(function(e,i) {
-
-							const defaultOption = "<option value='0'>방을 선택하세요</option>";
-							if (i==0) {
-								$("#reservation_roomselect").html("");
-								$("#reservation_roomselect").append(defaultOption);
-							}
-							if (e.room_RESERVATIONYN == "Y") {
-								const roomOption =
-								"<option value='"
-								+ e.room_NO +
-								"' data-roomprice='"
-								+ e.room_PRICE+
-								"' data-roomsalerate='"
-								+ e.room_SALERATE+
-								"'>"
-								+ e.room_NAME +
-								"</option>";
-								$("#reservation_roomselect").append(roomOption);
-							}
-						});
-    				},/*end success*/
-    				error: function(err) {
-    					alert('예약정보 불러오기에 실패하셧습니다.');
-    				}
-    			});
+				clickCal();
 			});
+		/*기본 정보 가저오기*/
+		afterLoad();
 		/*오늘날자 자동으로 선택해주는 기능*/
 		$("#"+todayid+"").click();
 		/* 날자 선택 안하고 방 선택할려시 유효성 검사*/
@@ -421,11 +356,130 @@ td{
 
 
 	};
+	function afterLoad() {
+		$.ajax({
+			url:  contextPath + 'getRoomListInfoAfterLoadReserve.do',
+			method: 'post',
+			success: function(data) {
+				$("#room_select").html("");
+				let countUl = 0;
+				data.forEach(function(e,i) {
+					if (i%4==0) {
+						const toInsert1 = "<ul></ul>";
+						$("#room_select").append(toInsert1);
+						countUl ++;
+					}
+				});
+				let ulArray = new Array();
+				for (var i = 0; i < countUl; i++) {
+					const ulnum = i+1;
+					const ul = $("#room_select > ul:nth-child("+ulnum+")");
+					ulArray.push(ul);
+				};
+				for (var j = 0; j < ulArray.length; j++) {
+					data.forEach(function(e,i) {
+						const mox = i/4;
+						let reservationYN = "";
+						if (e.room_RESERVATIONYN == "Y") {
+							reservationYN = "<div id='reseryn" + i + "'><div class='reservationy'>*예약 가능*</div></div>";
+						}else {
+							reservationYN = "<div id='reseryn" + i + "'><div class='reservationn'>*예약 불가*</div></div>";
+						}
+						if ((j<=mox)&&(mox<(j+1))) {
+
+						const toInsert2 =
+							"<li> <img src="
+    						+ e.room_IMG +
+							"><p>"
+							+ e.room_NAME +
+							"<br></p>"
+							+ reservationYN +
+							"</li>";
+						ulArray[j].append(toInsert2);
+						}
+					});
+				}/*end for UlArray */
+				data.forEach(function(e,i) {
+
+					const defaultOption = "<option value='0'>방을 선택하세요</option>";
+					if (i==0) {
+						$("#reservation_roomselect").html("");
+						$("#reservation_roomselect").append(defaultOption);
+					}
+					if (e.room_RESERVATIONYN == "Y") {
+						const roomOption =
+						"<option value='"
+						+ e.room_NO +
+						"' data-roomprice='"
+						+ e.room_PRICE+
+						"' data-roomsalerate='"
+						+ e.room_SALERATE+
+						"'>"
+						+ e.room_NAME +
+						"</option>";
+						$("#reservation_roomselect").append(roomOption);
+					}
+				});
+			},/*end success*/
+			error: function(err) {
+				alert('로드에 실패하셧습니다.');
+			}
+		});
+	}
+	function clickCal() {
+		
+		$.ajax({
+			url:  contextPath + 'ajaxinsertRoomReservation.do',
+			method: 'post',
+			data: {
+				year:$("#reser_input").data("year"),
+				month:$("#reser_input").data("month"),
+				day:$("#reser_input").data("day")
+			},
+			dataType: "json",
+			success: function(data) {
+				// 예약가능 여부 보여주는 부분
+				data.forEach(function(e,i) {
+					let reserveYN = "";
+					if (e.room_RESERVATIONYN == "Y") {
+						reserveYN = "<div class='reservationy'>*예약 가능*<div>";
+					}else {
+						reserveYN = "<div class='reservationn'>*예약 불가*<div>";
+					}
+					$("#reseryn" + i +"").html(reserveYN);
+				});
+				//셀렉터 바꿔주는 부분
+				data.forEach(function(e,i) {
+					const defaultOption = "<option value='0'>방을 선택하세요</option>";
+					if (i==0) {
+						$("#reservation_roomselect").html("");
+						$("#reservation_roomselect").append(defaultOption);
+					}
+					if (e.room_RESERVATIONYN == "Y") {
+						const roomOption =
+						"<option value='"
+						+ e.room_NO +
+						"' data-roomprice='"
+						+ e.room_PRICE+
+						"' data-roomsalerate='"
+						+ e.room_SALERATE+
+						"'>"
+						+ e.room_NAME +
+						"</option>";
+						$("#reservation_roomselect").append(roomOption);
+					}
+				});//셀렉터 바꿔주는 부분 끝
+			},/*end success*/
+			error: function(err) {
+				alert('예약정보 불러오기에 실패하셧습니다.');
+			}
+		});
+	}
 </script>
 </head>
 <body>
 	<div id="reservation">
-		<h1>예약 페이지</h1>
+		<h1 id="reserve_head">예약 페이지</h1>
 		<div class="reservation_content">
 			<div id="calendar">
 				<!--            <h3>예약</h3>-->
@@ -450,7 +504,7 @@ td{
 			<div>
 			<div id="reservation_selectedopton"></div>
 			<div id="reser_room_info">
-				<h3><span id="reser_input"></span>의 방 정보</h3>
+				<h3><span id="reser_input"></span></h3>
 				<div id="room_select">
 				</div>
 				<label>
@@ -486,7 +540,8 @@ td{
 			const year = $(this).data('year');
 			const month = $(this).data('month');
 			const day = $(this).data('day');
-			const stayDay = moment(year+"-"+month+"-"+day).format('YYYY MM DD');
+			let stayDay = new Date();
+			stayDay = moment(year+"-"+month+"-"+day).format('YYYYMMDD');
 			const parent_td = $(this).parent();
 			const tdcol = parent_td.css("background-color");
 			const thiscol = $(this).css("background-color");
@@ -501,7 +556,7 @@ td{
 					});
 					$(this).css("background-color","#F28888");
 
-					$("#reser_input").html(year+"년"+month+"월"+day+"일");
+					$("#reser_input").html("방 선택");
 					$("#reser_input").data("year", year);
 					$("#reser_input").data("month", month);
 					$("#reser_input").data("day", day);
@@ -510,80 +565,7 @@ td{
 				}else {
 					alert('지난 날자는 선택할수 없습니다.');
 				};
-				$.ajax({
-    				url: '/omyogamyo/ajaxinsertRoomReservation.do',
-    				method: 'post',
-    				data: {
-    					year:$("#reser_input").data("year"),
-    					month:$("#reser_input").data("month"),
-    					day:$("#reser_input").data("day")
-    				},
-    				dataType: "json",
-    				success: function(data) {
-    					$("#room_select").html("");
-    					let countUl = 0;
-    					data.forEach(function(e,i) {
-    						if (i%4==0) {
-    							const toInsert1 = "<ul></ul>";
-    							$("#room_select").append(toInsert1);
-    							countUl ++;
-    						}
-    					});
-    					let ulArray = new Array();
-    					for (var i = 0; i < countUl; i++) {
-    						const ulnum = i+1;
-    						const ul = $("#room_select > ul:nth-child("+ulnum+")");
-    						ulArray.push(ul);
-						};
-						for (var j = 0; j < ulArray.length; j++) {
-							data.forEach(function(e,i) {
-								const mox = i/4;
-								let reservationYN = "";
-								if (e.room_RESERVATIONYN == "Y") {
-									reservationYN = "<div id='reservationy'>*예약 가능*</div>";
-								}else {
-									reservationYN = "<div id='reservationn'>*예약 불가*</div>";
-								}
-								if ((j<=mox)&&(mox<(j+1))) {
-
-								const toInsert2 =
-									"<li> <img src="
-	        						+ e.room_IMG +
-	    							"><p>"
-	    							+ e.room_NAME +
-	    							"<br></p>"
-	    							+ reservationYN +
-									"</li>";
-								ulArray[j].append(toInsert2);
-								}
-							});
-						}/*end for UlArray */
-						data.forEach(function(e,i) {
-
-							const defaultOption = "<option value='0'>방을 선택하세요</option>";
-							if (i==0) {
-								$("#reservation_roomselect").html("");
-								$("#reservation_roomselect").append(defaultOption);
-							}
-							if (e.room_RESERVATIONYN == "Y") {
-								const roomOption =
-								"<option value='"
-								+ e.room_NO +
-								"' data-roomprice='"
-								+ e.room_PRICE+
-								"' data-roomsalerate='"
-								+ e.room_SALERATE+
-								"'>"
-								+ e.room_NAME +
-								"</option>";
-								$("#reservation_roomselect").append(roomOption);
-							}
-						});
-    				},/*end success*/
-    				error: function(err) {
-    					alert('예약정보 불러오기에 실패하셧습니다.');
-    				}
-    			});
+				clickCal();
 			});
         /*end 기능*/
     };
@@ -600,7 +582,8 @@ td{
 			const year = $(this).data('year');
 			const month = $(this).data('month');
 			const day = $(this).data('day');
-			const stayDay = moment(year+"-"+month+"-"+day).format('YYYY MM DD');
+			let stayDay = new Date();
+			stayDay = moment(year+"-"+month+"-"+day).format('YYYYMMDD');
 			const parent_td = $(this).parent();
 			const tdcol = parent_td.css("background-color");
 			const thiscol = $(this).css("background-color");
@@ -615,7 +598,7 @@ td{
 					});
 					$(this).css("background-color","#F28888");
 
-					$("#reser_input").html(year+"년"+month+"월"+day+"일");
+					$("#reser_input").html("방 선택");
 					$("#reser_input").data("year", year);
 					$("#reser_input").data("month", month);
 					$("#reser_input").data("day", day);
@@ -624,80 +607,7 @@ td{
 				}else {
 					alert('지난 날자는 선택할수 없습니다.');
 				};
-				$.ajax({
-    				url: '/omyogamyo/ajaxinsertRoomReservation.do',
-    				method: 'post',
-    				data: {
-    					year:$("#reser_input").data("year"),
-    					month:$("#reser_input").data("month"),
-    					day:$("#reser_input").data("day")
-    				},
-    				dataType: "json",
-    				success: function(data) {
-    					$("#room_select").html("");
-    					let countUl = 0;
-    					data.forEach(function(e,i) {
-    						if (i%4==0) {
-    							const toInsert1 = "<ul></ul>";
-    							$("#room_select").append(toInsert1);
-    							countUl ++;
-    						}
-    					});
-    					let ulArray = new Array();
-    					for (var i = 0; i < countUl; i++) {
-    						const ulnum = i+1;
-    						const ul = $("#room_select > ul:nth-child("+ulnum+")");
-    						ulArray.push(ul);
-						};
-						for (var j = 0; j < ulArray.length; j++) {
-							data.forEach(function(e,i) {
-								const mox = i/4;
-								let reservationYN = "";
-								if (e.room_RESERVATIONYN == "Y") {
-									reservationYN = "<div id='reservationy'>*예약 가능*</div>";
-								}else {
-									reservationYN = "<div id='reservationn'>*예약 불가*</div>";
-								}
-								if ((j<=mox)&&(mox<(j+1))) {
-
-								const toInsert2 =
-									"<li> <img src="
-	        						+ e.room_IMG +
-	    							"><p>"
-	    							+ e.room_NAME +
-	    							"<br></p>"
-	    							+ reservationYN +
-									"</li>";
-								ulArray[j].append(toInsert2);
-								}
-							});
-						}/*end for UlArray */
-						data.forEach(function(e,i) {
-
-							const defaultOption = "<option value='0'>방을 선택하세요</option>";
-							if (i==0) {
-								$("#reservation_roomselect").html("");
-								$("#reservation_roomselect").append(defaultOption);
-							}
-							if (e.room_RESERVATIONYN == "Y") {
-								const roomOption =
-								"<option value='"
-								+ e.room_NO +
-								"' data-roomprice='"
-								+ e.room_PRICE+
-								"' data-roomsalerate='"
-								+ e.room_SALERATE+
-								"'>"
-								+ e.room_NAME +
-								"</option>";
-								$("#reservation_roomselect").append(roomOption);
-							}
-						});
-    				},/*end success*/
-    				error: function(err) {
-    					alert('예약정보 불러오기에 실패하셧습니다.');
-    				}
-    			});
+				clickCal();
 			});
         /*end 기능*/
     };

@@ -189,7 +189,10 @@
     <!--#######  mypage mall order 관련 쿼리문  #########################################################################-->
 
     <select id="myOrder" resultType="OrderVO" >
-         select * from order_list  WHERE order_id=#{order_id} order by order_no DESC
+         select order_no, order_id, to_char(order_date,'yyyy-MM-dd HH:mm:ss') as order_date, order_phone, order_price, order_state,
+                                    order_memo, order_address, order_receiver, order_zipcode,
+                                        order_point_used, order_name, order_quantity, order_img, order_tn
+                                         from order_list  WHERE order_id=#{order_id} order by order_no DESC
     </select>
 
     <update id="updateOrder" parameterType="OrderVO">
