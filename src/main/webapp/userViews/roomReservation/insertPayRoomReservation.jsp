@@ -253,7 +253,7 @@
 			if (rsp.success) {
 				$.ajax({
                     method: 'POST',
-                    url: "/omyogamyo/ajaxinsertPayRoomReservation.do", 
+                    url: "/ajaxinsertPayRoomReservation.do",
                     data: reservationData,
                     success : function(data) {
         				msg = '결제가 완료되었습니다.';
@@ -262,7 +262,7 @@
         				console.log("결제완료");
         				alert(msg);
         				/* 결제 완료후 보내질 페이지*/
-        				window.location.href = 'insertRoomReservation.do';
+        				window.location.href = 'main.do';
                     },
                     error: function(xhr,a,b) {
                     	console.log("결제실패ajax에서");

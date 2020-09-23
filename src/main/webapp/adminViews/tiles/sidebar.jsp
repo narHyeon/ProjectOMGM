@@ -42,7 +42,7 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">운영관리:</h6>
-                <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 보류</a>
+<%--                <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 보류</a>--%>
 				<a class="collapse-item" href="adminReview.mdo">이용후기</a>
 				<a class="collapse-item" href="categoryList.mdo">질문 카테고리</a>
 				<a class="collapse-item" href="selectListFAQ.mdo">FAQ</a>
