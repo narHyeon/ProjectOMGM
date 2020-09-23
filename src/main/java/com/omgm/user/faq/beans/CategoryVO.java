@@ -5,6 +5,8 @@ public class CategoryVO {
 
 	private int CATEGORY_NO;
 	private String CATEGORY_NAME;
+	private int CATEGORY_USE;
+	
 	
 	public int getCATEGORY_NO() {
 		return CATEGORY_NO;
@@ -18,12 +20,12 @@ public class CategoryVO {
 	public void setCATEGORY_NAME(String cATEGORY_NAME) {
 		CATEGORY_NAME = cATEGORY_NAME;
 	}
-	@Override
-	public String toString() {
-		return "CategoryVO [CATEGORY_NO=" + CATEGORY_NO + ", CATEGORY_NAME=" + CATEGORY_NAME + "]";
+	public int getCATEGORY_USE() {
+		return CATEGORY_USE;
+	}
+	public void setCATEGORY_USE(int cATEGORY_USE) {
+		CATEGORY_USE = cATEGORY_USE;
 	}
 	
-	
-	
-	
+		
 }

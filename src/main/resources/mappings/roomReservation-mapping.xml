@@ -24,7 +24,11 @@
 		WHERE ROOMRESERVATION_MEMBERNO = #{ROOMRESERVATION_MEMBERNO}
 		ORDER BY ROOMRESERVATION_STAYDAY DESC, ROOMRESERVATION_NO DESC		
 	</select>
-	
+	<update id="updateMemberPoint" parameterType="MemberVO">
+		UPDATE MEMBER 
+		SET POINT = #{point}
+		WHERE ID = #{id}
+	</update>
 		
 	
 </mapper>

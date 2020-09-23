@@ -5,6 +5,8 @@
 <mapper namespace="CategoryDAO">
 	<select id="getAllCategoryList" resultType="category"
 		parameterType="category">
-		select * from category order by category_no
+		select * from category 
+		where CATEGORY_USE = 1
+		order by category_no
 	</select>
 </mapper>

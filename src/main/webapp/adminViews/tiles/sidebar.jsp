@@ -44,7 +44,8 @@
                 <h6 class="collapse-header">운영관리:</h6>
                 <a class="collapse-item" href="buttons.html">공지사항/이벤트 - 보류</a>
 				<a class="collapse-item" href="adminReview.mdo">이용후기</a>
-				<a class="collapse-item" href="cards.html">고객센터 - 예정</a>
+				<a class="collapse-item" href="categoryList.mdo">질문 카테고리</a>
+				<a class="collapse-item" href="selectListFAQ.mdo">FAQ</a>
             </div>
         </div>
     </li>
@@ -83,7 +84,8 @@
                 <h6 class="collapse-header">호텔:</h6>
 					<a class="collapse-item" href="roomReservationList.mdo">호텔 예약</a>
 					<a class="collapse-item" href="roomList.mdo">객실 관리</a>
-					<a class="collapse-item" href="blank.html">호텔 정산 - 예정</a>
+					<a class="collapse-item" href="catCareLogList.mdo">냥박 일지</a>
+					<a class="collapse-item" href="roomReservationStatistics.mdo">호텔 정산</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
