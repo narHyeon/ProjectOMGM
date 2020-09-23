@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.omgm.member.beans.MemberVO;
 import com.omgm.user.review.beans.PageNavigator;
 
 @Repository("roomReservationDAO")
@@ -36,6 +37,10 @@ public class RoomReservationDAO {
 	public List<RoomReservationVO> selectListRoomReservation(RoomReservationVO vo, PageNavigator navi) {
 		RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
 		return sqlSessionTemplate.selectList("RoomReservationDAO.selectMyRoomReservationList", vo, rb);
+	}
+
+	public void updateMemberPoint(MemberVO memvo) {
+		sqlSessionTemplate.update("RoomReservationDAO.updateMemberPoint",memvo);
 	}
 	
 }

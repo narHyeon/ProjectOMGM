@@ -250,7 +250,7 @@
 						<li><a href="myInfo.do">내 정보</a></li>
 						<li><a href="myRoomReservationList.do">예약 정보</a></li>
 						<li><a href="myOrder.do?order_id=${member.id}">구매 정보</a></li>
-						<li><a href="#">냥박일지</a></li>
+						<li><a href="myCatCareLogList.do">냥박일지</a></li>
 					</ul>
                      	<li><p>|</p></li>
                      <li><a href="#" onclick="logOut()">logout</a></li>`;

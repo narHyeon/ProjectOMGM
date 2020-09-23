@@ -21,11 +21,16 @@ public class RoomReservationDAO_M {
 
 	public List<RoomReservationVO_M> roomReservationList(RoomReservationVO_M vo, PageNavigator navi) {
 		RowBounds rb = new RowBounds(navi.getStartRecord(),navi.getCountPerPage());
-		return sqlSessionTemplate.selectList("RoomReservationDAO_M.roomReservationList",vo,rb) ;
+		return sqlSessionTemplate.selectList("RoomReservationDAO_M.roomReservationList",vo,rb);
 	}
 
 	public RoomReservationVO_M getRoomReservation(RoomReservationVO_M vo) {
 		return sqlSessionTemplate.selectOne("RoomReservationDAO_M.getRoomReservation",vo);
+	}
+
+	public List<RoomReservationVO_M> roomReservationStatistics() {
+
+		return sqlSessionTemplate.selectList("RoomReservationDAO_M.roomReservationStatistics");
 	}
 
 }

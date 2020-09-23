@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.omgm.member.beans.MemberVO;
 import com.omgm.user.catcarelog.beans.CatCareLogVO;
 import com.omgm.user.catcarelog.service.CatCareLogService;
 import com.omgm.user.review.beans.PageNavigator;
@@ -29,9 +30,8 @@ public class CatCareLogController {
 	@RequestMapping(value = "/myCatCareLogList.do", method = RequestMethod.GET)
 	public ModelAndView selectListRoomReservation(RoomReservationVO vo, ModelAndView mav, HttpSession session,
 			@RequestParam(value="page", defaultValue = "1") int page){
-		//MemberVO memvo = (MemberVO) session.getAttribute("member");
-		//vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
-		vo.setROOMRESERVATION_MEMBERNO(23);
+		MemberVO memvo = (MemberVO) session.getAttribute("member");
+		vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
 		int COUNTPERPAGE = 5; // 페이지당 10개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 5개의 페이지
         int count = roomReservationService.selectCountReservation(vo);
@@ -40,7 +40,7 @@ public class CatCareLogController {
 		mav.addObject("reservationList",list);
 		mav.addObject("navi",navi);
 		mav.addObject("page", page);
-		//mav.addObject("userInfo", memvo);
+		mav.addObject("userInfo", memvo);
 		mav.setViewName("myInfo/myCatCareLogList");
 		return mav;
 	}
