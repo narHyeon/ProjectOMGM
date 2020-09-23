@@ -108,9 +108,9 @@
             <c:if test="${!empty cartList}">
                 <button type="submit" class="abutton" style="border: none;" onclick="cartListPay()">결제하기</button>
             </c:if>
-            <c:if test="${cartList== null}">
-                <button type="submit" class="abutton" style="display:none; border: none;" onclick="cartListPay()">결제하기</button>
-            </c:if>
+<%--            <c:if test="${cartList== null}">--%>
+<%--                <button type="submit" class="abutton" style="display:none; border: none;" onclick="cartListPay()">결제하기</button>--%>
+<%--            </c:if>--%>
         </div>
 
         </div>
@@ -120,11 +120,11 @@
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>--%>
 <script>
 
-    $(document).ready(function() {
-
-
-        }
-    });
+    // $(document).ready(function() {
+    //
+    //
+    //     }
+    // });
 
     function upI(event){
         const num = event.target.value;
