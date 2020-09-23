@@ -61,13 +61,40 @@ public class MallController {
         mav.setViewName("/mall/mallCalculate");
         // 몰 하루 매출
         OrderVO vo = new OrderVO();
-        mav.addObject("today",mallService.getTodaySales(vo));
+
         mav.addObject("toyCal",mallService.getMallToyList() );
         mav.addObject("feedCal", mallService.getMallFeedList());
-        mav.addObject("week00",mallService.getWeekPrice00(vo));
-        mav.addObject("week01",mallService.getWeekPrice01(vo));
-        mav.addObject("week02",mallService.getWeekPrice02(vo));
-        mav.addObject("week03",mallService.getWeekPrice03(vo));
+//        mav.addObject("today", mallService.getTodaySales(vo));
+//        mav.addObject("week00", mallService.getWeekPrice00(vo));
+//        mav.addObject("week01", mallService.getWeekPrice01(vo));
+//        mav.addObject("week02", mallService.getWeekPrice02(vo));
+//        mav.addObject("week03", mallService.getWeekPrice03(vo));
+        try {
+            mav.addObject("today", mallService.getTodaySales(vo));
+        }catch(Exception e){
+            mav.addObject("today", 0);
+        }
+        try {
+            mav.addObject("week00", mallService.getWeekPrice00(vo));
+        }catch(Exception e){
+            mav.addObject("week00", 0);
+        }
+        try {
+            mav.addObject("week01", mallService.getWeekPrice01(vo));
+        }catch(Exception e){
+            mav.addObject("week01", 0);
+        }
+        try {
+            mav.addObject("week02", mallService.getWeekPrice02(vo));
+        }catch(Exception e){
+            mav.addObject("week02", 0);
+        }
+        try {
+            mav.addObject("week03", mallService.getWeekPrice03(vo));
+        }catch(Exception e){
+            mav.addObject("week03", 0);
+        }
+
         return mav;
     }
 

@@ -120,7 +120,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">서비스 관리:</h6>
                 <a class="collapse-item" href="pickUpList.mdo">픽업 서비스</a>
-                <a class="collapse-item" href="404.html">문자알림 서비스 - 예정</a>
+                <a class="collapse-item" href="message.mdo">문자알림 서비스 </a>
             </div>
         </div>
     </li>
@@ -142,7 +142,7 @@
 					<a class="collapse-item" href="productOrder.mdo">주문현황</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">관리:</h6>
-					<a class="collapse-item" href="calculateTest.mdo">MALL 정산 - 예정</a>
+					<a class="collapse-item" href="calculateTest.mdo">MALL 정산 </a>
             </div>
         </div>
     </li>

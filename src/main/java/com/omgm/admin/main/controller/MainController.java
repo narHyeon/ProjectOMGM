@@ -25,36 +25,56 @@ public class MainController {
     @ResponseBody
     @RequestMapping("/getBarChartWeekSales.mdo")
     public OrderVO getBarChartWeekSales(@RequestBody OrderVO vo) throws Exception {
-        vo.setOrder_price(mainService.getBarChartWeekSales(vo));
+        try {
+            vo.setOrder_price(mainService.getBarChartWeekSales(vo));
+        }catch (Exception e){
+            vo.setOrder_price(0);
+        }
         return vo;
     }
     // 유치원 관련
     @ResponseBody
     @RequestMapping("/getBarChartWeekSales01.mdo")
     public KinderGardenReservationVO getBarChartWeekSales01(@RequestBody KinderGardenReservationVO vo) throws Exception {
-        vo.setPrice(mainService.getBarChartWeekSales01(vo));
+        try {
+            vo.setPrice(mainService.getBarChartWeekSales01(vo));
+        }catch(Exception e){
+            vo.setPrice(0);
+        }
         return vo;
     }
     // 유치원 관련
     @ResponseBody
     @RequestMapping("/getBarChartWeekSales02.mdo")
     public int getBarChartWeekSales02(@RequestBody RoomReservationVO vo) throws Exception {
-
-        return mainService.getBarChartWeekSales02(vo);
+        int sum ;
+        try{
+            sum = mainService.getBarChartWeekSales02(vo);
+        }catch(Exception e){
+            sum = 0;
+        }
+        return sum;
     }
     // areaChart
     // 상품 몰 매출
     @ResponseBody
     @RequestMapping("/getAreaChartMonthlySales.mdo")
     public OrderVO getAreaChartMonthlySales(@RequestBody OrderVO vo) throws Exception {
-        vo.setOrder_price(mainService.getAreaChartMonthlySales(vo));
+        try {
+            vo.setOrder_price(mainService.getAreaChartMonthlySales(vo));
+        }catch(Exception e){vo.setOrder_price(0);}
         return vo;
     }
     // 유치원 예약
     @ResponseBody
     @RequestMapping("/getAreaChartMonthlySales01.mdo")
     public int getAreaChartMonthlySales01(@RequestBody KinderGardenReservationVO vo) throws Exception {
-        int sum = mainService.getAreaChartMonthlySales01(vo);
+        int sum;
+        try {
+            sum = mainService.getAreaChartMonthlySales01(vo);
+        }catch(Exception e){
+            sum = 0;
+        }
         return sum;
     }
 
@@ -63,7 +83,10 @@ public class MainController {
     @RequestMapping("/getAreaChartMonthlySales02.mdo")
     public int getAreaChartMonthlySales02(@RequestBody RoomReservationVO vo) throws Exception {
         System.out.println(vo.getDay1()+ "~"+vo.getDay2());
-        int sum = mainService.getAreaChartMonthlySales02(vo);
+        int sum;
+        try {
+            sum = mainService.getAreaChartMonthlySales02(vo);
+        }catch(Exception e){sum=0;}
         return sum;
     }
 
