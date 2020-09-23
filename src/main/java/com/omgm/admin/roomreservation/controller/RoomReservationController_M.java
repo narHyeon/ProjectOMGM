@@ -1,6 +1,10 @@
 package com.omgm.admin.roomreservation.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.omgm.admin.roomreservation.beans.RoomReservationVO_M;
+import com.omgm.admin.roomreservation.beans.StatisticsVO;
 import com.omgm.admin.roomreservation.service.RoomReservationService_M;
 import com.omgm.user.review.beans.PageNavigator;
 
@@ -44,4 +49,25 @@ public class RoomReservationController_M {
 		mav.setViewName("roomReservation/getRoomReservation");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/roomReservationStatistics.mdo", method = RequestMethod.GET)
+	public ModelAndView roomReservationStatistics(StatisticsVO statisticsVO, ModelAndView mav) throws ParseException {
+		
+		if (statisticsVO.getStrSearchDate() == null) {
+			Date today = new Date();
+			statisticsVO.setSearchDate(today);
+		}else {
+			String strDate = statisticsVO.getStrSearchDate();
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = transFormat.parse(strDate);
+			statisticsVO.setSearchDate(date);
+		}
+		
+		Map<String, Object> statisticsMap = roomReservationService_M.roomReservationStatistics(statisticsVO);
+		mav.addObject("statisticsMap", statisticsMap);
+		mav.setViewName("roomReservation/roomReservationStatistics");
+		return mav;
+	}
+	
+	
 }
