@@ -65,6 +65,16 @@ tr.reservation_row td{
 	font-size: 12px;
 }
 
+.catcarlog_tbody{
+	border: 3px solid #36b9cc;
+}
+.catcarlog_thead{
+	border: 2px solid #36b9cc;
+}
+.catcarelog_row{
+	cursor: pointer;
+}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -92,6 +102,11 @@ tr.reservation_row td{
 			}else {
 				alert("냥박일지를 작성할 서비스를 선택해 주세요.");
 			}
+		});
+		$(".catcarelog_row").click(function() {
+			const selectedTR = $(this);
+			const careno = selectedTR.data("careno"); 
+			window.location.href = 'getCatCareLog.mdo?CATCARELOG_NO='+careno ;
 		});
 		
 	});

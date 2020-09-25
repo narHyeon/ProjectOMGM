@@ -53,4 +53,7 @@
 		WHERE ROOMRESERVATION.ROOMRESERVATION_MEMBERNO = MEMBER.SEQ
 		AND ROOMRESERVATION_NO = #{ROOMRESERVATION_NO}
 	</select>
+	<select id="roomReservationStatistics" resultType="roomreservation_m">
+		SELECT * FROM ROOMRESERVATION 
+	</select>
 </mapper>

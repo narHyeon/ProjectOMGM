@@ -22,4 +22,14 @@ public class CatCareLogServiceImpl_M implements CatCareLogService_M{
 		catCareLogDAO_M.insertCatCareLog(vo);
 	}
 
+	@Override
+	public void updateCatCareLog(CatCareLogVO_M vo) {
+		catCareLogDAO_M.updateCatCareLog(vo);
+	}
+
+	@Override
+	public void deleteCatCareLog(CatCareLogVO_M vo) {
+		catCareLogDAO_M.deleteCatCareLog(vo);
+	}
+
 }

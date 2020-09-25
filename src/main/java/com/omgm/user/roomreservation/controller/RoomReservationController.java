@@ -90,8 +90,9 @@ public class RoomReservationController {
 	
 	@RequestMapping(value = "/ajaxinsertPayRoomReservation.do", method = RequestMethod.POST)
 	@ResponseBody
-	public void  insertPayReservation(RoomReservationVO vo) {
-		roomReservationService.insertReservation(vo);
+	public void  insertPayReservation(RoomReservationVO vo, HttpSession session) {
+		MemberVO memvo = (MemberVO) session.getAttribute("member");
+		roomReservationService.insertReservation(vo,memvo);
 		
 	}
 	
@@ -100,9 +101,8 @@ public class RoomReservationController {
 			@RequestParam(value="page", defaultValue = "1") int page){
 		
 		
-		//MemberVO memvo = (MemberVO) session.getAttribute("member");
-		//vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
-		vo.setROOMRESERVATION_MEMBERNO(23);
+		MemberVO memvo = (MemberVO) session.getAttribute("member");
+		vo.setROOMRESERVATION_MEMBERNO(memvo.getSeq());
 		int COUNTPERPAGE = 5; // 페이지당 10개의 글
         int PAGEPERGROUP = 5; // 페이지 그룹당 5개의 페이지
         int count = roomReservationService.selectCountReservation(vo);
@@ -111,7 +111,7 @@ public class RoomReservationController {
 		mav.addObject("reservationList",list);
 		mav.addObject("navi",navi);
 		mav.addObject("page", page);
-		//mav.addObject("userInfo", memvo);
+		mav.addObject("userInfo", memvo);
 		mav.setViewName("myInfo/myRoomReservationList");
 		return mav;
 	}

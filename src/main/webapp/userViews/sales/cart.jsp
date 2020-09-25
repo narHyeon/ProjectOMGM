@@ -101,16 +101,16 @@
         </c:forEach>
         <c:if test="${empty cartList}">
             <div style="text-align: center; font-weight: lighter; margin-top: 5%;">
-            장바구니에 담겨 있는 상품이 없습니다
+            장바구니에 담겨 있는 상품이 없습니다.
             </div>
         </c:if>
         <div style="display: flex; justify-content: flex-end; padding-right: 5%; padding-bottom: 3%;">
             <c:if test="${!empty cartList}">
                 <button type="submit" class="abutton" style="border: none;" onclick="cartListPay()">결제하기</button>
             </c:if>
-            <c:if test="${cartList== null}">
-                <button type="submit" class="abutton" style="display:none; border: none;" onclick="cartListPay()">결제하기</button>
-            </c:if>
+<%--            <c:if test="${cartList== null}">--%>
+<%--                <button type="submit" class="abutton" style="display:none; border: none;" onclick="cartListPay()">결제하기</button>--%>
+<%--            </c:if>--%>
         </div>
 
         </div>
@@ -120,11 +120,11 @@
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>--%>
 <script>
 
-    $(document).ready(function() {
-
-
-        }
-    });
+    // $(document).ready(function() {
+    //
+    //
+    //     }
+    // });
 
     function upI(event){
         const num = event.target.value;

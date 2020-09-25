@@ -95,7 +95,9 @@ public class ReviewServiceImpl implements ReviewService {
                     }
                 }
             }
-            room.setImgRef(list2.get(0));
+            if (list2.size() != 0) {
+            	room.setImgRef(list2.get(0));
+			}
         }
         return roomList;
     }

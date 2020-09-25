@@ -4,13 +4,19 @@
 
 <mapper namespace="FAQDAO">
 	<select id="getAllFAQList" resultType="faq" parameterType="faq">
-		select * from faq order by faq_categorynum asc ,faq_ask asc
+		SELECT FAQ.* , CATEGORY.*
+		FROM FAQ,CATEGORY
+		WHERE  FAQ.FAQ_CATEGORYNUM = CATEGORY.CATEGORY_NO
+		AND CATEGORY.CATEGORY_USE = 1
+		AND FAQ.FAQ_USE = 1
+		order by faq_categorynum asc ,faq_ask asc
 	</select>
 	<select id="getCategoryedFAQList" resultType="faq"
 		parameterType="faq">
-		select * from faq where
-		faq_categorynum=#{FAQ_CATEGORYNUM} order by
-		faq_categorynum asc
-		,faq_ask asc
+		select * from faq 
+		where faq_categorynum=#{FAQ_CATEGORYNUM}
+		AND FAQ_USE = 1 
+		order by faq_categorynum asc, faq_ask asc
 	</select>
+
 </mapper>

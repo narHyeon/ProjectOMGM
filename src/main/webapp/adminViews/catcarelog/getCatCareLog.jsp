@@ -35,15 +35,30 @@
 	color: #4e73df;
 	font-weight: bold;
 }
+#care_buttons{
+	float: right;
+	margin-right: 1%;
+
+}
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#goListBt").click(function() {
-			window.location.href = 'myCatCareLogList.do';
+		$("#care_golistbt").click(function() {
+			window.location.href = 'catCareLogList.mdo';
 		});
+		$("#care_deletebt").click(function() {
+			const careno = $("#CATCARELOG_NO").val();
+			window.location.href = 'deleteCatCareLog.mdo?CATCARELOG_NO=' + careno;
+		});
+		$("#care_updatebt").click(function() {
+			const careno = $("#CATCARELOG_NO").val();
+			window.location.href = 'updateCatCareLog.mdo?CATCARELOG_NO=' + careno;
+		});
+		
 	});
 </script>
 <body>
+<input type="hidden" id="CATCARELOG_NO" value="${catcarelogInfo.CATCARELOG_NO}">
 <div class="card shadow mb-4">
 	<div class="card-header py-3">
 		<h6 class="m-0 font-weight-bold text-primary">냥박 정보</h6>
@@ -83,6 +98,26 @@
 			${catcarelogInfo.CATCARELOG_CONTENT}
 		</div>
 		<div id="payreservation_head">
+		</div>
+		<div id="care_buttons">
+		<div class="btn btn-primary btn-icon-split" id="care_golistbt">
+			<span class="icon text-white-50">
+				<i class="fas fa-flag"></i>
+			</span>
+			<span class="text">리스트로</span>
+		</div>
+		<div class="btn btn-success btn-icon-split" id="care_updatebt">
+			<span class="icon text-white-50">
+				<i class="fas fa-check"></i>
+			</span>
+			<span class="text">냥박일지 수정</span>
+		</div>
+		<div class="btn btn-danger btn-icon-split" id="care_deletebt">
+			<span class="icon text-white-50">
+				<i class="fas fa-trash"></i>
+			</span>
+			<span class="text">냥박일지 삭제</span>
+		</div>
 		</div>
 	</div>
 	</div>

@@ -1,190 +1,141 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!doctype html>
+<html lang="ko">
 <head>
+<meta charset="utf-8">
 <title></title>
-<meta charset="UTF-8">
+</head>
 <link rel="stylesheet"
 	href="resources/style/summernote/summernote-lite.css">
-<style type="text/css">
-#wrap {
-	display: flex;
-	flex-direction: column;
-	width: 60%;
-	margin: auto;
+<style>
+.reserve_info_key{
+	background-color: #36b9cc;
+	color: white;
+	width: 20%;
 }
-
-#head {
+.reserve_info_value{
+	width: 30%;
+}
+#reserve_buttons{
+	float: right;
+	margin-bottom: 2%;
+}
+#payreservation_head {
 	min-width: 60%;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	font-size: 20px;
 	padding-bottom: 1%;
-	border-bottom: 2px solid #FFABB9;
+	border-bottom: 2px solid #36b9cc;
+	color: #4e73df;
+	font-weight: bold;
 }
+#care_buttons{
+	float: right;
+	margin-right: 1%;
 
-#body {
-	display: flex;
-	flex-direction: column;
-}
-
-#setting {
-	display: flex;
-	flex-direction: column;
-}
-
-.settings {
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 1.5%;
-}
-
-.leftsettings {
-	display: flex;
-	flex-direction: row;
-	width: 40%;
-}
-
-.rightsettings {
-	display: flex;
-	flex-direction: row;
-	width: 40%;
-}
-
-.centersettings {
-	display: flex;
-	flex-direction: row;
-	width: 80%;
-}
-
-#title_key {
-	width: 8%;
-}
-
-.keys {
-	width: 40%;
-}
-
-.values {
-	margin-right: 5%;
-}
-
-#title_value {
-	width: 100%;
-}
-
-#title_input {
-	width: 87%;
-}
-
-#body {
-	margin-bottom: 2%;
-}
-
-#leg {
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 2%;
-	margin-left: 87%;
-	width: 100%;
-}
-
-.buttons {
-	margin-right: 1.5%;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/summernote/summernote-lite.js"></script>
 <script src="resources/js/summernote/lang/summernote-ko-KR.js"></script>
-<script>
-	$(document).ready(function() {
-		$('#summernote').summernote({
-			height : 350, // 에디터 높이
-			minHeight : null, // 최소 높이
-			maxHeight : null, // 최대 높이
-			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
-			lang : "ko-KR", // 한글 설정
-			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
-
-		});
-		$('#summernote').summernote('code', '${careInfo.CATCARELOG_CONTNET}');
+<script type="text/javascript">
+var jqncf = jQuery.noConflict();
+jqncf(document).ready(function() {
+	
+	jqncf('#summernote').summernote({
+		height : 350, // 에디터 높이
+		minHeight : null, // 최소 높이
+		maxHeight : null, // 최대 높이
+		focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+		lang : "ko-KR" // 한글 설정
+	});
+	jqncf('#care_updatebt').click(function(){
+		var frm = document.mainfrom;
+		frm.action = "updateCatCareLog.mdo";
+		frm.method = "post";
+		frm.submit();
+	});
+	jqncf("#care_golistbt").click(function() {
+		window.location.href = 'catCareLogList.mdo';
+	});
+	jqncf("#care_canclebt").click(function() {
+		const careno = jqncf("#CATCARELOG_NO").val();
+		window.location.href = 'getCatCareLog.mdo?CATCARELOG_NO=' + careno;
 	});
 	
-	function goBack() {
-		window.history.go(-1);
-	}
+});	
+
 </script>
-</head>
 <body>
-	<form method="post" action="updateCatCareLog.do">
-		<input type="hidden" name="CATCARELOG_NO"
-			value="${careInfo.CATCARELOG_NO}">
-		<div id="wrap">
-			<div id="head">
-				<h1>냥박일지 작성</h1>
-			</div>
-			<div id="body">
-				<div id="setting">
-					<div id="setting1" class="settings">
-						<div class="leftsettings">
-							<div class="keys">고객 번호</div>
-							<div class="values">
-								<input type="text" readonly="readonly"
-									value="${careInfo.CATCARELOG_USERNUM}"
-									name="CATCARELOG_USERNUM" />
-							</div>
-						</div>
-						<div class="rightsettings">
-							<div class="keys">예약 번호</div>
-							<div class="values">
-								<input type="text" readonly="readonly"
-									value="${careInfo.CATCARELOG_SERVICENUM}"
-									name="CATCARELOG_SERVICENUM" />
-							</div>
-						</div>
-					</div>
-					<div id="setting2" class="settings">
-						<div class="leftsettings">
-							<div class="keys">냥박 시작</div>
-							<div class="values">
-								<input type="text" name="CATCARELOG_CARESTART"
-									value="${careInfo.CATCARELOG_CARESTART}" />
-							</div>
-						</div>
-						<div class="rightsettings">
-							<div class="keys">냥박 종료</div>
-							<div class="values">
-								<input type="text" name="CATCARELOG_CAREEND"
-									value="${careInfo.CATCARELOG_CAREEND}" />
-							</div>
-						</div>
-					</div>
-					<div id="setting3" class="settings">
-						<div class="centersettings">
-							<div class="keys" id="title_key">제목</div>
-							<div class="values" id="title_value">
-								<input type="text" id="title_input" name="CATCARELOG_TITLE"
-									value="${careInfo.CATCARELOG_TITLE}" />
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="content">
-					<textarea id="summernote" name="CATCARELOG_CONTNET">
-					</textarea>
-				</div>
-				<!-- end content -->
-			</div>
-			<!-- end body -->
-			<div id="leg">
-				<input type="submit" value="수정 완료" class="buttons" /> <input
-					type="button" value="수정 취소" class="buttons" onclick="goBack()" />
-			</div>
-			<!-- end foot -->
+<form action="updateCatCareLog.mdo" method="post" name="mainfrom">
+<input type="hidden" value="${catcarelogInfo.CATCARELOG_NO}" id="CATCARELOG_NO">
+<div class="card shadow mb-4">
+	<div class="card-header py-3">
+		<h6 class="m-0 font-weight-bold text-primary">냥박 정보</h6>
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<tbody>
+					<tr>
+						<td class="reserve_info_key">냥박 번호</td>
+						<td class="reserve_info_value">
+						<input type="text" value="${catcarelogInfo.CATCARELOG_NO}" readonly="readonly" name="CATCARELOG_NO">
+						</td>
+						<td class="reserve_info_key">고객 아이디</td>
+						<td class="reserve_info_value">
+						<input type="text" value="${catcarelogInfo.MEMBER_ID}" readonly="readonly">
+						</td>
+					</tr>
+					<tr>
+						<td class="reserve_info_key">냥박 시작</td>
+						<td class="reserve_info_value">
+							<input type="text" value="${catcarelogInfo.CATCARELOG_CARESTART}" name="CATCARELOG_CARESTART">
+						</td>
+						<td class="reserve_info_key">냥박 종료</td>
+						<td class="reserve_info_value">
+							<input type="text" value="${catcarelogInfo.CATCARELOG_CAREEND}" name="CATCARELOG_CAREEND">
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<!-- end wrap -->
+		<div id="payreservation_head">
+			제목 : <input type="text" value="${catcarelogInfo.CATCARELOG_TITLE}" name="CATCARELOG_TITLE"> 
+		</div>
+		<div>
+			<textarea id="summernote" name="CATCARELOG_CONTENT">
+				${catcarelogInfo.CATCARELOG_CONTENT}
+			</textarea>
+		</div>
+		<div id="payreservation_head">
+		</div>
+		<div id="care_buttons">
+		<div class="btn btn-primary btn-icon-split" id="care_golistbt">
+			<span class="icon text-white-50">
+				<i class="fas fa-flag"></i>
+			</span>
+			<span class="text">리스트로</span>
+		</div>
+		<div class="btn btn-success btn-icon-split" id="care_updatebt">
+			<span class="icon text-white-50">
+				<i class="fas fa-check"></i>
+			</span>
+			<span class="text">수정완료</span>
+		</div>
+		<div class="btn btn-danger btn-icon-split" id="care_canclebt">
+			<span class="icon text-white-50">
+				<i class="fas fa-trash"></i>
+			</span>
+			<span class="text">수정취소</span>
+		</div>
+		</div>
+	</div>
+	</div>
 	</form>
 </body>
 </html>

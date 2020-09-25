@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.omgm.member.beans.MemberVO;
 import com.omgm.user.catcarelog.beans.CatCareLogDAO;
 import com.omgm.user.catcarelog.beans.CatCareLogVO;
 import com.omgm.user.review.beans.PageNavigator;
@@ -43,8 +44,17 @@ public class RoomReservationServiceImpl implements RoomReservationService{
 	}//end getSelectedDateInfo(String selectedDate)
 
 	@Override
-	public void insertReservation(RoomReservationVO vo) {
+	public void insertReservation(RoomReservationVO vo, MemberVO memvo) {
 		roomReservationDAO.insertReservation(vo);
+		int beforePoint = memvo.getPoint();
+		int plusPoint = vo.getROOMRESERVATION_PLUSPOINT();
+		int finalPoint = beforePoint + plusPoint ;
+		if (vo.getROOMRESERVATION_USEPOINTYN().equals("Y")) {
+			int usePoint = vo.getROOMRESERVATION_USEPOINT();
+			finalPoint -= usePoint;
+		}
+		memvo.setPoint(finalPoint);
+		roomReservationDAO.updateMemberPoint(memvo);
 	}
 
 	@Override

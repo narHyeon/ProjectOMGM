@@ -7,8 +7,8 @@ public class FAQVO {
 	private String FAQ_ASK;
 	private String FAQ_ANSWER;
 	private int FAQ_CATEGORYNUM;
+	private int FAQ_USE;
 	private String CATEGORY_NAME;
-	
 	public int getFAQ_NO() {
 		return FAQ_NO;
 	}
@@ -33,17 +33,17 @@ public class FAQVO {
 	public void setFAQ_CATEGORYNUM(int fAQ_CATEGORYNUM) {
 		FAQ_CATEGORYNUM = fAQ_CATEGORYNUM;
 	}
+	public int getFAQ_USE() {
+		return FAQ_USE;
+	}
+	public void setFAQ_USE(int fAQ_USE) {
+		FAQ_USE = fAQ_USE;
+	}
 	public String getCATEGORY_NAME() {
 		return CATEGORY_NAME;
 	}
 	public void setCATEGORY_NAME(String cATEGORY_NAME) {
 		CATEGORY_NAME = cATEGORY_NAME;
-	}
-	
-	@Override
-	public String toString() {
-		return "FAQVO [FAQ_NO=" + FAQ_NO + ", FAQ_ASK=" + FAQ_ASK + ", FAQ_ANSWER=" + FAQ_ANSWER + ", FAQ_CATEGORYNUM="
-				+ FAQ_CATEGORYNUM + ", CATEGORY_NAME=" + CATEGORY_NAME + "]";
 	}
 	
 }
