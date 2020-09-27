@@ -76,6 +76,7 @@ tr.reservation_row td{
 }
 
 </style>
+	<link rel="stylesheet" href="resources/admin/css/productListAdmin.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -204,21 +205,23 @@ tr.reservation_row td{
 					<span class="text">냥박일지 작성</span>
 				</div>
             </div>
-            
-           	<div class="reviewList_page00" align="center">
-				<a href="catCareLogList.mdo" class="reviewList_page01">&lt;&lt;</a>
-				<a href="catCareLogList.mdo?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
+
+	<div class="pro_paging" >
+		<ul>
+			<li class="first"><a href="roomReservationList.mdo" class="reviewList_page01"><span class="hide">첫페이지</span></a></li>
+			<li class="prev"><a href="roomReservationList.mdo?page=${navi.startPageGroup-1}" class="reviewList_page01"><span class="hide">이전페이지</span></a></li>
 			<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-			<c:if test="${page == counter}">	
-				<a href="catCareLogList.mdo?page=${counter}" class="reviewList_page" style="background-color:orange ">&nbsp;${counter}</a>
-			</c:if>
-			<c:if test="${page != counter}">
-				<a href="catCareLogList.mdo?page=${counter}" class="reviewList_page" >&nbsp;${counter}</a>
-			</c:if>
+				<c:if test="${page == counter}">
+					<a href="roomReservationList.mdo?page=${counter}" style="background-color:lightskyblue ">&nbsp;${counter}</a>
+				</c:if>
+				<c:if test="${page != counter}">
+					<a href="roomReservationList.mdo?page=${counter}" >&nbsp;${counter}</a>
+				</c:if>
 			</c:forEach>
-				<a href="catCareLogList.mdo?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a> 
-				<a href="catCareLogList.mdo?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
-			</div><!-- end paging -->
+			<li class="next"><a href="roomReservationList.mdo?page=${navi.endPageGroup+1}" class="reviewList_page01"><span class="hide">다음페이지</span></a></li>
+			<li class="last"><a href="roomReservationList.mdo?page=${navi.totalRecordsCount}" class="reviewList_page01"><span class="hide">마지막페이지</span></a></li>
+		</ul>
+	</div><!-- end paging -->
 		</div>
 </body>
 </html>
