@@ -10,7 +10,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
-    <link rel="stylesheet" href="resources/style/sales/productList.css">
+    <link rel="stylesheet" href="resources/admin/css/productListAdmin.css">
     <title>reviewList_board</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
             주인의 세심한 선택이 아이에게 특별한 행복으로 각인됩니다.
         </p>
     </div>
-    <div class="reviewList_button">
+    <div class="reviewList_button" style="border: none">
         <%--        <div class="reviesList_text_div">--%>
         <%--        <input type="text" class="reviewList_text" >--%>
         <%--        </div>--%>
@@ -41,14 +41,14 @@
                             <option value="CONTENT">내용</option>
                         </select>
                         <input type="text" name="searchKeyword" class="text_input"/>
-                        <input type="submit" value="검색" class="submit_button"/>
+                        <input type="submit" value="검색" class="submit_button" style="background-color: lightskyblue; border: none"/>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
     <div class="reviewList_main_sector00">
-        <div class="reviewList_main_sector">
+        <div class="reviewList_main_sector" >
             <c:forEach var="list" items="${reviewList}">
                 <div class="reviewList_line" onclick="getReview(${list.seq})">
                     <img src="${list.imgRef}" class="reviewList_img">
@@ -58,8 +58,8 @@
             </c:forEach>
         </div>
     </div>
-    <div class="reviewList_button00">
-        <button class="button" type="button" onclick="reviewWrite()">글쓰기</button>
+    <div class="reviewList_button00" style="border-top: lightskyblue">
+        <button class="button" type="button" onclick="reviewWrite()" style="background-color: lightskyblue; border: none" >글쓰기</button>
     </div>
     <div class="pro_paging">
         <ul>
@@ -67,7 +67,7 @@
             <li class="prev"><a href="adminReview.mdo?page=${page.cnt-1}"><span class="hide">이전페이지</span></a></li>
             <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
                 <c:if test="${page.cnt == counter}">
-                    <a href="adminReview.mdo?page=${counter}"  style="background-color:lightpink; padding-right: 0.5%" >&nbsp;&nbsp;${counter}</a>
+                    <a href="adminReview.mdo?page=${counter}"  style="background-color:lightskyblue; padding-right: 0.5%" >&nbsp;&nbsp;${counter}</a>
                 </c:if>
                 <c:if test="${page.cnt != counter}">
                     <a href="adminReview.mdo?page=${counter}" >&nbsp;&nbsp;${counter}</a>
