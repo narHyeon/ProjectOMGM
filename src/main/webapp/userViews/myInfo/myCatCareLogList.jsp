@@ -17,6 +17,7 @@
 <!-- 페이징 디자인  -->
 <link type="text/css" rel="stylesheet"
 	href="resources/style/review/reviewListBoard.css">
+	<link rel="stylesheet" href="resources/style/sales/productList.css">
 <style type="text/css">
 #wrap {
 	display: flex;
@@ -244,25 +245,27 @@
 					</table>
 					<br>
 					<!-- start paging -->
-					<div class="reviewList_page00">
-						<a href="myCatCareLogList.do" class="reviewList_page01">&lt;&lt;</a>
-						<a href="myCatCareLogList.do?page=${navi.startPageGroup-1}"
-							class="reviewList_page01">&lt;</a>
+					<div class="pro_paging">
+						<ul>
+							<li class="first"><a href="myCatCareLogList.do" class="reviewList_page01"><span class="hide">첫페이지</span></a></li>
+							<li class="prev"><a href="myCatCareLogList.do?page=${navi.startPageGroup-1}"
+												class="reviewList_page01"><span class="hide">이전페이지</span></a></li>
 						<c:forEach var="counter" begin="${navi.startPageGroup}"
 							end="${navi.endPageGroup}">
 							<c:if test="${page == counter}">
 								<a href="myCatCareLogList.do?page=${counter}"
-									class="reviewList_page" style="background-color: orange">&nbsp;${counter}</a>
+									 style="background-color:lightpink; padding-right: 0.5% ">&nbsp;${counter}</a>
 							</c:if>
 							<c:if test="${page != counter}">
 								<a href="myCatCareLogList.do?page=${counter}"
-									class="reviewList_page">&nbsp;${counter}</a>
+									>&nbsp;${counter}</a>
 							</c:if>
 						</c:forEach>
-						<a href="myCatCareLogList.do?page=${navi.endPageGroup+1}"
-							class="reviewList_page01">&gt;</a> <a
-							href="myCatCareLogList.do?page=${navi.totalRecordsCount}"
-							class="reviewList_page01">&gt;&gt;</a>
+							<li class="next"><a href="myCatCareLogList.do?page=${navi.endPageGroup+1}"
+												><span class="hide">다음페이지</span></a></li>
+							<li class="last"><a href="myCatCareLogList.do?page=${navi.totalRecordsCount}"
+												><span class="hide">마지막페이지</span></a></li>
+						</ul>
 					</div>
 					<!-- end paging -->
 				</div>
