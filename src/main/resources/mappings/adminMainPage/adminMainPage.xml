@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminMainDAO">
+    <resultMap type="OrderVO" id="order_list">
+        <id property="order_no" column="ORDER_NO" />
+        <result property="order_id" column="ORDER_ID" />
+        <result property="order_date" column="ORDER_DATE" />
+        <result property="order_state" column="ORDER_STATE" />
+        <result property="order_phone" column="ORDER_PHONE" />
+        <result property="order_price" column="ORDER_PRICE" />
+        <result property="order_address" column="ORDER_ADDRESS" />
+        <result property="order_receiver" column="ORDER_RECEIVER" />
+        <result property="order_memo" column="ORDER_MEMO" />
+        <result property="order_zipcode" column="ORDER_ZIPCODE" />
+        <result property="order_point_used" column="ORDER_POINT_USED" />
+        <result property="order_name" column="ORDER_NAME" />
+        <result property="order_quantity" column="ORDER_QUANTITY" />
+        <result property="order_img" column="ORDER_IMG" />
+        <result property="order_tn" column="ORDER_TN" />
+    </resultMap>
+    <resultMap type="KinderGardenReservationVO" id="KinderGardenReservationResult">
+        <id property="seq" column="SEQ" />
+        <result property="name" column="NAME"/>
+        <result property="service" column="SERVICE"/>
+        <result property="price" column="PRICE"/>
+        <result property="buyerName" column="BUYER_NAME"/>
+        <result property="animal" column="ANIMAL"/>
+        <result property="animalAge" column="ANIMAL_AGE"/>
+        <result property="phone" column="PHONE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="zipcode" column="ZIPCODE"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="etc" column="ETC"/>
+        <result property="merchantUid" column="MERCHANT_UID"/>
+        <result property="pgProvider" column="PG_PROVIDER"/>
+        <result property="state" column="STATE"/>
+        <result property="regDate" column="REGDATE"/>
+    </resultMap>
+    <resultMap id="RoomReservation00" type="RoomReservationMainVO">
+        <id property="ROOMRESERVATION_NO" column="ROOMRESERVATION_NO" />
+        <result property="ROOMRESERVATION_ROOMNO" column="ROOMRESERVATION_ROOMNO" />
+        <result property="ROOMRESERVATION_ROOMPRICE" column="ROOMRESERVATION_ROOMPRICE" />
+        <result property="ROOMRESERVATION_ROOMNAME" column="ROOMRESERVATION_ROOMNAME" />
+        <result property="ROOMRESERVATION_MEMBERNO" column="ROOMRESERVATION_MEMBERNO" />
+        <result property="ROOMRESERVATION_STAYDAY" column="ROOMRESERVATION_STAYDAY" />
+        <result property="ROOMRESERVATION_PAYDAY" column="ROOMRESERVATION_PAYDAY" />
+        <result property="ROOMRESERVATION_FOODNO" column="ROOMRESERVATION_FOODNO" />
+        <result property="ROOMRESERVATION_FOODNAME" column="ROOMRESERVATION_FOODNAME" />
+        <result property="ROOMRESERVATION_TOYNO" column="ROOMRESERVATION_TOYNO" />
+        <result property="ROOMRESERVATION_TOYNAME" column="ROOMRESERVATION_TOYNAME" />
+        <result property="ROOMRESERVATION_PICKUPYN" column="ROOMRESERVATION_PICKUPYN" />
+        <result property="ROOMRESERVATION_PICKUPTIME" column="ROOMRESERVATION_PICKUPTIME" />
+        <result property="ROOMRESERVATION_PICKUPADDRESS" column="ROOMRESERVATION_PICKUPADDRESS" />
+        <result property="ROOMRESERVATION_PICKUPPHONENUM" column="ROOMRESERVATION_PICKUPPHONENUM" />
+        <result property="ROOMRESERVATION_USEPOINTYN" column="ROOMRESERVATION_USEPOINTYN" />
+        <result property="ROOMRESERVATION_USEPOINT" column="ROOMRESERVATION_USEPOINT" />
+        <result property="ROOMRESERVATION_PLUSPOINT" column="ROOMRESERVATION_PLUSPOINT" />
+        <result property="ROOMRESERVATION_FIANLFEE" column="ROOMRESERVATION_FIANLFEE" />
+    </resultMap>
+    <resultMap type="ManagementVO" id="ManagementResult">
+        <id property="seq" column="SEQ" />
+        <result property="id" column="ID" />
+        <result property="pwd" column="PWD" />
+        <result property="name" column="NAME" />
+        <result property="phone" column="PHONE" />
+        <result property="email" column="EMAIL" />
+        <result property="zipcode" column="ZIPCODE" />
+        <result property="address" column="ADDRESS" />
+        <result property="point" column="POINT" />
+        <result property="rank" column="RANK" />
+        <result property="type" column="TYPE" />
+        <result property="regDate" column="REGDATE" />
+        <result property="code" column="CODE" />
+    </resultMap>
+<!--    메인페이지 barChart 값 불러오기(한 주)-->
+    <!--  몰 한주 매출  -->
+    <select id="getBarChartWeekSales" parameterType="OrderVO" resultType="int">
+        select sum(ORDER_PRICE) from ORDER_LIST where to_char(order_date, 'yyyy-mm-dd') = (select
+            to_char( sysdate-( (select to_char(sysdate,'D') from dual) -2 )+#{order_point}, 'yyyy-mm-dd'    )
+                from dual)
+    </select>
+    <!--  유치원 한주 매출  -->
+    <select id="getBarChartWeekSales01" parameterType="KinderGardenReservationVO" resultType="int">
+        select sum(PRICE) from kg_reservation where to_char(regdate, 'yyyy-mm-dd') = (select
+            to_char( sysdate-( (select to_char(sysdate,'D') from dual) -2 )+#{animalAge}, 'yyyy-mm-dd'    )
+                from dual)
+    </select>
+    <!--  호텔 한주 매출  -->
+    <select id="getBarChartWeekSales02" parameterType="RoomReservationMainVO" resultType="int">
+        select sum(roomreservation_fianlfee) from roomreservation where to_char(ROOMRESERVATION_PAYDAY, 'yyyy-mm-dd') = (select
+            to_char( sysdate-( (select to_char(sysdate,'D') from dual) -2 )+#{day1}, 'yyyy-mm-dd'    )
+                from dual)
+    </select>
+<!--    메인페이지 areaChart 값 불러오기(월 매출)-->
+    <!--  몰 월 매출  -->
+    <select id="getAreaChartMonthlySales" parameterType="OrderVO" resultType="int">
+        select sum(ORDER_PRICE) from ORDER_LIST where order_date between #{order_address} and last_day(#{order_receiver})
+    </select>
+
+    <!-- 유치원 월 매출  -->
+    <select id="getAreaChartMonthlySales01" parameterType="KinderGardenReservationVO" resultType="int">
+        <![CDATA[SELECT sum(price) FROM kg_reservation WHERE regdate >= #{zipcode} AND regdate <= last_day(#{address})]]>
+    </select>
+
+    <!-- 호텔 예약 월 매출  -->
+    <select id="getAreaChartMonthlySales02" parameterType="RoomReservationMainVO" resultType="int">
+        SELECT sum(ROOMRESERVATION_FIANLFEE) FROM ROOMRESERVATION WHERE ROOMRESERVATION_PAYDAY between #{day1} AND last_day(#{day2})
+    </select>
+
+    <!--  몰 총 판매 건수  -->
+    <select id="getTotalMallCount" resultType="int">
+        select count(*) from order_list where order_date >= to_char(sysdate,'YYYY')||'01-01'
+    </select>
+
+    <!--  이번년도 회원가입 건수  -->
+    <select id="getTotalMemberCount" resultType="int">
+        select count(*) from member where regdate >= to_char(sysdate,'YYYY')||'01-01'
+    </select>
+
+    <!--  이번년도 유치원 총 매출  -->
+    <select id="getTotalKGSales" resultType="int">
+        select sum(price) from kg_reservation where regdate >= to_char(sysdate,'YYYY')||'01-01'
+    </select>
+
+    <!--  이번년도 호텔 총 매출  -->
+    <select id="getTotalRRSales" resultType="int">
+        select sum(ROOMRESERVATION_FIANLFEE) from ROOMRESERVATION where ROOMRESERVATION_PAYDAY >= to_char(sysdate,'YYYY')||'01-01'
+    </select>
+
+    <!-- 월 호텔 예약 건 수  -->
+    <select id="getRoomReservationCount" resultType="int">
+        select count(*) from roomreservation where ROOMRESERVATION_PAYDAY between add_months(last_day(sysdate)+1,-1) and last_day(sysdate)
+    </select>
+
+    <!-- 월 유치원 예약 건 수  -->
+    <select id="getKGReservationCount" parameterType="KinderGardenReservationVO" resultType="int">
+        select count(*) from kg_reservation where regdate between add_months(last_day(sysdate)+1,-1) and last_day(sysdate)
+    </select>
+
+    <!--  월 상품 구매 건수  -->
+    <select id="getMallSalesCount" parameterType="OrderVO" resultType="int">
+        select count(*) from order_list where order_date between add_months(last_day(sysdate)+1,-1) and last_day(sysdate)
+    </select>
+
+    <!--  월 회원 가입 수  -->
+    <select id="getMemberCount" parameterType="ManagementVO" resultType="int">
+        select count(*) from member where regdate between add_months(last_day(sysdate)+1,-1) and last_day(sysdate)
+    </select>
+
+    <!--  금일 호텔 에약 현왕  -->
+    <select id="getRRListToday" resultType="RoomReservationMainVO">
+        select * from roomreservation where to_char(sysdate,'YYYYMMDD') = to_char(ROOMRESERVATION_PAYDAY,'YYYYMMDD')
+    </select>
+
+    <!--  유치원  예약 현황  -->
+    <select id="getKGReservation" resultMap="KinderGardenReservationResult">
+        SELECT * FROM kg_reservation ORDER BY seq ASC
+    </select>
+
+    <!--  금일 유치원 에약 현왕  -->
+    <select id="getKGListToday" resultType="KinderGardenReservationVO">
+        select * from kg_reservation where to_char(sysdate,'YYYYMMDD') = to_char(regdate,'YYYYMMDD')
+    </select>
+
+    <!--  금일 몰 주문 현왕  -->
+    <select id="getMallListToday" resultType="OrderVO">
+        select * from order_list where to_char(sysdate,'YYYYMMDD') = to_char(order_date,'YYYYMMDD')
+    </select>
+</mapper>

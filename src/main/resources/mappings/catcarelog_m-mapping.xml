@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CatCareLogDAO_M">
+
+	<resultMap type="com.omgm.admin.catcarelog.beans.CatCareLogVO_M" id="catCareLogMap">
+		<id column ="CATCARELOG_NO" property="CATCARELOG_NO"/>
+		<result column="CATCARELOG_USERNUM" property="CATCARELOG_USERNUM"/>
+		<result column="CATCARELOG_SERVICENUM" property="CATCARELOG_SERVICENUM"/>
+		<result column="CATCARELOG_WRITER" property="CATCARELOG_WRITER"/>
+		<result column="CATCARELOG_TITLE" property="CATCARELOG_TITLE"/>
+		<result column="CATCARELOG_CONTENT" property="CATCARELOG_CONTENT"/>
+		<result column="CATCARELOG_CARESTART" property="CATCARELOG_CARESTART"/>
+		<result column="CATCARELOG_CAREEND" property="CATCARELOG_CAREEND"/>
+		<result column="CATCARELOG_REGDATE" property="CATCARELOG_REGDATE"/>
+		<result column="CATCARELOG_LASTUPDATER" property="CATCARELOG_LASTUPDATER"/>
+		<result column="CATCARELOG_LASTUPDATEDATE" property="CATCARELOG_LASTUPDATEDATE"/>
+		<result column = "MEMBER_SEQ" property="MEMBER_SEQ"/>
+		<result column = "MEMBER_ID" property="MEMBER_ID"/>
+		<result column = "MEMBER_NAME" property="MEMBER_NAME"/>
+		<result column = "WRITER_SEQ" property="WRITER_SEQ"/>
+		<result column = "WRITER_ID" property="WRITER_ID"/>
+		<result column = "WRITER_NAME" property="WRITER_NAME"/>
+	</resultMap>
+	
+	<select id="getCatCareLog" parameterType="catcarelog_m"
+		resultMap="catCareLogMap">
+		SELECT care.*, usr.SEQ MEMBER_SEQ, usr.ID MEMBER_ID, usr.NAME MEMBER_NAME, adm.SEQ WRITER_SEQ, adm.ID WRITER_ID, adm.NAME WRITER_NAME 
+		FROM CATCARELOG care, MEMBER usr, MEMBER adm
+		WHERE care.CATCARELOG_USERNUM = usr.SEQ 
+		AND care.CATCARELOG_WRITER = adm.SEQ
+		AND care.CATCARELOG_NO = #{CATCARELOG_NO}
+	</select>
+
+	<select id="getCatCareLogListByReserNo" resultMap="catCareLogMap">
+		SELECT care.*, usr.SEQ MEMBER_SEQ, usr.ID MEMBER_ID, usr.NAME MEMBER_NAME, adm.SEQ WRITER_SEQ, adm.ID WRITER_ID, adm.NAME WRITER_NAME
+		FROM CATCARELOG care, MEMBER usr,MEMBER adm
+		WHERE care.CATCARELOG_USERNUM = usr.SEQ 
+		AND care.CATCARELOG_WRITER = adm.SEQ
+		AND CATCARELOG_SERVICENUM IN
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			 #{item.ROOMRESERVATION_NO}
+		</foreach>
+		ORDER BY CATCARELOG_NO DESC
+	</select>
+
+	<insert id="insertCatCareLog" parameterType="catcarelog_m">
+		INSERT INTO
+		CATCARELOG (CATCARELOG_NO, CATCARELOG_USERNUM, CATCARELOG_SERVICENUM,
+		CATCARELOG_WRITER, CATCARELOG_TITLE, CATCARELOG_CONTENT,
+		CATCARELOG_CARESTART,CATCARELOG_CAREEND,CATCARELOG_REGDATE)
+		VALUES((select nvl(max(CATCARELOG_NO), 0)+1 from CATCARELOG),#{CATCARELOG_USERNUM},
+		#{CATCARELOG_SERVICENUM}, #{CATCARELOG_WRITER}, #{CATCARELOG_TITLE},#{CATCARELOG_CONTENT},
+		#{CATCARELOG_CARESTART}, #{CATCARELOG_CAREEND}, sysdate)
+	</insert>
+	
+	<update id="updateCatCareLog" parameterType="catcarelog_m">
+		UPDATE CATCARELOG
+		SET CATCARELOG_TITLE=#{CATCARELOG_TITLE},
+		CATCARELOG_CONTENT=#{CATCARELOG_CONTENT},
+		CATCARELOG_CARESTART=#{CATCARELOG_CARESTART},
+		CATCARELOG_CAREEND=#{CATCARELOG_CAREEND}
+		WHERE CATCARELOG_NO=#{CATCARELOG_NO}
+	</update>
+
+	<delete id="deleteCatCareLog" parameterType="catcarelog_m">
+		DELETE FROM CATCARELOG 
+		WHERE CATCARELOG_NO = #{CATCARELOG_NO}
+	</delete>
+	
+</mapper>

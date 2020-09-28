@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RoomDAO">
+	<select id="selectListRoom" resultType="room" parameterType="room">
+		SELECT * FROM ROOM ORDER by room_for DESC , room_kind DESC, room_rank DESC
+	</select>
+	<select id="selectCountRoom" resultType="int" parameterType="room">
+		SELECT count(*) FROM ROOM
+	</select>
+	<select id="roomRead" resultType="room" parameterType="room">
+		SELECT * FROM ROOM WHERE ROOM_NO=#{ROOM_NO}
+	</select>
+	<select id="selectListRoomAll" resultType="room">
+		SELECT * FROM ROOM ORDER by room_for DESC , room_kind DESC, room_rank DESC
+	</select>
+	<select id="getRoomListInfoAfterLoadReserve" resultType="room">
+		SELECT * FROM ROOM ORDER by room_for DESC , room_kind DESC, room_rank DESC
+	</select>
+</mapper>

@@ -9,14 +9,23 @@ const footer = new Vue({
     },
     methods: {
         footTerm(e) {
-            console.log(e.target.name);
+            e.preventDefault();
             const name = e.target.name;
             const width = '500';
             const height = '600';
             const top = Math.ceil((window.screen.width - height) / 8);
             const left = Math.ceil((window.screen.width - width) / 2);
 
-            window.open('term.do?title='+name, '약관', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
+            window.open('term.do?termTitle='+name, '약관', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
+        },
+        facebook() {
+            window.location.href = 'https://ko-kr.facebook.com';
+        },
+        youtube() {
+            window.location.href = 'https://youtu.be/hmYVuY7VDZc';
+        },
+        instagram() {
+            window.location.href = 'https://www.instagram.com';
         }
     },
     created() {

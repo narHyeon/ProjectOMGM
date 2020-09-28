@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PickUpDAO">
+
+	<resultMap type="PickUpVO" id="pickUp">
+		<id property="ROOMRESERVATION_NO" column="ROOMRESERVATION_NO" />
+		<result property="ROOMRESERVATION_ROOMNO" column="ROOMRESERVATION_ROOMNO" />
+		<result property="ROOMRESERVATION_ROOMPRICE" column="ROOMRESERVATION_ROOMPRICE" />
+		<result property="ROOMRESERVATION_ROOMNAME" column="ROOMRESERVATION_ROOMNAME" />
+		<result property="ROOMRESERVATION_MEMBERNO" column="ROOMRESERVATION_MEMBERNO" />
+		<result property="ROOMRESERVATION_STAYDAY" column="ROOMRESERVATION_STAYDAY" />
+		<result property="ROOMRESERVATION_PAYDAY" column="ROOMRESERVATION_PAYDAY" />
+		<result property="ROOMRESERVATION_FOODNO" column="ROOMRESERVATION_FOODNO" />
+		<result property="ROOMRESERVATION_FOODNAME" column="ROOMRESERVATION_FOODNAME" />
+		<result property="ROOMRESERVATION_TOYNO" column="ROOMRESERVATION_TOYNO" />
+		<result property="ROOMRESERVATION_TOYNAME" column="ROOMRESERVATION_TOYNAME" />
+		<result property="ROOMRESERVATION_PICKUPYN" column="ROOMRESERVATION_PICKUPYN" />
+		<result property="ROOMRESERVATION_PICKUPTIME" column="ROOMRESERVATION_PICKUPTIME" />
+		<result property="ROOMRESERVATION_PICKUPADDRESS" column="ROOMRESERVATION_PICKUPADDRESS" />
+		<result property="ROOMRESERVATION_PICKUPPHONENUM" column="ROOMRESERVATION_PICKUPPHONENUM" />
+		<result property="ROOMRESERVATION_USEPOINTYN" column="ROOMRESERVATION_USEPOINTYN" />
+		<result property="ROOMRESERVATION_USEPOINT" column="ROOMRESERVATION_USEPOINT" />
+		<result property="ROOMRESERVATION_PLUSPOINT" column="ROOMRESERVATION_PLUSPOINT" />
+		<result property="ROOMRESERVATION_FIANLFEE" column="ROOMRESERVATION_FIANLFEE" />
+		<result property="ROOMRESERVATION_ROOMSALERATE" column="ROOMRESERVATION_ROOMSALERATE" />
+		<result property="ROOMRESERVATION_PICKUPANIMAL" column="ROOMRESERVATION_PICKUPANIMAL" />
+		<result property="ROOMRESERVATION_PICKUPOWNER" column="ROOMRESERVATION_PICKUPOWNER" />
+		<result property="ROOMRESERVATION_PICKUPNOTE" column="ROOMRESERVATION_PICKUPNOTE" />
+	</resultMap>
+
+	<resultMap type="MemberVO" id="pickUpInfo">
+		<id property="seq" column="SEQ" />
+		<result property="id" column="ID"/>
+		<result property="pwd" column="PWD"/>
+		<result property="name" column="NAME"/>
+		<result property="phone" column="PHONE" />
+		<result property="email" column="EMAIL" />
+		<result property="zipcode" column="ZIPCODE" />
+		<result property="address" column="ADDRESS" />
+		<result property="point" column="POINT" />
+		<result property="rank" column="RANK" />
+		<result property="type" column="TYPE" />
+		<result property="regDate" column="REGDATE"/>
+		<result property="code" column="CODE"/>
+		<result property="animal" column="ANIMAL"/>
+		<result property="animalAge" column="ANIMALAGE"/>
+	</resultMap>
+
+	<select id="getPickUpList" resultMap="pickUp">
+		SELECT * FROM ROOMRESERVATION WHERE ROOMRESERVATION_PICKUPYN = 'Y' ORDER BY ROOMRESERVATION_NO ASC
+	</select>
+
+	<select id="getPickUpListInfo" resultMap="pickUpInfo">
+		SELECT * FROM ROOMRESERVATION T1, MEMBER T2 WHERE T1.ROOMRESERVATION_MEMBERNO = T2.SEQ
+	</select>
+
+
+</mapper>

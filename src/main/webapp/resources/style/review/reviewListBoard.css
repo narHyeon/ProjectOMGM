@@ -1,0 +1,194 @@
+/*div 관련 텍스트*/
+#reviewList_board {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	margin-bottom: 8%;
+	margin-top: 3%;
+	margin-left: 12%;
+	margin-right: 12%;
+	justify-content: center;
+}
+
+.reviewList_head_sub_text {
+	text-align: center;
+	width: 100%;
+	color: #555;
+	line-height: 1.7em;
+	/*margin-top: 5%;*/
+	/*margin-bottom: 3%;*/
+	/*border-top: 1px solid lightpink;*/
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+.reviewList_main_sector {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 1%;
+}
+
+.reviewList_line {
+	display: flex;
+	width: 32%;
+	flex-direction: column;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 3%;
+	border: 1px solid lightgrey;
+	/*justify-content: space-between;*/
+}
+/* 페이지 부분 div 테그 수정 */
+.reviewList_page00 {
+	display: flex;
+	justify-content: center;
+}
+
+.reviewList_button {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: -3%;
+	padding-bottom: 1%;
+	margin-bottom: 3%;
+	border-bottom: 3px solid lightpink;
+	height: 30px;
+}
+
+.reviewList_button00 {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 0%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin-bottom: 3%;
+	border-top: 1px solid lightpink;
+	height: 30px;
+}
+
+.reviewList_line:hover {
+	cursor: pointer;
+ }
+
+.submit_button:hover, .button:hover {
+	cursor: pointer;
+	background-color: #cb5e6b;
+}
+
+.reviewList_button00 button {
+	width: 100px;
+	background-color: pink;
+	color: white;
+	border: 1px solid #cb5e6b;
+	height: 25px;
+	font-weight: 600;
+}
+
+.reviewList_header {
+	display: flex;
+	justify-content: center;
+}
+/* 이미지 관련 설정 */
+.reviewList_img {
+	width: 100%;
+	height: auto;
+	min-height: 77%;
+	margin-bottom: 3%;
+}
+
+/* 텍스트 관련 설정 */
+.main_head_text {
+	text-align: center;
+	font-weight: bold;
+	font-size: 40px;
+	background-color: #F28888;
+	width: 20%;
+	border-radius: 30%;
+	color: white;
+}
+
+.reviewList_text {
+	margin-bottom: 3%;
+	margin-top: 1%;
+	font-size: 18px;
+}
+
+.reviewList_text_div {
+	margin-right: 3%;
+}
+
+.reviewList_sub_text {
+	margin-bottom: 3%;
+	opacity: 80%;
+}
+
+.reviewList_span {
+	color: #F28888;
+	font-size: larger;
+}
+/* 텍스트 관련 설정*/
+.reviewList_text {
+	font-size: 1.8vw;
+	margin-right: 3%;
+	color: #F28888;
+}
+
+.text_input {
+	color: black;
+	height: 22px;
+}
+
+.select_search {
+	border: none;
+}
+/* 버튼 관련 설정*/
+.button {
+	margin-left: 1%;
+	background-color: lightpink;
+	border: 1px solid deeppink;
+}
+
+.submit_button {
+	width: 100px;
+	background-color: pink;
+	color: white;
+	border: 1px solid #cb5e6b;
+	height: 22px;
+	font-weight: 600;
+}
+
+.reviewList_page {
+	border: 1px solid deeppink;
+	color: whitesmoke;
+	background-color: deeppink;
+	border-radius: 30%;
+	margin-left: 0.4%;
+	margin-right: 0.4%;
+	width: 20px;
+}
+
+.reviewList_page01 {
+	color: pink;
+	width: 20px;
+	margin-left: 0.4%;
+	margin-right: 0.4%;
+	text-align: center;
+}
+
+@media ( max-width : 768px) {
+	.reviewList_img {
+		width: 100%;
+		height: auto;
+	}
+	.reviewList_sub_text {
+		display:none;
+		margin-bottom: 9%;
+		opacity: 80%;
+		font-size: small;
+	}
+	.reviewList_text {
+		margin-bottom: 3%;
+		margin-top: 1%;
+		font-size: 14px;
+	}
+}

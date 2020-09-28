@@ -3,11 +3,89 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
 	<typeAliases>
-		<typeAlias alias="myboard" type="com.omgm.board.BoardVO"/>
+		<!--	메인화면	-->
+		<typeAlias alias="RoomReservationMainVO" type="com.omgm.admin.main.beans.RoomReservationVO" />
+		<!--	회원관련	-->
+		<typeAlias alias="MemberVO" type="com.omgm.member.beans.MemberVO"/>
+		<typeAlias alias="ManagementVO" type="com.omgm.admin.memberManagement.beans.ManagementVO"/>
+		<!--	이용후기	-->
+		<typeAlias alias="ReviewVO" type="com.omgm.user.review.beans.ReviewVO"/>
+		<typeAlias alias="ReviewReplyVO" type="com.omgm.user.review.beans.ReviewReplyVO"/>
+		<!--	유치원	-->
+		<typeAlias alias="KinderGardenVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenVO" />
+		<typeAlias alias="KinderGardenRowVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowVO" />
+		<typeAlias alias="KinderGardenRowMonthVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenRowMonthVO" />
+		<typeAlias alias="KinderGardenReservationVO" type="com.omgm.user.common.beans.KinderGardenReservationVO" />
+		<typeAlias alias="KinderGardenDateVO" type="com.omgm.admin.kinderGarden.beans.KinderGardenDateVO" />
+		<!--	유저 공통	-->
+		<typeAlias alias="KinderGardenInfoVO" type="com.omgm.user.common.beans.KinderGardenInfoVO" />
+		<typeAlias alias="KinderGardenInfoRowVO" type="com.omgm.user.common.beans.KinderGardenInfoRowVO" />
+		<!--	몰	-->
+		<typeAlias alias="mallToyVO" type="com.omgm.admin.mall.beans.MallToyVO"/>
+		<typeAlias alias="mallOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
+		<typeAlias alias="mallFeedVO" type="com.omgm.admin.mall.beans.MallFeedVO" />
+		<typeAlias alias="userMallToyVO" type="com.omgm.user.mall.beans.UserMallToyVO" />
+		<typeAlias alias="userMallFeedVO" type="com.omgm.user.mall.beans.UserMallFeedVO" />
+		<typeAlias alias="OrderVO" type="com.omgm.admin.mall.beans.OrderVO" />
+		<typeAlias alias="MemberOrderVO" type="com.omgm.admin.mall.beans.MallOrderVO" />
+		<typeAlias alias="CartListVO" type="com.omgm.user.mall.beans.CartListVO" />
+		<!--		-->
+		<typeAlias alias="faq" type="com.omgm.user.faq.beans.FAQVO" />
+		<typeAlias alias="faq_m" type="com.omgm.admin.faq.beans.FAQVO_M" />
+		<typeAlias alias="category" type="com.omgm.user.faq.beans.CategoryVO" />
+		<typeAlias alias="category_m" type="com.omgm.admin.category.beans.CategoryVO_M" />
+		<typeAlias alias="catcarelog" type="com.omgm.user.catcarelog.beans.CatCareLogVO" />
+		<typeAlias alias="catcarelog_m" type="com.omgm.admin.catcarelog.beans.CatCareLogVO_M" />
+		<typeAlias alias="mypet" type="com.omgm.user.mypet.beans.MyPetVO" />
+		<!-- 객실관리	-->
+		<typeAlias alias="hotel" type="com.omgm.admin.hotel.beans.HotelVO" />
+		<typeAlias alias="room" type="com.omgm.user.room.beans.RoomVO"/>
+		<typeAlias alias="room_m" type="com.omgm.admin.room.beans.RoomVO_M"/>
+		<typeAlias alias="roomreservation" type="com.omgm.user.roomreservation.beans.RoomReservationVO"/>
+		<typeAlias alias="roomreservation_m" type="com.omgm.admin.roomreservation.beans.RoomReservationVO_M"/>
+		<!--	픽업서비스	-->
+		<typeAlias alias="PickUpVO" type="com.omgm.admin.pickup.beans.PickUpVO"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappings/board-mapping.xml"/>
+		<!--	메인페이지	-->
+		<mapper resource="mappings/adminMainPage/adminMainPage.xml" />
+		<!-- 회원 -->
+		<mapper resource="mappings/member-mapping.xml" />
+		<mapper resource="mappings/memberManagement/management-mapping.xml" />
+		<!-- 이용후기 -->
+		<mapper resource="mappings/review-mapping.xml" />
+		<!-- 유치원 -->
+		<mapper
+			resource="mappings/kinderGarden/kinderGarden-mapping.xml" />
+		<!-- 유저 공통 -->
+		<mapper resource="mappings/common-mapping.xml" />
+		<mapper resource="mappings/myInfo/myInfo-mapping.xml" />
+		<!-- 몰 -->
+		<mapper resource="mappings/mall/productList-mapping.xml" />
+		<mapper resource="mappings/mall/order-mapping.xml" />
+		<mapper resource="mappings/mall/mall-mapping.xml" />
+		<!-- -->
+		<mapper resource="mappings/faq-mapping.xml" />
+		<mapper resource="mappings/faq_m-mapping.xml" />
+		<mapper resource="mappings/category-mapping.xml" />
+		<mapper resource="mappings/category_m-mapping.xml" />
+		<mapper resource="mappings/catcarelog-mapping.xml" />
+		<mapper resource="mappings/catcarelog_m-mapping.xml" />
+		<mapper resource="mappings/mypet-mapping.xml" />
+		<!-- 객실관리 -->
+		<mapper resource="mappings/hotel-mapping.xml" />
+		<mapper resource="mappings/room-mapping.xml" />
+		<mapper resource="mappings/room-mapping_m.xml" />
+		<mapper resource="mappings/roomReservation-mapping.xml" />
+		<mapper resource="mappings/roomReservation_m-mapping.xml" />
+		<!--	픽업서비스	-->
+		<mapper resource="mappings/pickUp/pickUp-mapping.xml" />
+
+		
 	</mappers>
 </configuration>
- 

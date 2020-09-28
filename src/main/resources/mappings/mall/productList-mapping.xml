@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMallDAO">
+
+    <resultMap type="userMallFeedVO" id="feed">
+        <id property="feed_code" column="FEED_CODE" />
+        <result property="feed_name" column="FEED_NAME" />
+        <result property="feed_inStock" column="FEED_INSTOCK" />
+        <result property="feed_price" column="FEED_PRICE" />
+        <result property="feed_discount" column="FEED_DISCOUNT" />
+        <result property="feed_stock" column="FEED_STOCK" />
+        <result property="feed_point" column="FEED_POINT" />
+        <result property="feed_info" column="FEED_INFO" />
+        <result property="feed_img" column="FEED_IMG" />
+    </resultMap>
+
+    <resultMap type="userMallToyVO" id="toy">
+        <id property="toy_code" column="TOY_CODE" />
+        <result property="toy_name" column="TOY_NAME" />
+        <result property="toy_inStock" column="TOY_INSTOCK" />
+        <result property="toy_price" column="TOY_PRICE" />
+        <result property="toy_discount" column="TOY_DISCOUNT" />
+        <result property="toy_stock" column="TOY_STOCK" />
+        <result property="toy_point" column="TOY_POINT" />
+        <result property="toy_info" column="TOY_INFO" />
+        <result property="toy_img" column="TOY_IMG" />
+    </resultMap>
+
+<!--########################## feed 관련 쿼리문 ###############################-->
+
+<!--    리스트 나열-->
+    <select id="getMallFeedList" resultType="userMallFeedVO">
+        SELECT * FROM FEED
+        WHERE 1=1
+        <if test="searchCondition=='FEED_NAME'">
+            AND feed_name LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        <if test="searchCondition=='FEED_INFO'">
+            AND feed_info LIKE '%'||#{searchKeyword}||'%'
+        </if>ORDER BY feed_code DESC
+    </select>
+<!--    <select id="getMallFeedList" resultType="userMallFeedVO">-->
+<!--        SELECT * FROM FEED WHERE 1=1-->
+<!--        <if test="searchCondition == 'FEED_NAME'">AND (feed_name LIKE '%' || #{searchKeyword} || '%' or feed_info LIKE '%' || #{searchKeyword} || '%')</if>-->
+<!--        <if test="searchCondition == 'FEED_INFO'">AND (feed_name LIKE '%' || #{searchKeyword} || '%' or feed_info LIKE '%' || #{searchKeyword} || '%')</if>ORDER BY feed_code DESC-->
+<!--    </select>-->
+<!--     페이징 처리를 위한 인트형 타입으로 게시판 갯수 가지고오기-->
+    <select id="selectCountMall" resultType="int">
+        SELECT COUNT(*) from feed
+    </select>
+
+    <!--   클라이언트페이지에서 사료 누른 정보를 불러와 결제페이지로 이동하는 페이지-->
+    <select id="getMallFeedOneInfo" resultType="userMallFeedVO" parameterType="userMallFeedVO">
+        SELECT * FROM feed WHERE feed_code=#{feed_code}
+    </select>
+
+
+
+    <!--########################## toy 관련 쿼리문 ###############################-->
+    <select id="getMallToyList" resultType="userMallToyVO">
+        SELECT * FROM TOY
+        WHERE 1=1
+        <if test="searchConditionToy=='TOY_NAME'">
+            AND toy_name LIKE '%'||#{searchKeywordToy}||'%'
+        </if>
+        <if test="searchConditionToy=='TOY_INFO'">
+            AND toy_info LIKE '%'||#{searchKeywordToy}||'%'
+        </if>ORDER BY toy_code DESC
+    </select>
+
+    <!--     페이징 처리를 위한 인트형 타입으로 게시판 갯수 가지고오기-->
+    <select id="selectCountToyMall" resultType="int">
+        SELECT COUNT(*) from toy
+    </select>
+
+<!--  클라이언트 페이지에서 장난감 누른 정보를 불러와 결제페이지로 이동하는 페이지-->
+    <select id="getMallToyOneInfo" resultType="userMallToyVO" parameterType="userMallToyVO">
+        SELECT * FROM toy WHERE toy_code=#{toy_code}
+    </select>
+
+</mapper>
+
