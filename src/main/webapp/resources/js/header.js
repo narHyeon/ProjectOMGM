@@ -367,7 +367,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const naverLogin = new naver.LoginWithNaverId(
         {
             clientId: "epIAIQoP1jJTDyUpzFxX",
-            callbackUrl: "http://52.78.159.138/OMGM/naverCallback.lo",
+            callbackUrl: "http://ec2-52-78-159-138.ap-northeast-2.compute.amazonaws.com/OMGM/naverCallback.lo",
             isPopup: false, /* 팝업을 통한 연동처리 여부 */
             loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
         }
