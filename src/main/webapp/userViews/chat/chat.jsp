@@ -35,7 +35,7 @@
         send();
     })
     function connect(){
-        webSocket = new WebSocket("ws://52.78.159.138/OMGM/chat.lo");
+        webSocket = new WebSocket("ws://ec2-52-78-159-138.ap-northeast-2.compute.amazonaws.com/OMGM/chat.lo");
         webSocket.onopen = onOpen;
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;
