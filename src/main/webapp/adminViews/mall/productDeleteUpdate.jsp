@@ -72,7 +72,7 @@
 	<link rel="stylesheet" href="resources/style/summernote/summernote-lite.css">
 </head>
 <body>
-<div style="margin-top: 30%;margin-right: 5%; display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
+<div style="margin-top: 10%;margin-right: 5%; display: flex; justify-content: flex-end; padding-right: 13%; margin-bottom: -1%;">
 	<a href="productInquiryToy.mdo"><button class="btn btn-info">사료
 		현왕 페이지로 이동</button></a>
 </div>

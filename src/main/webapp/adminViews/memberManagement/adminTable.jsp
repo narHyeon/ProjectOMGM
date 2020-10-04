@@ -63,7 +63,7 @@
                     <th>가입날짜</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="memberTable_tbody">
                     <c:forEach var="members" items="${adminTable}">
                         <tr class="memberTable_member">
                             <td class ="memberTable_seq">${members.seq}</td>
