@@ -91,7 +91,7 @@
 		<script>
 		const naverLogin = new naver.LoginWithNaverId({
 			clientId: "epIAIQoP1jJTDyUpzFxX",
-			callbackUrl: "http://localhost:8080/naverCallback/",
+			callbackUrl: "http://52.78.159.138/OMGM/naverCallback/",
 			isPopup: false,
 			callbackHandle: true
 		});

@@ -367,7 +367,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const naverLogin = new naver.LoginWithNaverId(
         {
             clientId: "epIAIQoP1jJTDyUpzFxX",
-            callbackUrl: "http://localhost:8080/naverCallback.lo",
+            callbackUrl: "http://52.78.159.138/OMGM/naverCallback.lo",
             isPopup: false, /* 팝업을 통한 연동처리 여부 */
             loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
         }
@@ -446,7 +446,7 @@ function loginSocket(id) {
     connect();
 
     function connect(){
-        webSocket = new WebSocket("ws://localhost:8080/chat.lo");
+        webSocket = new WebSocket("ws://52.78.159.138/OMGM/chat.lo");
         webSocket.onopen = onOpen;
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;

@@ -7,7 +7,7 @@ function loginSocket(id) {
     connect();
 
     function connect(){
-        webSocket = new WebSocket("ws://localhost:8080/chat.lo");
+        webSocket = new WebSocket("ws://52.78.159.138/OMGM/chat.lo");
         webSocket.onopen = onOpen;
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;

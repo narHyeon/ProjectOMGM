@@ -55,7 +55,7 @@
 		class="org.springframework.social.oauth2.OAuth2Parameters">
 		<property name="scope" value="email profile" />
 		<property name="redirectUri"
-			value="http://localhost:8080/googleSignInCallback.lo" />
+			value="http://52.78.159.138/OMGM/googleSignInCallback.lo" />
 	</bean>
 
 	<bean id="authInfo" class="com.omgm.member.OAuth.beans.OAuthVO">
