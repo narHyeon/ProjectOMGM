@@ -77,20 +77,23 @@ public class RoomReservationServiceImpl implements RoomReservationService{
 	public List<RoomReservationVO> selectListRoomReservationAndCatCareLog(RoomReservationVO vo, PageNavigator navi) {
 		//해당 페이지에 보여줄 예약리스트
 		List<RoomReservationVO> reservationList = roomReservationDAO.selectListRoomReservation(vo,navi); 
-		
-		//뽑아온 예약번호를 이용하여 해당 예약번호들에해당하는 모든 냥박일지를 얻어오는 메소드
-		List<CatCareLogVO> catCareLogList =  catCareLogDAO.getCatCareLogListByReserNo(reservationList);
-		
-		//예약 번호에 해당하는 냥박일지를 넣어주는 로직
-		for (int i = 0; i < reservationList.size(); i++) {
-			List<CatCareLogVO> careList = new ArrayList<CatCareLogVO>();
-			for (int j = 0; j < catCareLogList.size(); j++) {
-				if (reservationList.get(i).getROOMRESERVATION_NO() == catCareLogList.get(j).getCATCARELOG_SERVICENUM()) {
-					careList.add(catCareLogList.get(j));
+		if (reservationList.size() != 0) {
+			//뽑아온 예약번호를 이용하여 해당 예약번호들에해당하는 모든 냥박일지를 얻어오는 메소드
+			List<CatCareLogVO> catCareLogList =  catCareLogDAO.getCatCareLogListByReserNo(reservationList);
+			
+			//예약 번호에 해당하는 냥박일지를 넣어주는 로직
+			for (int i = 0; i < reservationList.size(); i++) {
+				List<CatCareLogVO> careList = new ArrayList<CatCareLogVO>();
+				for (int j = 0; j < catCareLogList.size(); j++) {
+					if (reservationList.get(i).getROOMRESERVATION_NO() == catCareLogList.get(j).getCATCARELOG_SERVICENUM()) {
+						careList.add(catCareLogList.get(j));
+					}
 				}
-			}
-			reservationList.get(i).setCatCareList(careList);
+				reservationList.get(i).setCatCareList(careList);
+			}	
 		}
+		
+		
 		return reservationList;
 	}
 }
