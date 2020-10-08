@@ -111,17 +111,17 @@
 
     <!--  몰 총 판매 건수  -->
     <select id="getTotalMallCount" resultType="int">
-        select count(*) from order_list where order_date >= to_char(sysdate,'YYYY')||'01-01'
+        select count(*) from order_list where order_date >= (SELECT TRUNC (SYSDATE, 'YEAR') FROM DUAL)
     </select>
 
     <!--  이번년도 회원가입 건수  -->
     <select id="getTotalMemberCount" resultType="int">
-        select count(*) from member where regdate >= to_char(sysdate,'YYYY')||'01-01'
+        select count(*) from member where regdate >= (SELECT TRUNC (SYSDATE, 'YEAR') FROM DUAL)
     </select>
 
     <!--  이번년도 유치원 총 매출  -->
     <select id="getTotalKGSales" resultType="int">
-        select sum(price) from kg_reservation where regdate >= to_char(sysdate,'YYYY')||'01-01'
+        select sum(price) from kg_reservation where regdate >= (SELECT TRUNC (SYSDATE, 'YEAR') FROM DUAL)
     </select>
 
     <!--  이번년도 호텔 총 매출  -->
