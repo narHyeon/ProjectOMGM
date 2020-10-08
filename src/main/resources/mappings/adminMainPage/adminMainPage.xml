@@ -126,7 +126,7 @@
 
     <!--  이번년도 호텔 총 매출  -->
     <select id="getTotalRRSales" resultType="int">
-        select sum(ROOMRESERVATION_FIANLFEE) from ROOMRESERVATION where ROOMRESERVATION_PAYDAY >= to_char(sysdate,'YYYY')||'01-01'
+        select sum(ROOMRESERVATION_FIANLFEE) from ROOMRESERVATION where ROOMRESERVATION_PAYDAY >= (SELECT TRUNC (SYSDATE, 'YEAR') FROM DUAL)
     </select>
 
     <!-- 월 호텔 예약 건 수  -->
