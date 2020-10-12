@@ -33,12 +33,10 @@
 		<put-attribute name="body" value="/userViews/{1}.jsp" />
 	</definition>
 	<definition name="*/*" extends="base">
-		<put-attribute name="body"
-			value="/userViews/{1}/{2}.jsp" />
+		<put-attribute name="body" value="/userViews/{1}/{2}.jsp" />
 	</definition>
 	<definition name="*/*/*" extends="base">
-		<put-attribute name="body"
-			value="/userViews/{1}/{2}/{3}.jsp" />
+		<put-attribute name="body" value="/userViews/{1}/{2}/{3}.jsp" />
 	</definition>
 
 </tiles-definitions>

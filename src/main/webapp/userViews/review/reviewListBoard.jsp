@@ -53,7 +53,7 @@
                 <div class="reviewList_line" onclick="getReview(${list.seq})">
                     <img src="${list.imgRef}" class="reviewList_img">
                     <p class="reviewList_text">${list.title}</p>
-                    <p class="reviewList_sub_text">${list.regDate}</p>
+                    <p class="reviewList_sub_text">${list.formatDate}</p>
                 </div>
             </c:forEach>
         </div>

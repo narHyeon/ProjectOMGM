@@ -20,7 +20,7 @@
 	<task:annotation-driven />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/adminViews" />
+		<property name="prefix" value="/adminViews/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="3" />
 	</bean>
