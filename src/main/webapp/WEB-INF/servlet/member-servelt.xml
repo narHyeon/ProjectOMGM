@@ -19,7 +19,7 @@
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/userViews" />
+		<property name="prefix" value="/userViews/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="2" />
 	</bean>
@@ -55,7 +55,7 @@
 		class="org.springframework.social.oauth2.OAuth2Parameters">
 		<property name="scope" value="email profile" />
 		<property name="redirectUri"
-			value="http://ec2-52-78-159-138.ap-northeast-2.compute.amazonaws.com/OMGM/googleSignInCallback.lo" />
+			value="http://ec2-54-180-118-65.ap-northeast-2.compute.amazonaws.com/OMGM/googleSignInCallback.lo" />
 	</bean>
 
 	<bean id="authInfo" class="com.omgm.member.OAuth.beans.OAuthVO">

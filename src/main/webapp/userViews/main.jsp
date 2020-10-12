@@ -91,7 +91,7 @@
 		<script>
 		const naverLogin = new naver.LoginWithNaverId({
 			clientId: "epIAIQoP1jJTDyUpzFxX",
-			callbackUrl: "http://ec2-52-78-159-138.ap-northeast-2.compute.amazonaws.com/OMGM/naverCallback/",
+			callbackUrl: "http://ec2-54-180-118-65.ap-northeast-2.compute.amazonaws.com/OMGM/naverCallback/",
 			isPopup: false,
 			callbackHandle: true
 		});
