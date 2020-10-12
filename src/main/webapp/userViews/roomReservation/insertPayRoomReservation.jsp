@@ -252,8 +252,9 @@
 		}, function(rsp) {
 			if (rsp.success) {
 				$.ajax({
-                    method: 'POST',
+                    type: 'POST',
                     url: "/ajaxinsertPayRoomReservation.do",
+
                     data: reservationData,
                     success : function(data) {
         				msg = '결제가 완료되었습니다.';

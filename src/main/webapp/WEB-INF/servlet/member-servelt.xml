@@ -21,7 +21,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/userViews" />
 		<property name="suffix" value=".jsp" />
-		<property name="order" value="2" />
+		<property name="order" value="3" />
 	</bean>
 
 	<!-- Tiles 뷰 리졸버 -->
