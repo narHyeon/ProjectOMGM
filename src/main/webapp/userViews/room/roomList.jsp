@@ -4,47 +4,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title></title>
-<link rel="stylesheet" href="resources/style/room/style.css">
 <!-- 페이징 디자인  -->
-<link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
-<style>
-#roomList_wrap{
-	margin-bottom: 2%;
-}
-#room_buttons{
-	margin-left: 5%;
-}
-#roomList_content_p{
-	margin-top : 10px;
-	margin: 0px;
-	padding: 0px;
-}
-#roomList_content_strong{
-	margin-bottom: 5px;
-}
-#roomList_content_span{
-	width: 30%;
-	color: red;
-}
-#roomList_content_span2{
-	font-size: 13px;
-	color: black;
-}
-#roomList_content_div{
-	display : flex;
-	flex-direction : row;
-	margin-bottom:3px;
-}
-#roomList_em{
-	font-size: 15px;
-}
-.roomList_room{
-	cursor: pointer;
-}
-</style>
+    <link type="text/css" rel="stylesheet" href="resources/style/review/reviewListBoard.css">
+    <link rel="stylesheet" href="resources/style/sales/productList.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -54,53 +17,54 @@
 		});
 	});
 </script>
+<style type="text/css">
+.room_title {
+		display: flex;
+	width: 1196px;
+	margin-left: 5%;
+	margin-top: 3%;
+	height: 70px;
+	text-align: center;
+	font-size: 33px;
+	color: pink;
+	border-bottom: solid 3px pink;
+}
+</style>
 </head>
 <body>
-<div id="roomList_wrap">
-<div id="title" >방 소개</div>
-<main>
-<div class="event_list">
-    <ul>
-		<c:forEach var="room" items="${roomList}" varStatus="num">
-   		<li>
-			<a class="roomList_room" data-no="${room.ROOM_NO}">
-        	<div class="img"><img src="${room.ROOM_IMG}" width="271px" height="272px"></div>
-	        <div class="info">
-    	    	<strong id="roomList_content_strong">${room.ROOM_NAME}</strong>
-        	    <p id="roomList_content_p">
-            	<c:choose>
-	            	<c:when test="${room.ROOM_KIND eq 's'}">
-	            		<div id="roomList_content_div">
-              				<div id="roomList_content_span">방 종류  </div> <div id="roomList_content_span2">개인방</div> <br>
-              			</div>	
-            		</c:when>
-            		<c:when test="${room.ROOM_KIND eq 'p'}">
-	              		<div id="roomList_content_div">
-	              			<div id="roomList_content_span">방 종류  </div> <div id="roomList_content_span2" >단체방</div> <br>
-            			</div>
-            		</c:when>
-            	</c:choose>	
-            	<c:choose>
-	            	<c:when test="${room.ROOM_FOR eq '고양이'}">
-              			<div id="roomList_content_div">
-              				<div id="roomList_content_span">반려동물  </div> <div id="roomList_content_span2">고양이</div>  <br>
-            			</div>
-            		</c:when>
-            		<c:when test="${room.ROOM_FOR eq '강아지'}">
-	              		<div id="roomList_content_div">	
-	              			<div id="roomList_content_span">반려동물  </div> <div id="roomList_content_span2">강아지</div> <br>
-            			</div>
-            		</c:when>
-            	</c:choose>	
-            	</p>
-			</div>
-        	</a>
-      	</li>	
-      	</c:forEach>
-	</ul>
-</div>
-</main>
-<div class="reviewList_page00">
+<div id="reviewList_board">
+	<span class="room_title">방 소개</span>
+    <div class="reviewList_button">
+    </div>
+    <div class="reviewList_main_sector00">
+        <div class="reviewList_main_sector">
+            <c:forEach var="room" items="${roomList}" varStatus="num">
+                <div class="reviewList_line" data-no="${room.ROOM_NO}">
+                    <img src="${room.ROOM_IMG}" class="reviewList_img">
+                    <p class="reviewList_text">${room.ROOM_NAME}</p>
+                    <p class="reviewList_sub_text">	
+                    <c:choose>
+						<c:when test="${room.ROOM_KIND eq 's'}">
+            				방종류 : 개인방
+            			</c:when>
+            			<c:when test="${room.ROOM_KIND eq 'p'}">
+							방종류 : 단체방
+            			</c:when>
+                    </c:choose>
+					<c:choose>
+	            		<c:when test="${room.ROOM_FOR eq '고양이'}">
+              				반려동물: 고양이
+ 		           		</c:when>
+        	    		<c:when test="${room.ROOM_FOR eq '강아지'}">
+            				반려동물: 강아지
+            			</c:when>
+            		</c:choose>
+            		</p>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+    <div class="reviewList_page00">
 	<a href="roomList.do" class="reviewList_page01">&lt;&lt;</a>
 	<a href="roomList.do?page=${navi.startPageGroup-1}" class="reviewList_page01">&lt;</a>
 	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
@@ -114,6 +78,6 @@
 	<a href="roomList.do?page=${navi.endPageGroup+1}" class="reviewList_page01">&gt;</a> 
 	<a href="roomList.do?page=${navi.totalRecordsCount}" class="reviewList_page01">&gt;&gt;</a>
 </div><!-- end paging -->
-</div><!-- end roomList_wrap -->
+</div>
 </body>
 </html>
