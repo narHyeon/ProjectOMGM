@@ -82,7 +82,7 @@
 					<a
 						href="productDeleteUpdateFeed.mdo?feed_code=${feedList.feed_code}"><img
 						style="width: 135px; height: 135px; margin-top: 2%; margin-bottom: 0.5%"
-						src="/img/${feedList.feed_img}"></a> <span
+						src="/OMGM/resources/img/product/${feedList.feed_img}"></a> <span
 						class="name">${feedList.feed_code}</span> <span class="name">${feedList.feed_name}</span>
 					<span class="name"><fmt:formatDate
 							value="${feedList.feed_instock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>

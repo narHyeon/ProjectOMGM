@@ -179,7 +179,7 @@
 				}, 25);
 			});
 		});
-		Kakao.init('c089c8172def97eb00c07217cae17495');
+		Kakao.init('021caf8b339be9dfd68d1b7968bcf894');
 		Kakao.Channel.createChatButton({
 			container: '#create-channel-chat-button',
 			channelPublicId: '_VmDAK'

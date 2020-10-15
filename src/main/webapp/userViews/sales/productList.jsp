@@ -15,7 +15,7 @@
 
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-    <link rel="stylesheet" href="../../resources/style/sales/productList.css">
+    <link rel="stylesheet" href="resources/style/sales/productList.css">
     <script src="https://kit.fontawesome.com/844385d242.js" crossorigin="anonymous"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 

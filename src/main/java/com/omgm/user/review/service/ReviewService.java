@@ -16,6 +16,7 @@ public interface ReviewService {
 
     void updateReview(ReviewVO vo);
     void deleteReview(ReviewVO vo);
+    void deleteReply(ReviewReplyVO vo);
 
 
     // RoomService_M

@@ -88,7 +88,6 @@
 				</ul></li>
 			<li><a href="#">Info</a>
 				<ul class="sub_menu">
-					<li><a href="event.do"> 공지&이벤트 </a></li>
 					<li><a href="introductionPage.do"> 이용안내 </a></li>
 					<li><a href="fAQList.do"> 도움(FAQ) </a></li>
 				</ul></li>
