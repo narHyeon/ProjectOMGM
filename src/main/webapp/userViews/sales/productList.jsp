@@ -40,7 +40,7 @@
                 <c:forEach var="FeedList" items="${FeedList}">
                     <li>
                         <a href="">
-                            <div><img src="../..//img/${FeedList.feed_img}" class="img" alt=""></div>
+                            <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
                             <div class="menu" style="display: none;">
                                 <em>NEW</em>
                             </div>
@@ -56,7 +56,7 @@
                 <c:forEach var="ToyList" items="${ToyList}">
                     <li>
                         <a href="">
-                            <div><img src="../..//img/${ToyList.toy_img}" class="img" alt=""></div>
+                            <div><img src="resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
                             <div class="menu" style="display: none;">
                                 <em>NEW</em>
                             </div>
