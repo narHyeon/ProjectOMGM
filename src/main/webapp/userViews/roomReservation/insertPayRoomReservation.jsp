@@ -253,7 +253,7 @@
 			if (rsp.success) {
 				$.ajax({
                     type: 'POST',
-                    url: "/ajaxinsertPayRoomReservation.do",
+                    url: "ajaxinsertPayRoomReservation.do",
 
                     data: reservationData,
                     success : function(data) {

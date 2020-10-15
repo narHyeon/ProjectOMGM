@@ -124,7 +124,7 @@
                 <div id="buyImmediatelyDivSection03Right" >
                     <c:forEach var="cartList" items="${cartList}">
                     <div style="display: flex; margin-left: 3%; margin-right: 3%; flex-direction: column">
-                        <img src="resources/img/product/${cartList.cartList_img}" style="width: 100%; ">
+                        <img src="/img/${cartList.cartList_img}" style="width: 100%; ">
                         <p style="text-align: center">${cartList.cartList_name}(${cartList.cartList_price}원, ${cartList.cartList_count}개)</p>
                     </div>
                     </c:forEach>

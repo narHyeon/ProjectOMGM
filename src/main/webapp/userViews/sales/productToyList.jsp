@@ -68,7 +68,7 @@
                 <c:forEach var="toyList" items="${ToyList}">
                     <li class="pro_Li" style="padding-left:5%;">
                         <a href="getMallToyOneInfoSales.do?toy_code=${toyList.toy_code}">
-                            <div><img src="resources/img/product/${toyList.toy_img}" class="img" alt=""></div>
+                            <div><img src="/img/${toyList.toy_img}" class="img" alt=""></div>
                             <div class="menu" style="display: none;">
                                 <em>NEW</em>
                             </div>

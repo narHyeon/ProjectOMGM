@@ -25,7 +25,8 @@ public class MallController {
 
     @Autowired
     MallService mallService;
-
+    @Autowired
+    ServletContext servletContext;
 
     // 파일 업로드 관련 파일 이름 변수 선언
     String fileName;
@@ -116,7 +117,7 @@ public class MallController {
             if(!update_uploadFile.isEmpty()) {
                 String fileName02 = update_uploadFile.getOriginalFilename();
                 String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-                update_uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName02));
+                update_uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName02));
                 vo.setToy_img(fileName02);
             }
 
@@ -126,16 +127,15 @@ public class MallController {
             return mav;
         }
         // 장난감 등록 컨트롤러
+
     @RequestMapping("/insertMallToy.mdo")
     public ModelAndView insertMallToy(MallToyVO vo, HttpServletRequest request) throws Exception {
 
         ModelAndView mav = new ModelAndView();
         MultipartFile uploadFile = vo.getUploadFile();
-
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
-                String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-                uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName));
+                uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName));
             }else{
                 this.fileName = "cat.jpg";
             }
@@ -184,7 +184,7 @@ public class MallController {
         if(!feed_uploadFile.isEmpty()) {
             this.fileName01 = feed_uploadFile.getOriginalFilename();
             String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-            feed_uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName01));
+            feed_uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName01));
         }else{
             this.fileName01 = "cat.jpg";
         }
@@ -221,7 +221,7 @@ public class MallController {
         if(!feed_update_uploadFile.isEmpty()) {
             String fileName03 = feed_update_uploadFile.getOriginalFilename();
             String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-            feed_update_uploadFile.transferTo(new File(contextRoot+"..\\..\\src\\main\\webapp\\resources\\img\\product\\" + fileName03));
+            feed_update_uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName03));
             vo.setFeed_img(fileName03);
         }
 

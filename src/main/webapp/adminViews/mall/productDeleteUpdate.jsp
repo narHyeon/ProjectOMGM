@@ -143,7 +143,7 @@
 				 style="padding-bottom: 2%; width: 50%; display: flex; flex-direction: column; margin-right: 10%;">
 
 				<img name="" style="vertical-align: center; width: 90%;"
-					 src="resources/img/product/${mallToyOne.toy_img}"> <input
+					 src="/img/${mallToyOne.toy_img}"> <input
 					type="hidden" name="toy_img" value="${mallToyOne.toy_img}">
 				<label style="text-align: center; margin-top: 3%; width: 100%">상품이미지</label>
 				<input type="file" name="update_uploadFile" /> <label

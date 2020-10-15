@@ -87,7 +87,7 @@
 
 					<a href="productDeleteUpdate.mdo?toy_code=${toyList.toy_code}"><img
 						style="width: 151px; height: 151px; margin-top: 2%; margin-bottom: 0.5%"
-						src="resources/img/product/${toyList.toy_img}"></a> <span
+						src="/img/${toyList.toy_img}"></a> <span
 						class="name">${toyList.toy_code}</span> <span class="name">${toyList.toy_name}</span>
 					<span class="name"><fmt:formatDate
 							value="${toyList.toy_instock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>
