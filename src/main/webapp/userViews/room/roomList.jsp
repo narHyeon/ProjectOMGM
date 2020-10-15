@@ -27,7 +27,6 @@
 	text-align: center;
 	font-size: 33px;
 	color: pink;
-	border-bottom: solid 3px pink;
 }
 </style>
 </head>
