@@ -117,7 +117,7 @@ public class MallController {
             if(!update_uploadFile.isEmpty()) {
                 String fileName02 = update_uploadFile.getOriginalFilename();
                 String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-                update_uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName02));
+                update_uploadFile.transferTo(new File("/usr/local/tomcat/webapps/OMGM/resources/img/product/" + fileName02));
                 vo.setToy_img(fileName02);
             }
 
@@ -135,7 +135,7 @@ public class MallController {
         MultipartFile uploadFile = vo.getUploadFile();
             if(!uploadFile.isEmpty()) {
                 this.fileName = uploadFile.getOriginalFilename();
-                uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName));
+                uploadFile.transferTo(new File("/usr/local/tomcat/webapps/OMGM/resources/img/product/" + fileName));
             }else{
                 this.fileName = "cat.jpg";
             }
@@ -184,7 +184,7 @@ public class MallController {
         if(!feed_uploadFile.isEmpty()) {
             this.fileName01 = feed_uploadFile.getOriginalFilename();
             String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-            feed_uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName01));
+            feed_uploadFile.transferTo(new File("/usr/local/tomcat/webapps/OMGM/resources/img/product/" + fileName01));
         }else{
             this.fileName01 = "cat.jpg";
         }
@@ -221,7 +221,7 @@ public class MallController {
         if(!feed_update_uploadFile.isEmpty()) {
             String fileName03 = feed_update_uploadFile.getOriginalFilename();
             String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-            feed_update_uploadFile.transferTo(new File("/home/ec2-user/img/" + fileName03));
+            feed_update_uploadFile.transferTo(new File("/usr/local/tomcat/webapps/OMGM/resources/img/product/" + fileName03));
             vo.setFeed_img(fileName03);
         }
 
