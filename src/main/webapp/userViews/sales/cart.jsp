@@ -80,7 +80,7 @@
         <c:forEach var="cartList" items="${cartList}">
             <div class="cart_item" >
 <%--                <span class="name"><fmt:formatDate value="${FeedList.feed_inStock}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></span>--%>
-                <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="resources/img/product/${cartList.cartList_img}">
+                <img style=" width: 10VW; height: 10vw; min-width: 7vw; min-height: 7vw; max-width: 12vw; max-height: 12vw; margin-top: 2%; margin-bottom: 0.5%; padding-left:1vw;" src="/img/${cartList.cartList_img}">
                 <span style="padding-left:4vw;" class="cart_info">${cartList.cartList_name}</span>
     <span style="padding-left:4vw;" id="basketprice" class="cart_info"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000"><div class="bigtext right-align sumcount" id="sum_p_num${cartList.cartList_code}" value="${cartList.cartList_price}">${cartList.cartList_price}</div></span>
                 <span style="padding-left:4vw;" id="num" class="cart_info">
