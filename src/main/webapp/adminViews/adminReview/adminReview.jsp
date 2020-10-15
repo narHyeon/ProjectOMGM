@@ -14,20 +14,18 @@
     <title>reviewList_board</title>
 </head>
 <body>
-
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-info">이용 후기</h6>
+    </div>
+    <div class="card-body">
+        <div id="memberTable" class="table-responsive">
+            <div>
 <div id="reviewList_board">
     <%--    <div class="reviewList_header">--%>
     <%--        <h3 class="main_head_text">오묘가묘</h3>--%>
     <%--    </div>--%>
-    <div class="reviewList_head_sub_text">
-        <p class="reviewList_sub_text">
-            오묘가묘는 아이가 너~무나 좋아하는 환경조성을 통해 아이들의 행복과 정서함양에 모든 초점을 극대화한<br>
-            <b>"아이 중심의 리얼 반려동물 프리미엄 펫파크"입니다.</b>
-            <br><br>
-            <span class="reviewList_span">오묘가묘와 함께 하세요♡</span>
-            주인의 세심한 선택이 아이에게 특별한 행복으로 각인됩니다.
-        </p>
-    </div>
+
     <div class="reviewList_button" style="border: none">
         <%--        <div class="reviesList_text_div">--%>
         <%--        <input type="text" class="reviewList_text" >--%>
@@ -58,9 +56,7 @@
             </c:forEach>
         </div>
     </div>
-    <div class="reviewList_button00" style="border-top: lightskyblue">
-        <button class="button" type="button" onclick="reviewWrite()" style="background-color: lightskyblue; border: none" >글쓰기</button>
-    </div>
+
     <div class="pro_paging">
         <ul>
             <li class="first"><a href="adminReview.mdo"><span class="hide">첫페이지</span></a></li>
@@ -79,6 +75,11 @@
     </div>
 </div>
 <form id="review_throw" action="reviewContent.mdo"></form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function changeColor(counter){
         let value = document.getElementsByClassName('reviewList_page').value();
