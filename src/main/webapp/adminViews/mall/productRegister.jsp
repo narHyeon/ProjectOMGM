@@ -184,7 +184,8 @@
                 swal('재고를 입력해 주세요');
                 return false
             } else {
-                return swal('등록이 완료 되었습니다').then(() =>actionForm.action = "insertMallToy.mdo");
+                actionForm.action = "insertMallToy.mdo";
+                return true;
             }
         } else if (select.options[select.selectedIndex].value === "feed") {
             if (nameChange02.value === "") {
@@ -200,7 +201,8 @@
                 swal('남은 날짜를 입력해 주세요');
                 return false;
             } else {
-                return swal('등록이 완료 되었습니다').then(() => actionForm.action = "insertMallFeed.mdo");
+                actionForm.action = "insertMallFeed.mdo";
+                return true;
             }
         }
     }
