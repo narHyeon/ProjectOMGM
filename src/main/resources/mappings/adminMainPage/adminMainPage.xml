@@ -96,17 +96,17 @@
 <!--    메인페이지 areaChart 값 불러오기(월 매출)-->
     <!--  몰 월 매출  -->
     <select id="getAreaChartMonthlySales" parameterType="OrderVO" resultType="int">
-        select sum(ORDER_PRICE) from ORDER_LIST where order_date between #{order_address} and last_day(#{order_receiver})
+        select sum(ORDER_PRICE) from ORDER_LIST where to_char(order_date,'yyyy-mm-dd') between #{order_address} and #{order_receiver}
     </select>
 
     <!-- 유치원 월 매출  -->
     <select id="getAreaChartMonthlySales01" parameterType="KinderGardenReservationVO" resultType="int">
-        <![CDATA[SELECT sum(price) FROM kg_reservation WHERE regdate >= #{zipcode} AND regdate <= last_day(#{address})]]>
+        SELECT sum(price) FROM kg_reservation WHERE to_char(regdate,'yyyy-mm-dd') between #{zipcode} AND #{address}
     </select>
 
     <!-- 호텔 예약 월 매출  -->
     <select id="getAreaChartMonthlySales02" parameterType="RoomReservationMainVO" resultType="int">
-        SELECT sum(ROOMRESERVATION_FIANLFEE) FROM ROOMRESERVATION WHERE ROOMRESERVATION_PAYDAY between #{day1} AND last_day(#{day2})
+        SELECT sum(ROOMRESERVATION_FIANLFEE) FROM ROOMRESERVATION WHERE to_char(ROOMRESERVATION_PAYDAY,'yyyy-mm-dd') between #{day1} AND #{day2}
     </select>
 
     <!--  몰 총 판매 건수  -->

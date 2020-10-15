@@ -229,7 +229,7 @@
                 <div id="myOrder_div">
                     <span style="display:inline-block; width: 80%; white-space:nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:4%; margin-top:20px;" class="order_name" value="${myOrder.order_name}">[OMGMALL] ${myOrder.order_name}</span><br/>
                     <hr size="1" width="93%" color="#9da0a5" style="margin: 0 auto; margin-top:26px; margin-bottom: 30px; ">
-                    <img id="order_img"  src="../../resources/img/product/${fn:split(myOrder.order_img,',')[0]}"/>
+                    <img id="order_img"  src="resources/img/product/${fn:split(myOrder.order_img,',')[0]}"/>
                     <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span  class="myorderInfo">   ${myOrder.order_no}</span><br/>
                         <span class="order_pro">최종 가격 </span><span class="myorderInfo">  ${myOrder.order_price}</span><br/>
                         <span class="order_pro">주문상태</span><span class="myorderInfo" id="status">   ${myOrder.order_state}</span></div>

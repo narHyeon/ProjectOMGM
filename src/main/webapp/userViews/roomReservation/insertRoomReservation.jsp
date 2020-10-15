@@ -520,7 +520,12 @@ td{
 						<option value="8">8방</option>
 				</select>
 				</label>
+				<c:if test="${member != null}">
 				<button onclick="roomSelect()">방 선택</button>
+				</c:if>
+				<c:if test="${member == null}">
+					<button onclick="javascript:swal('로그인 먼저 해주세요')">방 선택</button>
+				</c:if>
 			</div>
 			</div>
 		</div>

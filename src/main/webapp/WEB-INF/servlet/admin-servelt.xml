@@ -20,9 +20,9 @@
 	<task:annotation-driven />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/adminViews" />
+		<property name="prefix" value="/adminViews/" />
 		<property name="suffix" value=".jsp" />
-		<property name="order" value="2" />
+		<property name="order" value="6" />
 	</bean>
 
 	<!-- Tiles 뷰 리졸버 -->
@@ -30,7 +30,7 @@
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
-		<property name="order" value="1" />
+		<property name="order" value="5" />
 	</bean>
 	<!-- Tiles 설정 파일 -->
 	<bean id="tilesConfigurer"

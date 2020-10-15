@@ -19,9 +19,9 @@
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/userViews" />
+		<property name="prefix" value="/userViews/" />
 		<property name="suffix" value=".jsp" />
-		<property name="order" value="2" />
+		<property name="order" value="4" />
 	</bean>
 
 	<!-- Tiles 뷰 리졸버 -->
@@ -29,7 +29,7 @@
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
-		<property name="order" value="1" />
+		<property name="order" value="3" />
 	</bean>
 	<!-- Tiles 설정 파일 -->
 	<bean id="tilesConfigurer"
@@ -55,7 +55,7 @@
 		class="org.springframework.social.oauth2.OAuth2Parameters">
 		<property name="scope" value="email profile" />
 		<property name="redirectUri"
-			value="http://localhost:8080/googleSignInCallback.lo" />
+			value="http://ec2-54-180-118-65.ap-northeast-2.compute.amazonaws.com/OMGM/googleSignInCallback.lo" />
 	</bean>
 
 	<bean id="authInfo" class="com.omgm.member.OAuth.beans.OAuthVO">

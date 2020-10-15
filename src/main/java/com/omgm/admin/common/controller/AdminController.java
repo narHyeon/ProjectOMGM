@@ -2,28 +2,17 @@ package com.omgm.admin.common.controller;
 
 import com.omgm.admin.common.beans.AdminVO;
 import com.omgm.admin.common.service.AdminService;
-import com.omgm.user.review.beans.PageNavigator;
-import com.omgm.user.review.beans.ReviewVO;
-import net.minidev.json.JSONObject;
-import net.nurigo.java_sdk.Coolsms;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
 @Controller
 public class AdminController {
 
     @Resource(name="adminService")
     private AdminService adminService;
-
-
-
 
     // 관리자 배송 현황 페이지
     @RequestMapping("/deliveryStatus.mdo")
@@ -105,7 +94,4 @@ public class AdminController {
         mav.setViewName("/message/message");
         return mav;
     }
-
-
-
 }

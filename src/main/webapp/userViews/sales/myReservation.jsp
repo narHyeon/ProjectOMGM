@@ -124,7 +124,7 @@
             <div style="font-size:30px; font-weight: 900; padding-left:1%; padding-top:30px;">
                 <span style="margin-left:4%; margin-top:20px;">[사료]</span> <br/>
                 <hr size="1" width="93%" color="#9da0a5" style="margin: 0 auto; margin-top:26px; margin-bottom: 30px; ">
-                <img id="order_img" style=" float:left; margin-left:4%; margin-right: 20px;"  src="../../resources/img/roomIntroduction/03.jpg"/>
+                <img id="order_img" style=" float:left; margin-left:4%; margin-right: 20px;"  src="resources/img/roomIntroduction/03.jpg"/>
                 <div style="float:left; padding-top:44px;"><span class="order_pro">주문번호</span><span class="myorderInfo">   </span><br/>
                     <span class="order_pro">최종 가격 <fmt:formatNumber pattern="###,###,###" value="50000"/></span><span class="myorderInfo">  </span><br/>
                     <span class="order_pro">주문상태</span><span class="myorderInfo">   </span></div>

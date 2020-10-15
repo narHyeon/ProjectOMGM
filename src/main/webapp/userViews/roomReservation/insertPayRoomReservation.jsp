@@ -205,7 +205,7 @@
                 	ROOMRESERVATION_ROOMPRICE: $("#ROOMRESERVATION_ROOMPRICE").val(),
                 	ROOMRESERVATION_ROOMSALERATE: $("#ROOMRESERVATION_ROOMSALERATE").val(),
                 	ROOMRESERVATION_ROOMNAME: $("#ROOMRESERVATION_ROOMNAME").val(),
-                	ROOMRESERVATION_MEMBERNO: $("#ROOMRESERVATION_MEMBERNO").val(), 
+                	ROOMRESERVATION_MEMBERNO: $("#ROOMRESERVATION_MEMBERNO").val(),
                 	ROOMRESERVATION_STAYDAY: $("#ROOMRESERVATION_STAYDAY").val(),
                 	ROOMRESERVATION_FOODNO: $("#ROOMRESERVATION_FOODNO").val(),
                 	ROOMRESERVATION_FOODNAME: $("#ROOMRESERVATION_FOODNAME").val(),
@@ -252,8 +252,9 @@
 		}, function(rsp) {
 			if (rsp.success) {
 				$.ajax({
-                    method: 'POST',
-                    url: "/ajaxinsertPayRoomReservation.do",
+                    type: 'POST',
+                    url: "ajaxinsertPayRoomReservation.do",
+
                     data: reservationData,
                     success : function(data) {
         				msg = '결제가 완료되었습니다.';
@@ -286,16 +287,16 @@
 		id="ROOMRESERVATION_ROOMNO"
 		value="${reservationInfo.ROOMRESERVATION_ROOMNO}">
 	<input type="hidden" name="ROOMRESERVATION_ROOMPRICE"
-		id="ROOMRESERVATION_ROOMPRICE" 
+		id="ROOMRESERVATION_ROOMPRICE"
 		value="${reservationInfo.ROOM_PRICE}">
 	<input type="hidden" name="ROOMRESERVATION_ROOMSALERATE"
-		id="ROOMRESERVATION_ROOMSALERATE" 
-		value="${reservationInfo.ROOM_SALERATE}">	
+		id="ROOMRESERVATION_ROOMSALERATE"
+		value="${reservationInfo.ROOM_SALERATE}">
 	<input type="hidden" name="ROOMRESERVATION_ROOMNAME"
 		id="ROOMRESERVATION_ROOMNAME"
 		value="${reservationInfo.ROOMRESERVATION_ROOMNAME}">
 	<input type="hidden" name="ROOMRESERVATION_MEMBERNO"
-		id="ROOMRESERVATION_MEMBERNO" 
+		id="ROOMRESERVATION_MEMBERNO"
 		value="${userInfo.seq}">
 	<input type="hidden" name="ROOMRESERVATION_STAYDAY"
 		id="ROOMRESERVATION_STAYDAY">
@@ -333,7 +334,7 @@
 				value="${reservationInfo.ROOMRESERVATION_PICKUPNOTE}">
 			<input type="hidden" name="ROOMRESERVATION_PICKUPOWNER"
 				id="ROOMRESERVATION_PICKUPOWNER"
-				value="${reservationInfo.ROOMRESERVATION_PICKUPOWNER}">		
+				value="${reservationInfo.ROOMRESERVATION_PICKUPOWNER}">
 		</c:when>
 	</c:choose>
 	<input type="hidden" name="ROOMRESERVATION_USEPOINTYN"
@@ -374,7 +375,7 @@
 					</tr>
 						<c:choose>
 							<c:when test="${reservationInfo.ROOMRESERVATION_PICKUPYN eq 'Y'}">
-							<tr>	
+							<tr>
 								<td class="reservation_td_key">픽업신청여부</td>
 								<td class="reservation_td_value">픽업 서비스 신청</td>
 								<td class="reservation_td_key">픽업시간</td>

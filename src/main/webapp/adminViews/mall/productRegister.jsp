@@ -78,7 +78,7 @@
         <option value="feed" name="feed">feed</option>
     </select>
     <form style="" method="post" enctype="multipart/form-data" id="pro_form1"
-          class="pro_form">
+          class="pro_form" onsubmit="return changeAction()">
         <div style="margin-top: 0.5%;">
             <label>상품이미지 </label>
         </div>
@@ -134,8 +134,7 @@
             <textarea name="toy_info" id="summernote" style=""></textarea>
         </div>
         <div>
-            <button type="submit" id="register_Btn" class="btn btn-info"
-                    onclick="changeAction()">등록
+            <button type="submit" id="register_Btn" class="btn btn-info">등록
             </button>
         </div>
     </form>
@@ -176,38 +175,36 @@
         // 입력시 빈칸이 있을대 경고창 생성
         if (select.options[select.selectedIndex].value === "toy") {
             if (nameChange02.value === "") {
-                alert('이름을 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('이름을 입력해 주세요');
+                return false
             } else if (nameChange03.value === "") {
-                alert('가격을 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('가격을 입력해 주세요');
+                return false
             } else if (nameChange05.value === "") {
-                alert('재고를 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('재고를 입력해 주세요');
+                return false
             } else {
                 actionForm.action = "insertMallToy.mdo";
-                alert('등록이 완료 되었습니다');
+                return true;
             }
         } else if (select.options[select.selectedIndex].value === "feed") {
             if (nameChange02.value === "") {
-                alert('이름을 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('이름을 입력해 주세요');
+                return false;
             } else if (nameChange03.value === "") {
-                alert('가격을 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('가격을 입력해 주세요');
+                return false;
             } else if (nameChange05.value === "") {
-                alert('재고를 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('재고를 입력해 주세요');
+                return false;
             } else if (nameChange06.value === "") {
-                alert('남은 날짜를 입력해 주세요');
-                actionForm.action = "productRegister.mdo";
+                swal('남은 날짜를 입력해 주세요');
+                return false;
             } else {
                 actionForm.action = "insertMallFeed.mdo";
-                alert('등록이 완료 되었습니다');
+                return true;
             }
         }
-
-
     }
 
     function changeAction01() {
