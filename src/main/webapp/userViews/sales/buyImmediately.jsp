@@ -123,7 +123,7 @@
                     <div style="display: flex; flex-direction: column">
 
                     </div>
-                    <img src="/img/${feedInfo.feed_img}" style="width: 74%; ">
+                    <img src="resources/img/product/${feedInfo.feed_img}" style="width: 74%; ">
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">

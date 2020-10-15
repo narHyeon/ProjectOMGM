@@ -19,7 +19,7 @@
 <div id="toy-sales-div">
 
     <div id="toy-img-section">
-        <img src="/img/${feedList.feed_img}" class="toy-img-01" >
+        <img src="resources/img/product/${feedList.feed_img}" class="toy-img-01" >
 
     </div>
     <div id="toy-sales-section">
@@ -109,8 +109,8 @@
     <div style="width: 50%; margin-top: 5%;margin-bottom: 5%;">
         ${feedList.feed_info}
     </div>
-    <img src="/img/결제페이지하단02.jpg" style="width: 55%; margin-top: 5%;">
-    <img src="/img/detail.jpg" style="width: 55%; margin-top:3%;  margin-bottom: 40%; ">
+    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%; margin-top: 5%;">
+    <img src="resources/img/product/detail.jpg" style="width: 55%; margin-top:3%;  margin-bottom: 40%; ">
 </div>
 <%--    <img src="/img/결제페이지하단01.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>

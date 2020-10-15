@@ -120,7 +120,7 @@
                     <div style="display: flex; flex-direction: column">
 
                     </div>
-                    <img src="/img/${toyInfo.toy_img}" style="width: 74%; ">
+                    <img src="resources/img/product/${toyInfo.toy_img}" style="width: 74%; ">
                 </div>
             </div>
             <div id="buyImmediatelyDivSection04">
