@@ -80,17 +80,10 @@ video {
 }
 
 body {
-<<<<<<< HEAD
-    font-family: NanumGothic, 나눔고딕, 'Nanum Gothic', '맑은 고딕', HelveticaNeue,
-    DroidSans, Sans-serif, Helvetica;
-    background: url(../images/s_images/body_bg.png);
-    line-height: 1;
-=======
 	font-family: NanumGothic, 나눔고딕, 'Nanum Gothic', '맑은 고딕', HelveticaNeue,
 		DroidSans, Sans-serif, Helvetica;
-	background: url(images/s_images/body_bg.png);
+	background: url(resources/img/images/s_images/body_bg.png);
 	line-height: 1;
->>>>>>> 7c5b317fdb72c5827c97bd3685cc6f7ce9da312c
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
