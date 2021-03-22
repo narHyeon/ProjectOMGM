@@ -106,8 +106,8 @@
         ${toyList.toy_info}
     </div>
     <img src="resources/img/product/결제페이지하단01.jpg" style="width: 55%; margin-top: 5%;">
-    <img src="../../resources/img/product/detail2.jpg" style="width: 55%; margin-bottom: 40%;">
-<%--    <img src="resources/img/product/결제페이지하단02.jpg" style="width: 55%">--%>
+    <img src="resources/img/product/detail2.jpg" style="width: 55%; margin-bottom: 40%;">
+<%--    <img src="/img/결제페이지하단02.jpg" style="width: 55%">--%>
     <script type="text/javascript" src="resources/js/sales/toySales.js" defer></script>
 </div>
 <script>

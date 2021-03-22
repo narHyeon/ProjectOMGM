@@ -64,9 +64,13 @@
     margin-bottom: 10%;
 }
 
+.toy-sales-section06 {
+
+}
+
 .toy-sales-section08 {
     width: 100%;
-    border: 1px solid #9da0a5;
+    /*border: 1px solid #9da0a5;*/
     height: 55px;
     line-height: 55px;
     font-size: 17px;
@@ -134,6 +138,7 @@
     float: left;
     box-sizing: border-box;
     letter-spacing: 0;
+    cursor: pointer;
 }
 
 .byt-immediately01 {

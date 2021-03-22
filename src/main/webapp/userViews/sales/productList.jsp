@@ -22,9 +22,9 @@
 </head>
 <body class="proList_body">
 <div class="slider_img">
-    <div class="slider_slide" style="background-image: url(../../resources/img/mall/OMGMALL.jpg);"></div>
-    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall1.jpg);"></div>
-    <div class="slider_slide" style="background-image: url(../../resources/img/mall/mall2.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(resources/img/mall/OMGMALL.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(resources/img/mall/mall1.jpg);"></div>
+    <div class="slider_slide" style="background-image: url(resources/img/mall/mall2.jpg);"></div>
     <a class="slider_prev" onclick="button_click(-1)">&#10094</a>
     <a class="slider_next" onclick="button_click(1)">&#10095</a>
 </div>
@@ -40,7 +40,7 @@
                 <c:forEach var="FeedList" items="${FeedList}">
                     <li>
                         <a href="">
-                            <div><img src="../../resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
+                            <div><img src="resources/img/product/${FeedList.feed_img}" class="img" alt=""></div>
                             <div class="menu" style="display: none;">
                                 <em>NEW</em>
                             </div>
@@ -56,7 +56,7 @@
                 <c:forEach var="ToyList" items="${ToyList}">
                     <li>
                         <a href="">
-                            <div><img src="../../resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
+                            <div><img src="resources/img/product/${ToyList.toy_img}" class="img" alt=""></div>
                             <div class="menu" style="display: none;">
                                 <em>NEW</em>
                             </div>

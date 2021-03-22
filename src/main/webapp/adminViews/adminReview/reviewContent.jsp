@@ -22,22 +22,22 @@
 
 #review_content button {
 	width: 100px;
-	background-color: pink;
+	background-color: #87cefa;
 	color: white;
-	border: 1px solid #cb5e6b;
+	border: 1px solid #87cefa;
 	height: 25px;
 	font-weight: 600;
 }
 #review_content button:hover {
 	cursor: pointer;
-	background-color: #cb5e6b;
+	background-color: #87cefa;
 }
 
 #review_content .review_content_head {
 	width: 100%;
-	border-top: 2px solid #219af7;
+	border-top: 2px solid #87cefa;
 	background-color: white;
-	border-bottom: 1px solid pink;
+	border-bottom: 1px solid #87cefa;
 	border-collapse: collapse;
 	text-align: center;
 	font-size: 12px;
@@ -66,14 +66,14 @@
 }
 
 .review_content_button {
-	border-top: 2px solid pink;
+	border-top: 2px solid #87cefa;
 	padding: 5px;
 	text-align: right;
 }
 
 .review_content_prne {
 	margin-top: 30px;
-	border-top: 2px solid #a94442 !important;
+	border-top: 2px solid #87cefa !important;
 }
 
 .review_content_prne:hover {
@@ -85,7 +85,7 @@
 	flex-direction: column;
 	padding: 10px;
 	margin-top: 20px;
-	border-top: 1px solid pink;
+	border-top: 1px solid #87cefa;
 }
 
 #review_content_reply_content_title {
